@@ -1,0 +1,40 @@
+# Context
+
+SEED Validation Support allows developers to use Bean Validation 1.0 and 1.1.
+
+- Bean Validation 1.0 brings static validation aka JSR 303.
+- Bean Validation API 1.1 brings dynamic validation aka JSR 349. 
+
+Data validation is a very common concern at each and every layer of an application. As such, 
+it has been standardized through Bean Validation using JSR 303 and JSR 349. Integration of those in SEED Validation Support
+brings a Bean Validation to SEED. Implementation uses **Hibernate Validator 5.0.1 Final**.
+
+<!--Following sections will show how to handle the whole stack.-->
+
+# Maven dependency
+
+To install SEED validation support just add the following dependency snippet:
+
+    <dependency>
+        <groupId>com.inetpsa.fnd.seed</groupId>
+        <artifactId>seed-validation-support</artifactId>
+    </dependency>
+
+Please note that validation only works on instances managed by SEED.
+
+# Additional resources
+
+* Specifications :
+  * [http://beanvalidation.org/1.0/spec/](http://beanvalidation.org/1.0/spec/ "Bean Validation 1.0 - JSR 303")
+  * [http://beanvalidation.org/latest-draft/spec/](http://beanvalidation.org/latest-draft/spec/ "Bean Validation 1.1 Final - JSR 349")
+
+* Bean Validation 1.0:
+  * [http://blog.octo.com/jsr-303-bean-validation-etat-des-lieux/](http://blog.octo.com/jsr-303-bean-validation-etat-des-lieux/)
+  * [http://www.jmdoudoux.fr/java/dej/chap-validation_donnees.htm](http://www.jmdoudoux.fr/java/dej/chap-validation_donnees.htm)
+
+* Bean Validation 1.1 :
+  * [http://blog.frankel.ch/design-by-contract-and-bean-validation](http://blog.frankel.ch/design-by-contract-and-bean-validation)
+
+* Parley's video :
+  * [http://parleys.com/play/515c5154e4b05f99653c0b37/chapter8/agenda](http://parleys.com/play/515c5154e4b05f99653c0b37/chapter8/agenda)
+

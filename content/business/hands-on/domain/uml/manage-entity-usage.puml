@@ -1,0 +1,28 @@
+@startuml
+
+interface IdentityHandler {
+  ID handle(E, Map<String, String>)
+}
+interface MyHandler
+
+IdentityHandler <|-- MyHandler
+MyHandler <|-- MyHandlerImpl
+IdentityHandler <|-- MyOtherHandlerImpl
+
+note right of MyHandlerImpl
+  If an IdentityHandler behaviour has one 
+  or more (potential) implementations (like
+  SEED SequenceHandler), same pattern as 
+  within SEED should be used (with 
+  intermediate "Named" interfaces allowing
+  for multiple implementations).
+end note
+
+note right of MyOtherHandlerImpl
+  If only one implementation for an expected
+  IdentityHandler behaviour is required, the
+  implementation class should implement 
+  IdentityHandler interface.
+end note
+
+@enduml
