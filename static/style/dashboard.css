@@ -1,0 +1,24 @@
+.seed-dashboard .components h3:first-of-type {
+    margin-top: 0;
+}
+
+.seed-dashboard .components .service-block-in {
+    cursor: pointer;
+}
+
+.seed-dashboard .details h3:first-of-type {
+    margin-top: 0;
+}
+
+.seed-dashboard .component-details {
+    transition: none !important;
+    -moz-transition: none !important;
+    -webkit-transition: none !important;
+    -o-transition: none !important;
+    -ms-transition: none !important;
+    cursor: auto !important;
+}
+
+.seed-dashboard .component-details:hover {
+    opacity: 1;
+}
