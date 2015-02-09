@@ -1,5 +1,0 @@
-@startuml
-class GenericFinder<Item, Criteria> {
-  Result<Item> find(Range range, Criteria criteria)
-}
-@enduml

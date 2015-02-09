@@ -1,4 +1,6 @@
-# Vim
+# Temp files
 *~
 # Intellij
 .idea
+# public generated folder
+public/
