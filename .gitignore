@@ -1,6 +1,9 @@
 # Temp files
 *~
+
 # Intellij
 .idea
+*.iml
+
 # public generated folder
 public/

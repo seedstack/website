@@ -1,102 +1,11 @@
-<!doctype html>
-<!--
-  ~ Copyright (c) 2013 by PSA Peugeot Citroën. All rights reserved
-  -->
-<html data-w20-app>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
-    <title>SEED</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/header.css">
-    <link rel="stylesheet" href="style/jumbotron.css">
-    <link rel="stylesheet" href="style/404.css">
-    <link rel="stylesheet" href="style/responsive.css">
-    <link rel="stylesheet" href="style/prettify.css">
-    <link rel="stylesheet" href="style/docgen.css">
-    <link rel="stylesheet" href="style/content.css">
-    <link rel="stylesheet" href="style/dashboard.css">
-    <link rel="stylesheet" href="style/timeline.css">
-    <link rel="stylesheet" href="style/search.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-</head>
-<body>
-<!--=== Header ===-->
-<div class="header">
-    <div class="navbar navbar-default" data-role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#!/" style="font-size: 28px; padding-top: 5px">
-                    <img id="logo-header" src="img/logo.png" alt="Logo" style="vertical-align: baseline;"> SEED
-                </a>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-responsive-collapse">
-                <ul class="nav navbar-nav navbar-left" style="margin-left: 5px;">
-                    <li>
-                        <a href="#!/">
-                            Home
-                        </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                            Overview
-                            <i class="icon-angle-down"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/overview/manifesto">Manifesto</a></li>
-                            <li><a href="/overview/architecture">Architecture</a></li>
-                            <li><a href="/overview/roadmap">Roadmap</a></li>
-                            <li><a href="/overview/distribution">Distribution</a></li>
-                            <li><a href="/overview/faq">FAQ</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                            Documentation
-                            <i class="icon-angle-down"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#!/dev-guide">Developer guide</a></li>
-                            <li><a href="#!/seed-doc">Java framework</a></li>
-                            <li><a href="#!/w20-doc">Web framework</a></li>
-                            <li><a href="#!/business-doc">Business framework</a></li>
-                            <li><a href="#!/functions">Reusable functions</a></li>
-                            <li><a href="#!/how-to">How-to</a></li>
-                            <li><a href="#!/tools">Tools</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#!/downloads">
-                            Downloads
-                        </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                            Resources
-                            <i class="icon-angle-down"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="../blog" target="_blank"><i class="icon-external-link"></i> Blog</a></li>
-                            <li><a href="../qa" target="_blank"><i class="icon-external-link"></i> Question & Answers</a></li>
-                            <li><a href="../pastebin" target="_blank"><i class="icon-external-link"></i> Pastebin</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="logo-psa"></div>
-    </div>
-</div>
+{{ partial "head.html" . }}
+
+<body>
+
+{{ partial "header.html" . }}
 
 <div class="slider-inner">
     <div class="header-bg">
@@ -105,8 +14,8 @@
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
-                            <h2><i>SEED STACK</i></h2>
-                            <p>SEED stack is an enterprise-class development stack for building modern and robust applications.</p>
+                            <h2><i>SeedStack</i></h2>
+                            <p>SeedStack is an enterprise-class development stack for building modern and robust applications.</p>
                         </div>
                     </div>
                     <div class="row hidden-xs">
@@ -114,7 +23,7 @@
                             <div id="mvn-seed">
                                 <div>
                                     <div class="quick-start">
-                                        <h4 class="quick-start-header prompt">Get SEED by running...</h4>
+                                        <h4 class="quick-start-header prompt">Get SeedStack by running...</h4>
                                         <span class="quick-paste">
                                             <span class="prompt">$ </span>mvn3 seed:scaffold-project
                                         </span>
@@ -125,7 +34,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 plant hidden-xs hidden-sm">
-                    <span class="img-helper"></span><img src="../img/plant.png">
+                    <span class="img-helper"></span><img src="/assets/seedstack/img/plant.png">
                 </div>
             </div>
         </div>
@@ -146,7 +55,7 @@
     <div class="container">
 
         <div class="row">
-            <a href="#!/seed-doc">
+            <a href="/docs/seed">
                 <div class="col-md-4">
                     <div class="service">
                         <i class="icon-coffee service-icon"></i>
@@ -157,7 +66,7 @@
                     </div>
                 </div>
             </a>
-            <a href="#!/w20-doc">
+            <a href="/docs/w20">
                 <div class="col-md-4">
                     <div class="service">
                         <i class="icon-html5 service-icon"></i>
@@ -168,7 +77,7 @@
                     </div>
                 </div>
             </a>
-            <a href="#!/business-doc">
+            <a href="/docs/business">
                 <div class="col-md-4">
                     <div class="service">
                         <i class="fa fa-cubes service-icon"></i>
@@ -185,17 +94,14 @@
 <!-- End Purchase Block -->
 <!--=== Content Part ===-->
 <div class="container">
-
-
-
     <!-- Info Blokcs -->
     <div class="row">
         <!-- Welcome Block -->
         <div class="col-md-12">
-            <div class="headline"><h2>What is SEED ?</h2></div>
+            <div class="headline"><h2>What is SeedStack ?</h2></div>
             <div class="row">
                 <div class="col-sm-8">
-                    <p style="text-align: justify">SEED is an enterprise-class development stack aimed at providing best-in-class solutions for common software development needs.
+                    <p style="text-align: justify">SeedStack is an enterprise-class development stack aimed at providing best-in-class solutions for common software development needs.
                         It is built around three main frameworks: the Java framework, the Web framework, the Business framework, built on top of the two others, providing high-level
                         abstractions and building blocks for realizing your business needs.</p>
                 </div>
@@ -221,36 +127,36 @@
     </div>
 </div><!--/container-->
 
-<div class="container">
+<div class="container manifesto">
     <div class="headline"><h2>Manifesto</h2></div>
-    <p>SEED is a global solution for developing modern applications. Here are our main goals.</p>
+    <p>SeedStack is a global solution for developing modern applications. Here are our main goals.</p>
 
     <div class="row service-block margin-bottom-10" style="margin-top: 40px;">
         <div class="col-md-3 col-sm-6">
             <div class="service-block-in">
                 <h4>Offer a vision</h4>
-                <div><i class="icon-road color-grey"></i></div>
+                <div><i class="icon-3x icon-road color-grey"></i></div>
                 <p><br>Through opinionated choices and concrete building blocks to back it.</p>
             </div>
         </div>
         <div class="col-md-3 col-sm-6">
             <div class="service-block-in">
                 <h4>Reduce the cost</h4>
-                <div><i class="icon-money color-green"></i></div>
+                <div><i class="icon-3x icon-money color-green"></i></div>
                 <p><br>By deploying a common, yet modular, solution to a majority of projects.</p>
             </div>
         </div>
         <div class="col-md-3 col-sm-6">
             <div class="service-block-in">
                 <h4>Accelerate the devs</h4>
-                <div><i class="icon-bolt color-yellow"></i></div>
+                <div><i class="icon-3x icon-bolt color-yellow"></i></div>
                 <p><br>By providing a simple-to-use and powerful technical base which will save you from coding the same thing again and again.</p>
             </div>
         </div>
         <div class="col-md-3 col-sm-6">
             <div class="service-block-in">
                 <h4>Facilitate reuse</h4>
-                <div><i class="icon-th color-sea"></i></div>
+                <div><i class="icon-3x icon-th color-sea"></i></div>
                 <p><br>Via great modularity and a common base to share your realization with others.</p>
             </div>
         </div>
@@ -260,78 +166,38 @@
         <div class="col-md-3 col-sm-6">
             <div class="service-block-in">
                 <h4>Encourage experimentation</h4>
-                <div><i class="icon-beaker color-orange"></i></div>
+                <div><i class="icon-3x icon-beaker color-orange"></i></div>
                 <p><br>By minimizing the time-to-run and enabling prototypes to become full-blown applications in a very short time.</p>
             </div>
         </div>
         <div class="col-md-3 col-sm-6">
             <div class="service-block-in">
                 <h4>Modernize the software</h4>
-                <div><i class="icon-rocket color-violet"></i></div>
+                <div><i class="icon-3x icon-rocket color-violet"></i></div>
                 <p><br>Through the usage of current technologies and best-practices and by paying attention to what's next.</p>
             </div>
         </div>
         <div class="col-md-3 col-sm-6">
             <div class="service-block-in">
                 <h4>Improve the dev experience</h4>
-                <div><i class="icon-thumbs-up color-red"></i></div>
+                <div><i class="icon-3x icon-thumbs-up color-red"></i></div>
                 <p><br>Through a solution that just works out-of-the-box and won't get in the way of your needs and requirements.</p>
             </div>
         </div>
         <div class="col-md-3 col-sm-6">
             <div class="service-block-in">
                 <h4>Share the code</h4>
-                <div><i class="icon-globe color-blue"></i></div>
-                <p><br>To allow every developer to understand the SEED inner workings and be a part of it.</p>
+                <div><i class="icon-3x icon-globe color-blue"></i></div>
+                <p><br>To allow every developer to understand the SeedStack inner workings and be a part of it.</p>
             </div>
         </div>
     </div>
 
 </div>
 
+{{ partial "footer.html" . }}
 
-<!-- End Content Part -->
+{{ partial "scripts.html" . }}
 
-<!--=== Footer ===-->
-<div class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 md-margin-bottom-40">
-                <div class="headline"><h2>About</h2></div>
-                <p class="margin-bottom-25 md-margin-bottom-40">SEED is a software stack for building enterprise applications.</p>
-            </div>
-
-            <div class="col-md-4 md-margin-bottom-40">
-                <div class="posts">
-                    <div class="headline"><h2>Recent Blog Entries</h2></div>
-                    <dl class="dl-horizontal" data-ng-repeat="post in latestPosts">
-                        <dt><a target="_blank"><img style="border: none;" src="img/blog.png" alt=""/></a></dt>
-                        <dd>
-                            <p><a target="_blank"></a></p>
-                            <p style="color: #72c02c;"><small></small></p>
-                        </dd>
-                    </dl>
-                </div>
-            </div>
-
-            <div class="col-md-4 map-img">
-                <div class="headline"><h2>Contact Us</h2></div>
-                <address class="md-margin-bottom-40">
-                    <a target="_blank" data-ng-href="../qa">Question & Answers</a><br/>
-                </address>
-
-                <div class="headline"><h2>RSS feeds</h2></div>
-                <ul class="social-icons">
-                    <li><a target="_blank" href="../qa/index.php?qa=feed&qa_1=qa.rss" data-original-title="Q&A feed" class="social_rss"></a></li>
-                    <li><a target="_blank" href="../blog/?feed=rss2" data-original-title="Blog feed" class="social_wordpress"></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>

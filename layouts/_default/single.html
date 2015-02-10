@@ -1,5 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{ partial "head.html" . }}
+
+<body>
+
 {{ partial "header.html" . }}
-<div id="toc" class="col-md-2 well col-md-4 col-sm-6">
-    {{ .TableOfContents }}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div id="toc" class="col-md-2 well col-md-4 col-sm-6">
+                {{ .TableOfContents }}
+            </div>
+        </div>
+        <div class="col-md-9 doc-content">
+            {{ .Content }}
+        </div>
+    </div>
 </div>
-{{ .Content }}
+
+{{ partial "scripts.html" . }}
+
+</body>

@@ -1,0 +1,249 @@
+/*!
+ * Hover.css (http://ianlunn.co.uk/)
+ * Version: 1.0.3
+ * Author: Ian Lunn @IanLunn
+ * Author URL: http://ianlunn.co.uk/
+ * Github: https://github.com/IanLunn/Hover
+
+ * Made available under a MIT License:
+ * http://www.opensource.org/licenses/mit-license.php
+
+ * Hover.css Copyright Ian Lunn 2014.
+ */
+
+
+@import "options";
+@import "defaults";
+@import "hacks";
+
+
+
+/* Default styles for the demo buttons */
+.button {
+	@include button();
+}
+
+
+/* 2D TRANSITIONS */
+@import "effects/_grow";
+.grow {
+	@include grow();
+}
+
+@import "effects/_shrink";
+.shrink {
+	@include shrink();
+}
+
+@import "effects/_pulse";
+.pulse {
+	@include pulse();
+}
+
+@import "effects/_pulse-grow";
+.pulse-grow {
+	@include pulse-grow();
+}
+
+@import "effects/_pulse-shrink";
+.pulse-shrink {
+	@include pulse-shrink();
+}
+
+@import "effects/_push";
+.push {
+	@include push();
+}
+
+@import "effects/_pop";
+.pop {
+	@include pop();
+}
+
+@import "effects/_rotate";
+.rotate {
+	@include rotate();
+}
+
+@import "effects/_grow-rotate";
+.grow-rotate {
+	@include grow-rotate();
+}
+
+@import "effects/_float";
+.float {
+	@include float();
+}
+
+@import "effects/_sink";
+.sink {
+	@include sink();
+}
+
+@import "effects/_hover";
+.hover {
+	@include hover();
+}
+
+@import "effects/_hang";
+.hang {
+	@include hang();
+}
+
+@import "effects/_skew";
+.skew {
+	@include skew();
+}
+
+@import "effects/_skew-forward";
+.skew-forward {
+	@include skew-forward();
+}
+
+@import "effects/_wobble-vertical";
+.wobble-vertical {
+	@include wobble-vertical();
+}
+
+@import "effects/_wobble-horizontal";
+.wobble-horizontal {
+	@include wobble-horizontal();
+}
+
+@import "effects/_wobble-top";
+.wobble-top {
+	@include wobble-top();
+}
+
+@import "effects/_wobble-bottom";
+.wobble-bottom {
+	@include wobble-bottom();
+}
+
+
+/* BORDER TRANSITIONS */
+@import "effects/_border-fade";
+.border-fade {
+	@include border-fade();
+}
+
+@import "effects/_hollow";
+.hollow {
+	@include hollow();
+}
+
+@import "effects/_trim";
+.trim {
+	@include trim();
+}
+
+@import "effects/_outline-outward";
+.outline-outward {
+	@include outline-outward();
+}
+
+@import "effects/_outline-inward";
+.outline-inward {
+	@include outline-inward();
+}
+
+@import "effects/_round-corners";
+.round-corners {
+	@include round-corners();
+}
+
+
+/* SHADOW/GLOW TRANSITIONS */
+@import "effects/_glow";
+.glow {
+	@include glow();
+}
+
+@import "effects/_box-shadow-outset";
+.box-shadow-outset {
+	@include box-shadow-outset();
+}
+
+@import "effects/_box-shadow-inset";
+.box-shadow-inset {
+	@include box-shadow-inset();
+}
+
+@import "effects/_float-shadow";
+.float-shadow {
+	@include float-shadow();
+}
+
+@import "effects/_hover-shadow";
+.hover-shadow {
+	@include hover-shadow();
+}
+
+@import "effects/_shadow-radial";
+.shadow-radial {
+	@include shadow-radial();
+}
+
+
+/* SPEECH BUBBLES */
+@import "effects/_bubble-top";
+.bubble-top {
+	@include bubble-top();
+}
+
+@import "effects/_bubble-right";
+.bubble-right {
+	@include bubble-right();
+}
+
+@import "effects/_bubble-bottom";
+.bubble-bottom {
+	@include bubble-bottom();
+}
+
+@import "effects/_bubble-left";
+.bubble-left {
+	@include bubble-left();
+}
+
+@import "effects/_bubble-float-top";
+.bubble-float-top {
+	@include bubble-float-top();
+}
+
+@import "effects/_bubble-float-right";
+.bubble-float-right {
+	@include bubble-float-right();
+}
+
+@import "effects/_bubble-float-bottom";
+.bubble-float-bottom {
+	@include bubble-float-bottom();
+}
+
+@import "effects/_bubble-float-left";
+.bubble-float-left {
+	@include bubble-float-left();
+}
+
+
+/* CURLS */
+@import "effects/_curl-top-left";
+.curl-top-left {
+	@include curl-top-left();
+}
+
+@import "effects/_curl-top-right";
+.curl-top-right {
+	@include curl-top-right();
+}
+
+@import "effects/_curl-bottom-right";
+.curl-bottom-right {
+	@include curl-bottom-right();
+}
+
+@import "effects/_curl-bottom-left";
+.curl-bottom-left {
+	@include curl-bottom-left();
+}

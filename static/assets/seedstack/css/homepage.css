@@ -1,0 +1,90 @@
+.header-bg {
+	height: 350px;
+	overflow: hidden;
+	background: #87be4c url('../img/bg-pattern.png') repeat left top;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.2), 0 -2px 1px #fff;
+}
+.header-bg .plant {
+	height: 350px;
+	text-align: right;
+}
+.header-bg .img-helper {
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+.header-bg img{
+	max-height: 300px;
+	vertical-align: bottom;
+}
+.header-bg h2{
+	margin: 50px 15px 15px 15px;
+	font-family: 'Bitter', sans-serif;
+	font-weight: bold;
+	color: #f9f9f9;
+	line-height:50px;
+	padding:0;
+}
+.header-bg h2 i {
+	font-size: 90px;
+	font-style:normal;
+	text-shadow: 1px 1px 1px #555;
+}
+.header-bg p {
+	font-family: 'Open Sans', sans-serif;
+	font-size:24px;
+	font-weight:normal;
+	line-height: 30px;
+	width:100%;
+	color: #fff;
+	overflow: hidden;
+	margin: 15px;
+}
+.header-bg p i {
+	/*background:url(../img/bg-text.png) repeat;*/
+	padding:0 10px;
+	font-style:normal;
+}
+
+.subheader-bg {
+	padding: 15px;
+	background-color: #4e8722;
+	color: white;
+}
+
+#mvn-seed {
+	z-index: 100;
+	top: 150px;
+	margin: 15px;
+	background: transparent;
+	border: 0;
+}
+
+#mvn-seed h4 {
+    color: #FFFFFF;
+}
+
+#mvn-seed .quick-paste {
+    color: #ffffff;
+	background-color: rgba(48, 69, 30, 0.5);
+	padding: 10px;
+	font-size: 18px;
+	font-family: 'Source Code Pro', courier, monospace !important;
+}
+
+.prompt {
+	-webkit-user-select: none; /* Chrome/Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	user-select: none;
+}
+
+.manifesto .service-block-in {
+    background: #fafafa;
+    height: 250px;
+    padding: 20px;
+}
+
+.manifesto .service-block-in p {
+    color: #555;
+}
