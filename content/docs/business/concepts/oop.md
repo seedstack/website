@@ -1,3 +1,8 @@
++++
+title       = "Additional concepts"
+categories  = [ "business_concepts" ]
++++
+
 # Assemblers
 
 Assembler is a pattern that allows transformation from one object kind to another one, by copying its state from the

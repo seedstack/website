@@ -6,5 +6,11 @@
         $('pre code').each(function(i, block) {
             hljs.highlightBlock(block);
         });
+        $('.side-menu').affix({
+            offset: {
+                top: 50,
+                bottom: 0
+            }
+        });
     });
 </script>

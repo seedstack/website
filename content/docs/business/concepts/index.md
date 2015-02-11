@@ -1,3 +1,8 @@
++++
+title       = "Domain Driven Design Introduction"
+categories  = [ "business_concepts" ]
++++
+
 The reference for DDD is *"Domain Driven Design: Tackling Complexity in the Heart of Business"* Eric Evans 2003 
 "blue book" available as a 500 pages book or an e-book. 
 

@@ -7,7 +7,7 @@ MetaDataFormat = "yaml"
 
 [taxonomies]
   tag = "tags"
-  group = "groups"
+  category = "categories"
 
 [[menu.main]]
     name = "Download Hugo"

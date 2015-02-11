@@ -1,0 +1,23 @@
+<div class="side-menu">
+    <div class="title">
+        <a data-ng-href="/" class="badge"><i class="glyphicon glyphicon-arrow-left"></i> cat </a>
+        <h1><i class=""></i> Category </h1>
+    </div>
+    <ul>
+        {{ $page := .Permalink }}
+        {{ $tableOfContent := .TableOfContents }}
+
+        {{ $category := index .Params.categories 0 }}
+            {{ range $key, $sameCategory := .Site.Taxonomies.categories }}
+                {{ if eq $key $category }}
+                    {{ range $sameCategory }}
+                        <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></li>
+                        {{ if eq $page .Page.Permalink }}
+                            {{ $tableOfContent }}
+                        {{ end }}
+                    {{ end }}
+            {{ end }}
+        {{ end }}
+    </ul>
+
+</div>

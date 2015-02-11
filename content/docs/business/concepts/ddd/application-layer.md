@@ -1,3 +1,8 @@
++++
+title       = "Application Layer"
+categories  = [ "business_concepts" ]
++++
+
 # Introduction
 
 The application layer handles application wide technical concerns such as security, logging, transactions, aggregates 

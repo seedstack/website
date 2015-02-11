@@ -326,3 +326,8 @@
 .w20-highlight {
     background-color: yellow;
 }
+
+#TableOfContents ul {
+    padding-left: 0;
+    list-style: none;
+}
