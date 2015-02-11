@@ -1,6 +1,6 @@
 language: go
 
-go: tip
+go: 1.4
   
 notifications:
   irc: "chat.freenode.net#seedstack-dev"
