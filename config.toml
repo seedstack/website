@@ -1,13 +1,15 @@
 baseurl = "http://gohugo.io/"
 MetaDataFormat = "yaml"
 
-[params]
-  description = "Documentation of Hugo, a fast and flexible static site generator built with love by spf13 and friends in Go"
-  author = "Steve Francia (spf13) and friends"
+[zone]
+  seed = "/docs/seed/"
+  business = "/docs/business/"
+  w20 = "/docs/w20/"
 
 [taxonomies]
   tag = "tags"
-  category = "categories"
+  section = "sections"
+  zone = "zones"
 
 [[menu.main]]
     name = "Download Hugo"

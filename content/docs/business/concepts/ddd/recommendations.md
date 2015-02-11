@@ -1,3 +1,9 @@
++++
+title       = "Recommendations"
+zones     = [ "business" ]
+sections  = [ "concept" ]
++++
+
 Most of the documentation is about guiding how to do things properly. However there might be other correct ways to use
 the provided tools but there are also things that should clearly be avoided (because they are anti-patterns to DDD and
 Supple Design) and here is a short list that might le extended later on:

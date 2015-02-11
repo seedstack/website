@@ -1,3 +1,9 @@
++++
+title       = "Supple Design"
+zones     = [ "business" ]
+sections  = [ "concept" ]
++++
+
 SEED Business Framework has be designed with Supple Design in a way that helps maintain a Supple Design in your projects.
 
 # Introduction

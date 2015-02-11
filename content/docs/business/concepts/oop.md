@@ -1,6 +1,7 @@
 +++
 title       = "Additional concepts"
-categories  = [ "business_concepts" ]
+zones     = [ "business" ]
+sections  = [ "concept" ]
 +++
 
 # Assemblers

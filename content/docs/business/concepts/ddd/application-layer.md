@@ -1,6 +1,7 @@
 +++
 title       = "Application Layer"
-categories  = [ "business_concepts" ]
+zones     = [ "business" ]
+sections  = [ "concept" ]
 +++
 
 # Introduction

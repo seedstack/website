@@ -1,3 +1,9 @@
++++
+title       = "Interface Layer"
+zones     = [ "business" ]
+sections  = [ "concept" ]
++++
+
 In the same way the domain layer has to organise objects to represent the business, the interface has to provide representations for its clients. 
 
 - These representations can essentially be exposed through:

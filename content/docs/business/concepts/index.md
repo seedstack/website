@@ -1,6 +1,7 @@
 +++
 title       = "Domain Driven Design Introduction"
-categories  = [ "business_concepts" ]
+zones     = [ "business" ]
+sections  = [ "concept" ]
 +++
 
 The reference for DDD is *"Domain Driven Design: Tackling Complexity in the Heart of Business"* Eric Evans 2003 

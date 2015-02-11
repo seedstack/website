@@ -1,4 +1,10 @@
-﻿DDD separates responsibilities (segregation) for clarity, modularity and scalability. Applying this concept leads to the definition of layers.
+﻿+++
+title       = "Layered Architecture"
+zones     = [ "business" ]
+sections  = [ "concept" ]
++++
+
+DDD separates responsibilities (segregation) for clarity, modularity and scalability. Applying this concept leads to the definition of layers.
 
 # Why layers ?
 

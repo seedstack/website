@@ -1,3 +1,9 @@
++++
+title       = "Domain Layer"
+zones     = [ "business" ]
+sections  = [ "concept" ]
++++
+
 SEED Business Framework brings building blocks and tools to help you design your domain but the first piece to build a domain is a plan of it (no building is built without a plan), that is the model.
 
 > A **domain** is as useful as an empty building or hotel before any employee or client comes in. It might be well designed with rules and expected behaviours but only makes sense once people come in. At the same time, running a business (that's the **application** it has been designed for) in an hotel or being a client would not be possible - or enjoyable - without the forethought design put in that building. Furthermore, modifications of a building while it is in use are usually less than welcome and frustrating unless they were planned or made possible beforehand. 

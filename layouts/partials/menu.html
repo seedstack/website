@@ -1,23 +1,26 @@
 <div class="side-menu">
     <div class="title">
-        <a data-ng-href="/" class="badge"><i class="glyphicon glyphicon-arrow-left"></i> cat </a>
-        <h1><i class=""></i> Category </h1>
+        <a data-ng-href="/" class="badge"><i class="glyphicon glyphicon-arrow-left"></i> {{ index .Params.zones 0 }} </a>
+        <h1><i class=""></i> {{ index .Params.sections 0 }} </h1>
     </div>
-    <ul>
+    <div class="list-group" data-ng-hide="category == '__top'"></div>
+    <ul class="nav">
         {{ $page := .Permalink }}
         {{ $tableOfContent := .TableOfContents }}
-
-        {{ $category := index .Params.categories 0 }}
-            {{ range $key, $sameCategory := .Site.Taxonomies.categories }}
-                {{ if eq $key $category }}
-                    {{ range $sameCategory }}
-                        <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></li>
-                        {{ if eq $page .Page.Permalink }}
-                            {{ $tableOfContent }}
-                        {{ end }}
+        {{ $section := index .Params.sections 0 }}
+        {{ range $key, $sameSection := .Site.Taxonomies.sections }}
+            {{ if eq $key $section }}
+                {{ range $sameSection }}
+                    <li>
+                        <a href="{{ .Page.Permalink }}" class="list-group-item {{ if eq $page .Page.Permalink }} active {{ end }}">
+                        {{ .Page.Title }}
+                        </a>
+                    </li>
+                    {{ if eq $page .Page.Permalink }}
+                        {{ $tableOfContent }}
                     {{ end }}
+                {{ end }}
             {{ end }}
         {{ end }}
     </ul>
-
 </div>

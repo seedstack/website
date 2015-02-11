@@ -1,3 +1,9 @@
++++
+title       = "Infrastructure Layer"
+zones     = [ "business" ]
+sections  = [ "concept" ]
++++
+
 # Introduction
 
 In addition to the three vertical layers (domain/application/interface), there is also the infrastructure. It supports 
