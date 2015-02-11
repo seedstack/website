@@ -1,0 +1,5 @@
+language: go
+go:
+  - tip
+install: go get -v github.com/spf13/hugo
+script: hugo

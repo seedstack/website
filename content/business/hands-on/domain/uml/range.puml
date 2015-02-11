@@ -1,6 +1,0 @@
-@startuml
-class Range {
- int offset
- int size
-}
-@enduml
