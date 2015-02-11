@@ -1,26 +1,28 @@
+{{ $zone := index .Params.zones 0 }}
+{{ $section := index .Params.sections 0 }}
 <div class="side-menu">
     <div class="title">
-        <a data-ng-href="/" class="badge"><i class="glyphicon glyphicon-arrow-left"></i> {{ index .Params.zones 0 }} </a>
-        <h1><i class=""></i> {{ index .Params.sections 0 }} </h1>
+        <a data-ng-href="/" class="badge"><i class="glyphicon glyphicon-arrow-left"></i> {{ $zone }} </a>
+        <h1><i class='{{ index .Site.Params $zone $section "icon" }}'></i> {{ $section }} </h1>
     </div>
-    <div class="list-group" data-ng-hide="category == '__top'"></div>
-    <ul class="nav">
-        {{ $page := .Permalink }}
-        {{ $tableOfContent := .TableOfContents }}
-        {{ $section := index .Params.sections 0 }}
-        {{ range $key, $sameSection := .Site.Taxonomies.sections }}
-            {{ if eq $key $section }}
-                {{ range $sameSection }}
-                    <li>
-                        <a href="{{ .Page.Permalink }}" class="list-group-item {{ if eq $page .Page.Permalink }} active {{ end }}">
-                        {{ .Page.Title }}
-                        </a>
-                    </li>
-                    {{ if eq $page .Page.Permalink }}
-                        {{ $tableOfContent }}
+    <div class="list-group">
+        <ul class="nav">
+            {{ $page := .Permalink }}
+            {{ $tableOfContent := .TableOfContents }}
+            {{ range $key, $sameSection := .Site.Taxonomies.sections }}
+                {{ if eq $key $section }}
+                    {{ range $sameSection }}
+                        <li>
+                            <a href="{{ .Page.Permalink }}" class="list-group-item {{ if eq $page .Page.Permalink }} active {{ end }}">
+                            {{ .Page.Title }}
+                            </a>
+                        </li>
+                        {{ if eq $page .Page.Permalink }}
+                            {{ $tableOfContent }}
+                        {{ end }}
                     {{ end }}
                 {{ end }}
             {{ end }}
-        {{ end }}
-    </ul>
+        </ul>
+    </div>
 </div>

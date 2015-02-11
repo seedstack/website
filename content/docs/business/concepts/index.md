@@ -1,7 +1,7 @@
 +++
 title       = "Domain Driven Design Introduction"
-zones     = [ "business" ]
-sections  = [ "concept" ]
+zones        = [ "business" ]
+sections    = [ "concepts" ]
 +++
 
 The reference for DDD is *"Domain Driven Design: Tackling Complexity in the Heart of Business"* Eric Evans 2003 
@@ -18,7 +18,7 @@ The reference for DDD is *"Domain Driven Design: Tackling Complexity in the Hear
 
 Find more information about DDD on the web ! 
 
-#Definitions
+# Definitions
 
 - **Domain**: A sphere of knowledge, influence or activity. The subject area to which the user applies a program is the 
 *domain* of the software. The domain is completely agnostic of the application logic.
@@ -30,7 +30,7 @@ for documentation management).
 - **Domain Driven Design**: Domain Driven Design is an approach to the development of complex software adding on OOP to 
 allow designers to concentrate on Business concerns rather than infrastructure ones.
 
-#DDD Spirit
+# DDD Spirit
 
 - Domain Driven Design (DDD) is **more about a way of thinking than code** but it does have great impacts on code.
 - It does not really introduce any new concept or Design Pattern but **provides a glue, a vocabulary and tangible means 

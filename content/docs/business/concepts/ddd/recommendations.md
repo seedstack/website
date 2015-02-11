@@ -1,7 +1,7 @@
 +++
 title       = "Recommendations"
 zones     = [ "business" ]
-sections  = [ "concept" ]
+sections  = [ "concepts" ]
 +++
 
 Most of the documentation is about guiding how to do things properly. However there might be other correct ways to use

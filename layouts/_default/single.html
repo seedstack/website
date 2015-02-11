@@ -8,8 +8,10 @@
                 <div class="col-md-3" id="sidebar" data-role="navigation">
                     {{ partial "menu.html" . }}
                 </div>
-                <div class="col-md-9 doc-content">
-                    {{ .Content }}
+                <div class="col-md-9 doc-no-tabs">
+                    <div class="doc-content">
+                        {{ .Content }}
+                    </div>
                 </div>
             </div>
         </div>

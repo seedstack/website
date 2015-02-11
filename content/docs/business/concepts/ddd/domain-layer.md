@@ -1,7 +1,7 @@
 +++
 title       = "Domain Layer"
 zones     = [ "business" ]
-sections  = [ "concept" ]
+sections  = [ "concepts" ]
 +++
 
 SEED Business Framework brings building blocks and tools to help you design your domain but the first piece to build a domain is a plan of it (no building is built without a plan), that is the model.

@@ -1,7 +1,7 @@
 +++
 title       = "Infrastructure Layer"
 zones     = [ "business" ]
-sections  = [ "concept" ]
+sections  = [ "concepts" ]
 +++
 
 # Introduction

@@ -1,7 +1,7 @@
 +++
 title       = "CQRS basics"
 zones     = [ "business" ]
-sections  = [ "concept" ]
+sections  = [ "concepts" ]
 +++
 
 CQRS (Command Query Responsibilities Segregation) is a design on top of DDD used for scaling architecture. Its aim is to 

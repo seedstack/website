@@ -1,7 +1,7 @@
 ﻿+++
 title       = "Layered Architecture"
 zones     = [ "business" ]
-sections  = [ "concept" ]
+sections  = [ "concepts" ]
 +++
 
 DDD separates responsibilities (segregation) for clarity, modularity and scalability. Applying this concept leads to the definition of layers.

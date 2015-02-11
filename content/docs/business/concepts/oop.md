@@ -1,7 +1,7 @@
 +++
 title       = "Additional concepts"
 zones     = [ "business" ]
-sections  = [ "concept" ]
+sections  = [ "concepts" ]
 +++
 
 # Assemblers
