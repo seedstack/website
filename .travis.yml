@@ -1,5 +1,10 @@
 language: go
-go:
-  - tip
+
+go: tip
+  
+notifications:
+  irc: "chat.freenode.net#seedstack-dev"
+  
 install: go get -v github.com/spf13/hugo
+
 script: hugo
