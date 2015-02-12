@@ -2,10 +2,6 @@
     padding-top: 20px;
 }
 
-.map-img {
-    background: url(../img/map-img.png) 5px 60px no-repeat;
-}
-
 .side-menu {
     z-index: 2;
     margin-top: 20px;
