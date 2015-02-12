@@ -1,0 +1,48 @@
+@startuml
+
+
+!include ../common.puml
+
+title Business Framework : Domain Event API
+
+ 
+interface Event {
+}
+
+interface EventHandler {
+	void handle(E event)
+}
+ 
+interface EventService {
+	void fire(E event)
+}
+
+abstract class DomainEvent {
+
+}
+abstract class BaseValueObject {
+}
+BaseValueObject <|-right- DomainEvent
+
+Event <|.. DomainEvent
+
+
+abstract class BaseAggregateEvent {
+	+Class<? extends AggregateRoot<?>> getAggregateRoot()
+	+Context getContext()
+}
+
+DomainEvent <|-- BaseAggregateEvent
+
+
+class AggregateDeletedEvent {	
+	
+}
+
+BaseAggregateEvent <|-- AggregateReadEvent
+BaseAggregateEvent <|-- AggregatePersistedEvent
+BaseAggregateEvent <|-- AggregateDeletedEvent
+
+AggregateReadEvent  -[hidden]- EventService
+
+@enduml

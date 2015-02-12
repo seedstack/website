@@ -7,4 +7,6 @@ notifications:
   
 install: go get -v github.com/spf13/hugo
 
-script: hugo
+script:
+  - hugo
+  -

@@ -25,7 +25,7 @@ Organizing the project code into layers will help
 
 Here are the typical layers of a DDD application :
 
-![typical layers]({business-doc}/images/layers.png)
+![typical layers](/img/business/layers.png)
 
 **Rules of dependency**
 

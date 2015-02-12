@@ -4,13 +4,13 @@ Download all the business framework posters: <a href="#">Donwload</a>
 
 # Interfaces tools
 
-![domain aggregates]({business-doc}/images/uml/interfaces-tools.svg)
+![domain aggregates](/img/business/uml/interfaces-tools.svg)
 
 # Finders
 
-![domain aggregates]({business-doc}/images/uml/interfaces-finder.svg)
+![domain aggregates](/img/business/uml/interfaces-finder.svg)
 
 # Helpers
 
-![domain events]({business-doc}/images/uml/interfaces-helpers.svg)
+![domain events](/img/business/uml/interfaces-helpers.svg)
 

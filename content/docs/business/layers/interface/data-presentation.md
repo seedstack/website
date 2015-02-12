@@ -17,7 +17,7 @@ support patterns often used in **data restitution: pagination, Infinite Scroll, 
 The following describes the API. We'll specialize some concepts already presented like the finder.
 We focus the creation of this API on solving the problem of returning portion result out of very big one.
 
-![domain aggregates]({business-doc}/images/uml/interfaces-finder.svg)
+![domain aggregates](/img/business/uml/interfaces-finder.svg)
 
 - A **Range** is just a class that represents an **offset** and a **size**.
 - A **Result** symbolises a canonical representation of the ranged return of a request made from a persistence. It holds:
@@ -127,7 +127,7 @@ implementation, ...
 
 ## Step 1 : Get the result
 
-![Main concepts]({business-doc}/images/interfaces-api-step1.png)
+![Main concepts](/img/business/interfaces-api-step1.png)
 
 1. The application have to compute the range in which he wants the request take place. The Range can be greater than 
 the actual view range (page, chunk,...)
@@ -137,7 +137,7 @@ implementations.
 
 ## Step 2 : Create the view
 
-![Main concepts]({business-doc}/images/interfaces-api-step2.png)
+![Main concepts](/img/business/interfaces-api-step2.png)
 
 When you've got the result, just create the view and get right portion from it.
 

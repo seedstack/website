@@ -35,7 +35,7 @@ The Audit allows you to trace somewhere (log file for example) each time a user 
 record a message and get access to information like the date,  the connected user or the application concerned. 
 </br>Following is the model of what is given to the object in charge of writing the audit:
 
-![audit model]({business-doc}/images/audit-model.png)
+![audit model](/img/business/audit-model.png)
 
  - AuditEvent: Main object passed to the trail writer. It contains the date of the audit and the accompanying message. 
  It also has the trail

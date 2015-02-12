@@ -272,11 +272,11 @@ public class IdentityServiceIT {
 
 ## Custom identity handler
 
-![identity-seed]({business-doc}/images/manage-entity-spi.svg)
+![identity-seed](/img/business/manage-entity-spi.svg)
 
 Two different options are available to define custom identity handlers:
 
-![identity-seed]({business-doc}/images/manage-entity-usage.png)
+![identity-seed](/img/business/manage-entity-usage.png)
 
 **Example:**
 

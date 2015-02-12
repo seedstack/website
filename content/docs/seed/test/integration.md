@@ -38,7 +38,7 @@ To define such a test Class, simply extends the `AbstractSeedIT` helper class:
         private CategoryFactory categoryFactory;
 
         private Category createCategory() {
-            Category category = categoryFactory.createCategory("Camera", "./fragments/seed-store/images/canon.jpg");
+            Category category = categoryFactory.createCategory("Camera", "./url/to/image.jpg");
             Assertions.assertThat(category.getEntityId()).isNull();
             categoryRepository.persist(category);
             Assertions.assertThat(category.getEntityId()).isNotNull();

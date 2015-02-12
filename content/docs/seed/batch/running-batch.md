@@ -7,7 +7,7 @@ To run the job we use the `SeedRunner` as main class (`SeedRunner` belongs to SE
 -   Click on "Run Configurations...""
 -   Fill in the fields as in following screenshot.
 
-![SeedRunner]({seed-doc}/views/batch/img/seed-runner.png)
+![SeedRunner](/img/seed/seed-runner.png)
 
 -   Project :`SimpleSeedBatch`
 -   Main Class: `com.inetpsa.seed.cli.runner.SeedRunner`.
@@ -17,7 +17,7 @@ Then switch to the arguments tab:
 
 - Add **--job mySimpleJob** into Program arguments fields
 - Click on the Run button. (-Ddebug=true is optional)
-![Arguments]({seed-doc}/views/batch/img/arguments.png)
+![Arguments](/img/seed/arguments.png)
 
 Check for expected "---My Simple Job----" message in logging output:
 ```

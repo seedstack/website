@@ -1,0 +1,73 @@
+@startuml
+
+
+!include ../common.puml
+
+title Business Framework : Domain Audit API
+
+class Audited << ANNO >> {
+	String messageBefore()
+	String messageAfter()
+	String messageOnException()
+}
+
+
+
+
+class AuditEvent {
+	-String message
+	-Date date
+	
+	+String getMessage()	
+	+Date getDate()
+	+String getFormattedDate(String format)
+}
+ 
+interface TrailExceptionHandler {
+	String describeException(E e)
+}
+ 
+class Trail {
+	-long id
+	+long getId()
+}
+
+class Initiator {
+	-String id
+	-String name
+	+String getId()
+	+String getName()
+}
+
+class Host {
+
+	-String name
+	-String id
+
+	+String getName()
+	+String getId()
+}
+
+class Address {
+	-String dnsName
+	-String ipAddress		
+	+String getDnsName()
+	+String getIpAddress()
+}
+
+AuditEvent *-- Trail
+Trail *-- Initiator
+Trail *-- Host
+Initiator *-- Address
+Host *-- Address
+
+
+interface AuditService {
+	Trail createTrail()
+	void trail(String message, Trail trail)
+}
+
+Address -[hidden]- AuditService
+
+
+@enduml

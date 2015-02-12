@@ -1,0 +1,39 @@
+@startuml
+
+
+!include ../common.puml
+
+title Business Framework : Interfaces Helpers API
+
+
+interface Assemblers {
+	
+	+D           assembleDtoFromAggregate(Class<D> targetDtoClass, A sourceAggregate)		
+	+D           assembleDtoFromAggregates(Class<D> targetDtoClass, TA sourceAggregates)
+	+List<D> assembleDtoFromAggregate(Class<D> targetDtoClass, List<A> sourceAggregate)	
+	+List<D> assembleDtoFromAggregates(Class<D> targetDtoClass, List<TA> sourceAggregates)		
+--
+	+UniversalDto createUniversalDtoFromAggregate(AggregateRoot<?> sourceAggregateRoot)	
+	+List                createUniversalDtoFromAggregate(List sourceAggregateRoots) 	
+--
+	+void         mergeAggregateWithDto(D sourceDto, A targetAggregate)	
+	+void         mergeAggregatesWithDto(D sourceDto, TAS targetAggregates)    
+--
+	+A              createThenMergeAggregateWithDto(D sourceDto, Class<A> targetAggregateClass)		
+	+TAS          createThenMergeAggregatesWithDto(D sourceDto, TypeLiteral<TAS> targetAggregateClass)	
+	+List<A>    createThenMergeAggregateWithDto(List<D> sourceDtos, Class<A> targetAggregateClass)		
+	+List<TAS> createThenMergeAggregatesWithDto(List<D> sourceDtos, TypeLiteral<TAS> targetAggregateClass)
+--
+	+A             retrieveThenMergeAggregateWithDto(D sourceDto, Class<A> targetAggregateClass)	
+	+TAS          retrieveThenMergeAggregatesWithDto(D sourceDto, TypeLiteral<TAS> targetAggregateClasses)
+	+List<A>    retrieveThenMergeAggregateWithDto(List<D> sourceDtos, Class<A> targetAggregateClass)	
+	+List<TAS> retrieveThenMergeAggregatesWithDto(List<D> sourceDtos, TypeLiteral<TAS> targetAggregatesClass)
+--
+	+A              retrieveOrCreateThenMergeAggregateWithDto(D sourceDto, Class<A> targetAggregateClass)
+	+TAS          retrieveOrCreateThenMergeAggregatesWithDto(D sourceDto, TypeLiteral<TAS> targetAggregateClasses)
+	+List<A>    retrieveOrCreateThenMergeAggregateWithDto(List<D> sourceDtos, Class<A> targetAggregateClass)
+	+List<TAS> retrieveOrCreateThenMergeAggregatesWithDto(List<D> sourceDtos, TypeLiteral<TAS> targetAggregateClasses)
+}
+
+
+@enduml

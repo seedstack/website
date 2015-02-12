@@ -1,0 +1,50 @@
+@startuml
+
+
+!include ../common.puml
+
+title Business Framework : Domain Identity API
+
+ 
+interface Identity << ANNO >>{
+	Class<? extends IdentityHandler> handler()
+	String source()
+}
+
+
+interface "IdentityHandler<E extends Entity<ID>, ID>" as IdentityHandler_E_ID_ {
+	ID handle(E entity, Map<String,String> entityConfiguration)
+}
+
+interface IdentityService {
+	E identify(E entity)
+}
+
+interface "SequenceHandler<E extends Entity<ID>, ID>" as SequenceHandler {
+}
+
+IdentityHandler_E_ID_ <|-- SequenceHandler
+
+interface "UUIDHandler<E extends Entity<ID>, ID>" as UUIDHandler {
+}
+
+IdentityHandler_E_ID_ <|-- UUIDHandler
+
+class "OracleSequenceHandler<BaseEntity<Long>, Long>" as OracleSequenceHandler {
+	~EntityManager entityManager
+	-{static}String SEQUENCE_NAME
+	+Long handle(BaseEntity<Long> entity, Map<String,String> entityConfiguration)
+}
+
+SequenceHandler <|.. OracleSequenceHandler
+
+class "SimpleUUIDHandler <BaseEntity<UUID>,UUID>" as SimpleUUIDHandler {
+	+UUID handle(BaseEntity<UUID> entity, Map<String,String> entityConfiguration)
+}
+
+
+UUIDHandler <|.. SimpleUUIDHandler
+
+
+
+@enduml

@@ -9,7 +9,7 @@
 
 The following describes the classes to be extended to build your domain
 
-![Main concepts]({business-doc}/images/business.png)
+![Main concepts](/img/business/business.png)
 
 You can find references to the concepts discussed in the Domain modelisation chapter : 
 
@@ -49,7 +49,7 @@ Your entity needs to be fully described in terms of JPA annotations. Find docume
 
 The following describes the classes to be extended to build your repositories, factories and finders.
 
-![Main concepts]({business-doc}/images/business-helpers.png)
+![Main concepts](/img/business/business-helpers.png)
 
 - **GenericFactory** : interface for factories. To be extended by your factories interfaces. Add the creation methods you need in your interface.
 - **GenericRepository** : interface for repositories; has CRUD methods. To be extended by your repositories interfaces.
