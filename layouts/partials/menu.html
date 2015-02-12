@@ -15,11 +15,9 @@
                     <a href="" class="list-group-item {{ if $active }} active {{ end }}">
                         {{ .Name }}
                     </a>
-                    <div class="inner-toc">
-                        {{ if $active }}
-                            {{ $toc }}
-                        {{ end }}
-                    </div>
+                    {{ if $active }}
+                        {{ $toc }}
+                    {{ end }}
                 </li>
             {{ end }}
         </ul>
