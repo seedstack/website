@@ -8,3 +8,5 @@
 # public generated folder
 public/
 
+# generated diagrams
+static/puml/

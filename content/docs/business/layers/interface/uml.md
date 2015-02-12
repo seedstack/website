@@ -1,16 +1,27 @@
+---
+title: "UML diagrams"
+zones:
+    - "Business"
+sections:
+    - "BusinessInterfaceLayer"
+menu:
+    BusinessInterfaceLayer:
+        weight: 70
+---
+
 <div class="callout callout-info">
 Download all the business framework posters: <a href="#">Donwload</a>
 </div>
 
 # Interfaces tools
 
-![domain aggregates](/img/business/uml/interfaces-tools.svg)
+![domain aggregates](/puml/business/business-api-interfaces-tools.puml.png)
 
 # Finders
 
-![domain aggregates](/img/business/uml/interfaces-finder.svg)
+![domain aggregates](/puml/business/business-api-interfaces-finder.puml.png)
 
 # Helpers
 
-![domain events](/img/business/uml/interfaces-helpers.svg)
+![domain events](/puml/business/business-api-interfaces-helpers.puml.png)
 

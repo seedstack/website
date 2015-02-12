@@ -15,17 +15,17 @@ Download all the business framework posters: <a href="#">Donwload</a>
 
 # Domain aggregates
 
-![domain aggregates](/img/business/uml/domain-modeling.svg)
+![domain aggregates](/puml/business/business-api-domain-modeling.puml.png)
 
 # Domain tools
 
-![domain aggregates](/img/business/uml/domain-tools.svg)
+![domain aggregates](/puml/business/business-api-domain-tools.puml.png)
 
 # Domain events
 
-![domain events](/img/business/uml/domain-event.svg)
+![domain events](/puml/business/business-api-domain-event.puml.png)
 
 # Entity identity management
 
-![domain events](/img/business/uml/domain-identity.svg)
+![domain events](/puml/business/business-api-domain-identity.puml.png)
 

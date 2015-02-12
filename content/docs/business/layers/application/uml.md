@@ -15,14 +15,14 @@ Download all the business framework posters: <a href="#">Donwload</a>
 
 # Application services
 
-![application service](/img/business/uml/application-tools.svg)
+![application service](/puml/business/business-api-application-tools.puml.png)
 
 # Audit
 
 ## API
 
-![audit model](/img/business/uml/domain-audit.svg)
+![audit model](/puml/business/business-api-domain-audit.puml.png)
 
 ## SPI
 
-![audit model](/img/business/uml/spi-domain-audit.svg)
+![audit model](/puml/business/business-spi-domain-audit.puml.png)

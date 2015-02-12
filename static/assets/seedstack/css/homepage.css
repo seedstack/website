@@ -83,6 +83,7 @@
     background: #fafafa;
     height: 250px;
     padding: 20px;
+    border: 1px solid #f2eded;
 }
 
 .manifesto .service-block-in p {
@@ -95,7 +96,8 @@
 }
 
 .homepage-header .navbar-brand img {
-    float: left
+    float: left;
+    margin-top: 4px;
 }
 
 .homepage-header .navbar-brand span {
@@ -103,3 +105,24 @@
     margin-top: 13px;
     margin-left: 10px
 }
+
+.homepage-header .navbar-toggle {
+    margin-top: 0;
+    background-color: #ffffff;
+    border-color: #dddddd !important;
+}
+
+.homepage-header .navbar-toggle {
+    padding: 9px 10px !important;
+}
+
+
+@media (max-width: 600px) {
+    .home-title {
+        font-size: 50px !important;
+    }
+    .btn-download-example {
+        margin-top: 20px;
+    }
+}
+

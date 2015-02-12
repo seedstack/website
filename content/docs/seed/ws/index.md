@@ -43,7 +43,7 @@ There are two options:
 
     * Add the overriden library to your classpath as a bootstrap entry (eg. Project build path / Tomcat Classpath) as follows:
 
-    ![BuildPath](/img/seed/eclipse_endorsed1.png)
+    ![BuildPath](/img/seed/ws/eclipse_endorsed1.png)
 
     * **Important**: overriding JAR has to be loaded first therefore the library has to be loaded before JRE (comes first in classpath). 
 
