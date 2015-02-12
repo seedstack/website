@@ -1,4 +1,4 @@
-# SeedStack website
+# SeedStack website [![Build status](https://travis-ci.org/seedstack/website.svg?branch=master)](https://travis-ci.org/seedstack/website)
 
 # License
 
