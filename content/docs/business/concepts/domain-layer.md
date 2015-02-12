@@ -56,7 +56,7 @@ Example: a car is usually clearly identified in a system
 
 ## Example 
 
-![aggregates]({business-doc}/images/aggregates.png)
+![aggregates](/img/business/aggregates.png)
 
 ## Some rules about aggregates
 
@@ -80,7 +80,7 @@ Here is some illustrated typologies:
 2. aggregates made of some entities
 3. huge aggregates
 
-![aggregates]({business-doc}/images/aggregates-typologies.png)
+![aggregates](/img/business/aggregates-typologies.png)
 
 # Factory
 
@@ -121,7 +121,7 @@ Example: a bank account transfer.
 
 #Putting it all together
 
-![all-together]({business-doc}/images/all-domain.png)
+![all-together](/img/business/all-domain.png)
 
 # Other patterns
 

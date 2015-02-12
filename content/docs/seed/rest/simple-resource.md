@@ -14,7 +14,7 @@ The following code shows how to create a simple "Hello World" REST resource.
 
 The result in your browser will look like:
 
-![hello]({seed-doc}/views/rest/img/hello.png)
+![hello](/img/seed/rest/hello.png)
 
 
 

@@ -29,5 +29,5 @@ You may also create standalone integration tests (outside a Web environment and 
 If you need to do manual testing, you can access the WSDL via HTTP at `http://{server}:{port}/ws/hello?wsdl`. Then you 
 can use a specialized tool like SOAP UI:
 
-![soapUI]({seed-doc}/views/ws/img/soapUI.png)
+![soapUI](/img/seed/ws/soapUI.png)
 

@@ -1,6 +1,6 @@
 # Manage locales
 
-![locale view](./functions/seed-i18n-function-doc/img/locale.png)
+![locale view](/img/functions/i18n/locale.png)
 
 In this view you can set the locales that will be available in your application. Use the "Add" and
 "Remove" buttons for selecting those locales.
@@ -9,7 +9,7 @@ The default locale should be specified in the adjacent select box.
 
 # Manage keys
 
-![locale view](./functions/seed-i18n-function-doc/img/keys.png)
+![locale view](/img/functions/i18n/img/keys.png)
 
 As it name implies this view allows you to manage your keys.
 
@@ -54,10 +54,10 @@ match the new default translation.
 
 This view allows you to translate the keys. Select the target language in the upper right corner.
 
-![locale view](./functions/seed-i18n-function-doc/img/translation.png)
+![locale view](/img/functions/i18n/translation.png)
 
 # Statistics
 
 Show the number of key translated by locale.
 
-![locale view](./functions/seed-i18n-function-doc/img/statistic.png)
+![locale view](/img/functions/i18n/statistic.png)

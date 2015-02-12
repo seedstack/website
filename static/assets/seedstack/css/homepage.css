@@ -83,6 +83,7 @@
     background: #fafafa;
     height: 250px;
     padding: 20px;
+    border: 1px solid #f2eded;
 }
 
 .manifesto .service-block-in p {
@@ -114,6 +115,7 @@
 .homepage-header .navbar-toggle {
     padding: 9px 10px !important;
 }
+
 
 @media (max-width: 600px) {
     .home-title {
