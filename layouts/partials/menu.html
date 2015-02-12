@@ -10,9 +10,9 @@
             {{ $toc := .TableOfContents }}
             {{ $currentUrl := .Permalink }}
             {{ range index .Site.Menus $section }}
-            {{ $active :=  eq $currentUrl .Url }}
+                {{ $active :=  eq $currentUrl .Url }}
                 <li>
-                    <a href="" class="list-group-item {{ if $active }} active {{ end }}">
+                    <a href="{{ .Url }}" class="list-group-item {{ if $active }} active {{ end }}">
                         {{ .Name }}
                     </a>
                     {{ if $active }}
