@@ -1,16 +1,43 @@
 baseurl = "http://gohugo.io/"
 MetaDataFormat = "yaml"
 
-[zone]
-  seed = "/docs/seed/"
-  business = "/docs/business/"
-  w20 = "/docs/w20/"
-
 [taxonomies]
   tag = "tags"
   zone = "zones"
   section = "sections"
 
-[params.business.concepts]
-  icon = "fa fa-lightbulb-o"
+[params.zone.Seed]
+  basepath = "/docs/seed/"
+  label = "Seed"
+
+[params.zone.Business]
+  basepath = "/docs/business/"
+  label = "Business"
+
+[params.zone.W20]
+  basepath = "/docs/w20/"
+  label = "W20"
+
+[params.section.BusinessIntroduction]
+  label = "Introduction"
+  icon = "icon-signal"
+
+[params.section.BusinessConcepts]
   label = "Concepts"
+  icon = "fa fa-lightbulb-o"
+
+[params.section.BusinessReleaseNotes]
+  label = "Release notes"
+  icon = "icon-road"
+
+[params.section.BusinessDomainLayer]
+  label = "Domain layer"
+  icon = "icon-building"
+
+[params.section.BusinessApplicationLayer]
+  label = "Application layer"
+  icon = "icon-cog"
+
+[params.section.BusinessInterfaceLayer]
+  label = "Interface layer"
+  icon = "icon-th-large"

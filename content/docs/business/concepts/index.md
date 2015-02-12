@@ -1,8 +1,13 @@
-+++
-title       = "Domain Driven Design Introduction"
-zones        = [ "business" ]
-sections    = [ "concepts" ]
-+++
+---
+title: "Domain-Driven-Design"
+zones:
+    - "Business"
+sections:
+    - "BusinessConcepts"
+menu:
+    BusinessConcepts:
+        weight: 10
+---
 
 The reference for DDD is *"Domain Driven Design: Tackling Complexity in the Heart of Business"* Eric Evans 2003 
 "blue book" available as a 500 pages book or an e-book. 
