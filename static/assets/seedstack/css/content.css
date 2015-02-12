@@ -38,15 +38,10 @@
     margin-top: 5px;
 }
 
-.side-menu .inner-toc {
+.side-menu #TableOfContents {
     list-style-type: none;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.side-menu .inner-toc.top-level {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px 10px 20px 10px;
+    border: 1px solid #ddd;
     background-color: rgba(152, 255, 59, 0.20);
 }
 

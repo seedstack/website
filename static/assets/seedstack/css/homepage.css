@@ -88,3 +88,18 @@
 .manifesto .service-block-in p {
     color: #555;
 }
+
+.homepage-header .navbar-brand {
+    font-size: 28px;
+    padding-top: 5px;
+}
+
+.homepage-header .navbar-brand img {
+    float: left
+}
+
+.homepage-header .navbar-brand span {
+    float: left;
+    margin-top: 13px;
+    margin-left: 10px
+}
