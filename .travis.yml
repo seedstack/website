@@ -7,6 +7,4 @@ notifications:
   
 install: go get -v github.com/spf13/hugo
 
-script:
-  - hugo
-  -
+script: ./build_diagrams.sh && hugo
