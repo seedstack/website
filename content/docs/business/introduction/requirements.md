@@ -1,3 +1,14 @@
+---
+title: "Requirements"
+zones:
+    - "Business"
+sections:
+    - "BusinessIntroduction"
+menu:
+    BusinessIntroduction:
+        weight: 20
+---
+
 To help you achieve success with SEED Business Framework, you'll find a list of requirements below.
 
 # Development team
