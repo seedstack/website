@@ -1,4 +1,4 @@
-baseurl = "http://gohugo.io/"
+baseurl = "http://seedstack.github.io/"
 MetaDataFormat = "yaml"
 
 [taxonomies]

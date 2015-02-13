@@ -7,4 +7,4 @@ notifications:
   
 install: go get -v github.com/spf13/hugo
 
-script: chmod +x build_diagrams.sh && ./build_diagrams.sh && hugo
+script: chmod +x build_diagrams.sh deploy_ghpages.sh && ./build_diagrams.sh && hugo && ./deploy_ghpages.sh
