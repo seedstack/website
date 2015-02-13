@@ -8,4 +8,3 @@ find ./puml -name "*.puml" | while read FILE; do
     curl http://www.plantuml.com/plantuml/png/$ENCODED > static/$FILE.png
 done
 
-#find ./puml -name "*.puml" -exec echo mkdir -p static/\$\(dirname {}\) \&\& curl http://www.plantuml.com/plantuml/proxy\?src\=https://raw.githubusercontent.com/seedstack/website/master/{} \> static/{}.png \;
