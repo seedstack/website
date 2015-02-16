@@ -1,3 +1,14 @@
+---
+title: "Dependency management"
+zones:
+    - "Seed"
+sections:
+    - "SeedIntroduction"
+menu:
+    SeedIntroduction:
+        weight: 30
+---
+
 The SEED modular design implies a sizable amount of modules but they are all managed in a global versioned distribution.
 We **strongly recommend** that you use and follow the dependency management of the distribution. Overriding individual
 module versions should only be attempted for bug fixes and if counseled by SEED support.

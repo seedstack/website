@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "Seed"
+sections:
+    - "SeedShell"
+menu:
+    SeedShell:
+        weight: 10
+---
+
 The SEED shell support provides an administration access to shell application commands through SSH protocol in two different modes:
 
 * Interactive mode consists in providing of a simple line-based shell with auto-completion, history and the ability to display

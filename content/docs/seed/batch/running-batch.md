@@ -1,3 +1,14 @@
+---
+title: "Running batch"
+zones:
+    - "Seed"
+sections:
+    - "SeedTest"
+menu:
+    SeedTest:
+        weight: 30
+---
+
 To run the job we use the `SeedRunner` as main class (`SeedRunner` belongs to SEED CLI support).  <!-- For more information about `SeedRunner` please refer to SEED CLI support documentation.-->
 
 # Eclipse configuration

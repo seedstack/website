@@ -1,3 +1,14 @@
+---
+title: "Configuration"
+zones:
+    - "Functions"
+sections:
+    - "FunctionBridge"
+menu:
+    FunctionBridge:
+        weight: 30
+---
+
 Several configuration options are possible to alter the W20 part of your application.
 
 # Loading options

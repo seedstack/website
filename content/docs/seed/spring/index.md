@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "Seed"
+sections:
+    - "SeedSpring"
+menu:
+    SeedSpring:
+        weight: 10
+---
+
 SEED Spring support is a bi-directional injection bridge between SEED managed instances and Spring beans. It allows to
 inject Spring beans in SEED instances and SEED instances as Spring beans.
 

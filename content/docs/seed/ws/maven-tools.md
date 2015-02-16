@@ -1,3 +1,14 @@
+---
+title: "Maven tools"
+zones:
+    - "Seed"
+sections:
+    - "SeedWebServices"
+menu:
+    SeedWebServices:
+        weight: 20
+---
+
 # Source folder
 
 The WSDL file must be placed in the `META-INF/ws` directory of the classpath. 

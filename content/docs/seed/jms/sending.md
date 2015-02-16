@@ -1,3 +1,14 @@
+---
+title: "Sending"
+zones:
+    - "Seed"
+sections:
+    - "SeedJMS"
+menu:
+    SeedJMS:
+        weight: 30
+---
+
 # SEED Managed Session
 
 Using a managed session consists in the following steps:

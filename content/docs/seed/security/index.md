@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "Seed"
+sections:
+    - "SeedSecurity"
+menu:
+    SeedSecurity:
+        weight: 10
+---
+
 SEED security support brings logical security to your applications with easy to use and configure:
 
 * Identification (eg. id, name),

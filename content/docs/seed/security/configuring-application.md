@@ -1,3 +1,14 @@
+---
+title: "Configuration"
+zones:
+    - "Seed"
+sections:
+    - "SeedSecurity"
+menu:
+    SeedSecurity:
+        weight: 20
+---
+
 SEED security is designed to be easy to use and extend inside a SEED based application. This part focuses on the required
 configuration in any environment (JEE, standalone, batch...). For any environment specific configuration, please refer to any specific security documentation of corresponding module.
 

@@ -1,3 +1,14 @@
+---
+title: "Data obfuscation"
+zones:
+    - "Seed"
+sections:
+    - "SeedSecurity"
+menu:
+    SeedSecurity:
+        weight: 70
+---
+
 The goal of `DataObfuscationHandler` is to obfuscate a specific type of data (eg. name, salary, PAN). For instance, it could take a name, eg. "Doe" and return an anonymised name "D.". This would be implemented as follow:
 
     /*

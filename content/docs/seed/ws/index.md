@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "Seed"
+sections:
+    - "SeedWebServices"
+menu:
+    SeedWebServices:
+        weight: 10
+---
+
 SEED web service support provides a JAX-WS integration. JAX-WS offers facilities to create and connect to web services.
 To enable SEED Web-Services standalone support (without a Web environment) use the following dependency snippet in your module:
 

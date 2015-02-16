@@ -1,3 +1,14 @@
+---
+title: "Static validation"
+zones:
+    - "Seed"
+sections:
+    - "SeedValidation"
+menu:
+    SeedValidation:
+        weight: 20
+---
+
 Static Validation consists in constraint annotations applied to a field or its "getter" on any POJO:
 
     public class SeedManagedPojo {

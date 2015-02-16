@@ -1,3 +1,14 @@
+---
+title: "Getting started"
+zones:
+    - "Seed"
+sections:
+    - "SeedTest"
+menu:
+    SeedTest:
+        weight: 20
+---
+
 The goal of this chapter is to create your first batch in order to make clear Spring Batch classes and
 interfaces usage as clear as possible with a simple job example. This one step job will just print “My Simple Job”.
 

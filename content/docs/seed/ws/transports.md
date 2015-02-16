@@ -1,3 +1,14 @@
+---
+title: "Transports"
+zones:
+    - "Seed"
+sections:
+    - "SeedWebServices"
+menu:
+    SeedWebServices:
+        weight: 30
+---
+
 SEED WS supports HTTP and JMS transports. Each URL syntax described below.
 
 # Standalone HTTP

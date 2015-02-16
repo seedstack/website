@@ -1,3 +1,14 @@
+---
+title: "Configuration"
+zones:
+    - "Seed"
+sections:
+    - "SeedJMS"
+menu:
+    SeedJMS:
+        weight: 20
+---
+
 Configuring your messaging solution is mandatory in order to be able to use SEED JMS support.
 
 # Connection factories

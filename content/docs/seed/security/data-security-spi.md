@@ -1,3 +1,14 @@
+---
+title: "Data security SPI"
+zones:
+    - "Seed"
+sections:
+    - "SeedSecurity"
+menu:
+    SeedSecurity:
+        weight: 60
+---
+
 > Note: This documentation is **destinated to Framework developers**.
 
 The data security entry point is the `DataSecurityService` which takes a POJO, go through all its fields and look for annotations. If an annotation is handled by a `DataSecurityHandler`, ie. an handler implements `DataSecurity<MyAnnotation>`. It will delegate the security of this field to the corresponding handler.

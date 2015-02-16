@@ -1,3 +1,14 @@
+---
+title: "Consuming"
+zones:
+    - "Seed"
+sections:
+    - "SeedWebServices"
+menu:
+    SeedWebServices:
+        weight: 50
+---
+
 The goal of this page is to detail the consumption of an Hello World SOAP based Web Service. Configure the `jaxws-maven-plugin`
 and use `wsimport` to generate web service client java from `wsdl`.
 

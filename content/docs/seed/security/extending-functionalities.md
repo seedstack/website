@@ -1,3 +1,14 @@
+---
+title: "Extending SEED security"
+zones:
+    - "Seed"
+sections:
+    - "SeedSecurity"
+menu:
+    SeedSecurity:
+        weight: 80
+---
+
 This document will explain how you can develop your own components to extend SEED security. As SEED security is based on
 Shiro, the possible extensions are Shiro components. See http://shiro.apache.org for more information.
 

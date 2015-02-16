@@ -1,3 +1,14 @@
+---
+title: "Logging"
+zones:
+    - "Seed"
+sections:
+    - "SeedCore"
+menu:
+    SeedCore:
+        weight: 40
+---
+
 SEED uses and provides integration for the slf4j logging API.
 
 Using a logger
