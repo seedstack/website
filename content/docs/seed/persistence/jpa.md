@@ -1,3 +1,14 @@
+---
+title: "JPA persistence"
+zones:
+    - "Seed"
+sections:
+    - "SeedPersistence"
+menu:
+    SeedPersistence:
+        weight: 20
+---
+
 # Introduction
 
 SEED JPA persistence support enables your application to interface with any relational database through a JPA-compliant

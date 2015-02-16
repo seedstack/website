@@ -1,3 +1,14 @@
+---
+title: "In testing"
+zones:
+    - "Seed"
+sections:
+    - "SeedSecurity"
+menu:
+    SeedSecurity:
+        weight: 40
+---
+
 # Users configuration
 
 You need a security props configuration file in your test resources folder:

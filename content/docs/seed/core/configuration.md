@@ -1,3 +1,14 @@
+---
+title: "Configuration"
+zones:
+    - "Seed"
+sections:
+    - "SeedCore"
+menu:
+    SeedCore:
+        weight: 20
+---
+
 SEED based applications are configured using files under the **META-INF/configuration** classpath directory with two types of configuration files:
 
 * Usual properties files with a `properties` extension. These files must respect the `java.util.properties` standard

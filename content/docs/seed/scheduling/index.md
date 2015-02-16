@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "Seed"
+sections:
+    - "SeedScheduling"
+menu:
+    SeedScheduling:
+        weight: 10
+---
+
 Scheduling support provides a simple API to schedule task in SEED. To add the scheduling support in your project, use
 the following dependency snippet:
 

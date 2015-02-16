@@ -1,3 +1,14 @@
+---
+title: "Testing"
+zones:
+    - "Seed"
+sections:
+    - "SeedMail"
+menu:
+    SeedMail:
+        weight: 30
+---
+
 Mail support provides testing fixtures which enable to emulate an SMTP server and easily assert that your sent mails
 are valid. To use this support use the following dependency snippet:
 

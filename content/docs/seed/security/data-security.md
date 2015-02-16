@@ -1,3 +1,14 @@
+---
+title: "Data security API"
+zones:
+    - "Seed"
+sections:
+    - "SeedSecurity"
+menu:
+    SeedSecurity:
+        weight: 50
+---
+
 # Concepts
 The goal of the security on data is to protect the data exposed by an application. It will take data representations and obfuscate them when the user is not allowed to see them according to its roles and permissions.
 

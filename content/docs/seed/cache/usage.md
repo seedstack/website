@@ -1,3 +1,14 @@
+---
+title: "Usage"
+zones:
+    - "Seed"
+sections:
+    - "SeedCache"
+menu:
+    SeedCache:
+        weight: 30
+---
+
 The JCache specification provides an annotation-based declarative API and a programmatic API.
   
 # Declarative API

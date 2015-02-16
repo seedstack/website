@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "Seed"
+sections:
+    - "SeedMail"
+menu:
+    SeedMail:
+        weight: 10
+---
+
 Mail support provides integrates JAVA mail in SEED. To add the mail support in your project, use
 the following dependency snippet:
 

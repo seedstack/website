@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "Seed"
+sections:
+    - "SeedIntroduction"
+menu:
+    SeedIntroduction:
+        weight: 10
+---
+
 SEED Java framework is a solution designed to create enterprise-grade
 application. It provides easy integration and dependency
 injection for many well proven solutions and Java standards.

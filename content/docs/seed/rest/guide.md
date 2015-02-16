@@ -1,3 +1,14 @@
+---
+title: "Guide"
+zones:
+    - "Seed"
+sections:
+    - "SeedRest"
+menu:
+    SeedRest:
+        weight: 30
+---
+
 This page is an introduction about JAX-RS features.
 
 # HTTP Binding

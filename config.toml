@@ -22,6 +22,10 @@ MetaDataFormat = "yaml"
   basepath = "/docs/w20/"
   label = "W20"
 
+[params.zone.Functions]
+  basepath = "/docs/functions/"
+  label = "Reusable functions"
+
 #####################################
 #### Business framework sections ####
 #####################################
@@ -49,6 +53,86 @@ MetaDataFormat = "yaml"
 [params.section.BusinessInterfaceLayer]
   label = "Interface layer"
   icon = "icon-th-large"
+
+#####################################
+#### Seed framework sections     ####
+#####################################
+
+[params.section.SeedIntroduction]
+  label = "Introduction"
+  icon = "icon-file-text"
+
+[params.section.SeedReleaseNotes]
+  label = "Introduction"
+  icon = "icon-file-text"
+
+[params.section.SeedCore]
+  label = "Core"
+  icon = "icon-cogs"
+
+[params.section.SeedSecurity]
+  label = "Security"
+  icon = "icon-shield"
+
+[params.section.SeedWeb]
+  label = "Web"
+  icon = "icon-globe"
+
+[params.section.SeedRest]
+  label = "Rest"
+  icon = "icon-link"
+
+[params.section.SeedTransactions]
+  label = "Transactions"
+  icon = "icon-retweet"
+
+[params.section.SeedPersistence]
+  label = "Persistence"
+  icon = "icon-save"
+
+[params.section.SeedJMS]
+  label = "JMS"
+  icon = "icon-random"
+
+[params.section.SeedWebServices]
+  label = "Web Services"
+  icon = "icon-legal"
+
+[params.section.SeedValidation]
+  label = "Validation"
+  icon = "icon-check"
+
+[params.section.SeedSpring]
+  label = "Spring"
+  icon = "icon-leaf"
+
+[params.section.SeedShell]
+  label = "Shell"
+  icon = "icon-terminal"
+
+[params.section.SeedTest]
+  label = "Testing"
+  icon = "icon-thumbs-up"
+
+[params.section.SeedBatch]
+  label = "Batch"
+  icon = "icon-file"
+
+[params.section.SeedScheduling]
+  label = "Scheduling"
+  icon = "icon-time"
+
+[params.section.SeedCache]
+  label = "Cache"
+  icon = "icon-rocket"
+
+[params.section.SeedMail]
+  label = "Mail"
+  icon = "icon-envelope"
+
+[params.section.SeedMetrics]
+  label = "Metrics"
+  icon = "icon-chart"
 
 #####################################
 #### W20 sections                ####
@@ -85,3 +169,19 @@ MetaDataFormat = "yaml"
 [params.section.W20ReleaseNotes]
   label = "Release notes"
   icon = "icon-road"
+
+#####################################
+#### Reusable functions sections ####
+#####################################
+
+[params.section.FunctionIO]
+  label = "I/O"
+  icon = "icon-file-text"
+
+[params.section.FunctionI18n]
+  label = "Internationalization"
+  icon = "icon-comments"
+
+[params.section.FunctionBridge]
+  label = "W20 bridge"
+  icon = "icon-link"

@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "Seed"
+sections:
+    - "SeedCore"
+menu:
+    SeedCore:
+        weight: 10
+---
+
 SEED core provides the following :
 
 * application lifecycle management

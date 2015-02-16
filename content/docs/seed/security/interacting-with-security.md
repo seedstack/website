@@ -1,3 +1,14 @@
+---
+title: "Usage"
+zones:
+    - "Seed"
+sections:
+    - "SeedSecurity"
+menu:
+    SeedSecurity:
+        weight: 30
+---
+
 This document describes how to interact with security credentials and attributes of a user in your code: 
 
 * principals (eg. name, etc.)

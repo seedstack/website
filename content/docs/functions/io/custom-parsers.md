@@ -1,3 +1,14 @@
+---
+title: "Custom parsers"
+zones:
+    - "Functions"
+sections:
+    - "FunctionIO"
+menu:
+    FunctionIO:
+        weight: 40
+---
+
 If available parsers doesn't fit your needs, IO function provide a SPI (Service Provider Interface) for custom parsers.
 There is three kind of parser available: parser with static template, dynamic template or without template.
 

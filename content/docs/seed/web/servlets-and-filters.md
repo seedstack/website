@@ -1,3 +1,14 @@
+---
+title: "Servlets and filters"
+zones:
+    - "Seed"
+sections:
+    - "SeedWeb"
+menu:
+    SeedWeb:
+        weight: 20
+---
+
 A SEED application almost never requires a servlet or a filter to be configured since embedded technologies already
 provide automatic declaration of required web components. When configuration is still required, there are two ways 
 to custom configure servlets and filters:

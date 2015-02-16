@@ -1,3 +1,14 @@
+---
+title: "Web security"
+zones:
+    - "Seed"
+sections:
+    - "SeedWeb"
+menu:
+    SeedWeb:
+        weight: 40
+---
+
 When running in a Servlet environment (Web), you might want to secure the access to the URLs of your application. This
 document will describe how to achieve this goal using SEED Web security support. Below is the maven dependency snippet:
 

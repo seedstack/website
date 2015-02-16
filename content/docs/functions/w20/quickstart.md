@@ -1,3 +1,14 @@
+---
+title: "Quick start"
+zones:
+    - "Functions"
+sections:
+    - "FunctionBridge"
+menu:
+    FunctionBridge:
+        weight: 20
+---
+
 Quickstart
 ==========
 

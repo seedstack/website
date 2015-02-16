@@ -1,3 +1,14 @@
+---
+title: "Integration"
+zones:
+    - "Functions"
+sections:
+    - "FunctionI18n"
+menu:
+    FunctionI18n:
+        weight: 20
+---
+
 If you have already added the `seed-i18n-function` dependency, you just need to configure the function JPA unit and bind
 the function roles to yours. This section description how to do it and some other optional configurations.
 

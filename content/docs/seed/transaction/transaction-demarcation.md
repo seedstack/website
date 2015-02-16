@@ -1,3 +1,14 @@
+---
+title: "Demarcation"
+zones:
+    - "Seed"
+sections:
+    - "SeedTransactions"
+menu:
+    SeedTransactions:
+        weight: 20
+---
+
 To write "transaction compliant" code, you must demarcate transaction boundaries and optionally specify transaction 
 attributes, also called transaction metadata.
 

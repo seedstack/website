@@ -1,3 +1,14 @@
+---
+title: "Static resources"
+zones:
+    - "Seed"
+sections:
+    - "SeedWeb"
+menu:
+    SeedWeb:
+        weight: 30
+---
+
 SEED web support provides automatic static resource serving from the classpath and the docroot with some benefits
 over the container default resource serving:
 

@@ -16,6 +16,7 @@ To be created by a factory the domain object must also implements <code>Producib
 the domain objects are not producible by a factory. For instance an entity is only be producible by an aggregate
 root.
 </div>
+
 The types implementing `DomainObject` and `Producible` are the followings:
 
 * AggregateRoot, 

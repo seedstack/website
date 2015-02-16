@@ -1,3 +1,14 @@
+---
+title: "Configuration"
+zones:
+    - "Seed"
+sections:
+    - "SeedMail"
+menu:
+    SeedMail:
+        weight: 20
+---
+
 You can configure mail providers by using the following configuration:
  
     com.inetpsa.seed.mail.providers = myProvider1, myProvider2, myProvider3

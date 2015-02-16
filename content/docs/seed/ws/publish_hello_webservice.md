@@ -1,3 +1,14 @@
+---
+title: "Publishing"
+zones:
+    - "Seed"
+sections:
+    - "SeedWebServices"
+menu:
+    SeedWebServices:
+        weight: 40
+---
+
 The goal of this page is to detail the creation of an Hello World soap based Web Service.
 
 # WSDL

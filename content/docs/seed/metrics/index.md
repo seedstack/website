@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "Seed"
+sections:
+    - "SeedMetrics"
+menu:
+    SeedMetrics:
+        weight: 10
+---
+
 SEED Metrics support provides the ability to collect metrics in a java application. It relies on the 
 [Metrics](http://metrics.codahale.com/) library. To add the support to your project, simply add the following 
 dependency to your application module:

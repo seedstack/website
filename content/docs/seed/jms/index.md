@@ -1,3 +1,15 @@
+---
+title: "Overview"
+zones:
+    - "Seed"
+sections:
+    - "SeedJMS"
+menu:
+    SeedJMS:
+        weight: 10
+---
+
+
 Java Message Service (JMS) is a Java API that allows applications to create, send, receive, and read messages.
 This support provides a JMS 1.1 integration (a.k.a. JSR 914). It automatically manages connection factories,
 connections, sessions and message consumers/listeners while retaining the standard JMS API. Moreover connection

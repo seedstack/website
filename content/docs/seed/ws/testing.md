@@ -1,3 +1,14 @@
+---
+title: "Testing"
+zones:
+    - "Seed"
+sections:
+    - "SeedWebServices"
+menu:
+    SeedWebServices:
+        weight: 60
+---
+
 Web Services can be tested in SEED managed integration tests. You can find more about these kind of tests 
 [here](#!/seed-doc/test/integration). You'll find a Web black box example below:
 

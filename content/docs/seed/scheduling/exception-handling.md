@@ -1,3 +1,14 @@
+---
+title: "Exception handling"
+zones:
+    - "Seed"
+sections:
+    - "SeedScheduling"
+menu:
+    SeedScheduling:
+        weight: 20
+---
+
 When exception occurs during the task execution, you can choose to unschedule the Task or refire it immediately. You just
 have add an ExceptionPolicy to the Scheduled annotation.
 

@@ -1,3 +1,14 @@
+---
+title: "CORS"
+zones:
+    - "Seed"
+sections:
+    - "SeedWeb"
+menu:
+    SeedWeb:
+        weight: 50
+---
+
 Cross-Origin Resource Sharing (CORS) is supported through a Java filter and can be enabled in any SEED application.
 
 <div class="callout callout-info">

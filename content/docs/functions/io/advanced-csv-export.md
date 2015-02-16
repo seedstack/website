@@ -1,3 +1,14 @@
+---
+title: "CSV export"
+zones:
+    - "Functions"
+sections:
+    - "FunctionIO"
+menu:
+    FunctionIO:
+        weight: 20
+---
+
 CSV template is define with a `*.csv.properties` file.
 This properties gives you options to change general configuration, define format or provide custom validation.
 
