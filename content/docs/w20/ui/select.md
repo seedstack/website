@@ -1,3 +1,14 @@
+---
+title: "Select"
+zones:
+    - "W20"
+sections:
+    - "W20UI"
+menu:
+    W20UI:
+        weight: 30
+---
+
 The W20 UI fragment bundles the [UI Select](https://github.com/angular-ui/ui-select/wiki) library which is a pure AngularJS
 implementation of a advanced select component (also known as a combo box). To add this component to your application
 just add the `select` module to the `w20-ui` fragment configuration:

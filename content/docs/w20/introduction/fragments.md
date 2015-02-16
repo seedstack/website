@@ -1,3 +1,14 @@
+---
+title: "Fragments"
+zones:
+    - "W20"
+sections:
+    - "W20Introduction"
+menu:
+    W20Introduction:
+        weight: 30
+---
+
 The central concept in W20 is the **fragment**, which is a reusable bundle of Web resources described by a manifest. A
 W20 application is composed of one or more fragment(s), which can be configured specifically. W20 itself is packaged
 and distributed as multiple fragments, W20 Core being the first and most important.

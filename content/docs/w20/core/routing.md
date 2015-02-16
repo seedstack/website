@@ -1,3 +1,14 @@
+---
+title: "Routing"
+zones:
+    - "W20"
+sections:
+    - "W20Core"
+menu:
+    W20Core:
+        weight: 20
+---
+
 AngularJS provides powerful routing capabilities which consists in a matching between a portion of the window URL and 
 a route definition. This route definition define the contents and behavior of the view that will be displayed inside the 
 HTML tag containing the `ngView` attribute. To learn more about AngularJS routing, please check 

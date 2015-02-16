@@ -6,6 +6,10 @@ MetaDataFormat = "yaml"
   zone = "zones"
   section = "sections"
 
+#####################################
+#### Website zones               ####
+#####################################
+
 [params.zone.Seed]
   basepath = "/docs/seed/"
   label = "Seed"
@@ -17,6 +21,10 @@ MetaDataFormat = "yaml"
 [params.zone.W20]
   basepath = "/docs/w20/"
   label = "W20"
+
+#####################################
+#### Business framework sections ####
+#####################################
 
 [params.section.BusinessIntroduction]
   label = "Introduction"
@@ -41,3 +49,39 @@ MetaDataFormat = "yaml"
 [params.section.BusinessInterfaceLayer]
   label = "Interface layer"
   icon = "icon-th-large"
+
+#####################################
+#### W20 sections                ####
+#####################################
+
+[params.section.W20Introduction]
+  label = "Introduction"
+  icon = "icon-file-text"
+
+[params.section.W20Core]
+  label = "Core"
+  icon = "icon-cogs"
+
+[params.section.W20UI]
+  label = "UI"
+  icon = "icon-desktop"
+
+[params.section.W20Dataviz]
+  label = "Dataviz"
+  icon = "icon-chart"
+
+[params.section.W20Touch]
+  label = "Touch"
+  icon = "icon-hand-up"
+
+[params.section.W20Extra]
+  label = "Extras"
+  icon = "icon-plus-sign-alt"
+
+[params.section.W20Guides]
+  label = "Guides"
+  icon = "icon-book"
+
+[params.section.W20ReleaseNotes]
+  label = "Release notes"
+  icon = "icon-road"

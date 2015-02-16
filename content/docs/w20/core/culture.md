@@ -1,3 +1,14 @@
+---
+title: "Culture"
+zones:
+    - "W20"
+sections:
+    - "W20Core"
+menu:
+    W20Core:
+        weight: 40
+---
+
 W20 provides an extensive culture support through the jQuery Globalize library. It provides the developer tools to 
 internationalize a W20 application which can then be localized via fragment manifests. As AngularJS
 also provides internalization support, W20 attempts to convert the active Globalize culture definition to an 

@@ -1,3 +1,15 @@
+---
+title: "Testing"
+zones:
+    - "W20"
+sections:
+    - "W20Guides"
+menu:
+    W20Guides:
+        weight: 40
+---
+
+
 As your application grows it becomes harder to assert that all your features are still working correctly. Whether you are
 doing some refactoring, upgrading a library version or adding new features, you would want a mechanism to protect yourself
 from regression. Testing is well known for Java EE server side application but your front end web application also deserves
