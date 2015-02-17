@@ -1,3 +1,14 @@
+---
+title: "Test"
+zones:
+    - "Seed"
+sections:
+    - "SeedRest"
+menu:
+    SeedRest:
+        weight: 40
+---
+
 Fully testing REST resources requires web integration test support as described
 [here](#!/seed-doc/test/integration#web-integration-testing). Basic steps are:
 

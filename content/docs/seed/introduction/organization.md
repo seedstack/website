@@ -1,3 +1,14 @@
+---
+title: "Anatomy of a SEED project"
+zones:
+    - "Seed"
+sections:
+    - "SeedIntroduction"
+menu:
+    SeedIntroduction:
+        weight: 20
+---
+
 A SEED-based project can take the form you want, however we **strongly recommend** that you to stick to the
 well-supported forms described below.
 

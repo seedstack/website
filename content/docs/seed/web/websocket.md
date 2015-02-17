@@ -1,3 +1,14 @@
+---
+title: "WebSockets"
+zones:
+    - "Seed"
+sections:
+    - "SeedWeb"
+menu:
+    SeedWeb:
+        weight: 60
+---
+
 SEED Web support integrates the the Java API for WebSocket (a.k.a. JSR 356) in a specific module.
 
 <div class="callout callout-info">

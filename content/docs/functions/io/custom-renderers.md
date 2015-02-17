@@ -1,3 +1,14 @@
+---
+title: "Custom renderers"
+zones:
+    - "Functions"
+sections:
+    - "FunctionIO"
+menu:
+    FunctionIO:
+        weight: 30
+---
+
 If available renderers doesn't fit your needs, IO function provide a SPI (Service Provider Interface) for custom renderers. There is three kind of renderer available: renderer with static template, dynamic template or without template.
 
 # Renderer with static template

@@ -1,3 +1,14 @@
+---
+title: "Integration tests"
+zones:
+    - "Seed"
+sections:
+    - "SeedTest"
+menu:
+    SeedTest:
+        weight: 30
+---
+
 # SEED integration test supports
 
 There are different integration supports depending on the application integration environment (eg. web, batch). 

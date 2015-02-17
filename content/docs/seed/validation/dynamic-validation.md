@@ -1,3 +1,14 @@
+---
+title: "Dynamic validation"
+zones:
+    - "Seed"
+sections:
+    - "SeedValidation"
+menu:
+    SeedValidation:
+        weight: 30
+---
+
 Bean Validation 1.1 introduces Dynamic Validation, also called "Design by Contract". You can now let SEED validate inputs and outputs 
 of your services by simply providing constraint annotations on parameters and/or on methods' return types.
 

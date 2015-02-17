@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "Seed"
+sections:
+    - "SeedPersistence"
+menu:
+    SeedPersistence:
+        weight: 10
+---
+
 SEED provides various persistence supports. Multiple supports can be used simultaneously 
 by importing the corresponding Maven dependencies into your application module.
 

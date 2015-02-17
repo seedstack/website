@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "W20"
+sections:
+    - "W20Core"
+menu:
+    W20Core:
+        weight: 10
+---
+
 W20 Core provides the minimum requirements to run a W20 application, mainly: 
 
 * An [AMD](http://en.wikipedia.org/wiki/Asynchronous_module_definition) infrastructure through [RequireJS](http://requirejs.org/),

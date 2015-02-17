@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "Functions"
+sections:
+    - "FunctionI18n"
+menu:
+    FunctionI18n:
+        weight: 10
+---
+
 The i18n function provides UI and injectable services to manage application locales and translations. To start with the
 i18n function, add the following dependency to your web module pom:
 

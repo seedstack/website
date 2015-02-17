@@ -1,3 +1,14 @@
+---
+title: "Directive design"
+zones:
+    - "W20"
+sections:
+    - "W20Guides"
+menu:
+    W20Guides:
+        weight: 30
+---
+
 AngularJS is a web application framework that makes creating complicated web applications much simpler. One of its best
 features is the ability to create directives, or reusable web components. It gives you the ability to create new HTML
 tags and attributes, which can dynamically display content in response to data changes, as well as update the data when

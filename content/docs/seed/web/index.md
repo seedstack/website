@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "Seed"
+sections:
+    - "SeedWeb"
+menu:
+    SeedWeb:
+        weight: 10
+---
+
 # What to expect
 
 SEED web support allows you to completely eliminate application web.xml **configuration** and take advantage of annotation

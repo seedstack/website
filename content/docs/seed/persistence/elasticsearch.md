@@ -1,3 +1,15 @@
+---
+title: "ElasticSearch persistence"
+zones:
+    - "Seed"
+sections:
+    - "SeedPersistence"
+menu:
+    SeedPersistence:
+        weight: 30
+---
+
+
 The support integrates **[ElasticSearch Java API](http://www.elasticsearch.org/guide/en/elasticsearch/client/java-api/current/index.html)** 
 which allows to interact with an **ElasticSearch server**. To understand how **ElasticSearch** works and if it suits 
 your requirements, please check the [website](http://www.elasticsearch.org).

@@ -1,3 +1,14 @@
+---
+title: "Simple resource"
+zones:
+    - "Seed"
+sections:
+    - "SeedRest"
+menu:
+    SeedRest:
+        weight: 20
+---
+
 The following code shows how to create a simple "Hello World" REST resource.
 
     @Path("/hello")

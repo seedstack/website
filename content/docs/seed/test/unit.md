@@ -1,3 +1,14 @@
+---
+title: "Unit testing"
+zones:
+    - "Seed"
+sections:
+    - "SeedTest"
+menu:
+    SeedTest:
+        weight: 20
+---
+
 # SEED unit test support
 
 This support is mainly a bundle of some of the most famous unit test tools and libraries (JUnit, Mockito, AssertJ, etc.)

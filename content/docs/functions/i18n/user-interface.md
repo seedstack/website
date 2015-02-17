@@ -1,3 +1,14 @@
+---
+title: "User interface"
+zones:
+    - "Functions"
+sections:
+    - "FunctionI18n"
+menu:
+    FunctionI18n:
+        weight: 30
+---
+
 # Manage locales
 
 ![locale view](/img/functions/i18n/locale.png)

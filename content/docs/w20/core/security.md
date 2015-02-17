@@ -1,3 +1,14 @@
+---
+title: "Security"
+zones:
+    - "W20"
+sections:
+    - "W20Core"
+menu:
+    W20Core:
+        weight: 30
+---
+
 W20 applications can be integrated with security backends to authenticate users and display views that are consistent with
 the backend security model. 
 

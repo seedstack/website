@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "Seed"
+sections:
+    - "SeedBatch"
+menu:
+    SeedBatch:
+        weight: 10
+---
+
 # Spring Batch
 
 SEED batch support provides spring batch 2 integration. Spring batch offers traceability, jobs recovery, resources management,

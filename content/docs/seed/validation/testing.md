@@ -1,3 +1,14 @@
+---
+title: "Testing"
+zones:
+    - "Seed"
+sections:
+    - "SeedValidation"
+menu:
+    SeedValidation:
+        weight: 40
+---
+
 In order to use validation while testing, just add the following Maven dependencies to your project:
 
     <!-- JAVAX EL -->

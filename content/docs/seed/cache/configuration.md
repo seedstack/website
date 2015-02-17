@@ -1,3 +1,14 @@
+---
+title: "Configuration"
+zones:
+    - "Seed"
+sections:
+    - "SeedCache"
+menu:
+    SeedCache:
+        weight: 20
+---
+
 You must define the cache(s) you will use in your application in the configuration:
 
     [com.inetpsa.seed.cache]

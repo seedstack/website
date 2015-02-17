@@ -1,3 +1,14 @@
+---
+title: "Health checks"
+zones:
+    - "Seed"
+sections:
+    - "SeedMetrics"
+menu:
+    SeedMetrics:
+        weight: 20
+---
+
 To implement an HealthCheck, extend the class `com.codahale.metrics.health.HealthCheck` and implement method `check()`:
 
 	public class MyHealthCheck extends HealthCheck {

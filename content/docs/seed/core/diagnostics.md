@@ -1,3 +1,14 @@
+---
+title: "Diagnostics"
+zones:
+    - "Seed"
+sections:
+    - "SeedCore"
+menu:
+    SeedCore:
+        weight: 60
+---
+
 SEED can dump diagnostic information when an exception is catched at key application locations. Core support dumps 
 diagnostic information when an uncaught exception occurs in a thread but other supports can trigger dumps in various 
 conditions.

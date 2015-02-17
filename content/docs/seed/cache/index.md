@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "Seed"
+sections:
+    - "SeedCache"
+menu:
+    SeedCache:
+        weight: 10
+---
+
 SEED Cache support integrates the JCache API (a.k.a. JSR 107) which allows to interact with compliant caching providers
 in a declarative or a programmatic way.
 

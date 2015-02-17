@@ -1,3 +1,14 @@
+---
+title: "Introduction"
+zones:
+    - "W20"
+sections:
+    - "W20Introduction"
+menu:
+    W20Introduction:
+        weight: 10
+---
+
 W20 is a Web solution designed to allow the developer to quickly and simply create enterprise-grade **Single Page
 Application** (SPA). It is **server agnostic** which means it can work with any HTTP capable server technology. In fact,
 it can even work without any server.

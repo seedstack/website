@@ -1,3 +1,14 @@
+---
+title: "Transactional support"
+zones:
+    - "Seed"
+sections:
+    - "SeedSpring"
+menu:
+    SeedSpring:
+        weight: 20
+---
+
 You can specify a Spring-based transaction handler in your SEED transaction demarcation by adding the
 `@SpringTransactionManager` annotation besides the `@Transactional` one.
 

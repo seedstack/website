@@ -1,3 +1,14 @@
+---
+title: "Configuration"
+zones:
+    - "W20"
+sections:
+    - "W20Introduction"
+menu:
+    W20Introduction:
+        weight: 40
+---
+
 The application configuration is one of the first things loaded by the W20 loader. Its role is to reference fragments
 through their manifest URL and configured them specifically for the application. Here is a minimal configuration:
 

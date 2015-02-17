@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "Functions"
+sections:
+    - "FunctionBridge"
+menu:
+    FunctionBridge:
+        weight: 10
+---
+
 The SEED W20 function acts as an integration bridge between the SEED Java framework and the W20 Web framework. You can
 add it with the following dependency:
 

@@ -1,3 +1,14 @@
+---
+title: "JNDI"
+zones:
+    - "Seed"
+sections:
+    - "SeedCore"
+menu:
+    SeedCore:
+        weight: 30
+---
+
 SEED provides the ability to inject external JNDI resources through the `@Resource` annotation. Multiple JNDI contexts can
 be used in an application by using the `@FromContext` annotation.
 

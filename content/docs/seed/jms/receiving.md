@@ -1,3 +1,14 @@
+---
+title: "Receiving"
+zones:
+    - "Seed"
+sections:
+    - "SeedJMS"
+menu:
+    SeedJMS:
+        weight: 40
+---
+
 To receive JMS messages, create a listener class which implements the `javax.jms.MessageListener` interface and carries `@JMSMessageListner` annotation with the following parameters:
 
 * The `connection` parameter specifying the connection that will be used to receive the messages,

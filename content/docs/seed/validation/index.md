@@ -1,3 +1,14 @@
+---
+title: "Overview"
+zones:
+    - "Seed"
+sections:
+    - "SeedValidation"
+menu:
+    SeedValidation:
+        weight: 10
+---
+
 # Context
 
 SEED Validation Support allows developers to use Bean Validation 1.0 and 1.1.

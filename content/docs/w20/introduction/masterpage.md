@@ -1,3 +1,14 @@
+---
+title: "Masterpage"
+zones:
+    - "W20"
+sections:
+    - "W20Introduction"
+menu:
+    W20Introduction:
+        weight: 20
+---
+
 The masterpage is the only entry point of a W20 application. It is the only full page served when a user access the
 application. Its responsibility is to load W20 with a `<script>` tag and to define the application top-level layout. 
 A minimal master page can be like the following:
