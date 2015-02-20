@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{{ $zone := index .Params.zones 0 }}
+{{ $section := index .Params.sections 0 }}
+<html lang="en">
+    {{ partial "head.html" . }}
+    <body style="background-color: #eee;">
+        <div>
+            {{ partial "header.html" . }}
+            <div class="title-subheader">
+                <div class="container">
+                    <h3>
+                        <a href='{{ index .Site.Params.zone $zone "basepath" }}'>{{ index .Site.Params.zone $zone "label" }}</a>
+                        <i class="fa fa-caret-right"></i>
+                        <a href='{{ index .Site.Params.zone $zone "basepath" }}/reference'>Reference</a>
+                        <i class="fa fa-caret-right"></i>
+                        {{ index .Site.Params.section $section "label" }}
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 menu-wrapper">
+                    {{ partial "menu.html" . }}
+                </div>
+                <div class="col-md-9">
+                    <div class="content-wrapper">
+                        <div class="doc-content">
+                            {{ .Content }}
+                        </div>
+                    </div>
+                    <button class="btn pull-right content-controls">Next topic</button>
+                </div>
+            </div>
+        </div>
+        {{ partial "scripts.html" . }}
+    </body>
+</html>

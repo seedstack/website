@@ -11,19 +11,19 @@ MetaDataFormat = "yaml"
 #####################################
 
 [params.zone.Seed]
-  basepath = "/docs/seed/"
+  basepath = "/docs/seed"
   label = "Seed"
 
 [params.zone.Business]
-  basepath = "/docs/business/"
+  basepath = "/docs/business"
   label = "Business"
 
 [params.zone.W20]
-  basepath = "/docs/w20/"
+  basepath = "/docs/w20"
   label = "W20"
 
 [params.zone.Functions]
-  basepath = "/docs/functions/"
+  basepath = "/docs/functions"
   label = "Reusable functions"
 
 #####################################

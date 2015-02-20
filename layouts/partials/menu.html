@@ -1,10 +1,10 @@
 {{ $zone := index .Params.zones 0 }}
 {{ $section := index .Params.sections 0 }}
 <div class="side-menu">
-    <div class="title">
-        <a href='{{ index .Site.Params.zone $zone "basepath" }}' class="badge"><i class="glyphicon glyphicon-arrow-left"></i> {{ index .Site.Params.zone $zone "label" }} </a>
-        <h1><i class='{{ index .Site.Params.section $section "icon" }}'></i> {{ index .Site.Params.section $section "label" }} </h1>
-    </div>
+    <!--<div class="title">-->
+        <!--<a href='{{ index .Site.Params.zone $zone "basepath" }}' class="badge"><i class="glyphicon glyphicon-arrow-left"></i> {{ index .Site.Params.zone $zone "label" }} </a>-->
+        <!--<h1><i class='{{ index .Site.Params.section $section "icon" }}'></i> {{ index .Site.Params.section $section "label" }} </h1>-->
+    <!--</div>-->
     <div class="list-group">
         <ul class="nav">
             {{ $toc := .TableOfContents }}

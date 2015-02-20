@@ -9,11 +9,6 @@
 /*Import Global Compulsory CSS Files*/
 @import url(app.css);
 @import url(blocks.css);
-@import url(plugins.css);
-
-/*Import CSS Plugins*/
-@import url(plugins/animate.css);
-@import url(plugins/box-shadows.css);
 
 /*Import Headers*/
 @import url(headers/header-default.css);
