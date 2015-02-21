@@ -1,15 +1,11 @@
-{{ $zone := index .Params.zones 0 }}
-{{ $section := index .Params.sections 0 }}
+{{ $parent := . }}
+{{ range .Menus }}
 <div class="side-menu">
-    <!--<div class="title">-->
-        <!--<a href='{{ index .Site.Params.zone $zone "basepath" }}' class="badge"><i class="glyphicon glyphicon-arrow-left"></i> {{ index .Site.Params.zone $zone "label" }} </a>-->
-        <!--<h1><i class='{{ index .Site.Params.section $section "icon" }}'></i> {{ index .Site.Params.section $section "label" }} </h1>-->
-    <!--</div>-->
     <div class="list-group">
         <ul class="nav">
-            {{ $toc := .TableOfContents }}
-            {{ $currentUrl := .Permalink }}
-            {{ range index .Site.Menus $section }}
+            {{ $toc := $parent.TableOfContents }}
+            {{ $currentUrl := $parent.Permalink }}
+            {{ range index $parent.Site.Menus .Menu }}
                 {{ $active :=  eq $currentUrl .Url }}
                 <li>
                     <a href="{{ .Url }}" class="list-group-item {{ if $active }} active {{ end }}">
@@ -23,3 +19,4 @@
         </ul>
     </div>
 </div>
+{{ end }}

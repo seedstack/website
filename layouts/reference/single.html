@@ -18,20 +18,8 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 menu-wrapper">
-                    {{ partial "menu.html" . }}
-                </div>
-                <div class="col-md-9">
-                    <div class="content-wrapper">
-                        <div class="doc-content">
-                            {{ .Content }}
-                        </div>
-                    </div>
-                    <button class="btn pull-right content-controls">Next topic</button>
-                </div>
-            </div>
+        <div>
+            {{ partial "content.html" . }}
         </div>
         {{ partial "scripts.html" . }}
     </body>

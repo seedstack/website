@@ -1,9 +1,7 @@
 ---
-title: "Domain-Driven-Design"
-zones:
-    - "Business"
-sections:
-    - "BusinessConcepts"
+title: "Concepts overview"
+type: "home"
+layout: "business-content"
 menu:
     BusinessConcepts:
         weight: 10

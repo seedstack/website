@@ -1,9 +1,7 @@
 ---
 title: "Additional concepts"
-zones:
-    - "Business"
-sections:
-    - "BusinessConcepts"
+type: "home"
+layout: "business-content"
 menu:
     BusinessConcepts:
         weight: 90

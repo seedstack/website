@@ -1,9 +1,7 @@
 ---
 title: "Infrastructure layer"
-zones:
-    - "Business"
-sections:
-    - "BusinessConcepts"
+type: "home"
+layout: "business-content"
 menu:
     BusinessConcepts:
         weight: 60
