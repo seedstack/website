@@ -2,9 +2,15 @@
     padding-top: 20px;
 }
 
+.reading-time {
+    line-height: 30px;
+    text-align: right;
+}
+
 .side-menu {
     z-index: 2;
-    margin: 30px 0;
+    margin: 0px 0;
+    font-weight: 400;
 }
 
 .side-menu * {
@@ -152,7 +158,7 @@
 }
 
 .doc-content {
-    font-family: 'Open Sans', 'Helvetica', sans-serif;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-weight: 400;
     font-size: 14px;
     padding-left: 10px;
@@ -161,6 +167,11 @@
 
 .doc-content p {
     margin: 0;
+}
+
+.doc-content > p:first-of-type:first-letter {
+    font-size: 40px;
+    line-height: 20px;
 }
 
 .doc-content p + p {
