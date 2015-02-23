@@ -2,6 +2,9 @@
 title: "Java framework concepts"
 type: "home"
 layout: "seed-content"
+menu:
+    SeedConcepts:
+        weight: 10
 ---
 
 SEED Java framework is a solution designed to create enterprise-grade

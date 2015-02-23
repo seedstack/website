@@ -1,5 +1,6 @@
 ---
 title: "Unit testing"
+type: "reference"
 zones:
     - "Seed"
 sections:

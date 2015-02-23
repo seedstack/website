@@ -1,5 +1,6 @@
 ---
 title: "Virtual keyboard"
+type: "reference"
 zones:
     - "W20"
 sections:

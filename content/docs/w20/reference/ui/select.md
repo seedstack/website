@@ -1,5 +1,6 @@
 ---
 title: "Select"
+type: "reference"
 zones:
     - "W20"
 sections:

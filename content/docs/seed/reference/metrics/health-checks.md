@@ -1,5 +1,6 @@
 ---
 title: "Health checks"
+type: "reference"
 zones:
     - "Seed"
 sections:

@@ -1,5 +1,6 @@
 ---
 title: "Integration tests"
+type: "reference"
 zones:
     - "Seed"
 sections:

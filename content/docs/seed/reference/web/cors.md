@@ -1,5 +1,6 @@
 ---
 title: "CORS"
+type: "reference"
 zones:
     - "Seed"
 sections:

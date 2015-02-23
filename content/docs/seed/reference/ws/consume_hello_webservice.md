@@ -1,5 +1,6 @@
 ---
 title: "Consuming"
+type: "reference"
 zones:
     - "Seed"
 sections:

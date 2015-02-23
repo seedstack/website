@@ -4,12 +4,15 @@
 {{ partial "head.html" . }}
 
 <body style="background-color: #eee;">
-    <div>
+    <div id="header">
         {{ partial "header.html" . }}
         {{ partial "seed-home-header.html" . }}
     </div>
-    <div>
+    <div id="content" class="container">
         {{ partial "content.html" . }}
+    </div>
+    <div id="footer">
+        {{ partial "footer.html" . }}
     </div>
     {{ partial "scripts.html" . }}
 </body>

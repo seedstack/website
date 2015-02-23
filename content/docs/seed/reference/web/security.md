@@ -1,5 +1,6 @@
 ---
 title: "Web security"
+type: "reference"
 zones:
     - "Seed"
 sections:

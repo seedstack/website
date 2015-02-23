@@ -4,12 +4,15 @@
 {{ partial "head.html" . }}
 
 <body>
-    <div>
+    <div id="header">
         {{ partial "header.html" . }}
         {{ partial "business-home-header.html" . }}
     </div>
-    <div class="container">
+    <div id="content" class="container">
         {{ .Content }}
+    </div>
+    <div id="footer">
+        {{ partial "footer.html" . }}
     </div>
     {{ partial "scripts.html" . }}
 </body>

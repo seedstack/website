@@ -1,5 +1,6 @@
 ---
 title: "Usage"
+type: "reference"
 zones:
     - "Seed"
 sections:

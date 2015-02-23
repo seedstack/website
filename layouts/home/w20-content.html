@@ -3,13 +3,13 @@
 
 {{ partial "head.html" . }}
 
-<body>
+<body style="background-color: #eee;">
     <div id="header">
         {{ partial "header.html" . }}
-        {{ partial "seed-home-header.html" . }}
+        {{ partial "w20-home-header.html" . }}
     </div>
     <div id="content" class="container">
-        {{ .Content }}
+        {{ partial "content.html" . }}
     </div>
     <div id="footer">
         {{ partial "footer.html" . }}

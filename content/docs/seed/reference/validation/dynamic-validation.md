@@ -1,5 +1,6 @@
 ---
 title: "Dynamic validation"
+type: "reference"
 zones:
     - "Seed"
 sections:

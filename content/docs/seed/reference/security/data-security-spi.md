@@ -1,5 +1,6 @@
 ---
 title: "Data security SPI"
+type: "reference"
 zones:
     - "Seed"
 sections:

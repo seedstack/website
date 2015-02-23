@@ -1,5 +1,6 @@
 ---
 title: "Transports"
+type: "reference"
 zones:
     - "Seed"
 sections:

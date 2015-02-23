@@ -1,5 +1,6 @@
 ---
 title: "Publishing"
+type: "reference"
 zones:
     - "Seed"
 sections:

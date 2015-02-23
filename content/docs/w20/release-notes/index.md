@@ -1,9 +1,7 @@
 ---
 title: "Changelog"
-zones:
-    - "W20"
-sections:
-    - "W20ReleaseNotes"
+type: "home"
+layout: "w20-content"
 menu:
     W20ReleaseNotes:
         weight: 10

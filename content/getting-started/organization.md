@@ -5,7 +5,7 @@ zones:
 sections:
     - "SeedIntroduction"
 menu:
-    SeedIntroduction:
+    GettingStartedOrganization:
         weight: 20
 ---
 

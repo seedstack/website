@@ -1,5 +1,6 @@
 ---
 title: "Culture"
+type: "reference"
 zones:
     - "W20"
 sections:

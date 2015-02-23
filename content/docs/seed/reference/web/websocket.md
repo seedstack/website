@@ -1,5 +1,6 @@
 ---
 title: "WebSockets"
+type: "reference"
 zones:
     - "Seed"
 sections:

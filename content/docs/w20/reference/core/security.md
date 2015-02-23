@@ -1,5 +1,6 @@
 ---
 title: "Security"
+type: "reference"
 zones:
     - "W20"
 sections:

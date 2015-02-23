@@ -1,5 +1,6 @@
 ---
 title: "Data security API"
+type: "reference"
 zones:
     - "Seed"
 sections:

@@ -1,5 +1,6 @@
 ---
 title: "ElasticSearch persistence"
+type: "reference"
 zones:
     - "Seed"
 sections:

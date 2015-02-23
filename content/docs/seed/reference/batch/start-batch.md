@@ -1,5 +1,6 @@
 ---
 title: "Getting started"
+type: "reference"
 zones:
     - "Seed"
 sections:

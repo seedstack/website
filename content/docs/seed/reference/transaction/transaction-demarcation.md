@@ -1,5 +1,6 @@
 ---
 title: "Demarcation"
+type: "reference"
 zones:
     - "Seed"
 sections:

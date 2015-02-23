@@ -1,5 +1,6 @@
 ---
 title: "Simple resource"
+type: "reference"
 zones:
     - "Seed"
 sections:

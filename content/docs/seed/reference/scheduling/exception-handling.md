@@ -1,5 +1,6 @@
 ---
 title: "Exception handling"
+type: "reference"
 zones:
     - "Seed"
 sections:

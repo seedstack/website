@@ -22,6 +22,10 @@ MetaDataFormat = "yaml"
   basepath = "/docs/w20"
   label = "W20"
 
+[params.zone.GettingStarted]
+  basepath = "/docs/getting-started"
+  label = "Getting started"
+
 [params.zone.Functions]
   basepath = "/docs/functions"
   label = "Reusable functions"
@@ -30,145 +34,113 @@ MetaDataFormat = "yaml"
 #### Business framework sections ####
 #####################################
 
-[params.section.BusinessIntroduction]
-  label = "Introduction"
-  icon = "icon-signal"
-
-[params.section.BusinessConcepts]
-  label = "Concepts"
-  icon = "fa fa-lightbulb-o"
-
-[params.section.BusinessReleaseNotes]
-  label = "Release notes"
-  icon = "icon-road"
-
 [params.section.BusinessDomainLayer]
   label = "Domain layer"
-  icon = "icon-building"
+  icon = "fa fa-building"
 
 [params.section.BusinessApplicationLayer]
   label = "Application layer"
-  icon = "icon-cog"
+  icon = "fa fa-cog"
 
 [params.section.BusinessInterfaceLayer]
   label = "Interface layer"
-  icon = "icon-th-large"
+  icon = "fa fa-th-large"
 
 #####################################
 #### Seed framework sections     ####
 #####################################
 
-[params.section.SeedIntroduction]
-  label = "Introduction"
-  icon = "icon-file-text"
-
-[params.section.SeedReleaseNotes]
-  label = "Introduction"
-  icon = "icon-file-text"
-
 [params.section.SeedCore]
   label = "Core"
-  icon = "icon-cogs"
+  icon = "fa fa-cogs"
 
 [params.section.SeedSecurity]
   label = "Security"
-  icon = "icon-shield"
+  icon = "fa fa-shield"
 
 [params.section.SeedWeb]
   label = "Web"
-  icon = "icon-globe"
+  icon = "fa fa-globe"
 
 [params.section.SeedRest]
   label = "Rest"
-  icon = "icon-link"
+  icon = "fa fa-link"
 
 [params.section.SeedTransactions]
   label = "Transactions"
-  icon = "icon-retweet"
+  icon = "fa fa-retweet"
 
 [params.section.SeedPersistence]
   label = "Persistence"
-  icon = "icon-save"
+  icon = "fa fa-save"
 
 [params.section.SeedJMS]
   label = "JMS"
-  icon = "icon-random"
+  icon = "fa fa-random"
 
 [params.section.SeedWebServices]
   label = "Web Services"
-  icon = "icon-legal"
+  icon = "fa fa-legal"
 
 [params.section.SeedValidation]
   label = "Validation"
-  icon = "icon-check"
+  icon = "fa fa-check"
 
 [params.section.SeedSpring]
   label = "Spring"
-  icon = "icon-leaf"
+  icon = "fa fa-leaf"
 
 [params.section.SeedShell]
   label = "Shell"
-  icon = "icon-terminal"
+  icon = "fa fa-terminal"
 
 [params.section.SeedTest]
   label = "Testing"
-  icon = "icon-thumbs-up"
+  icon = "fa fa-thumbs-up"
 
 [params.section.SeedBatch]
   label = "Batch"
-  icon = "icon-file"
+  icon = "fa fa-file"
 
 [params.section.SeedScheduling]
   label = "Scheduling"
-  icon = "icon-time"
+  icon = "fa fa-clock-o"
 
 [params.section.SeedCache]
   label = "Cache"
-  icon = "icon-rocket"
+  icon = "fa fa-rocket"
 
 [params.section.SeedMail]
   label = "Mail"
-  icon = "icon-envelope"
+  icon = "fa fa-envelope"
 
 [params.section.SeedMetrics]
   label = "Metrics"
-  icon = "icon-chart"
+  icon = "fa fa-chart"
 
 #####################################
 #### W20 sections                ####
 #####################################
 
-[params.section.W20Introduction]
-  label = "Introduction"
-  icon = "icon-file-text"
-
 [params.section.W20Core]
   label = "Core"
-  icon = "icon-cogs"
+  icon = "fa fa-cogs"
 
 [params.section.W20UI]
   label = "UI"
-  icon = "icon-desktop"
+  icon = "fa fa-desktop"
 
 [params.section.W20Dataviz]
-  label = "Dataviz"
-  icon = "icon-chart"
+  label = "Data visualization"
+  icon = "fa fa-bar-chart"
 
 [params.section.W20Touch]
   label = "Touch"
-  icon = "icon-hand-up"
+  icon = "fa fa-hand-o-up"
 
 [params.section.W20Extra]
   label = "Extras"
-  icon = "icon-plus-sign-alt"
-
-[params.section.W20Guides]
-  label = "Guides"
-  icon = "icon-book"
-
-[params.section.W20ReleaseNotes]
-  label = "Release notes"
-  icon = "icon-road"
+  icon = "fa fa-plus-square"
 
 #####################################
 #### Reusable functions sections ####
@@ -176,12 +148,12 @@ MetaDataFormat = "yaml"
 
 [params.section.FunctionIO]
   label = "I/O"
-  icon = "icon-file-text"
+  icon = "fa fa-file-text"
 
 [params.section.FunctionI18n]
   label = "Internationalization"
-  icon = "icon-comments"
+  icon = "fa fa-comments"
 
 [params.section.FunctionBridge]
   label = "W20 bridge"
-  icon = "icon-link"
+  icon = "fa fa-link"

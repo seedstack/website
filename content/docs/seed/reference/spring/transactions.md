@@ -1,5 +1,6 @@
 ---
 title: "Transactional support"
+type: "reference"
 zones:
     - "Seed"
 sections:

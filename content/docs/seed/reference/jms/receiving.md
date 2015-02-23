@@ -1,5 +1,6 @@
 ---
 title: "Receiving"
+type: "reference"
 zones:
     - "Seed"
 sections:

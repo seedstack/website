@@ -1,5 +1,6 @@
 ---
 title: "Maven tools"
+type: "reference"
 zones:
     - "Seed"
 sections:

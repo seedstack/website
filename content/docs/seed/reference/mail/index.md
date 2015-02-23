@@ -1,5 +1,6 @@
 ---
 title: "Overview"
+type: "reference"
 zones:
     - "Seed"
 sections:

@@ -1,5 +1,6 @@
 ---
 title: "Guide"
+type: "reference"
 zones:
     - "Seed"
 sections:

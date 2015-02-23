@@ -1,11 +1,9 @@
 ---
-title: "Introduction"
-zones:
-    - "W20"
-sections:
-    - "W20Introduction"
+title: "Concepts"
+type: "home"
+layout: "w20-content"
 menu:
-    W20Introduction:
+    W20Concepts:
         weight: 10
 ---
 

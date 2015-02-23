@@ -1,5 +1,6 @@
 ---
 title: "Configuration"
+type: "reference"
 zones:
     - "Seed"
 sections:

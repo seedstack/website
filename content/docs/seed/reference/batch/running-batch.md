@@ -1,5 +1,6 @@
 ---
 title: "Running batch"
+type: "reference"
 zones:
     - "Seed"
 sections:

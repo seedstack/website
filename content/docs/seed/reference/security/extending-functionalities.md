@@ -1,5 +1,6 @@
 ---
 title: "Extending SEED security"
+type: "reference"
 zones:
     - "Seed"
 sections:

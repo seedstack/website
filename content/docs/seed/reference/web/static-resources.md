@@ -1,5 +1,6 @@
 ---
 title: "Static resources"
+type: "reference"
 zones:
     - "Seed"
 sections:

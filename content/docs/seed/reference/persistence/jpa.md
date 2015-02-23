@@ -1,5 +1,6 @@
 ---
 title: "JPA persistence"
+type: "reference"
 zones:
     - "Seed"
 sections:

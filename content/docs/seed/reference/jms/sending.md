@@ -1,5 +1,6 @@
 ---
 title: "Sending"
+type: "reference"
 zones:
     - "Seed"
 sections:

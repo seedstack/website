@@ -4,7 +4,7 @@
 <html lang="en">
     {{ partial "head.html" . }}
     <body style="background-color: #eee;">
-        <div>
+        <div id="header">
             {{ partial "header.html" . }}
             <div class="title-subheader">
                 <div class="container">
@@ -13,15 +13,16 @@
                         <i class="fa fa-caret-right"></i>
                         <a href='{{ index .Site.Params.zone $zone "basepath" }}/reference'>Reference</a>
                         <i class="fa fa-caret-right"></i>
+                        <i class='{{ index .Site.Params.section $section "icon" }}'></i>
                         {{ index .Site.Params.section $section "label" }}
                     </h3>
                 </div>
             </div>
         </div>
-        <div>
+        <div id="content" class="container">
             {{ partial "content.html" . }}
         </div>
-        <div>
+        <div id="footer">
             {{ partial "footer.html" . }}
         </div>
         {{ partial "scripts.html" . }}

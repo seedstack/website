@@ -1,5 +1,6 @@
 ---
 title: "Static validation"
+type: "reference"
 zones:
     - "Seed"
 sections:

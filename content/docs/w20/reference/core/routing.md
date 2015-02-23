@@ -1,5 +1,6 @@
 ---
 title: "Routing"
+type: "reference"
 zones:
     - "W20"
 sections:

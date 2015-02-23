@@ -1,5 +1,6 @@
 ---
 title: "Servlets and filters"
+type: "reference"
 zones:
     - "Seed"
 sections:

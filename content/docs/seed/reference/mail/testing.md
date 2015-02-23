@@ -1,5 +1,6 @@
 ---
 title: "Testing"
+type: "reference"
 zones:
     - "Seed"
 sections:

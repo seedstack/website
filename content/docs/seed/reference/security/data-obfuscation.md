@@ -1,5 +1,6 @@
 ---
 title: "Data obfuscation"
+type: "reference"
 zones:
     - "Seed"
 sections:
