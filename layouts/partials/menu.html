@@ -23,7 +23,7 @@
     </div>
     <div class="list-group">
         <ul class="nav">
-            {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/website/edit/master/content/{{ .Dir }}{{ .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this page</a></li>{{end}}
+            {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/website/edit/master/content/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this page</a></li>{{end}}
         </ul>
     </div>
 </div>
