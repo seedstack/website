@@ -13,17 +13,11 @@
             <div class="col-md-8">
                 <h1>SeedStack</h1>
                 <p class="bigger">An enterprise-class development stack for building modern and robust applications.</p>
-                <div class="quick-start hidden-xs hidden-sm">
-                    <h4 class="quick-start-header prompt">Create a project by running...</h4>
-                    <div class="quick-paste">
-                        <span class="prompt">$&nbsp;</span>wget http://www.seedstack.org/downloads/seed.exe
-                        <br/>
-                        <span class="prompt">$&nbsp;</span>seed scaffold-project
-                    </div>
+                <div style="display: none;" class="quick-start hidden-xs hidden-sm">
                 </div>
             </div>
             <div class="col-md-4 plant hidden-xs hidden-sm">
-                <!--<span class="img-helper"></span><img src="/img/plant.png">-->
+                <span class="img-helper"></span><img src="/img/freesia.png">
             </div>
         </div>
     </div>
@@ -181,6 +175,34 @@
 {{ partial "footer.html" . }}
 
 {{ partial "scripts.html" . }}
+
+<script>
+    (function() {
+        if (/Win/.test(navigator.platform)) {
+            $('.quick-start').append(
+                '<a href="http://www.seedstack.org/downloads/windows/seed.exe"><button class="btn-u btn-u-download-win"><i class="fa fa-cloud-download"></i> Download seed.exe</button></a>' +
+                '<div style="height: 10px;">&nbsp;</div>' +
+                '<ul class="quick-paste">' +
+                    '<li class="windows"><span>seed scaffold-project</span></li>' +
+                '</ul>'
+            ).show();
+        } else if (/Mac/.test(navigator.platform)) {
+            $('.quick-start').append(
+                '<ul class="quick-paste">' +
+                    '<li class="unix"><span>curl -O http://www.seedstack.org/downloads/macosx/seed</span></li>' +
+                    '<li class="unix"><span>./seed scaffold-project</span></li>' +
+                '</ul>'
+            ).show();
+        } else if (/Linux/.test(navigator.platform)) {
+            $('.quick-start').append(
+                '<ul class="quick-paste">' +
+                    '<li class="unix"><span>wget http://www.seedstack.org/downloads/linux/seed</span></li>' +
+                    '<li class="unix"><span>./seed scaffold-project</span></li>' +
+                '</ul>'
+            ).show();
+        }
+    })();
+</script>
 
 </body>
 </html>

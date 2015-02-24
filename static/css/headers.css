@@ -21,7 +21,7 @@
 	vertical-align: middle;
 }
 .title-header img{
-	max-height: 300px;
+	max-height: 380px;
 	vertical-align: bottom;
 }
 .title-header h1{
@@ -111,12 +111,40 @@
 }
 
 .quick-start .quick-paste {
-    color: #ffffff;
 	background-color: rgba(73, 136, 25, 0.5);
     padding: 10px;
     line-height: 21px;
 	font-size: 18px;
 	font-family: 'Source Code Pro', courier, monospace !important;
+    list-style-type: none;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+
+.quick-start .quick-paste > li > span {
+    user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    -webkit-user-select: text;
+    color: white;
+}
+
+.quick-start .quick-paste > li.unix::before {
+    content: '$ ';
+    color: white;
+}
+
+.quick-start .quick-paste > li.windows::before {
+    content: '> ';
+    color: white;
+}
+
+.btn-u.btn-u-download-win {
+    background: #498819;
+    font-size: 18px;
+    height: 43px;
 }
 
 .prompt {
