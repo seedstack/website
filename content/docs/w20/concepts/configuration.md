@@ -4,7 +4,7 @@ type: "home"
 layout: "w20-content"
 menu:
     W20Concepts:
-        weight: 40
+        weight: 30
 ---
 
 The application configuration is one of the first things loaded by the W20 loader. Its role is to reference fragments

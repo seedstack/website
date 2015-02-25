@@ -1,5 +1,5 @@
 ---
-title: "Concepts"
+title: "Masterpage"
 type: "home"
 layout: "w20-content"
 menu:
@@ -7,50 +7,35 @@ menu:
         weight: 10
 ---
 
-W20 is a Web solution designed to allow the developer to quickly and simply create enterprise-grade **Single Page
-Application** (SPA). It is **server agnostic** which means it can work with any HTTP capable server technology. In fact,
-it can even work without any server.
+The masterpage is the only entry point of a W20 application. It is the only full page served when a user access the
+application. Its responsibility is to load W20 with a `<script>` tag and to define the application top-level layout. 
+A minimal master page can be like the following:
 
-# Modular architecture
+    <!doctype html>
+    <html data-w20-app>
+    <head>
+        <title>Application title</title>
+        <script type="text/javascript" data-main=".../w20-core/modules/w20" src=".../w20-core/libext/requirejs/require.js"></script>
+    </head>
 
-W20 provides a **modular programming model for Web applications**, which allow entire parts of Web frontend to be reused
-between applications. These reusable parts are called fragments and can be published on any HTTP server as static resources.
-Creating an application frontend becomes as easy as referencing the fragment URLs from a configuration file and  
-provide some parameters. W20 itself is distributed as several fragments which are all optional, aside from W20 Core.  
+    <body>
+        <div data-ng-view></div>
+    </body>
+    </html>
 
-# Full-featured
+# Head
 
-While this modularity is at the heart of W20, it doesn't stop there. A carefully chosen set of open-source frameworks
-are integrated with each other and augmented with features you'll need in enterprise software like:
+Two things are required to load a W20 application:
 
-* Internationalization,
-* Security, 
-* Sophisticated navigation, 
-* UI components,
-* Graphical theming,
-* ...
+* a `<script>` tag to load RequireJS (bundled with `w20-core`) and specify the w20 module as the main module module, 
+* a `data-w20-app` attribute on the `html` tag.
 
-# Anatomy of a W20 application
+Any other tag can be added in the head but be aware that due to the asynchronous nature of W20 initialization the loading 
+order between masterpage-loaded and W20-loaded resources is undefined. To be on the safe side, rely on the W20 loader to 
+load any of the application dependencies.
 
-A W20 application is a Single Page Application (SPA) composed of:
+# Body
 
-* A master page (often named `index.html`, but it can be dynamically generated). It is the entry point of the application. 
-More information [here](#!/w20-doc/introduction/masterpage).
-* One or more fragment(s). A fragment is a bundle of Web resources described by a JSON manifest which must be accessible 
-by HTTP from the browser. More information [here](#!/w20-doc/introduction/fragments).
-* A configuration (often found in a file named `w20.app.json`, but it can also be dynamically generated). More information
-[here](#!/w20-doc/introduction/configuration).
-
-```
-    (docroot)
-        |-index.html
-        |-w20.app.json
-        |-fragments
-            |-fragment1
-                |-fragment1.w20.json
-                ...
-            |-fragment2
-                |-fragment2.w20.json
-                ...
-            ...
-```
+As a W20 application is also an AngularJS application, you must add a `<div>` tag with the `data-ng-view` attribute
+on it to display the AngularJS current view contents. If you need any additional tag in the body, feel free to add
+them. As this is a single page application, all tags defined in the body are present on all application views.

@@ -4,7 +4,7 @@ type: "home"
 layout: "w20-content"
 menu:
     W20Concepts:
-        weight: 30
+        weight: 20
 ---
 
 The central concept in W20 is the **fragment**, which is a reusable bundle of Web resources described by a manifest. A
