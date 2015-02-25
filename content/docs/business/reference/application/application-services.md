@@ -18,7 +18,7 @@ in this case they will be domain services. But if it make no sense for them to b
 
 An application service should define a interface annotated with `@ApplicationService` and a implementation of that interface. 
 
-##Interface
+## Interface
 
     package org.mycompany.myapp.application.services;
 
@@ -29,7 +29,7 @@ An application service should define a interface annotated with `@ApplicationSer
     
     }
     
-##Implementation
+## Implementation
     
     package org.mycompany.myapp.application.services.impl;
     

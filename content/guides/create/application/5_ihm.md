@@ -1,8 +1,8 @@
 Now that our **domain** and associated **infrastructure** are in place and tested, it's time to focus on the **interface layer**. Let's create a REST resource to serve data requested by web UIs.
 
-#Configuration
+# Configuration
 
-##App project
+## App project
 
 We need to configure our "app" project for JPA to work properly. To keep it simple, we'll create a HSQL database. We create a **src/test/resources/META-INF/configuration/com.inetpsa.seed-tut.props** with following properties:
 
@@ -23,15 +23,15 @@ We need to configure our "app" project for JPA to work properly. To keep it simp
 	
 > Note: HSQL database is just an example. Any type of connection or datasource declared a JNDI resource can be used.
 
-##Web project
+## Web project
 
 The **web.xml** file was created by the archetype and requires no more configuration.
 
-#Interface layer
+# Interface layer
 
 We'll create following classes in the "web" project:
 
-##Representations
+## Representations
 
 The resources expose representations of the domain objects. Let's create them first.
 
@@ -211,7 +211,7 @@ public class CategoryRepresentation {
 
 > `@MatchingFactoryParameter` and `@MatchingEntityId` annotations provide the necessary information for assemblers to identify which arguments are to be called with the associated factory.
 
-##Assembler
+## Assembler
 
 An assembler pattern is used to transfer the state of the *Entities* to *DAO/Representation* objects. An assembler has two methods : 
 
@@ -287,7 +287,7 @@ public class CategoryAssembler extends
 }
 ```
 
-##Finder
+## Finder
 
 We can delegate searching and data transfer (DTO/Entity and vice versa) operations to a `Finder`. Its role is to query the database to retrieve all the requested data without "polluting" the `Repository`. Since a `Finder` will usually depend on JPA, we declare its interface and implement it in the **infrastructure** layer.
 
@@ -460,7 +460,7 @@ public class JpaCategoryfinder extends
 }
 ```
 
-##Resource
+## Resource
 
 We can now create our resources.
 
@@ -653,6 +653,6 @@ public class CategoryResource {
 
 > Note the use of the *Assemblers* class each time we manipulate entity/dto.
 
-#Is it working ?
+# Is it working ?
 
 Now deploy your web project on a Web Server (eg. Tomcat 7) and launch the application.

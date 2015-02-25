@@ -10,10 +10,8 @@ menu:
         weight: 20
 ---
 
-# SEED unit test support
-
 This support is mainly a bundle of some of the most famous unit test tools and libraries (JUnit, Mockito, AssertJ, etc.)
-Remember : Good unit tests **run quickly** and do not depend on any ressources (database , mom or ws connection, etc.).**
+Remember: good unit tests **run quickly and do not depend on any resources (database , mom or ws connection, ...)**
 
 # Getting started
 

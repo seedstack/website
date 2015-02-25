@@ -1,4 +1,4 @@
-#Configuration
+# Configuration
 
 Take a look in you app project under **/src/main/resources/META-INF/configuration** and open the **props** file with the classic text editor.
 
@@ -6,14 +6,14 @@ Take a look in you app project under **/src/main/resources/META-INF/configuratio
 	application-id = tut
 
 	# Add application layer configuration here
-	#clean props section
+	# clean props section
 	[]
 
 All the configuration of the seed support/functions and your application can be described here.
 
 > Usual *properties* files are still supported.
 
-##Main functionalities of props
+## Main functionalities of props
 
 - Sections : declare a section with brackets to define a prefix for the following properties.
 - Profiles : properties defined with a profile are given when the profile is active (dev, preprod, prod...).
@@ -21,7 +21,7 @@ All the configuration of the seed support/functions and your application can be 
 
 For more information, see the [documentation of the core support](#!/seed-doc/core/configuration "documentation of core support").
 
-##Get a property value
+## Get a property value
 
 Use the *@Configuration* annotation on a field of your class to get a property :
 
@@ -30,7 +30,7 @@ Use the *@Configuration* annotation on a field of your class to get a property :
 
 You can define a default value for your field if no property is found.
 
-#Logging
+# Logging
 
 Preferred implementation for logging is [LOGBack](http://logback.qos.ch/ "LOGBack") which implements SLF4J API. 
 

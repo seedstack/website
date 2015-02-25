@@ -67,12 +67,12 @@ To ease the creation of Assembler, you won't have to implement this interface di
 - `doAssembleDtoFromAggregate(dto, aggregate)` to create a DTO from an aggregate root 
 - `doMergeAggregateWithDto(aggregate, dto)` to merge the mutable fields of an **existing** aggregate with the data from the dto.
 
-##Usage
+## Usage
 
 Create an assembler extending *BaseAssembler* class. It will contains the code the logic of the copy of the data from/to 
 the aggregate. Then, inject your assembler in your class and you use it.
 
-##Example
+## Example
 
 One Assembler for Product.
 

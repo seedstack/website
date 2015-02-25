@@ -10,13 +10,17 @@ menu:
         weight: 10
 ---
 
-#Unit tests
+Seed offers various tools to develop or enrich your tests. In this section you will find the general-purpose testing
+tools (like testing libraries or test runners) but Seed also provides specific testing tools for some supports. They
+are described in their own page of the corresponding reference documentation.
+
+# Unit tests
 
 The purpose of unit testing is to take a small testable part of a program, isolate it from any dependency
 (class injection, context, databases, network, file system …) by mocking them and check whether it behaves 
 exactly as expected. The main goal is to validate code quality and the performance of a module.
 
-#Integration tests
+# Integration tests
 
 The purpose of integration testing is to take combined components and test them as a group.
 Integration tests can test from a simple operation involving two classes to an entire application 
@@ -26,7 +30,7 @@ Their main goal is to find and fix issues appearing with components interactions
 technical (eg. testing a service create/read/update/delete methods) or functionnal (use cases). This last approach is more 
 adapted to avoid behavior regressions from a client perspective. 
 
-#Projects' setting
+# Projects' setting
 
 Integration and unit tests belong to different source folders. To get a clean folders hierarchy in your project, 
 add the following configuration to your pom.xml:
@@ -84,6 +88,3 @@ add the following configuration to your pom.xml:
 	     </plugins>
 	</build>
 
-# Testing pecifics
-
-Other supports testing specifics are described in there own documentation testing section.

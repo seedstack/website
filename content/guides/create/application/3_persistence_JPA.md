@@ -1,10 +1,10 @@
-#Persistence with JPA
+# Persistence with JPA
 
-##Repository
+## Repository
 
 Now that we have defined the domain, we can create the repository implementations **in the infrastructure layer**.
 
-###Product
+### Product
 
 - We create a new package: **com.inetpsa.tut.infrastructure.persistence.product**
 - We create a **ProductJpaRepository** class: 
@@ -22,7 +22,7 @@ public class ProductJpaRepository extends GenericJpaRepository<Product, Long>
 ```
 > Extending `GenericJpaRepository` brings standard CRUD methods to the repository.
 
-###Category
+### Category
 
 - We create a new package: **com.inetpsa.tut.infrastructure.persistence.category**.
 - We create **CategoryJpaRepository** class:
@@ -39,7 +39,7 @@ public class CategoryJpaRepository extends GenericJpaRepository<Category, Long>
 }
 ```
 
-##Configuration
+## Configuration
 
 - We need some configuration for JPA to work properly.
 

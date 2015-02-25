@@ -26,7 +26,7 @@ If you need Java based security in your applicative module, you can use the foll
 Security extensions for various execution environments are provided in other SEED supports. One of the most useful
 is the Web security extension available [here](#!/seed-doc/web/security).
 
-#Concepts
+# Concepts
 
 ## Realm
 

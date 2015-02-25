@@ -1,4 +1,4 @@
-#Simple model
+# Simple model
 
 For our tutorial, we'll consider the following model
 
@@ -6,21 +6,21 @@ For our tutorial, we'll consider the following model
 
 And we'll focus on the Product and Category.
 
-#Architecture
+# Architecture
 
 SEED comes with a Business Framework - Seed Business Support - that relies on principles described in the Domain Driven Design method (or DDD). 
 
 > To better understand this tutorial, refer to documentation about [Layered architecture](#!/business-doc/understanding-ddd/layered-architecture) and [aggregates ](#!/business-doc/understanding-ddd/domain-layer#aggregate).
 
-#Implementation
+# Implementation
 
 - The web project will contain the web interface layer : REST resources and Web Services. It can also contain the static web resources (html, js...).
 - The app project will contain the application layer, the domain layer and the infrastructure layer.
 - The entities will bear the description of their persistence with JPA annotations.
 
-##Domain
+## Domain
 
-###Product
+### Product
 
 Let's create a package **com.inetpsa.tut.domain.product** which will contain the domain layer concerning the product.
 
@@ -163,7 +163,7 @@ public interface ProductRepository extends GenericRepository<Product, Long> {
 }
 ```
 
-###Category
+### Category
 
 We now create a package **com.inetpsa.tut.domain.category**.
 

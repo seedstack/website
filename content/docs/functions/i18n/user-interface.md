@@ -20,7 +20,7 @@ The default locale should be specified in the adjacent select box.
 
 # Manage keys
 
-![locale view](/img/functions/i18n/img/keys.png)
+![locale view](/img/functions/i18n/keys.png)
 
 As it name implies this view allows you to manage your keys.
 

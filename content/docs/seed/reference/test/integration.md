@@ -10,8 +10,6 @@ menu:
         weight: 30
 ---
 
-# SEED integration test supports
-
 There are different integration supports depending on the application integration environment (eg. web, batch). 
 Those supports provide the ability to test components at the highest level (eg. a web container) without having to mock the context or any low-level component.
 It also has a dependency on **SEED unit test support** thus bringing all of its tools.

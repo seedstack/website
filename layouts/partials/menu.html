@@ -7,7 +7,7 @@
     <div class="list-group">
         <ul class="nav">
             {{ $toc := $parent.TableOfContents }}
-            {{ $currentUrl := $parent.Permalink }}
+            {{ $currentUrl := $parent.RelPermalink }}
             {{ range index $parent.Site.Menus .Menu }}
                 {{ $active :=  eq $currentUrl .Url }}
                 <li>

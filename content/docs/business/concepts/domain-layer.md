@@ -117,7 +117,7 @@ Example: a bank account transfer.
 
 > A service often belongs to the application layer but if the expected behaviour belongs to the domain and should be reusable, it can be defined within the domain layer or its interface alone (in order to be implemented accordingly in the application layer).
 
-#Putting it all together
+# Putting it all together
 
 ![all-together](/img/business/all-domain.png)
 

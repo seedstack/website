@@ -570,7 +570,7 @@ admin = PRD.ADMIN
 [com.inetpsa.seed.security.urls]
 /** = authcBasic
 
-#clean props section
+# clean props section
 []
 ```
 Now you should be able to run the scaffold project with tomcat and see the chat after logged in as "john". 

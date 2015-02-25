@@ -1,6 +1,6 @@
 SEED brings a JUnit Runner that creates a SEED environment for tests execution. A test class is managed by SEED and allows a developer to inject classes via the `@Inject` annotation or use `@Transactional`, `@Logging` or `@Configuration` annotations.
 
-#Database connection
+# Database connection
 
 - For tests purpose, we'll use an HSQL database. 
 - We create **src/test/resources/META-INF/configuration/com.inetpsa.seed-tut.props** file with following properties :
@@ -21,7 +21,7 @@ hibernate.hbm2ddl.auto=create
 sql.enforce_strict_size=true
 ```
 
-#Test
+# Test
 
 We write a simple test class to see if the JPA configuration is functional for `Category` entity:
 

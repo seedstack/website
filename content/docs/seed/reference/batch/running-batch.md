@@ -4,9 +4,9 @@ type: "reference"
 zones:
     - "Seed"
 sections:
-    - "SeedTest"
+    - "SeedBatch"
 menu:
-    SeedTest:
+    SeedBatch:
         weight: 30
 ---
 
@@ -19,7 +19,7 @@ To run the job we use the `SeedRunner` as main class (`SeedRunner` belongs to SE
 -   Click on "Run Configurations...""
 -   Fill in the fields as in following screenshot.
 
-![SeedRunner](/img/seed/seed-runner.png)
+![SeedRunner](/img/seed/batch/seed-runner.png)
 
 -   Project :`SimpleSeedBatch`
 -   Main Class: `com.inetpsa.seed.cli.runner.SeedRunner`.
@@ -29,9 +29,10 @@ Then switch to the arguments tab:
 
 - Add **--job mySimpleJob** into Program arguments fields
 - Click on the Run button. (-Ddebug=true is optional)
-![Arguments](/img/seed/arguments.png)
+![Arguments](/img/seed/batch/arguments.png)
 
 Check for expected "---My Simple Job----" message in logging output:
+
 ```
 .....
 17:11:44.172 [main] INFO  c.i.s.c.r.SeedRunner$SeedCallable - Starting Command Line Handler : spring-batch2-commandline-handler

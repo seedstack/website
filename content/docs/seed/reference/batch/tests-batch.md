@@ -4,9 +4,9 @@ type: "reference"
 zones:
     - "Seed"
 sections:
-    - "SeedTest"
+    - "SeedBatch"
 menu:
-    SeedTest:
+    SeedBatch:
         weight: 40
 ---
 

@@ -111,7 +111,7 @@ Add required dependencies for your messaging solution:
     [com.inetpsa.seed.jms]
     connection-factories = mq
 
-    #Set MQConnectionFactory  properties
+    # Set MQConnectionFactory  properties
     connection-factory.mq.vendor.class = com.ibm.mq.jms.MQConnectionFactory
     connection-factory.mq.vendor.property.queueManager = ABCDE1234
     connection-factory.mq.vendor.property.hostName = abcde1234.inetpsa.com
@@ -119,6 +119,6 @@ Add required dependencies for your messaging solution:
     connection-factory.mq.vendor.property.port = 1234
     connection-factory.mq.vendor.property.transportType = 1
 
-    #configure connections
+    # configure connections
     connections = mq
     connection.mq.connection-factory = mq
