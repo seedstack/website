@@ -1,7 +1,8 @@
 ---
 title: "Changelog"
 type: "home"
-layout: "seed-content"
+zones:
+    - "Seed"
 menu:
     SeedReleaseNotes:
         weight: 10

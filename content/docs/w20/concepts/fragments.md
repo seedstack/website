@@ -1,7 +1,8 @@
 ---
 title: "Fragments"
 type: "home"
-layout: "w20-content"
+zones:
+    - "W20"
 menu:
     W20Concepts:
         weight: 20

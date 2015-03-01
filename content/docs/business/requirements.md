@@ -1,7 +1,8 @@
 ---
 title: "Requirements"
 type: "home"
-layout: "business-content"
+zones:
+    - "Business"
 menu:
     BusinessIntroduction:
         weight: 20

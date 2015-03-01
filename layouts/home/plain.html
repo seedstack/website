@@ -1,12 +1,15 @@
 <!DOCTYPE html>
+{{ $zone := index .Params.zones 0 }}
+{{ $lzone := lower $zone }}
+{{ $headerPartial := add $lzone "-home-header.html" }}
 <html lang="en">
 
 {{ partial "head.html" . }}
 
-<body>
+<body style="background-color: #eee;">
     <div id="header">
         {{ partial "header.html" . }}
-        {{ partial "seed-home-header.html" . }}
+        {{ partial $headerPartial . }}
     </div>
     <div id="content" class="container">
         {{ .Content }}

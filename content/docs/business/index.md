@@ -1,7 +1,8 @@
 ---
 title: "Business framework overview"
 type: "home"
-layout: "business-content"
+zones:
+    - "Business"
 menu:
     BusinessIntroduction:
         weight: 10

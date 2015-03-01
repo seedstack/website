@@ -1,7 +1,8 @@
 ---
 title: "Concepts overview"
 type: "home"
-layout: "business-content"
+zones:
+    - "Business"
 menu:
     BusinessConcepts:
         weight: 10

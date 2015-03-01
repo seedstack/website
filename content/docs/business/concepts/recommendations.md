@@ -1,7 +1,8 @@
 ---
 title: "Recommendations"
 type: "home"
-layout: "business-content"
+zones:
+    - "Business"
 menu:
     BusinessConcepts:
         weight: 80

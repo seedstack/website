@@ -9,7 +9,7 @@
 
 .side-menu {
     z-index: 2;
-    margin: 0px 0;
+    margin: 0 0;
     font-weight: 400;
 }
 
@@ -42,10 +42,10 @@
     margin: 0;
     font-size: 28px;
     line-height: 40px;
-    font-family: 'Open Sans', 'Helvetica', Sans-Serif;
+    font-family: 'Open Sans', 'Helvetica', sans-serif;
 }
 
-.side-menu a {
+.side-menu .list-group-item {
     border: none;
 }
 
@@ -56,7 +56,7 @@
 
 .side-menu > .label {
     background-color: #72c02c;
-    font-family: 'Open Sans', 'Helvetica', Sans-Serif;
+    font-family: 'Open Sans', 'Helvetica', sans-serif;
 }
 
 .side-menu.affix {
@@ -67,15 +67,11 @@
     margin-top: 5px;
 }
 
-.side-menu a.list-group-item {
+.side-menu .list-group-item {
     padding-left: 0.5em;
     padding-right: 0.5em;
     line-height: 18px;
-    font-family: 'Open Sans', 'Helvetica', Sans-Serif;
-}
-
-.side-menu a.list-group-item.not-first-item {
-    border-top: none;
+    font-family: 'Open Sans', 'Helvetica', sans-serif;
 }
 
 .side-menu a.list-group-item.active {
@@ -86,6 +82,19 @@
 .side-menu a.list-group-item.active:hover {
     background-color: #72c02c;
     border-color: #72c02c;
+}
+
+.side-menu ul#tags {
+    list-style-type: none;
+    padding: 0;
+}
+
+.side-menu ul#tags li {
+    display: inline;
+}
+
+.side-menu ul#tags li + li:before {
+    content: "\0000b7  ";
 }
 
 .page-switcher {
@@ -112,31 +121,6 @@
     bottom: 0;
     right: 10px;
     opacity: 0.6;
-}
-
-.reading-mode {
-    position: fixed;
-    bottom: 0;
-    right: 70px;
-    opacity: 0.6;
-}
-
-.body-reading-mode {
-    background-color: #afafaf;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.logo-psa {
-    background-image: url('../img/logo_psa.png');
-    height: 24px;
-    width: 150px;
-    position: absolute;
-    top: 16px;
-    right: 10px;
 }
 
 .content-wrapper {

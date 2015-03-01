@@ -26,5 +26,16 @@
             {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/website/edit/master/content/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this page</a></li>{{end}}
         </ul>
     </div>
+    <div class="list-group">
+        <ul class="nav">
+            <li class="list-group-item"><i class="fa fa-tag"></i> Tags:
+                <ul id="tags">
+                    {{ range $parent.Params.tags }}
+                    <li><small><a href="/tags/{{ . | urlize }}">{{ . }}</a></small></li>
+                    {{ end }}
+                </ul>
+            </li>
+        </ul>
+    </div>
 </div>
 {{ end }}
