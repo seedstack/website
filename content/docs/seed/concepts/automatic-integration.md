@@ -12,10 +12,10 @@ The key feature of the Java framework, which enables to integrate any SeedStack-
 is called **automatic integration**. This is made possible by the combination of three design choices:
 
 * Classpath scanning and automatic discovery of code patterns,
-* The ability to build an main injector dynamically from plugins,
+* The ability to build a main injector dynamically from plugins,
 * The convention-over-configuration paradigm and sensible configuration defaults.
 
-As a result, you don't have to specify anything to integrate multiple components together. When a support is present 
+As a result, you have nothing to specify to integrate multiple components together. When a support is present 
 and active in an application it automatically detects the relevant code patterns in the whole classpath and make them 
 available through the injector. Any required initialization or shutdown code is already managed by the support plugin.
 
