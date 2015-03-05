@@ -3,6 +3,10 @@ title: "Kernel + plugins architecture"
 type: "home"
 zones:
     - "Seed"
+tags:
+    - "plugin"
+    - "lifecycle"
+    - "modularity"
 menu:
     SeedConcepts:
         weight: 20

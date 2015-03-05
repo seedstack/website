@@ -3,6 +3,10 @@ title: "Overview"
 type: "reference"
 zones:
     - "Seed"
+tags:
+    - "batch"
+    - "maven"
+    - "spring"
 sections:
     - "SeedBatch"
 menu:

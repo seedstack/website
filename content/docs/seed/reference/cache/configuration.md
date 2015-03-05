@@ -5,6 +5,9 @@ zones:
     - "Seed"
 sections:
     - "SeedCache"
+tags:
+    - "cache"
+    - "configuration"
 menu:
     SeedCache:
         weight: 20

@@ -5,6 +5,10 @@ zones:
     - "Seed"
 sections:
     - "SeedTransactions"
+tags:
+    - "transaction"
+    - "maven"
+    - "configuration"
 menu:
     SeedTransactions:
         weight: 10

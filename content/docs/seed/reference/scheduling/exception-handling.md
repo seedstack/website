@@ -5,6 +5,10 @@ zones:
     - "Seed"
 sections:
     - "SeedScheduling"
+tags:
+    - "scheduling"
+    - "error"
+    - "example"
 menu:
     SeedScheduling:
         weight: 20

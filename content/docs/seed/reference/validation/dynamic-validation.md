@@ -5,6 +5,10 @@ zones:
     - "Seed"
 sections:
     - "SeedValidation"
+tags:    
+    - "validation"
+    - "example"
+    - "api"
 menu:
     SeedValidation:
         weight: 30
@@ -60,5 +64,5 @@ In the same way, `@Valid` garantees that the message will be valid.
 	DummyServiceParamValidation serviceParam;
 
 
-SEED provides a proxy which handles input parameters and service outputs verification throwing a
+SEED provides a proxy which handles input parameters and return value verification throwing a
 `com.inetpsa.seed.validation.internal.ValidationException` upon any constraint violation.

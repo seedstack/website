@@ -5,6 +5,12 @@ zones:
     - "Seed"
 sections:
     - "SeedWeb"
+tags:
+    - "web"
+    - "security"
+    - "filter"
+    - "maven"
+    - "configuration"
 menu:
     SeedWeb:
         weight: 40

@@ -5,6 +5,9 @@ zones:
     - "Seed"
 sections:
     - "SeedMetrics"
+tags:
+    - "metrics"
+    - "health"
 menu:
     SeedMetrics:
         weight: 10

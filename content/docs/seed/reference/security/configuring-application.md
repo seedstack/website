@@ -5,6 +5,14 @@ zones:
     - "Seed"
 sections:
     - "SeedSecurity"
+tags:
+    - "security"
+    - "configuration"
+    - "ldap"
+    - "certificate"
+    - "role"
+    - "permission"
+    - "example"
 menu:
     SeedSecurity:
         weight: 20

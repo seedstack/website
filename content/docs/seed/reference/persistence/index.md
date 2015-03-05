@@ -5,6 +5,9 @@ zones:
     - "Seed"
 sections:
     - "SeedPersistence"
+tags:
+    - "persistence"
+    - "maven"
 menu:
     SeedPersistence:
         weight: 10

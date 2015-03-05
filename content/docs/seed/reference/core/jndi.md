@@ -5,6 +5,9 @@ zones:
     - "Seed"
 sections:
     - "SeedCore"
+tags:
+    - "jndi"
+    - "api"
 menu:
     SeedCore:
         weight: 30
@@ -13,8 +16,7 @@ menu:
 SEED provides the ability to inject external JNDI resources through the `@Resource` annotation. Multiple JNDI contexts can
 be used in an application by using the `@FromContext` annotation.
 
-Declaring JNDI contexts
-=======================
+# Declaring JNDI contexts
 
 The default JNDI context is automatically configured by SEED if you provide a `jndi.properties` file in `META-INF/configuration` classpath-included folder. 
 This JNDI context is named `default` by SEED.
@@ -28,11 +30,9 @@ Additional JNDI contexts can be specified using the following configuration prop
 The above code defines two additional JNDI contexts, named `additional1` and `additional2`. The specified properties
 files are `jndi.properties`-like files.
 
-Using JNDI context
-==================
+# Using JNDI context
 
-Declarative API
----------------
+## Declarative API
 
 You can inject JNDI resource using the `@Resource` annotation from JSR-245:
 
@@ -51,8 +51,7 @@ In case you have several JNDI contexts in your application, you can specify the 
         private DataSource datasource;
     }
 
-Programmatic API
-----------------
+## Programmatic API
 
 You can retrieve any context by injecting it into your code. Then you can use the JNDI programmatic API to lookup
 for resources in that context.

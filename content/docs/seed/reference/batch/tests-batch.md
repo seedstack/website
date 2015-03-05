@@ -5,6 +5,10 @@ zones:
     - "Seed"
 sections:
     - "SeedBatch"
+tags:
+    - "batch"
+    - "test"
+    - "cli"
 menu:
     SeedBatch:
         weight: 40
@@ -13,19 +17,19 @@ menu:
 For integration test, add SEED integration test support to your project. Check documentation [here](#!/seed-doc/test/integration#simple-integration-testing).
 
 * Following example checks that SEED injection works.
-```
-@RunWith(SeedITRunner.class)
-public class RunnerBatchIT {
-	@Inject
-	MessageService messageService;
- 
-	@Test
-	@WithCommandLine(value = {"--job", "mySimpleJob"}, expectedExitCode = 0)
-	public void testBatch() {
-			assertThat(messageService).isNotNull();
-	}
-}
-```
+
+
+    @RunWith(SeedITRunner.class)
+    public class RunnerBatchIT {
+        @Inject
+        MessageService messageService;
+     
+        @Test
+        @WithCommandLine(value = {"--job", "mySimpleJob"}, expectedExitCode = 0)
+        public void testBatch() {
+                assertThat(messageService).isNotNull();
+        }
+    }
  
 As illustrated below, note that `@WithCommandLine` can also carry job parameters. Following equivalent syntaxes:
 
@@ -33,10 +37,9 @@ As illustrated below, note that `@WithCommandLine` can also carry job parameters
 - "`-P parameterKey=parameterValue`"
 - "`--jobParameter", "parameterKey=parameterValue`"
 
-```
-@Test
-@WithCommandLine(value = {"--job","mySimpleJob","--jobParameter","key=value"}, expectedExitCode=0)
-public void execute_batch_with_multiple_parameters() {
-	...
-}
-```
+
+    @Test
+    @WithCommandLine(value = {"--job","mySimpleJob","--jobParameter","key=value"}, expectedExitCode=0)
+    public void execute_batch_with_multiple_parameters() {
+        ...
+    }

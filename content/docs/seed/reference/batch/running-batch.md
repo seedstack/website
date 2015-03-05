@@ -5,12 +5,18 @@ zones:
     - "Seed"
 sections:
     - "SeedBatch"
+tags:
+    - "batch"
+    - "cli"
+    - "über-jar"
+    - "shade"
+    - "maven"
 menu:
     SeedBatch:
         weight: 30
 ---
 
-To run the job we use the `SeedRunner` as main class (`SeedRunner` belongs to SEED CLI support).  <!-- For more information about `SeedRunner` please refer to SEED CLI support documentation.-->
+To run the job we use the `SeedRunner` as main class (`SeedRunner` belongs to SEED CLI support).  For more information about `SeedRunner` please refer to SEED CLI support documentation.
 
 # Eclipse configuration
 

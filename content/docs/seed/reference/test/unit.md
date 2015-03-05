@@ -5,6 +5,10 @@ zones:
     - "Seed"
 sections:
     - "SeedTest"
+tags:
+    - "test"
+    - "maven"
+    - "example"
 menu:
     SeedTest:
         weight: 20
@@ -28,7 +32,6 @@ Add the following dependency in your pom.xml
 <dependency>
     <groupId>ch.qos.logback</groupId>
     <artifactId>logback-classic</artifactId>
-    <version>1.0.12</version>
     <scope>test</scope>
 </dependency>
 ```
@@ -37,7 +40,6 @@ Add the following dependency in your pom.xml
 
 This example is **not** a tutorial of how to create tests.
 You can use all the framework libraries included in SEED unit test support (refer to the support pom.xml).
-
 
 ```
 public class CustomerServiceImplUnitTest {

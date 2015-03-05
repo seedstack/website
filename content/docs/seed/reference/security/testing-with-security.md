@@ -5,6 +5,9 @@ zones:
     - "Seed"
 sections:
     - "SeedSecurity"
+tags:
+    - "security"
+    - "test"
 menu:
     SeedSecurity:
         weight: 40

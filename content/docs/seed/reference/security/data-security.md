@@ -5,26 +5,35 @@ zones:
     - "Seed"
 sections:
     - "SeedSecurity"
+tags:
+    - "expression-language"
+    - "security"
+    - "data"
+    - "api"
 menu:
     SeedSecurity:
         weight: 50
 ---
 
 # Concepts
-The goal of the security on data is to protect the data exposed by an application. It will take data representations and obfuscate them when the user is not allowed to see them according to its roles and permissions.
+The goal of the security on data is to protect the data exposed by an application. It will take data representations 
+and obfuscate them when the user is not allowed to see them according to its roles and permissions.
 
 > For instance: a primary account number `79927391338710` will be transformed into `799273****8710`.
 
 # Service usage
 
-The security on data can be applied by using the building blocks provided by the SEED Business Framework or by using the `DataSecurityService` as follows:
+The security on data can be applied by using the building blocks provided by the SEED Business Framework or by using 
+the `DataSecurityService` as follows:
 
     @Inject
     private DataSecurityService dataSecurityService;
 
     dataSecurityService.secure(myDto);
 
-This service will go through the object fields and look for a security expression (eg. the `@Restriction` annotation of the SEED Business Framework). If the current user does not match the security expression requirements, the field will be obfuscated.
+This service will go through the object fields and look for a security expression (eg. the `@Restriction` annotation of 
+the SEED Business Framework). If the current user does not match the security expression requirements, the field will 
+be obfuscated.
 
 Here is the interface for the `DataSecurityService`:
 
@@ -34,12 +43,13 @@ Here is the interface for the `DataSecurityService`:
 
     }
 
-The obfuscation is delegated to a `DataObfuscationHandler` (see how to implement your [obfuscator](/#!/seed-doc/security/data-obfuscation)). By default if no obfuscator handler is given the data will be nullify. 
+The obfuscation is delegated to a `DataObfuscationHandler` (see how to implement your 
+[obfuscator](/#!/seed-doc/security/data-obfuscation)). By default if no obfuscator handler is given the data will be nullify. 
 
 # Expression language
 
-The security expression could Boolean or String. When they are String, they will be evaluated as expression language (EL). The SEED security support provides extends the EL with the following methods:
-
+The security expression could Boolean or String. When they are String, they will be evaluated as expression language 
+(EL). The SEED security support provides extends the EL with the following methods:
 
 
     /**

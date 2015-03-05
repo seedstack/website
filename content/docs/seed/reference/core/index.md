@@ -5,6 +5,11 @@ zones:
     - "Seed"
 sections:
     - "SeedCore"
+tags:
+    - "maven"
+    - "package"
+    - "bootstrap"
+    - "classpath-scan"
 menu:
     SeedCore:
         weight: 10

@@ -3,6 +3,11 @@ title: "Dependency injection"
 type: "home"
 zones:
     - "Seed"
+tags:
+    - "ioc"
+    - "injection"
+    - "guice"
+    - "aop"
 menu:
     SeedConcepts:
         weight: 30

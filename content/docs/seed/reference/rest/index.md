@@ -5,6 +5,10 @@ zones:
     - "Seed"
 sections:
     - "SeedRest"
+tags:
+    - "rest"
+    - "jax-rs"
+    - "maven"
 menu:
     SeedRest:
         weight: 10

@@ -5,6 +5,10 @@ zones:
     - "Seed"
 sections:
     - "SeedSpring"
+tags:
+    - "spring"
+    - "transaction"
+    - "test"
 menu:
     SeedSpring:
         weight: 20

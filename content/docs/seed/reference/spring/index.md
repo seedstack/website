@@ -5,6 +5,11 @@ zones:
     - "Seed"
 sections:
     - "SeedSpring"
+tags:
+    - "spring"
+    - "maven"
+    - "configuration"
+    - "injection"
 menu:
     SeedSpring:
         weight: 10
