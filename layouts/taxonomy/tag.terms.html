@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
 {{ partial "head.html" . }}
+</head>
 <body>
 <div id="header">
     {{ partial "header.html" . }}
     <div class="title-subheader">
         <div class="container">
-            <h3>Content tagged with ...</h3>
+            <h3>All tags sorted by page count</h3>
         </div>
     </div>
 </div>
 <div id="content" class="container">
-    ...
+    <ul>
+        {{ $data := .Data }}
+        {{ range $key, $value := .Data.Terms }}
+
+
+        <li><a href="{{ $key | urlize }}">{{ $key | title }}</a> ({{ len $value }})</li>
+        {{ end }}
+    </ul>
 </div>
 <div id="footer">
     {{ partial "footer.html" . }}

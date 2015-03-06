@@ -3,6 +3,8 @@ title: "Supple design"
 type: "home"
 zones:
     - "Business"
+sections:
+    - "BusinessConcepts"
 menu:
     BusinessConcepts:
         weight: 70

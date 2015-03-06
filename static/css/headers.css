@@ -1,9 +1,10 @@
 .header {
     background-color: white;
-    padding-top: 15px;
+    padding-top: 12px;
+    height: 60px;
 }
 .title-header {
-    height: 177px;
+    height: 180px;
     overflow: hidden;
     background: #89c758 url('../img/bg-pattern.png') repeat left top;
     box-shadow: 0 1px 1px rgba(0,0,0,0.2), 0 -2px 1px #cff0b5;
@@ -68,10 +69,10 @@
 }
 
 .title-subheader {
-	padding: 5px 20px 5px 20px;
+	padding: 0 20px 0 20px;
 	background-color: #498819;
 	color: white;
-    height: 50px;
+    height: 40px;
 }
 
 .title-subheader * {

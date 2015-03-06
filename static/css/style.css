@@ -1,4 +1,5 @@
 @import url('./content.css');
+@import url('./tags.css');
 @import url('./fonts.css');
 @import url('./headers.css');
 @import url('./colors.css');
@@ -6,9 +7,4 @@
 body {
     font-size: 14px;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    font-weight: 300;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
 }

@@ -3,6 +3,8 @@ title: "Layered architecture"
 type: "home"
 zones:
     - "Business"
+sections:
+    - "BusinessConcepts"
 menu:
     BusinessConcepts:
         weight: 20

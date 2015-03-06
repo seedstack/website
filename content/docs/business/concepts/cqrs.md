@@ -3,6 +3,8 @@ title: "CQRS basics"
 type: "home"
 zones:
     - "Business"
+sections:
+    - "BusinessConcepts"
 menu:
     BusinessConcepts:
         weight: 100

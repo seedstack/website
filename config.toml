@@ -11,136 +11,187 @@ MetaDataFormat = "yaml"
 #####################################
 
 [params.zone.Seed]
-  basepath = "/docs/seed"
-  label = "Seed"
+  path = "/docs/seed"
+  label = "Java framework"
 
 [params.zone.Business]
-  basepath = "/docs/business"
-  label = "Business"
+  path = "/docs/business"
+  label = "Business framework"
 
 [params.zone.W20]
-  basepath = "/docs/w20"
-  label = "W20"
+  path = "/docs/w20"
+  label = "Web framework"
 
 [params.zone.GettingStarted]
-  basepath = "/docs/getting-started"
+  path = "/docs/getting-started"
   label = "Getting started"
-
-[params.zone.Functions]
-  basepath = "/docs/functions"
-  label = "Reusable functions"
 
 #####################################
 #### Business framework sections ####
 #####################################
 
+[params.section.BusinessIntroduction]
+  label = "Introduction"
+  icon = "fa fa-file-text"
+  path = ""
+
+[params.section.BusinessConcepts]
+  label = "Concepts"
+  icon = "fa fa-lightbulb-o"
+  path = "concepts"
+
 [params.section.BusinessDomainLayer]
   label = "Domain layer"
   icon = "fa fa-building"
+  path = "reference/domain"
 
 [params.section.BusinessApplicationLayer]
   label = "Application layer"
   icon = "fa fa-cog"
+  path = "reference/application"
 
 [params.section.BusinessInterfaceLayer]
   label = "Interface layer"
   icon = "fa fa-th-large"
+  path = "reference/interfaces"
 
 #####################################
 #### Seed framework sections     ####
 #####################################
 
+[params.section.SeedIntroduction]
+  label = "Introduction"
+  icon = "fa fa-file-text"
+  path = ""
+
+[params.section.SeedConcepts]
+  label = "Concepts"
+  icon = "fa fa-lightbulb-o"
+  path = "concepts"
+
 [params.section.SeedCore]
   label = "Core"
   icon = "fa fa-cogs"
+  path = "reference/core"
 
 [params.section.SeedSecurity]
   label = "Security"
   icon = "fa fa-shield"
+  path = "reference/security"
 
 [params.section.SeedWeb]
   label = "Web"
   icon = "fa fa-globe"
+  path = "reference/web"
 
 [params.section.SeedRest]
   label = "Rest"
   icon = "fa fa-link"
+  path = "reference/rest"
 
 [params.section.SeedTransactions]
   label = "Transactions"
   icon = "fa fa-retweet"
+  path = "reference/transactions"
 
 [params.section.SeedPersistence]
   label = "Persistence"
   icon = "fa fa-save"
+  path = "reference/persistence"
 
 [params.section.SeedJMS]
   label = "JMS"
   icon = "fa fa-random"
+  path = "reference/jms"
 
 [params.section.SeedWebServices]
   label = "Web Services"
   icon = "fa fa-legal"
+  path = "reference/ws"
 
 [params.section.SeedValidation]
   label = "Validation"
   icon = "fa fa-check"
+  path = "reference/validation"
 
 [params.section.SeedSpring]
   label = "Spring"
   icon = "fa fa-leaf"
+  path = "reference/spring"
 
 [params.section.SeedShell]
   label = "Shell"
   icon = "fa fa-terminal"
+  path = "reference/shell"
 
 [params.section.SeedTest]
   label = "Testing"
   icon = "fa fa-thumbs-up"
+  path = "reference/test"
 
 [params.section.SeedBatch]
   label = "Batch"
   icon = "fa fa-file"
+  path = "reference/batch"
 
 [params.section.SeedScheduling]
   label = "Scheduling"
   icon = "fa fa-clock-o"
+  path = "reference/scheduling"
 
 [params.section.SeedCache]
   label = "Cache"
   icon = "fa fa-rocket"
+  path = "reference/cache"
 
 [params.section.SeedMail]
   label = "Mail"
   icon = "fa fa-envelope"
+  path = "reference/mail"
 
 [params.section.SeedMetrics]
   label = "Metrics"
   icon = "fa fa-chart"
+  path = "reference/metrics"
 
 #####################################
 #### W20 sections                ####
 #####################################
 
+[params.section.W20Introduction]
+  label = "Introduction"
+  icon = "fa fa-file-text"
+  path = ""
+
+[params.section.W20Concepts]
+  label = "Concepts"
+  icon = "fa fa-lightbulb-o"
+  path = "concepts"
+
 [params.section.W20Core]
   label = "Core"
   icon = "fa fa-cogs"
+  path = "reference/core"
 
 [params.section.W20UI]
   label = "UI"
   icon = "fa fa-desktop"
+  path = "reference/ui"
 
 [params.section.W20Dataviz]
   label = "Data visualization"
   icon = "fa fa-bar-chart"
+  path = "reference/dataviz"
 
 [params.section.W20Touch]
   label = "Touch"
   icon = "fa fa-hand-o-up"
+  path = "reference/touch"
 
 [params.section.W20Extra]
   label = "Extras"
   icon = "fa fa-plus-square"
+  path = "reference/extra"
 
 #####################################
 #### Reusable functions sections ####

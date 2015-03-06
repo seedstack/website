@@ -3,9 +3,9 @@
 {{ $lzone := lower $zone }}
 {{ $headerPartial := add $lzone "-home-header.html" }}
 <html lang="en">
-
+<head>
 {{ partial "head.html" . }}
-
+</head>
 <body style="background-color: #eee;">
     <div id="header">
         {{ partial "header.html" . }}

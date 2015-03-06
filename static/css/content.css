@@ -2,11 +2,6 @@
     padding-top: 20px;
 }
 
-.reading-time {
-    line-height: 30px;
-    text-align: right;
-}
-
 .side-menu {
     z-index: 2;
     margin: 0 0;
@@ -14,6 +9,7 @@
 }
 
 .side-menu * {
+    line-height: 20px;
     text-rendering: optimizeLegibility;
     font-kerning: normal;
     -webkit-font-smoothing: antialiased;
@@ -70,7 +66,7 @@
 .side-menu .list-group-item {
     padding-left: 0.5em;
     padding-right: 0.5em;
-    line-height: 18px;
+    line-height: 20px;
     font-family: 'Open Sans', 'Helvetica', sans-serif;
 }
 
@@ -95,6 +91,11 @@
 
 .side-menu ul#tags li + li:before {
     content: "\0000b7  ";
+}
+
+.reading-time {
+    line-height: 40px;
+    text-align: right;
 }
 
 .page-switcher {
@@ -124,8 +125,8 @@
 }
 
 .content-wrapper {
-    margin: 30px 0 30px 0;
-    padding: 30px 30px 19px 30px;
+    margin: 40px 0 40px 0;
+    padding: 40px 30px 19px 30px;
     background-color: white;
     min-height: 100vh;
 }
@@ -153,9 +154,13 @@
     margin: 0;
 }
 
-.doc-content > p:first-of-type:first-letter {
-    font-size: 40px;
-    line-height: 20px;
+.doc-content > p:first-of-type {
+    margin-bottom: 20px;
+}
+
+.doc-content > p:first-of-type:first-line {
+    font-variant: small-caps;
+    font-size: 20px;
 }
 
 .doc-content p + p {
@@ -179,7 +184,7 @@
 .doc-content h1 {
     font-weight: 300;
     border-bottom: 1px solid #555;
-    font-size: 28px;
+    font-size: 30px;
     line-height: 40px;
     margin: 20px 0 39px 0;
 }
@@ -189,8 +194,8 @@
 }
 
 .doc-content h2 {
-    font-weight: 400;
     font-size: 20px;
+    line-height: 20px;
     margin: 20px 0 20px 0;
 }
 
@@ -220,12 +225,14 @@
     font-family: 'Source Code Pro', 'Courier New', monospace;
     white-space: pre-wrap;
     font-size: 14px;
+    line-height: 20px;
+    padding: 0;
 }
 
 .doc-content pre {
     font-family: 'Source Code Pro', 'Courier New', monospace;
-    border: 1px solid #f7f7f7;
-    margin: 19px 0 19px 0;
+    border: none;
+    margin: 20px 0 20px 0;
     padding: 0;
 }
 
@@ -263,7 +270,7 @@
 
 .callout {
     margin: 20px 0;
-    padding: 30px;
+    padding: 20px 30px;
     border-left: 3px solid #eee;
 }
 

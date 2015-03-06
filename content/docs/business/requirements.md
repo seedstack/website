@@ -3,6 +3,8 @@ title: "Requirements"
 type: "home"
 zones:
     - "Business"
+sections:
+    - "BusinessIntroduction"
 menu:
     BusinessIntroduction:
         weight: 20

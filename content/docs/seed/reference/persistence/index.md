@@ -16,10 +16,20 @@ menu:
 SEED provides various persistence supports. Multiple supports can be used simultaneously 
 by importing the corresponding Maven dependencies into your application module.
 
+# JDBC
+
+Seed JDBC persistence support allows you to inject and use configured JDBC connections in a transactional manner.
+Add it to your application with the following Maven dependency:
+
+    <dependency>
+        <groupId>org.seedstack.seed</groupId>
+        <artifactId>seed-persistence-jpa-support</artifactId>
+    </dependency>
+
 # JPA
 
-SEED JPA persistence support addresses the persistence of relational data in SEED applications. It is available through 
-following Maven dependency:
+Seed JPA persistence support allows you to inject and use configured JPA units in a transactional manner. 
+Add it to your application with the following Maven dependency:
 
     <dependency>
         <groupId>org.seedstack.seed</groupId>
@@ -28,8 +38,8 @@ following Maven dependency:
 
 # Elastic Search
 
-SEED Elastic Search persistence support enables configuration and management of ElasticSearch clients in SEED applications. 
-It is available through following Maven dependency:
+Seed ElasticSearch persistence support allows you to inject ElasticSearch clients. 
+Add it to your application with the following Maven dependency:
 
     <dependency>
         <groupId>org.seedstack.seed</groupId>
@@ -38,20 +48,12 @@ It is available through following Maven dependency:
 
 # In memory
 
-SEED in-memory persistence support provides a very simple way to "persist" data in memory buckets. It is mainly for
-testing purposes. It is available through following Maven dependency:
+SEED in-memory persistence support allows to store data in memory buckets, mainly for testing purposes. 
+Add it to your application with the following Maven dependency:
 
     <dependency>
         <groupId>org.seedstack.seed</groupId>
         <artifactId>seed-persistence-inmemory-support</artifactId>
     </dependency>
 
-# TinkerPop
-
-Address the persistence of graph oriented data in SEED applications. It is available through following Maven dependency:
-
-    <dependency>
-        <groupId>org.seedstack.seed</groupId>
-        <artifactId>seed-persistence-tinkerpop-support</artifactId>
-    </dependency>
 

@@ -123,7 +123,7 @@ Usage:
 
 # Auto initialization
 
-Data could be automatically loaded at the application startup by adding the exported YAML file(s) in 
+Data can be automatically loaded at the application startup by adding the exported YAML file(s) in 
 `META-INF/data/{group}/{name}.yaml`. These data files will be loaded unless the application is already initialized 
 (according to your `isInitialized()` method implementation). Initialization can be forced each time this application 
 is started by adding this property:
@@ -131,3 +131,8 @@ is started by adding this property:
     [com.inetpsa.seed.core]
     data-initialization = force
 
+Data loading can also be disabled by setting the property to `none`:
+
+    [com.inetpsa.seed.core]
+    data-initialization = none
+    

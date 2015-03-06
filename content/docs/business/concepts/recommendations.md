@@ -3,6 +3,8 @@ title: "Recommendations"
 type: "home"
 zones:
     - "Business"
+sections:
+    - "BusinessConcepts"
 menu:
     BusinessConcepts:
         weight: 80

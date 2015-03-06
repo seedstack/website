@@ -2,29 +2,31 @@
 {{ $zone := index .Params.zones 0 }}
 {{ $section := index .Params.sections 0 }}
 <html lang="en">
-    {{ partial "head.html" . }}
-    <body style="background-color: #eee;">
-        <div id="header">
-            {{ partial "header.html" . }}
-            <div class="title-subheader">
-                <div class="container">
-                    <h3>
-                        <a href='{{ index .Site.Params.zone $zone "basepath" }}'>{{ index .Site.Params.zone $zone "label" }}</a>
-                        <i class="fa fa-caret-right"></i>
-                        <a href='{{ index .Site.Params.zone $zone "basepath" }}/reference'>Reference</a>
-                        <i class="fa fa-caret-right"></i>
-                        <i class='{{ index .Site.Params.section $section "icon" }}'></i>
-                        {{ index .Site.Params.section $section "label" }}
-                    </h3>
-                </div>
+<head>
+{{ partial "head.html" . }}
+</head>
+<body style="background-color: #eee;">
+    <div id="header">
+        {{ partial "header.html" . }}
+        <div class="title-subheader">
+            <div class="container">
+                <h3>
+                    <a href='{{ index .Site.Params.zone $zone "path" }}'>{{ index .Site.Params.zone $zone "label" }}</a>
+                    <i class="fa fa-caret-right"></i>
+                    <a href='{{ index .Site.Params.zone $zone "path" }}/reference'>Reference</a>
+                    <i class="fa fa-caret-right"></i>
+                    <i class='{{ index .Site.Params.section $section "icon" }}'></i>
+                    {{ index .Site.Params.section $section "label" }}
+                </h3>
             </div>
         </div>
-        <div id="content" class="container">
-            {{ partial "content.html" . }}
-        </div>
-        <div id="footer">
-            {{ partial "footer.html" . }}
-        </div>
-        {{ partial "scripts.html" . }}
-    </body>
+    </div>
+    <div id="content" class="container">
+        {{ partial "content.html" . }}
+    </div>
+    <div id="footer">
+        {{ partial "footer.html" . }}
+    </div>
+    {{ partial "scripts.html" . }}
+</body>
 </html>

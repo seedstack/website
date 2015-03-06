@@ -3,6 +3,8 @@ title: "Additional concepts"
 type: "home"
 zones:
     - "Business"
+sections:
+    - "BusinessConcepts"
 menu:
     BusinessConcepts:
         weight: 90

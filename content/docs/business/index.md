@@ -3,6 +3,8 @@ title: "Business framework overview"
 type: "home"
 zones:
     - "Business"
+sections:
+    - "BusinessIntroduction"
 menu:
     BusinessIntroduction:
         weight: 10
@@ -10,13 +12,13 @@ menu:
 
 # Conception
 
-SEED Business Framework brings a simple and standard way to code projects with medium to complex business logic. 
-It provides tools and guides to enable its founding concepts to naturally sink into your projects and help to to get 
-a supple and scalable design. Those concepts are based on a few design styles : 
-[Object Oriented Design](#!/business-doc/object-oriented-paradigm), 
-[Domain Driven Design](#!/business-doc/understanding-ddd) 
-and some [C.Q.R.S](#!/business-doc/understanding-cqrs). 
-Those subjects are documented on their own.
+SeedStack Business Framework brings a simple and standard way to code projects with medium to complex business logic. 
+It provides tools and guides to facilitate its adoption in your projects and help you to to get a supple and scalable 
+design. Those concepts are based on a three main design styles: 
+
+* Object Oriented Design, 
+* Domain Driven Design, 
+* CQRS.
 
 # Code
 
