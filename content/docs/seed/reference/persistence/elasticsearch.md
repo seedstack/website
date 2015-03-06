@@ -5,6 +5,10 @@ zones:
     - "Seed"
 sections:
     - "SeedPersistence"
+tags:
+    - "elasticsearch"
+    - "configuration"
+    - "example"
 menu:
     SeedPersistence:
         weight: 30

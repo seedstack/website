@@ -5,6 +5,9 @@ zones:
     - "Seed"
 sections:
     - "SeedTest"
+tags:
+    - "test"
+    - "maven"
 menu:
     SeedTest:
         weight: 10

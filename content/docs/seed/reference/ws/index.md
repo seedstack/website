@@ -5,6 +5,9 @@ zones:
     - "Seed"
 sections:
     - "SeedWebServices"
+tags:
+    - "web-service"
+    - "maven"
 menu:
     SeedWebServices:
         weight: 10

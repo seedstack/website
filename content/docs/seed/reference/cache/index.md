@@ -5,6 +5,9 @@ zones:
     - "Seed"
 sections:
     - "SeedCache"
+tags:
+    - "cache"
+    - "maven"
 menu:
     SeedCache:
         weight: 10

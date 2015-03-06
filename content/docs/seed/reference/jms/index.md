@@ -5,6 +5,9 @@ zones:
     - "Seed"
 sections:
     - "SeedJMS"
+tags:
+    - "jms"
+    - "maven"
 menu:
     SeedJMS:
         weight: 10

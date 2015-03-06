@@ -5,6 +5,9 @@ zones:
     - "Seed"
 sections:
     - "SeedMail"
+tags:
+    - "mail"
+    - "maven"
 menu:
     SeedMail:
         weight: 10

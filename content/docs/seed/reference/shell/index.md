@@ -5,6 +5,11 @@ zones:
     - "Seed"
 sections:
     - "SeedShell"
+tags:
+    - "shell"
+    - "command"
+    - "maven"
+    - "configuration"
 menu:
     SeedShell:
         weight: 10

@@ -3,6 +3,9 @@ title: "Automatic integration"
 type: "home"
 zones:
     - "Seed"
+tags:
+    - "classpath"
+    - "integration"
 menu:
     SeedConcepts:
         weight: 40

@@ -5,6 +5,13 @@ zones:
     - "Seed"
 sections:
     - "SeedWeb"
+tags:
+    - "web"
+    - "resources"
+    - "static"
+    - "configuration"
+    - "mime-type"
+    - "servlet"
 menu:
     SeedWeb:
         weight: 30

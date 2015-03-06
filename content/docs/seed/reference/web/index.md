@@ -5,6 +5,11 @@ zones:
     - "Seed"
 sections:
     - "SeedWeb"
+tags:
+    - "web"
+    - "servlet"
+    - "filter"
+    - "maven"
 menu:
     SeedWeb:
         weight: 10

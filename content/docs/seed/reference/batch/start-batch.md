@@ -5,6 +5,11 @@ zones:
     - "Seed"
 sections:
     - "SeedBatch"
+tags:
+    - "batch"
+    - "example"
+    - "tasklet"
+    - "job"
 menu:
     SeedBatch:
         weight: 20
@@ -15,15 +20,15 @@ interfaces usage as clear as possible with a simple job example. This one step j
 
 # Add Maven dependencies
 
-This example requires `seed-business-function-core`:
+This example requires `business-core`:
 
  		<dependency>
             <groupId>org.seedstack.seed</groupId>
-            <artifactId>seed-batch-support-springbatch2</artifactId>
+            <artifactId>seed-springbatch2-support</artifactId>
         </dependency>
         <dependency>
-           <groupId>org.seedstack</groupId>
-           <artifactId>seed-business-function-core</artifactId>
+           <groupId>org.seedstack.business</groupId>
+           <artifactId>business-core</artifactId>
        </dependency>
 
 
@@ -33,30 +38,27 @@ We need to set up a Spring Batch environment. Spring files have to be in **resou
 
 application-context.xml:
 
-```
-<beans xmlns="http://www.springframework.org/schema/beans"
-	   xmlns:batch="http://www.springframework.org/schema/batch"
-	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	   xmlns:seed="http://seed.inetpsa.com/schema/spring-support"
-	   xsi:schemaLocation="http://www.springframework.org/schema/batch
-		http://www.springframework.org/schema/batch/spring-batch-2.2.xsd
-		http://www.springframework.org/schema/beans
-		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
-		http://seed.inetpsa.com/schema/spring-support
-	    http://seed.inetpsa.com/schema/spring-support-1.0.xsd">
- 
-	<bean id="jobRepository" class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean">
-		<property name="transactionManager" ref="transactionManager" />
-	</bean>
-
-	<bean id="transactionManager" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager" />
-
-	<bean id="jobLauncher" class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
-		<property name="jobRepository" ref="jobRepository" />
-	</bean>
-	
-   </beans>
-```
+    <beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:batch="http://www.springframework.org/schema/batch"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:seed="http://seed.inetpsa.com/schema/spring-support"
+           xsi:schemaLocation="http://www.springframework.org/schema/batch
+            http://www.springframework.org/schema/batch/spring-batch-2.2.xsd
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+            http://seed.inetpsa.com/schema/spring-support
+            http://seed.inetpsa.com/schema/spring-support-1.0.xsd">
+     
+        <bean id="jobRepository" class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean">
+            <property name="transactionManager" ref="transactionManager" />
+        </bean>
+    
+        <bean id="transactionManager" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager" />
+    
+        <bean id="jobLauncher" class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
+            <property name="jobRepository" ref="jobRepository" />
+        </bean>
+    </beans>
 
 Description of the beans:
 
@@ -96,73 +98,69 @@ and implementation :
 A tasklet is a Class containing custom logic to be ran as a part of a job. `PrintTasklet` is our custom tasklet which
 implements `Tasklet` interface and overrides the `execute()` method which prints the message from `MessageService`.
 
-```
-package com.inetpsa.seed.batch.tasklet;
-
-import org.springframework.batch.core.StepContribution;
-import org.springframework.batch.core.scope.context.ChunkContext;
-import org.springframework.batch.core.step.tasklet.Tasklet;
-import org.springframework.batch.repeat.RepeatStatus;
-
-import com.inetpsa.seed.service.MessageService;
-
-public class PrintTasklet implements Tasklet {
-
-    private MessageService messageService;
-	private Logger logger = LoggerFactory.getLogger(PrintTasklet.class);
-
-	public RepeatStatus execute(StepContribution contribution,
-			ChunkContext chunkContext) throws Exception {
-		logger.info(messageService.getMessage());
-		return RepeatStatus.FINISHED;
-	}
-
-	public MessageService getMessageService() {
-		return messageService;
-	}
-
-	public void setMessageService(MessageService messageService) {
-		this.messageService = messageService;
-	}
-	
-}
-```
+    package com.inetpsa.seed.batch.tasklet;
+    
+    import org.springframework.batch.core.StepContribution;
+    import org.springframework.batch.core.scope.context.ChunkContext;
+    import org.springframework.batch.core.step.tasklet.Tasklet;
+    import org.springframework.batch.repeat.RepeatStatus;
+    
+    import com.inetpsa.seed.service.MessageService;
+    
+    public class PrintTasklet implements Tasklet {
+    
+        private MessageService messageService;
+        private Logger logger = LoggerFactory.getLogger(PrintTasklet.class);
+    
+        public RepeatStatus execute(StepContribution contribution,
+                ChunkContext chunkContext) throws Exception {
+            logger.info(messageService.getMessage());
+            return RepeatStatus.FINISHED;
+        }
+    
+        public MessageService getMessageService() {
+            return messageService;
+        }
+    
+        public void setMessageService(MessageService messageService) {
+            this.messageService = messageService;
+        }
+        
+    }
 
 # Define the job Configuration
 
 In this section we will configure the Spring Batch job context to use our Tasklet and inject SEED managed `MessageService`.
 
-job-context.xml
-```
-<beans xmlns="http://www.springframework.org/schema/beans"
-	   xmlns:batch="http://www.springframework.org/schema/batch"
-	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	   xmlns:seed="http://seed.inetpsa.com/schema/spring-support"
-	   xsi:schemaLocation="http://www.springframework.org/schema/batch
-		http://www.springframework.org/schema/batch/spring-batch-2.2.xsd
-		http://www.springframework.org/schema/beans
-		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
-		http://seed.inetpsa.com/schema/spring-support
-	    http://seed.inetpsa.com/schema/spring-support-1.0.xsd">
- 
-  <import resource="application-context.xml"/>
- 
-  <batch:job id="mySimpleJob">
+job-context.xml:
 
-        <batch:step id="printStep" >
-			<batch:tasklet>
-				<bean class="com.inetpsa.seed.batch.tasklet.PrintTasklet">
-				<property name="messageService">
-					<seed:instance class="com.inetpsa.seed.service.MessageService"/>
-				</property>
-			</bean>
-			</batch:tasklet>
-		</batch:step>
-
-	</batch:job>
-
-   </beans>
-```
+    <beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:batch="http://www.springframework.org/schema/batch"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:seed="http://seed.inetpsa.com/schema/spring-support"
+           xsi:schemaLocation="http://www.springframework.org/schema/batch
+            http://www.springframework.org/schema/batch/spring-batch-2.2.xsd
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+            http://seed.inetpsa.com/schema/spring-support
+            http://seed.inetpsa.com/schema/spring-support-1.0.xsd">
+     
+        <import resource="application-context.xml"/>
+        
+        <batch:job id="mySimpleJob">
+        
+            <batch:step id="printStep" >
+                <batch:tasklet>
+                    <bean class="com.inetpsa.seed.batch.tasklet.PrintTasklet">
+                    <property name="messageService">
+                        <seed:instance class="com.inetpsa.seed.service.MessageService"/>
+                    </property>
+                </bean>
+                </batch:tasklet>
+            </batch:step>
+        
+        </batch:job>
+    </beans>
 
 Above example illustrates the basic structure of a job. A job (`<batch:jobProperty>` tag) is made of steps (`<batch:step>` tag) 
 with a Tasklet (`<batch:tasklet>` tag) and related beans to be injected. Steps are executed one by one following their declarative order. 

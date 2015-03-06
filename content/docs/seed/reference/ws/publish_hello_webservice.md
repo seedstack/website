@@ -5,6 +5,12 @@ zones:
     - "Seed"
 sections:
     - "SeedWebServices"
+tags:
+    - "web-service"
+    - "wsdl"
+    - "configuration"
+    - "example"
+    - "wsimport"
 menu:
     SeedWebServices:
         weight: 40

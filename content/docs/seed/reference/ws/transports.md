@@ -5,6 +5,11 @@ zones:
     - "Seed"
 sections:
     - "SeedWebServices"
+tags:
+    - "web-service"
+    - "http"
+    - "jms"
+    - "jndi"
 menu:
     SeedWebServices:
         weight: 30

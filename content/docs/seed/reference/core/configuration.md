@@ -5,6 +5,11 @@ zones:
     - "Seed"
 sections:
     - "SeedCore"
+tags:
+    - "configuration"
+    - "api"
+    - "props"
+    - "properties"
 menu:
     SeedCore:
         weight: 20
@@ -55,7 +60,7 @@ following keys, until the section end or end of file.
 * Section name is added as a prefix to section properties. 
 * Section ends with empty section definition `[]` or with new section start or end of file.
 
-This exemple (props format) :
+This example (props format) :
 
 	# Example 1 (props format).
     [users.data]

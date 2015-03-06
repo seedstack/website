@@ -5,6 +5,10 @@ zones:
     - "Seed"
 sections:
     - "SeedWebServices"
+tags:
+    - "web-service"
+    - "test"
+    - "arquillian"
 menu:
     SeedWebServices:
         weight: 60

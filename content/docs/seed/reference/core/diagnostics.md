@@ -5,6 +5,9 @@ zones:
     - "Seed"
 sections:
     - "SeedCore"
+tags:
+    - "diagnostic"
+    - "api"
 menu:
     SeedCore:
         weight: 60

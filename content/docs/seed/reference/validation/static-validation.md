@@ -5,6 +5,10 @@ zones:
     - "Seed"
 sections:
     - "SeedValidation"
+tags:
+    - "validation"
+    - "example"
+    - "api"
 menu:
     SeedValidation:
         weight: 20

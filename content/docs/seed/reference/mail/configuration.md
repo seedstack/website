@@ -5,6 +5,9 @@ zones:
     - "Seed"
 sections:
     - "SeedMail"
+tags:
+    - "configuration"
+    - "mail"
 menu:
     SeedMail:
         weight: 20

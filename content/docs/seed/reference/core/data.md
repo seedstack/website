@@ -5,6 +5,12 @@ zones:
     - "Seed"
 sections:
     - "SeedCore"
+tags:
+    - "api"
+    - "command"
+    - "data"
+    - "import"
+    - "export"
 menu:
     SeedCore:
         weight: 50
@@ -115,7 +121,7 @@ Usage:
 
 	ssh -t admin@localhost -p 2222 "core:import" < data.yaml
 
-# Auto initialisation
+# Auto initialization
 
 Data could be automatically loaded at the application startup by adding the exported YAML file(s) in 
 `META-INF/data/{group}/{name}.yaml`. These data files will be loaded unless the application is already initialized 

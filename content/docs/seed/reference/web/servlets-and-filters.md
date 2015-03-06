@@ -5,6 +5,12 @@ zones:
     - "Seed"
 sections:
     - "SeedWeb"
+tags:
+    - "web"
+    - "filter"
+    - "servlet"
+    - "api"
+    - "configuration"
 menu:
     SeedWeb:
         weight: 20

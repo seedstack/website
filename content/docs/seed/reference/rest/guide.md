@@ -5,6 +5,11 @@ zones:
     - "Seed"
 sections:
     - "SeedRest"
+tags:
+    - "rest"
+    - "jax-rs"
+    - "http"
+    - "example"
 menu:
     SeedRest:
         weight: 30

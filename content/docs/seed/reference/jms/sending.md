@@ -5,6 +5,11 @@ zones:
     - "Seed"
 sections:
     - "SeedJMS"
+tags:
+    - "jms"
+    - "sending"
+    - "message"
+    - "transactions"
 menu:
     SeedJMS:
         weight: 30

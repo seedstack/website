@@ -5,6 +5,13 @@ zones:
     - "Seed"
 sections:
     - "SeedSecurity"
+tags:
+    - "security"
+    - "maven"
+    - "realm"
+    - "permission"
+    - "role"
+    - "filter"
 menu:
     SeedSecurity:
         weight: 10

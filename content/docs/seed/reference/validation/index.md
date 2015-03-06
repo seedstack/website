@@ -5,12 +5,13 @@ zones:
     - "Seed"
 sections:
     - "SeedValidation"
+tags:
+    - "validation"
+    - "maven"
 menu:
     SeedValidation:
         weight: 10
 ---
-
-# Context
 
 SEED Validation Support allows developers to use Bean Validation 1.0 and 1.1.
 
@@ -19,9 +20,11 @@ SEED Validation Support allows developers to use Bean Validation 1.0 and 1.1.
 
 Data validation is a very common concern at each and every layer of an application. As such, 
 it has been standardized through Bean Validation using JSR 303 and JSR 349. Integration of those in SEED Validation Support
-brings a Bean Validation to SEED. Implementation uses **Hibernate Validator 5.0.1 Final**.
+brings a Bean Validation to SEED. Implementation uses **Hibernate Validator** that you need to add explicitly in your
+project:
 
-<!--Following sections will show how to handle the whole stack.-->
+- Use Hibernate Validator version 4.x to support Bean Validation 1.0 only (like in strict JEE6 environments)
+- Use Hibernate Validator version 5.x to support Bean Validation 1.1
 
 # Maven dependency
 
@@ -47,6 +50,4 @@ Please note that validation only works on instances managed by SEED.
 * Bean Validation 1.1 :
   * [http://blog.frankel.ch/design-by-contract-and-bean-validation](http://blog.frankel.ch/design-by-contract-and-bean-validation)
 
-* Parley's video :
-  * [http://parleys.com/play/515c5154e4b05f99653c0b37/chapter8/agenda](http://parleys.com/play/515c5154e4b05f99653c0b37/chapter8/agenda)
 

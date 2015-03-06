@@ -5,6 +5,11 @@ zones:
     - "Seed"
 sections:
     - "SeedTransactions"
+tags:
+    - "transaction"
+    - "aop"
+    - "example"
+    - "jpa"
 menu:
     SeedTransactions:
         weight: 20

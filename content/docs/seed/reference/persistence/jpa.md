@@ -5,6 +5,13 @@ zones:
     - "Seed"
 sections:
     - "SeedPersistence"
+tags:
+    - "maven"
+    - "persistence"
+    - "jpa"
+    - "configuration"
+    - "jndi"
+    - "transactions"
 menu:
     SeedPersistence:
         weight: 20
@@ -182,9 +189,8 @@ Use an Hibernate version still compatible with JPA 1.0 (ie. until version 3.3.2.
 Provide the right JPA API version if your classes are in a different module:
 
     <dependency>
-        <groupId>org.apache.geronimo.specs</groupId>
-        <artifactId>geronimo-jpa_1.0_spec</artifactId>
-        <version>1.1.2</version>
-         <scope>provided</scope>
+        <groupId>org.hibernate.javax.persistence</groupId>
+        <artifactId>hibernate-jpa-2.0-api</artifactId>
+        <scope>provided</scope>
     </dependency>
 
