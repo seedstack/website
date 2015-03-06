@@ -29,9 +29,11 @@
     <div class="list-group">
         <ul class="nav">
             <li class="list-group-item"><i class="fa fa-tag"></i> Tags
-                {{ range $parent.Params.tags }}
-                <a class="label label-success" href="/tags/{{ . | urlize }}">{{ . }}</a>
-                {{ end }}
+                <div class="tags">
+                    {{ range $parent.Params.tags }}
+                    <a href="/tags/{{ . | urlize }}">{{ . }}</a>
+                    {{ end }}
+                </div>
             </li>
         </ul>
     </div>

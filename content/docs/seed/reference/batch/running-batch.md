@@ -8,7 +8,7 @@ sections:
 tags:
     - "batch"
     - "cli"
-    - "über-jar"
+    - "uber-jar"
     - "shade"
     - "maven"
 menu:

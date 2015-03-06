@@ -1,0 +1,42 @@
+.tags a {
+    background: #eee;
+    color: #555;
+    text-decoration: none;
+    margin: 0 0 10px 18px;
+    padding: 2px 10px 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    position: relative;
+    white-space: nowrap;
+    line-height: 40px;
+}
+
+.tags a:hover {
+    background-color: #72c02c;
+    color: white;
+}
+
+.tags a:before {
+    content: "";
+    border-style: solid;
+    border-color: transparent #eee transparent transparent;
+    border-width: 12px 13px 12px 0;
+    position: absolute;
+    left: -13px;
+    top: 0;
+}
+
+.tags a:hover:before {
+    border-color: transparent #72c02c transparent transparent;
+}
+
+.tags a:after {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 50% 50% 50% 50%;
+    content: "";
+    height: 5px;
+    left: -1px;
+    position: absolute;
+    top: 10px;
+    width: 5px;
+}

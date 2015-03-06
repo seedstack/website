@@ -3,6 +3,8 @@ title: "Automatic integration"
 type: "home"
 zones:
     - "Seed"
+sections:
+    - "SeedConcepts"
 tags:
     - "classpath"
     - "integration"

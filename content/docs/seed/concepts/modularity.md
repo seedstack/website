@@ -3,6 +3,8 @@ title: "Java framework modularity"
 type: "home"
 zones:
     - "Seed"
+sections:
+    - "SeedConcepts"
 tags:
     - "modularity"
     - "package"

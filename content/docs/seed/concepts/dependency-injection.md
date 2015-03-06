@@ -3,6 +3,8 @@ title: "Dependency injection"
 type: "home"
 zones:
     - "Seed"
+sections:
+    - "SeedConcepts"
 tags:
     - "ioc"
     - "injection"

@@ -3,26 +3,19 @@
 <div class="inner-results">
     <h3><i class='{{ index .Site.Params.section $section "icon" }}'></i> <a href="{{ .Permalink }}">{{ .Title }}</a></h3>
     <ul class="list-inline up-ul">
-        <li>{{ .Permalink }}‎</li>
-        <li class="btn-group">
-            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
-                More <i class="fa fa-caret-down"></i>
-                <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul role="menu" class="dropdown-menu">
-                <li><a href="#">Share</a></li>
-            </ul>
-        </li>
-    </ul>
-    <p>{{ .Summary }}</p>
-    <ul class="list-inline down-ul">
         <li>
-            <i class="fa fa-location-arrow"></i>
+            In
             <a href='{{ index .Site.Params.zone $zone "path" }}'>{{ index .Site.Params.zone $zone "label" }}</a>
             <i class="fa fa-caret-right"></i>
             <a href='{{ index .Site.Params.zone $zone "path" }}/{{ index .Site.Params.section $section "path" }}'>{{ index .Site.Params.section $section "label" }}</a>
         </li>
-        <li><i class="fa fa-tag"></i> Tags: {{ range .Params.tags }}<a href="/tags/{{ . | urlize }}">{{ . | title }}</a> {{ end }}</li>
+    </ul>
+    <ul class="list-inline up-ul">
+        <li style="color: #88c758;">{{ .Permalink }}‎</li>
+    </ul>
+    <p>{{ .Summary }}</p>
+    <ul class="list-inline down-ul">
+        <span class="tags">{{ range .Params.tags }}<a href="/tags/{{ . | urlize }}">{{ . | title }}</a>{{ end }}</span>
     </ul>
 </div>
 <hr>

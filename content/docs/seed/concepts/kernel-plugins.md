@@ -3,6 +3,8 @@ title: "Kernel + plugins architecture"
 type: "home"
 zones:
     - "Seed"
+sections:
+    - "SeedConcepts"
 tags:
     - "plugin"
     - "lifecycle"
