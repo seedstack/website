@@ -10,9 +10,6 @@
             <a href='{{ index .Site.Params.zone $zone "path" }}/{{ index .Site.Params.section $section "path" }}'>{{ index .Site.Params.section $section "label" }}</a>
         </li>
     </ul>
-    <ul class="list-inline up-ul">
-        <li style="color: #88c758;">{{ .Permalink }}‎</li>
-    </ul>
     <p>{{ .Summary }}</p>
     <ul class="list-inline down-ul">
         <span class="tags">{{ range .Params.tags }}<a href="/tags/{{ . | urlize }}">{{ . | title }}</a>{{ end }}</span>

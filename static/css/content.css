@@ -1,5 +1,4 @@
 .content-wrapper {
-    margin: 40px 0 40px 0;
     padding: 40px 30px 19px 30px;
     background-color: white;
 }
@@ -9,15 +8,13 @@
 }
 
 .doc-content * {
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
     font-kerning: normal;
     line-height: 20px;
+    font-weight: 400;
 }
 
 .doc-content {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    font-weight: 400;
     font-size: 14px;
     padding-left: 10px;
     margin-bottom: 20px;

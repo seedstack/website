@@ -1,7 +1,6 @@
 .side-menu {
     z-index: 2;
     margin: 0 0;
-    font-weight: 400;
 }
 
 .side-menu * {
@@ -52,7 +51,7 @@
 }
 
 .side-menu.affix {
-    top: 0;
+    top: 40px;
 }
 
 .side-menu.affix > h1 {

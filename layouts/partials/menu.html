@@ -1,9 +1,6 @@
 {{ $parent := . }}
 {{ range .Menus }}
 <div class="side-menu">
-    <div class="reading-time">
-        <small><i class="fa fa-clock-o"></i> {{ $parent.ReadingTime }} minute{{ if gt $parent.ReadingTime 1 }}s{{ end }}</small>
-    </div>
     <div class="list-group">
         <ul class="nav">
             {{ $toc := $parent.TableOfContents }}

@@ -1,11 +1,63 @@
 @import url('./menu.css');
 @import url('./content.css');
 @import url('./tags.css');
-@import url('./fonts.css');
 @import url('./layout.css');
 @import url('./colors.css');
+
+@font-face {
+    font-family: 'Source Code Pro';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/source-code-pro-regular.ttf');
+}
+
+@font-face {
+    font-family: 'Bitter';
+    font-weight: bold;
+    font-style: normal;
+    src: url('../fonts/bitter-bold.otf');
+}
 
 body {
     font-size: 14px;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+body.reading-mode {
+    background-color: #eee;
+}
+
+body > #header {
+    background-color: white;
+    padding-top: 18px;
+}
+
+body > #content {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    min-height: calc(100vh - 100px - 177px);
+}
+
+body.homepage > #content {
+    min-height: calc(100vh - 280px - 177px);
+}
+
+body.full > #content {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+body > #content > iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+body > #footer > .footer-v3 > .footer {
+    padding: 0;
 }

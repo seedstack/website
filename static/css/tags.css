@@ -1,5 +1,5 @@
 .tags a {
-    background: #eee;
+    background: #ddd;
     color: #555;
     text-decoration: none;
     margin: 0 0 10px 18px;
@@ -13,13 +13,13 @@
 
 .tags a:hover {
     background-color: #72c02c;
-    color: white;
+    color: white !important;
 }
 
 .tags a:before {
     content: "";
     border-style: solid;
-    border-color: transparent #eee transparent transparent;
+    border-color: transparent #ddd transparent transparent;
     border-width: 12px 13px 12px 0;
     position: absolute;
     left: -13px;

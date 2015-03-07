@@ -1,5 +1,5 @@
 ---
-title: "Java framework modularity"
+title: "Modularity"
 type: "home"
 zones:
     - "Seed"
