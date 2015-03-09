@@ -26,6 +26,10 @@ MetaDataFormat = "yaml"
   path = "/docs/getting-started"
   label = "Getting started"
 
+[params.zone.Tools]
+  path = "/docs/tools"
+  label = "Tools"
+
 #####################################
 #### Business framework sections ####
 #####################################

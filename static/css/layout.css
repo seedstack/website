@@ -175,14 +175,12 @@
     background: transparent url('../img/logo.png') no-repeat left 5px;
 }
 
-.homepage-header .navbar-toggle {
-    margin-top: 0;
-    background-color: white;
-    border-color: #dddddd !important;
+.header-image-wrapper {
+    text-align: center;
 }
 
-.homepage-header .navbar-toggle {
-    padding: 9px 10px !important;
+.header-image {
+    padding: 15px 0;
 }
 
 @media (max-width: 600px) {
