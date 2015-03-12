@@ -12,8 +12,8 @@
 
 .side-menu #TableOfContents {
     list-style-type: none;
-    padding: 20px 10px 20px 10px;
     background-color: rgba(152, 255, 59, 0.20);
+    padding: 20px 10px 20px 10px;
 }
 
 .side-menu #TableOfContents ul {

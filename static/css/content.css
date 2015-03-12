@@ -7,17 +7,17 @@
     margin-bottom: 30px;
 }
 
-.doc-content * {
-    font-kerning: normal;
-    line-height: 20px;
-    font-weight: 400;
-}
-
 .doc-content {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 14px;
     padding-left: 10px;
     margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.doc-content * {
+    font-kerning: normal;
+    line-height: 20px;
 }
 
 .doc-content p {
