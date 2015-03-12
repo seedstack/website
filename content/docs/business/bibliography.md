@@ -7,7 +7,7 @@ sections:
     - "BusinessIntroduction"
 menu:
     BusinessIntroduction:
-        weight: 20
+        weight: 30
 ---
 
 To go beyond what is described in this documentation, we recommend a few books which will help you to better understand

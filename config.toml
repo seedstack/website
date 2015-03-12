@@ -44,20 +44,35 @@ MetaDataFormat = "yaml"
   icon = "fa fa-lightbulb-o"
   path = "concepts"
 
-[params.section.BusinessDomainLayer]
+[params.section.BusinessEntities]
   label = "Domain layer"
-  icon = "fa fa-building"
-  path = "reference/domain"
+  icon = "fa fa-square"
+  path = "reference/entities"
 
-[params.section.BusinessApplicationLayer]
+[params.section.BusinessValueObjects]
   label = "Application layer"
-  icon = "fa fa-cog"
-  path = "reference/application"
+  icon = "fa fa-square-o"
+  path = "reference/value-objects"
 
-[params.section.BusinessInterfaceLayer]
+[params.section.BusinessAggregates]
   label = "Interface layer"
   icon = "fa fa-th-large"
-  path = "reference/interfaces"
+  path = "reference/aggregates"
+
+[params.section.BusinessFactories]
+  label = "Interface layer"
+  icon = "fa fa-magic"
+  path = "reference/factories"
+
+[params.section.BusinessRepositories]
+  label = "Interface layer"
+  icon = "fa fa-archive"
+  path = "reference/repositories"
+
+[params.section.BusinessServices]
+  label = "Interface layer"
+  icon = "fa fa-cog"
+  path = "reference/services"
 
 #####################################
 #### Seed framework sections     ####
