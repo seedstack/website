@@ -4,10 +4,10 @@ type: "reference"
 zones:
     - "Business"
 sections:
-    - "BusinessDomainLayer"
+    - "BusinessService"
 menu:
-    BusinessDomainLayer:
-        weight: 80
+    BusinessService:
+        weight: 10
 ---
 
 Let's consider a bank account transfer.

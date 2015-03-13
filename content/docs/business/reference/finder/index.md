@@ -4,10 +4,10 @@ type: "reference"
 zones:
     - "Business"
 sections:
-    - "BusinessInterfaceLayer"
+    - "BusinessFinder"
 menu:
-    BusinessInterfaceLayer:
-        weight: 50
+    BusinessFinder:
+        weight: 10
 ---
 
 A Finder is an object that queries the domain to get lists of domain objects matching some criteria. A Finder queries 

@@ -4,10 +4,10 @@ type: "reference"
 zones:
     - "Business"
 sections:
-    - "BusinessDomainLayer"
+    - "BusinessValueObject"
 menu:
-    BusinessDomainLayer:
-        weight: 50
+    BusinessValueObject:
+        weight: 10
 ---
 
 Minimum requirement for your value object is to extend `BaseValueObject` abstract class to easily get the generic behaviour of a Value Object.

@@ -4,10 +4,10 @@ type: "reference"
 zones:
     - "Business"
 sections:
-    - "BusinessDomainLayer"
+    - "BusinessRepository"
 menu:
-    BusinessDomainLayer:
-        weight: 50
+    BusinessRepository:
+        weight: 10
 ---
 
 A repository is used to manipulate aggregates in a CRUD manner from its aggregate root.

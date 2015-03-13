@@ -1,13 +1,13 @@
 ---
-title: "Data presentation"
+title: "Pagination"
 type: "reference"
 zones:
     - "Business"
 sections:
-    - "BusinessInterfaceLayer"
+    - "BusinessPagination"
 menu:
-    BusinessInterfaceLayer:
-        weight: 60
+    BusinessPagination:
+        weight: 10
 ---
 
 The data presentation API will help developers presenting the data from their domain to external actors. Those are

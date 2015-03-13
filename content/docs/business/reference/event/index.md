@@ -1,16 +1,16 @@
 ---
-title: "Events"
+title: "Domain event"
 type: "reference"
 zones:
     - "Business"
 sections:
-    - "BusinessDomainLayer"
+    - "BusinessEvent"
 menu:
-    BusinessDomainLayer:
-        weight: 90
+    BusinessEvent:
+        weight: 10
 ---
 
-Seed Business Framework an API to manage domain events. 
+Seed Business Framework contains an API to manage domain events. 
 
 # Creating events
 

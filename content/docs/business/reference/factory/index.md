@@ -4,10 +4,10 @@ type: "reference"
 zones:
     - "Business"
 sections:
-    - "BusinessDomainLayer"
+    - "BusinessFactory"
 menu:
-    BusinessDomainLayer:
-        weight: 40
+    BusinessFactory:
+        weight: 10
 ---
 
 A factory is used to **create domain objects**, checking provided data is complete and consistent.

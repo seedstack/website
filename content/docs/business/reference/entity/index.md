@@ -4,10 +4,10 @@ type: "reference"
 zones:
     - "Business"
 sections:
-    - "BusinessDomainLayer"
+    - "BusinessEntity"
 menu:
-    BusinessDomainLayer:
-        weight: 20
+    BusinessEntity:
+        weight: 10
 ---
 
 # BaseJpaEntity

@@ -4,10 +4,10 @@ type: "reference"
 zones:
     - "Business"
 sections:
-    - "BusinessInterfaceLayer"
+    - "BusinessAssembler"
 menu:
-    BusinessInterfaceLayer:
-        weight: 40
+    BusinessAssembler:
+        weight: 10
 ---
 
 The assembler pattern is used to transfer the state of *Aggregates* to *DTO/Representation* objects. Here is the 

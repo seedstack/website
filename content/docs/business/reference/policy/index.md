@@ -4,10 +4,10 @@ type: "reference"
 zones:
     - "Business"
 sections:
-    - "BusinessDomainLayer"
+    - "BusinessPolicy"
 menu:
-    BusinessDomainLayer:
-        weight: 70
+    BusinessPolicy:
+        weight: 10
 ---
 
 Minimum requirement for your policy is to annotate the interface with `@Policy` to easily get the generic behaviour of a Policy.

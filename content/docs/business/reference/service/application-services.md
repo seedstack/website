@@ -1,12 +1,12 @@
 ---
-title: "Application services"
+title: "Application service"
 type: "reference"
 zones:
     - "Business"
 sections:
-    - "BusinessApplicationLayer"
+    - "BusinessService"
 menu:
-    BusinessApplicationLayer:
+    BusinessService:
         weight: 20
 ---
 

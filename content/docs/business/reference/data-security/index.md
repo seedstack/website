@@ -1,34 +1,21 @@
 ---
-title: "Representation"
+title: "Overview"
 type: "reference"
 zones:
     - "Business"
 sections:
-    - "BusinessInterfaceLayer"
+    - "BusinessDataSecurity"
 menu:
-    BusinessInterfaceLayer:
-        weight: 20
+    BusinessDataSecurity:
+        weight: 10
 ---
-
-# What is a representation ?
-
-Representation are objects your API will expose. They can represent an aggregate from your domain, but not necessarily.
-They can also represent partial data coming from multiple aggregates. For instance a receipt representation can be the
-aggregation of a customer aggregate, a product aggregate and an employee aggregate.
-
-# Validation
-
-The representation is the pivotal format between you and your consumers, so **it has to be validated**. In order to do that,
-use the validation support provided by SEED. 
-
-# Secure your exposed data
 
 The security is often all or nothing; if you have a certain permission then, you have access to this method/REST resource/page. 
 But it happens that users with different roles or permissions should have access to the same method but not the same data. 
 For instance, in list of user an admin will see "John Doe" and others will see "John D.". In this case, SEED
 Business framework provides a mechanism to **obfuscate data according to the roles or the permissions** of the connected user.
 
-## Make you assemblers secured
+# Make you assemblers secured
 
 You can add a `@Secured` annotation on your assembler methods to secure assembled data. To secure the outputted representation,
 add the annotation like in the following code:
@@ -51,7 +38,7 @@ so there will be some performance penalty depending on its size. It shouldn't be
 size.
 </div>
 
-## Secured Representations/DTOs with @Restriction
+# Secured Representations/DTOs with @Restriction
 
 Now, we have to indicate what and how to secure the data we want to expose. Below an EmployeeRepresentation.
 
@@ -82,7 +69,7 @@ will be filtered according to your roles and permissions by the
 secured assemblers. Under the hood secured assemblers is using the
 `DataSecurityService` from security support.
 
-## @Restriction detailled usage
+# @Restriction detailled usage
 
 Restriction annotation take two parameters two are optionnal with default values:
 
@@ -104,11 +91,11 @@ Restriction annotation take two parameters two are optionnal with default values
      your own obfuscation rules. You can imagine hide salary, hide
      payment card number and so on.
 
-## Obfuscate without Secured assemblers
+# Obfuscate without Secured assemblers
 
 If you are not using assemblers to create your DTO, you always have 2 ways to secured your exposed data.
 
-### @Secured annotation 
+## @Secured annotation 
 
 Considering the application service EmployeeService 
 
@@ -150,7 +137,7 @@ The following will be obfuscated :
 
 If `EmployeeDto` has some `Restriction`  annotation on its fields, it will be obfuscated according to the value of the security expression.
 
-### DataSecurityService 
+## DataSecurityService 
 
 You can also, anywhere in your interfaces layer or application layer
 use the `DataSecurityService` on you DTOs or Representation as

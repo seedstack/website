@@ -1,13 +1,13 @@
 ---
-title: "Aggregate root"
+title: "Aggregate"
 type: "reference"
 zones:
     - "Business"
 sections:
-    - "BusinessDomainLayer"
+    - "BusinessAggregate"
 menu:
-    BusinessDomainLayer:
-        weight: 30
+    BusinessAggregate:
+        weight: 10
 ---
 
 Since `AggregateRoot` is a sub interface of `Entity` and aggregate root implementations extend corresponding entity 

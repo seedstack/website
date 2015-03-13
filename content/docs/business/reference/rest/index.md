@@ -1,13 +1,13 @@
 ---
-title: "Resource"
+title: "REST resources"
 type: "reference"
 zones:
     - "Business"
 sections:
-    - "BusinessInterfaceLayer"
+    - "BusinessRest"
 menu:
-    BusinessInterfaceLayer:
-        weight: 30
+    BusinessRest:
+        weight: 10
 ---
 
 Resources are main part of the REST API. This feature use the SEED REST support, for more information on it see the 
