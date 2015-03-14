@@ -3,7 +3,7 @@ title: "Anatomy of a SEED project"
 zones:
     - "Seed"
 sections:
-    - "SeedIntroduction"
+    - "GettingStartedIntroduction"
 menu:
     GettingStartedOrganization:
         weight: 20

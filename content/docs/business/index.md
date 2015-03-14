@@ -83,7 +83,7 @@ To successfully apply DDD and use the business framework, some prerequisites mus
 * Have a good knowledge of design patterns:
     * Identify patterns,
     * Know when to use them,
-    * Know when to NOT use them.
+    * Know when NOT use them.
 
 Some patterns are widely employed in the business framework and in SeedStack in general. Having a good understanding of
 them is required. 

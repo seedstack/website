@@ -3,6 +3,8 @@ title: "Web framework introduction"
 type: "home"
 zones:
     - "W20"
+sections:
+    - "W20Introduction"
 menu:
     W20Introduction:
         weight: 10

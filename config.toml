@@ -44,6 +44,21 @@ MetaDataFormat = "yaml"
   icon = "fa fa-lightbulb-o"
   path = "concepts"
 
+[params.section.BusinessReference]
+  label = "Reference"
+  icon = "fa fa-book"
+  path = "reference"
+
+[params.section.BusinessAPI]
+  label = "API"
+  icon = "fa fa-info"
+  path = "api"
+
+[params.section.BusinessReleaseNotes]
+  label = "Release notes"
+  icon = "fa fa-tag"
+  path = "release-notes"
+
 [params.section.BusinessEntity]
   label = "Entity"
   icon = "fa fa-square"
@@ -127,6 +142,21 @@ MetaDataFormat = "yaml"
   label = "Concepts"
   icon = "fa fa-lightbulb-o"
   path = "concepts"
+
+[params.section.SeedReference]
+  label = "Reference"
+  icon = "fa fa-book"
+  path = "reference"
+
+[params.section.SeedAPI]
+  label = "API"
+  icon = "fa fa-info"
+  path = "api"
+
+[params.section.SeedReleaseNotes]
+  label = "Release notes"
+  icon = "fa fa-tag"
+  path = "release-notes"
 
 [params.section.SeedCore]
   label = "Core"
@@ -227,6 +257,21 @@ MetaDataFormat = "yaml"
   icon = "fa fa-lightbulb-o"
   path = "concepts"
 
+[params.section.W20Reference]
+  label = "Reference"
+  icon = "fa fa-book"
+  path = "reference"
+
+[params.section.W20API]
+  label = "API"
+  icon = "fa fa-info"
+  path = "api"
+
+[params.section.W20ReleaseNotes]
+  label = "Release notes"
+  icon = "fa fa-tag"
+  path = "release-notes"
+
 [params.section.W20Core]
   label = "Core"
   icon = "fa fa-cogs"
@@ -251,6 +296,26 @@ MetaDataFormat = "yaml"
   label = "Extras"
   icon = "fa fa-plus-square"
   path = "reference/extra"
+
+#####################################
+#### Tools                       ####
+#####################################
+
+[params.section.ToolsIntroduction]
+  label = "Introduction"
+  icon = "fa fa-file-text"
+  path = ""
+
+[params.section.ToolsReference]
+  label = "Reference"
+  icon = "fa fa-book"
+  path = "reference"
+
+[params.section.ToolsReleaseNotes]
+  label = "Release notes"
+  icon = "fa fa-tag"
+  path = "release-notes"
+
 
 #####################################
 #### Reusable functions sections ####

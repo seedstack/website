@@ -1,8 +1,10 @@
 ---
-title: "Changelog"
+title: "Release notes"
 type: "home"
 zones:
     - "Business"
+sections:
+    - "BusinessReleaseNotes"
 menu:
     BusinessReleaseNotes:
         weight: 10

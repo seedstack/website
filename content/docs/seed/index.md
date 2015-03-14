@@ -3,6 +3,8 @@ title: "Java framework"
 type: "home"
 zones:
     - "Seed"
+sections:
+    - "SeedIntroduction"
 menu:
     SeedIntroduction:
         weight: 10

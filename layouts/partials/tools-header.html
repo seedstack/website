@@ -1,11 +1,12 @@
+{{ $section := index .Params.sections 0 }}
 <div class="title-header small">
     <div class="container">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-9 col-sm-12">
                 <h2>Tools</h2>
                 <p>Utilities to help create, evolve and maintain SeedStack applications.</p>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 hidden-sm">
                 <div class="header-image-wrapper">
                     <img class="header-image" src="/img/tools.png">
                 </div>
@@ -16,9 +17,9 @@
 <div class="title-subheader">
     <div class="container">
         <ul>
-            <li><h3><i class="fa fa-file-text"></i> <a href="/docs/w20">Introduction</a></h3></li>
-            <li><h3><i class="fa fa-book"></i> <a href="/docs/w20/reference">Reference</a></h3></li>
-            <li><h3><i class="fa fa-tag"></i> <a href="/docs/w20/release-notes">Release notes</a></h3></li>
+            <li><h3 class='{{ if eq $section "ToolsIntroduction" }}active{{ end }}'><i class="fa fa-file-text"></i> <a href="/docs/tools">Introduction</a></h3></li>
+            <li><h3 class='{{ if eq $section "ToolsReference" }}active{{ end }}'><i class="fa fa-book"></i> <a href="/docs/tools/reference">Reference</a></h3></li>
+            <li><h3 class='{{ if eq $section "ToolsReleaseNotes" }}active{{ end }}'><i class="fa fa-tag"></i> <a href="/docs/tools/release-notes">Release notes</a></h3></li>
             <li class="pull-right"><h3><i class="fa fa-github"></i> <a href="http://github.com/seedstack/w20" target="_blank">Source</a></h3></li>
         </ul>
     </div>

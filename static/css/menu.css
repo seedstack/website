@@ -92,3 +92,25 @@
     line-height: 40px;
     text-align: right;
 }
+
+@media (max-width: 991px) {
+    .side-menu.affix {
+        position: relative;
+    }
+
+    .side-menu #TableOfContents {
+        display: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .side-menu.affix {
+        width: 213px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .side-menu.affix {
+        width: 263px;
+    }
+}

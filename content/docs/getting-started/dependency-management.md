@@ -3,7 +3,7 @@ title: "Dependency management"
 zones:
     - "Seed"
 sections:
-    - "SeedIntroduction"
+    - "GettingStartedIntroduction"
 menu:
     GettingStartedIntroduction:
         weight: 30

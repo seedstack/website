@@ -1,13 +1,14 @@
+{{ $section := index .Params.sections 0 }}
 <div class="title-header small">
     <div class="container">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-9 col-sm-12">
                 <h2>Java framework</h2>
                 <p>Also known as Seed, the Java framework provides support for a large range of technologies and standards from the Java world.</p>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 hidden-sm">
                 <div class="header-image-wrapper">
-                    <!--<img class="header-image" src="/img/java-logo.png">-->
+                    <img class="header-image" src="/img/server.png">
                 </div>
             </div>
         </div>
@@ -16,11 +17,11 @@
 <div class="title-subheader">
     <div class="container">
         <ul>
-            <li><h3><i class="fa fa-file-text"></i> <a href="/docs/seed">Introduction</a></h3></li>
-            <li><h3><i class="fa fa-lightbulb-o"></i> <a href="/docs/seed/concepts">Concepts</a></h3></li>
-            <li><h3><i class="fa fa-book"></i> <a href="/docs/seed/reference">Reference</a></h3></li>
-            <li><h3><i class="fa fa-info-circle"></i> <a href="/docs/seed/api">API</a></h3></li>
-            <li><h3><i class="fa fa-tag"></i> <a href="/docs/seed/release-notes">Release notes</a></h3></li>
+            <li><h3 class='{{ if eq $section "SeedIntroduction" }}active{{ end }}'><i class="fa fa-file-text"></i> <a href="/docs/seed">Introduction</a></h3></li>
+            <li><h3 class='{{ if eq $section "SeedConcepts" }}active{{ end }}'><i class="fa fa-lightbulb-o"></i> <a href="/docs/seed/concepts">Concepts</a></h3></li>
+            <li><h3 class='{{ if eq $section "SeedReference" }}active{{ end }}'><i class="fa fa-book"></i> <a href="/docs/seed/reference">Reference</a></h3></li>
+            <li><h3 class='{{ if eq $section "SeedAPI" }}active{{ end }}'><i class="fa fa-info-circle"></i> <a href="/docs/seed/api">API</a></h3></li>
+            <li><h3 class='{{ if eq $section "SeedReleaseNotes" }}active{{ end }}'><i class="fa fa-tag"></i> <a href="/docs/seed/release-notes">Release notes</a></h3></li>
             <li class="pull-right"><h3><i class="fa fa-github"></i> <a href="http://github.com/seedstack/seed" target="_blank">Source</a></h3></li>
         </ul>
     </div>

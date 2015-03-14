@@ -80,6 +80,10 @@
     line-height: 30px;
 }
 
+.title-subheader h3.active a {
+    color: #ffa82c;
+}
+
 .title-subheader ul {
     display: block;
     margin: 0;

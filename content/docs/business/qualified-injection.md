@@ -11,8 +11,8 @@ menu:
 ---
 
 The SEED Business framework supports the use of qualifiers defined by the JSR 330. This feature provides the ability to 
-create multiple implementations for the same interface. This is useful when you have multiple algorithms or infrastructures
-for an interface.
+create multiple implementations for the same interface. This is useful when you have multiple algorithms or implementation
+technologies for an interface.
 
 # Inject qualified services
 

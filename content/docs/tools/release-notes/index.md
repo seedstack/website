@@ -2,11 +2,11 @@
 title: "Release notes"
 type: "home"
 zones:
-    - "W20"
+    - "Tools"
 sections:
-    - "W20ReleaseNotes"
+    - "ToolsReleaseNotes"
 menu:
-    W20ReleaseNotes:
+    ToolsReleaseNotes:
         weight: 10
 ---
 

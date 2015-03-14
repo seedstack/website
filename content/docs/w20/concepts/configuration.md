@@ -3,6 +3,8 @@ title: "Configuration"
 type: "home"
 zones:
     - "W20"
+sections:
+    - "W20Concepts"
 menu:
     W20Concepts:
         weight: 30

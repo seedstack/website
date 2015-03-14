@@ -1,8 +1,10 @@
 ---
-title: "Changelog"
+title: "Release notes"
 type: "home"
 zones:
     - "Seed"
+sections:
+    - "SeedReleaseNotes"
 menu:
     SeedReleaseNotes:
         weight: 10
