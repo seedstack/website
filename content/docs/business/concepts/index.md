@@ -10,39 +10,31 @@ menu:
         weight: 10
 ---
 
-The reference for DDD is *"Domain Driven Design: Tackling Complexity in the Heart of Business"* Eric Evans 2003 
-"blue book" available as a 500 pages book or an e-book. 
+This concept section is intended to introduce and explain all the concepts that you will need to know and master to build
+successful business applications. A lot of these concepts come from the DDD software approach which is central to business
+framework based applications, but you will also read about concepts from specific architectures like CQRS or REST.
 
-<div class="callout callout-info">
-<a href="http://www.infoq.com">InfoQ</a> also provides summaries of the original book:
+You will NOT be presented with in-depth coverage of all the DDD subtleties, so to go beyond the basics you should have
+a look at the [bibliography](../bibliography). Moreover, links will be provided in the text when related quality content 
+is available.
 
-<ul>
-  <li>in English: <a href="http://www.infoq.com/minibooks/domain-driven-design-quickly">Domain-Driven Design Quickly</a></li>
-  <li>in French: <a href="http://blog.infosaurus.fr/public/docs/DDDViteFait.pdf">Domain-Driven Design Vite fait</a>.</li>
-</ul>
-</div>
+# Domain-Driven Design
 
-Find more information about DDD on the web ! 
+Domain-Driven Design is **more about a way of thinking than about code** but this approach has nonetheless a great
+impact on the way your business will be coded. DDD does not introduce new concepts or design patterns on its own. As
+a matter of fact, you will surely recognize some patterns you already know behind DDD names. It goes beyond design
+patterns though, as it dictates when, where and how to use them to solve real business problems. 
 
-# Definitions
+{{% callout info %}}
+As its name suggest, DDD is focused on the business and its model. This model exists independently of applications and
+specific use cases and should be designed a such. Applications are clients of the model: software that will use this 
+model to address enterprise needs. Naturally, particular use cases and UI ideas can be used as inputs for thinking about
+the model as the software is produced. But the model itself should be independent of its clients.  
+{{% /callout %}}
 
-- **Domain**: A sphere of knowledge, influence or activity. The subject area to which the user applies a program is the 
-*domain* of the software. The domain is completely agnostic of the application logic.
-- **Model**: An abstraction (eg. class diagram, mind map, plain text) that describes a domain and can be used to solve 
-problems related to that domain.
-- **Bounded context**: Like a model, it describes a sub-domain or a specific aspect of it (eg. full text search feature 
-for documentation management).
-- **Ubiquitous language**:  Agreed Vocabulary shared between all part takers of a project within a Bounded context or Model.
-- **Domain Driven Design**: Domain Driven Design is an approach to the development of complex software adding on OOP to 
-allow designers to concentrate on Business concerns rather than infrastructure ones.
+The model being independent of its use by applications, it can used to resolve various business problems inside many
+differently architectured applications.
 
-# DDD Spirit
-
-- Domain Driven Design (DDD) is **more about a way of thinking than code** but it does have great impacts on code.
-- It does not really introduce any new concept or Design Pattern but **provides a glue, a vocabulary and tangible means 
-to manipulate existing concepts** in a comprehensive way.
-- **By focusing on the Business first, it makes sense of the rest** (User requirements, Design, Code, shared knowledge) 
-and have the rest make more sense.
 
 
 
