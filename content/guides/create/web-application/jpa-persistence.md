@@ -1,3 +1,15 @@
+---
+title: "JPA persistence"
+type: "home"
+zones:
+    - "Guides"
+sections:
+    - "CreateApplicationGuide"
+menu:
+    CreateApplicationGuide:
+        weight: 40
+---
+
 # Persistence with JPA
 
 ## Repository
@@ -6,14 +18,14 @@ Now that we have defined the domain, we can create the repository implementation
 
 ### Product
 
-- We create a new package: **com.inetpsa.tut.infrastructure.persistence.product**
+- We create a new package: **org.seedstack.tutorial.infrastructure.persistence.product**
 - We create a **ProductJpaRepository** class: 
 ```
-package com.inetpsa.tut.infrastructure.persistence.product;
+package org.seedstack.tutorial.infrastructure.persistence.product;
 
-import com.inetpsa.seed.business.jpa.infrastructure.repository.GenericJpaRepository;
-import com.inetpsa.tut.domaine.product.Product;
-import com.inetpsa.tut.domaine.product.ProductRepository;
+import org.seedstack.seed.business.jpa.infrastructure.repository.GenericJpaRepository;
+import org.seedstack.tutorial.domaine.product.Product;
+import org.seedstack.tutorial.domaine.product.ProductRepository;
 
 public class ProductJpaRepository extends GenericJpaRepository<Product, Long>
 		implements ProductRepository {
@@ -24,14 +36,14 @@ public class ProductJpaRepository extends GenericJpaRepository<Product, Long>
 
 ### Category
 
-- We create a new package: **com.inetpsa.tut.infrastructure.persistence.category**.
+- We create a new package: **org.seedstack.tutorial.infrastructure.persistence.category**.
 - We create **CategoryJpaRepository** class:
 ```
-package com.inetpsa.tut.infrastructure.persistence.category;
+package org.seedstack.tutorial.infrastructure.persistence.category;
 
-import com.inetpsa.seed.business.jpa.infrastructure.repository.GenericJpaRepository;
-import com.inetpsa.tut.domain.category.Category;
-import com.inetpsa.tut.domain.category.CategoryRepository;
+import org.seedstack.seed.business.jpa.infrastructure.repository.GenericJpaRepository;
+import org.seedstack.tutorial.domain.category.Category;
+import org.seedstack.tutorial.domain.category.CategoryRepository;
 
 public class CategoryJpaRepository extends GenericJpaRepository<Category, Long>
 		implements CategoryRepository {
@@ -52,8 +64,8 @@ public class CategoryJpaRepository extends GenericJpaRepository<Category, Long>
 	version="2.0">
 
 	<persistence-unit name="seed-tutorial-domain" transaction-type="RESOURCE_LOCAL">
-		<class>com.inetpsa.tut.domain.product.Product</class>
-		<class>com.inetpsa.tut.domain.category.Category</class>
+		<class>org.seedstack.tutorial.domain.product.Product</class>
+		<class>org.seedstack.tutorial.domain.category.Category</class>
 	</persistence-unit>
 </persistence>
 ```

@@ -1,8 +1,20 @@
+---
+title: "Configuration and logging"
+type: "home"
+zones:
+    - "Guides"
+sections:
+    - "CreateApplicationGuide"
+menu:
+    CreateApplicationGuide:
+        weight: 30
+---
+
 # Configuration
 
-Take a look in you app project under **/src/main/resources/META-INF/configuration** and open the **props** file with the classic text editor.
+Take a look in you app project under `/src/main/resources/META-INF/configuration` and open the **props** file.
 
-	[com.inetpsa.seed.core]
+	[org.seedstack.seed.core]
 	application-id = tut
 
 	# Add application layer configuration here
@@ -11,36 +23,38 @@ Take a look in you app project under **/src/main/resources/META-INF/configuratio
 
 All the configuration of the seed support/functions and your application can be described here.
 
-> Usual *properties* files are still supported.
+> Classic *properties* files are also supported. They also must be located in META-INF/configuration.
 
-## Main functionalities of props
+## Main features of props files
 
 - Sections : declare a section with brackets to define a prefix for the following properties.
-- Profiles : properties defined with a profile are given when the profile is active (dev, preprod, prod...).
-- Macros : a macro is a reference to another key inside a value.
+- Profiles : properties restricted to a profile are expressed with the `property.name<profile>` syntax. 
+- Macros : a macro is a reference to another key inside a value expressed with the `${...}` syntax.
 
-For more information, see the [documentation of the core support](#!/seed-doc/core/configuration "documentation of core support").
+For more information, see the [documentation of the core support](/docs/seed/core/configuration).
 
 ## Get a property value
 
 Use the *@Configuration* annotation on a field of your class to get a property :
 
-	@Configuration("com.inetpsa.seed.core.application-id")
+	@Configuration("org.seedstack.seed.core.application-id")
 	private String applicationId; //Field will be valued with "tut"
 
 You can define a default value for your field if no property is found.
 
 # Logging
 
-Preferred implementation for logging is [LOGBack](http://logback.qos.ch/ "LOGBack") which implements SLF4J API. 
+Preferred implementation for logging is [LOGBack](http://logback.qos.ch/ "LOGBack") which natively implements the 
+SLF4J API. 
 
-- An example of LOGBack configuration file is found under **src/main/resources/logback.xml**.
-- Use the `@Logging` annotation on a field of type `Logger` to have SEED inject the logger for your class:
+- An example of LOGBack configuration file can be found under **src/main/resources/logback.xml**.
+- Use the `@Logging` annotation on a field of type of `org.slf4j.Logger` to have SEED inject the logger for the 
+declaring class:
 
-```
-import org.slf4j.Logger
-...
 
-@Logging
-private Logger logger;
-```
+	import org.slf4j.Logger
+
+	...
+	
+	@Logging
+	private Logger logger;

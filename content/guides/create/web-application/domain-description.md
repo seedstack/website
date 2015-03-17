@@ -14,7 +14,7 @@ menu:
 
 For our tutorial, we'll consider the following model
 
-![business model]({dev-guide}/application/img/showcase_diagramme.png)
+![business model](/img/guides/webapp/domain-diagram.png)
 
 And we'll focus on the Product and Category.
 
@@ -22,7 +22,9 @@ And we'll focus on the Product and Category.
 
 SEED comes with a Business Framework - Seed Business Support - that relies on principles described in the Domain Driven Design method (or DDD). 
 
-> To better understand this tutorial, refer to documentation about [Layered architecture](#!/business-doc/understanding-ddd/layered-architecture) and [aggregates ](#!/business-doc/understanding-ddd/domain-layer#aggregate).
+{{% callout info %}}
+To better understand this tutorial, refer to [business framework concepts](/docs/business/concepts).
+{{% /callout %}}
 
 # Implementation
 
@@ -34,17 +36,17 @@ SEED comes with a Business Framework - Seed Business Support - that relies on pr
 
 ### Product
 
-Let's create a package **com.inetpsa.tut.domain.product** which will contain the domain layer concerning the product.
+Let's create a package **org.seedstack.tutorial.domain.product** which will contain the domain layer concerning the product.
 
 We can create our **Product** entity.
 
-	package com.inetpsa.tut.domain.product;
+	package org.seedstack.tutorial.domain.product;
 	
 	import javax.persistence.Column;
 	import javax.persistence.Entity;
 	import javax.persistence.Id;
 	
-	import com.inetpsa.seed.business.jpa.domain.BaseJpaAggregateRoot;
+	import org.seedstack.seed.business.jpa.domain.BaseJpaAggregateRoot;
 	
 	@Entity
 	public class Product extends BaseJpaAggregateRoot<Long> {
@@ -120,13 +122,15 @@ We can create our **Product** entity.
 		}
 	}
 
-> Note the constructor in visibility package to prevent creation of a Product outside the package. The Factory will be in the same package.
+{{% callout info %}}
+Note the constructor in visibility package to prevent creation of a Product outside the package. The Factory will be in the same package.
+{{% /callout %}}
 
 We create the **ProductFactory** interface.
 
-	package com.inetpsa.tut.domain.product;
+	package org.seedstack.tutorial.domain.product;
 	
-	import com.inetpsa.seed.business.api.domain.GenericFactory;
+	import org.seedstack.seed.business.api.domain.GenericFactory;
 	
 	public interface ProductFactory extends GenericFactory<Product> {
 	
@@ -136,9 +140,9 @@ We create the **ProductFactory** interface.
 
 And its **ProductFactoryDefault** implementation.
 
-	package com.inetpsa.tut.domain.product;
+	package org.seedstack.tutorial.domain.product;
 	
-	import com.inetpsa.seed.business.core.domain.base.BaseFactory;
+	import org.seedstack.seed.business.core.domain.base.BaseFactory;
 	
 	public class ProductFactoryDefault extends BaseFactory<Product> implements ProductFactory {
 	
@@ -159,9 +163,9 @@ And its **ProductFactoryDefault** implementation.
 
 We also create the **ProductRepository** interface.
 
-	package com.inetpsa.tut.domain.product;
+	package org.seedstack.tutorial.domain.product;
 	
-	import com.inetpsa.seed.business.api.domain.GenericRepository;
+	import org.seedstack.seed.business.api.domain.GenericRepository;
 	
 	public interface ProductRepository extends GenericRepository<Product, Long> {
 	
@@ -169,16 +173,16 @@ We also create the **ProductRepository** interface.
 
 ### Category
 
-We now create a package **com.inetpsa.tut.domain.category**. We create **Category** class:
+We now create a package **org.seedstack.tutorial.domain.category**. We create **Category** class:
 
-	package com.inetpsa.tut.domain.category;
+	package org.seedstack.tutorial.domain.category;
 	
 	import javax.persistence.Entity;
 	import javax.persistence.GeneratedValue;
 	import javax.persistence.GenerationType;
 	import javax.persistence.Id;
 	
-	import com.inetpsa.seed.business.jpa.domain.BaseJpaAggregateRoot;
+	import org.seedstack.seed.business.jpa.domain.BaseJpaAggregateRoot;
 	
 	@Entity
 	public class Category extends BaseJpaAggregateRoot<Long> {
@@ -232,9 +236,9 @@ We now create a package **com.inetpsa.tut.domain.category**. We create **Categor
 
 **CategoryFactory** interface:
 
-	package com.inetpsa.tut.domain.category;
+	package org.seedstack.tutorial.domain.category;
 	
-	import com.inetpsa.seed.business.api.domain.GenericFactory;
+	import org.seedstack.seed.business.api.domain.GenericFactory;
 	
 	public interface CategoryFactory extends GenericFactory<Category> {
 	
@@ -245,9 +249,9 @@ We now create a package **com.inetpsa.tut.domain.category**. We create **Categor
 **CategoryFactoryDefault** implementation:
 
 
-	package com.inetpsa.tut.domain.category;
+	package org.seedstack.tutorial.domain.category;
 	
-	import com.inetpsa.seed.business.core.domain.base.BaseFactory;
+	import org.seedstack.seed.business.core.domain.base.BaseFactory;
 	
 	public class CategoryFactoryDefault extends BaseFactory<Category> implements CategoryFactory {
 	
@@ -263,9 +267,9 @@ We now create a package **com.inetpsa.tut.domain.category**. We create **Categor
 	
 **CategoryRepository** interface:
 
-	package com.inetpsa.tut.domain.category;
+	package org.seedstack.tutorial.domain.category;
 	
-	import com.inetpsa.seed.business.api.domain.GenericRepository;
+	import org.seedstack.seed.business.api.domain.GenericRepository;
 	
 	public interface CategoryRepository extends GenericRepository<Category, Long> {
 	}

@@ -1,3 +1,15 @@
+---
+title: "Testing"
+type: "home"
+zones:
+    - "Guides"
+sections:
+    - "CreateFunctionGuide"
+menu:
+    CreateFunctionGuide:
+        weight: 70
+---
+
 Functions as applications must be covered with unit tests, integrations and web integration tests.
 
 > Their is currently no Node.js envirenment provided. But it is still possible and recommanded to make Javascript code coverage with a local Node.js installation. [More resources](https://docs.angularjs.org/guide/unit-testing).

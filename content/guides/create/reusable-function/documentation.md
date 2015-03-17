@@ -1,3 +1,15 @@
+---
+title: "Documentation"
+type: "home"
+zones:
+    - "Guides"
+sections:
+    - "CreateFunctionGuide"
+menu:
+    CreateFunctionGuide:
+        weight: 80
+---
+
 The *-doc module contains the function documentation. This documentation will be included in the SEED documentation site. It is organized as follows:
 
     ${project.basedir}

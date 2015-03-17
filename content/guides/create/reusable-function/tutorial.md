@@ -1,5 +1,18 @@
+---
+title: "Tutorial"
+type: "home"
+zones:
+    - "Guides"
+sections:
+    - "CreateFunctionGuide"
+menu:
+    CreateFunctionGuide:
+        weight: 100
+---
+
 # Build a function in 20 min.
-We will build a simple function for SEED. This function will provide a mini chat with a backend and a W20 screen. Our function will have UI, so we will use the SEED Business Framework.
+We will build a simple function for SEED. This function will provide a mini chat with a backend and a W20 screen. 
+Our function will have UI, so we will use the SEED Business Framework.
 
 # Generate the project
 

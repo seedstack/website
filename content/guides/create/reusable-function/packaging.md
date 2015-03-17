@@ -1,3 +1,15 @@
+---
+title: "Packaging"
+type: "home"
+zones:
+    - "Guides"
+sections:
+    - "CreateFunctionGuide"
+menu:
+    CreateFunctionGuide:
+        weight: 90
+---
+
 # Semantic versioning
 
 First release must use the 1.0.0 version. The first digit is use for major update and ascendent compatibility breaking change. The second digit is used for feature updates. The third digit is used for fix updates.

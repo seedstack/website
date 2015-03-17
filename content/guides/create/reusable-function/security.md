@@ -1,3 +1,15 @@
+---
+title: "Security"
+type: "home"
+zones:
+    - "Guides"
+sections:
+    - "CreateFunctionGuide"
+menu:
+    CreateFunctionGuide:
+        weight: 50
+---
+
 The security must be thought since the beginning. Functions should provide to their users a way to secure all the interfaces (REST or programmatic).
 
 SEED provides two annotations to secure methods: `@RequiresPermissions` and `@RequiresRoles`. Applications can use both, but functions must only use the first one. The intent of this restriction is to allow users to map the function permissions to their roles.

@@ -1,17 +1,29 @@
+---
+title: "Integration tests"
+type: "home"
+zones:
+    - "Guides"
+sections:
+    - "CreateApplicationGuide"
+menu:
+    CreateApplicationGuide:
+        weight: 50
+---
+
 SEED brings a JUnit Runner that creates a SEED environment for tests execution. A test class is managed by SEED and allows a developer to inject classes via the `@Inject` annotation or use `@Transactional`, `@Logging` or `@Configuration` annotations.
 
 # Database connection
 
 - For tests purpose, we'll use an HSQL database. 
-- We create **src/test/resources/META-INF/configuration/com.inetpsa.seed-tut.props** file with following properties :
+- We create **src/test/resources/META-INF/configuration/org.seedstack.seed-tut.props** file with following properties :
 
 ```
-com.inetpsa.seed.transaction.manager = com.inetpsa.seed.transaction.internal.LocalTransactionManager
-com.inetpsa.seed.transaction.default-handler = com.inetpsa.seed.persistence.jpa.internal.JpaTransactionHandler
+org.seedstack.seed.transaction.manager = org.seedstack.seed.transaction.internal.LocalTransactionManager
+org.seedstack.seed.transaction.default-handler = org.seedstack.seed.persistence.jpa.internal.JpaTransactionHandler
 
-com.inetpsa.seed.persistence.jpa.units=seed-tutorial-domain
+org.seedstack.seed.persistence.jpa.units=seed-tutorial-domain
 
-[com.inetpsa.seed.persistence.jpa.unit.seed-tutorial-domain.property]
+[org.seedstack.seed.persistence.jpa.unit.seed-tutorial-domain.property]
 javax.persistence.jdbc.driver=org.hsqldb.jdbcDriver
 javax.persistence.jdbc.url=jdbc:hsqldb:mem:testdb
 javax.persistence.jdbc.user=sa
@@ -25,7 +37,7 @@ sql.enforce_strict_size=true
 
 We write a simple test class to see if the JPA configuration is functional for `Category` entity:
 
-	package com.inetpsa.tut.infrastructure.persistence.category;
+	package org.seedstack.tutorial.infrastructure.persistence.category;
 	
 	import javax.inject.Inject;
 	
@@ -36,12 +48,12 @@ We write a simple test class to see if the JPA configuration is functional for `
 	import org.junit.runner.RunWith;
 	import org.slf4j.Logger;
 	
-	import com.inetpsa.seed.core.api.Logging;
-	import com.inetpsa.seed.it.helper.SeedITRunner;
-	import com.inetpsa.seed.transaction.api.Transactional;
-	import com.inetpsa.tut.domain.category.Category;
-	import com.inetpsa.tut.domain.category.CategoryFactory;
-	import com.inetpsa.tut.domain.category.CategoryRepository;
+	import org.seedstack.seed.core.api.Logging;
+	import org.seedstack.seed.it.helper.SeedITRunner;
+	import org.seedstack.seed.transaction.api.Transactional;
+	import org.seedstack.tutorial.domain.category.Category;
+	import org.seedstack.tutorial.domain.category.CategoryFactory;
+	import org.seedstack.tutorial.domain.category.CategoryRepository;
 	
 	@RunWith(SeedITRunner.class)
 	public class CategoryJpaRepositoryIT {

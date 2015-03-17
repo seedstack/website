@@ -1,5 +1,5 @@
 ---
-title: "Fragments"
+title: "Fragment"
 type: "home"
 zones:
     - "W20"

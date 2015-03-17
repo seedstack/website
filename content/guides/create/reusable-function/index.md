@@ -1,24 +1,34 @@
-# What is a function ?
+---
+title: "Introduction"
+type: "home"
+zones:
+    - "Guides"
+sections:
+    - "CreateFunctionGuide"
+menu:
+    CreateFunctionGuide:
+        weight: 10
+---
 
-> It is a programmatic or web API for a functional use case.
+A function is a reusable portion of application that can span the whole stack from the domain to the UI. While it can
+span the whole stack, it doesn't have to.
 
 # What is its purpose ?
 
-Functions are intended to reuse functional use cases over multiple project (eg. i18n, export).
+Functions are mainly intended to reuse functional use cases over multiple project (eg. i18n, export, batch monitoring).
 
 # What is the difference between a function and an application ?
 
-Functions are not intended to work as standalone but to be embedded in other applications. So functions must be thought to be **configurable not configured**, ie. function users must be able to specify the function  [security](#!/dev-guide/reusable-function/security), [persistence](#!/dev-guide/reusable-function/persistence), etc. In that purpose functions should use \*-specs dependencies where possible.
+Functions are not intended to work as standalone but to be embedded in other applications. So functions must be 
+thought to be **configurable but not configured**: function client must be able to configure the function to their
+specific requirements (like the [security model](security) or the [persistence](persistence)).
+
+For that purpose functions should depend on specifications (APIs or SPIs) and not on implementations where possible.
  
 # How to create function from archetype ?
 
-    mvn3 archetype:generate                                 \
-      -DarchetypeGroupId=com.inetpsa.fnd.tools              \
-      -DarchetypeArtifactId=seed-function-archetype         \
-      -Dprd=<PRD>                                           \
-      -DgroupId=<my.groupid>                                \
-      -DartifactId=<my-artifactId>
+The command below will create a ready-to-code function project: 
 
-> Use the latest version of the archetype.
-
-
+    mvn org.seedstack.tools:seed-maven-plugin:scaffold-project -Dtype=function
+    
+Note that the created project contains sub-modules for the whole stack. You can delete the sub-modules you won't need.       

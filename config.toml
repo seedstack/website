@@ -320,6 +320,30 @@ MetaDataFormat = "yaml"
   icon = "fa fa-tag"
   path = "release-notes"
 
+#####################################
+#### Guides                      ####
+#####################################
+
+[params.section.CreateApplicationGuide]
+  label = "Create a Web application"
+  icon = "fa fa-globe"
+  path = "create/web-application"
+
+[params.section.CreateBatchGuide]
+  label = "Create a batch"
+  icon = "fa fa-file"
+  path = "create/batch"
+
+[params.section.CreateFunctionGuide]
+  label = "Create a reusable function"
+  icon = "fa fa-cogs"
+  path = "create/reusable-function"
+
+[params.section.CreateDomainGuide]
+  label = "Create a domain"
+  icon = "fa fa-cubes"
+  path = "create/reusable-domain"
+
 
 #####################################
 #### Reusable functions sections ####

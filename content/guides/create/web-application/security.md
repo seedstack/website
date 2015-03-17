@@ -1,16 +1,33 @@
-Now we can add security to our application. The LDAP authentication is handled by SEED through:
+---
+title: "Add security"
+type: "home"
+zones:
+    - "Guides"
+sections:
+    - "CreateApplicationGuide"
+menu:
+    CreateApplicationGuide:
+        weight: 70
+---
 
-- the following properties (props file):
+Now we can add security to our application. Here we will use the configuration-based security realm but this can be
+changed to an LDAP realm or any other realm.
 
-```
-com.inetpsa.seed.security.realms = LdapRealm
-[com.inetpsa.seed.security.urls]
-/** = authcBasic
-```
+In the props configuration, add the following:
 
-> All URLs (matching ** pattern) will be handled with basic authentication by security support using ldapRealm 
+    [org.seedstack.seed.security]
+    realms = ConfigurationRealm
+    
+    [org.seedstack.seed.security.users]
+    admin = password
+    
+    [org.seedstack.seed.security.urls]
+    /** = authcBasic
 
-- an "ldap.properies" file at the root of a classpath folder.
+{{% callout info %}}
+All URLs (matching `/**` pattern) will be handled with basic authentication using the configuration-based security realm. 
+{{% /callout %}}
 
-For more detail, refer to the security support [core documentation](#!/seed-doc/security) and [web documentation](#!/seed-doc/web/security#security-filters).
+Add any dependency required by realm. For more detail, refer to the [security documentation](/docs/seed/reference/security) 
+and to the [web security documentation](/docs/seed/reference/web/security).
 

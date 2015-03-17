@@ -1,35 +1,35 @@
-# Maven struture
+---
+title: "Structure"
+type: "home"
+zones:
+    - "Guides"
+sections:
+    - "CreateFunctionGuide"
+menu:
+    CreateFunctionGuide:
+        weight: 20
+---
 
-## Maven parent
+A function is a project structured in several sub-modules:
 
-In the root pom:
+* `bom`: importable dependency management information for all function modules,
+* `doc`: markdown documentation,
+* `specs`: public API and SPI,
+* `core`: implementation (depends on the specs module),
+* `rest`: REST API (depends on the core module),
+* `static`: the Web UI like a [W20 fragment](/docs/w20/concepts/fragment) as a pure frontend project,
+* `web`: the Web UI repackaged from the static module in a resource JAR (depends on the rest module).
 
-    <parent>
-        <groupId>com.inetpsa.fnd</groupId>
-        <artifactId>seed-java-parent</artifactId>
-        <version>XXX</version>
-    </parent>
+Note that the `rest` and `static` modules are mostly useful in very modular functions that allow reuse of the frontend 
+Web UI separately from the REST API backend. In this case the `web` module acts as a repackaged all-in-one web artifact
+(with the static UI repackaged under `META-INF/resource` and the REST API as dependency). 
 
-> Use the latest version of the seed-java-parent
+You can ignore this distinction to simplify the structure and place the REST API along the static UI directly into the 
+`web` module. Though by doing this, you will prevent the ability for the function clients to reuse the REST API and the 
+static UI independently.   
 
-## Maven coordinates
+{{% callout warning %}}
+Avoid using the seed distribution and its composites directly in your function as it will force the dependency management
+used by the function upon its clients. Just use the minimum required dependencies to the function directly. 
+{{% /callout %}}
 
-In the root pom:
-
-    <groupId>com.inetpsa.[PRD]</groupId>
-    <artifactId>[name]-function-root</artifactId>
-
-## Module structure
-
-* bom: versionning
-* core: implementation
-* doc: markdown documentation
-* root: root module
-* specs: API
-* web: REST API and W20 screens (optional)
-
-> Avoid using composite in your poms and just add the maven dependency required.
-
-# Contents of each module
-
-...
