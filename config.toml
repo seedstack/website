@@ -30,6 +30,10 @@ MetaDataFormat = "yaml"
   path = "/docs/tools"
   label = "Tools"
 
+[params.zone.Guides]
+  path = "/guides"
+  label = "Guides"
+
 #####################################
 #### Business framework sections ####
 #####################################

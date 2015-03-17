@@ -1,0 +1,25 @@
+{{ $section := index .Params.sections 0 }}
+<div class="title-header small">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-12">
+                <h2>Guides</h2>
+                <p>Detailed insight about topics covering the whole project lifecycle.</p>
+            </div>
+            <div class="col-md-3 hidden-sm">
+                <div class="header-image-wrapper">
+                    <img class="header-image" src="/img/building-blocks.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="title-subheader">
+    <div class="container">
+        <ul>
+            <li><h3 class='{{ if eq $section "CreateGuides" }}active{{ end }}'><a href="/guides/create">Create</a></h3></li>
+            <li><h3 class='{{ if eq $section "DeployGuides" }}active{{ end }}'><a href="/guides/deploy">Deploy</a></h3></li>
+            <li><h3 class='{{ if eq $section "RunGuides" }}active{{ end }}'><a href="/guides/run">Run</a></h3></li>
+        </ul>
+    </div>
+</div>

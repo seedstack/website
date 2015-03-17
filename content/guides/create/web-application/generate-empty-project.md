@@ -1,3 +1,15 @@
+---
+title: "Generate empty project"
+type: "home"
+zones:
+    - "Guides"
+sections:
+    - "CreateApplicationGuide"
+menu:
+    CreateApplicationGuide:
+        weight: 20
+---
+
 Generate a scaffold project:
 
 1. Go to your workspace and create a new directory for your project.
