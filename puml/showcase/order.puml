@@ -1,0 +1,57 @@
+@startuml
+
+package model.Customer {
+
+    class Customer {
+      String firstName
+      String lastName
+      String address
+      String deliveryAddress
+      String password
+      ID handle(E, Map<String, String>)
+    }
+
+    class CustomerId {
+    }
+}
+
+package model.Order {
+
+    class Order {
+      Long orderId
+      CustomerId customerId
+      Date checkoutDate
+      List<OrderItem> items
+      double price
+    }
+
+    class OrderItem {
+      Long orderItemId
+      int quantity
+      long productId
+      double price
+    }
+
+}
+
+package model.Product {
+
+    class Product {
+      Long categoryId
+      String designation
+      String summary
+      String details
+      String picture
+      Double price
+      Long categoryId
+    }
+
+}
+
+Customer o-- CustomerId
+Order o-- OrderItem
+Order *-- CustomerId
+OrderItem *-left- Product
+
+
+@enduml

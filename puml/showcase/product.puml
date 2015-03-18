@@ -1,0 +1,27 @@
+@startuml
+
+package model.Category {
+
+    class Category {
+      String name
+      String urlImg
+    }
+
+}
+
+package model.Product {
+
+    class Product {
+      Long categoryId
+      String designation
+      String summary
+      String details
+      String picture
+      Double price
+      Long categoryId
+    }
+
+}
+Product *-- Category
+
+@enduml
