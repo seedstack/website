@@ -27,8 +27,8 @@ This document describes how to interact with security credentials and attributes
 
 Annotate your methods to only authorize users with required roles and/or permissions:
 
-	import com.inetpsa.seed.security.api.annotations.RequiresRoles;
-	import com.inetpsa.seed.security.api.annotations.RequiresPermissions;
+	import org.seedstack.seed.security.api.annotations.RequiresRoles;
+	import org.seedstack.seed.security.api.annotations.RequiresPermissions;
 
 	@RequiresRoles("administrator")
 	public void deleteUser(User user) {
@@ -48,7 +48,7 @@ Annotate your methods to only authorize users with required roles and/or permiss
 
 Inject `SecuritySupport` in your class:
 
-	import com.inetpsa.seed.security.api.SecuritySupport;
+	import org.seedstack.seed.security.api.SecuritySupport;
 	...
 	@Inject
 	private SecuritySupport securitySupport;

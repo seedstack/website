@@ -36,7 +36,7 @@ Static Validation consists in constraint annotations applied to a field or its "
 
 # Validation of injection
 
-When injecting a POJO, SEED raises a `com.inetpsa.seed.validation.ValidationException` if constraint annotations are not respected.
+When injecting a POJO, SEED raises a `org.seedstack.seed.validation.ValidationException` if constraint annotations are not respected.
      
      @Inject
      SeedManagedPojo seedPojo;
@@ -48,7 +48,7 @@ Beware that an invalid POJO injected at application startup will prevent it from
 
 A POJO instance can be validated at any time through SEED `ValidationService`:
 
-	import com.inetpsa.seed.validation.ValidationService;
+	import org.seedstack.seed.validation.ValidationService;
     ...
     @Inject
 	ValidationService validationService; 
@@ -91,13 +91,13 @@ You can ask for a static validation using following code:
 
 If a validation error occurs, a ValidationException will be thrown:
 
-    com.inetpsa.seed.validation.internal.ValidationException
+    org.seedstack.seed.validation.internal.ValidationException
 	-------------------------------
-	VALIDATION_ISSUE : com.inetpsa.seed.validation.internal.ValidationErrorCode
-	0 - Path=[class com.inetpsa.seed.validation.internal.ValidationServiceIT$Pojo.name]
+	VALIDATION_ISSUE : org.seedstack.seed.validation.internal.ValidationErrorCode
+	0 - Path=[class org.seedstack.seed.validation.internal.ValidationServiceIT$Pojo.name]
 	0 - size must be between 4 and 2147483647=[epo]
 	Set<javax.validation.ConstraintViolation>=[[ConstraintViolationImpl{interpolatedMessage='size must be between 4 and 2147483647', \
     propertyPath=name, \ 
-    rootBeanClass=class com.inetpsa.my.project.Pojo.name, \
+    rootBeanClass=class org.myorganization.myproject.Pojo.name, \
     messageTemplate='{javax.validation.constraints.Size.message}'}]]
 	-------------------------------

@@ -27,8 +27,8 @@ The goal of this page is to detail the creation of an Hello World soap based Web
         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-        targetNamespace="http://xml.inetpsa.com/wsdl/seed/hello/"
-        xmlns:tns="http://xml.inetpsa.com/wsdl/seed/hello/"
+        targetNamespace="http://myproject.myorganization.org/wsdl/seed/hello/"
+        xmlns:tns="http://myproject.myorganization.org/wsdl/seed/hello/"
         name="HelloService">
 
     <wsdl:types></wsdl:types>
@@ -53,12 +53,12 @@ The goal of this page is to detail the creation of an Hello World soap based Web
             <soap:operation soapAction=""/>
             <wsdl:input>
                 <soap:body
-                        namespace="http://xml.inetpsa.com/wsdl/seed/hello/"
+                        namespace="http://myproject.myorganization.org/wsdl/seed/hello/"
                         use="literal"/>
             </wsdl:input>
             <wsdl:output>
                 <soap:body
-                        namespace="http://xml.inetpsa.com/wsdl/seed/hello/"
+                        namespace="http://myproject.myorganization.org/wsdl/seed/hello/"
                         use="literal"/>
             </wsdl:output>
         </wsdl:operation>
@@ -81,8 +81,8 @@ Then create a class which implement the generated interface by ws-import.
 
 ```
 @WebService(
-    endpointInterface = "com.inetpsa.xml.wsdl.seed.hello.HelloService",
-    targetNamespace = "http://xml.inetpsa.com/wsdl/seed/hello/",
+    endpointInterface = "org.myorganization.myproject.wsdl.seed.hello.HelloService",
+    targetNamespace = "http://myproject.myorganization.org/wsdl/seed/hello/",
     serviceName = "HelloService",
     portName = "HelloServicePort"
 )
@@ -97,7 +97,7 @@ public class HelloServiceTest implements HelloService {
 
 To configure your endpoint, just add the following properties to your configuration:
 
-    [com.inetpsa.seed.ws]
+    [org.seedstack.seed.ws]
     endpoints = HelloService
     endpoint.HelloService.implementation = fully.qualified.package.name.HelloServiceTest
     endpoint.HelloService.wsdl = Hello.wsdl

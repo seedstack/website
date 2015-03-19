@@ -15,13 +15,13 @@ menu:
 
 You must define the cache(s) you will use in your application in the configuration:
 
-    [com.inetpsa.seed.cache]
+    [org.seedstack.seed.cache]
     caches = myCache1, myCache2, ...
     
-You can then further configure each cache specifically by using the `com.inetpsa.seed.cache.cache` prefix followed by
+You can then further configure each cache specifically by using the `org.seedstack.seed.cache.cache` prefix followed by
 the cache name:
 
-    [com.inetpsa.seed.cache.cache.myCache1]
+    [org.seedstack.seed.cache.cache.myCache1]
     ...
     
 # Cache provider
@@ -29,13 +29,13 @@ the cache name:
 If you have exactly one compliant cache provider in the classpath, it will be automatically picked by the cache support. 
 Otherwise you must specify which provider to use for each cache:
   
-    [com.inetpsa.seed.cache.cache.myCache1]
+    [org.seedstack.seed.cache.cache.myCache1]
     provider = fully.qualified.classname.of.caching.Provider  
     
 You can also specify a global default provider, which will be picked for every cache without an explicitly specified
 provider:
 
-    [com.inetpsa.seed.cache]
+    [org.seedstack.seed.cache]
     default-provider = fully.qualified.classname.of.default.caching.Provider
 
     
@@ -43,7 +43,7 @@ provider:
 
 You can specify a custom expiry policy factory for each cache:
 
-    [com.inetpsa.seed.cache]
+    [org.seedstack.seed.cache]
     expiry-policy-factory = fully.qualified.classname.of.expiry.policy.Factory
 
 An expiry policy factory must implement `javax.cache.configuration.Factory<javax.cache.expiry.ExpiryPolicy>`.

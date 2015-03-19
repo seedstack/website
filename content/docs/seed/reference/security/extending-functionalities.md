@@ -25,7 +25,7 @@ You can easily add a realm to the existing realms. Follow these steps
 
 1. Create a class that implements org.apache.shiro.realm.Realm or extends a Shiro realm. To create an AuthorizingRealm
 that uses a RoleMapping and a RolePermissionResolver as well as manages domains, you can subclass
-`com.inetpsa.seed.support.security.core.realms.AbstractDomainRealm`.
+`org.seedstack.seed.support.security.core.realms.AbstractDomainRealm`.
 
 ```
 public class MyRealm extends AbstractDomainRealm {
@@ -86,9 +86,9 @@ public class MyRealm extends AbstractDomainRealm {
 2. Declare your realm in your properties. If you subclasses AbstractDomainRealm, you can add a rolePermissionResolver
 and optionally a roleMapping.
 
-    com.inetpsa.seed.security.realms = MyRealm
-    com.inetpsa.seed.security.MyRealm.role-mapping = ConfigurationRoleMapping
-    com.inetpsa.seed.security.MyRealm.role-permission-resolver = ConfigurationRolePermissionResolver
+    org.seedstack.seed.security.realms = MyRealm
+    org.seedstack.seed.security.MyRealm.role-mapping = ConfigurationRoleMapping
+    org.seedstack.seed.security.MyRealm.role-permission-resolver = ConfigurationRolePermissionResolver
 
 # Creating a RolePermissionResolver
 
@@ -102,6 +102,6 @@ You can create a custom RolePermissionResolver.
 
 You can also create a custom RoleMapping.
 
-1. Create a class that implements com.inetpsa.seed.support.security.core.authorization.RoleMapping.
+1. Create a class that implements org.seedstack.seed.support.security.core.authorization.RoleMapping.
 2. For a custom Realm, make an injection point in the realm with a @Named annotation : @Named("MyRealm-role-mapping").
 3. Declare you want to use it on a realm in your properties.

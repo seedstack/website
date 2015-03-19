@@ -32,11 +32,11 @@ To secure the source representation before merging it with the aggregate:
         (...)
     }
 
-<div class="callout callout-warning">
+{{% callout warning %}}
 Please note that the data security interceptor will inspect the whole object graph starting from the representation,
 so there will be some performance penalty depending on its size. It shouldn't be a problem for typical DTO/representation
 size.
-</div>
+{{% /callout %}}
 
 # Secured Representations/DTOs with @Restriction
 

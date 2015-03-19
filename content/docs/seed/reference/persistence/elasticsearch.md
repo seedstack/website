@@ -31,11 +31,11 @@ Two kinds of client implementations are available: "node client" (in-memory/loca
 
 Declare your list of clients (props file) in order to have them managed by SEED:
 
-    com.inetpsa.seed.persistence.elasticsearch.clients = myClient1, ...
+    org.seedstack.seed.persistence.elasticsearch.clients = myClient1, ...
 
 Add properties to your ElasticSearch client by specifying a section as follows:
 
-    [com.inetpsa.seed.persistence.elasticsearch.client.myClient1]
+    [org.seedstack.seed.persistence.elasticsearch.client.myClient1]
     property.hosts =  myHost1:myPort1, myHost2:myPort2, ...
     property.cluster.name = myCluster
     property.client.transport.ignore_cluster_name =
@@ -49,9 +49,9 @@ If you omit the `hosts` property, the client will be automatically associated wi
 
 Configuration example for an embedded ElasticSearch node (previously referred to as "node client"):
 
-    com.inetpsa.seed.persistence.elasticsearch.clients = client1
+    org.seedstack.seed.persistence.elasticsearch.clients = client1
     
-    [com.inetpsa.seed.persistence.elasticsearch.client.client1]
+    [org.seedstack.seed.persistence.elasticsearch.client.client1]
     property.cluster.name = test-cluster-1
 
 To inject this configured **ElasticSearch client**, just inject it using the `@Named` annotation.

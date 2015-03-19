@@ -60,7 +60,7 @@ You have to use the `jaxws-maven-plugin`. The following code is a sample of WS-i
                     <phase>generate-sources</phase>
                     <configuration>
                         <verbose>true</verbose>
-                        <packageName>com.inetpsa.ws.hello</packageName> <!-- only if you want all of this WS classes in the same package -->
+                        <packageName>org.myorganization.ws.hello</packageName> <!-- only if you want all of this WS classes in the same package -->
                         <wsdlDirectory>src/main/resources/META-INF/ws</wsdlDirectory>
                         <wsdlLocation>META-INF/ws/Hello.wsdl</wsdlLocation>
                         <wsdlFiles>

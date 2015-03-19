@@ -63,10 +63,10 @@ You can then use the `@WithMailServer` annotation and the `MessageRetriever` in 
 
 The following configuration is needed to define the `smtp-test` session to the corresponding mock mail server:
 
-    [com.inetpsa.seed]
+    [org.seedstack.seed]
     mail.providers= smtp-test
     
-    [com.inetpsa.seed.mail.provider.smtp-test.property]
+    [org.seedstack.seed.mail.provider.smtp-test.property]
     mail.transport.protocol = smtp
     mail.smtp.host = localhost
     mail.smtp.port = 6457

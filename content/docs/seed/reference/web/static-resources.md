@@ -58,7 +58,7 @@ then the docroot file have priority (consider robots.txt in above example). **Do
 
 The default serving path can be altered. For example:
     
-    com.inetpsa.seed.web.resources.path = /my-custom-resource-path
+    org.seedstack.seed.web.resources.path = /my-custom-resource-path
 
 The serving paths then are updated by appending `/my-custom-resource-path` to the docroot base path and the META-INF/resources
 classpath location thus serving from respective folloing paths:
@@ -97,9 +97,9 @@ then it is used instead of the originally requested file (or instead of the mini
 
 To control the minification and gzip behavior, use the following properties:
 
-    com.inetpsa.seed.web.resources.minification-support = true | false
-    com.inetpsa.seed.web.resources.gzip-support = true | false
-    com.inetpsa.seed.web.resources.gzip-on-the-fly = true | false
+    org.seedstack.seed.web.resources.minification-support = true | false
+    org.seedstack.seed.web.resources.gzip-support = true | false
+    org.seedstack.seed.web.resources.gzip-on-the-fly = true | false
 
 
 # MIME types
@@ -139,8 +139,8 @@ normal version
 A built-in cache is used to improve the lookup performance of resources that were served at least one time. You can
 alter the cache properties as follows (below example with default values):
 
-    com.inetpsa.seed.web.resources.cache.max-size = 8192
-    com.inetpsa.seed.web.resources.cache.concurrency = 32
-    com.inetpsa.seed.web.resources.cache.initial-size = 2048
+    org.seedstack.seed.web.resources.cache.max-size = 8192
+    org.seedstack.seed.web.resources.cache.concurrency = 32
+    org.seedstack.seed.web.resources.cache.initial-size = 2048
 
 If you don't specify the initial-size configuration property, it will be set at max-size / 4.

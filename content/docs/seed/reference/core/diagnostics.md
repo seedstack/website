@@ -22,10 +22,10 @@ is then handled by the diagnostic reporter.
 
 # Diagnostic collectors
 
-A diagnostic collector is a class implementing the `com.inetpsa.seed.core.spi.diagnostic.DiagnosticInfoCollector` 
-interface and annotated with `com.inetpsa.seed.core.spi.diagnostic.DiagnosticDomain`:
+A diagnostic collector is a class implementing the `org.seedstack.seed.core.spi.diagnostic.DiagnosticInfoCollector` 
+interface and annotated with `org.seedstack.seed.core.spi.diagnostic.DiagnosticDomain`:
 
-    @DiagnosticDomain("com.inetpsa.prd.my-diagnostic-domain")
+    @DiagnosticDomain("org.my-organization.my-project.my-diagnostic-domain")
     public class MyDiagnosticCollector implements DiagnosticInfoCollector {
 
         @Override
@@ -41,5 +41,5 @@ diagnostic domain uniquely identifies the information of the collector.
 # Diagnostic reporter
 
 The default diagnostic reporter dumps the map as a YAML document in the system temporary directory. The diagnostic 
-reporter can be changed by setting the `com.inetpsa.seed.diagnostic.reporter` system property to a class 
-implementing `com.inetpsa.seed.core.spi.diagnostic.DiagnosticReporter`.
+reporter can be changed by setting the `org.seedstack.seed.diagnostic.reporter` system property to a class 
+implementing `org.seedstack.seed.core.spi.diagnostic.DiagnosticReporter`.

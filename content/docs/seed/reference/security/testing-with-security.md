@@ -17,10 +17,10 @@ menu:
 
 You need a security props configuration file in your test resources folder:
 
-	[com.inetpsa.seed.security.users]
+	[org.seedstack.seed.security.users]
 	Obiwan = yodarulez, SEED.JEDI
 
-	[com.inetpsa.seed.security.roles]
+	[org.seedstack.seed.security.roles]
 	jedi = SEED.JEDI
 
 # Connecting users

@@ -61,11 +61,11 @@ Here is a list of recognized security filters, as you can write them in the conf
 
 ## Declaring filters
 
-In your configuration props files, add a section *[com.inetpsa.seed.security.urls]*. The key is the URL pattern
+In your configuration props files, add a section *[org.seedstack.seed.security.urls]*. The key is the URL pattern
 to match (ant like), the values are the filters to apply. The first matching pattern will be applied allowing to define default
 filters at the end. Here is an example of configuration.
 
-	[com.inetpsa.seed.security.urls]
+	[org.seedstack.seed.security.urls]
 	*resources/** = anon
 	/ = anon
 	/index.html = anon
@@ -101,7 +101,7 @@ The value of the annotation is the name used when declaring the security filter 
 
 In the configuration props file:
 
-	[com.inetpsa.seed.security.urls]
+	[org.seedstack.seed.security.urls]
 	/teapot = teapot
 
 Now if you reach url /teapot on your server, you get an HTTP response code 418. To create more advanced security filters,

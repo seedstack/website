@@ -26,21 +26,21 @@ Default location of the SEED storage directory is in the home directory of the u
  
 This is a quite usual location in UNIX and Windows systems and is adequate for light storage needs. To accommodate 
 heavier needs or for any other reason, this location can be changed to any local directory by setting the 
-`com.inetpsa.seed.core.storage` configuration property:	
+`org.seedstack.seed.core.storage` configuration property:	
 
-	[com.inetpsa.seed]
+	[org.seedstack.seed]
 	core.application-id = prd00
 	core.storage= /users/prd00/data/seed
 	
 	
-<div class="callout callout-warning">
+{{% callout info %}}
 If you have multiple SEED applications running on the same server, be sure to have set a unique identifier for each. It
 will avoid any storage directory collision if you uses the default location. If you specify the location manually be
 sure to specify a different location for each application (storage directories cannot be shared between SEED instances).
 In all cases, each application MUST have a different identifier.
-</div>
+{{% /callout %}}
 
-<div class="callout callout-info">
+{{% callout info %}}
 Note that this value can be externalised as any configuration value (see [this page](#!/dev-guide/configuration/props) 
 for more details).
-</div>
+{{% /callout %}}

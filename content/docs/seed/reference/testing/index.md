@@ -30,7 +30,7 @@ Integration tests can test from a simple operation involving two classes to an e
 setup with all its dependencies (databases, file system, network …). 
 
 Their main goal is to find and fix issues appearing with components interactions. The relevance of integration tests is either 
-technical (eg. testing a service create/read/update/delete methods) or functionnal (use cases). This last approach is more 
+technical (eg. testing a service create/read/update/delete methods) or functional (use cases). This last approach is more 
 adapted to avoid behavior regressions from a client perspective. 
 
 # Projects' setting

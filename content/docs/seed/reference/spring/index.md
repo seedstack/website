@@ -37,11 +37,11 @@ To add this support to your project use the following dependency snippet:
 Any Spring context located in the `META-INF/spring` classpath directory and named with the pattern `*-context.xml` will
 be autodetected by SEED. You can turn off auto detection with the following configuration property:
  
-    com.inetpsa.seed.spring.autodetect = false
+    org.seedstack.seed.spring.autodetect = false
     
 You can add custom contexts located anywhere in the classpath with the following configuration property:
     
-    com.inetpsa.seed.spring.contexts = /resource/path/to/context1.xml, /resource/path/to/context2.xml
+    org.seedstack.seed.spring.contexts = /resource/path/to/context1.xml, /resource/path/to/context2.xml
 
 You can inject any Spring bean from contexts detected by SEED in any SEED injectable component. You can inject using the 
 bean Class and the bean name: 
@@ -76,57 +76,57 @@ To use SEED instances in Spring contexts, you need to add the SEED namespace to 
     </beans>
 
 
-You can then create a spring bean from any SEED instance bound with a classname:
+You can then create a spring bean from any SEED instance bound with a class name:
 
-    <seed:instance id="myService" class="com.inetpsa.prd.MyService"/>
+    <seed:instance id="myService" class="org.myorganization.myproject.MyService"/>
     
 It is equivalent to this SEED injection:
 
     @Inject
-    com.inetpsa.prd.MyService myService;
+    org.myorganization.myproject.MyService myService;
     
 Named SEED bindings (bound with a `@Named` qualifier) are also supported:
 
-    <seed:instance id="myService" class="com.inetpsa.prd.MyService" qualifier="myQualifier"/>
+    <seed:instance id="myService" class="org.myorganization.myproject.MyService" qualifier="myQualifier"/>
 
 It is equivalent to this SEED injection:
 
     @Inject
     @Named("myQualifier")
-    com.inetpsa.prd.MyService myService;
+    org.myorganization.myproject.MyService myService;
     
 Since SEED can inject Spring beans and Spring can inject SEED instances, there is a circular dependency between the two
 injectors. To alleviate this problem, SEED instances are by default proxied for lazy initialization. It allows Spring to 
 initialize its context without needing the SEED injector to be initialized too. You can explicitly disable this proxy:
 
-    <seed:instance id="myService" class="com.inetpsa.prd.MyService" qualifier="myQualifier" proxy="false"/>
+    <seed:instance id="myService" class="org.myorganization.myproject.MyService" qualifier="myQualifier" proxy="false"/>
 
 You can also inject configuration values directly:
 
     <bean id="..." class="...">
         <property name="configurationValue">
-            <seed:configuration key="com.inetpsa.prd.my-configuration-value"/>
+            <seed:configuration key="org.myorganization.myproject.my-configuration-value"/>
         </property>
     </bean>
     
 It is equivalent to this SEED configuration injection:
 
-    @Configuration("com.inetpsa.prd.my-configuration-value")
+    @Configuration("org.myorganization.myproject.my-configuration-value")
     String configurationValue;
     
 Configuration values don't require SEED injector to be initialized and are all available at context initialization. You 
 can specify a default value:
 
-    <seed:configuration key="com.inetpsa.prd.my-configuration-value" default="myDefaultValue"/>
+    <seed:configuration key="org.myorganization.myproject.my-configuration-value" default="myDefaultValue"/>
             
 It is equivalent to this SEED configuration injection:
 
-    @Configuration(value = "com.inetpsa.prd.my-configuration-value", defaultValue="myDefaultValue")
+    @Configuration(value = "org.myorganization.myproject.my-configuration-value", defaultValue="myDefaultValue")
     String configurationValue;
     
 You can control if a property is mandatory with the mandatory attribute (true by default):
     
-    <seed:configuration key="com.inetpsa.prd.my-configuration-value" mandatory="false"/>
+    <seed:configuration key="org.myorganization.myproject.my-configuration-value" mandatory="false"/>
     
 If no configuration value nor default value is available and the injection is not mandatory, `null` will be used. 
     

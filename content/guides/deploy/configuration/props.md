@@ -20,20 +20,17 @@ must **contain** this directory structure:
             |-configuration
                 |-*.props       <-- put all relevant props files here
  
-<div class="callout callout-warning">
-<p>
-Please note that when multiple files with the same name and in the same classpath location (<code>META-INF/configuration</code> in 
+{{% callout info %}}
+Please note that when multiple files with the same name and in the same classpath location (`META-INF/configuration` in 
 this case) are present, only one file is visible from Java code, which one depending on the classpath entries order. 
-</p>
-<p>
+
 To avoid this situation please be sure to name each props files differently, denoting its purpose in the same (for instance
-you can name them <code>com.inetpsa.prd-security.props</code> and <code>com.inetpsa.prd-app.props</code> and both of them will be picked). 
-</p>
-<p>
+you can name them `org.myorganization.myproject-security.props` and `org.myorganization.myproject-app.props` and both of 
+them will be picked). 
+
 It is sometimes desirable to use this characteristic to override a whole props file. In that case, be sure to put the 
 location with the overriding file BEFORE the location with the overridden file.
-</p>
-</div> 
+{{% /callout %}}
  
 # Props files content
  

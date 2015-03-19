@@ -67,12 +67,11 @@ redefinition.
 - ORM takes place according to class (table) and attributes names (columns) while JPA `@Id` and `@GeneratedValue` 
 annotations define the primary key and its generation strategy.
 
-<div class="callout callout-info">
-<strong>Notice: </strong>SEED offers a
-<a href="#!/business-doc/hands-on-domain/factory#entity-identity-management">strategy handling</a> for entity
-ids - JPA <code>@GeneratedValue</code> annotation might not be the most up to date way to handle your strategy
-on the matter.
-</div>
+{{% callout info %}}
+**Notice:** The business framework can affect identity to entities based on a configurable strategy. You can rely on this
+strategy instead of the `@GeneratedValue` JPA annotation. For more information please check 
+[the factory documentation](/docs/business/reference/factory).
+{{% /callout %}}
 
 # SimpleJpaEntity
 

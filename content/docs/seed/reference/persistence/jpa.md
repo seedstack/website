@@ -70,7 +70,7 @@ Below snippet is a minimalist `persistence.xml` file example declaring :
         version="2.0">
 
         <persistence-unit name="myJpaUnit" transaction-type="RESOURCE_LOCAL">
-            <class>com.inetpsa.seed.persistence.jpa.sample.Item1</class>
+            <class>org.seedstack.seed.persistence.jpa.sample.Item1</class>
             <properties>
                 <property name="..." value="..."/>
             </properties>
@@ -85,11 +85,11 @@ they do not need to be changed again in your application. In order to externaliz
 
 Declare your list of JPA units in order to have them managed by SEED:
 
-    com.inetpsa.seed.persistence.jpa.units = myJpaUnit, ...
+    org.seedstack.seed.persistence.jpa.units = myJpaUnit, ...
 
 Add properties to your JPA unit by specifying a section as follows:
 
-    [com.inetpsa.seed.persistence.jpa.unit.myJpaUnit]
+    [org.seedstack.seed.persistence.jpa.unit.myJpaUnit]
     property.javax.persistence.jdbc.driver = ...
     property.javax.persistence.jdbc.url = ...
     property.javax.persistence.jdbc.user = ...

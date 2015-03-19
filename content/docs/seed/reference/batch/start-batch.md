@@ -70,9 +70,9 @@ Description of the beans:
 
 Create a SEED-managed service to illustrate a SEED service injection inside a Spring bean with Interface :
 
-    package com.inetpsa.seed.service;
+    package org.seedstack.seed.service;
 
-    import com.inetpsa.seed.business.api.application.annotations.ApplicationService;
+    import org.seedstack.seed.business.api.application.annotations.ApplicationService;
 
     @ApplicationService
     public interface MessageService {
@@ -81,9 +81,9 @@ Create a SEED-managed service to illustrate a SEED service injection inside a Sp
 
 and implementation :
 
-    package com.inetpsa.seed.service.impl;
+    package org.seedstack.seed.service.impl;
 
-    import com.inetpsa.seed.service.MessageService;
+    import org.seedstack.seed.service.MessageService;
 
     public class MessageServiceImpl implements MessageService {
 
@@ -98,14 +98,14 @@ and implementation :
 A tasklet is a Class containing custom logic to be ran as a part of a job. `PrintTasklet` is our custom tasklet which
 implements `Tasklet` interface and overrides the `execute()` method which prints the message from `MessageService`.
 
-    package com.inetpsa.seed.batch.tasklet;
+    package org.seedstack.seed.batch.tasklet;
     
     import org.springframework.batch.core.StepContribution;
     import org.springframework.batch.core.scope.context.ChunkContext;
     import org.springframework.batch.core.step.tasklet.Tasklet;
     import org.springframework.batch.repeat.RepeatStatus;
     
-    import com.inetpsa.seed.service.MessageService;
+    import org.seedstack.seed.service.MessageService;
     
     public class PrintTasklet implements Tasklet {
     
@@ -151,9 +151,9 @@ job-context.xml:
         
             <batch:step id="printStep" >
                 <batch:tasklet>
-                    <bean class="com.inetpsa.seed.batch.tasklet.PrintTasklet">
+                    <bean class="org.seedstack.seed.batch.tasklet.PrintTasklet">
                     <property name="messageService">
-                        <seed:instance class="com.inetpsa.seed.service.MessageService"/>
+                        <seed:instance class="org.seedstack.seed.service.MessageService"/>
                     </property>
                 </bean>
                 </batch:tasklet>

@@ -84,11 +84,11 @@ is equivalent to this other one (properties format):
 
 ### Use
 
-SEED provides a configuration profile concept which is activated via the `com.inetpsa.seed.profiles` system property.
+SEED provides a configuration profile concept which is activated via the `org.seedstack.seed.profiles` system property.
 You can activate several profiles simultaneously by using **a comma separated list**. 
 For example, following JVM argument activates both `dev` and `debug` profiles:
 
-    -Dcom.inetpsa.seed.profiles=dev,debug
+    -Dorg.seedstack.seed.profiles=dev,debug
 
 
 ### Basic definition
@@ -106,11 +106,11 @@ For example :
     db.url<dev>=localhost
     db.username<dev>=root
 
-    db.url<prod>=productionmachine.inetpsa.com
+    db.url<prod>=productionmachine.myorganization.org
     db.username<prod>=securedaccount
 
 In above example, `db.port` key provides a base property that will always be available whereas other keys are dependant on a profile name (`dev` or `prod`).
-Therefore, these values would be available only if the corresponding profiles (environments here) are requested through JVM `com.inetpsa.seed.profiles` argument.
+Therefore, these values would be available only if the corresponding profiles (environments here) are requested through JVM `org.seedstack.seed.profiles` argument.
 
 Since profiles can be anywhere in the key name, then section names can contain profile definitions as well. 
 Above example can also be written as follows:
@@ -122,7 +122,7 @@ Above example can also be written as follows:
     username=root
 
     [db<prod>]
-    url=productionmachine.inetpsa.com
+    url=productionmachine.myorganization.org
     username=securedaccount
 
 Profile is determined at application initialization and cannot be changed afterwards. Only one profile can be active
@@ -187,23 +187,23 @@ need to escape new lines in multiline values.
 Values with the same key name are automatically appended to each other with a comma (`,`) separator. With the following
 configuration:
 
-    com.inetpsa.prd.toto = val1
-    com.inetpsa.prd.toto = val2
+    org.myorganization.myproject.toto = val1
+    org.myorganization.myproject.toto = val2
 
-The `com.inetpsa.prd.toto` value evaluates to `val1,val2`. You can then retrieve this kind of value as a normal string 
+The `org.myorganization.myproject.toto` value evaluates to `val1,val2`. You can then retrieve this kind of value as a normal string 
 or as a string array.
 
 ## Copy operator
 
 Imagine a set of properties shared, by default, in different groups/categories as in following example:
 
-    com.inetpsa.prd1.action1=value1
-    com.inetpsa.prd1.action2=value2
+    org.myorganization.myproject1.action1=value1
+    org.myorganization.myproject1.action2=value2
     ...
-    com.inetpsa.prd2.action1=value1
-    com.inetpsa.prd2.action2=value2
+    org.myorganization.myproject2.action1=value1
+    org.myorganization.myproject2.action2=value2
     ...
-    com.inetpsa.prd3.... # etc
+    org.myorganization.myproject3.... # etc
 
 Props allows you to use copy operator: `<=` in order to minimize and clarify the code required for duplication. Above props can then be written as follows:
 
@@ -213,12 +213,12 @@ Props allows you to use copy operator: `<=` in order to minimize and clarify the
     ...
 
     []
-    com.inetpsa.prd1 <= actions
+    org.myorganization.myproject1 <= actions
 
-    [com]
-    inetpsa.prd2 <= actions
+    [org]
+    myorganization.prd2 <= actions
 
-    [com.inetpsa.prd3]
+    [org.myorganization.myproject3]
     <= actions
 
 Above example shows 3 different but equivalent ways to use copy operator:
@@ -229,9 +229,9 @@ Above example shows 3 different but equivalent ways to use copy operator:
 
 Note that copied values are set as macros, so all above copied properties are identical to:
 
-    com.inetpsa.prd1.action1=${actions.action1}
-    com.inetpsa.prd1.action2=${actions.action2}
-    com.inetpsa.prd2.action1=${actions.action1}
+    org.myorganization.myproject1.action1=${actions.action1}
+    org.myorganization.myproject1.action2=${actions.action2}
+    org.myorganization.myproject2.action1=${actions.action1}
     ....
 
 All rules for resolving macros apply.
@@ -325,7 +325,7 @@ This will remove `category.property1` and `category.property2` from the nominal 
 @Configuration annotation allows injecting a property on a class field. For example:
 
 	public class MyClass {
-		import com.inetpsa.seed.core.api.Configuration;
+		import org.seedstack.seed.core.api.Configuration;
 
 		@Configuration("bar")
 		private String bar; //will have the value of bar key

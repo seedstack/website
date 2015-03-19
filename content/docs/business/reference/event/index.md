@@ -17,9 +17,10 @@ Seed Business Framework contains an API to manage domain events.
 Seed Business Framework provides an `EventService` to fire events. Events must be immutable and extend 
 `DomainEvent` (which extends `BaseValueObject`).
 
-<div class="callout callout-info">
-<strong>Notice:</strong> Events can also be defined by implementing the <code>Event</code> interface. Nevertheless, this requires to implement <code>equals</code> and <code>hashCode</code> methods. Otherwise event fixtures and call cycle detection will not work.
-</div>
+{{% callout info %}}
+**Notice:** Events can also be defined by implementing the `Event` interface. Nevertheless, this requires to 
+implement `equals()` and `hashCode()` methods. Otherwise event test fixtures and call cycle detection will not work.
+{{% /callout %}}
 
 For instance this event...
 
@@ -162,11 +163,11 @@ class MyHandler implements EventHandler<AggregateReadEvent> {
     }
 }
 ```
-<div class="callout callout-info">
-<strong>IMPORTANT:</strong> Above handler receives all <code>AggregateReadEvent</code> from any repository
-<code>@Read</code> annotated method. Since <code>AggregateReadEvent</code> events contain the aggregate root
+{{% callout info %}}
+**IMPORTANT:** Above handler receives all `AggregateReadEvent` from any repository
+`@Read` annotated method. Since `AggregateReadEvent` events contain the aggregate root
 class and a context with the called method and its arguments, the handler behaviour can be defined accordingly.
-</div>
+{{% /callout %}}
 
 ---
 

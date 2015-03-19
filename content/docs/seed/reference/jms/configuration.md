@@ -18,18 +18,18 @@ Configuring your messaging solution is mandatory in order to be able to use SEED
 # Connection factories
 The connectionFactory is the base to create connections. Connection factories are declared using the following property:
 
-    com.inetpsa.seed.jms.connection-factories = connection-factory-1, connection-factory-1, ...
+    org.seedstack.seed.jms.connection-factories = connection-factory-1, connection-factory-1, ...
 
 Configuring each connection factory just requires its name in subsequent properties:
 
-    com.inetpsa.seed.jms.connection-factory.connection-factory-1... = ...
+    org.seedstack.seed.jms.connection-factory.connection-factory-1... = ...
 
 ## Direct instantiation configuration
 
 In direct instantiation mode, SEED will create the connection factory and configure it. Use the following property
 syntax to define the configuration:
 
-    [com.inetpsa.seed.jms]
+    [org.seedstack.seed.jms]
     connection-factory.connection-factory-1.vendor.class = fully qualified vendor classname
     connection-factory.connection-factory-1.vendor.property.property1 = value1
     connection-factory.connection-factory-1.vendor.property.property2 = value2
@@ -42,7 +42,7 @@ SEED will instantiate the specified class and will set each property as above de
 
 In JNDI mode, SEED will lookup for connection factory instances using the name and optionally the specified context:
 
-    [com.inetpsa.seed.jms]
+    [org.seedstack.seed.jms]
     connection-factory.connection-factory-1.jndi.name = name to lookup for
     connection-factory.connection-factory-1.jndi.context = context for lookup
 
@@ -54,13 +54,13 @@ documentation for more details). If no context is specified the default context 
 A `Connection` encapsulates a virtual connection with a JMS provider. Multiple connections can be created and managed by SEED.
 All connections must be listed with associated connection factories used to create each of them:
 
-    [com.inetpsa.seed.jms]
+    [org.seedstack.seed.jms]
     connections = connection-1, connection-2, ...
     connection.connection-1.connection-factory = connection-factory-1
 
 A connection credentials can be specified using the following properties:
 
-    [com.inetpsa.seed.jms]
+    [org.seedstack.seed.jms]
     connection.connection-1.user = ...
     connection.connection-1.password = ...
 
@@ -68,18 +68,18 @@ A connection credentials can be specified using the following properties:
 SEED can also set a connection client id (not set by default). If requested, SEED will set the client id with by appending **applicationID an connection name**. 
 Set property as follows:
 
-    com.inetpsa.seed.jms.connection.connection-1.set-client-id = true | false
+    org.seedstack.seed.jms.connection.connection-1.set-client-id = true | false
 
 # Additional properties
 
 Configure the delay in milliseconds between two reconnection attempts.
 
-    [com.inetpsa.seed.jms]
+    [org.seedstack.seed.jms]
     reconnection-delay = 30000
 
 Disable the reconnection feature.
 
-    [com.inetpsa.seed.jms]
+    [org.seedstack.seed.jms]
     managed-connection = false
 
 # WebSphere MQ Sample
@@ -111,13 +111,13 @@ Add required dependencies for your messaging solution:
 
 ## Add configuration
 
-    [com.inetpsa.seed.jms]
+    [org.seedstack.seed.jms]
     connection-factories = mq
 
     # Set MQConnectionFactory  properties
     connection-factory.mq.vendor.class = com.ibm.mq.jms.MQConnectionFactory
     connection-factory.mq.vendor.property.queueManager = ABCDE1234
-    connection-factory.mq.vendor.property.hostName = abcde1234.inetpsa.com
+    connection-factory.mq.vendor.property.hostName = abcde1234.myorganization.org
     connection-factory.mq.vendor.property.channel =  ABCDE1234.ABCD.ABC
     connection-factory.mq.vendor.property.port = 1234
     connection-factory.mq.vendor.property.transportType = 1

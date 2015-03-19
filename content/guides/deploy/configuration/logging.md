@@ -12,12 +12,12 @@ runtime performance.
 The recommended SLF4J implementation for SEED applications is Logback. It is mainly configurable through an XML file
 named `logback.xml` that must present in the classpath in the default package (e.g. as a top-level resource). 
 
-<div class="callout callout-info">
+{{% callout info %}}
 We strongly recommend that you include SEED default configuration for Logback by adding the following line in your 
 `logback.xml` file:
 
-<pre>&lt;include resource="com/inetpsa/seed/core/seed-logback-defaults.xml"/&gt;</pre>
-</div> 
+    <include resource="org/seedstack/logback-defaults.xml"/>
+{{% /callout %}}
 
 To properly externalise your `logback.xml` file, you have three options:
 

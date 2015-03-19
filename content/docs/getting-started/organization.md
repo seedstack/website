@@ -64,19 +64,17 @@ Those domains can be reused in multiple projects:
 
 # Module inner organization
 
-We recommend to separate the unit tests from the integration
-tests. For information on how to test in SEED see the
-[related documentation](#!/seed-doc/test). We also expect the
-configuration files to be in the `META-INF/configuration` directory
-and your code to be in a package starting by `com.inetpsa`. This
-requirements are more detailed in the [Core documentation](#!/seed-doc/core). 
+We recommend to separate the unit tests from the integration tests. For information on how to test in SEED see the
+[related documentation](#!/seed-doc/test). We also expect the configuration files to be in the `META-INF/configuration` directory
+and your code to be in a package declared in the [bootstrap properties](/docs/seed/reference/core). This requirements 
+are more detailed in the [Core documentation](#!/seed-doc/core). 
 
     - src
       - it  <-- for integration tests
         - ...
       - main
         - java
-          - com.inetpsa.myproject... 
+          - org.myorganization.myproject... 
         - resources
           - META-INF
             - configuration  <-- location of the props files to be scanned by SEED

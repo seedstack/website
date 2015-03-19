@@ -96,9 +96,9 @@ Servlets and filters mapping is also possible with URL patterns using regular ex
     
 This will map any URL containing the text "ajax" to MyAjaxServlet such as:
 
-* http://myapplication.inetpsa.com/ajax.html
-* http://myapplication.inetpsa.com/content/ajax/index
-* http://myapplication.inetpsa.com/it/is-totally-ajaxy
+* http://myapplication.myorganization.org/ajax.html
+* http://myapplication.myorganization.org/content/ajax/index
+* http://myapplication.myorganization.org/it/is-totally-ajaxy
 
 Similarly it will map any URL containing the text "admin" to MyAdminFilter.
 

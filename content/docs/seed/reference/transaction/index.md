@@ -39,7 +39,7 @@ transactional code is invoked. The behavior of the transaction manager is heavil
 
 A SEED application can have **only one** transaction manager. The transaction manager is specified with following configuration property:
 
-	com.inetpsa.seed.transaction.transaction-manager = fully.qualified.name.of.TransactionManagerClass
+	org.seedstack.seed.transaction.transaction-manager = fully.qualified.name.of.TransactionManagerClass
 
 ## Local transaction manager
 
@@ -48,14 +48,14 @@ by an external transaction monitor like a J2EE Web server and doesn't support sp
 resources. However it is very lightweight and adequate for most common applications uses. This is the default transaction
 manager.
 
-	com.inetpsa.seed.transaction.transaction-manager = com.inetpsa.seed.transaction.internal.LocalTransactionManager
+	org.seedstack.seed.transaction.transaction-manager = org.seedstack.seed.transaction.internal.LocalTransactionManager
 
 ## JTA transaction manager	
 
 The JTA transaction manager integrates code demarcated with SEED transactions with any external JTA-compliant transaction
 monitor such as ones found in J2EE Web servers. To use it, just specify the following configuration property:
 
-	com.inetpsa.seed.transaction.transaction-manager = com.inetpsa.seed.transaction.internal.JtaTransactionManager
+	org.seedstack.seed.transaction.transaction-manager = org.seedstack.seed.transaction.internal.JtaTransactionManager
 	
 Some supports may need additional configuration to be able to participate in a JTA transaction. 
 

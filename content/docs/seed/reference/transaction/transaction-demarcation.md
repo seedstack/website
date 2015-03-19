@@ -61,7 +61,7 @@ and not intercepted at all.
 ## Resolvers use
 
 Transaction metadata resolvers are means of automatically determining transaction metadata for a specific context. A
-transaction metadata resolver must implement `com.inetpsa.seed.transaction.spi.TransactionMetadataResolver` interface 
+transaction metadata resolver must implement `org.seedstack.seed.transaction.spi.TransactionMetadataResolver` interface 
 and provide a default constructor. They are scanned and registered at application startup and queried **in no predefined
 order** at the beginning of method interception. Since they are queried inside the transaction interceptor,
 **an explicit transaction demarcation has to be present** in the first place. They cannot add behavior to not
@@ -70,7 +70,7 @@ demarcated code.
 ## Resolving
 
 The `resolve()` method is called on each resolver with the intercepted method as parameter. Its return is Return is either an instance 
-of `com.inetpsa.seed.transaction.spi.TransactionMetadata' with the inferred attributes set ot `null` when nothing can be inferred.
+of `org.seedstack.seed.transaction.spi.TransactionMetadata' with the inferred attributes set ot `null` when nothing can be inferred.
 inferred attributes set.
 
 SEED provides a built-in always active resolver which automatically associate the transaction handler if only
@@ -125,4 +125,3 @@ Remember that an explicitly specified `@Transactional` annotation will always ov
  * JPA resource is assumed since it is the only resource available.
  * JpaUnit is assumed since only one is defined.
  
-SEED integration test support provides a basic [example](http://community.seed.dev.inetpsa.com/#!/seed-doc/test/integration) using transactions.

@@ -58,7 +58,7 @@ As previously stated, there is no need for configuring web.xml anymore but a min
         </filter-mapping>
     
         <listener>
-            <listener-class>com.inetpsa.seed.web.ServletContextListener</listener-class>
+            <listener-class>org.seedstack.seed.web.ServletContextListener</listener-class>
         </listener>
     
     </web-app>

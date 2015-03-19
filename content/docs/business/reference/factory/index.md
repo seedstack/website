@@ -12,11 +12,11 @@ menu:
 
 A factory is used to **create domain objects**, checking provided data is complete and consistent.
 
-<div class="callout callout-info">
-To be created by a factory the domain object must also implements <code>Producible</code>. This is necessary because all
+{{% callout info %}}
+To be created by a factory the domain object must also implements `Producible`. This is necessary because all
 the domain objects are not producible by a factory. For instance an entity is only be producible by an aggregate
 root.
-</div>
+{{% /callout %}}
 
 The types implementing `DomainObject` and `Producible` are the followings:
 
@@ -92,11 +92,11 @@ public class OrderFactoryImpl extends BaseFactory<Order> implements OrderFactory
 With Order and OrderItem entities having a package visibility constructor, the use of new Order() and  new OrderItem() 
 is possible only because the entities share the same package as their aggregate factory.
 
-<div class="callout callout-info">
+{{% callout info %}}
 Since the implementation and its interface share the same package and only the interface is to be used and injected, 
-the <strong>implementation should be in package-visibility</strong>. It is possible to prevent any direct use of the implementation 
+the **implementation should be in package-visibility**. It is possible to prevent any direct use of the implementation 
 by making it visible at a package level.
-</div>
+{{% /callout %}}
 
 # Default factory
 
@@ -132,7 +132,7 @@ public interface MyPolicy implements DomainObject {
 }
 ```
 
-# Entity identity management
+# Identity management
 
 Factories provide methods to create entities with a well defined identity. But sometimes, you want to delegate the identity
 creation, for instance to an Oracle sequence. For this use case SEED provides an **identity generation strategies**. 
@@ -248,12 +248,12 @@ public class MyAggregateFactoryDefault extends BaseFactory<MyAggregate>
 - Id generations only applies to the generated Entity (not sub entities) - one "create method" is required for each 
 Entity requiring id generation
 
-<div class="callout callout-info"> 
-If all factory methods delegate id generation to SEED, <code>@Create</code> annotation can apply at class or interface level.
+{{% callout info %}}
+If all factory methods delegate id generation to SEED, `@Create` annotation can apply at class or interface level.
 
-Alternatively, you can inject <code>IdentityService</code> to programmatically and individually generate an identity on compliant 
-Entities (id attribute annotated with <code>@Identity</code>) as in following test:
-</div>
+Alternatively, you can inject `IdentityService` to programatically and individually generate an identity on compliant 
+entities (id attribute annotated with `@Identity`) as in following test.
+{{% /callout %}} 
 
 ```
 @RunWith(SeedITRunner.class)

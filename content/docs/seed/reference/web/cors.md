@@ -28,15 +28,15 @@ filter options can be specified by configuration properties.
 
 To enable CORS support just add the following configuration to your application:
 
-    com.inetpsa.seed.web.cors.enabled = true
+    org.seedstack.seed.web.cors.enabled = true
 
 # Filter properties
 
 The CORS filter allows to alter its default behavior with various parameters. The filter documentation enumerates all
-configuration parameters. SEED can transform any configuration property prefixed with `com.inetpsa.seed.web.cors.property`
+configuration parameters. SEED can transform any configuration property prefixed with `org.seedstack.seed.web.cors.property`
 to the corresponding filter parameter. For instance, to specify the recognized verbs, you can use the following configuration:
 
-    com.inetpsa.seed.web.cors.property.supportedMethods= GET\\, POST\\, HEAD\\, OPTIONS\\, PUT\\, DELETE
+    org.seedstack.seed.web.cors.property.supportedMethods= GET\\, POST\\, HEAD\\, OPTIONS\\, PUT\\, DELETE
 
 This configuration property is automatically translated to the `cors.supportedMethods` filter parameter found in the
 documentation. Note that the escaping of the commas is required to inhibit SEED from parsing this value as a list and

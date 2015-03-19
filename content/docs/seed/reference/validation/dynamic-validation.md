@@ -65,4 +65,4 @@ In the same way, `@Valid` garantees that the message will be valid.
 
 
 SEED provides a proxy which handles input parameters and return value verification throwing a
-`com.inetpsa.seed.validation.internal.ValidationException` upon any constraint violation.
+`org.seedstack.seed.validation.internal.ValidationException` upon any constraint violation.

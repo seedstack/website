@@ -10,14 +10,32 @@ menu:
         weight: 60
 ---
 
-The Web module is only required by functions with UI, eg. the SEED i18n function. Functions don't always need UI, eg. the SEED IO function.
+Not all reusable functions have a Web interface but if you need to provide one, please follow the advices on this
+page.
 
-Functions with UI must use the [SEED Business Framework](#!/business-doc) and [W20](#!/w20-doc). Their fragment must be auto discoverable by adding your w20 files in the `META-INF/resources/resources`. 
+# Organization
 
-W20 recommendations:
+You have two organization choices for the function Web interface. 
 
-  * Avoid absolute paths and hard-coded prefixes
-  * Avoid specific styling to maximize compatibility between themes
-  * Map security to UI (routes, graphical components, ...)
+* Either separate the frontend and REST API in their own `static` and `rest` modules and provide a `web` module combining 
+the two.
+* Or either combine the frontend and REST API in one unique `web` module. If you want to offer the flexibility to reuse 
+the Web UI or the REST API separately, you should use the separated module organization. If not the unique module will 
+suffice.
 
-> IMPORTANT: the web module must not be package as WAR (so no WEB-INF and no web.xml) !
+{{% callout info %}}
+In all cases, the `web` module should be packaged as a JAR (instead of a WAR) since it will allow to reuse it in client
+applications without using WAR overlay techniques. SeedStack provides all the necessary infrastructure to compose Web
+applications from multiple JARs.
+{{% /callout %}}
+
+# Recommendations
+
+We recommend to use W20 for the Web UI as its modularity will be of great use for building a reusable function. When
+using W20, you should observe the following rules:
+
+* Avoid absolute paths and hard-coded prefixes,
+* Avoid specific styling to maximize compatibility between themes,
+* Use permissions instead of roles for security as they are independent of the client application security model and
+they can be mapped very finely.
+

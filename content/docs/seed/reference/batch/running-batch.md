@@ -28,7 +28,7 @@ To run the job we use the `SeedRunner` as main class (`SeedRunner` belongs to SE
 ![SeedRunner](/img/seed/batch/seed-runner.png)
 
 -   Project :`SimpleSeedBatch`
--   Main Class: `com.inetpsa.seed.cli.runner.SeedRunner`.
+-   Main Class: `org.seedstack.seed.cli.runner.SeedRunner`.
 
 
 Then switch to the arguments tab:
@@ -41,14 +41,14 @@ Check for expected "---My Simple Job----" message in logging output:
 
 ```
 .....
-17:11:44.172 [main] INFO  c.i.s.c.r.SeedRunner$SeedCallable - Starting Command Line Handler : spring-batch2-commandline-handler
+17:11:44.172 [main] INFO  o.s.s.c.r.SeedRunner$SeedCallable - Starting Command Line Handler : spring-batch2-commandline-handler
 17:11:44.299 [main] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [FlowJob: [name=mySimpleJob]] launched with the following parameters: [{}]
 17:11:44.318 [main] INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [printStep]
-12:25:45.538 [main] INFO  c.i.seed.batch.tasklet.PrintTasklet - ---My Simple Job----
+12:25:45.538 [main] INFO  o.s.seed.batch.tasklet.PrintTasklet - ---My Simple Job----
 17:11:44.376 [main] INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [FlowJob: [name=mySimpleJob]] completed with the following parameters: [{}] and the following status: [COMPLETED]
-17:11:44.377 [main] INFO  c.i.s.b.s.i.SpringBatch2CommandLineHandler - Exit with status : COMPLETED
-17:11:44.377 [main] INFO  c.i.s.c.r.SeedRunner$SeedCallable - Ending Command Line Handler. spring-batch2-commandline-handler
-17:11:44.377 [main] INFO  c.inetpsa.seed.cli.runner.SeedRunner - Exiting the application
+17:11:44.377 [main] INFO  o.s.s.b.s.i.SpringBatch2CommandLineHandler - Exit with status : COMPLETED
+17:11:44.377 [main] INFO  o.s.s.c.r.SeedRunner$SeedCallable - Ending Command Line Handler. spring-batch2-commandline-handler
+17:11:44.377 [main] INFO  o.seedstack.seed.cli.runner.SeedRunner - Exiting the application
 .....
 
 ```
@@ -80,7 +80,7 @@ For more information please refer to the plugin [documentation](http://maven.apa
                     <transformer
                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                         <manifestEntries>
-                            <Main-Class>com.inetpsa.seed.cli.runner.SeedRunner</Main-Class>
+                            <Main-Class>org.seedstack.seed.cli.runner.SeedRunner</Main-Class>
                         </manifestEntries>
                     </transformer>
 

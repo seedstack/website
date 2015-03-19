@@ -42,7 +42,7 @@ This module can then be used as a dependency both on client and server side.
 
 JDK 6 contains an older version of the JAX-WS specifications than the one used in SEED WS support. 
 Therefore the endorsed mechanism has to be used with required version of `webservices-api.jar` available 
-[here](http://ciq-repository.inetpsa.com/repository/proxied-releases/org/glassfish/metro/webservices-api/2.3/webservices-api-2.3.jar).
+[here](http://search.maven.org/remotecontent?filepath=org/glassfish/metro/webservices-api/2.3/webservices-api-2.3.jar).
 
 ### Endorse WS API
 

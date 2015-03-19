@@ -41,15 +41,15 @@ Shell access is an application-specific feature and should generally be added in
 
 The configuration properties defining the shell support behavior are :
 
-* `com.inetpsa.seed.shell.enabled` which determines if shell access is enabled or not. **For security reasons, shell
+* `org.seedstack.seed.shell.enabled` which determines if shell access is enabled or not. **For security reasons, shell
 access is disabled by default even with maven shell support dependency. If required, the property has to be set to `true`.**
-* `com.inetpsa.seed.shell.port` defines the port the SSH server will listen to. Defaults to 2222.
-* `com.inetpsa.seed.shell.key.type` defines what type of cryptographic key to use:
+* `org.seedstack.seed.shell.port` defines the port the SSH server will listen to. Defaults to 2222.
+* `org.seedstack.seed.shell.key.type` defines what type of cryptographic key to use:
     * `generated` is the simplest and default mode. It generates a key in the application storage directory which is used 
     in subsequent authentication challenges. **Please note that this key type is NOT secured from a SSH perspective.**
-    * `file` mode specifies the cryptographic key location on the filesystem via the `com.inetpsa.seed.shell.key.location`
+    * `file` mode specifies the cryptographic key location on the filesystem via the `org.seedstack.seed.shell.key.location`
     configuration property. The key must be provided in a JCE serialized format.
-    * `resource` mode specifies the cryptographic key location on the classpath via the `com.inetpsa.seed.shell.key.location`
+    * `resource` mode specifies the cryptographic key location on the classpath via the `org.seedstack.seed.shell.key.location`
     configuration property. The key must be provided in a JCE serialized format.
     
 

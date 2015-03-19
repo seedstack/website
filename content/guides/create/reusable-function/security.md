@@ -10,11 +10,30 @@ menu:
         weight: 50
 ---
 
-The security must be thought since the beginning. Functions should provide to their users a way to secure all the interfaces (REST or programmatic).
+The function security must be taken into account early in the conception and development process. Functions should provide 
+to client applications a way to secure each feature very finely. SeedStack provides an expressive yet simple [security
+model](/docs/seed/reference/security) that can be used in functions for modular security.
 
-SEED provides two annotations to secure methods: `@RequiresPermissions` and `@RequiresRoles`. Applications can use both, but functions must only use the first one. The intent of this restriction is to allow users to map the function permissions to their roles.
+# Use permissions only
 
-The permission naming conventions are `"PRD:PROJECT:ENTITY:ACTION"`. For instance: `"seed:i18n:locale:delete"`.
+The key of reusable function security is to **use permissions instead of roles** as permissions are only related to the 
+features the function provides and can be mapped to any role defined in client applications.
+
+Permissions are arbitrary colon-delimited list of identifiers that express the secured action, going from the most general
+to the most specific. In functions it is strongly recommended to start the permission with at least the function name.
+You can even prefix it with the organization name if the function is going to be shared across organizations and the function
+name is not distinctive enough. As an example, consider the following permission:
+
+    seedstack:i18n:locale:delete
+
+This permission denotes the ability to delete a locale in the 18n function of seedstack.      
+      
+# Backend security 
+
+To enforce permissions, SeedStack provides a [declarative and a programmatic API](/docs/seed/reference/security/usage).
+You can use either one or both but only rely on the permission checks, NOT the role checks.
+
+
 
 > All the API methods which change the application state should be secured.
 
