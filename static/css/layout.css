@@ -7,8 +7,10 @@
 .title-header.big {
 	height: 354px;
 }
-.title-header .plant {
+.title-header .big-logo {
 	height: 350px;
+    padding-top: 25px;
+    padding-bottom: 25px;
 	text-align: right;
 }
 .title-header .img-helper {
@@ -174,9 +176,10 @@
     font-weight: 300;
     font-size: 28px;
     padding-top: 16px;
-    padding-left: 25px;
-    margin-left: -25px;
-    background: transparent url('../img/logo.png') no-repeat left 5px;
+    padding-left: 36px;
+    margin-left: -36px;
+    background: transparent url('../img/logo.svg') no-repeat left 8px;
+    background-size: 32px 32px;
 }
 
 .header-image-wrapper {
