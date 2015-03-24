@@ -10,6 +10,10 @@ MetaDataFormat = "yaml"
 #### Website zones               ####
 #####################################
 
+[params.zone.Overview]
+  path = "/Overview"
+  label = "Overview"
+
 [params.zone.Seed]
   path = "/docs/seed"
   label = "Java framework"
@@ -38,6 +42,30 @@ MetaDataFormat = "yaml"
   path = "/doc/glossary"
   label = "Glossary"
 
+
+#####################################
+#### Overview sections           ####
+#####################################
+
+[params.section.OverviewIntroduction]
+  label = "Introduction"
+  icon = "fa fa-file-text"
+  path = ""
+
+[params.section.OverviewArchitecture]
+  label = "Architecture"
+  icon = "fa fa-building-o"
+  path = ""
+
+[params.section.OverviewRoadmap]
+  label = "Roadmap"
+  icon = "fa fa-road"
+  path = ""
+    
+[params.section.OverviewFaq]
+  label = "FAQ"
+  icon = "fa fa-comments-o"
+  path = ""    
 #####################################
 #### Business framework sections ####
 #####################################
@@ -340,7 +368,7 @@ MetaDataFormat = "yaml"
 
 [params.section.CreateFunctionGuide]
   label = "Create a reusable function"
-  icon = "fa fa-cogs"
+  icon = "fa fa-puzzle-piece"
   path = "create/reusable-function"
 
 [params.section.CreateDomainGuide]
@@ -368,7 +396,7 @@ MetaDataFormat = "yaml"
 
 [params.section.FunctionI18n]
   label = "Internationalization"
-  icon = "fa fa-comments"
+  icon = "fa fa-language"
 
 [params.section.FunctionBridge]
   label = "W20 bridge"

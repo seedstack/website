@@ -10,136 +10,43 @@ menu:
         weight: 10
 ---
 
-# BaseJpaEntity
+# Usage
 
-Minimum requirements for being a JPA entity are as follows:
+In order to create an entity extends the `BaseEntity` class. It will
+require you to implement the `getEntityId()` method which returns the
+identity of the class.
 
-- hold a JPA `@Entity` class annotation 
-- contain an `@Id` annotation on the identity attribute 
-- extend `BaseJpaEntity<ID>` with `ID` being the type of the entity identity
-- `getEntityId()` has to return the entity identity
-  
-Below is a basic Entity example extracted from the ecommerce showcase application domain. The entity is an order Item as 
-you could visualize it in any e-shopping website cart. It has an `orderItemId`, a `quantity`, a `productId` and a `price`.
+```java
+public class Customer extends BaseEntity {
 
-```
-package org.mycompany.myapp.domain.model.order;
+    private CustomerId customerId;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import org.seedstack.business.jpa.domain.BaseJpaEntity;
+    private Address address;
 
-/** OrderItem entity */
-@Entity
-public class OrderItem extends BaseJpaEntity<Long> {
-	
-	private static final long serialVersionUID = 1L;
+    private String email;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long orderItemId;
+    private List<Order> orders;
 
-	private int quantity;
-	private long productId;
-	private double price;
+    /* Package protected constructor */
+    Customer (CustomerId identity, Address address, String email) {
+        this.customerId = identity;
+        ...
+    }
 
-	/** Package visibility for build from Factory - interface within the same package */
-	OrderItem() {}
-	
-	@Override
-	public Long getEntityId() {
-		return orderItemId;
-	}
-	
-	-----8<---------------------
-	public getters()/setters();
-	--------------------->8-----
-}
-```
+    @Override
+    public CustomerId getEntityId() {
+        return this.customerId;
+    }
 
-- `OrderItem` is an entity thanks to JPA `@Entity` annotation
-- `OrderItem` extends `BaseJpaEntity<Long>` since `Long` is the type of the primary key (`@Id` on `orderItemId` attribute).
-- `BaseJpaEntity` is an abstract class extending `BaseEntity` that handles the most generic Entity related behaviour. 
-- `getEntityId()` has to return the entity id and is defined in `BaseEntity` as an abstract method to force sub classes 
-redefinition.
-- ORM takes place according to class (table) and attributes names (columns) while JPA `@Id` and `@GeneratedValue` 
-annotations define the primary key and its generation strategy.
+    /* Meaningful methods */
+    public void changeAddress(Address address) { ... }
+    public void changeEmail(String email) { ... }
+    public void buyItem(Order order) { ... }
 
-{{% callout info %}}
-**Notice:** The business framework can affect identity to entities based on a configurable strategy. You can rely on this
-strategy instead of the `@GeneratedValue` JPA annotation. For more information please check 
-[the factory documentation](/docs/business/reference/factory).
-{{% /callout %}}
-
-# SimpleJpaEntity
-
-`SimpleJpaEntity` extends `BaseJpaEntity` and provides a `protected entityId` with the associated `getEntityId()` getter. 
-Therefore, an entity extending `SimpleJpaEntity` would just have to provide the value of `entityId` to behave similarly 
-to above example.
-
-- For instance with a constructor:
-
-```
-package org.mycompany.myapp.domain.model.order;
-
-import org.seedstack.business.jpa.domain.id.SimpleJpaEntity;
-
-public class OrderItem extends SimpleJpaEntity<Long> {
-
-	/** Package visibility for build from Factory - interface within the same package */
-	OrderItem(Long orderItemId, int quantity, long productId, double price) {
-		this.orderItemId = orderItemId;
-		this.quantity = quantity;            
-		this.productId = productId;
-		this.price = price;
-		
-		// set the entityId handled by SimpleJpaEntity
-		this.entityId = orderItemId; /*<------ HERE*/
-	}
-
-}		
-```
-
-- Or with a setter:
-```
-package org.mycompany.myapp.domain.model.order;
-
-import org.seedstack.business.jpa.domain.id.SimpleJpaEntity;
-
-public class OrderItem extends SimpleJpaEntity<Long> {
-
-	/** Public if used from Factory */
-	public void setEntityId(Long entityId){
-		this.entityId=entityId
-	}
-	
-	/** Package visibility for build from Factory - interface within the same package */
-	OrderItem(Long orderItemId) {
-		this.orderItemId = orderItemId;	
-
-		// set the entityId handled by SimpleJpaEntity
-		setEntityId(orderItemId); /*<------ HERE*/
-	}
-
-}
-```
-
-# EmbedJpaEntity
-
-`EmbedJpaEntity` and `SimpleJpaEntity` are very similar except that the `entityId` provided to `EmbedJpaEntity` 
-is defined by a class annotated with `@Embeddable`. For example, a car has a VIN (Vehicle International Number) 
-made of 3 parts which is a good candidate for a unique functional `Car` identity (which is a typical Value Object 
-as described [later](#!/business-doc/hands-on-domain/value-object#example-2---vin)):
-
-```
-package org.mycompany.myapp.domain.model.car;
-
-import org.seedstack.business.jpa.domain.embeddedid.EmbedJpaEntity;
-
-public class Car extends EmbedJpaEntity<VIN> {
-    ...
+    /* Getters */
+    public Address getAddress() { ... }
+    public Address getEmail() { ... }
+    public Address getOrders() { ... }
 }
 ```
 
