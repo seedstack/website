@@ -1,1 +1,1 @@
-{{ $anchor := .Get 0 }}{{ if isset .Params 1 }}{{ $anchor := .Get 1 }}{{ end }}<a href='{{ ref . (add "glossary.md#" ($anchor | urlize)) }}'>{{ .Get 0 }}</a>
+{{ if isset .Params 1 }}<a href='{{ ref . (add "glossary.md#" (index .Params 1 | urlize)) }}'>{{ index .Params 0 }}</a>{{ else }}<a href='{{ ref . (add "glossary.md#" (index .Params 0 | urlize)) }}'>{{ index .Params 0 }}</a>{{ end }}

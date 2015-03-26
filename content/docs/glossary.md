@@ -2,12 +2,12 @@
 title: "Glossary"
 type: "home"
 zones:
-    - "Business"
+    - "Glossary"
 sections:
-    - "BusinessIntroduction"
+    - "MainGlossary"
 menu:
-    BusinessIntroduction:
-        weight: 40
+    MainGlossary:
+        weight: 10
 ---
 
 Below you will find the definitions of terms related to business framework or the DDD approach.
@@ -51,7 +51,7 @@ problems related to that domain.
 
 TODO
 
-### Tactic design
+### Tactical design
 
 TODO
 
