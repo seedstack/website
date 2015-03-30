@@ -38,7 +38,7 @@ DDD in general and a presentation of its main concepts in the [concepts](concept
 # The business framework
 
 The business framework is a Java implementation of the DDD approach that builds upon the java framework to provide 
-high-level, ready to use building blocks.  
+high-level, ready to use building blocks.
 
 Your will be guided through the design and development of your project but it is crucial for its success to understand the 
 concepts and the associated building blocks. While the business framework provides a rich set of helpers and base 
@@ -54,7 +54,7 @@ Because the business framework is mostly about development, it focus itself on t
 of DDD with the implementation of concepts such as entities, repositories, aggregates and so on. But there is a 
 {{< term "strategic side" "strategic-design" >}} to DDD that you shouldn't overlook and is crucial to your project success, 
 especially if its domain is large or complex. SeedStack inherent modularity will help you to separate bounded contexts 
-in modules and reuse them across multiple projects easily.   
+in modules and reuse them across multiple projects easily.
 {{% /callout %}}
 
 # Requirements
