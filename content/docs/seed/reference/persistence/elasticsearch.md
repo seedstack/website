@@ -1,5 +1,5 @@
 ---
-title: "ElasticSearch persistence"
+title: "ElasticSearch"
 type: "reference"
 zones:
     - "Seed"
@@ -11,7 +11,7 @@ tags:
     - "example"
 menu:
     SeedPersistence:
-        weight: 30
+        weight: 40
 ---
 
 
