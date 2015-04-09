@@ -1,19 +1,36 @@
-# Introduction
+---
+title: "JDBC persistence"
+type: "reference"
+zones:
+    - "Seed"
+sections:
+    - "SeedPersistence"
+tags:
+    - "maven"
+    - "persistence"
+    - "jdbc"
+    - "configuration"
+    - "jndi"
+    - "transactions"
+menu:
+    SeedPersistence:
+        weight: 30
+---
 
-Seed JDBC persistence support enables your application to interface with any relational database through the JDBC API. Note that :
-* This version works with JRE 6 and 7
-* This support allows you to get your connections from any Datasource, JNDI or programmatically created.
+Seed JDBC persistence support enables your application to interface with any relational database through the JDBC API. 
 
 # DataSource providers
 
-When using a non JNDI datasource, we recommend the use of pooled datasource through a DataSourceProvider defined in the configuration. We currently support 3 DataSource providers :
+When using a non JNDI datasource, we recommend the use of pooled datasource through a DataSourceProvider defined in the 
+configuration. Three DataSource providers are currently supported out-of-the-box:
+
 * [HikariCP](http://brettwooldridge.github.io/HikariCP/) with `HikariDataSourceProvider`
 * [Commons DBCP](http://commons.apache.org/proper/commons-dbcp/) with `DbcpDataSourceProvider`
 * [C3P0](http://www.mchange.com/projects/c3p0/) with `C3p0DataSourceProvider`
 
-We also provide a test oriented DataSource that gives connection directly from the driver. Use `PlainDataSourceProvider` or do not specify a provider.
-
-In case you want to use another data source, you can create your own `DataSourceProvider`
+We also provide a test oriented DataSource that gives connection directly from the driver. Use 
+`PlainDataSourceProvider` or do not specify a provider. In case you want to use another data source, you can create 
+your own `DataSourceProvider` by implementing the `DataSourceProvider` interface:
 
     public class SomeDataSourceProvider implements DataSourceProvider {
     
@@ -30,10 +47,9 @@ In case you want to use another data source, you can create your own `DataSource
     
     }
     
-You will be able to declare it in your configuration as `SomeDataSourceProvider`
-
-Note that if you want to use one of the 3 data sources described above, you will have to add the dependency yourself as they have been marked as optional.
-
+You will be able to declare it in your configuration as `SomeDataSourceProvider` (the simple name of your class). Note 
+that if you want to use one of the three datasource providers described above, you will have to add the corresponding 
+dependency to your project.
 
 # Configuration
 

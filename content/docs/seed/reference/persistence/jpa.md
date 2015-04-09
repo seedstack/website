@@ -14,7 +14,7 @@ tags:
     - "transactions"
 menu:
     SeedPersistence:
-        weight: 20
+        weight: 30
 ---
 
 # Introduction
