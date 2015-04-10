@@ -1,5 +1,5 @@
 ---
-title: "JPA persistence"
+title: "JPA"
 type: "reference"
 zones:
     - "Seed"
