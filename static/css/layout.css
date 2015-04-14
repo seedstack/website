@@ -178,7 +178,7 @@
     padding-top: 16px;
     padding-left: 36px;
     margin-left: -36px;
-    background: transparent url('../img/logo.svg') no-repeat left 8px;
+    background: transparent url('../img/logos/seedstack-logo.svg') no-repeat left 8px;
     background-size: 32px 32px;
 }
 
@@ -188,6 +188,8 @@
 
 .header-image {
     padding: 15px 0;
+    width: 180px;
+    height: 180px;
 }
 
 @media (max-width: 600px) {
