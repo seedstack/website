@@ -1,0 +1,32 @@
+@startuml
+
+package model.Customer {
+
+    class Customer {
+      String firstName
+      String lastName
+      String address
+      String deliveryAddress
+      String password
+      activate(Date creationDate, Date activationDate)
+      deactivate()
+    }
+
+    class CustomerId {
+    }
+
+    class CustomerSpecification {
+      boolean isActive(Customer customer)
+    }
+
+    class Activation {
+          CustomerId customerId
+          Date creationDate
+          Date activationDate
+    }
+}
+
+Customer o-- CustomerId
+Customer o-- Activation
+
+@enduml

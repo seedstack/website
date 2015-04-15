@@ -1,14 +1,5 @@
 @startuml
 
-package model.Category {
-
-    class Category {
-      String name
-      String urlImg
-    }
-
-}
-
 package model.Product {
 
     class Product {
@@ -22,6 +13,5 @@ package model.Product {
     }
 
 }
-Product *-- Category
 
 @enduml

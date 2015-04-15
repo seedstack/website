@@ -1,0 +1,25 @@
+{{ $section := index .Params.sections 0 }}
+<div class="title-header small">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-12">
+                <h2>Showcase</h2>
+                <p>A simple but complete Web application demonstrating SeedStack features.</p>
+            </div>
+            <div class="col-md-3 hidden-sm">
+                <div class="header-image-wrapper">
+                    <img class="header-image" src="/img/logos/showcase-logo.svg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="title-subheader">
+    <div class="container">
+        <ul>
+            <li><h3 class='{{ if eq $section "ShowcaseIntroduction" }}active{{ end }}'><i class="fa fa-file-text"></i> <a href="/docs/showcase">Introduction</a></h3></li>
+            <li><h3 class='{{ if eq $section "ShowcaseDomain" }}active{{ end }}'><i class="fa fa-file-text"></i> <a href="/docs/showcase/domain">Ecommerce domain</a></h3></li>
+            <li class="pull-right"><h3><i class="fa fa-github"></i> <a href="http://github.com/seedstack/showcase" target="_blank">Source</a></h3></li>
+        </ul>
+    </div>
+</div>

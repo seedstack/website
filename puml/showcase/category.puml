@@ -1,0 +1,12 @@
+@startuml
+
+package model.Category {
+
+    class Category {
+      String name
+      String urlImg
+    }
+
+}
+
+@enduml

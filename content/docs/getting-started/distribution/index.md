@@ -1,12 +1,13 @@
 ---
-title: "Dependency management"
+title: "Overview"
+type: "home"
 zones:
-    - "Seed"
+    - "GettingStarted"
 sections:
-    - "GettingStartedIntroduction"
+    - "GettingStartedDistribution"
 menu:
-    GettingStartedIntroduction:
-        weight: 30
+    GettingStartedDistribution:
+        weight: 10
 ---
 
 The SEED modular design implies a sizable amount of modules but they are all managed in a global versioned distribution.

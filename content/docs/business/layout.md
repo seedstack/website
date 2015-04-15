@@ -1,5 +1,5 @@
 ---
-title: "Project layout"
+title: "Package layout"
 type: "home"
 zones:
     - "Business"

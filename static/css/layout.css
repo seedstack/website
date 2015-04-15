@@ -82,6 +82,11 @@
     line-height: 30px;
 }
 
+.title-subheader h3 > img {
+    height: 30px;
+    vertical-align: top;
+}
+
 .title-subheader h3.active a {
     color: #ffa82c;
 }

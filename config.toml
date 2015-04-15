@@ -13,35 +13,47 @@ MetaDataFormat = "yaml"
 [params.zone.Overview]
   path = "/Overview"
   label = "Overview"
+  logo = "overview-logo.svg"
 
 [params.zone.Seed]
   path = "/docs/seed"
   label = "Java framework"
+  logo = "seed-logo.svg"
 
 [params.zone.Business]
   path = "/docs/business"
   label = "Business framework"
+  logo = "business-logo.svg"
 
 [params.zone.W20]
   path = "/docs/w20"
   label = "Web framework"
+  logo = "w20-logo.svg"
 
 [params.zone.GettingStarted]
   path = "/docs/getting-started"
   label = "Getting started"
+  logo = "getting-started-logo.svg"
 
 [params.zone.Tools]
   path = "/docs/tools"
   label = "Tools"
+  logo = "tools-logo.svg"
+
+[params.zone.Showcase]
+  path = "/docs/showcase"
+  label = "Showcase"
+  logo = "showcase-logo.svg"
+
+[params.zone.Glossary]
+  path = "/docs/glossary"
+  label = "Glossary"
+  logo = "glossary-logo.svg"
 
 [params.zone.Guides]
   path = "/guides"
   label = "Guides"
-
-[params.zone.Glossary]
-  path = "/doc/glossary"
-  label = "Glossary"
-
+  logo = "guides-logo.svg"
 
 #####################################
 #### Overview sections           ####
@@ -94,6 +106,11 @@ MetaDataFormat = "yaml"
   label = "Release notes"
   icon = "fa fa-tag"
   path = "release-notes"
+
+[params.section.BusinessImplementation]
+  label = "Implementation"
+  icon = "fa fa-cogs"
+  path = "reference/implementation"
 
 [params.section.BusinessEntity]
   label = "Entity"
@@ -384,6 +401,20 @@ MetaDataFormat = "yaml"
 [params.section.MainGlossary]
   label = "Glossary"
   icon = "fa fa-book"
+  path = ""
+
+#####################################
+#### Showcase                    ####
+#####################################
+
+[params.section.ShowcaseIntroduction]
+  label = "Introduction"
+  icon = "fa fa-file-text"
+  path = ""
+
+[params.section.ShowcaseDomain]
+  label = "Ecommerce domain"
+  icon = "fa fa-cubes"
   path = ""
 
 #####################################

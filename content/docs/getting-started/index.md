@@ -6,7 +6,7 @@ zones:
 sections:
     - "GettingStartedIntroduction"
 menu:
-    GettingStarted:
+    GettingStartedIntroduction:
         weight: 10
 ---
 

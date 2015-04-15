@@ -1,22 +1,23 @@
 ---
 title: "Qualified injection"
-type: "home"
+type: "reference"
 zones:
     - "Business"
 sections:
-    - "BusinessIntroduction"
+    - "BusinessImplementation"
 menu:
-    BusinessIntroduction:
-        weight: 30
+    BusinessImplementation:
+        weight: 20
 ---
 
 The SEED Business framework supports the use of qualifiers defined by the JSR 330. This feature provides the ability to 
 create multiple implementations for the same interface. This is useful when you have multiple algorithms or implementation
 technologies for an interface.
 
-# Inject qualified services
+# An example with policies
 
-Define an interface as usual:
+This pattern can be used in various situations but proves itself very useful in the case of DDD policies. To leverage it,
+define a Policy interface as follows:
 
     package org.mycompany.domains.mydomain.shared;
 
@@ -76,8 +77,11 @@ Then you use it like the `@Named` annotation.
 
 # List of concepts supporting qualifiers
 
-* Repository
-* Factory
-* Policy
-* Service
-* Finder
+Qualified injection can be used on these concepts out-of-the-box:
+
+* Assembler,
+* Repository,
+* Factory,
+* Policy,
+* Service,
+* Finder.

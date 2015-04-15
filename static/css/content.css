@@ -28,9 +28,8 @@
     margin-bottom: 20px;
 }
 
-.doc-content > p:first-of-type:first-line {
-    font-variant: small-caps;
-    font-size: 20px;
+.doc-content > p:first-of-type:first-letter {
+    font-size: 24px;
 }
 
 .doc-content p + p {
