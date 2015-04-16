@@ -1,6 +1,6 @@
 ---
 title: "Add security"
-type: "home"
+type: "reference"
 zones:
     - "Guides"
 sections:

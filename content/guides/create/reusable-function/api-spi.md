@@ -1,6 +1,6 @@
 ---
 title: "API and SPI"
-type: "home"
+type: "reference"
 zones:
     - "Guides"
 sections:

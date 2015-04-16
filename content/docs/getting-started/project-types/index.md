@@ -4,9 +4,9 @@ type: "home"
 zones:
     - "GettingStarted"
 sections:
-    - "GettingStartedCreation"
+    - "GettingStartedProjectTypes"
 menu:
-    GettingStartedCreation:
+    GettingStartedProjectTypes:
         weight: 10
 ---
 
@@ -14,11 +14,16 @@ SeedStack can be used to develop any type of project with almost any structure b
 easily generated. Moreover, these predefined types guarantee you a clean organization of your code and good modularity
 so stick to them when possible.
 
-* [Java Web applications](creation/webapp) which are packaged as a WAR file,   
-* [Batch jobs](creation/batch) which are packaged as an executable JAR file,
-* [Reusable business domains](creation/domain) which are packaged as a JAR file,
-* [Reusable functions](creation/function) which are packaged as multiple JAR files and/or static files,
-* [Browser-only single page applications](creation/w20) which are static files. 
+* [Java Web applications](webapp) which are packaged as a WAR file,   
+* [Batch jobs](batch) which are packaged as an executable JAR file,
+* [Reusable business domains](domain) which are packaged as a JAR file,
+* [Reusable functions](function) which are packaged as multiple JAR files and/or static files,
+* [Browser-only single page applications](w20) which are static files. 
+
+{{% callout info %}}
+Note that SeedStack is designed with extension in mind so you can design your own project types and provide archetypes
+and code generators for them in a [custom distribution](../distribution/create-your-own).
+{{% /callout %}}
 
 # Inner structure for Java modules
 

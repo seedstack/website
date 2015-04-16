@@ -1,10 +1,22 @@
-Props files are the recommended way to specify key/value pairs for the SEED unified configuration. Properties files can
+---
+title: "Props and properties"
+type: "reference"
+zones:
+    - "Guides"
+sections:
+    - "ConfigurationGuide"
+menu:
+    ConfigurationGuide:
+        weight: 30
+---
+
+Props files are the recommended way to specify key/value pairs for the Seed unified configuration. Properties files can
 also be used as a compatible alternative but with far less expressive power. Full props documentation is available 
-[here](#!/seed-doc/core/configuration "Props manual").
+[here](/docs/seed/reference/core/configuration).
 
 # Location
 
-To be recognized by SEED, props files must end with the `.props` extension and be located under the `META-INF/configuration`
+To be recognized by Seed, props files must end with the `.props` extension and be located under the `META-INF/configuration`
 location in the classpath. For a JAR file, it means having at least this top level inner directory structure:
 
     (archive.jar)               <-- the JAR file
@@ -34,14 +46,13 @@ location with the overriding file BEFORE the location with the overridden file.
  
 # Props files content
  
-You can use [sections](#!/seed-doc/core/configuration#sections) to help you write smaller props files. A section is a
-brackets-enclosed key name on its own line. Every line after it will be prefixed with the section name. To revert back
-to the global section (without prefix) use the empty section `[]` syntax.
+You can use sections to help you write smaller props files. A section is a brackets-enclosed key name on its own line. 
+Every line after it will be prefixed with the section name. To revert back to the global section (without prefix) use 
+the empty section `[]` syntax.
 
-Another useful of props files are [macros](#!/seed-doc/core/configuration#macros). Macro are `${}` enclosed key names
-which are replaced by the corresponding value if found anywhere in the unified configuration (even if in another file of
-another classpath location). The macros can be used to externalize only a part of a value to another key/value pair located
-elsewhere.
+Another trick of props files is that you can use macros. Macros are `${}` enclosed key names which are replaced by the 
+corresponding value if found anywhere in the unified configuration (even if in another file of another classpath 
+location). The macros can be used to externalize only a part of a value to another key/value pair located elsewhere.
 
 # System properties
 
@@ -79,7 +90,7 @@ You will end with:
 * Exactly one externalisation file per environment containing only the externalised key/value pairs,
 * Optionally some system properties or environment variables that should be defined in the environment.
 
-<div class="callout callout-info">
+{{% callout info %}}
 As an alternative to the per-environment externalisation files, you can use a unique props externalisation file valued 
-through a maven process like the PSA delivery archive plugin.
-</div>
+through a deployment-specific process.
+{{% /callout %}}

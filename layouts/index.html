@@ -13,7 +13,16 @@
             <div class="col-md-8">
                 <h1>SeedStack</h1>
                 <p class="bigger">A modular enterprise-class development stack for building modern and robust applications.</p>
-                <div style="display: none;" class="quick-start hidden-xs hidden-sm">
+                <div class="quick-start hidden-xs hidden-sm">
+                    <a href="http://www.seedstack.org/downloads/windows/seed.exe">
+                        <button class="btn-u btn-u-download-win"><i class="fa fa-cloud-download"></i> Download seed.exe
+                        </button>
+                    </a>
+
+                    <div style="height: 10px;">&nbsp;</div>
+                    <ul class="quick-paste">
+                        <li class="windows"><span>seed scaffold-project</span></li>
+                    </ul>
                 </div>
             </div>
             <div class="col-md-4 big-logo hidden-xs hidden-sm">
@@ -178,29 +187,29 @@
 
 <script>
     (function() {
-        if (/Win/.test(navigator.platform)) {
-            $('.quick-start').append(
-                '<a href="http://www.seedstack.org/downloads/windows/seed.exe"><button class="btn-u btn-u-download-win"><i class="fa fa-cloud-download"></i> Download seed.exe</button></a>' +
-                '<div style="height: 10px;">&nbsp;</div>' +
-                '<ul class="quick-paste">' +
-                    '<li class="windows"><span>seed scaffold-project</span></li>' +
-                '</ul>'
-            ).show();
-        } else if (/Mac/.test(navigator.platform)) {
-            $('.quick-start').append(
-                '<ul class="quick-paste">' +
-                    '<li class="unix"><span>curl -O http://www.seedstack.org/downloads/macosx/seed</span></li>' +
-                    '<li class="unix"><span>./seed scaffold-project</span></li>' +
-                '</ul>'
-            ).show();
-        } else if (/Linux/.test(navigator.platform)) {
-            $('.quick-start').append(
-                '<ul class="quick-paste">' +
-                    '<li class="unix"><span>wget http://www.seedstack.org/downloads/linux/seed</span></li>' +
-                    '<li class="unix"><span>./seed scaffold-project</span></li>' +
-                '</ul>'
-            ).show();
-        }
+//        if (/Win/.test(navigator.platform)) {
+//            $('.quick-start').append(
+//                '<a href="http://www.seedstack.org/downloads/windows/seed.exe"><button class="btn-u btn-u-download-win"><i class="fa fa-cloud-download"></i> Download seed.exe</button></a>' +
+//                '<div style="height: 10px;">&nbsp;</div>' +
+//                '<ul class="quick-paste">' +
+//                    '<li class="windows"><span>seed scaffold-project</span></li>' +
+//                '</ul>'
+//            ).show();
+//        } else if (/Mac/.test(navigator.platform)) {
+//            $('.quick-start').append(
+//                '<ul class="quick-paste">' +
+//                    '<li class="unix"><span>curl -O http://www.seedstack.org/downloads/macosx/seed</span></li>' +
+//                    '<li class="unix"><span>./seed scaffold-project</span></li>' +
+//                '</ul>'
+//            ).show();
+//        } else if (/Linux/.test(navigator.platform)) {
+//            $('.quick-start').append(
+//                '<ul class="quick-paste">' +
+//                    '<li class="unix"><span>wget http://www.seedstack.org/downloads/linux/seed</span></li>' +
+//                    '<li class="unix"><span>./seed scaffold-project</span></li>' +
+//                '</ul>'
+//            ).show();
+//        }
     })();
 </script>
 

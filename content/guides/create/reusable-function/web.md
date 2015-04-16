@@ -1,6 +1,6 @@
 ---
 title: "Web"
-type: "home"
+type: "reference"
 zones:
     - "Guides"
 sections:

@@ -1,3 +1,15 @@
+---
+title: "Logging"
+type: "reference"
+zones:
+    - "Guides"
+sections:
+    - "ConfigurationGuide"
+menu:
+    ConfigurationGuide:
+        weight: 20
+---
+
 Logging configuration is a very good candidate for externalisation, since it will allow to change the log level of
 various components after deployment and even when the application is running if configured properly. Logging configuration
 is often centralized in one file which can be wholly externalised without any risks. Logging is a purely technical
@@ -31,10 +43,10 @@ classpath version of the file. This property also accepts a classpath resource p
 elsewhere in the classpath) or to an accessible URL. While this option can be useful for testing purposes and temporary
 overrides, it is **NOT RECOMMENDED in production**.
 
-<div class="callout callout-warning">
+{{% callout warning %}}
 Be sure that you have no <code>logback-test.xml</code> file in your main classpath or it will be picked by Logback instead
 of the <code>logback.xml</code> file. It can happen if you placed the test file in the main sources of your project instead
 of keeping it in the test folders.
-</div>
+{{% /callout %}}
 
 You can find the full documentation about Logback configuration [here](http://logback.qos.ch/manual/configuration.html).

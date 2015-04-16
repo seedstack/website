@@ -1,3 +1,15 @@
+---
+title: "Overview"
+type: "reference"
+zones:
+    - "Guides"
+sections:
+    - "ConfigurationGuide"
+menu:
+    ConfigurationGuide:
+        weight: 10
+---
+
 Configuration is a crucial part of an application that can be difficult to get right. It encompasses multiple aspects,
 like logging, internal configuration or externalisation and should be treated with the same care that code.
 

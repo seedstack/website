@@ -1,12 +1,12 @@
 ---
-title: "Create a reusable domain"
+title: "Reusable domain project"
 type: "home"
 zones:
     - "GettingStarted"
 sections:
-    - "GettingStartedCreation"
+    - "GettingStartedProjectTypes"
 menu:
-    GettingStartedCreation:
+    GettingStartedProjectTypes:
         weight: 40
 ---
 
@@ -15,7 +15,13 @@ reuse and modularity purposes. In that case, each domain (e.g. each business con
 
 # Creation
 
-...
+To create a reusable domain project project from scratch, execute the following command:
+
+    mvn org.seedstack.tools:seedstack-maven-plugin:scaffold-project -Dtype=domain
+    
+This will invoke the scaffold-project goal of the SeedStack maven plugin which will select the latest version
+of the SeedStack distribution and use its **domain Maven archetype**. The process is interactive and will ask you a few
+questions about the project to be created.
 
 # Result
 

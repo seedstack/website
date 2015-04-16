@@ -1,6 +1,6 @@
 ---
 title: "Security"
-type: "home"
+type: "reference"
 zones:
     - "Guides"
 sections:

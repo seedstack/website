@@ -40,8 +40,8 @@ are not JEE filters but they represent a chain of filters that are applied when 
 Here is a list of recognized security filters, as you can write them in the configuration :
 
 - `anon` : allows access to the path immediately without performing security checks of any kind (unless you add a filter to it).
-- `authc` : authentifies the user with params in the request (form). Names of params are username and password. This is NOT the PSA standard.
-- `authcBasic` : triggers a Basic authentication (Standard PSA authentication).
+- `authc` : authentifies the user with params in the request (form). Names of params are username and password.
+- `authcBasic` : triggers a Basic authentication.
 - `cert` : extract the certificates found by the JEE server to provide them to a X509CertificateRealm. Use parameter *optional* to let filters continue if certificate authentication fails : cert[optional]
 - `logout` : logouts the current Subject. Note that it will clean Subject's session and security caches for the user BUT in Basic auth it does not really disconnects a user as the browser automatically resends the authentication.
 - `noSessionCreation` : will not create a session. Useful for web services that don't need a session.

@@ -393,6 +393,11 @@ MetaDataFormat = "yaml"
   icon = "fa fa-cubes"
   path = "create/reusable-domain"
 
+[params.section.ConfigurationGuide]
+  label = "Configuration"
+  icon = "fa fa-wrench"
+  path = "deploy/configuration"
+
 
 #####################################
 #### Glossary                    ####

@@ -1,6 +1,6 @@
 ---
 title: "Structure"
-type: "home"
+type: "reference"
 zones:
     - "Guides"
 sections:

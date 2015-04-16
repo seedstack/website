@@ -23,7 +23,6 @@ There are two main technologies found in SeedStack:
 * **Java** components which are distributed as Maven artifacts on [Maven Central](http://search.maven.org),
 * **HTML/CSS/JS** components which are distributed with [Bower](http://bower.io/search/). These components are also
 repackaged as Maven artifacts if Bower is unavailable in your environment.
-
 {{% /callout %}}
 
 # Creating a project
@@ -37,9 +36,4 @@ you are new to SeedStack as they provide several benefits:
 * They follow best practices, providing clean code organization and good modularity,
 * They are easy to use and fast.
 
-Have a look at them [here](creation).
-
-
-
-
-
+Have a look at them [here](project-types).

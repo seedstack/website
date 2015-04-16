@@ -19,8 +19,7 @@ getter/setter access and the logic completely lives in services on top of the do
 essence of object-oriented design which is to combine data and behavior together.  
 
 This anti-pattern is really a procedural design in disguise. It has the cost of a good domain model but none of the benefits.
-
-Read more [here](http://martinfowler.com/bliki/AnemicDomainModel.html).
+Read more about it [here](http://martinfowler.com/bliki/AnemicDomainModel.html).
 
 ### Bounded context
 
