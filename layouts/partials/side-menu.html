@@ -25,10 +25,10 @@
     </div>
     <div class="list-group">
         <ul class="nav">
-            <li class="list-group-item"><i class="fa fa-tag"></i> Tags
+            <li class="list-group-item"><div style="margin-bottom: 10px;"><i class="fa fa-tag"></i> Tags</div>
                 <div class="tags">
                     {{ range $parent.Params.tags }}
-                    <a href="/tags/{{ . | urlize }}">{{ . }}</a>
+                    <a class="label label-default" href="/tags/{{ . | urlize }}">{{ . }}</a>
                     {{ end }}
                 </div>
             </li>

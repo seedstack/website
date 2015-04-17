@@ -6,20 +6,12 @@
  * Website: http://htmlstream.com
 */
 
-/*Import Global Compulsory CSS Files*/
 @import url(app.css);
 @import url(blocks.css);
+@import url(header.css);
+@import url(footer.css);
 
-/*Import Headers*/
-@import url(headers/header-default.css);
-
-/*Import Footers*/
-@import url(footers/footer-v3.css);
-
-/*Import Google Font*/
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400);
-
-body { 
+body {
    color: #333; 
    font-size: 13px;
    line-height: 1.6;

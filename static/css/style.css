@@ -1,6 +1,5 @@
 @import url('./menu.css');
 @import url('./content.css');
-@import url('./tags.css');
 @import url('./layout.css');
 @import url('./colors.css');
 
@@ -25,9 +24,6 @@ html {
 body {
     font-size: 14px;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
-}
-
-body.reading-mode {
     background-color: #eee;
 }
 
@@ -64,4 +60,10 @@ body > #content > iframe {
 
 body > #footer > .footer-v3 > .footer {
     padding: 0;
+}
+
+.tags a.label {
+    font-size: 14px;
+    line-height: 32px;
+    background-color: #72c02c;
 }

@@ -3,23 +3,24 @@
 <head>
 {{ partial "head.html" . }}
 </head>
-<body>
+<body class="read">
 <div id="header">
     {{ partial "top-menu.html" . }}
+    {{ partial "tags-header.html" . }}
     <div class="title-subheader">
         <div class="container">
-            <h3>All tags with page count</h3>
+            <ul>
+               <li><h3 class="active"><i class="fa fa-tag"></i> <a href="">All tags</a></h3></li>
+            </ul>
         </div>
     </div>
 </div>
 <div id="content" class="container">
-    <div class="content-wrapper">
-        {{ $data := .Data }}
-        <div class="tags">
-            {{ range $key, $value := .Data.Terms }}
-            <a href="{{ $key | urlize }}">{{ $key | title }} <small>({{ len $value }})</small></a>
-            {{ end }}
-        </div>
+    {{ $data := .Data }}
+    <div class="tags">
+        {{ range $key, $value := .Data.Terms }}
+        <a class="label label-default" href="{{ $key | urlize }}">{{ $key | title }} <small>({{ len $value }})</small></a>
+        {{ end }}
     </div>
 </div>
 <div id="footer">

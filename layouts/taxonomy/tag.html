@@ -2,44 +2,40 @@
 <html lang="en">
 <head>
 {{ partial "head.html" . }}
-<link rel="stylesheet" href="/assets/unify/css/pages/page_search_inner.css">
 </head>
 <body>
 <div id="header">
     {{ partial "top-menu.html" . }}
+    {{ partial "tags-header.html" . }}
     <div class="title-subheader">
         <div class="container">
-            <h3><i class="fa fa-tag"></i> Content tagged with « {{ .Title }} »</h3>
+            <ul>
+                <li><h3><i class="fa fa-tag"></i> <a href="/tags">All tags</a></h3></li>
+                <li><h3 class="active"><i class="fa fa-tag"></i> <a href="/tags/{{ .Title }}">Content tagged with "{{ .Title }}"</a></h3></li>
+            </ul>
         </div>
     </div>
 </div>
 <div id="content" class="container">
-    <div class="container s-results">
-        <div class="row">
-            <div class="col-md-2 hidden-xs related-search">
-                <div class="row">
-                    <div class="col-md-12 col-sm-4">
-                        <h3><i class="fa fa-caret-left"></i> <a href="/tags">All tags</a></h3>
-                        <div class="tags">
-                            <a href="">{{ .Title }}</a>
-                        </div>
-                        <hr>
-                    </div>
-                </div>
-            </div>
-
-            {{ $paginator := .Paginator }}
-            <div class="col-md-10">
+    <div class="row">
+        {{ $paginator := .Paginator }}
+        <div class="col-md-9">
+            <div class="content-wrapper">
                 <span class="results-number">Showing {{ $paginator.NumberOfElements }} result(s) of {{ $paginator.TotalNumberOfElements }}</span>
 
                 {{ range $paginator.Pages }}
-                    {{ .Render "inner_result" }}
+                {{ .Render "inner_result" }}
                 {{ end }}
 
                 <div class="text-left">
                     {{ template "_internal/pagination.html" . }}
                 </div>
             </div>
+        </div>
+        <div class="col-md-3">
+            <h3>Related tags</h3>
+            ...
+            <hr>
         </div>
     </div>
 </div>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{ partial "head.html" . }}
+<link rel="stylesheet" href="/assets/unify/css/pages/page_search_inner.css">
+</head>
+<body>
+<div id="header">
+    {{ partial "top-menu.html" . }}
+    {{ partial "blog-header.html" . }}
+</div>
+<div id="content" class="container">
+    <div class="container s-results">
+        <div class="row">
+            {{ $paginator := .Paginator }}
+            <div class="col-md-9">
+                <span class="results-number">Showing {{ $paginator.NumberOfElements }} posts(s) of a total of {{ $paginator.TotalNumberOfElements }}</span>
+
+                {{ range $paginator.Pages }}
+                    {{ .Render "summary" }}
+                {{ end }}
+
+                <div class="text-left">
+                    {{ template "_internal/pagination.html" . }}
+                </div>
+            </div>
+            <div class="col-md-3 hidden-xs" style="border-left: 1px solid #eee;">
+                <div class="row">
+                    <div class="col-md-12 col-sm-4">
+                        <h3>Tags</h3>
+                        ...
+                        <hr>
+                        <h3>Related articles</h3>
+                        ...
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    {{ partial "footer.html" . }}
+</div>
+{{ partial "scripts.html" . }}
+</body>
+</html>

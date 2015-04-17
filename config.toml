@@ -48,10 +48,10 @@ MetaDataFormat = "yaml"
   label = "Tools"
   logo = "tools-logo.svg"
 
-[params.zone.Showcase]
-  path = "/docs/showcase"
-  label = "Showcase"
-  logo = "showcase-logo.svg"
+[params.zone.Samples]
+  path = "/samples"
+  label = "Samples"
+  logo = "samples-logo.svg"
 
 [params.zone.Glossary]
   path = "/docs/glossary"
@@ -411,24 +411,49 @@ MetaDataFormat = "yaml"
 #### Glossary                    ####
 #####################################
 
-[params.section.MainGlossary]
+[params.section.GlossarySearch]
   label = "Glossary"
-  icon = "fa fa-book"
+  icon = "fa fa-search"
   path = ""
 
+[params.section.GlossaryAF]
+  label = "Glossary"
+  icon = "fa fa-file-text"
+  path = "/a-f"
+
+[params.section.GlossaryGM]
+  label = "Glossary"
+  icon = "fa fa-file-text"
+  path = "/g-m"
+
+[params.section.GlossaryNS]
+  label = "Glossary"
+  icon = "fa fa-file-text"
+  path = "/n-s"
+
+[params.section.GlossaryTZ]
+  label = "Glossary"
+  icon = "fa fa-file-text"
+  path = "/t-z"
+
 #####################################
-#### Showcase                    ####
+#### Samples                     ####
 #####################################
 
-[params.section.ShowcaseIntroduction]
+[params.section.SamplesIntroduction]
   label = "Introduction"
   icon = "fa fa-file-text"
   path = ""
 
-[params.section.ShowcaseDomain]
-  label = "Ecommerce domain"
+[params.section.DomainSample]
+  label = "E-commerce domain"
   icon = "fa fa-cubes"
-  path = ""
+  path = "domain"
+
+[params.section.Showcase]
+  label = "Showcase"
+  icon = "fa fa-cart"
+  path = "showcase"
 
 #####################################
 #### Reusable functions sections ####
