@@ -203,6 +203,14 @@
     height: 180px;
 }
 
+.bg-parallax {
+    width: 100%;
+    height: auto;
+    padding: 50px 0;
+    position: relative;
+    background: #89c758 url('../img/bg-pattern.png') repeat fixed;
+}
+
 @media (max-width: 600px) {
     .title-header h1 {
         font-size: 50px !important;

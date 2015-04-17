@@ -1,6 +1,14 @@
 baseurl = "http://seedstack.github.io/"
 MetaDataFormat = "yaml"
 
+[params]
+  description = "Documentation of SeedStack, a modular enterprise-class full development stack."
+  author = "The SeedStack authors"
+
+[blackfriday]
+  angledQuotes = true
+  plainIdAnchors = true
+
 [taxonomies]
   tag = "tags"
   zone = "zones"
