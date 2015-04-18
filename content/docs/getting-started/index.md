@@ -10,7 +10,7 @@ menu:
         weight: 10
 ---
 
-This section is dedicated to bring your on board quickly. As you may already know if you read the [overview](/overview),
+This section is dedicated to bring you on board quickly. As you may already know if you read the [overview](/overview),
 SeedStack is a software development stack composed of multiple components, addressing backend and frontend needs.
 
 Modularity is at the heart of SeedStack so you can tailor the solution to your exact needs by adding only the relevant
