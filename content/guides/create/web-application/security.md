@@ -1,6 +1,6 @@
 ---
 title: "Add security"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:
@@ -28,6 +28,6 @@ In the props configuration, add the following:
 All URLs (matching `/**` pattern) will be handled with basic authentication using the configuration-based security realm. 
 {{% /callout %}}
 
-Add any dependency required by realm. For more detail, refer to the [security documentation](/docs/seed/reference/security) 
-and to the [web security documentation](/docs/seed/reference/web/security).
+Add any dependency required by realm. For more detail, refer to the [security documentation](/docs/seed/manual/security) 
+and to the [web security documentation](/docs/seed/manual/web/security).
 

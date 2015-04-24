@@ -1,6 +1,6 @@
 ---
 title: "UI"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:

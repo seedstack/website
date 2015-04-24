@@ -1,6 +1,6 @@
 ---
 title: "Configuration and logging"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:

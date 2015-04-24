@@ -1,6 +1,6 @@
 ---
 title: "Props and properties"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:
@@ -12,7 +12,7 @@ menu:
 
 Props files are the recommended way to specify key/value pairs for the Seed unified configuration. Properties files can
 also be used as a compatible alternative but with far less expressive power. Full props documentation is available 
-[here](/docs/seed/reference/core/configuration).
+[here](/docs/seed/manual/core/configuration).
 
 # Location
 

@@ -1,6 +1,6 @@
 ---
 title: "Other resources"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:

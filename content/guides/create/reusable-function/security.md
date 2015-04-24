@@ -1,6 +1,6 @@
 ---
 title: "Security"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:
@@ -12,7 +12,7 @@ menu:
 
 The function security must be taken into account early in the conception and development process. Functions should provide 
 to client applications a way to secure each feature very finely. SeedStack provides an expressive yet simple [security
-model](/docs/seed/reference/security) that can be used in functions for modular security.
+model](/docs/seed/manual/security) that can be used in functions for modular security.
 
 # Use permissions only
 
@@ -30,7 +30,7 @@ This permission denotes the ability to delete a locale in the 18n function of se
       
 # Backend security 
 
-To enforce permissions, SeedStack provides a [declarative and a programmatic API](/docs/seed/reference/security/usage).
+To enforce permissions, SeedStack provides a [declarative and a programmatic API](/docs/seed/manual/security/usage).
 You can use either one or both but only rely on the permission checks, NOT the role checks.
 
 

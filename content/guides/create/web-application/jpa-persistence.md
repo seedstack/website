@@ -1,6 +1,6 @@
 ---
 title: "JPA persistence"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:

@@ -1,6 +1,6 @@
 ---
 title: "Storage"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:

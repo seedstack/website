@@ -1,6 +1,6 @@
 ---
 title: "Logging"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:

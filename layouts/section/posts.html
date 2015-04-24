@@ -11,7 +11,7 @@
     <div class="title-subheader">
         <div class="container">
             <ul>
-                <li><h3 class="active"><i class="fa fa-list"></i> <a href="/tags">All posts ({{ $paginator.TotalNumberOfElements }})</a></h3></li>
+                <li><h3 class="active"><i class="fa fa-list"></i> <a href="/posts">All posts ({{ $paginator.TotalNumberOfElements }})</a></h3></li>
             </ul>
         </div>
     </div>
@@ -36,7 +36,7 @@
             <div class="side-menu">
                 <div class="list-group">
                     <ul class="nav">
-                        <li class="list-group-item"><div style="margin-bottom: 10px;"><i class="fa fa-folder-open"></i> Post categories</div>
+                        <li class="list-group-item"><div style="margin-bottom: 10px;"><i class="fa fa-folder-open"></i> <a href="/post-categories">Categories</a></div>
                             <ul>
                             {{ range $name, $taxonomy := (index .Site.Taxonomies "post-categories") }}
                             <li><a href="/post-categories/{{ $name | urlize }}">{{ $name | title }}</a></li>

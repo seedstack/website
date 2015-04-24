@@ -106,10 +106,10 @@ MetaDataFormat = "yaml"
   icon = "fa fa-lightbulb-o"
   path = "concepts"
 
-[params.section.BusinessReference]
-  label = "Reference"
+[params.section.BusinessManuel]
+  label = "Manual"
   icon = "fa fa-book"
-  path = "reference"
+  path = "manual"
 
 [params.section.BusinessAPI]
   label = "API"
@@ -124,77 +124,77 @@ MetaDataFormat = "yaml"
 [params.section.BusinessImplementation]
   label = "Implementation"
   icon = "fa fa-cogs"
-  path = "reference/implementation"
+  path = "manual/implementation"
 
 [params.section.BusinessEntity]
   label = "Entity"
   icon = "fa fa-square"
-  path = "reference/entity"
+  path = "manual/entity"
 
 [params.section.BusinessValueObject]
   label = "Value object"
   icon = "fa fa-square-o"
-  path = "reference/value-object"
+  path = "manual/value-object"
 
 [params.section.BusinessAggregate]
   label = "Aggregate"
   icon = "fa fa-th-large"
-  path = "reference/aggregate"
+  path = "manual/aggregate"
 
 [params.section.BusinessFactory]
   label = "Factory"
   icon = "fa fa-magic"
-  path = "reference/factory"
+  path = "manual/factory"
 
 [params.section.BusinessRepository]
   label = "Repository"
   icon = "fa fa-archive"
-  path = "reference/repository"
+  path = "manual/repository"
 
 [params.section.BusinessService]
   label = "Service"
   icon = "fa fa-cog"
-  path = "reference/service"
+  path = "manual/service"
 
 [params.section.BusinessEvent]
   label = "Domain event"
   icon = "fa fa-bolt"
-  path = "reference/event"
+  path = "manual/event"
 
 [params.section.BusinessPolicy]
   label = "Policy"
   icon = "fa fa-legal"
-  path = "reference/policy"
+  path = "manual/policy"
 
 [params.section.BusinessAssembler]
   label = "Finder"
   icon = "fa fa-arrows-h"
-  path = "reference/assembler"
+  path = "manual/assembler"
 
 [params.section.BusinessFinder]
   label = "Finder"
   icon = "fa fa-search"
-  path = "reference/finder"
+  path = "manual/finder"
 
 [params.section.BusinessPagination]
   label = "Pagination"
   icon = "fa fa-file"
-  path = "reference/pagination"
+  path = "manual/pagination"
 
 [params.section.BusinessRest]
   label = "REST"
   icon = "fa fa-link"
-  path = "reference/rest"
+  path = "manual/rest"
 
 [params.section.BusinessDataSecurity]
   label = "Data security"
   icon = "fa fa-shield"
-  path = "reference/data-security"
+  path = "manual/data-security"
 
 [params.section.BusinessAudit]
   label = "Audit"
   icon = "fa fa-list"
-  path = "reference/audit"
+  path = "manual/audit"
 
 #####################################
 #### Seed framework sections     ####
@@ -210,10 +210,10 @@ MetaDataFormat = "yaml"
   icon = "fa fa-lightbulb-o"
   path = "concepts"
 
-[params.section.SeedReference]
-  label = "Reference"
+[params.section.SeedManual]
+  label = "Manual"
   icon = "fa fa-book"
-  path = "reference"
+  path = "manual"
 
 [params.section.SeedAPI]
   label = "API"
@@ -228,87 +228,87 @@ MetaDataFormat = "yaml"
 [params.section.SeedCore]
   label = "Core"
   icon = "fa fa-cogs"
-  path = "reference/core"
+  path = "manual/core"
 
 [params.section.SeedSecurity]
   label = "Security"
   icon = "fa fa-shield"
-  path = "reference/security"
+  path = "manual/security"
 
 [params.section.SeedWeb]
   label = "Web"
   icon = "fa fa-globe"
-  path = "reference/web"
+  path = "manual/web"
 
 [params.section.SeedRest]
   label = "Rest"
   icon = "fa fa-link"
-  path = "reference/rest"
+  path = "manual/rest"
 
 [params.section.SeedTransactions]
   label = "Transactions"
   icon = "fa fa-retweet"
-  path = "reference/transactions"
+  path = "manual/transactions"
 
 [params.section.SeedPersistence]
   label = "Persistence"
   icon = "fa fa-save"
-  path = "reference/persistence"
+  path = "manual/persistence"
 
 [params.section.SeedJMS]
   label = "JMS"
   icon = "fa fa-random"
-  path = "reference/jms"
+  path = "manual/jms"
 
 [params.section.SeedWebServices]
   label = "Web Services"
   icon = "fa fa-legal"
-  path = "reference/ws"
+  path = "manual/ws"
 
 [params.section.SeedValidation]
   label = "Validation"
   icon = "fa fa-check"
-  path = "reference/validation"
+  path = "manual/validation"
 
 [params.section.SeedSpring]
   label = "Spring"
   icon = "fa fa-leaf"
-  path = "reference/spring"
+  path = "manual/spring"
 
 [params.section.SeedShell]
   label = "Shell"
   icon = "fa fa-terminal"
-  path = "reference/shell"
+  path = "manual/shell"
 
 [params.section.SeedTest]
   label = "Testing"
   icon = "fa fa-thumbs-up"
-  path = "reference/test"
+  path = "manual/test"
 
 [params.section.SeedBatch]
   label = "Batch"
   icon = "fa fa-file"
-  path = "reference/batch"
+  path = "manual/batch"
 
 [params.section.SeedScheduling]
   label = "Scheduling"
   icon = "fa fa-clock-o"
-  path = "reference/scheduling"
+  path = "manual/scheduling"
 
 [params.section.SeedCache]
   label = "Cache"
   icon = "fa fa-rocket"
-  path = "reference/cache"
+  path = "manual/cache"
 
 [params.section.SeedMail]
   label = "Mail"
   icon = "fa fa-envelope"
-  path = "reference/mail"
+  path = "manual/mail"
 
 [params.section.SeedMetrics]
   label = "Metrics"
   icon = "fa fa-chart"
-  path = "reference/metrics"
+  path = "manual/metrics"
 
 #####################################
 #### W20 sections                ####
@@ -324,10 +324,10 @@ MetaDataFormat = "yaml"
   icon = "fa fa-lightbulb-o"
   path = "concepts"
 
-[params.section.W20Reference]
-  label = "Reference"
+[params.section.W20Manual]
+  label = "Manual"
   icon = "fa fa-book"
-  path = "reference"
+  path = "manual"
 
 [params.section.W20API]
   label = "API"
@@ -342,27 +342,22 @@ MetaDataFormat = "yaml"
 [params.section.W20Core]
   label = "Core"
   icon = "fa fa-cogs"
-  path = "reference/core"
+  path = "manual/core"
 
 [params.section.W20UI]
   label = "UI"
   icon = "fa fa-desktop"
-  path = "reference/ui"
+  path = "manual/ui"
 
 [params.section.W20Dataviz]
   label = "Data visualization"
   icon = "fa fa-bar-chart"
-  path = "reference/dataviz"
-
-[params.section.W20Touch]
-  label = "Touch"
-  icon = "fa fa-hand-o-up"
-  path = "reference/touch"
+  path = "manual/dataviz"
 
 [params.section.W20Extra]
   label = "Extras"
   icon = "fa fa-plus-square"
-  path = "reference/extra"
+  path = "manual/extra"
 
 #####################################
 #### Tools                       ####
@@ -373,10 +368,10 @@ MetaDataFormat = "yaml"
   icon = "fa fa-file-text"
   path = ""
 
-[params.section.ToolsReference]
-  label = "Reference"
+[params.section.ToolsManual]
+  label = "Manual"
   icon = "fa fa-book"
-  path = "reference"
+  path = "manual"
 
 [params.section.ToolsReleaseNotes]
   label = "Release notes"

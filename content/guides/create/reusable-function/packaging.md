@@ -1,6 +1,6 @@
 ---
 title: "Packaging"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:

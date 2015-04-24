@@ -1,6 +1,6 @@
 ---
 title: "Tutorial"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:

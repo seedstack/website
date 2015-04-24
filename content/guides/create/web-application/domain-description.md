@@ -1,6 +1,6 @@
 ---
 title: "Domain description"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:

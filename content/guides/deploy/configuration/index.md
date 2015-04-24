@@ -1,6 +1,6 @@
 ---
 title: "Overview"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:

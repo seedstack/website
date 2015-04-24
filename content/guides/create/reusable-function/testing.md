@@ -1,6 +1,6 @@
 ---
 title: "Testing"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:

@@ -1,6 +1,6 @@
 ---
 title: "Persistence"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:
@@ -25,7 +25,7 @@ should be provided for clients requiring full control over data structure creati
 
 Functions must provide a way to import and restore data independently from the persistence, ie. function should not provide 
 SQL scripts. This will allow the function to change the persistence later and reuse existing user data. This should be 
-done with the [Java framework data facilities](/docs/seed/reference/core/data). If needed, the function can also provide 
+done with the [Java framework data facilities](/docs/seed/manual/core/data). If needed, the function can also provide 
 golden data (i.e. data automatically added to the persistence upon application first start) with the same mechanism.
 
 {{% callout info %}}

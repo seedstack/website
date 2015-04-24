@@ -73,17 +73,27 @@
 }
 
 .doc-content h3,
-.doc-content h4,
-.doc-content h5,
-.doc-content h6 {
+.doc-content h4 {
     font-size: 14px;
     font-style: italic;
     font-weight: bold;
     margin: 0;
 }
 
+.doc-content h5,
+.doc-content h6 {
+    font-size: 14px;
+    font-style: italic;
+    margin: 0;
+}
+
 .doc-content h3 {
     margin-top: 20px;
+}
+
+.service .desc h4 {
+    font-weight: normal;
+    font-style: normal;
 }
 
 .doc-content ol.linenums {

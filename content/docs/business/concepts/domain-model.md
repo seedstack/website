@@ -42,7 +42,7 @@ There are different kind of creation strategies for identities:
 
 The first case is easily handle using factories. The other cases,
 can be usually more complicated, but the Business framework provides an API
-for them. See [Identity management](/docs/business/reference/factory/).
+for them. See [Identity management](/docs/business/manual/factory/).
 
 {{% callout info %}}
 A bad practice we have seen many times, is the overuse of

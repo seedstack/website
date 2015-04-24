@@ -1,6 +1,6 @@
 ---
 title: "Documentation"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:

@@ -1,6 +1,6 @@
 ---
 title: "Integration tests"
-type: "reference"
+type: "guide"
 zones:
     - "Guides"
 sections:
