@@ -168,15 +168,10 @@
 	user-select: none;
 }
 
-.manifesto .service-block-in {
-    background: #fafafa;
-    height: 250px;
-    padding: 20px;
-    border: 1px solid #f2eded;
-}
-
-.manifesto .service-block-in p {
-    color: #555;
+.inner-results h3 img {
+    margin-top: -6px;
+    height: 32px;
+    width: 32px;
 }
 
 .header .navbar-default .navbar-nav li a {

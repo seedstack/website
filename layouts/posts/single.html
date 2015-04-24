@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" . }}
+</head>
+<body>
+<div id="header">
+    {{ partial "top-menu.html" . }}
+    {{ partial "blog-header.html" . }}
+    <div class="title-subheader">
+        <div class="container">
+            <ul>
+                <li><h3><i class="fa fa-list"></i> <a href="/blog">All posts</a></h3></li>
+                <li><h3 class="active"><i class="fa fa-file-text"></i> <a href="/blog/{{ .Slug }}">{{ .Title }}</a></h3></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="content" class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="content-wrapper">
+                <div class="doc-content">
+                    <h1>{{ .Title }}</h1>
+                    {{ .Content }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="side-menu">
+                <div class="list-group">
+                    <ul class="nav">
+                        <li class="list-group-item"><div style="margin-bottom: 10px;"><i class="fa fa-tag"></i> Tags</div>
+                            <div class="tags">
+                                {{ range .Params.tags }}
+                                <a class="label label-default" href="/tags/{{ . | urlize }}">{{ . }}</a>
+                                {{ end }}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    {{ partial "footer.html" . }}
+</div>
+{{ partial "scripts.html" . }}
+</body>
+</html>

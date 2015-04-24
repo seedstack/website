@@ -10,7 +10,7 @@
     <div class="title-subheader">
         <div class="container">
             <ul>
-                <li><h3><i class="fa fa-tag"></i> <a href="/tags">All tags</a></h3></li>
+                <li><h3><i class="fa fa-list"></i> <a href="/tags">All tags</a></h3></li>
                 <li><h3 class="active"><i class="fa fa-tag"></i> <a href="/tags/{{ .Title }}">Content tagged with "{{ .Title }}"</a></h3></li>
             </ul>
         </div>
@@ -21,8 +21,6 @@
         {{ $paginator := .Paginator }}
         <div class="col-md-9">
             <div class="content-wrapper">
-                <span class="results-number">Showing {{ $paginator.NumberOfElements }} result(s) of {{ $paginator.TotalNumberOfElements }}</span>
-
                 {{ range $paginator.Pages }}
                 {{ .Render "inner_result" }}
                 {{ end }}
@@ -33,9 +31,6 @@
             </div>
         </div>
         <div class="col-md-3">
-            <h3>Related tags</h3>
-            ...
-            <hr>
         </div>
     </div>
 </div>

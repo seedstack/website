@@ -1,18 +1,20 @@
 {{ $zone := index .Params.zones 0 }}
-{{ $section := index .Params.sections 0 }}
 <div class="inner-results">
-    <h3><i class='{{ index .Site.Params.section $section "icon" }}'></i> <a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    <h3><img src='/img/logos/{{ index .Site.Params.zone $zone "logo" }}'> <a href="{{ .Permalink }}">{{ .Title }}</a></h3>
     <ul class="list-inline up-ul">
         <li>
             In
             <a href='{{ index .Site.Params.zone $zone "path" }}'>{{ index .Site.Params.zone $zone "label" }}</a>
-            <i class="fa fa-caret-right"></i>
-            <a href='{{ index .Site.Params.zone $zone "path" }}/{{ index .Site.Params.section $section "path" }}'>{{ index .Site.Params.section $section "label" }}</a>
+            {{ if isset .Params "sections" }}
+                {{ $section := index .Params.sections 0 }}
+                <i class="fa fa-caret-right"></i>
+                <a href='{{ index .Site.Params.zone $zone "path" }}/{{ index .Site.Params.section $section "path" }}'>{{ index .Site.Params.section $section "label" }}</a>
+            {{ end }}
         </li>
     </ul>
     <p>{{ .Summary }}</p>
-    <ul class="list-inline down-ul">
-        <span class="tags">{{ range .Params.tags }}<a href="/tags/{{ . | urlize }}">{{ . | title }}</a>{{ end }}</span>
-    </ul>
+    <div class="tags">
+        {{ range .Params.tags }}<a class="label label-default" href="/tags/{{ . | urlize }}">{{ . | title }}</a> {{ end }}</span>
+    </div>
 </div>
 <hr>

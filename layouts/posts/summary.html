@@ -1,0 +1,10 @@
+<article class="post">
+    <header>
+        <h1>{{ .Title }}{{ if .Draft }} :: DRAFT{{end}} <small>{{ .Date.Format "Mon, Jan 2, 2006" }}</small></h1>
+    </header>
+
+    {{ .Summary }}
+    <footer>
+        <small><a href='{{ .Permalink }}'><nobr>Read more ({{ .ReadingTime }} minute{{ if gt .ReadingTime 1 }}s{{ end }}) →</nobr></a></small>
+    </footer>
+</article>

@@ -13,6 +13,7 @@ MetaDataFormat = "yaml"
   tag = "tags"
   zone = "zones"
   section = "sections"
+  post-category = "post-categories"
 
 #####################################
 #### Website zones               ####
@@ -62,6 +63,11 @@ MetaDataFormat = "yaml"
   path = "/guides"
   label = "Guides"
   logo = "guides-logo.svg"
+
+[params.zone.Blog]
+  path = "/posts"
+  label = "Blog"
+  logo = "blog-logo.svg"
 
 #####################################
 #### Overview sections           ####
