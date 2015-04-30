@@ -1,6 +1,7 @@
 {{ $parent := . }}
 {{ range .Menus }}
 <div class="side-menu">
+    {{ if gt (len (index $parent.Site.Menus .Menu)) 1 }}
     <div class="list-group">
         <ul class="nav">
             {{ $toc := $parent.TableOfContents }}
@@ -18,11 +19,8 @@
             {{ end }}
         </ul>
     </div>
-    <div class="list-group">
-        <ul class="nav">
-            {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/website/edit/master/content/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this page</a></li>{{end}}
-        </ul>
-    </div>
+    {{ end }}
+    {{ if $parent.Params.tags }}
     <div class="list-group">
         <ul class="nav">
             <li class="list-group-item"><div style="margin-bottom: 10px;"><i class="fa fa-tag"></i> Tags</div>
@@ -32,6 +30,12 @@
                     {{ end }}
                 </div>
             </li>
+        </ul>
+    </div>
+    {{ end }}
+    <div class="list-group">
+        <ul class="nav">
+            {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/website/edit/master/content/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this page</a></li>{{end}}
         </ul>
     </div>
 </div>
