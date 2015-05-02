@@ -1,19 +1,15 @@
 ---
-Title: "First post"
-Description: A complete description of what this blog post is about...
-Date: 2015-04-22
-Slug: first-post
+Title: "Welcome to SeedStack"
+Description: Welcome message for visitors.
+Date: 2015-05-02
+Slug: welcome-to-seedstack
 Tags:
-- Tag1
-- Tag2
-- Tag3
-- Tag4
-- Tag5
-Thumbnail: /img/ecommerce.png
+- SeedStack
 Zones:
 - Blog
 Post-categories:
-- Category1
+- Information
 ---
 
-Yada yada...
+Welcome to SeedStack, an Open-Source enterprise-class development stack for building modern and robust applications.
+SeedStack has been derived from an internal stack used at PSA Peugeot Citroën for two years by more than 20 projects.

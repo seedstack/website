@@ -1,5 +1,6 @@
 @import url('./menu.css');
 @import url('./content.css');
+@import url('./timeline.css');
 @import url('./layout.css');
 @import url('./colors.css');
 
@@ -35,11 +36,11 @@ body > #header {
 body > #content {
     padding-top: 40px;
     padding-bottom: 40px;
-    min-height: calc(100vh - 100px - 177px);
+    min-height: calc(100vh - 100px - 229px);
 }
 
 body.homepage > #content {
-    min-height: calc(100vh - 280px - 177px);
+    min-height: calc(100vh - 280px - 229px);
 }
 
 body.full > #content {

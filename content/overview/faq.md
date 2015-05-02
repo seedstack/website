@@ -10,6 +10,8 @@ menu:
         weight: 10
 ---
 
+Answers to common questions about SeedStack.
+
 # How is SeedStack licensed ?
 
 It's licensed under the [Mozilla Public License 2.0](https://www.mozilla.org/MPL/2.0/).

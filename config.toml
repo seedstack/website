@@ -78,14 +78,14 @@ MetaDataFormat = "yaml"
   icon = "fa fa-file-text"
   path = ""
 
-[params.section.OverviewConcepts]
+[params.section.OverviewArchitecture]
   label = "Architecture"
-  icon = "fa fa-lightbulb-o"
+  icon = "fa fa-building"
   path = ""
 
-[params.section.OverviewRoadmap]
-  label = "Roadmap"
-  icon = "fa fa-road"
+[params.section.OverviewTimeline]
+  label = "Timeline"
+  icon = "fa fa-history"
   path = ""
     
 [params.section.OverviewFaq]

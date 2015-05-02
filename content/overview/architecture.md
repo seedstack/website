@@ -1,12 +1,12 @@
 ---
-title: "Concepts"
+title: "Architecture"
 type: "home"
 zones:
     - "Overview"
 sections:
-    - "OverviewConcepts"
+    - "OverviewArchitecture"
 menu:
-    OverviewConcepts:
+    OverviewArchitecture:
         weight: 10
 ---
 
