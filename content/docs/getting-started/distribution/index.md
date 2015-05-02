@@ -29,10 +29,10 @@ to not use the composites at all while still having the benefits of dependency m
 
 {{% callout info %}}
 Each organization can create its own tailored distribution(s) which can include cherry-picked SeedStack components 
-along with the organizations private components and extensions to the stack. We provide a reference Open-Source 
+along with the organization private components and extensions to the stack. We provide a reference Open-Source 
 distribution that can be used as-is or as a base for customization. 
 
-This page is only about the reference distribution, for more information about creating your own distribution, please
+This page is only about the reference distribution. For more information about creating your own distribution, please
 check [this page](create-your-own).
 {{% /callout %}}
 

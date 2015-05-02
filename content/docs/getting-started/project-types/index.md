@@ -10,9 +10,9 @@ menu:
         weight: 10
 ---
 
-SeedStack can be used to develop any type of project with almost any structure but several predefined types can be 
-easily generated. Moreover, these predefined types guarantee you a clean organization of your code and good modularity
-so stick to them when possible.
+SeedStack can be used to develop any type of project with almost any structure but the reference distribution
+comes with several predefined project types that can be easily generated. These templates guarantee you a clean 
+organization of your code and good modularity so stick to them when possible.
 
 * [Java Web applications](webapp) which are packaged as a WAR file,   
 * [Batch jobs](batch) which are packaged as an executable JAR file,
@@ -27,7 +27,7 @@ and code generators for them in a [custom distribution](../distribution/create-y
 
 # Inner structure for Java modules
 
-The following structure is recommended for all Java modules:
+The following directory structure is recommended for all Java modules:
 
 ```plain
 - src

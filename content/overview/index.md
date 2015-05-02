@@ -32,3 +32,19 @@ tailor the whole stack to your personal or organization needs. The concept of di
 solution with its own component choices, conventions and templates that you can then apply to all your organization 
 projects. We provide a reference Open-Source distribution for common needs but massive gains can be found by creating
 your own (proprietary or not), especially if your organization is mid-sized or large.
+
+# Stack composition
+
+SeedStack is made of three major components:
+
+* **The Java framework**, also known as Seed, is the foundation of the application or service backend. Its role is to 
+provide access to a range of technologies from application code.
+* **The Web framework**, also known as W20, is the foundation of the application Web frontend if any. At its core, it 
+seamlessly integrates RequireJS and AngularJS to enable the creation of composite Web frontends. It also provides a
+complete Bootstrap-based UI solution.
+* **The Business framework** is the foundation of your business code. Based on the Domain-Driven Design
+methodology, it implements all its concepts as read-to-use building blocks. It also provides various services often
+needed around business code.
+
+![Stack diagram](/img/stack.svg)
+

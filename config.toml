@@ -78,9 +78,9 @@ MetaDataFormat = "yaml"
   icon = "fa fa-file-text"
   path = ""
 
-[params.section.OverviewArchitecture]
+[params.section.OverviewConcepts]
   label = "Architecture"
-  icon = "fa fa-building-o"
+  icon = "fa fa-lightbulb-o"
   path = ""
 
 [params.section.OverviewRoadmap]
