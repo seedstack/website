@@ -41,7 +41,7 @@ The tables <em>(BATCH _)</em> prefix can be changed but requires a definition in
 
 In .props file:
 
-	[com.inetpsa.seed.monitoring.batch.datasource]
+	[org.seedstack.batch.monitoring.datasource]
     driver= 
     url=
     user=
@@ -52,7 +52,7 @@ In .props file:
 
 Example: 
 
-	[com.inetpsa.seed.monitoring.batch.datasource]
+	[org.seedstack.batch.monitoring.datasource]
 	driver= oracle.jdbc.OracleDriver
 	url=jdbc:oracle:thin:@TEST:1521:test
 	user=test
@@ -68,8 +68,8 @@ All batch monitoring REST resources are secured with permissions. These permissi
 
 In .props file (of your web application):
 
-	[com.inetpsa.seed.security.permissions]
-	monitoring= seed:monitoring:batch:read
+	[org.seedstack.seed.security.permissions]
+	monitoring = seed:monitoring:batch:read
 
 ConfigurationRealm example:
    	
@@ -78,8 +78,8 @@ ConfigurationRealm example:
     admin = password, SEED.MONITORING
     
     [com.inetpsa.seed.security.roles]
-    monitoring= SEED.MONITORING
+    monitoring = SEED.MONITORING
     
     [com.inetpsa.seed.security.permissions]
-    monitoring= seed:monitoring:batch:read
+    monitoring = seed:monitoring:batch:read
 
