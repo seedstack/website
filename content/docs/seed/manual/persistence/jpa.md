@@ -19,7 +19,7 @@ menu:
 
 # Introduction
 
-SEED JPA persistence support enables your application to interface with any relational database through a JPA-compliant
+Seed JPA persistence support enables your application to interface with any relational database through a JPA-compliant
 ORM. Note that:
 
 * This version doesn't enforce a specific JPA version. It is currently tested with JPA 1.0 and JPA 2.0.
@@ -47,67 +47,160 @@ If you want to use the popular Hibernate ORM, use the following Maven dependency
 
 Add following dependency to declare entity classes in another module that does not have the hibernate dependency:
 
-     <dependency>
-         <groupId>org.apache.geronimo.specs</groupId>
-         <artifactId>geronimo-jpa_2.0_spec</artifactId>
-         <version>1.1</version>
-         <scope>provided</scope>
-     </dependency>
+    <dependency>
+        <groupId>org.hibernate.javax.persistence</groupId>
+        <artifactId>hibernate-jpa-2.0-api</artifactId>
+        <version>1.0.1.Final</version>
+        <scope>provided</scope>
+    </dependency>
 
 # Configuration
 
-There are two distinct configurations to consider in your project: the `persistence.xml` file which is specific to JPA, and
-the SEED support configuration.
+There are two ways of configuring the JPA persistence support. 
 
-## persistence.xml file
+* Without an explicit `persistence.xml` where Seed will scan all entities in the classpath and compute the persistence
+unit(s) information at startup. In this mode, the JDBC connections must be supplied by the Seed JDBC support instead
+of being managed internally by the JPA provider.
+* With an explicit `persistence.xml` file in which case all JPA initialization is delegated to the provider. There are 
+some limitations in this mode, mainly that the `persistence.xml` must list all entity classes and that the choice of 
+JNDI or not must be hard-coded in the file.
 
-This file has to be placed under the `META-INF` directory of your classpath (for instance in `src/main/resources/META-INF`).
-Below snippet is a minimalist `persistence.xml` file example declaring :
+In any case you must always declare the list of your persistence units in the configuration:
 
-* the JPA version (ie. 2.0)
-* a unit named `myJpaUnit` 
-* a local transaction type (`RESOURCE_LOCAL`) 
-* the list of persistence classes to map
+```ini
+[org.seedstack.seed.persistence.jpa]
+units = my-jpa-unit, ...
+```
+    
+Each unit can then be configured with the following configuration:
+
+```ini
+[org.seedstack.seed.persistence.jpa.unit.my-jpa-unit]
+...
+```
+
+In any mode you can pass set properties on the persistence unit with the following configuration:
+
+```ini
+[org.seedstack.seed.persistence.jpa.unit.my-jpa-unit]
+property.name.of.the.property1 = value-of-the-property1
+property.name.of.the.property2 = value-of-the-property2
+...
+```
+
+## Without persistence.xml
+
+You must first define a JDBC datasource in the configuration. To do so, please refer to the [JDBC support configuration]
+(jdbc). You can then declare a JPA unit that will refer to this datasource by its name:
+ 
+```ini
+[org.seedstack.seed.persistence.jpa.unit.my-jpa-unit]
+datasource = my-datasource
+```
+    
+Note that Seed has no way of knowing to which persistence unit belong each entity class, so you must indicate this with
+the following configuration:
+
+```ini
+[org.myorganization.myapp.domain.*]
+jpa-unit = my-jpa-unit
+```
+    
+This will put all the entities scanned in the `org.myorganization.myapp.domain` package and its subpackages into the
+`my-jpa-unit` persistence unit.
+
+### Configuration options
+
+You can specify the type of transactions by using the following configuration
+([more info](http://docs.oracle.com/javaee/6/api/javax/persistence/spi/PersistenceUnitInfo.html#getTransactionType()):
+
+```ini
+[org.seedstack.seed.persistence.jpa.unit.my-jpa-unit]
+transaction-type = JTA | RESOURCE_LOCAL
+```
+    
+If you prefer to use XML JPA mapping files instead of annotations you can specify them with the following configuration
+([more info](http://docs.oracle.com/javaee/6/api/javax/persistence/spi/PersistenceUnitInfo.html#getMappingFileNames()):
+
+```ini
+[org.seedstack.seed.persistence.jpa.unit.my-jpa-unit]
+mapping-files = path/to/mapping/file1.xml, path/to/mapping/file2.xml, ...
+```
+    
+You can specify the validation mode with the following configuration
+([more info](http://docs.oracle.com/javaee/6/api/javax/persistence/spi/PersistenceUnitInfo.html#getValidationMode()):
+
+```ini
+[org.seedstack.seed.persistence.jpa.unit.my-jpa-unit]
+validation-mode = path/to/mapping/file1.xml, path/to/mapping/file2.xml, ...
+```
+
+You can specify the shared cache mode with the following configuration
+([more info](http://docs.oracle.com/javaee/6/api/javax/persistence/spi/PersistenceUnitInfo.html#getSharedCacheMode())):
+
+```ini
+[org.seedstack.seed.persistence.jpa.unit.my-jpa-unit]
+shared-cache-mode = ALL | NONE | ENABLE_SELECTIVE | DISABLE_SELECTIVE | UNSPECIFIED
+```
+
+## With persistence.xml
+
+In this mode you must provide a `persistence.xml` file. This file has to be placed under the `META-INF` directory of your
+classpath (for instance in `src/main/resources/META-INF`).
 
     <persistence xmlns="http://java.sun.com/xml/ns/persistence"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
         version="2.0">
 
-        <persistence-unit name="myJpaUnit" transaction-type="RESOURCE_LOCAL">
+        <persistence-unit name="my-jpa-unit" transaction-type="RESOURCE_LOCAL">
             <class>org.seedstack.seed.persistence.jpa.sample.Item1</class>
-            <properties>
-                <property name="..." value="..."/>
-            </properties>
         </persistence-unit>
     </persistence>
 
 
-You can declare as many units as required in `persistence.xml` file. You can also add configuration properties directly 
-in this file as long as they do not need to be changed again in your application. In order to externalize properties, 
-declare them in SEED configuration instead (see next paragraph).
+In this example you can find:
 
-## SEED configuration
+* The JPA version (2.0 in this example)
+* A unit named `my-jpa-unit` 
+* A local transaction type (`RESOURCE_LOCAL`) 
+* The list of persistence classes to map
 
-Declare your list of JPA units in order to have them managed by SEED:
+You can declare as many units as required in a `persistence.xml` file. You can also add configuration properties directly 
+in this file, although it is recommended to specify them in the configuration. When using a `persistence.xml` file, you 
+must either specify a datasource via properties or via JNDI.
 
-    org.seedstack.seed.persistence.jpa.units = myJpaUnit, ...
+### Datasource via properties 
 
-Add properties to your JPA unit by specifying a section as follows:
+The datasource can be specified through properties, either in the configuration:
 
-    [org.seedstack.seed.persistence.jpa.unit.myJpaUnit]
-    property.javax.persistence.jdbc.driver = ...
-    property.javax.persistence.jdbc.url = ...
-    property.javax.persistence.jdbc.user = ...
-    property.javax.persistence.jdbc.password = ...
+```ini
+[org.seedstack.seed.persistence.jpa.unit.my-jpa-unit]
+property.javax.persistence.jdbc.driver = ...
+property.javax.persistence.jdbc.url = ...
+property.javax.persistence.jdbc.user = ...
+property.javax.persistence.jdbc.password = ...
+```
+    
+Or in the directly in the `persistence.xml` file:
+        
+    <persistence-unit name="my-jpa-unit" transaction-type="RESOURCE_LOCAL">
+        ...
+        
+        <properties>
+            <property name="..." value="..."/>
+        </properties>
+        
+        ...
+    </persistence-unit>
 
-Any feature of the SEED configuration such as profiles, macros or environment variables are available to configure
-your JPA units. For more detail, refer to the [dedicated documentation](#!/seed-doc/core/configuration).
+The specification of properties in the configuration is recommended as it allows greater flexibility (access to
+environment variables and system properties, usage of configuration profiles, macros, ...). 
 
-## Using JNDI
+### Datasource via JNDI
 
-Instead of using application specific properties to configure your data source, you can provide one via JNDI by adding 
-following line to the JPA unit definition:
+In some environments like in a Web server, it is recommended to use JNDI instead of configuration properties. You can
+do so by specifying the JNDI name of the datasource in the `persistence.xml` file:
  
     <non-jta-data-source>java:comp/env/jdbc/my-datasource</non-jta-data-source>
 
@@ -123,15 +216,10 @@ In case of a Web application, add the following JNDI reference in your `web.xml`
         <res-auth>Container</res-auth>
     </resource-ref>
 
-You may have to add additional files depending on your Web container. Please refer to the the dedicated container documentation.
+You may need to add additional files depending on your Web container. Please refer to the the dedicated container 
+documentation.
 
-# Entities
-
-JPA entities are classes declared in `<persistence-unit>`/`<class>` tags inside the `persistence.xml` file. They all 
-have to be be annotated with JPA annotations to define the mappings. This subject is not documented here but you can 
-refer to this [detailed tutorial](http://docs.oracle.com/javaee/6/tutorial/doc/bnbpz.html).
-
-# Entity Manager
+# Using the Entity Manager
 
 To use the Entity Manager in your code, simply inject it:
 
@@ -143,8 +231,8 @@ To use the Entity Manager in your code, simply inject it:
         ...
     }
 
-All JPA interactions have to be realized inside a transaction. Refer to the Transaction support 
-[documentation](#!/seed-doc/transaction) for more detail. Below is an example using the annotation-based transaction 
+All JPA interactions have to be realized inside a transaction. Refer to the [transaction support 
+documentation](../../transactions) for more detail. Below is an example using the annotation-based transaction 
 demarcation (notice the `persistence.xml` unit name in `@JpaUnit` annotation)
 
     public class MyService {
@@ -153,53 +241,16 @@ demarcation (notice the `persistence.xml` unit name in `@JpaUnit` annotation)
         private MyRepository myRepository;
 
         @Transactional
-        @JpaUnit("myJpaUnit")
-        public void doSomethingRelational() {
+        @JpaUnit("my-jpa-unit")
+        public void doSomethingWithMyJpaUnit() {
 
         }
     }
 
-Unit name is not required if only one JPA unit is configured (ie. use `@JpaUnit()`). 
-Nevertheless, be aware that adding a new JPA unit will require to update all such annotations
-with the unit name value as the support can not identify the appropriate unit automatically.
+{{% callout info %}}
+Note that the `@JpaUnit` annotation is NOT optional as the JPA support includes the JDBC support as a dependency, so the
+condition that you must have only one transactional support in your application cannot be fulfilled. You can omit the 
+name of the unit if you only have one unit in your application, although we recommend you to always specify it explicitly. 
+{{% /callout %}}
 
-When only one JPA unit and one transactional support are defined in your project, the annotation is not necessary as
-the transaction support will automatically choose the only transaction handler present in your classpath and the JPA
-support will automatically choose the only configured JPA unit. Again, be aware that this implicit configuration will require 
-an  update  whole project if you add another JPA unit (see the previous paragraph) or if you add a new transactional
-support (such as JMS).
-
-**To remain as future-proof as possible, it is recommended to always explicitly specify JPA units in `@JpaUnit` annotation.**
-
-# Downgrade to JPA 1.0
-
-If JPA 1.0 is required instead of JPA 2.0, the following has to be done:
-
-Make sure `persistence.xml` file version is 1.0:
-
-    <persistence xmlns="http://java.sun.com/xml/ns/persistence"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
-        version="1.0">
-
-Use an Hibernate version still compatible with JPA 1.0 (ie. until version 3.3.2.GA) or another compatible ORM:
-
-     <dependency>
-             <groupId>org.hibernate</groupId>
-             <artifactId>hibernate-core</artifactId>
-             <version>3.3.2.GA</version>
-     </dependency>
-     <dependency>
-             <groupId>org.hibernate</groupId>
-             <artifactId>hibernate-entitymanager</artifactId>
-             <version>3.3.2.GA</version>
-     </dependency>
-
-Provide the right JPA API version if your classes are in a different module:
-
-    <dependency>
-        <groupId>org.hibernate.javax.persistence</groupId>
-        <artifactId>hibernate-jpa-2.0-api</artifactId>
-        <scope>provided</scope>
-    </dependency>
 

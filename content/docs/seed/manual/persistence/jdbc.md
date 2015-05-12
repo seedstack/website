@@ -75,8 +75,8 @@ The following examples show how to get a JDBC connection.
         }
     }
     
-Any interaction with this connection will have to be realized inside a **transaction**. Refer to the Transaction support
-[documentation](#!/seed-doc/transaction) for more detail. Below is an example using the annotation-based transaction 
+Any interaction with this connection will have to be realized inside a **transaction**. Refer to the [transaction support
+documentation](../../transactions) for more detail. Below is an example using the annotation-based transaction 
 demarcation (notice the data source name in `@Jdbc` annotation).
 
     public class MyService {
@@ -91,10 +91,11 @@ demarcation (notice the data source name in `@Jdbc` annotation).
         }
     }
 
-Note that if you only use one data source, you do not need to specify its name in the annotation. Also note that if the 
-only persistence support in your classpath is the Jdbc support, you do not need to specify the annotation Jdbc.  In both 
-cases, whenever you add a data source or a support, you will have to specify **all** the `@Transactional` annotated 
-methods.
+{{% callout info %}}
+Note that the `@Jdbc` annotation is optional if you have only one transactional support in your application AND if you
+only have one datasource. If you happen to be in this situation, we still recommend to explicitly specify the annotation 
+to avoid doing so when the project evolves down the road.
+{{% /callout %}}
 
 # DataSource providers
 
