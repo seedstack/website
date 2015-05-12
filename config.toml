@@ -412,9 +412,9 @@ MetaDataFormat = "yaml"
 #### Glossary                    ####
 #####################################
 
-[params.section.GlossarySearch]
+[params.section.GlossaryIntroduction]
   label = "Glossary"
-  icon = "fa fa-search"
+  icon = "fa fa-file-text"
   path = ""
 
 [params.section.GlossaryAF]

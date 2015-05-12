@@ -17,10 +17,12 @@
 </div>
 <div id="content" class="container">
     {{ $data := .Data }}
-    <div class="tags">
-        {{ range $key, $value := .Data.Terms }}
-        <a class="label label-default" href="{{ $key | urlize }}">{{ $key | title }} <small>({{ len $value }})</small></a>
-        {{ end }}
+    <div class="content-wrapper">
+        <div class="tags">
+            {{ range $key, $value := .Data.Terms }}
+            <a class="label label-default" href="{{ $key | urlize }}">{{ $key | title }} <small>({{ len $value }})</small></a>
+            {{ end }}
+        </div>
     </div>
 </div>
 <div id="footer">
