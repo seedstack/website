@@ -20,14 +20,19 @@ menu:
 # Introduction
 
 SEED JPA persistence support enables your application to interface with any relational database through a JPA-compliant
-ORM. Note that :
+ORM. Note that:
 
 * This version doesn't enforce a specific JPA version. It is currently tested with JPA 1.0 and JPA 2.0.
 * This support doesn't specify any ORM implementation. 
 
-Nevertheless, **we do recommend to use latest available Hibernate version**. Some specific situations may require
-another version or even another implementation. To add Hibernate to your application module, use the following
-Maven dependency:
+To add Seed JPA persistence support to your project, use the following Maven dependency:
+
+     <dependency>
+         <groupId>org.seedstack.seed</groupId>
+         <artifactId>seed-persistence-support-jpa</artifactId>
+     </dependency>
+
+If you want to use the popular Hibernate ORM, use the following Maven dependency:
 
     <dependency>
         <groupId>org.hibernate</groupId>
@@ -78,8 +83,9 @@ Below snippet is a minimalist `persistence.xml` file example declaring :
     </persistence>
 
 
-You can declare as many units as required in `persistence.xml` file. You can also add configuration properties directly in this file as long as 
-they do not need to be changed again in your application. In order to externalize properties, declare them in SEED configuration instead (see next paragraph).
+You can declare as many units as required in `persistence.xml` file. You can also add configuration properties directly 
+in this file as long as they do not need to be changed again in your application. In order to externalize properties, 
+declare them in SEED configuration instead (see next paragraph).
 
 ## SEED configuration
 
@@ -100,8 +106,9 @@ your JPA units. For more detail, refer to the [dedicated documentation](#!/seed-
 
 ## Using JNDI
 
-Instead of using application specific properties to configure your data source, you can provide one via JNDI by adding following line to the JPA unit definition:
-
+Instead of using application specific properties to configure your data source, you can provide one via JNDI by adding 
+following line to the JPA unit definition:
+ 
     <non-jta-data-source>java:comp/env/jdbc/my-datasource</non-jta-data-source>
 
 In case of a JTA data source, use following line instead:
@@ -120,8 +127,9 @@ You may have to add additional files depending on your Web container. Please ref
 
 # Entities
 
-JPA entities are classes declared in `<persistence-unit>`/`<class>` tags inside the `persistence.xml` file. They all have to be be annotated with JPA annotations
-to define the mappings. This subject is not documented here but you can refer to this [detailed tutorial](http://docs.oracle.com/javaee/6/tutorial/doc/bnbpz.html).
+JPA entities are classes declared in `<persistence-unit>`/`<class>` tags inside the `persistence.xml` file. They all 
+have to be be annotated with JPA annotations to define the mappings. This subject is not documented here but you can 
+refer to this [detailed tutorial](http://docs.oracle.com/javaee/6/tutorial/doc/bnbpz.html).
 
 # Entity Manager
 
@@ -135,8 +143,9 @@ To use the Entity Manager in your code, simply inject it:
         ...
     }
 
-All JPA interactions have to be realized inside a transaction. Refer to the Transaction support [documentation](#!/seed-doc/transaction) for more detail. 
-Below is an example using the annotation-based transaction demarcation (notice the `persistence.xml` unit name in `@JpaUnit` annotation)
+All JPA interactions have to be realized inside a transaction. Refer to the Transaction support 
+[documentation](#!/seed-doc/transaction) for more detail. Below is an example using the annotation-based transaction 
+demarcation (notice the `persistence.xml` unit name in `@JpaUnit` annotation)
 
     public class MyService {
 

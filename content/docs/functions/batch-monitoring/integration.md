@@ -9,7 +9,7 @@ The tables <em>(BATCH _)</em> prefix can be changed but requires a definition in
 <ul> 
 <li><code>tablePrefix</code> property within batch <code>jobRepository</code> bean configuration.</li>
 <li> <code>table.prefix</code> property within props
-  <code>[com.inetpsa.seed.monitoring.batch.datasource]</code> section of the Web
+  <code>[org.seedstack.seed.monitoring.batch.datasource]</code> section of the Web
   appplication.</li>
 </ul>
 </div>
@@ -73,13 +73,13 @@ In .props file (of your web application):
 
 ConfigurationRealm example:
    	
-	[com.inetpsa.seed.security.users]
+	[org.seedstack.seed.security.users]
     jane = password, SEED.MONITORING
     admin = password, SEED.MONITORING
     
-    [com.inetpsa.seed.security.roles]
+    [org.seedstack.seed.security.roles]
     monitoring = SEED.MONITORING
     
-    [com.inetpsa.seed.security.permissions]
+    [org.seedstack.seed.security.permissions]
     monitoring = seed:monitoring:batch:read
 

@@ -12,19 +12,7 @@ Main Use Cases :
 Then add the following dependency to your web module pom:
 
     <dependency>
-    	<groupId>com.inetpsa.fnd.functions.batch-monitoring</groupId>
+    	<groupId>org.seedstack.functions.batch-monitoring</groupId>
     	<artifactId>seed-batch-monitoring-web</artifactId>
     </dependency>
-
-
-
-
-
-
-
-
-
-
-
-
 
