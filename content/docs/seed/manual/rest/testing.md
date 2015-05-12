@@ -1,5 +1,5 @@
 ---
-title: "Test"
+title: "Testing"
 type: "manual"
 zones:
     - "Seed"
@@ -15,7 +15,7 @@ menu:
 ---
 
 Fully testing REST resources requires web integration test support as described
-[here](#!/seed-doc/test/integration#web-integration-testing). Basic steps are:
+[here](../../testing/integration-web). Basic steps are:
 
 * Test class has to extend `AbstractSeedWebIT` in order to launch an integration test with Arquillian.
 * Test class has to contain a method to package the deployed WAR.

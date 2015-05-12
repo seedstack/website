@@ -17,7 +17,7 @@ menu:
         weight: 10
 ---
 
-SEED security support brings logical security to your applications with easy to use and configure:
+Seed security support brings logical security to your applications with easy to use and configure:
 
 * Identification (eg. id, name),
 * Authentication (eg. password),
@@ -30,15 +30,15 @@ If you need Java based security in your applicative module, you can use the foll
         <artifactId>seed-security-support-core</artifactId>
     </dependency>
 
-Security extensions for various execution environments are provided in other SEED supports. One of the most useful
-is the Web security extension available [here](#!/seed-doc/web/security).
+Security extensions for various execution environments are provided in other Seed supports. One of the most useful
+is the Web security extension available [here](../web/security).
 
 # Concepts
 
 ## Realm
 
 A security realm is a mechanism used for protecting application resources.
-A `Realm` is a component of SEED security support that handles security data includind users, roles and permissions.
+A `Realm` is a component of Seed security support that handles security data includind users, roles and permissions.
 
 ## Permission
 
@@ -58,9 +58,8 @@ MUIPCC". These permissions can be easily defined by using wildcard notation :
 
 A Role is a set of permissions. If a user is granted a Role, the user is thereby granted all the Permissions defined in this Role.
 
-## Filter
+## Web filters
 
 In a Web environment (on a JEE server) you can define a Filter chain on URLs of your application to apply security.
-For example you can add a Basic Auth Filter or add a Filter to check users' Role/Permission.
-
-See the dedicated web [documentation](#!/seed-doc/web/security#security-filters) on this subject.
+For example you can add a Basic Auth Filter or add a Filter to check users' Role/Permission. See the dedicated web 
+[documentation](../web/security#security-filters) on this subject.

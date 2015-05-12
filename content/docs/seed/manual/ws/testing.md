@@ -14,8 +14,8 @@ menu:
         weight: 60
 ---
 
-Web Services can be tested in SEED managed integration tests. You can find more about these kind of tests 
-[here](#!/seed-doc/test/integration). You'll find a Web black box example below:
+Web Services can be tested in Seed managed integration tests. You can find more about these kind of tests 
+[here](../../testing/integration) and [here](../../testing/integration-web). You'll find a Web black box example below:
 
 ```
 public class HelloWSIT extends AbstractSeedWebIT {

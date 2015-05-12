@@ -69,10 +69,10 @@ In this case, except for the connection, nothing is managed by SEED. **Objects l
 
 # Automatic reconnection
 
-When you inject a session or a connection, SEED provides managed objects which embed a reconnection mechanism.
+When you inject a session or a connection, Seed provides managed objects which embed a reconnection mechanism.
 When the connection is down, creating a producer or sending a message will throw a JMSException. But when the connection will
 be back **the connection and the session will be refreshed**. So you won't need to get new connection or session.
-By default SEED attempt to reconnect every 30 seconds, but this is configurable (see
-[here](#!/seed-doc/jms/configuration#additional-properties)).
+By default Seed attempt to reconnect every 30 seconds, but this is configurable (see
+[here](../configuration#additional-properties)).
 
 > Notice that it is still up to you to handle the retry policy on the sent message.

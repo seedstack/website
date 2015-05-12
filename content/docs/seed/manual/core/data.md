@@ -16,7 +16,7 @@ menu:
         weight: 50
 ---
 
-SEED Core provides features to backup and restore data. This could be done through the (SEED shell)[#!/seed-doc/shell] 
+SEED Core provides features to backup and restore data. This could be done through [Seed Shell](../../shell) 
 or data could be loaded at the application startup. Data can be backed up and restored independently from the type of 
 persistence since YAML is used as the pivotal format. Consequently, no SQL script or conversion script is needed. Data 
 import can also be used to initialize data for integration tests.
@@ -104,7 +104,8 @@ Implementation example from **seed-i18n-function**:
 
 # Shell command
 
-SEED Core also provides SHELL commands to import and export data. This requires (SEED shell support)[#!/seed-doc/shell].
+Seed Core also provides commands to import and export data. You can invoke this kind of commands through 
+[Seed Shell](../../shell).
 
 Predefined commands:
 

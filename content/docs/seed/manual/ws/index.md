@@ -30,7 +30,7 @@ In a Web environment you must use the following dependency snippet instead:
 
 # Best practices
 
-* Since classes [generated](#!/seed-doc/ws/maven) from WSDL are both for client and server side, this logic should belong to a shared module. 
+* Since classes [generated](maven) from WSDL are both for client and server side, this logic should belong to a shared module. 
 This module can then be used as a dependency both on client and server side.
 * Keep one source WSDL per Web Service and use `copy-resources` of `maven-resources-plugin` just after generating classes from WSDL. Reasons are:
     * successful code generation means the WSDL is probably valid and generated code match that WSDL
@@ -68,6 +68,6 @@ There are two options:
 JAR to the server `endorsed` directory or to server buildpath.
 * As described in **Java Endorsed Standards Override Mechanism**, you can check endorsed directories through `java.endorsed.dirs` java System property.
 
-# JDK 7
+## JDK 7
 
 JDK 7 works out of the box as required version of JAX-Ws is already embedded.

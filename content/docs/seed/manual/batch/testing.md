@@ -1,5 +1,5 @@
 ---
-title: "Integration test"
+title: "Testing"
 type: "manual"
 zones:
     - "Seed"
@@ -14,7 +14,7 @@ menu:
         weight: 40
 ---
 
-For integration test, add SEED integration test support to your project. Check documentation [here](#!/seed-doc/test/integration#simple-integration-testing).
+For integration test, add SEED integration test support to your project. Check the documentation [here](../../testing/integration).
 
 * Following example checks that SEED injection works.
 
