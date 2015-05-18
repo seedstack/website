@@ -10,87 +10,41 @@ menu:
         weight: 10
 ---
 
-The assembler pattern is used to transfer the state of *Aggregates* to *DTO/Representation* objects. Here is the 
-interface of a SEED assembler:
+The assembler pattern is used to transfer a representation of the
+state of *Aggregates* to *DTO/Representation* objects. The Business
+Framework provides a interface and few base classes to ease the
+development of assemblers.
 
-```
-/**
- * This interface represents the Assembler concepts between an aggregate and a DTO.
- * <p/>
- * This is a helper to transform an aggregate to a DTO and vice versa.
- * <p/>
- * Underlying class will have to provide the gateway implementation.
- *
- * @param <AggregateRoot>     the aggregate root
- * @param <Dto>               the dto type
- * @param <AggregateRootType> the aggregate root class type
- */
-public interface Assembler<AggregateRoot, Dto, AggregateRootType extends Type> {
+# Usage
 
-    /**
-     * Creates a new DTO and fill it from the aggregate.
-     *
-     * @param sourceAggregate The aggregate to copy data from.
-     * @return a DTO type
-     */
-    Dto assembleDtoFromAggregate(AggregateRoot sourceAggregate);
+Create an assembler extending `BaseAssembler` class. It will contains
+the code the logic of the copy of the data from/to the
+aggregate. Then, inject your assembler in your class and you use it.
 
-    /**
-     * Updates the given DTO from the aggregate.
-     *
-     * @param sourceDto       The dto to update.
-     * @param sourceAggregate The aggregate to copy data from.
-     */
-    void updateDtoFromAggregate(Dto sourceDto, AggregateRoot sourceAggregate);
+There are two method to implement:
 
-    /**
-     * Merges a source DTO into an existing aggregate.
-     *
-     * @param targetAggregate The aggregate to merge.
-     * @param sourceDto       The dto to copy data from.
-     */
-    void mergeAggregateWithDto(AggregateRoot targetAggregate, Dto sourceDto);
+- `doAssembleDtoFromAggregate(dto, aggregate)` 
+- `doMergeAggregateWithDto(aggregate, dto)`
 
-    ... 8< ...
+The first method creates a DTO from an aggregate root. The second
+merge the mutable fields of an **existing** aggregate with the data
+from the dto. This means for instance that it should never change the
+aggregate identity.
 
-}
-```
+# Example
 
-This interface contains two other methods that is needed by others SEED components `AggregateRootType getAggregateClass()`
- and `Class<Dto> getDtoClass()`. 
-
-# BaseAssembler, the class to extends
-
-To ease the creation of Assembler, you won't have to implement this interface directly, a simpler way is to extends 
-`BaseAssembler`. You'll have only 2 methods to extends.
-
-- `doAssembleDtoFromAggregate(dto, aggregate)` to create a DTO from an aggregate root 
-- `doMergeAggregateWithDto(aggregate, dto)` to merge the mutable fields of an **existing** aggregate with the data from the dto.
-
-## Usage
-
-Create an assembler extending *BaseAssembler* class. It will contains the code the logic of the copy of the data from/to 
-the aggregate. Then, inject your assembler in your class and you use it.
-
-## Example
-
-One Assembler for Product.
+An assembler assembling a representation of a product.
 
 ```
 public class ProductAssembler extends BaseAssembler<Product,ProductRepresentation> {
 
-    @Inject
-    private ProductFactory productFactory;
-
     @Override
     protected void doAssembleDtoFromAggregate(ProductRepresentation targetDto, 
 	         Product sourceAggregate) {
-	    // Create a ProductId value object   
-	    ProductId id = productFactory.createId(sourceAggregate.getAggregateId().getStoreId(), 
-            sourceAggregate.getAggregateId().getProductCode());
+	    // Flatten the id
+        targetDto.setStoreId(sourceAggregate.getAggregateId().getStoreId());
+        targetDto.setProductCode(sourceAggregate.getAggregateId().getProductCode());
          
-        // assemble the DTO
-		targetDto.setProductId(id);
 		targetDto.setName(sourceAggregate.getName());
 	    targetDto.setDescription(sourceAggregate.getDescription());
     }
@@ -98,157 +52,177 @@ public class ProductAssembler extends BaseAssembler<Product,ProductRepresentatio
     @Override
     protected void doMergeAggregateWithDto(Product targetAggregate, 
 	        ProductRepresentation sourceDto) {
+        // The id is not modified
 	    targetAggregate.setName(sourceDto.getName());
         targetAggregate.setDescription(sourceDto.getDescription());
     }
 }
 ```
 
-Injection of the assembler.
+You can inject the assembler via its interface or directly via the
+implementation classe. Both way are acceptable, but the first way
+provides a more encapsulated interface to the developer using it.
 
 ```
+@Inject
+Assembler<Product, ProductRepresentation> productAssembler;
+
 @Inject
 ProductAssembler productAssembler;
 ```
 
-Use of your assembler.
+Then,
 
 ```
-ProductRepresentation productRepresentation = 
-	productAssembler.assembleDtoFromAggregate(productFromRepo);
-```
+// assemble a representation
+representation = productAssembler.assembleDtoFromAggregate(product);
 
-```
-Product productToMerge = getFromSomewhere();
+// merge an aggregate
+Product productToMerge = catalog.retrieve(productId);
 productAssembler.mergeAggregateWithDto(productToMerge, productRepresentationSource);
+catalog.update(productToMerge);
 ```
 
-# Assemblers, the swiss army knife for assembler
+# FluentAssembler DSL
 
-Assemblers is a helper which prevent you a lot of common tasks when working around Assembler. It encapsulates the 
-following features :
+Assemblers implementation remains simple, but its usage can become
+tedious when using list or complexe worflows. For simplify this use
+cases the Business Framework provides a DSL throught
+`FluentAssembler`.
 
-- `assembleDtoFromAggregate` to create a dto from an aggregate
-- `createUniversalDtoFromAggregate` to create a `UniversalDto` from an aggregate
-- `mergeAggregateWithDto` to merge the mutable fields of an **existing** aggregate with the data from the dto
-- `createThenMergeAggregateWithDto` calls the factory to create a **new** aggregate with data from the dto
-- `retrieveThenMergeAggregateWithDto` finds the aggregate and merges it with the data from the dto
-- `retrieveOrCreateThenMergeAggregateWithDto` tries to find the aggregate, if it does not exist, creates it, and then merges 
-its fields with the dto
-
-# Advanced use of Assemblers
-
-By adding some more configuration to your DTO class, you can have assemblers to do more for you:
-
-- Find an existing aggregate to merge to the dto
-- Call the factory to create a new aggregate from the dto
-
-Here is how to tell the assembler which methods of the DTO match the aggregate ID and which match the factory methods:
-
-## @MatchingAggregateId
-
-Use the`@MatchingAggregateId` annotation on DTO method getter that matches the constructor of the ID of the aggregate. 
-If methods return type are of the same types, use the *order* parameter of the annotation to remove ambiguities.
-
-## @MatchingFactoryParameter
-
-Use `@MatchingFactoryParameter` annotation on DTO method getter that matches the parameters of the aggregate factory method. 
-If methods return type are of the same types, use the *order* parameter of the annotation to remove ambiguities.
-
-
-## Example
-
-For a *Product* Aggregate with a *ProductId* made of two `Short` objects (domain layer):
+## Aggregate to DTO
 
 ```
-@Embeddable
-public class ProductId extends BaseValueObject
-{
-	/**
-	 * between 0 and 1000
-	 */
-	private Short storeId;
-	private Short productCode;
-	
-	ProductId() 
-	{
-	}
-	
-	public ProductId(Short storeId , Short productCode) {
-		this.storeId = storeId;
-		this.productCode = productCode;
-	}
-	--------------8<----------
-	Get/set
-	--------------8<----------
+fluentAssembler.assemble().aggregate(aProduct).to(ProductRepresentation.class)
+
+// with list
+fluentAssembler.assemble().aggregates(productList).to(ProductRepresentation.class)
+```
+
+## DTO to aggregate
+
+```
+Product aProduct = fluentAssembler.assemble().dto(productRepresentation).to(aProduct)
+
+// with list
+Product aProduct = fluentAssembler.assemble().dtos(representationList).to(productList)
+```
+
+## Advanced usage
+
+When we merge a representation to an aggregate, the assembler expects
+an existing aggregate root instance. Normally you have to retreive
+this instance from a repository or to create it from a factory. This
+can become a little tedious when you have to do it a lot. In this
+case, by adding few metadata to your DTO/Representation class, you can
+have the DSL to doing it for you.
+
+### Get aggregates from factory
+
+If the aggregate root to merge doesn't exists, you can tell the DSL to
+create from the factory.
+
+```
+fluentAssembler.assemble().dto(repr).to(Product.class).fromFactory();
+```
+
+It will search a factory for the aggregate root to merge
+(`GenericFactory<Product>`). Then it will search the appropriate
+method to call. To indicate to the DSL which method should be called,
+annotate the DTO getter methods matching the factory method parameters
+with `@MatchingFactoryParameter(index=0)`. The index represents the
+position of the parameters in the factory method.
+
+```
+public class ProductRepesentation {
+
+    private Short storeId;
+    private Short productCode;
+    private String name;
+    private String description
+
+    @MatchingFactoryParameter(index=0)
+    public Short getStoreId() { ... }
+
+    @MatchingFactoryParameter(index=1)
+    public Short getProductCode() { ... }
+
+    @MatchingFactoryParameter(index=2)
+    public Short getName() { ... }
+
+    public Short getDescription() { ... }
 }
 ```
-
-The *factory* (domain layer):
 
 ```
 public interface ProductFactory extends GenericFactory<Product> {
 	
-	Product createProduct ( Short storeId , Short productCode );
+	Product createProduct(Short storeId, Short productCode, String name);
 }
 ```
 
-In the *ProductDto* (interface layer):
+### Get aggregate from repository
+
+If the aggregate root to merge already exists, you can tell the DSL to
+get it from the repository. If the DSL doesn't find the aggregate root
+from the repository, two strategies are possible. The first throw an
+exception, the second fall back to the `fromFactory()` method.
 
 ```
-public class ProductDto {
+try {
+    product = fluentAssembler.assemble().dto(representation)
+        .to(Product.class).fromRepository().orFail();
+} catch (AggregateNotFoundException e) {
+    return Response.status(Response.Status.NOT_FOUND).build();
+}
+```
+
+```
+product = fluentAssembler.assemble().dto(repr).to(Product.class)
+    .fromRepository().thenFromFactory();
+```
+
+It will search a repository for the aggregate root to merge
+(`GenericRepository<Product>`). Then it will search the appropriate
+method to call. To indicate to the DSL which method should be called,
+annotate the DTO getter method matching the aggregate root ID with
+`@MatchingEntityId`. If the ID is composite annotate the getter
+methods matching the ID constructor parameters with
+`@MatchingEntityId(index=0)`. In this case, the index is mandatory and
+represents the position of the parameters in the constructor method.
+
+```
+public class ProductRepesentation {
+
+    private Short storeId;
+    private Short productCode;
+    private String name;
+    private String description
+
+    @MatchingEntityId(index=0)
+    public Short getStoreId() { ... }
+
+    @MatchingEntityId(index=1)
+    public Short getProductCode() { ... }
+
+    public Short getName() { ... }
+
+    public Short getDescription() { ... }
+}
+```
+
+```
+public class ProductId extends BaseValueObject {
 
 	private Short storeId;
 	private Short productCode;
-
-	@MatchingAggregateId (order=0)
-	@MatchingFactoryParameter(order=0)
-	public Short getStoreId() {
-		return storeId;
-	}
 	
-	@MatchingAggregateId (order=1)
-	@MatchingFactoryParameter(order=1)
-	public Short getProductCode() {
-		return productCode;
+	public ProductId(Short storeId, Short productCode) {
+		this.storeId = storeId;
+		this.productCode = productCode;
 	}
+
+    // Getters
+    ...
 }
-```
-
-Inject the class **Assemblers** in your class (interfaces layer):
-
-```
-@Inject
-private Assemblers assemblers;
-```
-
-- Use the provided methods (interfaces layer):
-
-```
-Product p = assemblers.retrieveThenMergeAggregateWithDto (productDTO , Product.class);
-Product p = assemblers.createThenMergeAggregateWithDto (productDTO , Product.class);
-```
-# UniversalDto
-
-## Description
-
-Sometimes the domain is made of **many Aggregates** where each contains **one or two entities**. The creation of 
-assemblers for each aggregate can get tedious. In this case, you can use UniversalDto.
-
-- UniversalDto is an Object that will convert your aggregate into a property/value map that can be seen as a DTO.
-- UniversalDto is easily converted into JSON.
-
-## Usage
-
-Inject *Assemblers helper* in your class (interface layer).
-
-```
-@Inject
-private Assemblers assemblers;
-```
-
-Create the universalDto from your aggregate (interface layer).
-
-```
-UniversalDto dto = assemblers.createUniversalDtoFromAggregate(aggregate);
 ```
