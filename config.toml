@@ -83,6 +83,11 @@ MetaDataFormat = "yaml"
   icon = "fa fa-building"
   path = ""
 
+[params.section.OverviewUsers]
+  label = "Users"
+  icon = "fa fa-users"
+  path = ""
+
 [params.section.OverviewTimeline]
   label = "Timeline"
   icon = "fa fa-history"
