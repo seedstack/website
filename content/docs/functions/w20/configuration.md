@@ -30,6 +30,36 @@ This option is not necessary when accessing its own resources or publicly access
 
 # Application options
 
+## Masterpage template
+
+The function uses a default html template for constructing the masterpage of the SPA.
+You can override this template by providing your own in the classpath and still benefit from the variables templating:
+
+    org.seedstack.w20.masterpage-template = path/to/masterpage-template.html
+
+Please find below the default template used by the function. It uses variables templating and directives for themes. 
+You may want to use it as a base for overriding. 
+
+    <!doctype html>
+    <html data-w20-app="${restPath}/seed-w20/application/configuration" data-w20-app-version="${applicationVersion}" data-w20-timeout="${timeout}" data-w20-cors-with-credentials="${corsWithCredentials}">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <title>${applicationTitle}</title>
+        <script type="text/javascript" data-main="${componentsPath}/w20/core/modules/w20.js?__v=${applicationVersion}" src="${componentsPath}/requirejs/require.js?__v=${applicationVersion}"></script>
+    </head>
+    <body>
+    <div id="w20-loading-cloak">
+        <div class="w20-loading-indicator"></div>
+    </div>
+    <div data-w20-topbar data-title="'${applicationTitle}'" data-subtitle="'${applicationSubtitle}'"></div>
+    <div data-w20-sidebar></div>
+    <div id="w20-view" class="w20-content" data-ng-view></div>
+    <div data-w20-error-report></div>
+    </body>
+    </html>
+
 ## Title
 
 You can set the W20 application title with the following option:
