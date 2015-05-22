@@ -10,11 +10,15 @@ menu:
         weight: 10
 ---
 
+{{% callout info %}}
+This page describes how to implement Entities with the Business framework. To know more about the Entity concept, refer
+to [this section](../../concepts/domain-model/#entity).
+{{% /callout %}}
+
 # Usage
 
-In order to create an entity extends the `BaseEntity` class. It will
-require you to implement the `getEntityId()` method which returns the
-identity of the class.
+In order to create an entity, you must extend the `BaseEntity` class. It will require you to implement the `getEntityId()` 
+method which returns the identity of the class.
 
 ```java
 public class Customer extends BaseEntity {
@@ -49,26 +53,3 @@ public class Customer extends BaseEntity {
     public Address getOrders() { ... }
 }
 ```
-
-# Configuration SPI
-
-SEED Business Framework provides an `EntityConfigurationService` allowing to retrieve a specific set of properties for 
-entities. This service follows specific semantics and rules that are detailed below.
-Below are possible syntaxes using entity props configuration :
-
-```
-[*]
-[org.mycompany.*]
-[org.mycompany.myapp.mydomain1.*]
-[org.mycompany.mapp.mydomain1.MyEntity1]
-```
-
-* First  `[*]` section refers to all packages. Therefore properties would apply to all entities.
-* Second `[org.mycompany.*]` section refers to all packages starting with `org.mycompany.`. Therefore properties would apply
-to all entities within that scope.
-* Third  `[org.mycompany.myapp.mydomain1.*]` section refers to all packages starting with `org.mycompany.myapp.mydomain1.`.
-Therefore properties would apply to all entities within **domain1**.
-* Fourth `[org.mycompany.myapp.mydomain1.MyEntity1]` section refers to `MyEntity1` within **domain1**. Therefore properties
-would only apply to this entity.
-
-Please refer to [props configuration](#!/seed-doc/core/configuration) for details on sections.

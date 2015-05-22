@@ -28,7 +28,7 @@ SEED based applications are configured using files under the **META-INF/configur
 You can use both types in the same application with as many files as required to produce an easily readable configuration file set. 
 All files named after the two patterns specified in the previous paragraph are parsed and merge into the global application configuration.
 
-# Props basics
+# The props format
 
 Full documentation is available here  : [http://jodd.org/doc/props.html](<http://jodd.org/doc/props.html>).
 Following points describe the main points to be considered while using the format in a SEED based application.
@@ -317,7 +317,7 @@ You can use this particularity to remove several keys from the same category:
 
 This will remove `category.property1` and `category.property2` from the nominal configuration.
 
-# Using configuration in your application
+# Usage
 
 ## Declarative API
 
@@ -427,7 +427,8 @@ where `property` is the one set with `bar` key in props, `class` is MyErrorCode.
 ## Programmatic API
 
 If `@Configuration` annotation is not powerful enough for your needs, you can access to the configuration through
-the underlying commons-configuration object. You need to inject the Application and retrieve the Configuration object:
+the underlying [Apache Commons Configuration](https://commons.apache.org/proper/commons-configuration/) object. 
+You need to inject the Application and retrieve the Configuration object:
 
 	@Inject
 	private Application application;
@@ -438,3 +439,35 @@ the underlying commons-configuration object. You need to inject the Application 
 Note that the configuration is read only and any attempt to add/remove/change a property will result in a nasty Exception. 
 Full Configuration API available [here](http://commons.apache.org/proper/commons-configuration/apidocs/org/apache/commons/configuration/Configuration.html).
 
+## Class-attached configuration
+
+Configuration can also be attached to classes, by specifying their fully qualified names or their package names:
+
+```
+[*]
+...
+
+[org.myorganization.myapp.*]
+...
+
+[org.myorganization.mapp.mydomain1.MyEntity1]
+...
+```
+
+* First section refers to all packages. Therefore properties would apply to all classes.
+* Second section refers to all packages starting with `org.myorganization`. Therefore properties 
+would apply to all classes within that package **and subpackages**.
+* Third section refers to `org.myorganization.myapp.mydomain1.MyEntity1` 
+class and would therefore only apply to this class.
+
+If a class matches several sections, all the relevant properties are merged and attached to the class. 
+To access the configuration of a specific class, you must use the `Application` interface as follows:
+
+	@Inject
+	private Application application;
+	...
+	Configuration conf = application.getConfiguration(MyEntity1.class);
+	String bar = conf.getProperty("bar");
+
+The `getConfiguration(Class<?>)` method will return an Apache Commons Configuration object describing configuration
+attached to this class.
