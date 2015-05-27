@@ -19,9 +19,9 @@ This support provides a JMS 1.1 integration (a.k.a. JSR 914). It automatically m
 connections, sessions and message consumers/listeners while retaining the standard JMS API. Moreover connection
 and session try to reconnect automatically after a JMS connection failure.
 
-<div class="callout callout-info">
-Implementations are not provided by this support and must be configured depending on your messaging solution.
-</div>
+{{% callout info %}}
+JMS provider implementation is not provided by this support and must be configured depending on your messaging solution.
+{{% /callout %}}
 
 To enable JMS support in your application, use the following dependency snippet:
 
@@ -30,7 +30,8 @@ To enable JMS support in your application, use the following dependency snippet:
         <artifactId>seed-jms-support-core</artifactId>
     </dependency>
 
-JMS specification jar dependency is required as well since SEED JMS support doesn't transitively provide this dependency:
+The JMS specification jar dependency is required as well since Seed JMS support doesn't transitively provide this 
+dependency:
 
     <dependency>
         <groupId>javax.jms</groupId>

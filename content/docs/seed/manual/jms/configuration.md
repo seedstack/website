@@ -13,21 +13,18 @@ menu:
         weight: 20
 ---
 
-Configuring your messaging solution is mandatory in order to be able to use SEED JMS support.
+Configuring your messaging solution is mandatory in order to be able to use Seed JMS support.
 
 # Connection factories
 The connectionFactory is the base to create connections. Connection factories are declared using the following property:
 
-    org.seedstack.seed.jms.connection-factories = connection-factory-1, connection-factory-1, ...
-
-Configuring each connection factory just requires its name in subsequent properties:
-
-    org.seedstack.seed.jms.connection-factory.connection-factory-1... = ...
+    [org.seedstack.seed.jms]
+    connection-factories = connection-factory-1, connection-factory-1, ...
 
 ## Direct instantiation configuration
 
-In direct instantiation mode, SEED will create the connection factory and configure it. Use the following property
-syntax to define the configuration:
+In direct instantiation mode, Seed will create the connection factory and configure it by setting properties on its
+instance. Use the following property syntax to define the configuration:
 
     [org.seedstack.seed.jms]
     connection-factory.connection-factory-1.vendor.class = fully qualified vendor classname
@@ -36,92 +33,82 @@ syntax to define the configuration:
     connection-factory.connection-factory-1.vendor.property.property3 = value3
     ...
 
-SEED will instantiate the specified class and will set each property as above defined.
+Seed will instantiate the specified class and will set each property as defined above.
 
 ## With JNDI
 
-In JNDI mode, SEED will lookup for connection factory instances using the name and optionally the specified context:
+In JNDI mode, Seed will lookup for connection factory instances using the name and optionally the specified context:
 
     [org.seedstack.seed.jms]
     connection-factory.connection-factory-1.jndi.name = name to lookup for
-    connection-factory.connection-factory-1.jndi.context = context for lookup
+    connection-factory.connection-factory-1.jndi.context = context for lookup  # Optional
 
-The context must be specified according to the list of JNDI contexts defined in core support (see the corresponding
-documentation for more details). If no context is specified the default context is used.
+The context must be specified according to the list of JNDI contexts defined in core support (see [the corresponding
+documentation](../../core/jndi)). If no context is specified the default context is used.
 
 # Connections
 
-A `Connection` encapsulates a virtual connection with a JMS provider. Multiple connections can be created and managed by SEED.
-All connections must be listed with associated connection factories used to create each of them:
+Multiple connections can be created and managed by Seed. All connections must be listed in the following property:
 
     [org.seedstack.seed.jms]
     connections = connection-1, connection-2, ...
-    connection.connection-1.connection-factory = connection-factory-1
 
-A connection credentials can be specified using the following properties:
+Each connection can then be configured as follows:
 
-    [org.seedstack.seed.jms]
-    connection.connection-1.user = ...
-    connection.connection-1.password = ...
+    [org.seedstack.seed.jms.connection.connection-1]
+    connection-factory = connection-factory-1
+    user = ...         # Optional
+    password = ...     # Optional
 
+## Exception listener
 
-SEED can also set a connection client id (not set by default). If requested, SEED will set the client id with by appending **applicationID an connection name**. 
-Set property as follows:
+You can specify an exception listener on a connection with the following property:
+ 
+    [org.seedstack.seed.jms.connection.connection-1]
+    exception-listener = fully.qualified.class.of.the.exception.listener
 
-    org.seedstack.seed.jms.connection.connection-1.set-client-id = true | false
+## Automatic reconnection
 
-# Additional properties
+Seed-managed JMS connections can automatically reconnect after they go down. This behavior is enabled by default but
+can be disabled by the following property:
 
-Configure the delay in milliseconds between two reconnection attempts.
-
-    [org.seedstack.seed.jms]
-    reconnection-delay = 30000
-
-Disable the reconnection feature.
-
-    [org.seedstack.seed.jms]
+    [org.seedstack.seed.jms.connection.connection-1]
     managed-connection = false
+    
+The delay before automatic reconnection is 30 seconds but it can be changed with the following property:
+    
+    [org.seedstack.seed.jms.connection.connection-1]
+    reconnection-delay = 10000
+    
+Note that the delay is specified in milliseconds.     
+    
+## Client ID
 
-# WebSphere MQ Sample
+Seed will automatically set the client ID of the connection if not in JEE mode (see below). To disable the setting of
+the client ID, use the following property:
 
-## Add vendor dependencies
+    [org.seedstack.seed.jms.connection.connection-1]
+    set-client-id = false
 
-Add required dependencies for your messaging solution:
+The client ID itself can be defined with the following property:
 
-    <dependency>
-        <groupId>com.ibm.mq</groupId>
-        <artifactId>mq</artifactId>
-        <version>${mq.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>com.ibm.mq</groupId>
-        <artifactId>mqjms</artifactId>
-        <version>${mq.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>com.ibm.mq</groupId>
-        <artifactId>jmqi</artifactId>
-        <version>${mq.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>com.ibm.mq</groupId>
-        <artifactId>dhbcore</artifactId>
-        <version>${mq.version}</version>
-    </dependency>
+    [org.seedstack.seed.jms.connection.connection-1]
+    client-id = my-client-id
 
-## Add configuration
+If not specified, the default client ID is formed by concatenating the application identifier with the connection name.
 
-    [org.seedstack.seed.jms]
-    connection-factories = mq
+## JEE mode
 
-    # Set MQConnectionFactory  properties
-    connection-factory.mq.vendor.class = com.ibm.mq.jms.MQConnectionFactory
-    connection-factory.mq.vendor.property.queueManager = ABCDE1234
-    connection-factory.mq.vendor.property.hostName = abcde1234.myorganization.org
-    connection-factory.mq.vendor.property.channel =  ABCDE1234.ABCD.ABC
-    connection-factory.mq.vendor.property.port = 1234
-    connection-factory.mq.vendor.property.transportType = 1
+In a strict JEE environment, some JMS methods are forbidden (refer to the EE.6.7 section of the JavaEE platform specification).
+You can enable the JEE mode on a connection with the following property:
 
-    # configure connections
-    connections = mq
-    connection.mq.connection-factory = mq
+    [org.seedstack.seed.jms.connection.connection-1]
+    jee-mode = true
+    
+In this mode, the forbidden methods are not invoked. It prevents the uses of asynchronous message reception (driven by
+the JMS provider after setMessageListener()) so polling must be used instead. 
+
+Seed allows to still use a MessageListener when in polling mode but a message poller must be specified when registering 
+the listener. Having a MessageListener defined without a corresponding message poller while in JEE mode results in an 
+error.
+
