@@ -172,7 +172,7 @@ MetaDataFormat = "yaml"
   path = "manual/policy"
 
 [params.section.BusinessAssembler]
-  label = "Finder"
+  label = "Assembler"
   icon = "fa fa-arrows-h"
   path = "manual/assembler"
 
