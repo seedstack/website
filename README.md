@@ -5,13 +5,13 @@ site is hosted at [seedstack.github.io](http://seedstack.github.io/).
 
 # Usage
 
-This site is built with Hugo. If you have hugo in your path:
+This site is built with [Hugo](http://gohugo.io/). If you have Hugo in your path:
 
     git clone https://github.com/seedstack/website.git && cd website
 
     hugo server
 
-Otherwise see http://gohugo.io/ to get hugo.
+(Note: the site is tested with Hugo 0.13)
 
 # Publish
 
