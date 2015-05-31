@@ -6,7 +6,7 @@ Slug: welcome-to-seedstack
 Tags:
 - SeedStack
 Zones:
-- Blog
+- Posts
 Post-categories:
 - Information
 ---

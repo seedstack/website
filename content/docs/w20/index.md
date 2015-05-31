@@ -1,5 +1,5 @@
 ---
-title: "Web framework introduction"
+title: "Introduction"
 type: "home"
 zones:
     - "W20"

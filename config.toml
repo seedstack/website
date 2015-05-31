@@ -65,9 +65,9 @@ MetaDataFormat = "yaml"
   label = "Guides"
   logo = "guides-logo.svg"
 
-[params.zone.Blog]
+[params.zone.Posts]
   path = "/posts"
-  label = "Blog"
+  label = "Posts"
   logo = "blog-logo.svg"
 
 [params.zone.Addons]
