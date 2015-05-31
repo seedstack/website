@@ -1,5 +1,6 @@
 # SeedStack website 
-[![Build status](https://travis-ci.org/seedstack/website.svg?branch=master)](https://travis-ci.org/seedstack/website) 
+[![Build status](https://travis-ci.org/seedstack/website.svg?branch=master)](https://travis-ci.org/seedstack/website)
+
 This repository contains the sources of the SeedStack website. The
 site is hosted at [seedstack.github.io](http://seedstack.github.io/). 
 
