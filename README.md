@@ -1,5 +1,5 @@
-# SeedStack website [![Build status](https://travis-ci.org/seedstack/website.svg?branch=master)](https://travis-ci.org/seedstack/website) [![Stories in Ready](https://badge.waffle.io/seedstack/website.png?label=ready&title=Ready)](https://waffle.io/seedstack/website)
-
+# SeedStack website 
+[![Build status](https://travis-ci.org/seedstack/website.svg?branch=master)](https://travis-ci.org/seedstack/website) 
 This repository contains the sources of the SeedStack website. The
 site is hosted at [seedstack.github.io](http://seedstack.github.io/). 
 
