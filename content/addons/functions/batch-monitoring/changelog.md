@@ -1,5 +1,17 @@
-# Version 1.1.0
-- [chg] Based on SEED Java 1.4.0 and W20 1.5.0
+---
+title: "Changelog"
+type: "addon"
+zones:
+    - "Addons"
+sections:
+    - "AddonsFunctions"
+addons:
+    - "Batch monitoring"
+menu:
+    AddonsFunctionsBatchMonitoring:
+        weight: 90
+---
 
-# Version 1.0.0
-- [new] Initial version.
+# Version 2.0.0
+
+- [new] Initial Open-Source release.

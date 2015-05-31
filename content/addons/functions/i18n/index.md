@@ -1,16 +1,19 @@
 ---
 title: "Overview"
+type: "addon"
 zones:
-    - "Functions"
+    - "Addons"
 sections:
-    - "FunctionI18n"
+    - "AddonsFunctions"
+addons:
+    - "Internationalization"
 menu:
-    FunctionI18n:
+    AddonsFunctionsI18n:
         weight: 10
 ---
 
-The i18n function provides UI and injectable services to manage application locales and translations. To start with the
-i18n function, add the following dependency to your web module pom:
+The i18n function provides backend services and a Web UI to manage application locales and translations. To add the
+i18n function to your project, add the following dependency to your Web module pom:
 
     <dependency>
         <groupId>org.seedstack.functions.i18n</groupId>
@@ -33,23 +36,19 @@ for the given locale, the service will fallback to the parent locale.
 
 For instance:
 
-```
-@Inject
-private LocalizationService localizationService;
-```
+    @Inject
+    private LocalizationService localizationService;
 
-```
-// When Both fr and fr-BE locales are available.
-
-// Case 1: fr-BE translation is present
-localizationService.localize("fr-BE", "key1"); // -> "translation fr-BE"
-
-// Case 2: fr-BE translation is NOT present, but fr translation is present
-localizationService.localize("fr-BE", "key1"); // -> "translation fr"
-
-// Case 2: no translation present
-localizationService.localize("fr-BE", "key1"); // -> "[key]"
-```
+    // When Both fr and fr-BE locales are available.
+    
+    // Case 1: fr-BE translation is present
+    localizationService.localize("fr-BE", "key1"); // -> "translation fr-BE"
+    
+    // Case 2: fr-BE translation is NOT present, but fr translation is present
+    localizationService.localize("fr-BE", "key1"); // -> "translation fr"
+    
+    // Case 2: no translation present
+    localizationService.localize("fr-BE", "key1"); // -> "[key]"
 
 
 

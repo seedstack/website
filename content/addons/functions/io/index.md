@@ -1,11 +1,14 @@
 ---
 title: "Overview"
+type: "addon"
 zones:
-    - "Functions"
+    - "Addons"
 sections:
-    - "FunctionIO"
+    - "AddonsFunctions"
+addons:
+    - "Import/Export"
 menu:
-    FunctionIO:
+    AddonsFunctionsIO:
         weight: 10
 ---
 

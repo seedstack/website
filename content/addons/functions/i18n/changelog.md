@@ -1,14 +1,17 @@
 ---
-title: "Release notes"
+title: "Changelog"
+type: "addon"
 zones:
-    - "Functions"
+    - "Addons"
 sections:
-    - "FunctionI18n"
+    - "AddonsFunctions"
+addons:
+    - "Internationalization"
 menu:
-    FunctionI18n:
-        weight: 40
+    AddonsFunctionsI18n:
+        weight: 90
 ---
 
 # Version 2.0.0
 
-Initial open-source release
+- [new] Initial Open-Source release.

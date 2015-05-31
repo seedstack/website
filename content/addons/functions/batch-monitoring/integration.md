@@ -1,3 +1,17 @@
+---
+title: "Integration"
+type: "addon"
+zones:
+    - "Addons"
+sections:
+    - "AddonsFunctions"
+addons:
+    - "Batch monitoring"
+menu:
+    AddonsFunctionsBatchMonitoring:
+        weight: 20
+---
+
 # Persistence
 
 ## Create Spring Batch metadata tables:

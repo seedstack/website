@@ -1,13 +1,17 @@
 ---
 title: "Custom renderers"
+type: "addon"
 zones:
-    - "Functions"
+    - "Addons"
 sections:
-    - "FunctionIO"
+    - "AddonsFunctions"
+addons:
+    - "Import/Export"
 menu:
-    FunctionIO:
+    AddonsFunctionsIO:
         weight: 30
 ---
+
 
 If available renderers doesn't fit your needs, IO function provide a SPI (Service Provider Interface) for custom renderers. There is three kind of renderer available: renderer with static template, dynamic template or without template.
 

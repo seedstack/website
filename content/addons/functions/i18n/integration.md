@@ -1,11 +1,14 @@
 ---
 title: "Integration"
+type: "addon"
 zones:
-    - "Functions"
+    - "Addons"
 sections:
-    - "FunctionI18n"
+    - "AddonsFunctions"
+addons:
+    - "Internationalization"
 menu:
-    FunctionI18n:
+    AddonsFunctionsI18n:
         weight: 20
 ---
 

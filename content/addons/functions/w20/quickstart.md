@@ -1,19 +1,21 @@
 ---
-title: "Quick start"
+title: "Quickstart"
+type: "addon"
 zones:
-    - "Functions"
+    - "Addons"
 sections:
-    - "FunctionBridge"
+    - "AddonsFunctions"
+addons:
+    - "W20 bridge"
 menu:
-    FunctionBridge:
+    AddonsFunctionsW20:
         weight: 20
 ---
 
-Quickstart
-==========
+# Quickstart
 
-From scratch
-------------
+## From scratch
+
 If you don't have any existing W20 frontend in your current application or if you start a new application from scratch, you just need to follow these steps:
 
 * Be sure to have added the seed-w20-web dependency in the web module of your application. See the overview for the correct dependency.
@@ -21,8 +23,8 @@ If you don't have any existing W20 frontend in your current application or if yo
 * If you want to customize the W20 configuration with an explicit file, you need to name it `w20.app.json` and place it under the `META-INF/configuration` directoryof your application resources. Please see the configuration page of this documentation more details about the files content. 
 
 
-Coming from an existing W20 application
----------------------------------------
+## Coming from an existing W20 application
+
 
 If you have an existing standalone W20 application, you need to take several steps to transform it into a SEED-managed W20 application:
 

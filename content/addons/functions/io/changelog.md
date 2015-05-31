@@ -1,14 +1,17 @@
 ---
-title: "Release notes"
+title: "Changelog"
+type: "addon"
 zones:
-    - "Functions"
+    - "Addons"
 sections:
-    - "FunctionIO"
+    - "AddonsFunctions"
+addons:
+    - "Import/Export"
 menu:
-    FunctionIO:
-        weight: 50
+    AddonsFunctionsIO:
+        weight: 90
 ---
 
 # Version 2.0.0
 
-Initial open-source release
+- [new] Initial Open-Source release.

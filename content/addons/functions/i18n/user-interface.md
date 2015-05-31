@@ -1,17 +1,20 @@
 ---
 title: "User interface"
+type: "addon"
 zones:
-    - "Functions"
+    - "Addons"
 sections:
-    - "FunctionI18n"
+    - "AddonsFunctions"
+addons:
+    - "Internationalization"
 menu:
-    FunctionI18n:
+    AddonsFunctionsI18n:
         weight: 30
 ---
 
 # Manage locales
 
-![locale view](/img/functions/i18n/locale.png)
+![locale view](/img/addons/functions/i18n/locale.png)
 
 In this view you can set the locales that will be available in your application. Use the "Add" and
 "Remove" buttons for selecting those locales.
@@ -20,7 +23,7 @@ The default locale should be specified in the adjacent select box.
 
 # Manage keys
 
-![locale view](/img/functions/i18n/keys.png)
+![locale view](/img/addons/functions/i18n/keys.png)
 
 As it name implies this view allows you to manage your keys.
 
@@ -65,10 +68,10 @@ match the new default translation.
 
 This view allows you to translate the keys. Select the target language in the upper right corner.
 
-![locale view](/img/functions/i18n/translation.png)
+![locale view](/img/addons/functions/i18n/translation.png)
 
 # Statistics
 
 Show the number of key translated by locale.
 
-![locale view](/img/functions/i18n/statistic.png)
+![locale view](/img/addons/functions/i18n/statistic.png)

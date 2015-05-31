@@ -1,11 +1,14 @@
 ---
 title: "Configuration"
+type: "addon"
 zones:
-    - "Functions"
+    - "Addons"
 sections:
-    - "FunctionBridge"
+    - "AddonsFunctions"
+addons:
+    - "W20 bridge"
 menu:
-    FunctionBridge:
+    AddonsFunctionsW20:
         weight: 30
 ---
 

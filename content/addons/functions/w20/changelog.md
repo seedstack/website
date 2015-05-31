@@ -1,14 +1,17 @@
 ---
-title: "Release notes"
+title: "Changelog"
+type: "addon"
 zones:
-    - "Functions"
+    - "Addons"
 sections:
-    - "FunctionBridge"
+    - "AddonsFunctions"
+addons:
+    - "W20 bridge"
 menu:
-    FunctionBridge:
-        weight: 40
+    AddonsFunctionsW20:
+        weight: 90
 ---
 
 # Version 2.0.0
 
-Initial open-source release
+- [new] Initial Open-Source release.

@@ -1,11 +1,14 @@
 ---
-title: "CSV export"
+title: "CSV"
+type: "addon"
 zones:
-    - "Functions"
+    - "Addons"
 sections:
-    - "FunctionIO"
+    - "AddonsFunctions"
+addons:
+    - "Import/Export"
 menu:
-    FunctionIO:
+    AddonsFunctionsIO:
         weight: 20
 ---
 
