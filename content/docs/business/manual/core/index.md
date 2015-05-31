@@ -4,9 +4,9 @@ type: "manual"
 zones:
     - "Business"
 sections:
-    - "BusinessImplementation"
+    - "BusinessCore"
 menu:
-    BusinessImplementation:
+    BusinessCore:
         weight: 10
 ---
 

@@ -13,6 +13,7 @@ MetaDataFormat = "yaml"
   tag = "tags"
   zone = "zones"
   section = "sections"
+  addon = "addons"
   post-category = "post-categories"
 
 #####################################
@@ -69,6 +70,11 @@ MetaDataFormat = "yaml"
   label = "Blog"
   logo = "blog-logo.svg"
 
+[params.zone.Addons]
+  path = "/addons"
+  label = "Add-ons"
+  logo = "addons-logo.svg"
+
 #####################################
 #### Overview sections           ####
 #####################################
@@ -83,9 +89,9 @@ MetaDataFormat = "yaml"
   icon = "fa fa-building"
   path = ""
 
-[params.section.OverviewUsers]
-  label = "Users"
-  icon = "fa fa-users"
+[params.section.OverviewCommunity]
+  label = "Community"
+  icon = "fa fa-community"
   path = ""
 
 [params.section.OverviewTimeline]
@@ -126,10 +132,10 @@ MetaDataFormat = "yaml"
   icon = "fa fa-tag"
   path = "release-notes"
 
-[params.section.BusinessImplementation]
-  label = "Implementation"
+[params.section.BusinessCore]
+  label = "Core"
   icon = "fa fa-cogs"
-  path = "manual/implementation"
+  path = "manual/core"
 
 [params.section.BusinessEntity]
   label = "Entity"
@@ -275,11 +281,6 @@ MetaDataFormat = "yaml"
   icon = "fa fa-check"
   path = "manual/validation"
 
-[params.section.SeedSpring]
-  label = "Spring"
-  icon = "fa fa-leaf"
-  path = "manual/spring"
-
 [params.section.SeedShell]
   label = "Shell"
   icon = "fa fa-terminal"
@@ -289,11 +290,6 @@ MetaDataFormat = "yaml"
   label = "Testing"
   icon = "fa fa-thumbs-up"
   path = "manual/test"
-
-[params.section.SeedBatch]
-  label = "Batch"
-  icon = "fa fa-file"
-  path = "manual/batch"
 
 [params.section.SeedScheduling]
   label = "Scheduling"
@@ -488,6 +484,30 @@ MetaDataFormat = "yaml"
   label = "Showcase"
   icon = "fa fa-cart"
   path = "showcase"
+
+#####################################
+#### Addons                      ####
+#####################################
+
+[params.section.AddonsIntroduction]
+  label = "Introduction"
+  icon = "fa fa-file-text"
+  path = ""
+
+[params.section.AddonsFunctions]
+  label = "Functions"
+  icon = "fa fa-cube"
+  path = "functions"
+
+[params.section.AddonsSupports]
+  label = "Supports"
+  icon = "fa fa-cogs"
+  path = "supports"
+
+[params.section.AddonsThemes]
+  label = "Themes"
+  icon = "fa fa-paint-brush"
+  path = "themes"
 
 #####################################
 #### Reusable functions sections ####

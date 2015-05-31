@@ -1,18 +1,20 @@
 ---
 title: "Running batch"
-type: "manual"
+type: "addon"
 zones:
-    - "Seed"
-sections:
-    - "SeedBatch"
+    - "Addons"
 tags:
     - "batch"
     - "cli"
     - "uber-jar"
     - "shade"
     - "maven"
+sections:
+    - "AddonsSupports"
+addons:
+    - "Spring batch"
 menu:
-    SeedBatch:
+    AddonsSupportsSpringBatch:
         weight: 30
 ---
 

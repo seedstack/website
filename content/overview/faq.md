@@ -14,7 +14,8 @@ Answers to common questions about SeedStack.
 
 # How is SeedStack licensed ?
 
-It's licensed under the [Mozilla Public License 2.0](https://www.mozilla.org/MPL/2.0/).
+SeedStack code is licensed under the [Mozilla Public License 2.0](https://www.mozilla.org/MPL/2.0/). The documentation
+is licensed under the [Creative Commons Share-Alike 4.0 license](http://creativecommons.org/licenses/by-sa/4.0/).
 
 # Can I use the Web Framework without the Java Framework ?
 

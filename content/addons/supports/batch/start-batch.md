@@ -1,17 +1,19 @@
 ---
 title: "Getting started"
-type: "manual"
+type: "addon"
 zones:
-    - "Seed"
-sections:
-    - "SeedBatch"
+    - "Addons"
 tags:
     - "batch"
     - "example"
     - "tasklet"
     - "job"
+sections:
+    - "AddonsSupports"
+addons:
+    - "Spring batch"
 menu:
-    SeedBatch:
+    AddonsSupportsSpringBatch:
         weight: 20
 ---
 

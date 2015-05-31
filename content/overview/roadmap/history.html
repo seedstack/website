@@ -1,23 +1,25 @@
 ---
-title: "Timeline"
+title: "History"
 type: "home"
-layout: "plain"
 zones:
     - "Overview"
 sections:
     - "OverviewTimeline"
+menu:
+    OverviewRoadmap:
+        weight: 20
 ---
 
 <div class="content-wrapper">
     <div class="doc-content">
         <div class="pull-right" style="padding: 20px; border: 1px dotted #a9a9a9">
-            <span class="label label-success"><i class="fa fa-cube"></i></span> Stable release
-            <span class="label label-warning"><i class="fa fa-cube"></i></span> Dev. release
-            <span class="label label-info"><i class="fa fa-info-circle"></i></span> Information
+            <span class="label label-success"><i class="fa fa-cube"></i></span> Stable
+            <span class="label label-warning"><i class="fa fa-cube"></i></span> Unstable
+            <span class="label label-info"><i class="fa fa-info-circle"></i></span> Event
         </div>
         <div class="clear-both"></div>
         <ul class="timeline">
-            <li>
+            <li class="timeline-inverted">
                 <div class="timeline-badge success"><i class="fa fa-cube"></i></div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
@@ -26,6 +28,15 @@ sections:
                     </div>
                     <div class="timeline-body">
                         <p>First stable release of SeedStack.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline">
+                <div class="timeline-badge warning"><i class="fa fa-cube"></i></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4 class="timeline-title">SeedStack 15.7 "Gingko" M3</h4>
+                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 2015-05-12</small></p>
                     </div>
                 </div>
             </li>

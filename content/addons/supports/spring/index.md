@@ -1,17 +1,19 @@
 ---
 title: "Overview"
-type: "manual"
+type: "addon"
 zones:
-    - "Seed"
-sections:
-    - "SeedSpring"
+    - "Addons"
 tags:
     - "spring"
     - "maven"
     - "configuration"
     - "injection"
+sections:
+    - "AddonsSupports"
+addons:
+    - "Spring core"
 menu:
-    SeedSpring:
+    AddonsSupportsSpringCore:
         weight: 10
 ---
 

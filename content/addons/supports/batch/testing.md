@@ -1,16 +1,18 @@
 ---
 title: "Testing"
-type: "manual"
+type: "addon"
 zones:
-    - "Seed"
-sections:
-    - "SeedBatch"
+    - "Addons"
 tags:
     - "batch"
     - "test"
     - "cli"
+sections:
+    - "AddonsSupports"
+addons:
+    - "Spring batch"
 menu:
-    SeedBatch:
+    AddonsSupportsSpringBatch:
         weight: 40
 ---
 

@@ -1,18 +1,21 @@
 ---
-title: "Transactional support"
-type: "manual"
+title: "Transactions"
+type: "addon"
 zones:
-    - "Seed"
-sections:
-    - "SeedSpring"
+    - "Addons"
 tags:
     - "spring"
     - "transaction"
     - "test"
+sections:
+    - "AddonsSupports"
+addons:
+    - "Spring core"
 menu:
-    SeedSpring:
+    AddonsSupportsSpringCore:
         weight: 20
 ---
+
 
 You can specify a Spring-based transaction handler in your SEED transaction demarcation by adding the
 `@SpringTransactionManager` annotation besides the `@Transactional` one.
