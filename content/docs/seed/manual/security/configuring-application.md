@@ -37,7 +37,7 @@ in Realms on which the user is authenticated, each role still remains attached t
 
 ### LdapRealm
 
-!!! TODO: write an actual LdapRealm and document it !!!
+**TODO**
 
 ### X509CertificateRealm
 

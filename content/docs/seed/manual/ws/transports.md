@@ -38,9 +38,20 @@ There are three lookup variants to retrieve connection factories and destination
 
 This variant allows to retrieve the connection factory and the destination from JNDI:
 
-    jms:jndi:DESTINATION.NAME?jndiInitialContextFactory=fully.qualified.classname.of.jndi.initial.context.factory&jndiURL=url://to/jndi/context&jndiConnectionFactoryName=lookupNameForConnectionFactory&replyToName=REPLY.DESTINATION.NAME
+    jms:jndi:lookupNameForDestination?jndiConnectionFactoryName=lookupNameForConnectionFactory
+    
+This is the minimal required URI where:
+     
+* `lookupNameForDestination` is the configured JNDI name of the JMS destination listened on.
+* `lookupNameForConnectionFactory` is the configured JNDI name of the Connection Factory
+
+
+    
+    jndiInitialContextFactory=fully.qualified.classname.of.jndi.initial.context.factory&jndiURL=url://to/jndi/context&jndiConnectionFactoryName=lookupNameForConnectionFactory&replyToName=REPLY.DESTINATION.NAME
  
-The `replyToName` parameter can be omitted in which case the implementation will create a temporary queue for the response. 
+The `replyToName` parameter can be omitted in which case the implementation will create a temporary queue for the response.
+ 
+ 
  
 ## Queue lookup
 

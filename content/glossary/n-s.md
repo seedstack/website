@@ -20,5 +20,5 @@ its capabilities and behaviors when needed. In SeedStack, all SPI live in a spec
 
 # Strategic design
 
-TODO
+**TODO**
 

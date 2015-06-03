@@ -12,6 +12,11 @@ menu:
 
 Seed Business Framework contains an API to manage domain events. 
 
+{{% callout info %}}
+This page describes how to implement **Domain Events** with the Business framework. To know more about the Domain Event
+concept, refer to [this section](../../concepts/domain-model/#domain-event).
+{{% /callout %}} 
+
 # Creating events
 
 Seed Business Framework provides an `EventService` to fire events. Events must be immutable and extend 

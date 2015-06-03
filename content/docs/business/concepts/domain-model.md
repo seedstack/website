@@ -54,7 +54,7 @@ that you should rethink your model.
 
 # Value Object
 
-As we said earlier, the usage of value object is often neglect
+As we said above, the usage of value objects is often neglected
 compared to entities. So what is a value object ? It's an immutable
 object expressing the meanings of the attributes it contains. A common
 example is Name or Address:
@@ -62,9 +62,9 @@ example is Name or Address:
 ```java
 public class Name {
 
-    private String firstName;
-    private String middleName;
-    private String lastName;
+    private final String firstName;
+    private final String middleName;
+    private final String lastName;
 
     public Name(String firstName, String middleName, String lastName) { ... }
 

@@ -10,12 +10,37 @@ menu:
         weight: 10
 ---
 
-The assembler pattern is used to transfer a representation of the
-state of *Aggregates* to *DTO/Representation* objects. The Business
-Framework provides a interface and few base classes to ease the
-development of assemblers.
+The assembler pattern is used to transfer a representation of the state of *Aggregates* to *DTO/Representation* objects. 
+The Business Framework provides a interface and few base classes to ease the development of assemblers.
 
 # Usage
+
+## Default assembler
+
+By default, if your mapping is obvious, you don't have to create an explicit assembler. You just add the `@DtoOf` annotation
+on your DTO class to link them to their related Aggregate root:
+
+    @DtoOf(Product.class)
+    class ProductRepresentation {
+        ...
+    }
+
+You can then inject a ModelMapper-based assembler with the `@ModelMapper` annotation:
+
+    @Inject
+    @ModelMapper
+    Assembler<Product, ProductRepresentation> productAssembler;
+
+This assembler uses the default settings of the [ModelMapper library](http://modelmapper.org/).
+ 
+{{% callout warning %}}
+It is strongly recommended to always have a DTO. **Never serialize domain objects to your clients.** Even with the default
+assembler you can define a DTO that is a flat and/or partial mapping of your domain Aggregate. ModelMapper will
+automatically figure out the field mapping if you respect [their conventions](http://modelmapper.org/getting-started/#mapping).
+Besides, you should always have integration tests that checks that the automatic mapping is correct.
+{{% /callout %}}
+
+## Explicit assembler
 
 Create an assembler extending `BaseAssembler` class. It will contains
 the logic of the copy between aggregate and DTO. Then, inject your
@@ -86,13 +111,7 @@ productAssembler.mergeAggregateWithDto(productToMerge, productRepresentationSour
 catalog.update(productToMerge);
 ```
 
----
-
 {{% callout info %}}
-**Reduce the boilerplate**
-
-- You don't require complex mapping ? Read the next page on
-[Default assemblers](/docs/business/manual/assembler/modelmapper/)
-- You want to use lists and update aggregate from the repository ?
-Read the page on the [assembler DSL](/docs/business/manual/assembler/fluent-assembler/)
+**Reduce the boilerplate**. You want to use lists and update aggregate from the repository ? 
+Read the page on the [assembler DSL](/docs/business/manual/assembler/fluent-assembler/).
 {{% /callout %}}

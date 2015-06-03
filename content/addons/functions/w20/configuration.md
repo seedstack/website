@@ -35,13 +35,13 @@ This option is not necessary when accessing its own resources or publicly access
 
 ## Masterpage template
 
-The function uses a default html template for constructing the masterpage of the SPA.
-You can override this template by providing your own in the classpath and still benefit from the variables templating:
+The function uses a default html template for constructing the masterpage of the SPA. You can override this template by 
+providing your own in the classpath and still benefit from the variables:
 
     org.seedstack.w20.masterpage-template = path/to/masterpage-template.html
 
-Please find below the default template used by the function. It uses variables templating and directives for themes. 
-You may want to use it as a base for overriding. 
+Below is the default template used by the function. It uses variables and directives for themes. You may want to use it 
+as a base for overriding. 
 
     <!doctype html>
     <html data-w20-app="${restPath}/seed-w20/application/configuration" data-w20-app-version="${applicationVersion}" data-w20-timeout="${timeout}" data-w20-cors-with-credentials="${corsWithCredentials}">
@@ -62,6 +62,18 @@ You may want to use it as a base for overriding.
     <div data-w20-error-report></div>
     </body>
     </html>
+    
+The available variables are:
+    
+* `applicationTitle`: value is coming from the `org.seedstack.w20.application.title` configuration property or the
+   application 
+* `applicationSubtitle`
+* `applicationVersion`
+* `timeout`
+* `corsWithCredentials`
+* `basePath`
+* `restPath`
+* `webResourcesPath`      
 
 ## Title
 

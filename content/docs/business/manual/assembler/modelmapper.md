@@ -1,5 +1,5 @@
 ---
-title: "Default assemblers"
+title: "ModelMapper assemblers"
 type: "manual"
 zones:
     - "Business"

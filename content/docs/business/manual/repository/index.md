@@ -10,9 +10,17 @@ menu:
         weight: 10
 ---
 
-A repository is used to manipulate aggregates in a CRUD manner from its aggregate root.
+A Repository is used to store and retrieve Aggregates from persistence. Aggregates are only manipulated by repositories
+through their Aggregate roots.
 
-# Default repository
+{{% callout info %}}
+This page describes how to implement **Repositories** with the Business framework. To know more about the Repository
+concept, refer to [this section](../../concepts/domain-model/#repository).
+{{% /callout %}}
+
+# Usage
+
+## Default repository
 
 By default you don't have to create a repository. A default one is provided for all aggregate roots. This repository will
 have the following methods:
@@ -22,7 +30,7 @@ have the following methods:
 - void **persist**(AGGREGATE aggregate)
 - AGGREGATE **save**(AGGREGATE aggregate)
  
-It can be injected with the generic interface `Repository` which take an aggregate and its key as TypeVariable:
+It can be injected with the generic interface `Repository` which take an aggregate and its key as generic parameters:
 
 ```
 @Inject
@@ -31,12 +39,27 @@ private Repository<Customer, String> customerRepo;
 Customer customer = customerRepo.load(customerId);
 ```
 
-# Custom Repository 
+## Explicit repository
 
-If you need additional methods, you can still create a custom repository. In order to do that, you have to create
-an interface which will be located in your aggregate package and an implementation which will be located in the 
-infrastructure layer. Custom repository can be injected in the same way as default repository through the generic 
-Repository interface or through your own interface, as describe above.
+If the default repository doesn't fit your needs, you can create an explicit one. To do so using the Business framework
+you must first create an interface which extends `GenericRepository`. This interface will be located in your Aggregate
+package, along other domain objects belonging to this Aggregate. Then create an implementation class in the infrastructure
+layer, using one of the four following options:
+
+* Extend the `Base...Repository` class for a specific persistence technology (for instance `BaseJpaRepository` for creating
+a JPA repository).
+* Extend the `BaseRepository` class. You must implement the `doLoad()`, `doDelete()`, `doPersist()` and `doSave()` methods 
+in this case.
+* Implement the `Repository` interface. You must implement the `load()`, `delete()`, `persist()` and `save()` methods in 
+this case.
+* Simply annotate any class with the `@DomainRepository` annotation. In this case, you won't be able to use helpers and 
+tools from the framework.
+
+In all cases you must implement your Repository interface. With the three first options (technology-specific base class, 
+base class and interface), you have to provide two generic parameters with respectively the type of the Aggregate root 
+and the type of the Aggregate root identifier.
+
+An explicit repository can be injected like a default one (with the `Repository` interface) or with its own interface:
 
 ```
 @Inject
@@ -46,6 +69,11 @@ private Repository<Order, Long> repository;
 @Inject
 private OrderRepository repository;
 ```
+
+# Custom methods 
+
+If you need additional methods, you must have an explicit repository. This explicit repository can then be augmented by
+adding methods to the repository interface and implement them in the repository implementation. 
 
 ## Repository Interface
 
@@ -57,29 +85,3 @@ import org.seedstack.business.api.domain.Repository;
 public interface OrderRepository extends GenericRepository<Order, Long> {
 }
 ```
-
-## Repository implementation
-
-A repository implementation has to implement its interface and extend one of the following classes:
-
-- *seed-business-jpa* provides `GenericJpaRepository`
-- *seed-business-core* provides `InMemoryRepository` (eg. for test purpose)	
-
-```
-import org.seedstack.business.jpa.infrastructure.repository.GenericJpaRepository;
-import org.mycompany.myapp.domain.order.Order;
-import org.mycompany.myapp.domain.order.OrderRepository;
-
-public class OrderJpaRepository extends GenericJpaRepository<Order, Long> 
-        implements OrderRepository {
-}
-```
-
-- `OrderJpaRepository` repository implements its `OrderRepository` interface and extends `GenericJpaRepository<Order, Long>` which provides all the necessary behaviour. 
-- Only additional *custom methods* would have required an implementation.
-- notice the **infrastructure** package of this implementation 
-
-# Repository - advanced
-
-If `GenericJpaRepository` and `InMemoryRepository` doesn't fit your needs you can still extends `BaseRepository`. And provide
-your implementation for the default methods. Even if it is obviously easier to just extend one of provided `BaseRepository`.

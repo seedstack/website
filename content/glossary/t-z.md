@@ -14,7 +14,7 @@ Definitions for terms beginning from letter T to Z.
 
 # Tactical design
 
-TODO
+**TODO**
 
 # Ubiquitous Language
 
