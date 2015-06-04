@@ -4,7 +4,9 @@ type: "guide"
 zones:
     - "Guides"
 sections:
-    - "CreateFunctionGuide"
+    - "CreateGuides"
+subsections:
+    - "Reusable function"
 menu:
     CreateFunctionGuide:
         weight: 100

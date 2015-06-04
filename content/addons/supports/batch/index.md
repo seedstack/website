@@ -9,7 +9,7 @@ tags:
     - "spring"
 sections:
     - "AddonsSupports"
-addons:
+subsections:
     - "Spring batch"
 menu:
     AddonsSupportsSpringBatch:

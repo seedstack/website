@@ -5,7 +5,7 @@ zones:
     - "Addons"
 sections:
     - "AddonsFunctions"
-addons:
+subsections:
     - "W20 bridge"
 menu:
     AddonsFunctionsW20:

@@ -75,7 +75,7 @@ module.exports = function (grunt) {
                     section: config.params.section[frontMatter.sections[0]],
                     href: href,
                     content: processContent(splittedContent[2]),
-                    summary: s(markdown.toHTML(splittedContent[2])).stripTags().truncate(300, "...").s
+                    summary: s(markdown.toHTML(splittedContent[2])).stripTags().truncate(300, "...").s.replace(/{{[^}]*}}/g, "")
                 };
             } else {
                 grunt.log.writeln("Ignoring page without zone and section: " + abspath);

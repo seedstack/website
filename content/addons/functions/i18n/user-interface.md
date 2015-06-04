@@ -5,7 +5,7 @@ zones:
     - "Addons"
 sections:
     - "AddonsFunctions"
-addons:
+subsections:
     - "Internationalization"
 menu:
     AddonsFunctionsI18n:

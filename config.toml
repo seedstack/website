@@ -13,7 +13,7 @@ MetaDataFormat = "yaml"
   tag = "tags"
   zone = "zones"
   section = "sections"
-  addon = "addons"
+  subsection = "subsections"
   post-category = "post-categories"
 
 #####################################
@@ -107,7 +107,27 @@ MetaDataFormat = "yaml"
 [params.section.OverviewFaq]
   label = "FAQ"
   icon = "fa fa-comments-o"
-  path = ""    
+  path = ""
+
+#####################################
+#### Getting started sections    ####
+#####################################
+
+[params.section.GettingStartedIntroduction]
+  label = "Introduction"
+  icon = "fa fa-file-text"
+  path = ""
+
+[params.section.GettingStartedDistribution]
+  label = "Distribution"
+  icon = "fa fa-gift"
+  path = "distribution"
+
+[params.section.GettingStartedProjectTypes]
+  label = "Project types"
+  icon = "fa fa-cubes"
+  path = "project-types"
+
 #####################################
 #### Business framework sections ####
 #####################################
@@ -388,30 +408,20 @@ MetaDataFormat = "yaml"
 #### Guides                      ####
 #####################################
 
-[params.section.CreateApplicationGuide]
-  label = "Create a Web application"
-  icon = "fa fa-globe"
-  path = "create/web-application"
+[params.section.CreateGuides]
+  label = "Create"
+  icon = "fa fa-book"
+  path = "create"
 
-[params.section.CreateBatchGuide]
-  label = "Create a batch"
-  icon = "fa fa-file"
-  path = "create/batch"
+[params.section.DeployGuides]
+  label = "Deploy"
+  icon = "fa fa-book"
+  path = "deploy"
 
-[params.section.CreateFunctionGuide]
-  label = "Create a reusable function"
-  icon = "fa fa-puzzle-piece"
-  path = "create/reusable-function"
-
-[params.section.CreateDomainGuide]
-  label = "Create a domain"
-  icon = "fa fa-cubes"
-  path = "create/reusable-domain"
-
-[params.section.ConfigurationGuide]
-  label = "Configuration"
-  icon = "fa fa-wrench"
-  path = "deploy/configuration"
+[params.section.RunGuides]
+  label = "Run"
+  icon = "fa fa-book"
+  path = "run"
 
 
 #####################################

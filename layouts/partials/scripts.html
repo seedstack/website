@@ -44,20 +44,33 @@
         });
 
         Mousetrap.bind('?', function() {
-            $('#hotkeys-modal').modal('show');
+            seedstack.ui.openHelp();
             return false;
         });
+
+        Mousetrap.bind('esc', function() {
+            seedstack.ui.closeHelp();
+            seedstack.ui.closeSearch();
+            return false;
+        });
+
+        var originalCallback = Mousetrap.stopCallback;
+        Mousetrap.stopCallback = function(e, element, combo) {
+            if (combo === 'esc') {
+                return false;
+            }
+
+            return originalCallback(e, element, combo);
+        };
 
         function bindShortcuts(value) {
             $.each(value, function(sequence, item) {
                 if (typeof item === 'string') {
-                    console.log("binding g " + sequence + " to " + item);
                     Mousetrap.bind("g " + sequence, function() {
                         window.location = item;
                         return false;
                     });
                 } else if (typeof item === 'object') {
-                    console.log("binding g " + sequence + " to " + item.path);
                     Mousetrap.bind("g " + sequence, function() {
                         window.location = item.path;
                         return false;

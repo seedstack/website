@@ -10,7 +10,7 @@ tags:
     - "injection"
 sections:
     - "AddonsSupports"
-addons:
+subsections:
     - "Spring core"
 menu:
     AddonsSupportsSpringCore:

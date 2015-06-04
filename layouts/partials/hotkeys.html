@@ -39,6 +39,100 @@
                                 </td>
                                 <td>Go to next menu item</td>
                             </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>S</kbd>
+                                </td>
+                                <td>Go to Java area</td>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>W</kbd>
+                                </td>
+                                <td>Go to Web area</td>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>B</kbd>
+                                </td>
+                                <td>Go to Business area</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-4">
+                        <table class="keyboard-mappings">
+                            <tbody>
+                            <tr>
+                                <th></th>
+                                <th>Java area</th>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>c</kbd>
+                                </td>
+                                <td>Go to Core</td>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>s</kbd>
+                                </td>
+                                <td>Go to Security</td>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>t</kbd>
+                                </td>
+                                <td>Go to Transaction</td>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>p</kbd>
+                                </td>
+                                <td>Go to Persistence</td>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>r</kbd>
+                                </td>
+                                <td>Go to Rest</td>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>j</kbd>
+                                </td>
+                                <td>Go to Jms</td>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>w</kbd>
+                                </td>
+                                <td>Go to Web</td>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>m</kbd>
+                                </td>
+                                <td>Go to Metrics</td>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>W</kbd>
+                                </td>
+                                <td>Go to Web-Services</td>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>C</kbd>
+                                </td>
+                                <td>Go to Cache</td>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>S</kbd>
+                                </td>
+                                <td>Go to Scheduling</td>
+                            </tr>
+                            </tbody>
                         </table>
                     </div>
                     <div class="col-md-4">
@@ -47,12 +141,6 @@
                             <tr>
                                 <th></th>
                                 <th>Business area</th>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>B</kbd>
-                                </td>
-                                <td>Go to Business area</td>
                             </tr>
                             <tr>
                                 <td class="keys">
@@ -108,6 +196,54 @@
                                 </td>
                                 <td>Go to Finder</td>
                             </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>b</kbd> <kbd>P</kbd>
+                                </td>
+                                <td>Go to Pagination</td>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>b</kbd> <kbd>R</kbd>
+                                </td>
+                                <td>Go to Rest</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <table class="keyboard-mappings">
+                            <tbody>
+                            <tr>
+                                <th></th>
+                                <th>Web area</th>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>w</kbd> <kbd>c</kbd>
+                                </td>
+                                <td>Go to Core</td>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>w</kbd> <kbd>u</kbd>
+                                </td>
+                                <td>Go to UI</td>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>w</kbd> <kbd>d</kbd>
+                                </td>
+                                <td>Go to Dataviz</td>
+                            </tr>
+                            <tr>
+                                <td class="keys">
+                                    <kbd>g</kbd> <kbd>w</kbd> <kbd>e</kbd>
+                                </td>
+                                <td>Go to Extras</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -116,3 +252,10 @@
         </div>
     </div>
 </div>
+<script>
+    $('#hotkeys-modal').bind('hidden.bs.modal', function () {
+        $("html").css("margin-right", "0px");
+    }).bind('show.bs.modal', function () {
+        $("html").css("margin-right", "-15px");
+    });
+</script>

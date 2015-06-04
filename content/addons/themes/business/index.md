@@ -5,7 +5,7 @@ zones:
     - "Addons"
 sections:
     - "AddonsThemes"
-addons:
+subsections:
     - "Business theme"
 menu:
     AddonsThemesBusiness:

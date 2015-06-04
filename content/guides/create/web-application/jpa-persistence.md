@@ -4,7 +4,9 @@ type: "guide"
 zones:
     - "Guides"
 sections:
-    - "CreateApplicationGuide"
+    - "CreateGuides"
+subsections:
+    - "Web application"
 menu:
     CreateApplicationGuide:
         weight: 40

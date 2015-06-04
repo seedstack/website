@@ -21,11 +21,29 @@ sections:
     var query = seedstack.strings.parseQueryString(location);
 
     $('.title-subheader h3 > a').text('Results for « ' + query.q + ' »');
-    
+
     seedstack.searchService.search(query.q, function (results) {
+        var $inner = $('.inner-results');
+
         if (!results.length) {
-            return;
+            $inner.append(
+                    '<h3>No search results.</h3>'
+            );
         }
+
+        $inner.append(
+            '<form method="GET" action="/search">' +
+            '<div class="input-group animated fadeInDown">' +
+            '<input id="search-again-field" type="text" class="form-control" placeholder="Search again" name="q">' +
+            '<span class="input-group-btn">' +
+            '<button class="btn-u" type="button">Go</button>' +
+            '</span>' +
+            '</div>' +
+            '</form>' +
+            '<br>'
+        );
+        $('#search-again-field').focus();
+
 
         // Only show the ten first results
         results.slice(0, 10).forEach(function (result) {
@@ -39,11 +57,11 @@ sections:
                     '</ul>' +
                     '<p>' + result.summary + '</p>' +
                     '<div class="tags">' +
-                    (result.tags ? result.tags.map(function(tag) {
-                        return '<a class="label label-default" href="/tags/' + tag.replace(/ /g, '-') + '">' + seedstack.strings.toTitleCase(tag) + '</a></span>';                                                        
-                    }).join(" ") : '') + 
+                    (result.tags ? result.tags.map(function (tag) {
+                        return '<a class="label label-default" href="/tags/' + tag.replace(/ /g, '-') + '">' + seedstack.strings.toTitleCase(tag) + '</a></span>';
+                    }).join(" ") : '') +
                     '</div>' +
-                    '<hr>'        
+                    '<hr>'
             );
         });
     });

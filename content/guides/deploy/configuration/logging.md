@@ -4,7 +4,9 @@ type: "guide"
 zones:
     - "Guides"
 sections:
-    - "ConfigurationGuide"
+    - "DeployGuides"
+subsections:
+    - "Configuration"
 menu:
     ConfigurationGuide:
         weight: 20

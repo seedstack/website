@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {{ $zone := index .Params.zones 0 }}
 {{ $section := index .Params.sections 0 }}
+{{ $subsection := index .Params.subsections 0 }}
 <html lang="en">
 <head>
 {{ partial "head.html" . }}
@@ -15,7 +16,9 @@
                     <a href='{{ index .Site.Params.zone $zone "path" }}'>{{ index .Site.Params.zone $zone "label" }}</a>
                     <i class="fa fa-caret-right"></i>
                     <i class='{{ index .Site.Params.section $section "icon" }}'></i>
-                    {{ index .Site.Params.section $section "label" }}
+                    <a href='{{ index .Site.Params.zone $zone "path" }}/{{ index .Site.Params.section $section "path" }}'>{{ index .Site.Params.section $section "label" }}</a>
+                    <i class="fa fa-caret-right"></i>
+                    {{ $subsection }}
                 </h3>
             </div>
         </div>

@@ -10,7 +10,7 @@ tags:
     - "job"
 sections:
     - "AddonsSupports"
-addons:
+subsections:
     - "Spring batch"
 menu:
     AddonsSupportsSpringBatch:

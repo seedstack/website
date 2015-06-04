@@ -9,7 +9,7 @@ tags:
     - "test"
 sections:
     - "AddonsSupports"
-addons:
+subsections:
     - "Spring core"
 menu:
     AddonsSupportsSpringCore:

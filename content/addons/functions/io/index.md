@@ -5,7 +5,7 @@ zones:
     - "Addons"
 sections:
     - "AddonsFunctions"
-addons:
+subsections:
     - "Import/Export"
 menu:
     AddonsFunctionsIO:

@@ -44,6 +44,14 @@
             $('.search-btn').addClass('fa-search').removeClass('fa-times');
         },
 
+        openHelp: function() {
+            $('#hotkeys-modal').modal('show');
+        },
+
+        closeHelp: function() {
+            $('#hotkeys-modal').modal('hide');
+        },
+
         shortcuts: {
             "B": "/docs/business",
             "b e": "/docs/business/manual/entity",
@@ -55,6 +63,9 @@
             "b p": "/docs/business/manual/policy",
             "b A": "/docs/business/manual/assembler",
             "b F": "/docs/business/manual/finder",
+            "b P": "/docs/business/manual/pagination",
+            "b R": "/docs/business/manual/rest",
+            "S": "/docs/seed",
             "s c": "/docs/seed/manual/core",
             "s s": "/docs/seed/manual/security",
             "s t": "/docs/seed/manual/transactions",
@@ -62,10 +73,17 @@
             "s r": "/docs/seed/manual/rest",
             "s j": "/docs/seed/manual/jms",
             "s w": "/docs/seed/manual/web",
-            "s W": "/docs/seed/manual/ws",
             "s m": "/docs/seed/manual/metrics",
-            "w": "/docs/w20",
-            "t": "/docs/tools"
+            "s v": "/docs/seed/manual/validation",
+            "s W": "/docs/seed/manual/ws",
+            "s C": "/docs/seed/manual/cache",
+            "s S": "/docs/seed/manual/scheduling",
+            "W": "/docs/w20",
+            "w c": "/docs/w20/manual/core",
+            "w u": "/docs/w20/manual/ui",
+            "w d": "/docs/w20/manual/dataviz",
+            "w e": "/docs/w20/manual/extra",
+            "T": "/docs/tools"
         }
     };
 
