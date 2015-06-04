@@ -1,8 +1,18 @@
-<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
 <script>
     $(document).ready(function() {
+        var $search = $('.search-btn');
+
+        $('.search').click(function () {
+            if($search.hasClass('fa-search')){
+                seedstack.ui.openSearch();
+            } else {
+                seedstack.ui.closeSearch();
+            }
+        });
+
         $('pre code').each(function(i, block) {
             hljs.highlightBlock(block);
         });
@@ -13,6 +23,53 @@
                 bottom: $('#footer').height() + 40
             }
         });
+
+        Mousetrap.bind('/', function() {
+            seedstack.ui.openSearch();
+            return false;
+        });
+
+        Mousetrap.bind('alt+up', function() {
+            if (seedstack.state.previousPage) {
+                window.location = seedstack.state.previousPage;
+            }
+            return false;
+        });
+
+        Mousetrap.bind('alt+down', function() {
+            if (seedstack.state.nextPage) {
+                window.location = seedstack.state.nextPage;
+            }
+            return false;
+        });
+
+        Mousetrap.bind('?', function() {
+            $('#hotkeys-modal').modal('show');
+            return false;
+        });
+
+        function bindShortcuts(value) {
+            $.each(value, function(sequence, item) {
+                if (typeof item === 'string') {
+                    console.log("binding g " + sequence + " to " + item);
+                    Mousetrap.bind("g " + sequence, function() {
+                        window.location = item;
+                        return false;
+                    });
+                } else if (typeof item === 'object') {
+                    console.log("binding g " + sequence + " to " + item.path);
+                    Mousetrap.bind("g " + sequence, function() {
+                        window.location = item.path;
+                        return false;
+                    });
+                    if (item.shortcuts && location.pathname.indexOf(item.path) === 0) {
+                        bindShortcuts(item.shortcuts);
+                    }
+                }
+            });
+        }
+
+        bindShortcuts(seedstack.ui.shortcuts);
     });
 </script>
 <script>window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));</script>

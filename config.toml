@@ -75,6 +75,11 @@ MetaDataFormat = "yaml"
   label = "Add-ons"
   logo = "addons-logo.svg"
 
+[params.zone.Search]
+  path = "/search"
+  label = "Search"
+  logo = "search-logo.svg"
+
 #####################################
 #### Overview sections           ####
 #####################################
@@ -510,17 +515,11 @@ MetaDataFormat = "yaml"
   path = "themes"
 
 #####################################
-#### Reusable functions sections ####
+#### Search                      ####
 #####################################
 
-[params.section.FunctionIO]
-  label = "I/O"
-  icon = "fa fa-file-text"
+[params.section.SearchResults]
+  label = "Search results"
+  icon = "fa fa-search"
+  path = ""
 
-[params.section.FunctionI18n]
-  label = "Internationalization"
-  icon = "fa fa-language"
-
-[params.section.FunctionBridge]
-  label = "W20 bridge"
-  icon = "fa fa-link"

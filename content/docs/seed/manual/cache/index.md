@@ -25,7 +25,7 @@ To enable the cache support in your application, use the following dependency sn
         <artifactId>seed-cache-support</artifactId>
     </dependency>
 
-JCache specification jar dependency is required as well since SEED JMS support doesn't transitively provide this dependency:
+JCache specification jar dependency is required as well since SEED cache support doesn't transitively provide this dependency:
 
     <dependency>
         <groupId>javax.cache</groupId>

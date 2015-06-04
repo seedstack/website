@@ -7,15 +7,26 @@
             {{ $toc := $parent.TableOfContents }}
             {{ $currentUrl := $parent.RelPermalink }}
             {{ range index $parent.Site.Menus .Menu }}
-                {{ $active :=  eq $currentUrl .Url }}
+                {{ $active :=  eq $currentUrl .URL }}
                 <li>
-                    <a href="{{ .Url }}" class="list-group-item {{ if $active }} active {{ end }}">
+                    <a href="{{ .URL }}" class="list-group-item {{ if $active }} active {{ end }}">
                         {{ .Name }}
                     </a>
+                    {{ if $.Scratch.Get "nextPage" }}
+                        <script>
+                            seedstack.state.nextPage = '{{ .URL }}';
+                        </script>
+                        {{ $.Scratch.Set "nextPage" false }}
+                    {{ end }}
                     {{ if $active }}
                         {{ $toc }}
+                        <script>
+                            seedstack.state.previousPage = '{{ $.Scratch.Get "previous" }}';
+                        </script>
+                        {{ $.Scratch.Set "nextPage" true }}
                     {{ end }}
                 </li>
+                {{ $.Scratch.Set "previous" .URL }}
             {{ end }}
         </ul>
     </div>

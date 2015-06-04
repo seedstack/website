@@ -8,5 +8,8 @@
 # public generated folder
 public/
 
+# node
+node_modules/
+
 # generated diagrams
 static/puml
