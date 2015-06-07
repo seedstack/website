@@ -2,7 +2,7 @@
 [![Build status](https://travis-ci.org/seedstack/website.svg?branch=master)](https://travis-ci.org/seedstack/website)
 
 This repository contains the sources of the SeedStack website. The
-site is hosted at [seedstack.github.io](http://seedstack.github.io/). 
+site is hosted at [www.seedstack.org](http://www.seedstack.org/). 
 
 # Usage
 
@@ -12,7 +12,6 @@ This site is built with [Hugo](http://gohugo.io/). If you have Hugo in your path
 
     hugo server
 
-(Note: the site is tested with Hugo 0.13)
 
 # Publish
 
