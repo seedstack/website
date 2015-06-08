@@ -30,7 +30,10 @@ body {
 
 body > #header {
     background-color: white;
-    padding-top: 18px;
+}
+
+body > #header .header .topbar {
+    padding: 0;
 }
 
 body > #content {
