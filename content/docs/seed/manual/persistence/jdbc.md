@@ -51,8 +51,7 @@ If your app server declares a JNDI datasource:
     jndi-name = java:comp/env/jdbc/my-datasource
     context = ...
     
-The `context` property is optional and can be used to specify a specifc context name configured in 
-[Core support](../../core/JNDI) to make the lookup.   
+Context is optional    
     
 # JDBC Connection
 

@@ -17,19 +17,26 @@ the function roles to yours. This section description how to do it and some othe
 
 # Persistence
 
-The i18n function uses JPA as its persistence mechanism. No `persistence.xml` file is provided, as it expects your
-application to be configured with [automatically generated persistence information](/docs/seed/manual/persistence/jpa/#without-persistence-xml).
-You just need add the the function JPA unit (`seed-i18n-domain`) to the global list of JPA units and specify its datasource:
+**Configure the JPA unit seed-i18n-domain.**
 
-```ini
-[org.seedstack.seed]
-persistence.jpa.units = seed-i18n-domain, ...
+Configuration example with an embedded database:
 
-[org.seedstack.seed.persistence.jpa.unit.seed-i18n-domain]
-datasource = my-datasource
-```
+	[org.seedstack.seed]
+	persistence.jpa.units = seed-i18n-domain, ...
 
-# specify additional properties if needed
+	[org.seedstack.seed.persistence.jpa.unit.seed-i18n-domain.property]
+	javax.persistence.jdbc.driver=org.hsqldb.jdbcDriver
+	javax.persistence.jdbc.url=jdbc:hsqldb:mem:testdb
+	javax.persistence.jdbc.user=sa
+	javax.persistence.jdbc.password=
+	hibernate.dialect=org.hibernate.dialect.HSQLDialect
+	hibernate.hbm2ddl.auto=update
+	sql.enforce_strict_size=true
+
+<div class="callout callout-info">
+This function <strong>requires JPA 2</strong>. So check that you have the following dependency in your project:
+<code>org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final</code>.
+</div>
 
 # Security
 
