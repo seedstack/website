@@ -4,15 +4,19 @@
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
 <meta name="author" content="{{ with .Site.Params.author }}{{ . }}{{ end }}">
 
+<!-- style -->
 <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,700,300,400' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/github.min.css">
 <link rel="stylesheet" href="/assets/unify/css/style.css">
 <link rel="stylesheet" href="/assets/unify/plugins/font-awesome/css/font-awesome.css">
 <link rel="stylesheet" href="/css/style.css">
+<!-- end of style -->
 
+<!-- scripts -->
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="/js/seedstack.js"></script>
+<!-- end of scripts -->
 
 <!-- favicons from http://realfavicongenerator.net/ -->
 <link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-touch-icon-57x57.png">
@@ -36,3 +40,19 @@
 <meta name="msapplication-TileImage" content="/img/favicons/mstile-144x144.png">
 <meta name="theme-color" content="#ffffff">
 <!-- end of favicons -->
+
+<!-- Google analytics -->
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-61976680-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+<!-- end of Google analytics -->
