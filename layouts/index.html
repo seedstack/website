@@ -20,7 +20,7 @@
                     </a>
                     <div style="height: 10px;">&nbsp;</div>
                     <ul class="quick-paste">
-                        <li class="windows"><span>mvn org.seedstack:tool generate</span></li>
+                        <li class="windows"><span>mvn org.seedstack:seedstack:scaffold</span></li>
                     </ul>
                 </div>
             </div>
@@ -228,14 +228,14 @@
             $quickStart.html(
                 '<ul class="quick-paste">' +
                 '<li class="unix"><span>brew install maven</span></li>' +
-                    '<li class="unix"><span>mvn org.seedstack:tool generate</span></li>' +
+                    '<li class="unix"><span>mvn org.seedstack:seedstack:scaffold</span></li>' +
                 '</ul>'
             );
         } else if (/Linux/.test(navigator.platform)) {
             $quickStart.html(
                 '<ul class="quick-paste">' +
                     '<li class="unix"><span>sudo apt-get install maven</span></li>' +
-                    '<li class="unix"><span>mvn org.seedstack:tool generate</span></li>' +
+                    '<li class="unix"><span>mvn org.seedstack:seedstack:scaffold</span></li>' +
                 '</ul>'
             );
         }

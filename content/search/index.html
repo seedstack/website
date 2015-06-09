@@ -20,7 +20,7 @@ sections:
 <script>
     var query = seedstack.strings.parseQueryString(location);
 
-    $('.title-subheader h3 > a').text('Results for « ' + query.q + ' »');
+    $('.title-subheader h3 > a').text('Most relevant results for « ' + query.q + ' »');
 
     seedstack.searchService.search(query.q, function (results) {
         var $inner = $('.inner-results');

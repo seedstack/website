@@ -52,6 +52,11 @@
             $('#hotkeys-modal').modal('hide');
         },
 
+        showAllShortcuts: function() {
+            $('.hidden-shortcuts').show();
+            $('#show-all-shortcuts').hide();
+        },
+
         shortcuts: {
             "B": "/docs/business",
             "b e": "/docs/business/manual/entity",
