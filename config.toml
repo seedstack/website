@@ -11,6 +11,7 @@ MetaDataFormat = "yaml"
 
 [taxonomies]
   tag = "tags"
+  author = "authors"
   zone = "zones"
   section = "sections"
   subsection = "subsections"
@@ -394,19 +395,19 @@ MetaDataFormat = "yaml"
   icon = "fa fa-file-text"
   path = ""
 
-[params.section.ToolsManual]
-  label = "Manual"
-  icon = "fa fa-book"
-  path = "manual"
-
-[params.section.ToolsReleaseNotes]
-  label = "Release notes"
-  icon = "fa fa-tag"
-  path = "release-notes"
+[params.section.ToolsMavenPlugin]
+  label = "Maven plugin"
+  icon = "fa fa-cogs"
+  path = "maven-plugin"
 
 #####################################
 #### Guides                      ####
 #####################################
+
+[params.section.GuidesIntroduction]
+  label = "Introduction"
+  icon = "fa fa-file-text"
+  path = "create"
 
 [params.section.CreateGuides]
   label = "Create"

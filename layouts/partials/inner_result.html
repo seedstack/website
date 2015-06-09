@@ -12,7 +12,7 @@
             {{ end }}
         </li>
     </ul>
-    <p>{{ .Summary }}</p>
+    <p>{{ .Summary }}...</p>
     <div class="tags">
         {{ range .Params.tags }}<a class="label label-default" href="/tags/{{ . | urlize }}">{{ . | title }}</a> {{ end }}</span>
     </div>

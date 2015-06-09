@@ -20,7 +20,7 @@
                     </a>
                     <div style="height: 10px;">&nbsp;</div>
                     <ul class="quick-paste">
-                        <li class="windows"><span>mvn org.seedstack:seedstack:scaffold</span></li>
+                        <li class="windows"><span>mvn org.seedstack:seedstack-maven-plugin:generate-project</span></li>
                     </ul>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                     Tweet
                 </a>
             </li>
-            <li class="pull-right" style="padding-right: 60px;">
+            <li class="pull-right" style="padding-right: 50px;">
                 <h3><i class="fa fa-github"></i> <a href="//github.com/seedstack">View on GitHub</a></h3>
             </li>
         </ul>
@@ -228,14 +228,14 @@
             $quickStart.html(
                 '<ul class="quick-paste">' +
                 '<li class="unix"><span>brew install maven</span></li>' +
-                    '<li class="unix"><span>mvn org.seedstack:seedstack:scaffold</span></li>' +
+                    '<li class="unix"><span>mvn org.seedstack:seedstack-maven-plugin:generate-project</span></li>' +
                 '</ul>'
             );
         } else if (/Linux/.test(navigator.platform)) {
             $quickStart.html(
                 '<ul class="quick-paste">' +
                     '<li class="unix"><span>sudo apt-get install maven</span></li>' +
-                    '<li class="unix"><span>mvn org.seedstack:seedstack:scaffold</span></li>' +
+                    '<li class="unix"><span>mvn org.seedstack:seedstack-maven-plugin:generate-project</span></li>' +
                 '</ul>'
             );
         }
