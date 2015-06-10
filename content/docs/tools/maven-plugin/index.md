@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "Maven plugin"
 type: "home"
 zones:
     - "Tools"

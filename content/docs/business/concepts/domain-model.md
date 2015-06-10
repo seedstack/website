@@ -7,7 +7,7 @@ sections:
     - "BusinessConcepts"
 menu:
     BusinessConcepts:
-        weight: 10
+        weight: 20
 ---
 
 Eric Evans in his book introducing the *Domain driven design* presents

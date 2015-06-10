@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "Metrics overview"
 type: "manual"
 zones:
     - "Seed"

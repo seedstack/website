@@ -1,5 +1,5 @@
 ---
-title: "First contact"
+title: "Introduction"
 type: "home"
 zones:
     - "GettingStarted"

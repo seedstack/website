@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "Core overview"
 type: "manual"
 zones:
     - "Business"

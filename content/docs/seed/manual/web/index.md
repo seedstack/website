@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "Web overview"
 type: "manual"
 zones:
     - "Seed"

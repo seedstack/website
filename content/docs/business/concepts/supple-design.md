@@ -7,7 +7,7 @@ sections:
     - "BusinessConcepts"
 menu:
     BusinessConcepts:
-        weight: 30
+        weight: 40
 ---
 
 > The ultimate purpose of software is to serve users. But first, that

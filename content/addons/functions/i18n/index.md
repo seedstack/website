@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "Internationalization overview"
 type: "addon"
 zones:
     - "Addons"

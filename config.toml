@@ -143,7 +143,7 @@ MetaDataFormat = "yaml"
   icon = "fa fa-lightbulb-o"
   path = "concepts"
 
-[params.section.BusinessManuel]
+[params.section.BusinessManual]
   label = "Manual"
   icon = "fa fa-book"
   path = "manual"
@@ -430,27 +430,27 @@ MetaDataFormat = "yaml"
 #####################################
 
 [params.section.GlossaryIntroduction]
-  label = "Glossary"
+  label = "Introduction"
   icon = "fa fa-file-text"
   path = ""
 
 [params.section.GlossaryAF]
-  label = "Glossary"
+  label = "A-F"
   icon = "fa fa-file-text"
   path = "/a-f"
 
 [params.section.GlossaryGM]
-  label = "Glossary"
+  label = "G-M"
   icon = "fa fa-file-text"
   path = "/g-m"
 
 [params.section.GlossaryNS]
-  label = "Glossary"
+  label = "N-S"
   icon = "fa fa-file-text"
   path = "/n-s"
 
 [params.section.GlossaryTZ]
-  label = "Glossary"
+  label = "T-Z"
   icon = "fa fa-file-text"
   path = "/t-z"
 

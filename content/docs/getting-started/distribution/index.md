@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "Distribution"
 type: "home"
 zones:
     - "GettingStarted"

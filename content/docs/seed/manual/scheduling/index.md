@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "Scheduling overview"
 type: "manual"
 zones:
     - "Seed"

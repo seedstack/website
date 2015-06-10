@@ -1,5 +1,5 @@
 ---
-title: "Kernel + plugins architecture"
+title: "Kernel/plugins architecture"
 type: "home"
 zones:
     - "Seed"

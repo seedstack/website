@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "Community"
 type: "home"
 zones:
     - "Overview"

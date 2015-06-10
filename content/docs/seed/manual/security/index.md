@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "Security overview"
 type: "manual"
 zones:
     - "Seed"

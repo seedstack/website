@@ -1,8 +1,6 @@
-<title>SeedStack{{ if isset .Params.zones 0 }}{{ $zone := index .Params.zones 0 }} - {{ index .Site.Params.zone $zone "label" }}{{ end }}{{ if isset .Params.sections 0 }}{{ $section := index .Params.sections 0 }}{{ if isset .Site.Params.section $section }} - {{ index .Site.Params.section $section "label" }}{{ end }}{{ end }}{{ if isset .Params.subsections 0 }} - {{ index .Params.subsections 0 }}{{ end }}</title>
+<title>{{ if isset .Params.zones 0 }}{{ $zone := index .Params.zones 0 }}{{ index .Site.Params.zone $zone "label" }}{{ else }}SeedStack{{ end }}{{ if .Title}} - {{ .Title }}{{ end }}</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
-<meta name="author" content="{{ with .Site.Params.author }}{{ . }}{{ end }}">
 
 <!-- style -->
 <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,700,300,400' rel='stylesheet' type='text/css'>

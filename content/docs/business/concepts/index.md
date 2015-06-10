@@ -1,5 +1,5 @@
 ---
-title: "Concepts overview"
+title: "Domain-Driven Design"
 type: "home"
 zones:
     - "Business"
@@ -18,7 +18,7 @@ You will NOT be presented with in-depth coverage of all the DDD subtleties, so t
 a look at the [bibliography](../bibliography). Moreover, links will be provided in the text when related quality content 
 is available.
 
-# Domain-Driven Design
+---
 
 Domain-Driven Design is **more about a way of thinking than about code** but this approach has nonetheless a great
 impact on the way your business will be coded. DDD does not introduce new concepts or design patterns on its own. As

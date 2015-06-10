@@ -7,7 +7,7 @@ sections:
     - "BusinessConcepts"
 menu:
     BusinessConcepts:
-        weight: 20
+        weight: 30
 ---
 
 For starters, it is important to know that DDD doesn't require a particular architecture. Since the domain is defined

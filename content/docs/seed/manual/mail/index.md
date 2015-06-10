@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "Mail overview"
 type: "manual"
 zones:
     - "Seed"
