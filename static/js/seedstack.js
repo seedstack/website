@@ -178,4 +178,6 @@
             }
         };
     })();
+
+    document.dispatchEvent(new CustomEvent('seedstack'));
 })(window.seedstack = {});

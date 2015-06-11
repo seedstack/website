@@ -18,51 +18,53 @@ sections:
 </div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/0.5.9/lunr.min.js"></script>
 <script>
-    var query = seedstack.strings.parseQueryString(location);
+    document.addEventListener('seedstack', function() {
+        var query = seedstack.strings.parseQueryString(location);
 
-    $('.title-subheader h3 > a').text('Most relevant results for « ' + query.q + ' »');
+        $('.title-subheader h3 > a').text('Most relevant results for « ' + query.q + ' »');
 
-    seedstack.searchService.search(query.q, function (results) {
-        var $inner = $('.inner-results');
+        seedstack.searchService.search(query.q, function (results) {
+            var $inner = $('.inner-results');
 
-        if (!results.length) {
+            if (!results.length) {
+                $inner.append(
+                        '<h3>No search results.</h3>'
+                );
+            }
+
             $inner.append(
-                    '<h3>No search results.</h3>'
-            );
-        }
-
-        $inner.append(
-            '<form method="GET" action="/search">' +
-            '<div class="input-group animated fadeInDown">' +
-            '<input id="search-again-field" type="text" class="form-control" placeholder="Search again" name="q">' +
-            '<span class="input-group-btn">' +
-            '<button class="btn-u" type="button">Go</button>' +
-            '</span>' +
-            '</div>' +
-            '</form>' +
-            '<br>'
-        );
-        $('#search-again-field').focus();
-
-
-        // Only show the ten first results
-        results.slice(0, 10).forEach(function (result) {
-            $('.inner-results').append(
-                    '<h3><img src="/img/logos/' + result.zone.logo + '"> <a href="' + result.href + '">' + result.title + '</a></h3>' +
-                    '<ul class="list-inline up-ul">' +
-                    '<li>' +
-                    'In <a href="' + result.zone.path + '">' + result.zone.label + '</a>' +
-                    ' <i class="fa fa-caret-right"></i> <a href="' + result.zone.path + '/' + result.section.path + '">' + result.section.label + '</a>' +
-                    '</li>' +
-                    '</ul>' +
-                    '<p>' + result.summary + '</p>' +
-                    '<div class="tags">' +
-                    (result.tags ? result.tags.map(function (tag) {
-                        return '<a class="label label-default" href="/tags/' + tag.replace(/ /g, '-') + '">' + seedstack.strings.toTitleCase(tag) + '</a></span>';
-                    }).join(" ") : '') +
+                    '<form method="GET" action="/search">' +
+                    '<div class="input-group animated fadeInDown">' +
+                    '<input id="search-again-field" type="text" class="form-control" placeholder="Search again" name="q">' +
+                    '<span class="input-group-btn">' +
+                    '<button class="btn-u" type="button">Go</button>' +
+                    '</span>' +
                     '</div>' +
-                    '<hr>'
+                    '</form>' +
+                    '<br>'
             );
+            $('#search-again-field').focus();
+
+
+            // Only show the ten first results
+            results.slice(0, 10).forEach(function (result) {
+                $('.inner-results').append(
+                        '<h3><img src="/img/logos/' + result.zone.logo + '"> <a href="' + result.href + '">' + result.title + '</a></h3>' +
+                        '<ul class="list-inline up-ul">' +
+                        '<li>' +
+                        'In <a href="' + result.zone.path + '">' + result.zone.label + '</a>' +
+                        ' <i class="fa fa-caret-right"></i> <a href="' + result.zone.path + '/' + result.section.path + '">' + result.section.label + '</a>' +
+                        '</li>' +
+                        '</ul>' +
+                        '<p>' + result.summary + '</p>' +
+                        '<div class="tags">' +
+                        (result.tags ? result.tags.map(function (tag) {
+                            return '<a class="label label-default" href="/tags/' + tag.replace(/ /g, '-') + '">' + seedstack.strings.toTitleCase(tag) + '</a></span>';
+                        }).join(" ") : '') +
+                        '</div>' +
+                        '<hr>'
+                );
+            });
         });
     });
 </script>
