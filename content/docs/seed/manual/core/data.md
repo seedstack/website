@@ -29,19 +29,21 @@ type of objects being exported).
 
 Implementation example from **seed-i18n-function**: 
 
+    @JpaUnit("seed-i18n-domain")
     @Transactional
     @DataSet(group="seed-i18n", name="key")
     public class KeyDataExporter implements DataExporter<KeyDTO> {
     
         @Inject
         private KeyRepository keyRepository;
-    
+
         @Inject
-        private Assemblers assemblers;
-    
+        private FluentAssembler fluentAssembler;
+      
         @Override
         public Iterator<KeyDTO> exportData() {
-            return assemblers.assembleDtoFromEntity(KeyDTO.class, keyRepository.loadAll()).iterator();
+            List<Key> keys = keyRepository.loadAll();
+            return fluentAssembler.assemble(keys).to(KeyDTO.class).iterator();
         }
     }
 

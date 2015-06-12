@@ -26,10 +26,13 @@ public class HelloWSIT extends AbstractSeedWebIT {
 
     @Test
     @RunAsClient
-    public void webservice_is_working_correctly(@ArquillianResource URL baseURL) throws Exception {
+    public void webservice_is_working_correctly(@ArquillianResource URL baseURL)
+    throws Exception {
+    
         HelloService helloServiceClient = new HelloService();
         Hello helloServicePort = helloServiceClient.getHelloServicePort();
-        ((BindingProvider)helloServicePort).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, baseURL + "ws/hello");
+        ((BindingProvider)helloServicePort).getRequestContext()
+            .put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, baseURL + "ws/hello");
         
         String response = helloServicePort.sayHello("World");
         Assertions.assertThat(response).isEqualTo("Hello World");

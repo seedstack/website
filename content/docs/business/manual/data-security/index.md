@@ -21,15 +21,17 @@ You can add a `@Secured` annotation on your assembler methods to secure assemble
 add the annotation like in the following code:
 
     @Override
-    protected void doMergeAggregateWithDto(MyAggregate targetAggregate, @Secured MyDto sourceDto) {
-        (...)
+    protected void doMergeAggregateWithDto(MyAggregate targetAggregate,
+        @Secured MyDto sourceDto) {
+        ...
     }
 
 To secure the source representation before merging it with the aggregate:
 
     @Override
-    protected void doAssembleDtoFromAggregate(@Secured MyDto targetDto, MyAggregate sourceAggregate) {
-        (...)
+    protected void doAssembleDtoFromAggregate(@Secured MyDto targetDto,
+        MyAggregate sourceAggregate) {
+        ...
     }
 
 {{% callout warning %}}
@@ -46,14 +48,14 @@ Now, we have to indicate what and how to secure the data we want to expose. Belo
 ```
 public class EmployeeRepresentation {
 	
-	@Restriction(value = "${false}" , obfuscation=EmployeeNameObfuscation.class )
+	@Restriction(value = "${false}" , obfuscation=EmployeeNameObfuscation.class)
 	private String name;
 	
-	@Restriction("${ hasRole('jedi') && hasPermission('academy:learn')  }")
+	@Restriction("${ hasRole('jedi') && hasPermission('academy:learn')}")
 	private Long salary;
 	
 	
-	@Restriction("${ hasRole('jedi') && hasPermission('academy:learn')  }")
+	@Restriction("${ hasRole('jedi') && hasPermission('academy:learn')}")
 	private Boolean manager;
 	
 	
@@ -103,10 +105,10 @@ Considering the application service EmployeeService
     public interface EmployeeService {
     	
     	@Secured
-    	EmployeeDto service1( @Secured EmployeeDto d1 , EmployeeDto d2 ,
-                               EmployeeDto d3 ) ;
+    	EmployeeDto service1(@Secured EmployeeDto d1, EmployeeDto d2,
+                               EmployeeDto d3);
     	
-    	EmployeeDto service2( EmployeeDto d4 ) ;
+    	EmployeeDto service2(EmployeeDto d4);
     
     }
 

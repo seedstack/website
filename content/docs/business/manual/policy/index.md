@@ -39,7 +39,6 @@ This policy could allow the sellers - and their manager - to know what the amoun
 
 In `org.mycompany.myapp.policy` package
 
-
 ```
 package org.mycompany.myapp.policy;
 
@@ -64,41 +63,13 @@ In `org.mycompany.myapp.policy.internal` package
 ```
 package org.mycompany.myapp.policy.internal;
 
-import java.util.List;
-import javax.inject.Inject;
-
-import org.mycompany.myapp.policy.BonusPolicy;
-import org.mycompany.myapp.domain.model.carsold.CarSold;
-import org.mycompany.myapp.domain.shared.vo.Price;
+import ...
 
 public class BonusPolicyInternal implements BonusPolicy{
-	
-	/**
-	 * Compute annual bonus according the following :
-	 *  <li>X%  from CarSolds  agreed price sum</li>
-	 *  <li>Where X is  </li>
-	 *  <li> 1.5% if discount <= 5%  </li>
-	 *  <li> 1.0% if discount >  5%   </li>
-	 * 
-	 */
-	@Override
+
+    @Override
 	public Price computeBonus(List<CarSold> soldCarsList) {
-		Price finalBonus = Price.ZERO;
-		for (CarSold carSold : soldCarsList) {
-			// note : in the training app, following code is replaced by another policy to avoid computation redundancy and increase readability
-			double discount = 
-			BigDecimal.valueOf(1d)
-				.subtract(BigDecimal.valueOf(carSold.getAgreedPrice().getPriceValue())
-					.divide(BigDecimal.valueOf(carSold.retrieveOriginalPrice().getPriceValue()))
-				)
-			.doubleValue();
-			
-			if (discount <= 0.05) {
-				finalBonus = finalBonus.add(  0.015 * carSold.getAgreedPrice().getPriceValue());
-			} else if (discount > 0.05) {
-				finalBonus = finalBonus.add(  0.01 * carSold.getAgreedPrice().getPriceValue());
-			}
-		}
+        ...
 		return finalBonus;
 	}
 }
@@ -128,16 +99,7 @@ public interface SalesBonusService {
 ```
 package org.mycompany.myapp.application.service.internal;
 
-import java.util.List;
-import javax.inject.Inject;
-
-import org.mycompany.myapp.application.policy.BonusPolicy;
-import org.mycompany.myapp.application.service.SalesBonusService;
-import org.mycompany.myapp.domain.model.carforsale.CarForSaleRepository;
-import org.mycompany.myapp.domain.model.carsold.CarSold;
-import org.mycompany.myapp.domain.model.carsold.CarSoldRepository;
-import org.mycompany.myapp.domain.model.employee.Employee;
-import org.mycompany.myapp.domain.shared.vo.Price;
+import ...
 
 public class SalesBonusServiceInternal implements SalesBonusService {
 	
@@ -152,7 +114,8 @@ public class SalesBonusServiceInternal implements SalesBonusService {
 	
 	@Override
 	public double calculateCurrentBonusFor(Employee employee) {
-		List<CarSold> findByEmployee = carSoldRepository.findByEmployee( employee.getEntityId() );
+		List<CarSold> findByEmployee = carSoldRepository
+             .findByEmployee(employee.getEntityId());
 		Price bonus = bonusPolicy.computeBonus(findByEmployee);
 		return bonus.getPriceValue();
 	}
