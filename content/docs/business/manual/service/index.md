@@ -41,7 +41,9 @@ rate, transfer authorisation between countries, amount on originating account, e
 ```
 @DomainService
 public interface AccountTransferService {		
-	public AccountTransferReport transferMoney( Account toBeDebited, Account toBeCredited, Amount transferAmount );		
+
+    public AccountTransferReport transferMoney(Account toBeDebited, Account toBeCredited,
+            Amount transferAmount);		
 }
 ```
 

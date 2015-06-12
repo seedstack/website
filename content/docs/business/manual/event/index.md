@@ -74,6 +74,7 @@ If a triggered event is assignable to `MyEvent` (by inheritance), it will also b
 The **seed-business-core-test** module provides an `EventFixture` class for integration tests on events. 
 
 - Test that a given event was handled by an expected `EventHandler`:
+
 ```
 @Inject
 private EventFixture fixture;
@@ -81,9 +82,10 @@ private EventFixture fixture;
 fixture.given(eventFactory.createMyEvent())
     .whenFired()
     .wasHandledBy(MyHandler.class);
-...
 ```
+
 - Test that a given event was handled by exactly a provided list of `EventHandler`s:
+
 ```
 @Inject
 private EventFixture fixture;
@@ -91,9 +93,10 @@ private EventFixture fixture;
 fixture.given(eventFactory.createMyEvent())
     .whenFired()
     .wasHandledExactlyBy(MyHandler.class, MyHandler2.class);
-...
 ```
+
 - Test that a given event was not handled by an expected  `EventHandler`:
+
 ```
 @Inject
 private EventFixture fixture;
@@ -101,10 +104,11 @@ private EventFixture fixture;
 fixture.given(eventFactory.createMyEvent())
     .whenFired()
     .wasNotHandledBy(MyHandler3.class);
-...
 ```
+
 - Test that a given event was generated from an expected `method()` with appropriate *parameters*
-````
+
+```
 @Inject
 private EventFixture fixture;
 ...
@@ -112,8 +116,8 @@ MyEvent myEvent = eventFactory.createMyEvent(SOME_EVENT_PARAM);
 fixtures.given(MyService.class)
      .whenCalled("doSomething", SOME_METHOD_PARAM)
      .eventWasHandledBy(myEvent, MyHandler.class);
-...
 ```
+
 Test if `MyHandler` handler received `myEvent` event when `doSomething()` method of `MyService` is called.
 
 # Provided events
@@ -139,6 +143,7 @@ To enable this feature, use following property:
 Handle aggregate read events:
 
 - Define a custom read method:
+
 ```
 public interface MyRepository extends GenericRepository<AgregateRoot, AggregateIdKey> {
     ...
@@ -147,15 +152,14 @@ public interface MyRepository extends GenericRepository<AgregateRoot, AggregateI
     ...
 }
 ```
+
 > `GenericRepository` methods (load, delete, persist, save) are already annotated with appropriate annotations.
 
 - The repository reading method is called, triggering an `AggregateReadEvent`:
 
 ```
-...
-// fire an AggregateReadEvent for the AgregateRoot  
+// fire an AggregateReadEvent for the AgregateRoot
 productRepository.loadByName(aggregateName);
-...
 ```
 
 - `MyHandler` handles the triggered `AggregateReadEvent` event:
@@ -168,6 +172,7 @@ class MyHandler implements EventHandler<AggregateReadEvent> {
     }
 }
 ```
+
 {{% callout info %}}
 **IMPORTANT:** Above handler receives all `AggregateReadEvent` from any repository
 `@Read` annotated method. Since `AggregateReadEvent` events contain the aggregate root

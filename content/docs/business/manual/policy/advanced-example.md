@@ -18,25 +18,23 @@ we'll only consider two aspects: assets and experience.
 Here is the SellerEligibilityPolicy packaging for `CandidateSeller` entity:
 
 ```
-+org.mycompany.myapp.carsale.domain.candidate/
+org.mycompany.myapp.carsale.domain.candidate/
+|
+|_ CandidateSeller.java                   (CandidateSeller entity)
+|_ CandidateSellerFactory.java            (CandidateSeller factory interface)
+|_ CandidateSellerFactoryImpl.java        (CandidateSeller factory implementation)
+|_ CandidateGender.java                   (enum of candidates possible genders)
+|_ policy/
+   |
+   |_ SellerEligibilityPolicy.java        (policy interface)
+   |_ SellerEligibilityPolicyFactory.java (policy factory interface)
+   |_ internal/                           (policy implementation classes)
+      |
+      |_ SellerEligibilityPolicyCommon.java       (policy abstract class implementation)
+      |_ SellerEligibilityPolicyDefault.java      (policy default implementation)
+      |_ SellerEligibilityPolicyWithHandicap.java (policy other implementation)
 
-CandidateSeller.java                     (CandidateSeller entity)
-CandidateSellerFactory.java              (CandidateSeller factory interface)
-CandidateSellerFactoryImpl.java          (CandidateSeller factory implementation)
-CandidateGender.java                     (enum of candidates possible genders)
-
-+org.mycompany.myapp.carsale.domain.candidate.policy/
-
-SellerEligibilityPolicy.java             (policy interface)
-SellerEligibilityPolicyFactory.java      (policy factory interface)
-
-+org.mycompany.myapp.carsale.domain.candidate.policy.internal/ (policy implementation classes)
-
-SellerEligibilityPolicyCommon.java       (policy abstract class implementation)
-SellerEligibilityPolicyDefault.java      (policy default implementation)
-SellerEligibilityPolicyWithHandicap.java (policy implementation for candidates with a handicap)
-
-SellerEligibilityPolicyFactoryImpl.java (policy factory implementation)
+|_ SellerEligibilityPolicyFactoryImpl.java (policy factory implementation)
 
 ```
 
@@ -52,12 +50,14 @@ import org.seedstack.business.api.domain.annotations.DomainPolicy;
 
 @DomainPolicy
 public interface SellerEligibilityPolicy {
+
 	/**
 	 * Assets CHECK - return a percentage (between 0.0 and 1.0) of expected assets
 	 * @param candidate
 	 * @return Double
 	 */
-	Double hasRequiredAssets(CandidateSeller candidate); 
+	Double hasRequiredAssets(CandidateSeller candidate);
+
 	/**
 	 * experience CHECK
 	 * @param candidate
@@ -84,8 +84,10 @@ package org.mycompany.myapp.carsale.domain.candidate.policy;
 import org.mycompany.myapp.carsale.domain.candidate.CandidateSeller;
 import org.seedstack.business.api.domain.GenericFactory;
 
-public interface SellerEligibilityPolicyFactory extends GenericFactory<SellerEligibilityPolicy> {
-	    SellerEligibilityPolicy getSpecificPolicy(CandidateSeller candidate);
+public interface SellerEligibilityPolicyFactory
+        extends GenericFactory<SellerEligibilityPolicy> {
+
+    SellerEligibilityPolicy getSpecificPolicy(CandidateSeller candidate);
 }
 ```
 
