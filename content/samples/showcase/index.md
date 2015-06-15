@@ -14,7 +14,7 @@ menu:
 ---
 
 The SeedStack Showcase is a sample application that showcases various aspect of the stack. It is built around the 
-[E-commerce domain sample](domain) and mainly demonstrates:
+[E-commerce domain sample](../domain) and mainly demonstrates:
 
 * How to expose a domain through a REST API with Domain <-> Representation mapping, pagination and more.
 * How to expose a domain through a Web Service,
