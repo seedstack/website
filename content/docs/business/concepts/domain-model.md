@@ -37,12 +37,12 @@ guaranty the identity consistency and immutability.
 There are different kind of creation strategies for identities:
 
 * The client can pass values handling himself the uniqueness.
-* The application can generate the identity using an algorithm
-* The application can rely on the database, e.g. using Oracle sequence
+* The application can generate the identity using an algorithm.
+* The application can rely on an external identity generator, like a database sequence.
 
-The first case is easily handle using factories. The other cases,
+The first case is easily handled using factories. The other cases,
 can be usually more complicated, but the Business framework provides an API
-for them. See [Identity management](/docs/business/manual/factory/).
+for them. See [Identity management](/docs/business/manual/factory/identity/).
 
 {{% callout info %}}
 A bad practice we have seen many times, is the overuse of
@@ -84,6 +84,14 @@ public class Name {
 # Repository
 
 # Service
+
+Important domain operations can't always be placed naturally in an Entity or Value Object. They are standalone activities or actions, expressed by a verb instead of a noun. These operations are candidates to fit into a Service. A service is defined by what it can do for a client. It should have a well-defined responsibility, expressed in its name and its interface. Its operations should come from the {{< term "ubiquitous language" >}} or be introduced into it. Parameters and return values should be domain objects. A good service has three characteristics:
+
+1. The operation is related to a domain concept that does not fit naturally in an Entity or Value Object.
+2. The interface is defined in terms of other elements of the domain.
+3. The operation is stateless.
+
+A service statelesness doesn't mean that it cannot change the application global state (that is, it may have side effects). But it doesn't hold state of its own that could affect its behavior.
 
 # Domain event
 
