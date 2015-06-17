@@ -124,10 +124,14 @@ Usage:
 
 	ssh -t admin@localhost -p 2222 "core:import" < data.yaml
 
+# DataManager
+
+If you want to handle import or export in your code, you can do it by injecting the `DataManager` class.
+
 # Auto initialization
 
-Data can be automatically loaded at the application startup by adding the exported YAML file(s) in 
-`META-INF/data/{group}/{name}.yaml`. These data files will be loaded unless the application is already initialized 
+Data can be automatically loaded at the application startup by adding the exported JSON file(s) in 
+`META-INF/data/{group}/{name}.json`. These data files will be loaded unless the application is already initialized 
 (according to your `isInitialized()` method implementation). Initialization can be forced each time this application 
 is started by adding this property:
 
