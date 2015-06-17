@@ -14,11 +14,12 @@ SeedStack can be used to develop any type of project with almost any structure b
 comes with several predefined project types that can be easily generated. These templates guarantee you a clean 
 organization of your code and good modularity so stick to them when possible.
 
-* [Java Web applications](webapp) which are packaged as a WAR file,   
-* [Batch jobs](batch) which are packaged as an executable JAR file,
-* [Reusable business domains](domain) which are packaged as a JAR file,
-* [Reusable functions](function) which are packaged as multiple JAR files and/or static files,
-* [Browser-only single page applications](w20) which are static files. 
+* [Java Web applications](webapp),   
+* [Java RESTful services](rest),   
+* [Batch jobs](batch),
+* [Reusable business domains](domain),
+* [Reusable functions](function),
+* [Browser-only W20 Single Page Applications](w20). 
 
 {{% callout info %}}
 Note that SeedStack is designed with extension in mind so you can design your own project types and provide archetypes

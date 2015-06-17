@@ -15,12 +15,12 @@
                 <p class="bigger">An Open-Source enterprise-class development stack for building modern and robust applications.</p>
                 <div class="quick-start hidden-xs hidden-sm">
                     <a href="https://maven.apache.org/download.cgi">
-                        <button class="btn-u btn-u-download-win"><i class="fa fa-cloud-download"></i> Download and install Maven
+                        <button class="btn-u btn-u-download-win"><i class="fa fa-cloud-download"></i> Download and install Maven if necessary
                         </button>
                     </a>
                     <div style="height: 10px;">&nbsp;</div>
                     <ul class="quick-paste">
-                        <li class="windows"><span>mvn org.seedstack:seedstack-maven-plugin:generate-project</span></li>
+                        <li class="unix"><span>mvn org.seedstack:seedstack-maven-plugin:generate-project</span></li>
                     </ul>
                 </div>
             </div>
@@ -221,29 +221,6 @@
 {{ partial "hotkeys.html" . }}
 {{ partial "styles.html" . }}
 {{ partial "scripts.html" . }}
-
-<script>
-    (function() {
-        var $quickStart = $('.quick-start');
-        if (/Mac/.test(navigator.platform)) {
-            $quickStart.html(
-                '<ul class="quick-paste">' +
-                '<li class="unix"><span>brew install maven</span></li>' +
-                    '<li class="unix"><span>mvn org.seedstack:seedstack-maven-plugin:generate-project</span></li>' +
-                '</ul>'
-            );
-        } else if (/Linux/.test(navigator.platform)) {
-            $quickStart.html(
-                '<ul class="quick-paste">' +
-                    '<li class="unix"><span>sudo apt-get install maven</span></li>' +
-                    '<li class="unix"><span>mvn org.seedstack:seedstack-maven-plugin:generate-project</span></li>' +
-                '</ul>'
-            );
-        }
-
-        $quickStart.show();
-    })();
-</script>
 
 </body>
 </html>

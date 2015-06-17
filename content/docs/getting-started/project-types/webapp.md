@@ -1,5 +1,5 @@
 ---
-title: "Java Web application project"
+title: "Java classic Web project"
 type: "home"
 zones:
     - "GettingStarted"
@@ -18,11 +18,11 @@ WAR type, containing Web-related code. It is deployed as a standard WAR.
 
 To create a Java Web application project from scratch, execute the following command:
 
-    mvn org.seedstack.tools:seedstack-maven-plugin:scaffold-project -Dtype=web
+    mvn org.seedstack:seedstack-maven-plugin:generate-project -Dtype=web
     
-This will invoke the scaffold-project goal of the SeedStack maven plugin which will select the latest version
-of the SeedStack distribution and use its **Web Maven archetype**. The process is interactive and will ask you a few
-questions about the project to be created.
+This will invoke the generate-project goal of the SeedStack maven plugin which will select the latest version
+of the SeedStack distribution and use it [Web Maven archetype](http://search.maven.org/#browse%7C1221480962). 
+The process is interactive and will ask you a few questions about the project to be created.
 
 # Result
  

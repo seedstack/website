@@ -7,7 +7,7 @@ sections:
     - "GettingStartedProjectTypes"
 menu:
     GettingStartedProjectTypes:
-        weight: 50
+        weight: 60
 ---
 
 A reusable function is a special type of project that is not intended to be run on its own but integrated into another
@@ -27,10 +27,10 @@ learn more about functions, check [this guide](/guides/create/reusable-function)
 
 To create a reusable function project from scratch, execute the following command:
 
-    mvn org.seedstack.tools:seedstack-maven-plugin:scaffold-project -Dtype=function
+    mvn org.seedstack:seedstack-maven-plugin:generate-project -Dtype=function
     
-This will invoke the scaffold-project goal of the SeedStack maven plugin which will select the latest version
-of the SeedStack distribution and use its **function Maven archetype**. The process is interactive and will ask you a few
+This will invoke the generate-project goal of the SeedStack maven plugin which will select the latest version
+of the SeedStack distribution and use its function Maven archetype. The process is interactive and will ask you a few
 questions about the project to be created.
 
 # Result

@@ -76,7 +76,7 @@
 .title-subheader {
     padding: 0 20px 0 20px;
     background-color: #498819;
-    height: 40px;
+    min-height: 40px;
 }
 
 .title-subheader * {
