@@ -37,12 +37,12 @@ package org.mycompany.myapp.domain.model.myaggregate;
 
 public class MyAggregate extends BaseAggregateRoot<UUID> {
 
-	@Identity(handler = UUIDHandler.class)
-	private UUID id;
+    @Identity(handler = UUIDHandler.class)
+    private UUID id;
 	
-	private String name;
-	private MyEntity mySubEntity;
-	private Set<MyEntity> mySubEntities;
+    private String name;
+    private MyEntity mySubEntity;
+    private Set<MyEntity> mySubEntities;
 }
 ```
 
@@ -53,8 +53,8 @@ package org.mycompany.myapp.domain.model.myaggregate;
 
 public class MyEntity extends BaseEntity<UUID> {
 
-	@Identity(handler = SequenceHandler.class)
-	private UUID id;
+    @Identity(handler = SequenceHandler.class)
+    private UUID id;
 }
 ```
 
@@ -83,7 +83,8 @@ import org.seedstack.business.api.domain.GenericFactory;
 import org.seedstack.business.api.domain.annotations.stereotypes.Create;
 
 public interface MyAggregateFactory  extends GenericFactory<MyAggregate> {
-	MyAggregate createMyAggregate(String name);
+    
+    MyAggregate createMyAggregate(String name);
 }
 ```
 
@@ -96,25 +97,24 @@ import org.seedstack.business.api.domain.annotations.stereotypes.Create;
 import org.seedstack.business.core.domain.base.BaseFactory;
 
 public class MyAggregateFactoryDefault extends BaseFactory<MyAggregate>
-		implements MyAggregateFactory {
+        implements MyAggregateFactory {
 
-	@Create
-	@Override
-	public MyAggregate createMyAggregate(String name) {
-		
-		MyAggregate myAggregate = new MyAggregate();
-		myAggregate.setName(name);
-		
-		MyEntity mySubAggregate = createMySubEntity();
-		myAggregate.setMySubAggregate(mySubAggregate);
-		
-		return myAggregate;
-	}
+    @Create
+    @Override
+    public MyAggregate createMyAggregate(String name) {
+        MyAggregate myAggregate = new MyAggregate();
+        myAggregate.setName(name);
 
-	@Create
-	MyEntity createMySubEntity() {
-		return new MyEntity();
-	}
+        MyEntity mySubAggregate = createMySubEntity();
+        myAggregate.setMySubAggregate(mySubAggregate);
+
+        return myAggregate;
+    }
+
+    @Create
+    MyEntity createMySubEntity() {
+        return new MyEntity();
+    }
 }
 ```
 
@@ -134,16 +134,17 @@ entities (id attribute annotated with `@Identity`) as in following test.
 ```
 @RunWith(SeedITRunner.class)
 public class IdentityServiceIT {
-	@Inject
-	IdentityService identityService;
+
+    @Inject
+    IdentityService identityService;
 	
-	@Test
-	public void identify_entity() {
-		MyAggregate myAggregate = new MyAggregate();
-		identityService.identify(myAggregate);
-		Assertions.assertThat(myAggregate.getEntityId()).isNotNull();
-	}
-	
+    @Test
+    public void identify_entity() {
+        MyAggregate myAggregate = new MyAggregate();
+        identityService.identify(myAggregate);
+        Assertions.assertThat(myAggregate.getEntityId()).isNotNull();
+    }
+
     ...
 }
 ```
@@ -165,13 +166,12 @@ import org.seedstack.business.api.domain.base.BaseEntity;
 import org.seedstack.business.api.domain.identity.IdentityHandler;
 
 @Named("timestamp-id")
-public class TimestampIdentityHandler implements IdentityHandler<BaseEntity<Long>, Long>{
-	@Override
-	public Long handle(BaseEntity<Long> entity,
-			Map<String, String> entityConfiguration) {
-		return new Date().getTime();
-	}
+public class TimestampIdentityHandler implements IdentityHandler<BaseEntity<Long>, Long> {
 
+    @Override
+    public Long handle(BaseEntity<Long> entity, Map<String, String> entityConfig) {
+        return new Date().getTime();
+    }
 }
 ```
 
