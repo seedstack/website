@@ -17,11 +17,11 @@ menu:
 Fully testing REST resources requires web integration test support as described
 [here](../../testing/integration-web). Basic steps are:
 
-* Test class has to extend `AbstractSeedWebIT` in order to launch an integration test with Arquillian.
-* Test class has to contain a method to package the deployed WAR.
-* Finally you can write your test method.
+* Test class has to extend `AbstractSeedWebIT` in order to launch an integration test with Arquillian
+* Test class has to contain a method to package the deployed WAR
+* Finally you can write your test method
 
-For example :
+For example:
 
     public class ProductsResourceIT extends AbstractSeedWebIT {
         @Deployment
@@ -40,15 +40,17 @@ For example :
             obj.put("price", 200.0);
     
             //assert response code
-            String response = expect().statusCode(201).given().
-                    header("Accept", "application/json").header("Content-Type", "application/json").
-                    body(obj.toString()).post(baseURL.toString() + "rest/products/").asString();
+            String response = expect().statusCode(201).given()
+                    .header("Accept", "application/json")
+                    .header("Content-Type", "application/json")
+                    .body(obj.toString())
+                    .post(baseURL.toString() + "rest/products/")
+                    .asString();
     
             // assert body
             JSONAssert.assertEquals(obj, new JSONObject(response), false);
         }
     }
-
 
 This example uses two libraries for easy REST testing:
 
