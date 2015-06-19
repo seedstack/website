@@ -21,15 +21,13 @@ sections:
     document.addEventListener('seedstack', function() {
         var query = seedstack.strings.parseQueryString(location);
 
-        $('.title-subheader h3 > a').text('Most relevant results for « ' + query.q + ' »');
-
         seedstack.searchService.search(query.q, function (results) {
             var $inner = $('.inner-results');
 
             if (!results.length) {
-                $inner.append(
-                        '<h3>No search results.</h3>'
-                );
+                $inner.append('<h3>No search results.</h3>');
+            } else {
+                $('.title-subheader h3 > a').text('Most relevant results for « ' + query.q + ' »');
             }
 
             $inner.append(
@@ -37,7 +35,7 @@ sections:
                     '<div class="input-group animated fadeInDown">' +
                     '<input id="search-again-field" type="text" class="form-control" placeholder="Search again" name="q">' +
                     '<span class="input-group-btn">' +
-                    '<button class="btn-u" type="button">Go</button>' +
+                    '<button class="btn-u" type="submit">Go</button>' +
                     '</span>' +
                     '</div>' +
                     '</form>' +

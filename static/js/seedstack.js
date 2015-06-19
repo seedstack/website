@@ -143,6 +143,8 @@
                         if (typeof callback === 'function') {
                             callback();
                         }
+                    }).fail(function() {
+                        console.error("unable to fetch index");
                     });
                 }
             } else {
@@ -179,5 +181,14 @@
         };
     })();
 
-    document.dispatchEvent(new CustomEvent('seedstack'));
+    var event;
+    try {
+        event = new CustomEvent('seedstack')
+    } catch(e) {
+        // older browsers
+        event = document.createEvent('CustomEvent');
+        event.initCustomEvent('seedstack', true, false, null);
+    }
+    document.dispatchEvent(event);
+
 })(window.seedstack = {});
