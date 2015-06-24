@@ -120,9 +120,9 @@ Predefined commands:
       
 Usage:
 
-	ssh -t admin@localhost -p 2222 "core:export" > data.yaml
+	ssh -t admin@localhost -p 2222 "core:export" > data.json
 
-	ssh -t admin@localhost -p 2222 "core:import" < data.yaml
+	ssh -t admin@localhost -p 2222 "core:import" < data.json
 
 # DataManager
 
