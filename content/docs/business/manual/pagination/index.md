@@ -58,10 +58,11 @@ For instance create the following interface:
 
 Implement it as follows:
 
-     public class Dto1SimpleJpaFinder extends BaseSimpleJpaFinder<Dto1, Map<String, Object>> implements Dto1Finder {
+    public class Dto1SimpleJpaFinder extends BaseSimpleJpaFinder<Dto1, Map<String, Object>> 
+        implements Dto1Finder {
 
         @Inject
-        EntityManager entityManager;
+        private EntityManager entityManager;
 
         @Override
         protected List<Dto1> computeResultList(Range range , Map<String,Object> criteria) {
