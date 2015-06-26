@@ -58,7 +58,7 @@ public class MyEntity extends BaseEntity<UUID> {
 }
 ```
 
-`@Identity` annotation has to apply on the Entity identity attribute. This annotation takes tow arguments:
+`@Identity` annotation has to apply on the Entity identity attribute. This annotation takes two arguments:
 
 - `handler`: strategy implementation
 - `source`: a String that can be used in a custom handler. For instance, it could provide a SEQUENCE name for DB.
