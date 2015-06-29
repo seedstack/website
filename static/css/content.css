@@ -184,3 +184,7 @@
 .doc-content .callout-info h4 {
     color: #72c02c;
 }
+
+.doc-content .highlight {
+    background-color: #FFFF88;
+}

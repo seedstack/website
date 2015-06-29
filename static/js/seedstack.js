@@ -3,7 +3,7 @@
         parseQueryString: function (value) {
             var query = {};
             value.search.substr(1).split("&").forEach(function (item) {
-                var k = item.split("=")[0], v = decodeURIComponent(item.split("=")[1]);
+                var k = item.split("=")[0], v = decodeURIComponent(item.split("=")[1]).replace(/\+/g, ' ');
                 (k in query) ? query[k].push(v) : query[k] = [v]
             });
 
@@ -93,65 +93,50 @@
 
     seedstack.searchService = (function initializeIndex() {
         var lunrIndex,
-            pagesIndex;
+            metadata;
 
         function ensureInitialized(callback) {
-            function buildIndex(data) {
-                lunrIndex = lunr(function () {
-                    this.field('title', {boost: 10});
-                    this.field('tags', {boost: 5});
-                    this.field('content');
-                    this.ref('href');
-                });
-
-                $.each(data, function (idx, doc) {
-                    lunrIndex.add(doc);
-                });
-            }
-
             if (!lunrIndex) {
-                var cachedData = localStorage.getItem("pagesIndex");
+                var searchIndexTimestamp = localStorage.getItem("searchIndexTimestamp");
 
-                if (cachedData) {
-                    try {
-                        pagesIndex = JSON.parse(cachedData);
-                        buildIndex(pagesIndex);
-                    } catch (e) {
-                        localStorage.removeItem("pagesIndex");
-                        throw Error("unable to build index from cache: " + e.message)
-                    }
-
-                    console.info("built search index from cache");
-
-                    if (typeof callback === 'function') {
-                        callback();
-                    }
-                } else {
+                if (!searchIndexTimestamp || (new Date()).getTime() - searchIndexTimestamp > 86400 * 1000) {
+                    console.log('fetching and building search index');
                     $.getJSON("/lunr-index.json", function (fetched) {
-                        try {
-                            localStorage.setItem("pagesIndex", JSON.stringify(fetched));
-                            pagesIndex = fetched;
-                            buildIndex(fetched);
-                        } catch (e) {
-                            localStorage.removeItem("pagesIndex");
-                            throw Error("unable to build index: " + e.message)
-                        }
+                        lunrIndex = lunr(function () {
+                            this.field('title', {boost: 10});
+                            this.field('tags', {boost: 5});
+                            this.field('content');
+                            this.ref('href');
+                        });
 
-                        console.info("initialized search index with " + fetched.length + " documents");
+                        $.each(fetched, function (dummy, doc) {
+                            lunrIndex.add(doc);
+                        });
 
-                        if (typeof callback === 'function') {
-                            callback();
-                        }
+                        metadata = fetched.map(function (doc) {
+                            delete doc.content;
+                            return doc;
+                        });
+
+                        localStorage.setItem("searchMetadata", JSON.stringify(metadata));
+                        localStorage.setItem("searchIndex", JSON.stringify(lunrIndex));
+                        localStorage.setItem("searchIndexTimestamp", (new Date()).getTime());
+
+                        callback();
                     }).fail(function () {
                         console.error("unable to fetch index");
                     });
-                }
-            } else {
-                if (typeof callback === 'function') {
+                } else {
+                    console.log('loading search index from cache');
+                    metadata = JSON.parse(localStorage.getItem("searchMetadata"));
+                    lunrIndex = lunr.Index.load(JSON.parse(localStorage.getItem("searchIndex")));
                     callback();
                 }
             }
         }
+
+        // remove old index, TODO: remove in a few months from 2015-06-29
+        localStorage.removeItem("pagesIndex");
 
         return {
             warm: function (callback) {
@@ -159,21 +144,21 @@
             },
 
             clear: function () {
-                localStorage.removeItem("pagesIndex");
+                localStorage.removeItem("searchMetadata");
+                localStorage.removeItem("searchIndex");
+                localStorage.removeItem("searchIndexTimestamp");
                 lunrIndex = undefined;
-                pagesIndex = undefined;
+                metadata = undefined;
             },
 
             search: function (q, callback) {
                 ensureInitialized(function () {
                     if (typeof callback === 'function') {
-                        var results = lunrIndex.search(q).map(function (result) {
-                            return pagesIndex.filter(function (page) {
+                        callback(lunrIndex.search(q).map(function (result) {
+                            return metadata.filter(function (page) {
                                 return page.href === result.ref;
                             })[0];
-                        });
-
-                        callback(results);
+                        }));
                     }
                 });
             }
