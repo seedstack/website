@@ -1,34 +1,33 @@
 (function (seedstack) {
-    seedstack.state = {};
-    seedstack.strings = {};
+    seedstack.strings = {
+        parseQueryString: function (value) {
+            var query = {};
+            value.search.substr(1).split("&").forEach(function (item) {
+                var k = item.split("=")[0], v = decodeURIComponent(item.split("=")[1]);
+                (k in query) ? query[k].push(v) : query[k] = [v]
+            });
 
-    seedstack.strings.parseQueryString = function (value) {
-        var query = {};
-        value.search.substr(1).split("&").forEach(function (item) {
-            var k = item.split("=")[0], v = decodeURIComponent(item.split("=")[1]);
-            (k in query) ? query[k].push(v) : query[k] = [v]
-        });
+            return query;
+        },
 
-        return query;
-    };
+        toTitleCase: function (value) {
+            var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|vs?\.?|via)$/i;
 
-    seedstack.strings.toTitleCase = function (value) {
-        var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|vs?\.?|via)$/i;
+            return value.replace(/[A-Za-z0-9\u00C0-\u00FF]+[^\s-]*/g, function (match, index, title) {
+                if (index > 0 && index + match.length !== title.length &&
+                    match.search(smallWords) > -1 && title.charAt(index - 2) !== ":" &&
+                    (title.charAt(index + match.length) !== '-' || title.charAt(index - 1) === '-') &&
+                    title.charAt(index - 1).search(/[^\s-]/) < 0) {
+                    return match.toLowerCase();
+                }
 
-        return value.replace(/[A-Za-z0-9\u00C0-\u00FF]+[^\s-]*/g, function (match, index, title) {
-            if (index > 0 && index + match.length !== title.length &&
-                match.search(smallWords) > -1 && title.charAt(index - 2) !== ":" &&
-                (title.charAt(index + match.length) !== '-' || title.charAt(index - 1) === '-') &&
-                title.charAt(index - 1).search(/[^\s-]/) < 0) {
-                return match.toLowerCase();
-            }
+                if (match.substr(1).search(/[A-Z]|\../) > -1) {
+                    return match;
+                }
 
-            if (match.substr(1).search(/[A-Z]|\../) > -1) {
-                return match;
-            }
-
-            return match.charAt(0).toUpperCase() + match.substr(1);
-        });
+                return match.charAt(0).toUpperCase() + match.substr(1);
+            });
+        }
     };
 
     seedstack.ui = {
@@ -44,15 +43,15 @@
             $('.search-btn').addClass('fa-search').removeClass('fa-times');
         },
 
-        openHelp: function() {
+        openHelp: function () {
             $('#hotkeys-modal').modal('show');
         },
 
-        closeHelp: function() {
+        closeHelp: function () {
             $('#hotkeys-modal').modal('hide');
         },
 
-        showAllShortcuts: function() {
+        showAllShortcuts: function () {
             $('.hidden-shortcuts').show();
             $('#show-all-shortcuts').hide();
         },
@@ -143,7 +142,7 @@
                         if (typeof callback === 'function') {
                             callback();
                         }
-                    }).fail(function() {
+                    }).fail(function () {
                         console.error("unable to fetch index");
                     });
                 }
@@ -184,11 +183,11 @@
     var event;
     try {
         event = new CustomEvent('seedstack')
-    } catch(e) {
+    } catch (e) {
         // older browsers
         event = document.createEvent('CustomEvent');
         event.initCustomEvent('seedstack', true, false, null);
     }
     document.dispatchEvent(event);
 
-})(window.seedstack = {});
+})(window.seedstack);

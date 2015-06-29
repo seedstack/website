@@ -4,20 +4,6 @@
 @import url('./layout.css');
 @import url('./colors.css');
 
-@font-face {
-    font-family: 'Source Code Pro';
-    font-weight: normal;
-    font-style: normal;
-    src: url('../fonts/source-code-pro-regular.ttf');
-}
-
-@font-face {
-    font-family: 'Bitter';
-    font-weight: bold;
-    font-style: normal;
-    src: url('../fonts/bitter-bold.otf');
-}
-
 html {
     overflow-y: scroll;
 }
