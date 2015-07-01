@@ -269,7 +269,7 @@ The value of `action1.key` is the value of `VK_CANCEL` constant retrieved from `
 
 # Configuration override
 
-Nominal configuration can now be overridden explicitly using resources names ending with `*.override.properties` and 
+Nominal configuration can be overridden explicitly using resources names ending with `*.override.properties` and 
 `*.override.props`. Nominal and override configuration are loaded completely separately and cannot interact with each
 other except in the following ways:
 
