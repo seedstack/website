@@ -1,5 +1,5 @@
 ---
-title: "Security overview"
+title: "Overview"
 type: "manual"
 zones:
     - "Seed"
@@ -7,59 +7,82 @@ sections:
     - "SeedSecurity"
 tags:
     - "security"
-    - "maven"
-    - "realm"
-    - "permission"
-    - "role"
-    - "filter"
+    - "authentication"
+    - "authorization"
+    - "access control"
 menu:
     SeedSecurity:
         weight: 10
 ---
 
-Seed security support brings logical security to your applications with easy to use and configure:
+Seed provides application security through a powerful security model, which is equally easy to configure and to enforce.
+It takes charge of the following tasks:
 
-* Identification (eg. id, name),
-* Authentication (eg. password),
-* Authorization (eg. roles, permissions).
+* Identification (provides the identity of a subject),
+* Authentication (verifies the subject identity),
+* Authorization (defines which roles and permissions a subject can have),
+* Access-control (enforces access restrictions to entry-points and/or to any arbitrary code). 
 
-If you need Java based security in your applicative module, you can use the following maven dependency :
+To enable security to your project, you need to add the following Maven dependency:
 
     <dependency>
         <groupId>org.seedstack.seed</groupId>
         <artifactId>seed-security-support-core</artifactId>
     </dependency>
 
-Security extensions for various execution environments are provided in other Seed supports. One of the most useful
-is the Web security extension available [here](../web/security).
+{{% callout warning %}}
+This dependency provides all the security features described above but only on code. Specific entry-point protection is 
+provided in various Seed modules. **In particular, be sure to read the documentation about the [Web security](../web/security)
+module to enforce access control on HTTP entry-points**.
+{{% /callout %}}
 
-# Concepts
+{{% callout info %}}
+The internal security engine is [Apache Shiro](http://shiro.apache.org/). Seed provides additional benefits on top of Shiro
+such as:
 
-## Realm
+* Easy, unified configuration.
+* Built-in security realms such as LDAP, X509 certificate or configuration-based.
+* A plugin mechanism to dynamically register additional entry point security.
+* Security scopes which restrict roles and permissions to specified scopes, like a geographical area.
+* Data security which can nullify or obfuscate object attributes based on subject authorizations.
+{{% /callout %}}
 
-A security realm is a mechanism used for protecting application resources.
-A `Realm` is a component of Seed security support that handles security data includind users, roles and permissions.
+# Definitions
 
-## Permission
+## Subject
 
-Permissions are the most atomic level of a security policy. Permissions define what can be done in your application. 
-A well formed permission statement describes what actions are available on a specific ressource or a set of resources.
+A *subject* is defined as any entity that request access to an *object*. For instance, subject are often end-users which
+request to access a specific resource through a User-Interface. But subjects can really be anything like a remote computer
+or a local program.  
 
-For example, "drink beverage" is a permission, "print document" is another one as well as "print document on printer
-MUIPCC". These permissions can be easily defined by using wildcard notation :
+## Principal
 
-* drink a beverage -> beverage:drink
-* print a document -> document:print
-* light a document on fire -> document:lighOnFire
-* print anything on MUIPCC -> *:print:MUIPCC
-* do whatever you want with a document -> document:*
+A *principal* is a defining characteristic of a subject that can be uniquely identified, like an identifier, a name,
+a social-security number, a language, etc...
+ 
+## User
 
-## Role
+A *user* is a specific kind of subject that is defined by principals usually referring to a human operator, like a name
+or a user-identifier.
 
-A Role is a set of permissions. If a user is granted a Role, the user is thereby granted all the Permissions defined in this Role.
+# Tasks
+ 
+## Identification
 
-## Web filters
+Identification is the process of uniquely tracking a subject across its interactions with the system. 
 
-In a Web environment (on a JEE server) you can define a Filter chain on URLs of your application to apply security.
-For example you can add a Basic Auth Filter or add a Filter to check users' Role/Permission. See the dedicated web 
-[documentation](../web/security#security-filters) on this subject.
+## Authentication
+
+Authentication is the process of verifying the subject identity by validating a proof of identity. This is usually done 
+by submitting a principal identifying the subject (like a user-identifier) and a proof of identity that the system 
+understands and trusts, such as a password, a certificate or any other mean. 
+
+## Authorization
+
+Authorization is the process of determining an access policy for a subject. This is done by compiling all granted rights
+into an access policy.
+
+## Access control
+
+Access control is the process of verifying the authorizations of a subject relative to an object. It enforces the policy
+that is used to determine *who* has access to *what*.

@@ -138,7 +138,7 @@ class:
 Note the usage of the `@Logging` annotation instead of `@Inject`. SeedStack doesn't rely heavily on custom injection, using
 standard injection wherever possible.
 
-# Method interceptions
+# Method interception
 
 To complement dependency injection, method interception is sometimes used in SeedStack. It allows to execute code each
 time a *matching* method is invoked. It is suitable for cross cutting concerns ("aspects") and is notably used, among

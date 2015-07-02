@@ -15,10 +15,11 @@ menu:
         weight: 50
 ---
 
-The goal of the security on data is to protect the data exposed by an application. It will take data representations 
-and obfuscate them when the user is not allowed to see them according to its roles and permissions.
+The goal of the security on data is to protect the data exposed by an application. It will take data-holding classes 
+and obfuscate them according to the current subject authorizations. For instance, an account number `79927391338710` could 
+be transformed into `799273****8710`. 
 
-> For instance, an account number `79927391338710` could be transformed into `799273****8710`.
+# Usage
 
 The security on data can be applied by using the `DataSecurityService` as follows:
 

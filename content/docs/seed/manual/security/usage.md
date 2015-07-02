@@ -16,65 +16,102 @@ menu:
         weight: 30
 ---
 
-This document describes how to interact with security credentials and attributes of a user in your code: 
+Access policy enforcement is achieved by using the Seed security API to protect specific sections of the application code. 
+Any code can be secured, although restrictions may apply in some cases.
 
-* principals (eg. name, etc.)
-* role(s)
-* permission(s)
-* etc
+# Enforcement strategy
 
-# Declarative API
+It is recommended to follow a well-defined strategy in placing security checks in application code. Failing to do so may
+lead to unexpected security holes, as *one missing or incomplete check may be enough to compromise the entire application*.
+Any well thought-out strategy will do, but you can consider applying one of the following (or both):
 
-Annotate your methods to only authorize users with required roles and/or permissions:
+* **Entry-point security**. This strategy consists in only securing the code that allow to interact with the application.
+This includes REST resources, servlets and filters, Web-Services, administrative commands, etc... Any applicative code
+can theoretically only be reached through one of these entry points, so this strategy may be enough for most
+applications.
+* **In-depth security**. This strategy consists in independently securing each application behavior, regardless of its
+depth in the call hierarchy. This includes all the entry points of the previous strategy as well as services, repositories,
+finders, etc... It ensures that no behavior can be executed without the appropriate authorizations, regardless how it is
+accessed. This strategy provides higher security, especially in applications with a lot of entry points or when entry 
+points are often modified, but is costlier to implement. This cost can be mitigated by limiting the checks to critical 
+application behavior only.
 
-	import org.seedstack.seed.security.api.annotations.RequiresRoles;
-	import org.seedstack.seed.security.api.annotations.RequiresPermissions;
+# Annotation-based checks
 
-	@RequiresRoles("administrator")
-	public void deleteUser(User user) {
-		//This method is called only if user has role administrator
-		//else throws AuthorizationException
-	}
+There are two annotations that checks for authorizations before allowing method execution:
 
-	@RequiresPermissions("account:create")
-	public void createAccount(Account account) {
-		//This method is called only if user has permission account:create
-		//else throws AuthorizationException
-	}
+* `@RequiresRoles` which checks that the current subject has one or more role(s) before allowing to execute the method.
+* `@RequiresPermissions` which checks that the current subject has one or more permission(s) before allowing to execute
+the method.
 
-# Programmatic API
+When the security check fails, an exception of type `org.seedstack.seed.security.api.exceptions.AuthorizationException`
+is thrown.
 
-## SecuritySupport
+{{% callout warning %}}
+Note that these annotation-based security checks are implemented with **method interception** and are subject to 
+**[its limitations](../../../concepts/dependency-injection#method-interception)**.
+{{% /callout %}}
 
-Inject `SecuritySupport` in your class:
+Examples:
+```java
+@RequiresRoles("administrator")
+public void deleteUser(User user) {
+    // This method is executed only if current subject has role 'administrator'
+    // When not, an AuthorizationException is thrown
+}
 
-	import org.seedstack.seed.security.api.SecuritySupport;
-	...
+@RequiresPermissions("account:create")
+public void createAccount(Account account) {
+    // This method is executed only if current subject has permission 'account:create'
+    // When not, an AuthorizationException is thrown
+}
+```
+
+# Programmatic checks
+
+If annotation-based security checks cannot be used, or if an programmatic style is preferred, the 
+`org.seedstack.seed.security.api.SecuritySupport` facade can be used. It provides various methods to explicitly check for 
+current subject authorizations. It is more versatile than annotation-based checks and it is required when checking 
+dynamically generated authorizations. To use it, simply inject it where needed:
+
 	@Inject
 	private SecuritySupport securitySupport;
 
-## User principals
+To check if the current subject, if any, is authenticated:
 
-Note that `SecuritySupport` provides user `Principals` through `PrincipalProvider`. For example :
+    if (securitySupport.isAuthenticated()) {
+        ...
+    }
+    
+To check if the current subject, if any, has a specific role:
 
-	String userId = securitySupport.getSimplePrincipalByName(Principals.IDENTITY).getValue();
-	String firstName = securitySupport.getSimplePrincipalByName(Principals.FIRST_NAME).getValue();
+    if (securitySupport.hasRole("jedi")) {
+        ...
+    }
 
-## Check authorizations
+To check if the current subject, if any, has a specific permission:
 
-Get user's authorizations (roles, permissions) with `hasRole()`, `checkPermission()` (throws AuthorizationException) and `isPermitted()` methods:
+	if (securitySupport.isPermitted("jediCouncil:attend")) {
+		...
+    }
+ 
+{{% callout info %}}
+There are multiple variations for each of these methods, and many more possibilities. Please refer to the 
+[javadoc](http://www.seedstack.org/seed/org/seedstack/seed/security/api/SecuritySupport.html) for more information.
+{{% /callout %}}
 
-	if(securitySupport.isAuthenticated())
-		//he is authenticated !
-	if(securitySupport.hasRole("jedi"))
-		//he is a jedi !
-	if(securitySupport.isPermitted("printer:print:MUIPCC"))
-		//he can print on printer MUIPCC !
-	try{
-		securitySupport.checkPermission("beverage:drink");
-		//do some stuff for people who can drink a beverage
-	}catch(AuthorizationException e){
-		//can't drink beverage
-	}
-	if(securitySupport.isPermitted(new DomainPermission("MU", "part:delete"))
-		//he can delete a part on the domain MU !
+# Other checks
+ 
+Seed security can provide additional ways to verify security depending on the technology used to access the application. 
+For instance, in a Web application, HTTP requests can be filtered to execute security tasks or checks. For more information
+about applying HTTP security filtering, refer to [this documentation](../../web/security).
+
+# Access subject principals
+
+Note that `SecuritySupport` provides access to current subject Principals:
+
+	// Get current subject id
+	securitySupport.getSimplePrincipalByName(Principals.IDENTITY).getValue();
+	
+	// Get current subject first name, if any
+	securitySupport.getSimplePrincipalByName(Principals.FIRST_NAME).getValue();
