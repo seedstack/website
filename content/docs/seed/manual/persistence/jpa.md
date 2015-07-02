@@ -91,7 +91,7 @@ property.name.of.the.property2 = value-of-the-property2
 ## Without persistence.xml
 
 You must first define a JDBC datasource in the configuration. To do so, please refer to the [JDBC support configuration]
-(jdbc). You can then declare a JPA unit that will refer to this datasource by its name:
+(../jdbc). You can then declare a JPA unit that will refer to this datasource by its name:
  
 ```ini
 [org.seedstack.seed.persistence.jpa.unit.my-jpa-unit]
