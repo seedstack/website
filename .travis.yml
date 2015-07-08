@@ -14,5 +14,5 @@ script:
   - ./build_diagrams.sh
   - hugo
   - grunt lunr-index
-  - "[[ $TRAVIS_PULL_REQUEST == \"false\" && $TRAVIS_BRANCH == \"master\" ]] && ./deploy_ghpages.sh"
+  - "[[ $TRAVIS_PULL_REQUEST == \"false\" && $TRAVIS_BRANCH == \"master\" ]] && ./deploy_ghpages.sh || :"
   - "[[ $TRAVIS_PULL_REQUEST == \"false\" && $TRAVIS_BRANCH == \"master\" ]] && curl http://www.google.com/webmasters/tools/ping?sitemap=http%3A%2F%2Fwww.seedstack.org%2Fsitemap.xml > /dev/null || :"
