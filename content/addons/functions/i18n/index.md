@@ -17,7 +17,7 @@ i18n function to your project, add the following dependency to your Web module p
 
     <dependency>
         <groupId>org.seedstack.functions.i18n</groupId>
-        <artifactId>seed-i18n-function-web</artifactId>
+        <artifactId>i18n-function-web</artifactId>
     </dependency>
 
 # Locales
