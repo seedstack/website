@@ -4,6 +4,7 @@
 {{ partial "head.html" . }}
 </head>
 <body>
+{{ partial "initial-scripts.html" . }}
 {{ $paginator := .Paginator }}
 <div id="header">
     {{ partial "top-menu.html" . }}
