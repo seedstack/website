@@ -241,6 +241,12 @@ kbd {
     padding: 5px;
 }
 
+.github-link {
+    padding-right: 50px;
+    float: right;
+    vertical-align: top;
+}
+
 @media (max-width: 767px) {
     .navbar > .container .navbar-brand {
         padding-left: 51px;
@@ -249,7 +255,7 @@ kbd {
 
 @media (max-width: 600px) {
     .title-header h1 {
-        font-size: 50px !important;
+        font-size: 55px !important;
     }
 
     .btn-download-example {
@@ -258,6 +264,11 @@ kbd {
 }
 
 @media (max-width: 992px) {
+    .github-link {
+        padding-right: 0;
+        float: none;
+    }
+
     .title-subheader h3.active a {
         background: none;
     }

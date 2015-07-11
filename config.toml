@@ -129,6 +129,11 @@ MetaDataFormat = "yaml"
   icon = "fa fa-cubes"
   path = "project-types"
 
+[params.section.GettingStartedTutorial]
+  label = "Tutorial"
+  icon = "fa fa-graduation-cap"
+  path = "tutorial"
+
 #####################################
 #### Business framework sections ####
 #####################################
