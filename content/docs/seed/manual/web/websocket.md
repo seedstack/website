@@ -57,7 +57,8 @@ public class ChatEndpoint {
     }
 
     @OnMessage
-    public void message(String message, Session client) throws IOException, EncodeException {
+    public void message(String message, Session client) 
+    throws IOException, EncodeException {
         for (Session peer : client.getOpenSessions()) {
             peer.getBasicRemote().sendText(echoService.echo(message));
         }
@@ -65,7 +66,8 @@ public class ChatEndpoint {
 
     @OnClose
     public void onClose(Session session, CloseReason closeReason) {
-        logger.info(String.format("Session %s close because of %s", session.getId(), closeReason));
+        logger.info(String.format("Session %s close because of %s", 
+            session.getId(), closeReason));
     }
 
     @OnError
