@@ -1,5 +1,5 @@
 ---
-title: "Core overview"
+title: "Overview"
 type: "manual"
 zones:
     - "Seed"

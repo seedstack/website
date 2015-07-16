@@ -1,5 +1,5 @@
 ---
-title: "Cache overview"
+title: "Overview"
 type: "manual"
 zones:
     - "Seed"

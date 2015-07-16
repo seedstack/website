@@ -1,5 +1,5 @@
 ---
-title: "Validation overview"
+title: "Overview"
 type: "manual"
 zones:
     - "Seed"

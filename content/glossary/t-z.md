@@ -1,5 +1,5 @@
 ---
-title: "Definitions from T to Z"
+title: "T-Z"
 type: "home"
 zones:
     - "Glossary"

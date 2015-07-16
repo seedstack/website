@@ -100,9 +100,9 @@ MetaDataFormat = "yaml"
   icon = "fa fa-community"
   path = ""
 
-[params.section.OverviewTimeline]
-  label = "Timeline"
-  icon = "fa fa-history"
+[params.section.OverviewRoadmap]
+  label = "Roadmap"
+  icon = "fa fa-road"
   path = ""
     
 [params.section.OverviewFaq]
@@ -492,7 +492,7 @@ MetaDataFormat = "yaml"
   path = ""
 
 [params.section.DomainSample]
-  label = "E-commerce domain"
+  label = "Domain sample"
   icon = "fa fa-cubes"
   path = "domain"
 

@@ -1,5 +1,5 @@
 ---
-title: "Definitions from N to S"
+title: "N-S"
 type: "home"
 zones:
     - "Glossary"

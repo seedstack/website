@@ -1,5 +1,5 @@
 ---
-title: "W20 bridge overview"
+title: "Overview"
 type: "addon"
 zones:
     - "Addons"

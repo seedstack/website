@@ -1,5 +1,5 @@
 ---
-title: "REST overview"
+title: "Overview"
 type: "manual"
 zones:
     - "Seed"

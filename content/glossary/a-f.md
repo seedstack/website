@@ -1,5 +1,5 @@
 ---
-title: "Definitions from A to F"
+title: "A-F"
 type: "home"
 zones:
     - "Glossary"

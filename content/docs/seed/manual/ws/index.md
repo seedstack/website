@@ -1,5 +1,5 @@
 ---
-title: "Web-Services overview"
+title: "Overview"
 type: "manual"
 zones:
     - "Seed"

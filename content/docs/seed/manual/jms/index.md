@@ -1,5 +1,5 @@
 ---
-title: "JMS overview"
+title: "Overview"
 type: "manual"
 zones:
     - "Seed"

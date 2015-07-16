@@ -1,5 +1,5 @@
 ---
-title: "Spring bridge overview"
+title: "Overview"
 type: "addon"
 zones:
     - "Addons"

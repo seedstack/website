@@ -6,7 +6,7 @@ zones:
 sections:
     - "CreateGuides"
 subsections:
-    - "Reusable function"
+    - "DDD pitfalls and tips"
 menu:
     DDDPitfallsAndTipsGuide:
         weight: 40

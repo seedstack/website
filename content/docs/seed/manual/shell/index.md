@@ -1,5 +1,5 @@
 ---
-title: "Shell overview"
+title: "Overview"
 type: "manual"
 zones:
     - "Seed"

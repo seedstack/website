@@ -1,5 +1,5 @@
 ---
-title: "Spring batch overview"
+title: "Overview"
 type: "addon"
 zones:
     - "Addons"

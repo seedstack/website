@@ -1,5 +1,5 @@
 ---
-title: "Persistence overview"
+title: "Overview"
 type: "manual"
 zones:
     - "Seed"

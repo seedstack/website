@@ -1,5 +1,5 @@
 ---
-title: "Transactions overview"
+title: "Overview"
 type: "manual"
 zones:
     - "Seed"

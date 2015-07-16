@@ -1,5 +1,5 @@
 ---
-title: "Import/export overview"
+title: "Overview"
 type: "addon"
 zones:
     - "Addons"

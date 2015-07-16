@@ -1,5 +1,5 @@
 ---
-title: "Batch monitoring overview"
+title: "Overview"
 type: "addon"
 zones:
     - "Addons"

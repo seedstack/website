@@ -1,5 +1,5 @@
 ---
-title: "Definitions from G to M"
+title: "G-M"
 type: "home"
 zones:
     - "Glossary"
