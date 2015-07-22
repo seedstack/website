@@ -100,6 +100,7 @@ with the following configuration:
 role1 = permission1a:permission1b, permission2a:permission2b
 role2 = permission3, permission4a:permission4b
 role3 = permission5
+role4 = permission6
 ```
 
 This configuration assign permissions listed in values to their respective roles as keys. This is the default role/permission
@@ -131,6 +132,7 @@ This role mapping uses the application configuration to do the mapping:
 role1 = ORG.APP.ROLE1, ORG.GLOBAL.ADMIN
 role2 = ORG.APP.ROLE2
 role3 = ORG.APP.{location}.ROLE3
+role4 = *
 ```
 
 This configuration defines the following mappings:
@@ -139,6 +141,7 @@ This configuration defines the following mappings:
 * Application-role `role2` is attributed to the subject when the realm provides `ORG.APP.ROLE2`.
 * Application-role `role3` is attributed to the subject when the realm provides `ORG.APP.FR.ROLE3`, where `FR` is converted 
 into a security scope. As such a scoped `role3` is attributed to the subject, which is only valid in `FR` location.
+* Application-role `role4` is attributed to every subject authenticated.
 
 # Example
 
@@ -160,6 +163,7 @@ Anakin = imsodark, SEED.PADAWAN
 jedi = SEED.JEDI
 padawan = SEED.PADAWAN
 teacher = SEED.{location}.TEACHER
+guest = *
 
 [org.seedstack.seed.security.permissions]
 jedi = lightSaber:wield, jediCouncil:attend
@@ -167,4 +171,4 @@ teacher = academy:teach
 padawan = academy:learn
 ```
 
-Note that Obiwan will only have the `academy:teach` permission on `Coruscant` location.
+Note that Obiwan will only have the `academy:teach` permission on `Coruscant` location. Also the `guest` role will be attributed to everyone.
