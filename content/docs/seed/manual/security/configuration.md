@@ -18,7 +18,7 @@ menu:
         weight: 20
 ---
 
-Beyond defining the [security model](../security-model) of the application, the security infrastructure should be
+Beyond defining the [security model](../model) of the application, the security infrastructure should be
 configured.
 
 # Realm configuration
