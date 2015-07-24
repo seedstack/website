@@ -33,7 +33,7 @@ All the configuration of the seed support/functions and your application can be 
 - Profiles : properties restricted to a profile are expressed with the `property.name<profile>` syntax. 
 - Macros : a macro is a reference to another key inside a value expressed with the `${...}` syntax.
 
-For more information, see the [documentation of the core support](/docs/seed/core/configuration).
+For more information, see the [documentation of the core support](/docs/seed/manual/core/configuration).
 
 ## Get a property value
 

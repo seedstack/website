@@ -22,8 +22,8 @@ menu:
 Seed JPA persistence support enables your application to interface with any relational database through a JPA-compliant
 ORM. Note that:
 
-* This version doesn't enforce a specific JPA version. It is currently tested with JPA 1.0 and JPA 2.0.
-* This support doesn't specify any ORM implementation. 
+* This version doesn't enforce a specific JPA version. It is currently tested with JPA 1.0, JPA 2.0 and JPA 2.1.
+* This support is compatible with any ORM implementation. 
 
 To add Seed JPA persistence support to your project, use the following Maven dependency:
 
@@ -112,7 +112,7 @@ This will put all the entities scanned in the `org.myorganization.myapp.domain` 
 ### Configuration options
 
 You can specify the type of transactions by using the following configuration
-([more info](http://docs.oracle.com/javaee/6/api/javax/persistence/spi/PersistenceUnitInfo.html#getTransactionType()):
+([more info](http://docs.oracle.com/javaee/6/api/javax/persistence/spi/PersistenceUnitInfo.html#getTransactionType%28%29)):
 
 ```ini
 [org.seedstack.seed.persistence.jpa.unit.my-jpa-unit]
@@ -120,7 +120,7 @@ transaction-type = JTA | RESOURCE_LOCAL
 ```
     
 If you prefer to use XML JPA mapping files instead of annotations you can specify them with the following configuration
-([more info](http://docs.oracle.com/javaee/6/api/javax/persistence/spi/PersistenceUnitInfo.html#getMappingFileNames()):
+([more info](http://docs.oracle.com/javaee/6/api/javax/persistence/spi/PersistenceUnitInfo.html#getMappingFileNames%28%29)):
 
 ```ini
 [org.seedstack.seed.persistence.jpa.unit.my-jpa-unit]
@@ -128,7 +128,7 @@ mapping-files = path/to/mapping/file1.xml, path/to/mapping/file2.xml, ...
 ```
     
 You can specify the validation mode with the following configuration
-([more info](http://docs.oracle.com/javaee/6/api/javax/persistence/spi/PersistenceUnitInfo.html#getValidationMode()):
+([more info](http://docs.oracle.com/javaee/6/api/javax/persistence/spi/PersistenceUnitInfo.html#getValidationMode%28%29)):
 
 ```ini
 [org.seedstack.seed.persistence.jpa.unit.my-jpa-unit]
@@ -136,7 +136,7 @@ validation-mode = path/to/mapping/file1.xml, path/to/mapping/file2.xml, ...
 ```
 
 You can specify the shared cache mode with the following configuration
-([more info](http://docs.oracle.com/javaee/6/api/javax/persistence/spi/PersistenceUnitInfo.html#getSharedCacheMode())):
+([more info](http://docs.oracle.com/javaee/6/api/javax/persistence/spi/PersistenceUnitInfo.html#getSharedCacheMode%28%29)):
 
 ```ini
 [org.seedstack.seed.persistence.jpa.unit.my-jpa-unit]

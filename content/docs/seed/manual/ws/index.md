@@ -30,7 +30,7 @@ In a Web environment you must use the following dependency snippet instead:
 
 # Best practices
 
-* Since classes [generated](maven) from WSDL are both for client and server side, this logic should belong to a shared module. 
+* Since classes [generated](maven-tools) from WSDL are both for client and server side, this logic should belong to a shared module. 
 This module can then be used as a dependency both on client and server side.
 * Keep one source WSDL per Web Service and use `copy-resources` of `maven-resources-plugin` just after generating classes from WSDL. Reasons are:
     * successful code generation means the WSDL is probably valid and generated code match that WSDL

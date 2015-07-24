@@ -582,6 +582,5 @@ Now you should be able to run the scaffold project with tomcat and see the chat 
 ---
 
 {{% callout info %}}
-**Congratulations** you have done your first SEED function ! Don't hesitate to post questions on [Q&A](../qa) if you 
-have some problems with the tutorial. Help will be granted by tutorial alumni.
+**Congratulations** you have built your first SeedStack function add-on!
 {{% /callout %}}

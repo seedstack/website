@@ -315,7 +315,7 @@ MetaDataFormat = "yaml"
 [params.section.SeedTest]
   label = "Testing"
   icon = "fa fa-thumbs-up"
-  path = "manual/test"
+  path = "manual/testing"
 
 [params.section.SeedScheduling]
   label = "Scheduling"

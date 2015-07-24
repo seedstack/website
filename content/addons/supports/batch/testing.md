@@ -16,7 +16,7 @@ menu:
         weight: 40
 ---
 
-For integration test, add SEED integration test support to your project. Check the documentation [here](../../testing/integration).
+For integration test, add SEED integration test support to your project. Check the documentation [here](/docs/seed/manual/testing/integration).
 
 * Following example checks that SEED injection works.
 
