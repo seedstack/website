@@ -1,0 +1,85 @@
+<div class="content-wrapper">
+    <div class="doc-content">
+        <div class="tag-box tag-box-v2 margin-bottom-40">
+        <p>
+            All compatibility tests have been done with docker containers. <img src="/img/docker.png" height="20px"
+                style="float: right; margin-top: -5px;">
+        </p>
+        </div>
+        <p>
+            <strong>The goal is to test SeedStack with different application servers.</strong>
+        </p>
+
+        <p>The functionalities below have been tested in all servers:</p>
+        <ul>
+            <li>JPA with persistence.xml file,</li>
+            <li>JPA with Seed configuration (in a props file so without persistence.xml),</li>
+            <li>Basic REST test.</li>
+        </ul>
+
+        Other tests and other application servers will be added in the future.
+ 
+        <h1>
+            <span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> Application Servers
+        </h1>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">Tomcat</th>
+                    <th class="text-center">Jetty</th>
+                    <th class="text-center">Websphere-liberty</th>
+                    <th class="text-center">Websphere</th>
+                </tr>
+                <tr>
+                    {{ $gitUrl := "http://seedstack.github.io/smoke-tests" }}
+                    {{ $.Scratch.Set "displayType" 1 }}
+
+                    {{ $jsonFile := "tomcat.json" | printf "%s/%s" $gitUrl | printf "%s" }}                    
+                    {{ $.Scratch.Set "jsonFile" $jsonFile }}
+                    {{ $.Scratch.Set "serverName" "tomcat" }}
+                    {{ partial "servers-build.html" . }}
+                    
+                    {{ $jsonFile := "jetty.json" | printf "%s/%s" $gitUrl | printf "%s" }}                    
+                    {{ $.Scratch.Set "jsonFile" $jsonFile }}
+                    {{ $.Scratch.Set "serverName" "jetty" }}
+                    {{ partial "servers-build.html" . }}
+                    
+                    {{ $jsonFile := "websphere-liberty.json" | printf "%s/%s" $gitUrl | printf "%s" }}                    
+                    {{ $.Scratch.Set "jsonFile" $jsonFile }}
+                    {{ $.Scratch.Set "serverName" "websphere-liberty" }}
+                    {{ partial "servers-build.html" . }}
+                    
+                    <th>8.5.5</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {{ $.Scratch.Set "displayType" 2 }}
+                    {{ $jsonFile := "tomcat.json" | printf "%s/%s" $gitUrl | printf "%s" }}                    
+                    {{ $.Scratch.Set "jsonFile" $jsonFile }}
+                    {{ $.Scratch.Set "serverName" "tomcat" }}
+                    {{ partial "servers-build.html" . }}
+                    
+                    {{ $jsonFile := "jetty.json" | printf "%s/%s" $gitUrl | printf "%s" }}                    
+                    {{ $.Scratch.Set "jsonFile" $jsonFile }}
+                    {{ $.Scratch.Set "serverName" "jetty" }}
+                    {{ partial "servers-build.html" . }}
+                    
+                    {{ $jsonFile := "websphere-liberty.json" | printf "%s/%s" $gitUrl | printf "%s" }}                    
+                    {{ $.Scratch.Set "jsonFile" $jsonFile }}
+                    {{ $.Scratch.Set "serverName" "websphere-liberty" }}
+                    {{ partial "servers-build.html" . }}
+                    
+                    <td><span class="label label-success rounded">Success</span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h1>
+            <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> Notes
+        </h1>
+        {{ $.Scratch.Set "jsonFile" "static/servers/notes.json" }}
+        {{ partial "servers-notes.html" . }}
+        
+    </div>
+</div>

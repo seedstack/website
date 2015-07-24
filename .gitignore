@@ -16,3 +16,4 @@ node_modules/
 # generated static content
 static/lunr-index.json
 static/puml
+/.project
