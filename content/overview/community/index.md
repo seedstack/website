@@ -21,7 +21,12 @@ team and other users.
 # Mailing list
 
 You can ask for support on the [Google Group](https://groups.google.com/forum/#!forum/seedstack) or directly on the 
-mailing list by sending an email to [seedstack@googlegroups.com](mailto:seedstack@googlegroups.com).
+mailing list by sending an email to [seedstack@googlegroups.com](mailto:seedstack@googlegroups.com). 
+
+{{% callout info %}}
+Note that you must already belong to the group to be able to participate. To join, go to the [Google Group](https://groups.google.com/forum/#!forum/seedstack)
+and click the "Join" button.
+{{% /callout %}}
  
 # StackOverflow
 

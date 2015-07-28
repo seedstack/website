@@ -1,5 +1,5 @@
 ---
-title: "Users"
+title: "Clients"
 type: "home"
 zones:
     - "Overview"

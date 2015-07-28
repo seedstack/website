@@ -95,6 +95,8 @@
 
 @media (max-width: 991px) {
     .side-menu.affix {
+        margin-top: 20px;
+        top: 0;
         position: relative;
     }
 

@@ -18,18 +18,14 @@ body > #header {
     background-color: white;
 }
 
-body > #header .header .topbar {
-    padding: 0;
-}
-
 body > #content {
     padding-top: 40px;
     padding-bottom: 40px;
-    min-height: calc(100vh - 104px - 229px);
+    min-height: calc(100vh - 112px - 249px);
 }
 
 body.homepage > #content {
-    min-height: calc(100vh - 284px - 229px);
+    min-height: calc(100vh - 292px - 249px);
 }
 
 body.full > #content {
@@ -56,4 +52,11 @@ body > #footer > .footer-v3 > .footer {
     font-size: 14px;
     line-height: 32px;
     background-color: #72c02c;
+}
+
+@media (max-width: 767px) {
+    body > #content {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 }

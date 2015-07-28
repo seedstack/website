@@ -188,3 +188,14 @@
 .doc-content .highlight {
     background-color: #FFFF88;
 }
+
+@media (max-width: 767px) {
+    .content-wrapper {
+        padding: 10px 5px 10px 5px;
+    }
+
+    .doc-content ul, .doc-content ol {
+        margin: 10px 0 10px 0;
+        padding: 20px;
+    }
+}

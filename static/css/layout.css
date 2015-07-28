@@ -32,9 +32,9 @@
     font-family: 'Bitter', sans-serif;
     font-weight: normal;
     color: #f9f9f9;
-    line-height: 90px;
+    line-height: 70px;
     padding: 0;
-    font-size: 90px;
+    font-size: 70px;
     font-style: normal;
     text-shadow: 1px 1px 1px #555;
 }
@@ -63,8 +63,8 @@
 }
 
 .title-header p.bigger {
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 25px;
+    line-height: 35px;
 }
 
 .title-header p i {
@@ -88,6 +88,7 @@
     margin: 0;
     padding: 5px 0 5px 0;
     line-height: 30px;
+    white-space: nowrap;
 }
 
 .title-subheader h3 > img {
@@ -185,6 +186,11 @@
     font-weight: 300;
 }
 
+.navbar-toggle {
+    margin-top: 5px;
+    padding: 5px 10px 5px 10px !important;
+}
+
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
     font-weight: 300;
     font-size: 28px;
@@ -231,6 +237,12 @@ kbd {
     padding: 5px;
 }
 
+@media (max-width: 767px) {
+    .navbar > .container .navbar-brand {
+        padding-left: 51px;
+    }
+}
+
 @media (max-width: 600px) {
     .title-header h1 {
         font-size: 50px !important;
@@ -241,3 +253,8 @@ kbd {
     }
 }
 
+@media (max-width: 992px) {
+    .title-subheader h3.active a {
+        background: none;
+    }
+}
