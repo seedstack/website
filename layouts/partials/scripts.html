@@ -96,6 +96,11 @@
         var query = seedstack.strings.parseQueryString(location);
         if (query.h && query.h.length > 0) {
             $('.doc-content').highlight(query.h);
+            if (query.scroll) {
+                $('html, body').animate({
+                    scrollTop: $('span[class=highlight]:first').offset().top - 20
+                }, 250);
+            }
         }
     });
 </script>

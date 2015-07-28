@@ -25,11 +25,11 @@ body > #header .header .topbar {
 body > #content {
     padding-top: 40px;
     padding-bottom: 40px;
-    min-height: calc(100vh - 100px - 229px);
+    min-height: calc(100vh - 104px - 229px);
 }
 
 body.homepage > #content {
-    min-height: calc(100vh - 280px - 229px);
+    min-height: calc(100vh - 284px - 229px);
 }
 
 body.full > #content {

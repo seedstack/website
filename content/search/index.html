@@ -67,7 +67,7 @@ sections:
                 // Only show the ten first results
                 results.slice(0, 10).forEach(function (result) {
                     $('.inner-results').append(
-                            '<h3><img src="/img/logos/' + result.zone.logo + '"> <a href="' + result.href + (highlight ? '?h=' + highlight : '') + '">' + result.title + '</a></h3>' +
+                            '<h3><img src="/img/logos/' + result.zone.logo + '"> <a href="' + result.href + (highlight ? '?h=' + highlight + '&scroll': '') + '">' + result.title + '</a></h3>' +
                             '<ul class="list-inline up-ul">' +
                             '<li>' +
                             'In <a href="' + result.zone.path + '">' + result.zone.label + '</a>' +
