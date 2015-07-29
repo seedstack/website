@@ -41,7 +41,7 @@ If any other attribute is required, the annotation becomes for instance :
 	
 	@Scheduled(value = "0/2 * * * * ?", taskName = "TASK1", exceptionPolicy = UNSCHEDULE_ALL_TRIGGERS)
 
-`exceptionPolicy` defines the behaviour on `Task`'s exception. Refer to `@Scheduled` JavaDoc for all its attributes. 
+`exceptionPolicy` defines the behaviour on `Task`'s exception. Refer to `@Scheduled` JavaDoc for all its attributes. Refer to <a href="http://quartz-scheduler.org/generated/2.2.1/html/qs-all/#page/Quartz_Scheduler_Documentation_Set%2Fco-trg_crontriggers.html%23" target="_blank">Quartz Documentation</a> for cron expression details.
 
 # Programmatic API
 Inject a `ScheduledTaskBuilderFactory` and programmatically define a scheduled task (not necessarily at application startup) with following DSL:
