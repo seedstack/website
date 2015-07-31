@@ -14,11 +14,9 @@ menu:
         weight: 10
 ---
 
-SEED REST support provides a set of Java APIs for exposing resources according to the Representational State Transfer (REST).
-Resources are created using the JAX-RS specification (and [Jersey](https://jersey.java.net/) its reference implemetation).
-In this page we will present how to use the basic features of
-JAX-RS. Then we will present in the [guide](guide) how to create a
-RESTful API with SEED.
+Seed REST support provides a set of Java APIs for exposing resources according to the Representational State Transfer (REST).
+Resources are created using the JAX-RS specification (and [Jersey](https://jersey.java.net/) its reference implementation).
+This page describes how to use the basic features of JAX-RS. For a detailed explanation on how to create a RESTful API, refer to [this page](restful-api).
 
 To start creating a REST API make sure that you have the following dependency in your project:
 
@@ -30,14 +28,14 @@ To start creating a REST API make sure that you have the following dependency in
 
 # Resources
 
-In the context of JAX-RS, resources are classes annotated with `@Path`. All these classes are automatically detected and registered by SEED.
-This means that you can inject any other classes bound by SEED in your resources. A new resource class instance is created for each request.
+In the context of JAX-RS, resources are classes annotated with `@Path`. All these classes are automatically detected and registered by Seed.
+This means that you can inject any other classes managed by Seed in your resources. A new instance of the resource class is created for each request.
 
 {{% callout info %}}
-In order to avoid possible conflict with static resources, all REST resources are mapped by default to `/rest/`.
+In order to avoid possible conflict with static resources, all REST resources are prefixed by default with `/rest/`.
 {{% /callout %}}
 
-Here is an example of a simple "Hello World" REST resource. This resource is exposed on `/rest/hello`.
+Here is an example of a simple "Hello World" REST resource. This resource is exposed by default on `/rest/hello`.
 
     @Path("/hello")
     public class HelloResource {
@@ -57,8 +55,9 @@ Request the resource:
 
 The reponse will indicate:
 
-    Hello world
-
+```plain
+Hello world
+```
 
 # HTTP binding
 
@@ -104,9 +103,9 @@ public Response createPerson(PersonRepresentation pr) {
 
 # Exception handling
 
-Exception handling is an important part in the design of an API. 
-Because it allow you to provide meaningful status codes and messages to the client and avoid to dump stacktrace in your HTTP response.
-Using JAX-RS there is two ways of handling exception.
+Exception handling is an important part of API design. 
+Carefully designed error handling will allow you to provide meaningful status codes and messages to the client and avoid to dump stacktraces in your HTTP response.
+There are two ways of handling exception with JAX-RS:
 
 * Create a custom exception extending `WebApplicationException`.
 
@@ -139,7 +138,7 @@ All the uncaught `MyBusinessException` will be mapped to an HTTP
 status code `400`.
 
 {{% callout info %}}
-Like for resources, providers are automatically detected and registered by SEED.
+Like resources, providers are automatically detected and registered by Seed.
 {{% /callout %}}
 
 
