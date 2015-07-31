@@ -10,7 +10,7 @@ menu:
         weight: 10
 ---
 
-SeedStack has just arrived on the Open-Source scene and its community is currently  small. Nonetheless we already 
+SeedStack has just arrived on the Open-Source scene. Nonetheless we already 
 have the tools to let people discuss about SeedStack, file issues, ask for help and simply discover the stack together.
   
 # IRC
