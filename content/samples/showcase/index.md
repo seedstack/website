@@ -28,6 +28,6 @@ To run the showcase, you just need to run `mvn install` from the root project an
 `web` module. In any case, the web sub module is a simple WAR, so you may run it from whatever Web server you want.
 
 {{% callout info %}}
-The Showcase can be found on this [GitHub repository](https://github.com/seedstack/showcase). You can deploy the master
+The Showcase can be found on this [GitHub repository](https://github.com/seedstack/store-webapp-sample). You can deploy the master
 to Heroku directly from the README file if you don't want to run it locally. 
 {{% /callout %}}
