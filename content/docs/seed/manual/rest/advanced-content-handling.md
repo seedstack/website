@@ -18,7 +18,7 @@ menu:
 
 ## Send a stream
 
-To send bytes (i.e images) JAX-RS can return special stream :
+To send bytes (like images) JAX-RS can return special stream:
 
      @GET
      @Produces("text/plain")
@@ -55,11 +55,10 @@ To read a data stream (file, image or bytes) JAX-RS can inject a Reader or an In
 
 # Message body writers and readers
 
-This section will focus on **how to serialize and deserialize a custom format**. By Default JAX-RS can work with xml and json format. 
-If your project requests a custom format, see the following steps :
+This section will focus on **how to serialize and deserialize a custom format**. With Seed, by default, JAX-RS can work with the XML and the JSON format. If your project requests a custom format, follow these steps:
 
-- Create a class which implements MessageBodyWriter or/and MessageBodyReader with the custom format in generic.
-- Add `@Provider`, `@Produces` or/and `@consumes`.
-- Implement methods.
+* Create a class which implements `MessageBodyWriter` and/or `MessageBodyReader` with the custom format as the generic type.
+* Add `@Provider`,  `@Produces` and `@Consumes` if relevant.
+* Implement the methods.
 
 More documentation is available in package [javax.ws.rs.ext](https://jersey.java.net/apidocs/1.17/jersey/javax/ws/rs/ext/package-summary.html).
