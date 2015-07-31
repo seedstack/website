@@ -20,19 +20,19 @@ set of constraints based on the Web architecture. These constraints
 are the following:
 
 1. Client-Server
-2. Statless
+2. Stateless
 3. Cache
 4. Uniform interface
 5. Layered System
 6. Code-On-Demand
 
-In this page, we will focus on the fourth constraint and how to implement it in a SEED
+In this page, we will focus on the fourth constraint (uniform interface) and how to implement it in a Seed-based
 application.
 
 > REST is defined by four interface constraints: identification of
 > resources; manipulation of resources through representations;
 > self-descriptive messages; and, hypermedia as the engine of
-> application state. Roy Fielding
+> application state. Roy Fielding.
 
 # Identification of resources
 
@@ -42,17 +42,17 @@ though the `/books/123` URI.
 
 # Manipulation of resources through representations
 
-Resources should be manipulated through representation. Meaning, you
-should not expose your resource directly because it will make
+Resources should be manipulated through representation. This means that you
+**should not** expose your resource (like a business object) directly because it will make
 refactoring impossible without breaking the clients.
 
 # Self-descriptive messages
 
-As the messages should be context free to respect the stateless
-constraint. Each message should embedded self descripting
+The messages should be context-free to respect the stateless
+constraint. Each message should embedded self-descripting
 messaging. For this the HTTP 1.1 specification defines a list of [HTTP
 verbs][7], [status codes][6], and [headers][2] to exchange metadata.
-For instance the following method specify that the HTTP verb is
+For instance the following JAX-RS method specify that the HTTP verb is
 `POST`, it accepts the media type `application/json` and return `201` (Created).
 
 ```
@@ -80,28 +80,28 @@ between those states.
 > through the application by selecting links (state transitions),
 > resulting in the next page (representing the next state of the
 > application) being transferred to the user and rendered for their
-> use. Roy T. Fielding
+> use. Roy T. Fielding.
 
 ## Advantages
 
 1. The state of the application controlled by
-the server as it tells the client what it can do next
-2. It allows the refactoring of server's URI scheme without breaking clients
-3. It helps client developers explore the API
+the server as it tells the client what it can do next.
+2. It allows the refactoring of server's URI scheme without breaking clients.
+3. It helps client developers to explore the API.
 4. It allows the server developers to advertise deprecation or new
-   capabilities by adding hints on existing links or adding by adding
-   new links
+   capabilities by adding hints on existing links or by adding
+   new links.
 
-The benefit of creation an hypermedia API are obvious. But it is often
-seen as difficult to implement in real life applications. With SEED,
-we want to make it so easy that all SEED REST application will support
-hypermedia by default. In order to do this, we introduced two media
-types in the SEED REST support. These media types are both based on
-JSON and describe conventions to link other resources.
+The benefits of an hypermedia API are obvious. But it is often
+seen as difficult to implement in real life applications. With Seed,
+we want to make it so easy that all Seed REST application will support
+hypermedia by default. In order to do this, Seed supports two dedicated
+media types. They are both based on JSON and describe conventions to link 
+to other resources.
 
-First, to ease the API exploration, SEED exposes an API home resource
+First, to ease the API exploration, Seed exposes an API home resource
 with the [JSON-HOME][3] media type. It's the same concept as a website
-home page.
+home page but for REST APIs.
 
 ## JSON-HOME
 
@@ -110,11 +110,11 @@ which provides all the entry points of the application's API. It tells
 the client developer what it can do and give him hints on how to use
 the resources.
 
-The following examples shows a JSON-HOME resource with two entry
+The following example shows a JSON-HOME resource with two entry
 points "widgets" and "widget". For the "widgets" resource, the
 JSON-HOME provides just an href indicating the URI of the
 resource. But for the "widget" resource, the JSON-HOME provides
-instead an href-template. 
+an href-template instead. 
 
 ```
 GET / HTTP/1.1
@@ -151,7 +151,7 @@ Connection: close
 ```
 
 To expose a JAX-RS resource in the JSON-HOME resource, annotate the
-resource with `@Rel` and set the home value to `true`. The annotation
+resource with `@Rel` and set the home attribute to `true`. The annotation
 can be on the class or the method.
 
 ```
@@ -169,10 +169,9 @@ public class ProductResource {
 
 ## Hypertext Application Language (HAL)
 
-Now that your API exposes an "home page", you have to provide a way to
-navigate between these pages. That's why we introduced another media
-type: [HAL+JSON][4] which establishes conventions for expressing
-hypermedia controls.
+Now that your API is exposed on an "home page", you have to provide a way to
+navigate between these pages. That's the role of the [HAL+JSON][4] media type,
+which establishes conventions for expressing hypermedia controls.
 
 An HAL representation look like this:
 
@@ -216,7 +215,7 @@ Content-Type: application/hal+json
 }
 ```
 
-It is a basic JSON representation with just two reserved keywords:
+It is a JSON representation with just two reserved keywords:
 `_links` and `_embedded`.
 
 ### Links
@@ -228,23 +227,23 @@ object. The only required value of the link object is `href` which can
 be an URI or an URI template (`/orders{?id}`).
 By convention, a resource always returns a `self` link with its own
 URI. However, the propery `_links` is optional. For more information
-on link object see the [section 5] of the specification
+on link object see the [section 5] of the specification.
 
 ### Embedded
 
 The property `_embedded` is a set of keys and values. Keys are
 relation types and values can be a resource object or an array of
-resource objects. The embedded resources can be complete or partial
-representation of a resource.
+resource objects. The embedded resources can be full or partial
+representations of a resource.
 
 ### Exposing HAL representations
 
-SEED provides an handful API to simplify the creation of HAL
+Seed provides an handy API to simplify the creation of HAL
 representations. First, you can take an existing representation and
 transform it to an HAL representation using the `HALBuilder`.
 
 ```
-HalRepresntation representation = HalBuilder.create(ProductRepresentation)
+HalRepresentation representation = HalBuilder.create(ProductRepresentation)
                 .self("/rest/products/" + productId)
 				.link("tags", "/rest/products/" + productId + "/tags");
 				.embedded("related", relatedProducts);
@@ -281,11 +280,10 @@ public class ProductsRepresentation extends HalRepresentation {
 
 ### RelRegistry
 
-Contenate strings for building href can quickly become painful and
-error-prone so we introduced a `RelRegistry`. This registry scans all
-the resources annotated by `@Rel` at the application startup and
-calculate their href. For instance the href of the following resource
-...
+Concatenating strings for building hrefs can quickly become painful and
+error-prone. With Seed, you have access to a `RelRegistry` which can greatly
+simplify the task. This registry contains all the resources annotated by 
+`@Rel` and their href. For instance the href of the following resource:
 
 ```
 @Path("/products")
