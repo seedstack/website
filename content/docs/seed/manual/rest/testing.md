@@ -17,9 +17,9 @@ menu:
 Fully testing REST resources requires web integration test support as described
 [here](../../testing/integration-web). Basic steps are:
 
-* Test class has to extend `AbstractSeedWebIT` in order to launch an integration test with Arquillian
-* Test class has to contain a method to package the deployed WAR
-* Finally you can write your test method
+* Test class has to extend `AbstractSeedWebIT` in order to launch an integration test with Arquillian.
+* Test class has to contain a method to package the deployed WAR.
+* Finally you can write your test method.
 
 For example:
 
@@ -54,5 +54,5 @@ For example:
 
 This example uses two libraries for easy REST testing:
 
-* REST Assured which can test various HTTP request/response scenarios. More information [here](https://code.google.com/p/rest-assured/)).
+* REST Assured which can test various HTTP request/response scenarios. More information [here](https://github.com/jayway/rest-assured)).
 * JSON Assert which can assert conditions on JSON documents. More information [here](https://github.com/skyscreamer/JSONassert)).
