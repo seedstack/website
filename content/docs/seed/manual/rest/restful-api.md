@@ -227,7 +227,7 @@ object. The only required value of the link object is `href` which can
 be an URI or an URI template (`/orders{?id}`).
 By convention, a resource always returns a `self` link with its own
 URI. However, the propery `_links` is optional. For more information
-on link object see the [section 5] of the specification.
+on link object see the [section 5][5] of the specification.
 
 ### Embedded
 
@@ -303,8 +303,8 @@ public class ProductsResource {
 
 ```
 String self = relRegistry.uri(CatalogRels.CATALOG)
-                    .set("pageIndex", pageIndex)
-					.set("pageSize", pageSize).expand()
+                         .set("pageIndex", pageIndex)
+                         .set("pageSize", pageSize).expand()
 ```
 
 
