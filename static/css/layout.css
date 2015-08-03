@@ -1,3 +1,7 @@
+.content-md {
+    padding-top: 40px;
+}
+
 .title-header {
     height: 180px;
     overflow: hidden;
@@ -63,7 +67,7 @@
 }
 
 .title-header p.bigger {
-    font-size: 25px;
+    font-size: 30px;
     line-height: 35px;
 }
 
@@ -123,7 +127,7 @@
 .quick-start {
     z-index: 100;
     top: 150px;
-    margin-top: 20px;
+    margin-top: 50px;
     background: transparent;
     border: 0;
 }

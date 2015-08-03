@@ -907,6 +907,18 @@ i.icon-color-u {
 
 i.icon-bg-u {
    background: #88c758;
+   color: white;
+}
+
+i.icon-bg-darker {
+	background: #333;
+	color:white;
+}
+
+i.icon-no-bg {
+	background: none !important;
+	color:white !important;
+	border-color: white !important;
 }
 
 /*Line Icon Page
@@ -1141,6 +1153,10 @@ i.icon-bg-u {
     background:  #88c758;
 }
 
+.headline-center.headline-light h2:after {
+	background:  white;
+}
+
 /*Headliner Left
 ------------------------------------*/
 .headline-left .headline-brd:after {
@@ -1168,6 +1184,10 @@ i.icon-bg-u {
 
 /* Content Boxes v5
 ------------------------------------*/
+.content-boxes-v5:hover i.icon-bg-darker {
+	background: #333;
+}
+
 .content-boxes-v5:hover i {
     background:  #88c758;
 }
@@ -1276,4 +1296,12 @@ i.icon-bg-u {
 ------------------------------------*/
 #topcontrol:hover {
     background-color: #88c758;
+}
+
+.text-light h2, .text-light h3 {
+	color: white !important;
+}
+
+.text-light p {
+	color: rgb(238, 238, 238) !important;
 }
