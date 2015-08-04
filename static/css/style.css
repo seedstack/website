@@ -3,6 +3,7 @@
 @import url('./timeline.css');
 @import url('./layout.css');
 @import url('./colors.css');
+@import url('./mockup.css');
 
 html {
     overflow-y: scroll;
