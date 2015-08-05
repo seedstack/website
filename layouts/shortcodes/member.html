@@ -1,0 +1,16 @@
+<li class="row md-margin-bottom-30">
+    <h2 class="col-md-12">{{ .Get 0 }}</h2>
+    <div class="team-img col-md-2">
+        <img class="img-responsive" src="{{ .Get 1 }}" alt="{{ .Get 0 }}">
+        <ul>
+            <li><a target="_blank" href="{{ .Get 2 }}"><i class="icon-custom icon-sm rounded-x fa fa-github"></i></a></li>
+            {{ if isset .Params 3 }}
+                <li><a target="_blank" href="{{ .Get 3 }}"><i class="icon-custom icon-sm rounded-x fa fa-twitter"></i></a></li>
+            {{ end }}
+        </ul>
+    </div>
+    <div class="col-md-10">
+        <p>{{ .Inner }}</p>
+    </div>
+</li>
+<li><hr/></li>

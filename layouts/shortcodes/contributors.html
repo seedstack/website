@@ -1,0 +1,7 @@
+<ul>
+    {{ range $i, $r := getCSV "^" "https://raw.githubusercontent.com/seedstack/seedstack/master/CONTRIBUTORS" }}
+        {{ if not (eq (slicestr (index $r 0) 0 1) "#") }}
+            <li>{{ index (split (index $r 0) "<") 0 }}</li>
+        {{ end }}
+    {{ end }}
+</ul>

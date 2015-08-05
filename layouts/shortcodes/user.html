@@ -1,0 +1,15 @@
+<div class="row clients-page">
+    <h2>{{ .Get 0 }}</h2>
+    <div class="col-md-3">
+        <img src="{{ .Get 1 }}" alt="{{ .Get 0 }}" style="width: 100%; max-width: 200px;">
+    </div>
+    <div class="col-md-9">
+        <ul class="list-inline">
+            <li><i class="fa fa-map-marker color-green"></i> {{ .Get 2 }}</li>
+            <li><i class="fa fa-briefcase color-green"></i> {{ .Get 3 }}</li>
+            <li><i class="fa fa-globe color-green"></i> <a target="_blank" class="linked" href="{{ .Get 4 }}">Website</a></li>
+        </ul>
+        {{ .Inner }}
+    </div>
+</div>
+<hr>

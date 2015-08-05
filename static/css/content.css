@@ -189,6 +189,26 @@
     background-color: #FFFF88;
 }
 
+.doc-content ul.team-v1 ul {
+    margin-left: auto;
+}
+
+.doc-content ul.team-v1 img {
+    margin: auto;
+}
+
+.doc-content .team-v1 li > .team-img:after {
+    left: 15px;
+    right: 15px;
+    width: auto;
+}
+
+.team-v1 li > .team-img li i.fa-github:hover {
+    color: #fff;
+    background: black;
+    border-color: black;
+}
+
 @media (max-width: 767px) {
     .content-wrapper {
         padding: 10px 5px 10px 5px;
