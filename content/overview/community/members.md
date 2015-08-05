@@ -31,7 +31,7 @@ Coming soon...
 {{% /member %}}
 
 {{% member "Pierre THIROUIN" "https://avatars3.githubusercontent.com/u/2495124?v=3" "https://github.com/pith" "https://twitter.com/pierrethirouin" %}}
-Software developer for Infotel, he worked on various Java projects in the industry and bank sectors. He joined the SeedStack team in the end of 2013. Since then, I mainly work on the Java and Business frameworks, plus some tooling and SeedStack functions.
+Software developer for Infotel, he worked on various Java projects in the industry and banking sectors. He joined the SeedStack team in the end of 2013. Since then, he mainly works on the Java and Business frameworks, plus some tooling and SeedStack functions.
 {{% /member %}}
 
 {{% member "Thierry BOUVET" "https://avatars2.githubusercontent.com/u/12045960?v=3" "https://github.com/tbouvet" %}}
