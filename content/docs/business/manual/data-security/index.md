@@ -101,7 +101,7 @@ If you are not using assemblers to create your DTO, you always have 2 ways to se
 
 Considering the application service EmployeeService 
 
-    @ApplicationService
+    @Service
     public interface EmployeeService {
     	
     	@Secured

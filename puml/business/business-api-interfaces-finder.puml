@@ -11,21 +11,21 @@ title Business Framework : Interfaces Finder API
 
 class Finder << ANNO >> 
 
-interface GenericFinder<Item, Criteria> {
+interface RangeFinder<Item, Criteria> {
 	Result<Item> find(Range range, Criteria criteria)
 }
 
-Finder <-- GenericFinder
+Finder <-- RangeFinder
 
 
-abstract class BaseSimpleJpaFinder <Item, Map<String, Object>>{
+abstract class BaseJpaRangeFinder <Item, Map<String, Object>>{
 	+Result<Item> find(Range range, Map<String,Object> criteria)
 }
 
-GenericFinder <-- BaseSimpleJpaFinder
+RangeFinder <-- BaseJpaRangeFinder
 
-BaseSimpleJpaFinder -[hidden]- Range
-BaseSimpleJpaFinder -[hidden]- Result
+BaseJpaRangeFinder -[hidden]- Range
+BaseJpaRangeFinder -[hidden]- Result
 
 class Range {
 

@@ -172,7 +172,7 @@ The chat function API will provide a service to post messages. The above interfa
     
     import org.seedstack.seed.business.api.interfaces.annotations.InterfacesService;
     
-    @InterfacesService
+    @Service
     public interface ChatService {
     
         void sendMessage(String user, String message);
@@ -379,7 +379,7 @@ in the `*-specs` module and add the `@RequiresPermissions` annotation on methods
 
 In the `ChatService`.
 
-    @InterfacesService
+    @Service
     public interface ChatService {
     
         @RequiresPermissions("prd:chat:post:send")

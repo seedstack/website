@@ -76,7 +76,7 @@ Create a SEED-managed service to illustrate a SEED service injection inside a Sp
 
     import org.seedstack.seed.business.api.application.annotations.ApplicationService;
 
-    @ApplicationService
+    @Service
     public interface MessageService {
         public String getMessage();
     }
