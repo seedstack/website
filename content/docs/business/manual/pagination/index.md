@@ -74,7 +74,8 @@ Implement it as follows:
             if (query != null && !"".equals(query)) {
                 map.put("q", "%" + query + "%");
             }
-            Result<Dto1> result = find(Range.rangeFromPageInfo(page.getIndex(), page.getCapacity()), map);
+            Range range = Range.rangeFromPageInfo(page.getIndex(), page.getCapacity());
+            Result<Dto1> result = find(range, map);
             return new PaginatedView<Dto1>(result, page);
         }
 
