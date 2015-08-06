@@ -145,30 +145,34 @@ into a security scope. As such a scoped `role3` is attributed to the subject, wh
 
 # Example
 
-The following example uses a `ConfigurationRealm` and declares a `RolePermissionResolver` as well as a `RoleMapping`
-(their declaration is optional but specified here for clarity):
+The following example is based on the defaults: a `ConfigurationRealm`, a `ConfigurationRolePermissionResolver` and a `ConfigurationRoleMapping`. Their declaration is optional but present here for clarity. You may want to replace each by a more suitable component, especially the `ConfigurationRealm` which uses the configuration as its users repository.
 
 ```ini
 [org.seedstack.seed.security]
 realms = ConfigurationRealm
-
 ConfigurationRealm.role-mapping = ConfigurationRoleMapping
 ConfigurationRealm.role-permission-resolver = ConfigurationRolePermissionResolver
 
 [org.seedstack.seed.security.users]
-Obiwan = yodarulez, SEED.JEDI, SEED.Coruscant.TEACHER
-Anakin = imsodark, SEED.PADAWAN
+admin = password1, APP.ADMIN
+user1 = password2, APP.FR.MANAGER, APP.UK.MANAGER
+user2 = password3, APP.BASIC
 
 [org.seedstack.seed.security.roles]
-jedi = SEED.JEDI
-padawan = SEED.PADAWAN
-teacher = SEED.{location}.TEACHER
+admin = APP.ADMIN
+manager = APP.ADMIN, APP.{location}.MANAGER
+normal = APP.ADMIN, APP.BASIC
 guest = *
 
 [org.seedstack.seed.security.permissions]
-jedi = lightSaber:wield, jediCouncil:attend
-teacher = academy:teach
-padawan = academy:learn
+admin = users:clear, cache:invalidate
+manager = users:delete, users:create
+normal = users:list
 ```
 
-Note that Obiwan will only have the `academy:teach` permission on `Coruscant` location. Also the `guest` role will be attributed to everyone.
+Note that:
+
+* Application-roles (`admin`, `manager`, `normal` and `guest`) are attributed to a subject if it has **at least one** of the corresponding realm roles (`APP.ADMIN`, `APP.FR.MANAGER` , `APP.UK.MANAGER`, `APP.BASIC`). For instance, having the `APP.ADMIN` realm role is enough to have the `manager` application-role.
+* Subject `user1` will only have the `users:delete` and `users:create` permissions on `FR` and `UK` locations.
+* Subject `admin` will have the `users:delete` and `users:create` permissions everywhere (no location restriction).
+* The `guest` application-role will be attributed to every identified subject.
