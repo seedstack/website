@@ -46,7 +46,7 @@ Here is the policy exposed interface:
 package org.mycompany.myapp.carsale.domain.candidate.policy;
 
 import org.mycompany.myapp.carsale.domain.candidate.CandidateSeller;
-import org.seedstack.business.api.domain.annotations.DomainPolicy;
+import org.seedstack.business.api.domain.DomainPolicy;
 
 @DomainPolicy
 public interface SellerEligibilityPolicy {

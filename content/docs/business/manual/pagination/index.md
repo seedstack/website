@@ -27,7 +27,7 @@ We focus the creation of this API on solving the problem of returning portion re
     - the full size of the whole request.
 - A **View** represents a viewpoint of an already existing list. Its focus is the restitution of a portion of the given
 list.
-- `GenericFinder<Item,Criteria>` is a High level interfaces for finder that sum up the following assertion: Given a
+- `RangeFinder<Item,Criteria>` is a High level interfaces for finder that sum up the following assertion: Given a
 **Range** and a **Criteria** please find the **Result** for the Item type. 
 
 <div class="callout callout-info">
@@ -35,7 +35,7 @@ Notice that <strong>Criteria</strong> here, is not a type, but a generic to be s
 instance a <code>Map&lt;String, Object&gt;</code> or a custom class.
 </div>
 
-In order to **move out the complex computation (page, chunk, ..) away from the GenericFinder** we only provide him a 
+In order to **move out the complex computation (page, chunk, ..) away from the RangeFinder** we only provide him a 
 Range. Its first and only objective is to fetch data from persistence according to a given criteria. View management is 
 completely orthogonal to the restitution a given list from a criteria.
 
@@ -44,7 +44,7 @@ and the result size has not changed.
 
 # Pagination
 
-Create a finder by extending the `BaseSimpleJpaFinder` class. This abstract class needs you to implement two methods.
+Create a finder by extending the `BaseJpaRangeFinder` class. This abstract class needs you to implement two methods.
 
 - The `computeResultList()` method which should return the list of matching entity with the expected range.
 - The `computeFullRequestSize()` method should return the size of complete list matching the criteria.
@@ -52,13 +52,13 @@ Create a finder by extending the `BaseSimpleJpaFinder` class. This abstract clas
 For instance create the following interface:
 
      @Finder
-     public interface Dto1Finder extends GenericFinder<Dto1, Map<String, Object>> {
+     public interface Dto1Finder extends RangeFinder<Dto1, Map<String, Object>> {
          ...
      }
 
 Implement it as follows:
 
-    public class Dto1SimpleJpaFinder extends BaseSimpleJpaFinder<Dto1, Map<String, Object>> 
+    public class Dto1SimpleJpaFinder extends BaseJpaRangeFinder<Dto1, Map<String, Object>> 
         implements Dto1Finder {
 
         @Inject
@@ -89,10 +89,10 @@ Then, inject the finder with its interface.
     Dto1Finder dto1Finder;
 
 Notice that if you don't need other methods than the paginated `find()` in your interface (eg. `Dto1Finder`)
-you can avoid to create a custom interface and inject the finder with the `GenericFinder` interface as follows.
+you can avoid to create a custom interface and inject the finder with the `RangeFinder` interface as follows.
 
     @Inject
-    GenericFinder<Dto1, Map<String, Object>> dto1Finder;
+    RangeFinder<Dto1, Map<String, Object>> dto1Finder;
 
 Finally, use it as follows:
 
@@ -135,7 +135,7 @@ implementation, ...
 the actual view range (page, chunk,...)
 2. The application compute the input Criteria needed by the finder. Criteria can be of any type depending on Finder 
 implementations.
-3. The GenericFinder will then return an object *Result<Item>* 
+3. The RangeFinder will then return an object *Result<Item>* 
 
 ## Step 2 : Create the view
 

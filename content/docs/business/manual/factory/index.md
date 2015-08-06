@@ -108,7 +108,7 @@ A factory implementation should:
 package org.mycompany.myapp.domain.model.order;
 
 import org.javatuples.Triplet;
-import org.seedstack.business.core.domain.base.BaseFactory;
+import org.seedstack.business.api.domain.BaseFactory;
 import org.mycompany.myapp.domain.customer.CustomerId;
 
 public class OrderFactoryImpl extends BaseFactory<Order> implements OrderFactory {

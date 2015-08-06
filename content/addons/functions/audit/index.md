@@ -1,33 +1,38 @@
 ---
-title: "Audit overview"
-type: "manual"
+title: "Overview"
+type: "addon"
 zones:
-    - "Business"
+    - "Addons"
+tags:
+    - "audit"
+    - "log"
 sections:
-    - "BusinessAudit"
+    - "AddonsFunctions"
+subsections:
+    - "Audit"
 menu:
-    BusinessAudit:
+    AddonsAuditFunction:
         weight: 10
 ---
 
 
-The SEED Business Audit provides the ability to trace who does what in your application.
+The Audit function provides the ability to trace who does what in your application.
 
 # Maven dependencies
 
 You can add the audit module of the seed business framework by adding the following dependency in you app project.
 
     <dependency>
-        <groupId>org.seedstack.business</groupId>
-        <artifactId>seed-business-audit</artifactId>
+        <groupId>org.seedstack.functions.audit</groupId>
+        <artifactId>audit-function</artifactId>
     </dependency>
 
 If you want to use the audit writer provided by seed based on Logback, replace the dependency by the following 
 (see chapter on LogbackTrailWriter).
 
     <dependency>
-        <groupId>org.seedstack.business</groupId>
-        <artifactId>seed-business-audit-logback</artifactId>
+        <groupId>org.seedstack.functions.audit</groupId>
+        <artifactId>audit-function-logback</artifactId>
     </dependency>
 
 # Concepts
@@ -36,7 +41,7 @@ The Audit allows you to trace somewhere (log file for example) each time a user 
 record a message and get access to information like the date,  the connected user or the application concerned. 
 </br>Following is the model of what is given to the object in charge of writing the audit:
 
-![audit model](/img/business/audit-model.png)
+![audit model](/static/img/business/audit-model.png)
 
  - AuditEvent: Main object passed to the trail writer. It contains the date of the audit and the accompanying message. 
  It also has the trail
@@ -118,17 +123,17 @@ You can implement your own handler
 Several things can be configured via the props file
 
 ## The TrailWriters
-You can choose which TrailWriter(s) to use : fill in the property *org.seedstack.business.audit.writers* with the name
+You can choose which TrailWriter(s) to use : fill in the property *org.seedstack.audit.writers* with the name
 or simple name of the class of the TrailWriters to use.
 This property is optional: if empty, no writer will be used.
 
 ## The TrailExceptionHandlers
-You can choose which TrailExceptionHandler(s) to use : fill in the property `org.seedstack.business.audit.exceptionHandlers`
+You can choose which TrailExceptionHandler(s) to use : fill in the property `org.seedstack.audit.exceptionHandlers`
 with the name or simple name of the class of the TrailExceptionHandler to use.
 This property is optional: if empty, every TrailExceptionHandler found on the classpath will be used.
 
 ## The LogbackTrailWriter
-If you choose to use the LogbackTrailWriter, you must fill the property `org.seedstack.business.audit.logPattern`.
+If you choose to use the LogbackTrailWriter, you must fill the property `org.seedstack.audit.logPattern`.
 It is the pattern that will be used when writing each message. It can be an EL expression, with the following properties available
 
  - event : the AuditEvent
@@ -138,7 +143,7 @@ It is the pattern that will be used when writing each message. It can be an EL e
  
 Here is an example of pattern you could use:
 
-    [org.seedstack.business.audit]
+    [org.seedstack.audit]
     logPattern = At ${event.getFormattedDate("yyyy/MM/dd HH:mm:ss.SSS")} user ${initiator.getName()} - ${initiator.getId()} requested application ${host.getName()} : ${event.getMessage()}
     
 You must also configure logback to add the appender and logger in the file *logback.xml*
@@ -148,7 +153,7 @@ You must also configure logback to add the appender and logger in the file *logb
       ...
       <appender name="AUDIT_APPENDER" class="ch.qos.logback.core.ConsoleAppender">
           <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-            <layout class="org.seedstack.business.audit.infrastructure.logback.AuditLogbackLayout" />
+            <layout class="org.seedstack.audit.infrastructure.logback.AuditLogbackLayout" />
           </encoder>
         </appender>
     
