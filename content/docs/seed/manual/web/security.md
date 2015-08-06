@@ -103,3 +103,23 @@ You can use it in filter chains like this:
 ```
 
 When a subject access the `/teapot` URL, an HTTP response code 418 will be returned. To create advanced security filters, you can extend existing Shiro security filters, or use them as models.
+
+# Example
+
+Consider the following example:
+
+```ini
+[org.seedstack.seed.security.urls]
+/resources/** = anon
+/rest/users = ssl, authcBasic, rest[users]
+/rest/** = authcBasic, roles[normal]
+/** = authcBasic
+```
+
+Note that:
+
+* Anything served under `/resource/**` can be accessed anonymously.
+* The `/rest/users` resource can only be accessed by authenticated subjects in HTTPS with the `users:action` permission, where action is dependent upon the HTTP method used (see the `rest` filter definition for details).
+* Anything served under `/rest/**` can only be accessed by authenticated subjects with the `normal` application-role.
+* All others URLs can only be accessed by authenticated subjects.
+* In this example, authentication is handled with the Basic Authentication scheme.
