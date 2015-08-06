@@ -15,11 +15,24 @@ menu:
         weight: 50
 ---
 
-The goal of the security on data is to protect the data exposed by an application. It will take data-holding classes 
-and obfuscate them according to the current subject authorizations. For instance, an account number `79927391338710` could 
-be transformed into `799273****8710`. 
+The goal of the security on data is to protect the data exposed by an application. It has the ability to obfuscate any attribute of any object that does not pass the security restriction defined on it. For instance, an account number `79927391338710` can be transformed into `799273******10`.
 
 # Usage
+
+## @Restriction annotation
+
+This annotation can be applied on any class attribute. The field value will be obfuscated when data security will be applied:
+
+    public class MySecuredPojo {
+        @Restriction(value = "${ hasRole('manager') }", obfuscation = AccountObfuscationHandler.class)
+        private String accountNumber;
+        
+        ...
+    }
+
+The value of the annotation is a security expression (see [this section](#security-expressions) for more details). If it evaluates to false against the current Subject the field will be obfuscated according to the `DataObfuscationHandler` specified (see [this section](#dataobfuscationhandler) for more details). The default obfuscation handler nullifies the field.
+
+## Data security service
 
 The security on data can be applied by using the `DataSecurityService` as follows:
 
@@ -28,91 +41,44 @@ The security on data can be applied by using the `DataSecurityService` as follow
 
     dataSecurityService.secure(myDto);
 
-This service will go recursively through the object fields and look restrictions:
- 
-* When a field is annotated with a restriction (an annotation for which a `DataSecurityHandler` exists), it will delegate 
-the security of this field to the corresponding handler. 
-* The handler provides a security expression that is evaluated against the current user. If the security expression
-evaluates to true, the field is left untouched but if it evaluates to false, the field is obfuscated.
-* The handler also provides a `DataObfuscationHandler` handler class to which the obfuscation will be delegated to. 
-By default if no obfuscation handler is given the field will be set to null.
+This service will go recursively through the object fields and look for restrictions. Each restriction that evaluates to false against the current Subject will trigger the obfuscation of its associated field.
+
+## @Secured annotation
+
+You can add a `@Secured` annotation on any method parameter to automatically apply data security on it. You can also apply the `@Secured` annotation directly on the method to apply data security on the return value:
+
+    @Secured
+    public SecuredPojo1 securedMethod(@Secured SecuredPojo2 securedPojo2) {
+        ...
+    }
+
+Every method annotated with `@Secured` or with the annotation applied to at least one of its parameters will be intercepted and the relevant objects will be secured. Note that the [usual interception limitations](/docs/seed/concepts/dependency-injection/#method-interception) apply.
+
+{{% callout warning %}}
+Please note that the data security interceptor will inspect the whole object graph starting from the secured object, so you may encounter some performance penalty depending on its size. It shouldn't be a problem 
+for typical use.
+{{% /callout %}}
 
 # Security expressions
 
-Security expressions provided by a `DataSecurityHandler` can be of boolean or String type. When they are of String type, 
-they will be evaluated as Expression Language (EL). The security expressions can use the following methods:
+Security expressions are strings that respect the [Unified Expression Language (UEL)](https://uel.java.net/) syntax. The following methods are available:
 
+* `hasRole(String role)`. Returns true if the current subject has the specified role, false otherwise.
+* `hasOneRole(String... roles)`. Returns true if the current subject has at least one of the specified roles, false otherwise.
+* `hasAllRoles(String... roles)`. Returns true if the current subject has all the specified roles, false otherwise.
+* `hasRole(String role, String... scopes)`. Returns true if the current subject has the specified role for all the specified scopes, false otherwise.
+* `hasPermission(String permission)`. Returns true if the current subject has the specified permission, false otherwise.
+* `hasOnePermission(String... permissions)`. Returns true if the current subject has at least one of the specified permissions, false otherwise.
+* `hasAllPermissions(String... permissions)`. Returns true if the current subject has all the specified permissions, false otherwise.
+* `hasPermission(String permission, String... scopes)`. Returns true if the current subject has the specified permission on the specified scopes, false otherwise.
 
-    /**
-     * Checks the current user role.
-     *
-     * @param role the role to check
-     * @return true if user has the given role
-     */
-    public static boolean hasRole(String role);
+Examples:
 
-    /**
-     * Checks if the current user has at least one of the given roles.
-     *
-     * @param roles the list of role to check
-     * @return true if user has the one of the given roles
-     */
-    public static boolean hasOneRole(String... roles);
-
-    /**
-     * Checks the current user roles.
-     *
-     * @param roles the list of role to check
-     * @return true if user has all the given roles
-     */
-    public static boolean hasAllRoles(String... roles);
-
-    /**
-     * Checks the current user role in the given domains.
-     *
-     * @param role    the role to check
-     * @param domains the list of domains
-     * @return true if the user has the role for all the given domains.
-     */
-    public static boolean hasRole(String role, String... domains);
-
-    /**
-     * Checks the current user permission.
-     *
-     * @param permission the permission to check
-     * @return true if user has the given permission
-     */
-    public static boolean hasPermission(String permission);
-
-    /**
-     * Checks if the current user has at least one of the given permissions.
-     *
-     * @param permissions the list of permission to check
-     * @return true if user has at least one of the permissions
-     */
-    public static boolean hasOnePermission(String... permissions);
-
-    /**
-     * Checks the current user permissions.
-     *
-     * @param permissions the list of permission to check
-     * @return true if user has all the given permissions
-     */
-    public static boolean hasAllPermissions(String... permissions);
-
-    /**
-     * Checks the current user permission.
-     *
-     * @param permission the permission to check
-     * @return true if user has the given permission
-     */
-    public static boolean hasPermission(String permission, String... domains);
-
-These methods are usable as follows:
-
-    "${ ! hasRole('jedi') && hasPermission('academy:learn') }"
-    "${hasAllPermissions('lightSaber:*', 'academy:*')}"
-    "${hasPermission('lightSaber:*', 'MU')}"
+```plain
+${ !hasRole('manager') && hasPermission('salary:view') }
+${ hasAllPermissions('salary:view', 'salary:update') }
+${ hasPermission('users:manage', 'FR') }
+```
 
 More resources on EL:
 
@@ -140,11 +106,10 @@ For instance, it could take a name, eg. "Doe" and return an anonymised name "D."
 		}
 	}
 
-# DataSecurityHandler
+# Custom annotations
 
-To define a `DataSecurityHandler`, you can reuse an annotation or define your own:
+Custom restriction annotations can be defined and registered with data security by defining a `DataSecurityHandler`. Start with defining a custom annotation:
     
-    @Documented
     @Retention(RetentionPolicy.RUNTIME)
     @Target({ ElementType.FIELD})
     public @interface MyRestriction {
@@ -156,6 +121,7 @@ To define a `DataSecurityHandler`, you can reuse an annotation or define your ow
     	public enum Todo {
     		Hide, Round, Nullify
     	}
+    	
     }
 
 Then, define a `DataSecurityHandler` which handles the `@MyRestriction` annotation.
@@ -197,16 +163,17 @@ Then, define a `DataSecurityHandler` which handles the `@MyRestriction` annotati
     	}
     }
 
-Then, apply the annotation(s) on a POJO:
+Then, you can apply the annotation on a POJO:
     
     public class MyPojo {    	
+    
     	private String firstName;
     	
-    	@MyRestriction(expression="${1 == 2}" , todo=Todo.Hide)
+    	@MyRestriction(expression="${1 == 2}" , todo = Todo.Hide)
     	private String name;
     	
     	@MyRestriction(
-    		expression="${ hasRole('jedi') && hasPermission('academy:learn')  }", 
+    		expression="${ hasRole('manager') }", 
     		todo=Todo.Round
     	)
     	private Integer salary;
@@ -222,23 +189,4 @@ Then, apply the annotation(s) on a POJO:
     	}
     	
         ...    	
-    
     }
-
-You can now test to secure a POJO.
-	
-	@Test
-    @WithUser(id = "Anakin", password = "imsodark"   )
-	public void test() {
-		MyPojo pojo = new MyPojo("Doe", "John", "password", 12345);
-		
-		dataSecurityService.secure(pojo);
-
-		assertThat(pojo.getName()).isEqualTo("D.");
-		assertThat(pojo.getFirstName()).isEqualTo("John");
-		assertThat(pojo.getPassword()).isNull();
-		assertThat(pojo.getSalary()).isEqualTo(12000);
-	}
-
-
-
