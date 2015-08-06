@@ -3,6 +3,9 @@ title: "Pagination"
 type: "manual"
 zones:
     - "Business"
+tags:
+    - "pagination"
+    - "presentation"
 sections:
     - "BusinessPagination"
 menu:
@@ -28,19 +31,19 @@ We focus the creation of this API on solving the problem of returning portion re
 - A **View** represents a viewpoint of an already existing list. Its focus is the restitution of a portion of the given
 list.
 - `RangeFinder<Item,Criteria>` is a High level interfaces for finder that sum up the following assertion: Given a
-**Range** and a **Criteria** please find the **Result** for the Item type. 
+**Range** and a **Criteria** please find the **Result** for the Item type.
 
 <div class="callout callout-info">
 Notice that <strong>Criteria</strong> here, is not a type, but a generic to be substituted when subclassing. For
 instance a <code>Map&lt;String, Object&gt;</code> or a custom class.
 </div>
 
-In order to **move out the complex computation (page, chunk, ..) away from the RangeFinder** we only provide him a 
-Range. Its first and only objective is to fetch data from persistence according to a given criteria. View management is 
+In order to **move out the complex computation (page, chunk, ..) away from the RangeFinder** we only provide him a
+Range. Its first and only objective is to fetch data from persistence according to a given criteria. View management is
 completely orthogonal to the restitution a given list from a criteria.
 
-The actual *Range* can be greater than the needed portion. This way, the result can be reused according that the Criteria 
-and the result size has not changed. 
+The actual *Range* can be greater than the needed portion. This way, the result can be reused according that the Criteria
+and the result size has not changed.
 
 # Pagination
 
@@ -53,16 +56,27 @@ For instance create the following interface:
 
      @Finder
      public interface Dto1Finder extends RangeFinder<Dto1, Map<String, Object>> {
-         ...
+
+         PaginatedView<ProductRepresentation> findItemByQuery(Page page, String searchQuery);
      }
 
 Implement it as follows:
 
-    public class Dto1SimpleJpaFinder extends BaseJpaRangeFinder<Dto1, Map<String, Object>> 
+    public class Dto1SimpleJpaFinder extends BaseJpaRangeFinder<Dto1, Map<String, Object>>
         implements Dto1Finder {
 
         @Inject
         private EntityManager entityManager;
+
+        @Override
+        public PaginatedView<ProductRepresentation> findItemByQuery(Page page, String query) {
+            Map<String, Object> map = new HashMap<String, Object>();
+            if (query != null && !"".equals(query)) {
+                map.put("q", "%" + query + "%");
+            }
+            Result<Dto1> result = find(Range.rangeFromPageInfo(page.getIndex(), page.getCapacity()), map);
+            return new PaginatedView<Dto1>(result, page);
+        }
 
         @Override
         protected List<Dto1> computeResultList(Range range , Map<String,Object> criteria) {
@@ -83,63 +97,53 @@ Implement it as follows:
         ...
     }
 
-Then, inject the finder with its interface.
+Then, inject the finder with its interface and use it as follows:
 
-    @Inject
-    Dto1Finder dto1Finder;
+```
+@Inject
+Dto1Finder dto1Finder;
 
-Notice that if you don't need other methods than the paginated `find()` in your interface (eg. `Dto1Finder`)
-you can avoid to create a custom interface and inject the finder with the `RangeFinder` interface as follows.
+@GET
+@Rel("search")
+@Produces(MediaType.APPLICATION_JSON)
+public Response list(@QueryParam("q") String searchQuery,
+                     @DefaultValue("0") @QueryParam("pageIndex") Long pageIndex,
+                     @DefaultValue("10") @QueryParam("pageSize") Integer pageSize) {
 
-    @Inject
-    RangeFinder<Dto1, Map<String, Object>> dto1Finder;
+    // Call the finder with the requested page
+    Page page = new Page(pageIndex, pageSize);
+    PaginatedView<Dto1> view = dto1Finder.findItemByQuery(page, searchQuery);
 
-Finally, use it as follows:
+    // Create an HAL representation with the page and the total number of elements
+    Dto1sRepresentation representation = new Dto1sRepresentation(page,
+        view.getResultSize());
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response list(@QueryParam("searchString") String searchString,
-                         @DefaultValue("0") @QueryParam("pageIndex") Long pageIndex,
-                         @DefaultValue("10") @QueryParam("pageSize") Integer pageSize) {
+    // Add the list of item to the representation
+    representation.embedded("items", view.getView());
 
-        // We choose a range larger than the actual page capacity.
-        int rangeSize = pageSize * 4;
+    // If a next page is available add to link to it
+    if (view.hasNext()) {
+        Page next = view.next();
 
-        // We create the range for the finder
-        Range range = new Range(0, rangeSize);
-
-        // We setup the criteria
-        Map<String, Object> criteria = Maps.newHashMap();
-        criteria.put("param1", searchString);
-
-        // We launch the query
-        Result<Dto1> result = dto1Finder.find(range, criteria);
-
-        // We prepare the view for the expected page
-        PaginatedView<CategoryRepresentation> paginatedView;
-        paginatedView = new PaginatedView<CategoryRepresentation>(result, pageSize, pageIndex);
-
-        return Response.ok(paginatedView).build();
+        representation.link("next", relRegistry.uri("search")
+                .set("pageIndex", next.getIndex())
+                .set("pageSize", next.getCapacity()).expand());
     }
 
-# Generic workflow
+    // If a previous page is available add to link to it
+    if (view.hasPrev()) {
+        Page prev = view.prev();
 
-All of this happen in the "Interfaces layer". It can be a REST Resource, a Controller (MVC), a Web Service 
-implementation, ...
+        representation.link("prev", relRegistry.uri("search")
+                .set("pageIndex", prev.getIndex())
+                .set("pageSize", prev.getCapacity()).expand());
+    }
 
-## Step 1 : Get the result
+    return Response.ok(representation).build();
+}
+```
 
-![Main concepts](/img/business/interfaces-api-step1.png)
-
-1. The application have to compute the range in which he wants the request take place. The Range can be greater than 
-the actual view range (page, chunk,...)
-2. The application compute the input Criteria needed by the finder. Criteria can be of any type depending on Finder 
-implementations.
-3. The RangeFinder will then return an object *Result<Item>* 
-
-## Step 2 : Create the view
-
-![Main concepts](/img/business/interfaces-api-step2.png)
-
-When you've got the result, just create the view and get right portion from it.
-
+{{% callout info %}}
+The following example uses the HAL media type. For more information about it, read the documentation about
+[hypermedia](http://www.seedstack.org/docs/seed/manual/rest/restful-api/).
+{{% /callout %}}
