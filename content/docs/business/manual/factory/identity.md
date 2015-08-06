@@ -80,7 +80,7 @@ Below is a Factory interface for above `MyAggregate` Class:
 package org.mycompany.myapp.domain.model.myaggregate;
 
 import org.seedstack.business.api.domain.GenericFactory;
-import org.seedstack.business.api.domain.annotations.stereotypes.Create;
+import org.seedstack.business.api.domain.stereotypes.Create;
 
 public interface MyAggregateFactory  extends GenericFactory<MyAggregate> {
     
@@ -93,8 +93,8 @@ Below is a Factory implementation for above `MyAggregateFactory` interface:
 ```
 package org.mycompany.myapp.domain.model.myaggregate;
 
-import org.seedstack.business.api.domain.annotations.stereotypes.Create;
-import org.seedstack.business.core.domain.base.BaseFactory;
+import org.seedstack.business.api.domain.stereotypes.Create;
+import org.seedstack.business.api.domain.BaseFactory;
 
 public class MyAggregateFactoryDefault extends BaseFactory<MyAggregate>
         implements MyAggregateFactory {
@@ -162,7 +162,7 @@ Below is an example of a basic Timestamp id generation strategy:
 ```
 package org.mycompany.myapp.infrastructure.domain;
 
-import org.seedstack.business.api.domain.base.BaseEntity;
+import org.seedstack.business.api.domain.BaseEntity;
 import org.seedstack.business.api.domain.identity.IdentityHandler;
 
 @Named("timestamp-id")

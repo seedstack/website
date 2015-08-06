@@ -44,7 +44,7 @@ package org.mycompany.myapp.policy;
 
 import org.mycompany.myapp.domain.model.carsold.CarSold;
 import org.mycompany.myapp.domain.shared.vo.Price;
-import org.seedstack.business.api.domain.annotations.DomainPolicy;
+import org.seedstack.business.api.domain.DomainPolicy;
 
 import java.util.List;
 
@@ -86,7 +86,7 @@ Wherever the policy is used to compute the bonus of a particular employee, just 
 package org.mycompany.myapp.application.service;
 
 import org.mycompany.myapp.domain.model.employee.Employee;
-import org.seedstack.business.api.application.annotations.ApplicationService;
+import org.seedstack.business.api.Service;
 
 @Service
 public interface SalesBonusService {
