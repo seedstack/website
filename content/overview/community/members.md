@@ -50,6 +50,10 @@ Active members are frequently contributing to SeedStack.
 Coming soon...
 {{% /member %}}
 
+{{% member "Redouane Loulou" "https://avatars2.githubusercontent.com/u/9444088?v=3" "https://github.com/red1l" %}}
+Coming soon...
+{{% /member %}}
+
 {{% member "Yves DAUTREMAY" "https://avatars3.githubusercontent.com/u/3729195?v=3" "https://github.com/ydautremay" %}}
 Coming soon...
 {{% /member %}}
