@@ -417,12 +417,12 @@ MetaDataFormat = "yaml"
 [params.section.GuidesTasks]
   label = "Tasks"
   icon = "fa fa-book"
-  path = "dev"
+  path = "/tasks"
 
 [params.section.GuidesDesign]
   label = "Design"
   icon = "fa fa-book"
-  path = "design"
+  path = "/design"
 
 #####################################
 #### Glossary                    ####
