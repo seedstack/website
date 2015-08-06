@@ -412,23 +412,17 @@ MetaDataFormat = "yaml"
 [params.section.GuidesIntroduction]
   label = "Introduction"
   icon = "fa fa-file-text"
-  path = "create"
+  path = ""
 
-[params.section.CreateGuides]
-  label = "Create"
+[params.section.GuidesTasks]
+  label = "Tasks"
   icon = "fa fa-book"
-  path = "create"
+  path = "dev"
 
-[params.section.DeployGuides]
-  label = "Deploy"
+[params.section.GuidesDesign]
+  label = "Design"
   icon = "fa fa-book"
-  path = "deploy"
-
-[params.section.RunGuides]
-  label = "Run"
-  icon = "fa fa-book"
-  path = "run"
-
+  path = "design"
 
 #####################################
 #### Glossary                    ####

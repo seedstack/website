@@ -65,8 +65,8 @@ It supports:
 
 ## Can I see some code ?
 
-An example from the showcase. The Product contains a field `entityId`
-and a field `categoryId`, but the representation only contains a field
+Below is an example from the [Web application sample](https://github.com/seedstack/store-webapp-sample). 
+The Product contains a field `entityId` and a field `categoryId`, but the representation only contains a field
 `id`. So ModelMapper doesn't know which field match.
 
 To fix this, extend `ModelMapperAssembler` and add a `PropertyMap` to the `modelMapper`.
