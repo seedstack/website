@@ -1,6 +1,8 @@
 ---
 title: "Introduction"
 type: "guide"
+aliases:
+    - /guides/create/ddd-pitfalls-and-tips
 zones:
     - "Guides"
 sections:
