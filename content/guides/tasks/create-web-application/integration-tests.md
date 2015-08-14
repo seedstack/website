@@ -12,7 +12,7 @@ menu:
         weight: 50
 ---
 
-SEED brings a JUnit Runner that creates a SEED environment for tests execution. A test class is managed by SEED and allows a developer to inject classes via the `@Inject` annotation or use `@Transactional`, `@Logging` or `@Configuration` annotations.
+Seed brings a JUnit Runner that creates a Seed environment for tests execution. A test class is managed by Seed and allows a developer to inject classes via the `@Inject` annotation or use `@Transactional`, `@Logging` or `@Configuration` annotations.
 
 # Database connection
 

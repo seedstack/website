@@ -1,3 +1,21 @@
 <div class="callout callout-{{ .Get 0 }}">
-    {{ .Inner }}
+    <div style="display:table;">
+        <div style="display:table-cell; width: 50px; vertical-align: middle;">
+            {{ if eq "tips" (.Get 0) }}
+                <i class="fa fa-lightbulb-o icon-2x" style="line-height: 30px;"></i>
+            {{ end }}
+            {{ if eq "info" (.Get 0) }}
+                <i class="fa fa-info-circle icon-2x" style="line-height: 30px;"></i>
+            {{ end }}
+            {{ if eq "warning" (.Get 0) }}
+                <i class="fa fa-exclamation-triangle icon-2x"></i>
+            {{ end }}
+            {{ if eq "danger" (.Get 0) }}
+                <i class="fa fa-exclamation-triangle icon-2x"></i>
+            {{ end }}
+        </div>
+        <div style="display:table-cell; vertical-align: middle;">
+            {{ .Inner }}
+        </div>
+    </div>
 </div>

@@ -33,7 +33,7 @@ Business Framework Policies are POJOs, there is no mandated interface. Just anno
 Let's consider a bonus policy for car sellers according to the sales they've done. 
 This policy could allow the sellers - and their manager - to know what the amount of their bonus is at a given time in the current month.
 
-> This example is adapted from the SEED Business Framework training application.
+> This example is adapted from the Seed Business Framework training application.
 
 ## BonusPolicy interface
 

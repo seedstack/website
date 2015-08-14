@@ -13,13 +13,13 @@ menu:
         weight: 30
 ---
 
-SEED provides the ability to inject external JNDI resources through the `@Resource` annotation. Multiple JNDI contexts can
+Seed provides the ability to inject external JNDI resources through the `@Resource` annotation. Multiple JNDI contexts can
 be used in an application by using the `@FromContext` annotation.
 
 # Declaring JNDI contexts
 
-The default JNDI context is automatically configured by SEED if you provide a `jndi.properties` file in `META-INF/configuration` classpath-included folder. 
-This JNDI context is named `default` by SEED.
+The default JNDI context is automatically configured by Seed if you provide a `jndi.properties` file in `META-INF/configuration` classpath-included folder. 
+This JNDI context is named `default` by Seed.
 
 Additional JNDI contexts can be specified using the following configuration properties:
 

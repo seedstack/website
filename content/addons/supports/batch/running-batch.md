@@ -18,7 +18,7 @@ menu:
         weight: 30
 ---
 
-To run the job we use the `SeedRunner` as main class (`SeedRunner` belongs to SEED CLI support).  For more information about `SeedRunner` please refer to SEED CLI support documentation.
+To run the job we use the `SeedRunner` as main class (`SeedRunner` belongs to Seed CLI support).  For more information about `SeedRunner` please refer to Seed CLI support documentation.
 
 # Eclipse configuration
 

@@ -13,7 +13,7 @@ menu:
         weight: 10
 ---
 
-SEED Cache support integrates the JCache API (a.k.a. JSR 107) which allows to interact with compliant caching providers
+Seed Cache support integrates the JCache API (a.k.a. JSR 107) which allows to interact with compliant caching providers
 in a declarative or a programmatic way.
 
 **Implementations are not provided by this support and must be configured depending on your caching solution**.
@@ -25,7 +25,7 @@ To enable the cache support in your application, use the following dependency sn
         <artifactId>seed-cache-support</artifactId>
     </dependency>
 
-JCache specification jar dependency is required as well since SEED cache support doesn't transitively provide this dependency:
+JCache specification jar dependency is required as well since Seed cache support doesn't transitively provide this dependency:
 
     <dependency>
         <groupId>javax.cache</groupId>

@@ -15,11 +15,11 @@ menu:
         weight: 50
 ---
 
-Cross-Origin Resource Sharing (CORS) is supported through a Java filter and can be enabled in any SEED application.
+Cross-Origin Resource Sharing (CORS) is supported through a Java filter and can be enabled in any Seed application.
 
 <div class="callout callout-info">
-SEED integrates the CORS filter from <a href="http://software.dzhuvinov.com/cors-filter.html">[d]zhuvinov  [s]oftware</a>.
-There is no need to install and configure the filter manually, it is automatically registered by SEED. All
+Seed integrates the CORS filter from <a href="http://software.dzhuvinov.com/cors-filter.html">[d]zhuvinov  [s]oftware</a>.
+There is no need to install and configure the filter manually, it is automatically registered by Seed. All
 filter options can be specified by configuration properties.
 </div>
 
@@ -33,13 +33,13 @@ To enable CORS support just add the following configuration to your application:
 # Filter properties
 
 The CORS filter allows to alter its default behavior with various parameters. The filter documentation enumerates all
-configuration parameters. SEED can transform any configuration property prefixed with `org.seedstack.seed.web.cors.property`
+configuration parameters. Seed can transform any configuration property prefixed with `org.seedstack.seed.web.cors.property`
 to the corresponding filter parameter. For instance, to specify the recognized verbs, you can use the following configuration:
 
     org.seedstack.seed.web.cors.property.supportedMethods= GET\\, POST\\, HEAD\\, OPTIONS\\, PUT\\, DELETE
 
 This configuration property is automatically translated to the `cors.supportedMethods` filter parameter found in the
-documentation. Note that the escaping of the commas is required to inhibit SEED from parsing this value as a list and
+documentation. Note that the escaping of the commas is required to inhibit Seed from parsing this value as a list and
 forward this value as-is to the filter.
 
 <div class="callout callout-info">

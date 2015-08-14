@@ -16,9 +16,9 @@ menu:
         weight: 40
 ---
 
-For integration test, add SEED integration test support to your project. Check the documentation [here](/docs/seed/manual/testing/integration).
+For integration test, add Seed integration test support to your project. Check the documentation [here](/docs/seed/manual/testing/integration).
 
-* Following example checks that SEED injection works.
+* Following example checks that Seed injection works.
 
 
     @RunWith(SeedITRunner.class)

@@ -31,7 +31,7 @@ Add the following dependency in your pom.xml
 # Test example
 
 This example is **not** a tutorial of how to create tests.
-You can use all the framework libraries included in SEED unit test support (refer to the support pom.xml).
+You can use all the framework libraries included in Seed unit test support (refer to the support pom.xml).
 
     public class CustomerServiceImplUnitTest {
     

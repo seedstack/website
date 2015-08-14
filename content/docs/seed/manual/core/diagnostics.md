@@ -13,7 +13,7 @@ menu:
         weight: 60
 ---
 
-SEED can dump diagnostic information when an exception is catched at key application locations. Core support dumps 
+Seed can dump diagnostic information when an exception is catched at key application locations. Core support dumps 
 diagnostic information when an uncaught exception occurs in a thread but other supports can trigger dumps in various 
 conditions.
 
@@ -35,7 +35,7 @@ interface and annotated with `org.seedstack.seed.core.spi.diagnostic.DiagnosticD
         
     }
 
-All diagnostic collectors are automatically detected by SEED and will be used in diagnostic information gathering. The
+All diagnostic collectors are automatically detected by Seed and will be used in diagnostic information gathering. The
 diagnostic domain uniquely identifies the information of the collector.
 
 # Diagnostic reporter

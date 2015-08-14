@@ -81,7 +81,7 @@ You can set the W20 application title with the following option:
 
     org.seedstack.w20.application.title = My application
 
-The default value is set to the SEED application name (coming from the `org.seedstack.seed.core.application-name`).
+The default value is set to the Seed application name (coming from the `org.seedstack.seed.core.application-name`).
 
 ## Subtitle
 
@@ -97,7 +97,7 @@ You can set the W20 application version with the following option:
 
     org.seedstack.w20.application.version = 1.2.3
 
-The version is treated as a string so there is no restriction format. The default value is set to the SEED application
+The version is treated as a string so there is no restriction format. The default value is set to the Seed application
 version (coming from the `org.seedstack.seed.core.application-version`). It is not recommended to change this default
 value, other than for testing purposes or special cases. The version string is appended to all assets URLs by the
 W20 loader to ensure that resources are refreshed when the version change.

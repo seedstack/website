@@ -10,7 +10,7 @@ menu:
         weight: 20
 ---
 
-The SEED Business framework supports the use of qualifiers defined by the JSR 330. This feature provides the ability to 
+The Business framework supports the use of qualifiers defined by the JSR 330. This feature provides the ability to 
 create multiple implementations for the same interface. This is useful when you have multiple algorithms or implementation
 technologies for an interface.
 

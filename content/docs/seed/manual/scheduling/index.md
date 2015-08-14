@@ -14,7 +14,7 @@ menu:
         weight: 10
 ---
 
-Scheduling support provides a simple API to schedule task in SEED. To add the scheduling support in your project, use
+Scheduling support provides a simple API to schedule task in Seed. To add the scheduling support in your project, use
 the following dependency snippet:
 
     <dependency>
@@ -25,7 +25,7 @@ the following dependency snippet:
 # Declarative API
 
 Create a `Class` implementing `Task` and add a `@Scheduled` annotation with a cron expression.<br>
-Your task will be detected and scheduled according to the annotation content at SEED startup:
+Your task will be detected and scheduled according to the annotation content at Seed startup:
 
     @Scheduled("0/2 * * * * ?")
     public class MyTask implements Task {

@@ -36,7 +36,7 @@ Static Validation consists in constraint annotations applied to a field or its "
 
 # Validation of injection
 
-When injecting a POJO, SEED raises a `org.seedstack.seed.validation.ValidationException` if constraint annotations are not respected.
+When injecting a POJO, Seed raises a `org.seedstack.seed.validation.ValidationException` if constraint annotations are not respected.
      
      @Inject
      SeedManagedPojo seedPojo;
@@ -46,7 +46,7 @@ Beware that an invalid POJO injected at application startup will prevent it from
 
 # Validation on demand
 
-A POJO instance can be validated at any time through SEED `ValidationService`:
+A POJO instance can be validated at any time through Seed `ValidationService`:
 
 	import org.seedstack.seed.validation.ValidationService;
     ...

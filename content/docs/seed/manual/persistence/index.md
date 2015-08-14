@@ -13,7 +13,7 @@ menu:
         weight: 10
 ---
 
-SEED provides various persistence supports. Multiple supports can be used simultaneously 
+Seed provides various persistence supports. Multiple supports can be used simultaneously 
 by importing the corresponding Maven dependencies into your application module.
 
 # JDBC
@@ -48,7 +48,7 @@ Add it to your application with the following Maven dependency:
 
 # In memory
 
-SEED in-memory persistence support allows to store data in memory buckets, mainly for testing purposes. 
+Seed in-memory persistence support allows to store data in memory buckets, mainly for testing purposes. 
 Add it to your application with the following Maven dependency:
 
     <dependency>

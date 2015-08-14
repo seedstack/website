@@ -18,7 +18,7 @@ like logging, internal configuration or externalisation and should be treated wi
 # Configuration files
 
 ## Unified configuration
-SEED provides an unified configuration that is consolidated from multiple classpath locations and is available throughout
+Seed provides an unified configuration that is consolidated from multiple classpath locations and is available throughout
 the whole application. This configuration is sourced from two kind of files:
   
   * Props files (with the `.props` extension) placed under `META-INF/configuration`,
@@ -32,7 +32,7 @@ is aggregated from all classpath locations, one can only externalize necessary v
 ## Other configuration files
 All other files are NOT participating in this unified configuration but can still be needed to configure various components
 like the LDAP component or the logging subsystem for instance. These files can also be externalized if necessary but are
-outside of SEED control, so they cannot be aggregated. It means that they must be externalized a whole file at a time.
+outside of Seed control, so they cannot be aggregated. It means that they must be externalized a whole file at a time.
  
 # JNDI
 Another aspect of application configuration is the use of JNDI resources which can be provided by the runtime environment

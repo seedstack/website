@@ -17,12 +17,12 @@ menu:
 ---
 
 
-You can specify a Spring-based transaction handler in your SEED transaction demarcation by adding the
+You can specify a Spring-based transaction handler in your Seed transaction demarcation by adding the
 `@SpringTransactionManager` annotation besides the `@Transactional` one.
 
 # Spring transaction manager definition
 
-You can define any valid Spring transaction manager in any Spring context known by SEED Spring support. Example:
+You can define any valid Spring transaction manager in any Spring context known by Seed Spring support. Example:
 		
 	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />

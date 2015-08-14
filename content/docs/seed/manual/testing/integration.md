@@ -31,7 +31,7 @@ For simple integration tests (no web container), use following dependency snippe
 
 # Simple integration testing
 
-`SeedITRunner` extends `BlockJUnit4ClassRunner` and provides a full SEED environment to test your components in a white box.
+`SeedITRunner` extends `BlockJUnit4ClassRunner` and provides a full Seed environment to test your components in a white box.
 To define such a test Class, simply extends the `AbstractSeedIT` helper class:
 
     public class CategoryJpaRepositoryIT extends AbstractSeedIT {

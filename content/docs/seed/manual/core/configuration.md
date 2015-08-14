@@ -15,7 +15,7 @@ menu:
         weight: 20
 ---
 
-SEED based applications are configured using files under the **META-INF/configuration** classpath directory with two types of configuration files:
+Seed based applications are configured using files under the **META-INF/configuration** classpath directory with two types of configuration files:
 
 * Usual properties files with a `properties` extension. These files must respect the `java.util.properties` standard
   specified [here](<http://docs.oracle.com/javase/6/docs/api/java/util/Properties.html#load(java.io.Reader)>). They are
@@ -31,7 +31,7 @@ All files named after the two patterns specified in the previous paragraph are p
 # The props format
 
 Full documentation is available here  : [http://jodd.org/doc/props.html](<http://jodd.org/doc/props.html>).
-Following points describe the main points to be considered while using the format in a SEED based application.
+Following points describe the main points to be considered while using the format in a Seed based application.
 
 ## UTF-8 encoding
 By default, props files are UTF-8 encoded, but can be encoded in any encoding.
@@ -84,7 +84,7 @@ is equivalent to this other one (properties format):
 
 ### Use
 
-SEED provides a configuration profile concept which is activated via the `org.seedstack.seed.profiles` system property.
+Seed provides a configuration profile concept which is activated via the `org.seedstack.seed.profiles` system property.
 You can activate several profiles simultaneously by using **a comma separated list**. 
 For example, following JVM argument activates both `dev` and `debug` profiles:
 

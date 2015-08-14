@@ -13,8 +13,8 @@ menu:
         weight: 10
 ---
 
-SEED web service support provides a JAX-WS integration. JAX-WS offers facilities to create and connect to web services.
-To enable SEED Web-Services standalone support (without a Web environment) use the following dependency snippet in your module:
+Seed web service support provides a JAX-WS integration. JAX-WS offers facilities to create and connect to web services.
+To enable Seed Web-Services standalone support (without a Web environment) use the following dependency snippet in your module:
 
     <dependency>
         <groupId>org.seedstack.seed</groupId>
@@ -40,7 +40,7 @@ This module can then be used as a dependency both on client and server side.
 
 ## JDK 6
 
-JDK 6 contains an older version of the JAX-WS specifications than the one used in SEED WS support. 
+JDK 6 contains an older version of the JAX-WS specifications than the one used in Seed WS support. 
 Therefore the endorsed mechanism has to be used with required version of `webservices-api.jar` available 
 [here](http://search.maven.org/remotecontent?filepath=org/glassfish/metro/webservices-api/2.3/webservices-api-2.3.jar).
 

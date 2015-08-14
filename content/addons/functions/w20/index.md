@@ -12,7 +12,7 @@ menu:
         weight: 10
 ---
 
-The SeedStack W20 function acts as an integration bridge between the SEED Java framework and the W20 Web framework. You can
+The SeedStack W20 function acts as an integration bridge between the Seed Java framework and the W20 Web framework. You can
 add it with the following dependency:
 
     <dependency>
@@ -30,9 +30,9 @@ managed. Some values are automatically added by the function and don't need to b
 
 * `w20-core`
   * `application`
-    * `id`: set to the application identifier defined in SEED configuration. Cannot be overridden.
+    * `id`: set to the application identifier defined in Seed configuration. Cannot be overridden.
   * `environment`
-    * `type`: set to the SEED configuration property `org.seedstack.w20.environment`.
+    * `type`: set to the Seed configuration property `org.seedstack.w20.environment`.
 
 For each fragment the following variables are defined:
 

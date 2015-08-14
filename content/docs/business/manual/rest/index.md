@@ -10,8 +10,8 @@ menu:
         weight: 10
 ---
 
-Resources are main part of the REST API. This feature use the SEED REST support, for more information on it see the 
-corresponding [documentation](#!/seed-doc/rest). But the SEED Business Framework also provides validation and security.
+Resources are main part of the REST API. This feature use the Seed REST support, for more information on it see the 
+corresponding [documentation](#!/seed-doc/rest). But the Seed Business Framework also provides validation and security.
 
 > Other resource: [Best Practices for Designing a Pragmatic RESTful API](http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#restful)
 
@@ -34,7 +34,7 @@ public Response createProduct(ProductRepresentation productRepresentation) {
 
 # Validation
 
-All the incoming data should be checked. For this purpose, the SEED provides the support of JSR Bean Validation 1.1. 
+All the incoming data should be checked. For this purpose, the Seed provides the support of JSR Bean Validation 1.1. 
 So all the representation coming from the users should be annotated with the `@Valid` annotation.
 
 ``` 

@@ -70,7 +70,7 @@ Description of the beans:
 
 # Create the service
 
-Create a SEED-managed service to illustrate a SEED service injection inside a Spring bean with Interface :
+Create a Seed-managed service to illustrate a Seed service injection inside a Spring bean with Interface :
 
     package org.seedstack.seed.service;
 
@@ -132,7 +132,7 @@ implements `Tasklet` interface and overrides the `execute()` method which prints
 
 # Define the job Configuration
 
-In this section we will configure the Spring Batch job context to use our Tasklet and inject SEED managed `MessageService`.
+In this section we will configure the Spring Batch job context to use our Tasklet and inject Seed managed `MessageService`.
 
 job-context.xml:
 

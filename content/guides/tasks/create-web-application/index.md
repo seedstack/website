@@ -12,7 +12,7 @@ menu:
         weight: 10
 ---
 
-Welcome to the SEED tutorial ! You will learn how to build a full SEED application from scratch. It includes:
+Welcome to the Seed tutorial ! You will learn how to build a full Seed application from scratch. It includes:
 
 * Project creation,
 * Configuration,

@@ -14,20 +14,21 @@ menu:
         weight: 10
 ---
 
-**SEED transaction management** allows interactions between the application code and one or more external resource(s) to be
+Seed transaction management allows interactions between the application code and one or more external resource(s) to be
 done transactionally (ie. in an all-or-nothing paradigm). It is used in conjunction with other supports handling external resources 
-such as **persistence** or **messaging**. For more detail about transactions, refer to this [wikipedia page](http://en.wikipedia.org/wiki/Transaction_processing).
+such as persistence or messaging. For more detail about transactions, refer to this [wikipedia page](http://en.wikipedia.org/wiki/Transaction_processing).
 
 # Maven dependency
 
-Below snippet adds SEED transaction management to your application:
+Below snippet adds Seed transaction management to your application:
 
 	<dependency>
 		<groupId>org.seedstack.seed</groupId>
 		<artifactId>seed-transaction-support</artifactId>
 	</dependency>
 	
-**This dependency is not required when it is transitively provided by another support dependency (eg. JPA, JMS, …)**
+Note that this dependency is rarely explicitly required as it is transitively provided by any transaction-capable support
+like JPA persistence, JMS, ...
 
 # Transaction manager
 
@@ -37,7 +38,7 @@ transactional code is invoked. The behavior of the transaction manager is heavil
 
 ## Definition
 
-A SEED application can have **only one** transaction manager. The transaction manager is specified with following configuration property:
+A Seed application can have **only one** transaction manager. The transaction manager is specified with following configuration property:
 
 	org.seedstack.seed.transaction.transaction-manager = fully.qualified.name.of.TransactionManagerClass
 
@@ -52,7 +53,7 @@ manager.
 
 ## JTA transaction manager	
 
-The JTA transaction manager integrates code demarcated with SEED transactions with any external JTA-compliant transaction
+The JTA transaction manager integrates code demarcated with Seed transactions with any external JTA-compliant transaction
 monitor such as ones found in J2EE Web servers. To use it, just specify the following configuration property:
 
 	org.seedstack.seed.transaction.transaction-manager = org.seedstack.seed.transaction.internal.JtaTransactionManager

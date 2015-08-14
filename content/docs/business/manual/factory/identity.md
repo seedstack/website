@@ -11,7 +11,7 @@ menu:
 ---
 
 Factories provide methods to create entities with a well defined identity. But sometimes, you want to delegate the identity
-creation, for instance to an Oracle sequence. For this use case SEED provides an **identity generation strategies**. 
+creation, for instance to an Oracle sequence. For this use case Seed provides an **identity generation strategies**. 
 A generation strategy makes sure a unique identity is provided to any new Entity before it is even persisted.
 
 # Use identity strategy
@@ -125,7 +125,7 @@ public class MyAggregateFactoryDefault extends BaseFactory<MyAggregate>
 Entity requiring id generation
 
 {{% callout info %}}
-If all factory methods delegate id generation to SEED, `@Create` annotation can apply at class or interface level.
+If all factory methods delegate id generation to Seed, `@Create` annotation can apply at class or interface level.
 
 Alternatively, you can inject `IdentityService` to programatically and individually generate an identity on compliant 
 entities (id attribute annotated with `@Identity`) as in following test.

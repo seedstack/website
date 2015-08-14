@@ -13,8 +13,8 @@ menu:
 ---
 
 # Build a function in 20 min.
-We will build a simple function for SEED. This function will provide a mini chat with a backend and a W20 screen. 
-Our function will have UI, so we will use the SEED Business Framework.
+We will build a simple function for Seed. This function will provide a mini chat with a backend and a W20 screen. 
+Our function will have UI, so we will use the Seed Business Framework.
 
 # Generate the project
 
@@ -26,7 +26,7 @@ You can alter the groupId and artifactId values to fit your conventions. Import 
 
 ## Dependency management
 
-Start by adding the dependency management for SEED, SEED Business Framework and Hibernate in your pom root.
+Start by adding the dependency management for Seed, Seed Business Framework and Hibernate in your pom root.
 
         <dependencyManagement>
         <dependencies>
@@ -54,7 +54,7 @@ Start by adding the dependency management for SEED, SEED Business Framework and 
         </dependencies>
     </dependencyManagement>
 
-Specify the SEED poms version in the properties.
+Specify the Seed poms version in the properties.
 
     <seed-poms.version>X.X.X</seed-poms.version>
 
@@ -537,7 +537,7 @@ Notice that the submit button will only be enable to users with the `prd:chat:po
 # Embed the function in a scaffold project
 
 Now we have a complete function but since it is not package as WAR, we need another project to embed our function. So 
-generate a scaffold project with the [SEED maven plugin](#!/seed-maven-plugin-doc/scaffold-project). Then, add the bom 
+generate a scaffold project with the [Seed maven plugin](#!/seed-maven-plugin-doc/scaffold-project). Then, add the bom 
 of our function in the root pom and add the web dependency in the web module. Then, configure the function persistence 
 and security as follow:
 

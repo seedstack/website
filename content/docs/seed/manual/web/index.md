@@ -17,7 +17,7 @@ menu:
 
 # What to expect
 
-SEED web support allows you to completely eliminate application web.xml **configuration** and take advantage of annotation
+Seed web support allows you to completely eliminate application web.xml **configuration** and take advantage of annotation
 based servlet and filter declaration. It ties together dependency injection and web components, meaning that your
 servlets and filters can benefit from:
 
@@ -27,20 +27,20 @@ servlets and filters can benefit from:
 * Aspect Oriented Programming
 * …while still benefitting from the standard servlet lifecycle!
 
-SEED web support provides integration with the Java Servlet specification and offers various Web related features. The
+Seed web support provides integration with the Java Servlet specification and offers various Web related features. The
 execution container should at least provide a Servlet 2.5 compliance level but some features are only available at
 Servlet 3.0 compliance level.
 
-# Getting SEED Web support
+# Getting Seed Web support
 
-To add SEED Web support to your Web module, use the following dependency snippet:
+To add Seed Web support to your Web module, use the following dependency snippet:
 
     <dependency>
         <groupId>org.seedstack.seed</groupId>
         <artifactId>seed-web-support-core</artifactId>
     </dependency>
     
-As previously stated, there is no need for configuring web.xml anymore but a minimal web.xml file is still required to make the web container start your SEED application:
+As previously stated, there is no need for configuring web.xml anymore but a minimal web.xml file is still required to make the web container start your Seed application:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"

@@ -22,7 +22,7 @@ And we'll focus on the Product and Category.
 
 # Architecture
 
-SEED comes with a Business Framework - Seed Business Support - that relies on principles described in the Domain Driven Design method (or DDD). 
+Seed comes with a Business Framework - Seed Business Support - that relies on principles described in the Domain Driven Design method (or DDD). 
 
 {{% callout info %}}
 To better understand this tutorial, refer to [business framework concepts](/docs/business/concepts).

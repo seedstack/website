@@ -16,7 +16,7 @@ menu:
         weight: 50
 ---
 
-SEED Core provides features to backup and restore data. This could be done through [Seed Shell](../../shell) 
+Seed Core provides features to backup and restore data. This could be done through [Seed Shell](../../shell) 
 or data could be loaded at the application startup. Data can be backed up and restored independently from the type of 
 persistence since YAML is used as the pivotal format. Consequently, no SQL script or conversion script is needed. Data 
 import can also be used to initialize data for integration tests.

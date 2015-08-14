@@ -14,7 +14,7 @@ menu:
         weight: 30
 ---
 
-Bean Validation 1.1 introduces Dynamic Validation, also called "Design by Contract". You can now let SEED validate inputs and outputs 
+Bean Validation 1.1 introduces Dynamic Validation, also called "Design by Contract". You can now let Seed validate inputs and outputs 
 of your services by simply providing constraint annotations on parameters and/or on methods' return types.
 
 For example, consider below code:
@@ -64,5 +64,5 @@ In the same way, `@Valid` garantees that the message will be valid.
 	DummyServiceParamValidation serviceParam;
 
 
-SEED provides a proxy which handles input parameters and return value verification throwing a
+Seed provides a proxy which handles input parameters and return value verification throwing a
 `org.seedstack.seed.validation.internal.ValidationException` upon any constraint violation.

@@ -19,13 +19,13 @@ aggregation of a customer aggregate, a product aggregate and an employee aggrega
 # Validation
 
 The representation is the pivotal format between you and your consumers, so **it has to be validated**. In order to do that,
-use the validation support provided by SEED. 
+use the validation support provided by Seed. 
 
 # Secure your exposed data
 
 The security is often all or nothing; if you have a certain permission then, you have access to this method/REST resource/page. 
 But it happens that users with different roles or permissions should have access to the same method but not the same data. 
-For instance, in list of user an admin will see "John Doe" and others will see "John D.". In this case, SEED
+For instance, in list of user an admin will see "John Doe" and others will see "John D.". In this case, Seed
 Business framework provides a mechanism to **obfuscate data according to the roles or the permissions** of the connected user.
 
 ## Make you assemblers secured
@@ -87,7 +87,7 @@ secured assemblers. Under the hood secured assemblers is using the
 Restriction annotation take two parameters two are optionnal with default values:
 
  - **value** : is a String and is the **security expression** of this
-   fields. SEED supports the expression language via the el-support so
+   fields. Seed supports the expression language via the el-support so
    you have to enter a string supporting this standard. The el have to be a `Boolean`.
    - default for **value** is `${false}`. Which basicaly means this fields will never be shown. 
    - To express **permissions** and **roles** in your security

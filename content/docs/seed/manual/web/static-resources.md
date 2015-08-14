@@ -17,7 +17,7 @@ menu:
         weight: 30
 ---
 
-SEED web support provides automatic static resource serving from the classpath and the docroot with some benefits
+Seed web support provides automatic static resource serving from the classpath and the docroot with some benefits
 over the container default resource serving:
 
 * Automatic serving of pre-minified and/or pre-gzipped versions of resources

@@ -50,7 +50,7 @@ Preferred implementation for logging is [LOGBack](http://logback.qos.ch/ "LOGBac
 SLF4J API. 
 
 - An example of LOGBack configuration file can be found under **src/main/resources/logback.xml**.
-- Use the `@Logging` annotation on a field of type of `org.slf4j.Logger` to have SEED inject the logger for the 
+- Use the `@Logging` annotation on a field of type of `org.slf4j.Logger` to have Seed inject the logger for the 
 declaring class:
 
 

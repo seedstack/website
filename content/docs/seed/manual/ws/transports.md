@@ -15,7 +15,7 @@ menu:
         weight: 30
 ---
 
-SEED WS supports HTTP and JMS transports. Each URL syntax described below.
+Seed WS supports HTTP and JMS transports. Each URL syntax described below.
 
 # Standalone HTTP
 
@@ -55,7 +55,7 @@ The `replyToName` parameter can be omitted in which case the implementation will
  
 ## Queue lookup
 
-This variant allows to directly specify a queue name using a connection factory from the one(s) configured via the SEED JMS plugin:
+This variant allows to directly specify a queue name using a connection factory from the one(s) configured via the Seed JMS plugin:
 
     jms:queue:QUEUE.NAME?connectionFactoryName=nameOfConfiguredConnectionFactory&replyToName=REPLY.QUEUE.NAME
 
@@ -63,7 +63,7 @@ The `replyToName` can be omitted in which case the implementation will create a 
 
 ## Topic lookup
 
-This variant allows to directly specify a queue name using a connection factory from the one(s) configured via the SEED JMS plugin:
+This variant allows to directly specify a queue name using a connection factory from the one(s) configured via the Seed JMS plugin:
 
     jms:topic:TOPIC.NAME?connectionFactoryName=nameOfConfiguredConnectionFactory
 

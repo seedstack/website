@@ -45,7 +45,7 @@ inferred ones, which in turn always take precedence over the default ones.**
 
 Transaction metadata can be explicitly specified through `@Transactional` annotation and associated annotations (for
 each type of transactional resource). These annotations can be placed on methods, classes, interfaces and other annotations.
-The search for the `@Transactional` annotation starts for all methods of any SEED managed class, using the following order:
+The search for the `@Transactional` annotation starts for all methods of any Seed managed class, using the following order:
 
 * The method and any annotation on this method,
 * The declaring class and any annotation on this class,
@@ -73,10 +73,10 @@ The `resolve()` method is called on each resolver with the intercepted method as
 of `org.seedstack.seed.transaction.spi.TransactionMetadata' with the inferred attributes set ot `null` when nothing can be inferred.
 inferred attributes set.
 
-SEED provides a built-in always active resolver which automatically associate the transaction handler if only
+Seed provides a built-in always active resolver which automatically associate the transaction handler if only
 one is available. In this case, it is not necessary to explicitly specify the corresponding transaction handler.
 
-Other SEED supports can register their own resolvers that will infer more transaction metadata for specific contexts.
+Other Seed supports can register their own resolvers that will infer more transaction metadata for specific contexts.
 Please read the corresponding support documentation for more detail.
 
 Remember that an explicitly specified `@Transactional` annotation will always override any automatically resolved metadata.

@@ -17,17 +17,17 @@ various components after deployment and even when the application is running if 
 is often centralized in one file which can be wholly externalised without any risks. Logging is a purely technical
 aspect of applications and can be entirely managed by the people in charge of the runtime environment.
 
-Note that SEED applications are using the SLF4J logging API but are not usually dependant of a specific implementation. 
+Note that Seed applications are using the SLF4J logging API but are not usually dependant of a specific implementation. 
 Nonetheless, we recommend using the Logback implementation because of its powerful configuration options and good 
 runtime performance.
 
 # Logback
 
-The recommended SLF4J implementation for SEED applications is Logback. It is mainly configurable through an XML file
+The recommended SLF4J implementation for Seed applications is Logback. It is mainly configurable through an XML file
 named `logback.xml` that must present in the classpath in the default package (e.g. as a top-level resource). 
 
 {{% callout info %}}
-We strongly recommend that you include SEED default configuration for Logback by adding the following line in your 
+We strongly recommend that you include Seed default configuration for Logback by adding the following line in your 
 `logback.xml` file:
 
     <include resource="org/seedstack/logback-defaults.xml"/>

@@ -15,7 +15,7 @@ menu:
         weight: 60
 ---
 
-SEED Web support integrates the the Java API for WebSocket (a.k.a. JSR 356) in a specific module.
+Seed Web support integrates the the Java API for WebSocket (a.k.a. JSR 356) in a specific module.
 
 <div class="callout callout-info">
 The JSR 356 is part of JEE 7, so <strong>it will only works for a JDK 7</strong> or earlier.
@@ -35,7 +35,7 @@ Here is more information on the JSR:
 
 # Server endpoint
 
-The server endpoints from the JSR work as is with SEED. This support just adds the ability to inject managed objects. The above
+The server endpoints from the JSR work as is with Seed. This support just adds the ability to inject managed objects. The above
 code snippet describes how to declare a server endpoint.
 
 ```java
@@ -82,7 +82,7 @@ This endpoint receives a message and then broadcast it to all the clients.
 # Client endpoint
 
 Unlike server endpoints, the client endpoints have to declare explicitly a `SeedClientEndpointConfigurator` to be managed
-by SEED.
+by Seed.
 
 ```java
 @ClientEndpoint(configurator = SeedClientEndpointConfigurator.class)

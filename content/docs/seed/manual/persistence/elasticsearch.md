@@ -29,7 +29,7 @@ Two kinds of client implementations are available: "node client" (in-memory/loca
 
 # Configuration
 
-Declare your list of clients (props file) in order to have them managed by SEED:
+Declare your list of clients (props file) in order to have them managed by Seed:
 
     org.seedstack.seed.persistence.elasticsearch.clients = myClient1, ...
 

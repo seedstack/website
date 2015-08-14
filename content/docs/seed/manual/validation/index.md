@@ -13,14 +13,14 @@ menu:
         weight: 10
 ---
 
-SEED Validation Support allows developers to use Bean Validation 1.0 and 1.1.
+Seed Validation Support allows developers to use Bean Validation 1.0 and 1.1.
 
 - Bean Validation 1.0 brings static validation aka JSR 303.
 - Bean Validation API 1.1 brings dynamic validation aka JSR 349. 
 
 Data validation is a very common concern at each and every layer of an application. As such, 
-it has been standardized through Bean Validation using JSR 303 and JSR 349. Integration of those in SEED Validation Support
-brings a Bean Validation to SEED. Implementation uses **Hibernate Validator** that you need to add explicitly in your
+it has been standardized through Bean Validation using JSR 303 and JSR 349. Integration of those in Seed Validation Support
+brings a Bean Validation to Seed. Implementation uses **Hibernate Validator** that you need to add explicitly in your
 project:
 
 - Use Hibernate Validator version 4.x to support Bean Validation 1.0 only (like in strict JEE6 environments)
@@ -28,14 +28,14 @@ project:
 
 # Maven dependency
 
-To install SEED validation support just add the following dependency snippet:
+To install Seed validation support just add the following dependency snippet:
 
     <dependency>
         <groupId>org.seedstack.seed</groupId>
         <artifactId>seed-validation-support</artifactId>
     </dependency>
 
-Please note that validation only works on instances managed by SEED.
+Please note that validation only works on instances managed by Seed.
 
 # Additional resources
 

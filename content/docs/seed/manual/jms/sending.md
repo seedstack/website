@@ -15,7 +15,7 @@ menu:
         weight: 30
 ---
 
-# SEED Managed Session
+# Seed Managed Session
 
 Using a managed session consists in the following steps:
 
@@ -23,7 +23,7 @@ Using a managed session consists in the following steps:
 2. Specify the connection to use with the `@JmsConnection` annotation.
 3. Use the session to create the destination Queue or Topic.
 4. Transaction will be automatically committed or rolled back according to your `@Transactional` annotation.
-5. Session object is managed by SEED. There is no need to care about thread-safe usage or closing it.
+5. Session object is managed by Seed. There is no need to care about thread-safe usage or closing it.
 6. To fine tune the Transaction, please refer to the transaction support documentation.
 
 Below is an example using a session to create a queue and send a TextMessage:
@@ -47,7 +47,7 @@ Below is an example using a session to create a queue and send a TextMessage:
 # Manually Created Session
 
 A connection can be injected directly inject and used to manually create all needed objects to send a message.
-In this case, except for the connection, nothing is managed by SEED. **Objects life cycles have to be dealt with (creation, closing, etc.).**
+In this case, except for the connection, nothing is managed by Seed. **Objects life cycles have to be dealt with (creation, closing, etc.).**
 
     public class MyUnManagedMessageSender {
         @Inject

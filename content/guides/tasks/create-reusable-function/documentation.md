@@ -12,7 +12,7 @@ menu:
         weight: 80
 ---
 
-The *-doc module contains the function documentation. This documentation will be included in the SEED documentation site. It is organized as follows:
+The *-doc module contains the function documentation. This documentation will be included in the Seed documentation site. It is organized as follows:
 
     ${project.basedir}
         - /doc

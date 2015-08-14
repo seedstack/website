@@ -15,7 +15,7 @@ menu:
         weight: 10
 ---
 
-The SEED shell support provides an administration access to shell application commands through SSH protocol in two different modes:
+The Seed shell support provides an administration access to shell application commands through SSH protocol in two different modes:
 
 * Interactive mode consists in providing of a simple line-based shell with auto-completion, history and the ability to display
 command results as a string. In this mode, commands have no access to low-level input, output and error streams. They
