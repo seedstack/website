@@ -47,7 +47,7 @@ The just-created project is immediately buildable. Go into the root module direc
 mvn clean install
 ```
    
-If it is the first time you build a SeedStack project on your computer, it makes take a little time to download all
+If it is the first time you build a SeedStack project on your computer, it could take a little time to download all
 dependencies.
 
 # First run
@@ -66,7 +66,7 @@ If the log showed `Seed Web application started`, you can display the Web UI by 
 If you don't import the project in a development environment that handles the compile/deploy/run cycle, remember to 
 rebuild the whole project after each modification and before restarting the jetty plugin. You can do so by:
 
-* Kill the currently running Jetty server by hitting Ctrl-C,
-* Go into the root project directory (`my-app`) and execute the `mvn clean install` command,
-* Go into the web project directory (`my-app/web`) and execute the `mvn jetty:run` command.
+* Killing the currently running Jetty server by hitting Ctrl-C,
+* Going into the root project directory (`my-app`) and execute the `mvn clean install` command,
+* Going into the web project directory (`my-app/web`) and execute the `mvn jetty:run` command.
 {{% /callout %}}
