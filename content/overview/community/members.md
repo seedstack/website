@@ -23,7 +23,7 @@ has actively contributed to define and implement the whole solution.
 {{% /member %}}
     
 {{% member "Kavi RAMYEAD" "https://avatars0.githubusercontent.com/u/5616469?v=3" "https://github.com/kavi87" %}}
-Coming soon...
+Software frontend developer, he worked on various Java/web projects. He joined the SeedStack team in the end of 2013. Since then, he mainly works on the front end framework, W20 and on the productivity tools. 
 {{% /member %}}
 
 {{% member "Marius MATEI" "https://avatars2.githubusercontent.com/u/3427528?v=3" "https://github.com/cmmatei" %}}
