@@ -16,11 +16,9 @@ choose to take advantage of the full stack for maximum development speed.
 **SeedStack is strongly opinionated** and, as such, not an ubiquitous solution for every need. Its main focus is on helping 
 you to build better applications or services, ones that will be valuable assets in the long run and that you can evolve 
 and maintain as long as needed. It does so by providing:
- 
- * A highly modular architecture, 
+  * A highly modular architecture, 
  * Integration of a wide range of curated technologies,
  * Easy-to-use building blocks.
-
 **SeedStack is designed with enterprise-class requirements in mind**. High modularity, powerful configuration, advanced 
 security, self-monitoring or side-channel administrative commands are typical examples of such features. They are easy
 to configure if you need them and won't get in your way if you don't. In fact, SeedStack high modularity allows you to 
