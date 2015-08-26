@@ -25,7 +25,7 @@ modules are provided, they are named according to their contents.
 * A test module, named "test", containing specific testing tools and fixtures if any.
  
 Simpler supports consists of only one module, containing the APIs, the SPIs and the implementation. For more information
-about how a supports is organized internally, have a look [here](concepts/modularity).
+about how a support is organized internally, have a look [here](concepts/modularity).
 
 {{% callout info %}}
 Adding the implementation module of a support to your classpath is enough to activate it. The support will initialize
