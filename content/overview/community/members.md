@@ -26,7 +26,7 @@ has actively contributed to define and implement the whole solution.
 Software frontend developer, he worked on various Java/web projects. He joined the SeedStack team in the end of 2013. Since then, he mainly works on the front end framework, W20 and on the productivity tools. 
 {{% /member %}}
 
-{{% member "Marius MATEI" "https://avatars2.githubusercontent.com/u/3427528?v=3" "https://github.com/cmmatei" %}}
+{{% member "Marius MATEI" "https://avatars2.githubusercontent.com/u/3427528?v=3" "https://github.com/cmmatei" "https://twitter.com/C_M_Matei" %}}
 Marius Matei is the SeedStack Program Manager. He contributed on various Java/web applications as Senior software architect, IT Manager or Team Leader before building the SeedStack team and putting on the rails the SeedStack enterprise software project.
 {{% /member %}}
 
