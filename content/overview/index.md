@@ -13,7 +13,6 @@ menu:
 **SeedStack is a comprehensive software development stack** aimed at application or service creation. It addresses both 
 backend and frontend needs in a modular yet seamless solution. It means that you can cherry-pick the components or 
 choose to take advantage of the full stack for maximum development speed. 
-
 **SeedStack is strongly opinionated** and, as such, not an ubiquitous solution for every need. Its main focus is on helping 
 you to build better applications or services, ones that will be valuable assets in the long run and that you can evolve 
 and maintain as long as needed. It does so by providing:
