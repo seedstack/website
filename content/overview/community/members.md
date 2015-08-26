@@ -27,7 +27,7 @@ Coming soon...
 {{% /member %}}
 
 {{% member "Marius MATEI" "https://avatars2.githubusercontent.com/u/3427528?v=3" "https://github.com/cmmatei" %}}
-Coming soon...
+Marius Matei is the SeedStack Program Manager. Senior software architect he contributed on various Java/web applications before building the SeedStack team and managing the enterprise software project.
 {{% /member %}}
 
 {{% member "Pierre THIROUIN" "https://avatars3.githubusercontent.com/u/2495124?v=3" "https://github.com/pith" "https://twitter.com/pierrethirouin" %}}
