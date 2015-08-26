@@ -35,7 +35,7 @@ Software developer for Infotel, he worked on various Java projects in the indust
 {{% /member %}}
 
 {{% member "Thierry BOUVET" "https://avatars2.githubusercontent.com/u/12045960?v=3" "https://github.com/tbouvet" %}}
-Coming soon...
+Software engineer with 15 years of experience, he worked on various Java projects at PSA Peugeot Citroën before joining SeedStack team. He has actively contributes to define, implement the whole solution He actively contributes to improve SeedStack usage and development performance.
 {{% /member %}}
 
 </ul>
