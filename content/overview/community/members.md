@@ -27,7 +27,7 @@ Software frontend developer, he worked on various Java/web projects. He joined t
 {{% /member %}}
 
 {{% member "Marius MATEI" "https://avatars2.githubusercontent.com/u/3427528?v=3" "https://github.com/cmmatei" %}}
-Marius Matei is the SeedStack Program Manager. Senior software architect he contributed on various Java/web applications before building the SeedStack team and managing the enterprise software project.
+Marius Matei is the SeedStack Program Manager. He contributed on various Java/web applications as Senior software architect, IT Manager or Team Leader before building the SeedStack team and putting on the rails the SeedStack enterprise software project.
 {{% /member %}}
 
 {{% member "Pierre THIROUIN" "https://avatars3.githubusercontent.com/u/2495124?v=3" "https://github.com/pith" "https://twitter.com/pierrethirouin" %}}
