@@ -18,8 +18,7 @@ it can even work without any server.
 
 W20 provides a **modular programming model for Web applications**, which allow entire parts of Web frontend to be reused
 between applications. These reusable parts are called fragments and can be published on any HTTP server as static resources.
-Creating an application frontend becomes as easy as referencing the fragment URLs from a configuration file and  
-provide some parameters. W20 itself is distributed as several fragments which are all optional, aside from W20 Core.  
+Creating an application frontend becomes as easy as referencing the fragment URLs from a configuration file and provide some parameters. W20 itself is distributed as several fragments which are all optional, aside from W20 Core.  
 
 # Full-featured
 
