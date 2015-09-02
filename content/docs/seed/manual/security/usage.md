@@ -97,7 +97,7 @@ To check if the current subject, if any, has a specific permission:
  
 {{% callout info %}}
 There are multiple variations for each of these methods, and many more possibilities. Please refer to the 
-[javadoc](http://www.seedstack.org/seed/org/seedstack/seed/security/api/SecuritySupport.html) for more information.
+[javadoc](/seed/org/seedstack/seed/security/api/SecuritySupport.html) for more information.
 {{% /callout %}}
 
 # Other checks

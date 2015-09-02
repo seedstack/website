@@ -146,5 +146,5 @@ public Response list(@QueryParam("q") String searchQuery,
 
 {{% callout info %}}
 The following example uses the HAL media type. For more information about it, read the documentation about
-[hypermedia](http://www.seedstack.org/docs/seed/manual/rest/restful-api/).
+[hypermedia](/docs/seed/manual/rest/restful-api/).
 {{% /callout %}}

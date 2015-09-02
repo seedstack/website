@@ -1,8 +1,9 @@
 # SeedStack website 
 [![Build status](https://travis-ci.org/seedstack/website.svg?branch=master)](https://travis-ci.org/seedstack/website)
 
-This repository contains the sources of the SeedStack website. The
-site is hosted at [www.seedstack.org](http://www.seedstack.org/). 
+This repository contains the sources of the SeedStack website. The site is hosted at 
+
+* [http://www.seedstack.org](http://www.seedstack.org/) for the stable channel. 
 
 # Usage
 
@@ -13,11 +14,11 @@ This site is built with [Hugo](http://gohugo.io/). If you have Hugo in your path
     hugo server
 
 
-# Publish
+# Publication
 
-The generated website is automatically pushed to the
-[seedstack.github.io](https://github.com/seedstack/seedstack.github.io)
-repository by Travis, after each changes on the master branch.
+The generated Website is automatically published on the corresponding channel repository after each change:
+
+* A change on the `master` branch publishes to the [seedstack.github.io](https://github.com/seedstack/seedstack.github.io) repository. 
 
 # License
 

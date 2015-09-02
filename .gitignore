@@ -5,11 +5,14 @@
 .idea
 *.iml
 
-# public generated folder
+# generated folders
 public/
+dev/
+beta/
 
 # node
 node_modules/
 
-# generated diagrams
+# generated static content
+static/lunr-index.json
 static/puml
