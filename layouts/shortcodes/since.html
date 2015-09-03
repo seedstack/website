@@ -1,0 +1,11 @@
+{{ if eq (.Get 0) "seed" }}
+    {{ .Scratch.Add "latest" (split (index (getJSON "http://search.maven.org/solrsearch/select?q=g:%22org.seedstack.seed%22+AND+a:%22seed-bom%22&core=gav&rows=1&wt=json") "response" "docs" 0 "v") ".") }}
+{{ end }}
+{{ if eq (.Get 0) "business" }}
+    {{ .Scratch.Add "latest" (split (index (getJSON "http://search.maven.org/solrsearch/select?q=g:%22org.seedstack.business%22+AND+a:%22business-bom%22&core=gav&rows=1&wt=json") "response" "docs" 0 "v") ".") }}
+{{ end }}
+{{ $latest := .Scratch.Get "latest" }}
+{{ $since := split (.Get 1) "." }}
+{{ if and (ge (index $latest 0) (index $since 0)) (ge (index $latest 1) (index $since 1)) (ge (index $latest 2) (index $since 2)) }}
+    {{ .Inner }}
+{{ end }}

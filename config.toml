@@ -294,7 +294,7 @@ MetaDataFormat = "yaml"
 
 [params.section.SeedPersistence]
   label = "Persistence"
-  icon = "fa fa-save"
+  icon = "fa fa-database"
   path = "manual/persistence"
 
 [params.section.SeedJMS]
