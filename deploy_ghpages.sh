@@ -7,7 +7,7 @@ if [ -z $1 ]; then
     CHANNEL="stable"
 else
     BRANCH="gh-pages"
-    REPO="${1}.seedstack.github.io"
+    REPO="${1}"
     DIR=${1}
     CHANNEL=${1}
 fi
