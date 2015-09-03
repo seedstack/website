@@ -13,9 +13,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse"
                         data-target=".navbar-responsive-collapse">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="fa fa-bars"></span>
                 </button>
                 <a class="navbar-brand" href="/">SeedStack</a>
             </div>
@@ -81,3 +79,17 @@
         </div>
     </div>
 </div>
+{{ if eq $.Site.BaseURL "http://beta.seedstack.org/" }}
+<div class="channel-marker beta">
+    <div class="container">
+        <span><strong>BETA documentation.</strong> <small>You may want go to the <a href="http://www.seedstack.org">stable documentation</a> instead.</small></span>
+    </div>
+</div>
+{{ end }}
+{{ if eq $.Site.BaseURL "http://dev.seedstack.org/" }}
+<div class="channel-marker dev">
+    <div class="container">
+        <span><strong>DEV documentation.</strong> <small>You may want go to the <a href="http://www.seedstack.org">stable documentation</a> instead.</small></span>
+    </div>
+</div>
+{{ end }}

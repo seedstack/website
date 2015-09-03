@@ -191,8 +191,8 @@
 }
 
 .navbar-toggle {
-    margin-top: 5px;
-    padding: 5px 10px 5px 10px !important;
+    margin-top: 2px;
+    padding: 5px 10px 3px 10px !important;
 }
 
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
@@ -245,6 +245,32 @@ kbd {
     padding-right: 50px;
     float: right;
     vertical-align: top;
+}
+
+.channel-marker {
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.channel-marker.beta {
+    background-color: #3f66ff;
+    color: #fff;
+}
+
+.channel-marker.dev {
+    background-color: #ff2437;
+    color: #fff;
+}
+
+.channel-marker span {
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    padding: 10px 0 10px 0;
+}
+
+.channel-marker span a {
+    color: #fff;
+    text-decoration: underline;
 }
 
 @media (max-width: 767px) {

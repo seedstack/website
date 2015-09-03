@@ -57,15 +57,20 @@ border-top: solid 2px #88c758;
 }
 
 .header .navbar-default .navbar-toggle {
-    border-color: #498819;
+    border: none;
 }
 .header .navbar-toggle,
 .header .navbar-default .navbar-toggle:hover,
 .header .navbar-default .navbar-toggle:focus {
-    background:  #88c758;
+    background:  #eee;
+	color: #999;
+}
+.header .navbar-default .navbar-toggle .fa {
+	color: inherit;
 }
 .header .navbar-toggle:hover {
-    background:  #498819 !important;
+    background:  #88c758 !important;
+	color: white !important;
 }
 
 .header .navbar-default .navbar-nav > .open > a,

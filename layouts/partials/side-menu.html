@@ -46,7 +46,15 @@
     {{ end }}
     <div class="list-group">
         <ul class="nav">
-            {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/website/edit/master/content/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this page</a></li>{{end}}
+            {{ if eq $.Site.BaseURL "http://www.seedstack.org/" }}
+                {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/website/edit/master/content/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this page</a></li>{{end}}
+            {{ end }}
+            {{ if eq $.Site.BaseURL "http://beta.seedstack.org/" }}
+                {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/website/edit/beta/content/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this beta page</a></li>{{end}}
+            {{ end }}
+            {{ if eq $.Site.BaseURL "http://dev.seedstack.org/" }}
+                {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/website/edit/dev/content/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this dev page</a></li>{{end}}
+            {{ end }}
         </ul>
     </div>
 </div>
