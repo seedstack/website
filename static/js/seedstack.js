@@ -51,6 +51,14 @@
             $('#hotkeys-modal').modal('hide');
         },
 
+        openVersions: function () {
+            $('#versions-modal').modal('show');
+        },
+
+        closeVersions: function () {
+            $('#versions-modal').modal('hide');
+        },
+
         showAllShortcuts: function () {
             $('.hidden-shortcuts').show();
             $('#show-all-shortcuts').hide();
