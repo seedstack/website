@@ -17,8 +17,9 @@ menu:
         weight: 30
 ---
 
-Seed JDBC persistence support enables your application to interface with any relational database through the JDBC API. To
-add the JDBC persistence support to your project, use the following Maven dependency:
+Seed JDBC persistence support enables your application to interface with any relational database through the JDBC API. 
+
+To add the JDBC persistence support to your project, use the following Maven dependency:
  
     <dependency>
       <groupId>org.seedstack.seed</groupId>
@@ -27,9 +28,8 @@ add the JDBC persistence support to your project, use the following Maven depend
 
 # Configuration
 
-You can configure the support with properties in one of your \*.props files.
-
-Declare you list of data source names you will be configuring later:
+You can configure the support in one or more of your \*.props files. Declare you list of data source names you will be 
+configuring later:
 
     org.seedstack.seed.persistence.jdbc.datasources = datasource1, datasource2, ...
     

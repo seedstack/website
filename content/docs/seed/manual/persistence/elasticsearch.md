@@ -11,53 +11,80 @@ tags:
     - "example"
 menu:
     SeedPersistence:
-        weight: 40
+        weight: 90
 ---
 
 
-The support integrates **[ElasticSearch Java API](http://www.elasticsearch.org/guide/en/elasticsearch/client/java-api/current/index.html)** 
-which allows to interact with an **ElasticSearch server**. To understand how **ElasticSearch** works and if it suits 
-your requirements, please check the [website](http://www.elasticsearch.org).
+Seed ElasticSearch support integrates the [ElasticSearch Java API](https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/index.html) 
+which allows to interact with an ElasticSearch server or an embedded ElasticSearch instance. 
 
-# Usage
+To add the ElasticSearch persistence support to your project, use the following Maven dependency:
 
-In order to communicate with an  **ElasticSearch server**, just define the appropriate configuration and inject the 
-`@Named` client (`org.elasticsearch.client.Client` interface) accordingly . 
-
-Two kinds of client implementations are available: "node client" (in-memory/local node) and "transport client" 
-(distant server).
+     <dependency>
+         <groupId>org.seedstack.seed</groupId>
+         <artifactId>seed-persistence-support-elasticsearch</artifactId>
+     </dependency>
 
 # Configuration
 
-Declare your list of clients (props file) in order to have them managed by Seed:
+To access an ElasticSearch index, you need to declare a client in configuration. Multiple clients can be configured. They
+must be listed in the following property:
 
-    org.seedstack.seed.persistence.elasticsearch.clients = myClient1, ...
+```ini
+org.seedstack.seed.persistence.elasticsearch.clients = client1, client2, ...
+```
+    
+## Remote instance
+    
+To access a remote ElasticSearch index, you need to specify the host(s) of one or more node(s) of the ElasticSearch 
+cluster:
+     
+```ini
+[org.seedstack.seed.persistence.elasticsearch.client.client1]
+hosts =  host1:port1, host2:port2, ...
+```
 
-Add properties to your ElasticSearch client by specifying a section as follows:
+You can omit the port in which case will be set to the ElasticSearch default (9300).      
+    
+## Embedded instance
+    
+If you don't specify the `hosts` property, a local ElasticSearch node will be created and stored in the `persistence-elasticsearch/{client-name}` 
+subdirectory of the Seed local storage location, where `{client-name}` is the name of the ElasticSearch client.
+         
+## Other options
+         
+You can specify any configuration property of the ElasticSearch client with the following syntax:
+          
+```ini
+[org.seedstack.seed.persistence.elasticsearch.client.client1]
+property.name.of.elasticsearch.property = value
+```
 
-    [org.seedstack.seed.persistence.elasticsearch.client.myClient1]
-    property.hosts =  myHost1:myPort1, myHost2:myPort2, ...
-    property.cluster.name = myCluster
-    property.client.transport.ignore_cluster_name =
-    property.client.transport.sniff =
-    property.client.transport.nodes_sampler_interval =
-    property.client.transport.ping_timeout =
+# Usage
 
-If you omit the `hosts` property, the client will be automatically associated with a local node.
+To use a configured ElasticSearch client, simply inject it where needed:
+
+```java
+@Inject 
+@Named("client1")
+Client client1;
+```
 
 # Example
 
-Configuration example for an embedded ElasticSearch node (previously referred to as "node client"):
+Configuration for an embedded ElasticSearch instance:
 
-    org.seedstack.seed.persistence.elasticsearch.clients = client1
+```ini
+    org.seedstack.seed.persistence.elasticsearch.clients = test
     
-    [org.seedstack.seed.persistence.elasticsearch.client.client1]
+    [org.seedstack.seed.persistence.elasticsearch.client.test]
     property.cluster.name = test-cluster-1
+```
 
-To inject this configured **ElasticSearch client**, just inject it using the `@Named` annotation.
+To inject this configured client, use the following syntax:
 
+```ini
 	@Inject 
-	@Named("myClient1")
-	Client myClient1;
-
-	
+	@Named("test")
+	Client testClient;
+```

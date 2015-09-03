@@ -17,22 +17,20 @@ menu:
         weight: 30
 ---
 
-# Introduction
-
 Seed JPA persistence support enables your application to interface with any relational database through a JPA-compliant
 ORM. Note that:
 
 * This version doesn't enforce a specific JPA version. It is currently tested with JPA 1.0, JPA 2.0 and JPA 2.1.
 * This support is compatible with any ORM implementation. 
 
-To add Seed JPA persistence support to your project, use the following Maven dependency:
+To add the JPA persistence support to your project, use the following Maven dependency:
 
      <dependency>
          <groupId>org.seedstack.seed</groupId>
          <artifactId>seed-persistence-support-jpa</artifactId>
      </dependency>
 
-If you want to use the popular Hibernate ORM, use the following Maven dependency:
+If you want to use the popular [Hibernate ORM](http://hibernate.org/orm/), use the following Maven dependency:
 
     <dependency>
         <groupId>org.hibernate</groupId>

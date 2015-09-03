@@ -13,47 +13,61 @@ menu:
         weight: 10
 ---
 
-Seed provides various persistence supports. Multiple supports can be used simultaneously 
-by importing the corresponding Maven dependencies into your application module.
+Seed provides various persistence supports. Multiple supports can be used simultaneously by adding all the corresponding 
+Maven dependencies.
 
 # JDBC
 
-Seed JDBC persistence support allows you to inject and use configured JDBC connections in a transactional manner.
-Add it to your application with the following Maven dependency:
+Allows you to configure, inject and use [JDBC](https://jcp.org/en/jsr/detail?id=221) connections. Add it to your application 
+with the following Maven dependency:
 
     <dependency>
         <groupId>org.seedstack.seed</groupId>
-        <artifactId>seed-persistence-jpa-support</artifactId>
+        <artifactId>seed-persistence-support-jdbc</artifactId>
     </dependency>
+    
+Main features:
+  
+* Transactions
+* Connection pooling with either [HikariCP](http://brettwooldridge.github.io/HikariCP/), [Commons DBCP](http://commons.apache.org/proper/commons-dbcp/),
+[C3P0](http://www.mchange.com/projects/c3p0/) or a custom provider.
+* JNDI
+
+Learn about JDBC support [here](jdbc).
 
 # JPA
 
-Seed JPA persistence support allows you to inject and use configured JPA units in a transactional manner. 
-Add it to your application with the following Maven dependency:
+Allows you to configure, inject and use [JPA](https://jcp.org/en/jsr/detail?id=338) units. Add it to your application 
+with the following Maven dependency:
 
     <dependency>
         <groupId>org.seedstack.seed</groupId>
-        <artifactId>seed-persistence-jpa-support</artifactId>
+        <artifactId>seed-persistence-support-jpa</artifactId>
     </dependency>
+    
+Main features:
+    
+* Supports JPA 1.0, 2.0 and 2.1
+* Transactions
+* Automatic or `persistence.xml`-based configuration
+* Ability to use a JDBC support datasource
+* JNDI
+           
+Learn about JPA support [here](jpa).
 
-# Elastic Search
+# ElasticSearch
 
-Seed ElasticSearch persistence support allows you to inject ElasticSearch clients. 
-Add it to your application with the following Maven dependency:
+Allows you to configure, inject and use [ElasticSearch](https://www.elastic.co) clients. Add it to your application with 
+the following Maven dependency:
 
     <dependency>
         <groupId>org.seedstack.seed</groupId>
-        <artifactId>seed-persistence-elasticsearch-support</artifactId>
+        <artifactId>seed-persistence-support-elasticsearch</artifactId>
     </dependency>
 
-# In memory
+Main features:
 
-Seed in-memory persistence support allows to store data in memory buckets, mainly for testing purposes. 
-Add it to your application with the following Maven dependency:
+* Embedded indexes
+* Remote indexes
 
-    <dependency>
-        <groupId>org.seedstack.seed</groupId>
-        <artifactId>seed-persistence-inmemory-support</artifactId>
-    </dependency>
-
-
+Learn about ElasticSearch support [here](elasticsearch).
