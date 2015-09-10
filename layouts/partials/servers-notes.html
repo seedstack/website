@@ -1,0 +1,10 @@
+{{ range $index,$element := getJSON ($.Scratch.Get "jsonFile") }}
+    {{ if eq $index "Servers" }}
+        {{ range $element }}
+            <dl>
+              <dt>{{ upper .Name }}</dt>
+              <dd>{{ safeHTML .Notes }}</dd>
+            </dl>
+         {{ end }}
+    {{ end }}
+{{ end }}

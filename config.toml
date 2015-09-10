@@ -110,6 +110,11 @@ MetaDataFormat = "yaml"
   icon = "fa fa-comments-o"
   path = ""
 
+[params.section.OverviewBuild]
+  label = "Build"
+  icon = "fa fa-cogs"
+  path = ""
+
 #####################################
 #### Getting started sections    ####
 #####################################
