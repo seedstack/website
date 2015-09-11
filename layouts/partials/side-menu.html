@@ -46,9 +46,9 @@
     {{ end }}
     <div class="list-group">
         <ul class="nav">
-            {{ if eq (substr $.Site.BaseURL 0) "http://beta.seedstack.org/" }}
+            {{ if eq (substr ( printf "%s" $.Site.BaseURL) 0) "http://beta.seedstack.org/" }}
                 {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/website/edit/beta/content/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this beta page</a></li>{{end}}
-            {{ else if eq (substr $.Site.BaseURL 0) "http://dev.seedstack.org/" }}
+            {{ else if eq (substr ( printf "%s" $.Site.BaseURL) 0) "http://dev.seedstack.org/" }}
                 {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/website/edit/dev/content/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this dev page</a></li>{{end}}
             {{ else }}
                 {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/website/edit/master/content/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this page</a></li>{{end}}

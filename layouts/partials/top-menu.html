@@ -80,13 +80,13 @@
         </div>
     </div>
 </div>
-{{ if eq (substr $.Site.BaseURL 0) "http://beta.seedstack.org/" }}
+{{ if eq (substr ( printf "%s" $.Site.BaseURL) 0) "http://beta.seedstack.org/" }}
 <div class="channel-marker beta">
     <div class="container">
         <span><strong>BETA documentation.</strong> <small>You may want go to the <a href="http://www.seedstack.org">stable documentation</a> instead.</small></span>
     </div>
 </div>
-{{ else if eq (substr $.Site.BaseURL 0) "http://dev.seedstack.org/" }}
+{{ else if eq (substr ( printf "%s" $.Site.BaseURL) 0) "http://dev.seedstack.org/" }}
 <div class="channel-marker dev">
     <div class="container">
         <span><strong>DEV documentation.</strong> <small>You may want go to the <a href="http://www.seedstack.org">stable documentation</a> instead.</small></span>

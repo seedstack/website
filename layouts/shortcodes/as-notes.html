@@ -1,4 +1,4 @@
-{{ range $index,$element := getJSON ($.Scratch.Get "jsonFile") }}
+{{ range $index,$element := getJSON "static/servers/notes.json" }}
     {{ if eq $index "Servers" }}
         {{ range $element }}
             <dl>
@@ -8,3 +8,4 @@
          {{ end }}
     {{ end }}
 {{ end }}
+        
