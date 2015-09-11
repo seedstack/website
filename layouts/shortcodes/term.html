@@ -1,1 +1,1 @@
-{{ if isset .Params 1 }}{{ $range := index .Page.Site.Params.GlossaryMap (upper (first 1 (.Get 1))) }}<a href='{{ ref . (add (add $range ".md#") (.Get 1 | urlize)) }}'>{{ .Get 0 }}</a>{{ else }}{{ $range := index .Page.Site.Params.GlossaryMap (upper (first 1 (.Get 0))) }}<a href='{{ ref . (add (add $range ".md#") (.Get 0 | urlize)) }}'>{{ .Get 0 }}</a>{{ end }}
+{{ if isset .Params 1 }}<a href='/glossary#{{ .Get 1 | urlize }}'>{{ .Get 0 }}</a>{{ else }}<a href='/glossary#{{ .Get 0 | urlize }}'>{{ .Get 0 }}</a>{{ end }}

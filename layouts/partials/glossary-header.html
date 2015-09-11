@@ -1,10 +1,9 @@
-{{ $section := index .Params.sections 0 }}
 <div class="title-header small">
     <div class="container">
         <div class="row">
             <div class="col-md-9 col-sm-12">
                 <h2>Glossary</h2>
-                <p class="hidden-xs">Definitions of significant terms used throughout the Website.</p>
+                <p class="hidden-xs">Definitions of significant terms used throughout the documentation.</p>
             </div>
             <div class="col-md-3 hidden-sm hidden-xs">
                 <div class="header-image-wrapper">
@@ -17,11 +16,7 @@
 <div class="title-subheader">
     <div class="container">
         <ul>
-            <li><h3 class='{{ if eq $section "GlossaryIntroduction" }}active{{ end }}'><i class="fa fa-file-text"></i> <a href="/glossary">Introduction</a></h3></li>
-            <li><h3 class='{{ if eq $section "GlossaryAF" }}active{{ end }}'><i class="fa fa-file-text"></i> <a href="/glossary/a-f">A..F</a></h3></li>
-            <li><h3 class='{{ if eq $section "GlossaryGM" }}active{{ end }}'><i class="fa fa-file-text"></i> <a href="/glossary/g-m">G..M</a></h3></li>
-            <li><h3 class='{{ if eq $section "GlossaryNS" }}active{{ end }}'><i class="fa fa-file-text"></i> <a href="/glossary/n-s">N..S</a></h3></li>
-            <li><h3 class='{{ if eq $section "GlossaryTZ" }}active{{ end }}'><i class="fa fa-file-text"></i> <a href="/glossary/t-z">T..Z</a></h3></li>
+            <li><h3 class="active"><i class="fa fa-file-text"></i> <a href="#">All terms</a></h3></li>
         </ul>
     </div>
 </div>
