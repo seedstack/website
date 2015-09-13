@@ -3,10 +3,16 @@ sudo: false
 language: go
 
 go: 1.4
+
+git:
+  submodules: false
   
 notifications:
   irc: "chat.freenode.net#seedstack-dev"
   
+before_install:
+  - git submodule update --init --remote
+
 install:
   - go get -v github.com/seedstack/hugo
   - npm install
