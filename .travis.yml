@@ -21,7 +21,7 @@ script:
   - chmod +x build_diagrams.sh deploy_ghpages.sh
   - ./build_diagrams.sh
   - grunt lunr-index
-  - if [ $TRAVIS_BRANCH = master ]; then hugo && echo seedstack.org >| public/CNAME; fi
+  - if [ $TRAVIS_BRANCH = master ]; then hugo && echo seedstack.org >| public/CNAME && (curl -o public/distribution.pom.xml https://repo1.maven.org/maven2/org/seedstack/distribution/15.7/distribution-15.7.pom || :); fi
   - if [ $TRAVIS_BRANCH = beta ]; then hugo -d beta -b http://beta.seedstack.org/ && echo beta.seedstack.org >| beta/CNAME; fi
   - if [ $TRAVIS_BRANCH = dev ]; then hugo -d dev -b http://dev.seedstack.org/ && echo dev.seedstack.org >| dev/CNAME; fi
 
