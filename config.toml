@@ -1,4 +1,4 @@
-baseurl = "http://www.seedstack.org/"
+baseurl = "http://seedstack.org/"
 MetaDataFormat = "yaml"
 
 [params]

@@ -88,7 +88,7 @@
 
         function resolveVersions() {
             var $versionsTitle = $('#versions-title');
-            if (!$versionsTitle.hasClass('versions-done')) {
+            if (!seedstack.versions) {
                 $.ajax({
                     dataType: 'text',
                     url: '/distribution.pom.xml'
@@ -97,11 +97,14 @@
 
                     if (pom.project && pom.project.properties && pom.project.version) {
                         var $versions = $('#versions-table');
+                        var versions = {};
 
-                        $versionsTitle.text("SeedStack " + pom.project.version).addClass('versions-done');
+                        $versionsTitle.text("SeedStack " + pom.project.version);
 
                         $.each(pom.project.properties, function (name, value) {
                             if (/\.version$/.test(name)) {
+                                versions[name.substr(0, name.indexOf('.version'))] = value;
+
                                 $versions.append(
                                         '<tr>' +
                                         '<td>' +
@@ -115,7 +118,9 @@
                         $('.loginbar').prepend(
                                 '<li class="hidden-xs hidden-sm"><i class="fa fa-tag"></i> <a style="cursor: pointer;" onclick="seedstack.ui.openVersions();">Version ' + pom.project.version + '</a></li>' +
                                 '<li class="topbar-devider"></li>'
-                        )
+                        );
+
+                        seedstack.versions = versions;
                     }
                 }).error(function () {
                     console.error("SeedStack version could not be resolved");
