@@ -27,6 +27,6 @@ script:
   - if [ $TRAVIS_BRANCH = dev ]; then hugo -d dev -b http://dev.seedstack.org/ && echo dev.seedstack.org >| dev/CNAME; fi
 
 after_success:
-  - if [ $TRAVIS_PULL_REQUEST = false ] && [ $TRAVIS_BRANCH = master ]; then ./deploy_ghpages.sh && (curl http://www.google.com/webmasters/tools/ping?sitemap=http%3A%2F%2Fwww.seedstack.org%2Fsitemap.xml > /dev/null || :); fi
+  - if [ $TRAVIS_PULL_REQUEST = false ] && [ $TRAVIS_BRANCH = master ]; then ./deploy_ghpages.sh && (curl http://www.google.com/webmasters/tools/ping?sitemap=http%3A%2F%2Fseedstack.org%2Fsitemap.xml > /dev/null || :); fi
   - if [ $TRAVIS_PULL_REQUEST = false ] && [ $TRAVIS_BRANCH = beta ]; then ./deploy_ghpages.sh beta; fi
   - if [ $TRAVIS_PULL_REQUEST = false ] && [ $TRAVIS_BRANCH = dev ]; then ./deploy_ghpages.sh dev; fi
