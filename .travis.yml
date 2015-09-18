@@ -11,8 +11,7 @@ notifications:
   irc: "chat.freenode.net#seedstack-dev"
   
 before_install:
-  - git submodule update --init --remote
-  - git submodule foreach git checkout $TRAVIS_BRANCH
+  - git submodule update --init --recursive
 
 install:
   - go get -v github.com/seedstack/hugo
