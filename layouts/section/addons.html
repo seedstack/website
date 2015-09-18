@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+{{ partial "initial-scripts.html" . }}
+{{ $paginator := .Paginate (where .Data.Pages.ByTitle "Title" "Overview") }}
+<div id="header">
+    {{ partial "top-menu.html" . }}
+    {{ partial "addons-header.html" . }}
+    <div class="title-subheader">
+        <div class="container">
+            <ul>
+                <li><h3 class="active"><i class="fa fa-list"></i> <a href="/posts">All add-ons</a></h3></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="content" class="container">
+    <div class="row">
+        <div class="col-md-9">
+            {{ range $paginator.Pages }}
+                <div class="content-wrapper">
+                    <div class="doc-content">
+                        {{ .Render "summary" }}
+                    </div>
+                </div>
+                <br>
+            {{ end }}
+
+            <div class="text-left">
+                {{ template "_internal/pagination.html" . }}
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="side-menu">
+                <div class="list-group">
+                    <ul class="nav">
+                        <li class="list-group-item">Browse by type</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    {{ partial "footer.html" . }}
+</div>
+{{ partial "modals.html" . }}
+{{ partial "styles.html" . }}
+{{ partial "scripts.html" . }}
+</body>
+</html>

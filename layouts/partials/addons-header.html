@@ -1,10 +1,9 @@
-{{ $section := index .Params.sections 0 }}
 <div class="title-header small">
     <div class="container">
         <div class="row">
             <div class="col-md-9 col-sm-12">
                 <h2>Add-ons</h2>
-                <p class="hidden-xs">Ready-to-use packages that extend SeedStack base features.</p>
+                <p class="hidden-xs">Ready-to-use add-ons that extend SeedStack at the flick of a switch.</p>
             </div>
             <div class="col-md-3 hidden-sm hidden-xs">
                 <div class="header-image-wrapper">
@@ -12,15 +11,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="title-subheader">
-    <div class="container">
-        <ul>
-            <li><h3 class='{{ if eq $section "AddonsIntroduction" }}active{{ end }}'><i class="fa fa-file-text"></i> <a href="/addons">Introduction</a></h3></li>
-            <li><h3 class='{{ if eq $section "AddonsFunctions" }}active{{ end }}'><i class="fa fa-cube"></i> <a href="/addons/functions">Functions</a></h3></li>
-            <li><h3 class='{{ if eq $section "AddonsSupports" }}active{{ end }}'><i class="fa fa-cogs"></i> <a href="/addons/supports">Supports</a></h3></li>
-            <li><h3 class='{{ if eq $section "AddonsThemes" }}active{{ end }}'><i class="fa fa-paint-brush"></i> <a href="/addons/themes">Themes</a></h3></li>
-        </ul>
     </div>
 </div>

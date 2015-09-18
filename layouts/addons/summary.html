@@ -1,0 +1,10 @@
+<article class="post">
+    <header>
+        <h1><a style="text-decoration: none;" href='{{ .Permalink }}'>{{ .Params.addon }}</a></h1>
+    </header>
+
+    {{ .Description }}
+    <footer style="padding-top: 10px;">
+        {{ if isset .Params "authors" }}<span>Author(s): {{ range .Params.authors }}{{ . }} {{ end }}</span>{{ end }}
+    </footer>
+</article>

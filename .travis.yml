@@ -12,7 +12,7 @@ notifications:
   
 before_install:
   - git submodule update --init --remote
-  - git submodule foreach git checkout $TRAVIS_BRANCH
+  - git submodule foreach (git checkout $TRAVIS_BRANCH || :)
 
 install:
   - go get -v github.com/seedstack/hugo
