@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" . }}
+</head>
+<body>
+{{ partial "initial-scripts.html" . }}
+<div id="header">
+    {{ partial "top-menu.html" . }}
+    <div class="title-subheader">
+        <div class="container">
+            <h3>
+                <img src="/img/logos/guides-logo.svg">
+                <a href="/guides">Guides</a>
+                <i class="fa fa-caret-right"></i>
+                <a href="">{{ .Params.guide }}</a>
+            </h3>
+        </div>
+    </div>
+</div>
+<div id="content" class="container">
+    {{ partial "content.html" . }}
+</div>
+<div id="footer">
+    {{ partial "footer.html" . }}
+</div>
+{{ partial "modals.html" . }}
+{{ partial "styles.html" . }}
+{{ partial "scripts.html" . }}
+</body>
+</html>

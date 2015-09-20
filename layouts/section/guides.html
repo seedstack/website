@@ -5,14 +5,14 @@
 </head>
 <body>
 {{ partial "initial-scripts.html" . }}
-{{ $paginator := .Paginate (where .Data.Pages.ByTitle "Title" "Overview") }}
+{{ $paginator := .Paginate (where .Data.Pages.ByTitle "Title" "Introduction") }}
 <div id="header">
     {{ partial "top-menu.html" . }}
-    {{ partial "addons-header.html" . }}
+    {{ partial "guides-header.html" . }}
     <div class="title-subheader">
         <div class="container">
             <ul>
-                <li><h3 class="active"><i class="fa fa-list"></i> <a href="/addons">All add-ons</a></h3></li>
+                <li><h3 class="active"><i class="fa fa-list"></i> <a href="/guides">All guides</a></h3></li>
             </ul>
         </div>
     </div>
@@ -38,7 +38,7 @@
                 <div class="list-group">
                     <ul class="nav">
                         <li class="list-group-item">
-                            <span>Want your guide listed here ?<br> Follow <a href="https://github.com/seedstack/seedstack/wiki/Register-an-extension-on-website">this guide</a>.</span>
+                            <span>Want your add-on listed here ?<br> Follow <a href="https://github.com/seedstack/seedstack/wiki/Register-an-extension-on-website">this guide</a>.</span>
                         </li>
                     </ul>
                 </div>

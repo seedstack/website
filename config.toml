@@ -14,8 +14,6 @@ MetaDataFormat = "yaml"
   author = "authors"
   zone = "zones"
   section = "sections"
-  subsection = "subsections"
-  post-category = "post-categories"
 
 #####################################
 #### Website zones               ####
@@ -302,21 +300,6 @@ MetaDataFormat = "yaml"
   icon = "fa fa-database"
   path = "manual/persistence"
 
-[params.section.SeedJMS]
-  label = "JMS"
-  icon = "fa fa-random"
-  path = "manual/jms"
-
-[params.section.SeedWebServices]
-  label = "Web Services"
-  icon = "fa fa-legal"
-  path = "manual/ws"
-
-[params.section.SeedValidation]
-  label = "Validation"
-  icon = "fa fa-check"
-  path = "manual/validation"
-
 [params.section.SeedShell]
   label = "Shell"
   icon = "fa fa-terminal"
@@ -326,21 +309,6 @@ MetaDataFormat = "yaml"
   label = "Testing"
   icon = "fa fa-thumbs-up"
   path = "manual/testing"
-
-[params.section.SeedScheduling]
-  label = "Scheduling"
-  icon = "fa fa-clock-o"
-  path = "manual/scheduling"
-
-[params.section.SeedCache]
-  label = "Cache"
-  icon = "fa fa-rocket"
-  path = "manual/cache"
-
-[params.section.SeedMail]
-  label = "Mail"
-  icon = "fa fa-envelope"
-  path = "manual/mail"
 
 [params.section.SeedMetrics]
   label = "Metrics"
@@ -409,125 +377,6 @@ MetaDataFormat = "yaml"
   label = "Maven plugin"
   icon = "fa fa-cogs"
   path = "maven-plugin"
-
-#####################################
-#### Guides                      ####
-#####################################
-
-[params.section.GuidesIntroduction]
-  label = "Introduction"
-  icon = "fa fa-file-text"
-  path = ""
-
-[params.section.GuidesTasks]
-  label = "Tasks"
-  icon = "fa fa-book"
-  path = "/tasks"
-
-[params.section.GuidesDesign]
-  label = "Design"
-  icon = "fa fa-book"
-  path = "/design"
-
-#####################################
-#### Glossary                    ####
-#####################################
-
-[params.section.GlossaryIntroduction]
-  label = "Introduction"
-  icon = "fa fa-file-text"
-  path = ""
-
-[params.section.GlossaryAF]
-  label = "A-F"
-  icon = "fa fa-file-text"
-  path = "/a-f"
-
-[params.section.GlossaryGM]
-  label = "G-M"
-  icon = "fa fa-file-text"
-  path = "/g-m"
-
-[params.section.GlossaryNS]
-  label = "N-S"
-  icon = "fa fa-file-text"
-  path = "/n-s"
-
-[params.section.GlossaryTZ]
-  label = "T-Z"
-  icon = "fa fa-file-text"
-  path = "/t-z"
-
-[params.GlossaryMap]
-  A = "a-f"
-  B = "a-f"
-  C = "a-f"
-  D = "a-f"
-  E = "a-f"
-  F = "a-f"
-  G = "g-m"
-  H = "g-m"
-  I = "g-m"
-  J = "g-m"
-  K = "g-m"
-  L = "g-m"
-  M = "g-m"
-  N = "n-s"
-  O = "n-s"
-  P = "n-s"
-  Q = "n-s"
-  R = "n-s"
-  S = "n-s"
-  T = "t-z"
-  U = "t-z"
-  V = "t-z"
-  W = "t-z"
-  X = "t-z"
-  Y = "t-z"
-  Z = "t-z"
-
-#####################################
-#### Samples                     ####
-#####################################
-
-[params.section.SamplesIntroduction]
-  label = "Introduction"
-  icon = "fa fa-file-text"
-  path = ""
-
-[params.section.DomainSample]
-  label = "Domain sample"
-  icon = "fa fa-cubes"
-  path = "domain"
-
-[params.section.Showcase]
-  label = "Showcase"
-  icon = "fa fa-cart"
-  path = "showcase"
-
-#####################################
-#### Addons                      ####
-#####################################
-
-[params.section.AddonsIntroduction]
-  label = "Introduction"
-  icon = "fa fa-file-text"
-  path = ""
-
-[params.section.AddonsFunctions]
-  label = "Functions"
-  icon = "fa fa-cube"
-  path = "functions"
-
-[params.section.AddonsSupports]
-  label = "Supports"
-  icon = "fa fa-cogs"
-  path = "supports"
-
-[params.section.AddonsThemes]
-  label = "Themes"
-  icon = "fa fa-paint-brush"
-  path = "themes"
 
 #####################################
 #### Search                      ####
