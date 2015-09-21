@@ -1,25 +1,36 @@
-<article class="post">
+<article class="addon">
     <header>
-        <h1>
-            <a style="text-decoration: none;" href='{{ .Permalink }}'>{{ .Params.addon }}</a>
-            {{ if isset .Params "author" }}<small>by {{ .Params.author }}</small>{{ end }}
-            <span class="pull-right" style="margin-top: 10px;">
-                {{ if isset .Params "author" }}
-                  {{ if eq (lower .Params.author) "seedstack" }}
-                    <span style="background-color: #88c758; vertical-align: middle;" class="label">Official</span>
-                  {{ end }}
-                {{ end }}
-                {{ if isset .Params "repo" }}
-                    <a href="{{ .Params.repo }}"><i style="color: black;" class="fa fa-github"></i></a>
-                {{ end }}
-            </span>
-        </h1>
-        <div id='{{ .Params.addon | urlize }}-stars' class="pull-right" style="margin-top: -45px;">
+        <div id="{{ .Params.addon | urlize }}-stars" class="pull-right" style="margin-top: 5px;">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
         </div>
+        <h1 style="border-bottom: none;">
+            <a style="text-decoration: none;" href='{{ .Permalink }}'>{{ .Params.addon }}</a>
+            {{ if eq (lower .Params.author) "seedstack" }}
+                <span style="background-color: #88c758; vertical-align: 50%;" class="label">Official</span>
+            {{ end }}
+        </h1>
     </header>
-
-    {{ .Description }}
-
+    <div style="padding: 20px 0 20px 0;">
+        {{ .Description }}
+    </div>
     <footer>
+        {{ if isset .Params "min-version" }}
+            <div class="pull-right">
+                <span class="label label-red">{{ index .Params "min-version" }}</span>
+            </div>
+        {{ end }}
+        <div>
+            {{ if isset .Params "author" }}
+                <i style="font-size: x-large; vertical-align: middle;" class="fa fa-user"></i> {{ .Params.author }}
+            {{ end }}
+            <br/>
+            {{ if isset .Params "repo" }}
+                <i style="font-size: x-large; vertical-align: middle;" class="fa fa-github"></i> <a href="{{ .Params.repo }}">{{ .Params.repo }}</a>
+            {{ end }}
+        </div>
     </footer>
 </article>

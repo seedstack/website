@@ -47,12 +47,16 @@
     {{ end }}
     <div class="list-group">
         <ul class="nav">
-            {{ if eq (substr ( printf "%s" $.Site.BaseURL) 0) "http://beta.seedstack.org/" }}
-            {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/docs/edit/beta/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this BETA page</a></li>{{end}}
+            {{ if in .Dir "addons" }}
+                {{ if isset $parent.Params "repo" }}
+                    {{with $parent.File }}<li><a class="list-group-item" href='{{ $parent.Params.repo }}-docs/{{ html .Dir }}{{ html .LogicalName }}' target="_blank"><i class="fa fa-edit"></i> Contribute to this add-on page</a></li>{{end}}
+                {{ end }}
+            {{ else if eq (substr ( printf "%s" $.Site.BaseURL) 0) "http://beta.seedstack.org/" }}
+                {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/docs/edit/beta/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this BETA page</a></li>{{end}}
             {{ else if eq (substr ( printf "%s" $.Site.BaseURL) 0) "http://dev.seedstack.org/" }}
-            {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/docs/edit/dev/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this DEV page</a></li>{{end}}
+                {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/docs/edit/dev/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this DEV page</a></li>{{end}}
             {{ else }}
-            {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/docs/edit/master/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this page</a></li>{{end}}
+                {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/docs/edit/master/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this page</a></li>{{end}}
             {{ end }}
         </ul>
     </div>

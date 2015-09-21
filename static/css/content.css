@@ -3,6 +3,11 @@
     background-color: white;
 }
 
+.item-wrapper {
+    padding: 20px 20px 20px 20px;
+    background-color: white;
+}
+
 .content-controls {
     margin-bottom: 30px;
 }
@@ -242,6 +247,10 @@
     color: #fff;
     background: black;
     border-color: black;
+}
+
+.top-pagination .pagination {
+    margin-top: 0;
 }
 
 @media (max-width: 767px) {

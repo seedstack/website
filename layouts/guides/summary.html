@@ -2,20 +2,7 @@
     <header>
         <h1>
             <a style="text-decoration: none;" href='{{ .Permalink }}'>{{ .Params.guide }}</a>
-            {{ if isset .Params "author" }}<small>by {{ .Params.author }}</small>{{ end }}
-            <span class="pull-right" style="margin-top: 10px;">
-                {{ if isset .Params "author" }}
-                  {{ if eq (lower .Params.author) "seedstack" }}
-                    <span style="background-color: #88c758; vertical-align: middle;" class="label">Official</span>
-                  {{ end }}
-                {{ end }}
-                {{ if isset .Params "repo" }}
-                    <a href="{{ .Params.repo }}"><i style="color: black;" class="fa fa-github"></i></a>
-                {{ end }}
-            </span>
         </h1>
-        <div id='{{ .Params.guide | urlize }}-stars' class="pull-right" style="margin-top: -45px;">
-        </div>
     </header>
 
     {{ .Summary }} <a href="{{ .Permalink }}"><small>More...</small></a>

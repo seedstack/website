@@ -23,12 +23,13 @@
         <div class="col-md-9">
             <div class="content-wrapper">
                 {{ range $paginator.Pages }}
-                {{ .Render "inner_result" }}
+                    {{ .Render "inner_result" }}
                 {{ end }}
 
-                <div class="text-left">
+                <div class="pull-right">
                     {{ template "_internal/pagination.html" . }}
                 </div>
+                <div class="clearfix"></div>
             </div>
         </div>
         <div class="col-md-3">
