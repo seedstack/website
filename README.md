@@ -9,12 +9,15 @@ This repository contains the sources of the SeedStack website. The site is hoste
 
 # Usage
 
-This site is built with [Hugo](http://gohugo.io/). If you have Hugo in your path:
+After clone, you must initialize all the submodules:
 
-    git clone https://github.com/seedstack/website.git && cd website
+    git submodule update --remote --recursive --init && git submodule foreach --recursive git checkout master
+
+This Website is built with [Hugo](http://gohugo.io/). If you have Hugo in your path you can serve it locally:
 
     hugo server
-
+    
+Add the `-w` flag to automatically watch the changes in content and refresh the displayed page(s) accordingly.
 
 # Publication
 
