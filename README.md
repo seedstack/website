@@ -3,7 +3,9 @@
 
 This repository contains the sources of the SeedStack website. The site is hosted at 
 
-* [http://www.seedstack.org](http://www.seedstack.org/) for the stable channel. 
+* [http://seedstack.org](http://seedstack.org/) for the stable channel. 
+* [http://beta.seedstack.org](http://beta.seedstack.org/) for the stable channel. 
+* [http://dev.seedstack.org](http://dev.seedstack.org/) for the stable channel. 
 
 # Usage
 
@@ -19,6 +21,8 @@ This site is built with [Hugo](http://gohugo.io/). If you have Hugo in your path
 The generated Website is automatically published on the corresponding channel repository after each change:
 
 * A change on the `master` branch publishes to the [seedstack.github.io](https://github.com/seedstack/seedstack.github.io) repository. 
+* A change on the `beta` branch publishes to the [beta](https://github.com/seedstack/beta) repository. 
+* A change on the `dev` branch publishes to the [dev](https://github.com/seedstack/dev) repository. 
 
 # License
 
