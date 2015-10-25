@@ -2,8 +2,11 @@ baseurl = "http://seedstack.org/"
 MetaDataFormat = "yaml"
 
 [params]
-  description = "Documentation of SeedStack, a modular enterprise-class full development stack."
+  description = "Documentation of SeedStack, the lean development stack."
   author = "The SeedStack authors"
+  seedVersion = "2.1.0"
+  businessVersion = "2.1.0"
+  w20Version = "2.1.0"
 
 [blackfriday]
   angledQuotes = true
@@ -156,16 +159,6 @@ MetaDataFormat = "yaml"
   icon = "fa fa-book"
   path = "manual"
 
-[params.section.BusinessAPI]
-  label = "API"
-  icon = "fa fa-info"
-  path = "api"
-
-[params.section.BusinessReleaseNotes]
-  label = "Release notes"
-  icon = "fa fa-tag"
-  path = "release-notes"
-
 [params.section.BusinessCore]
   label = "Core"
   icon = "fa fa-cogs"
@@ -231,16 +224,6 @@ MetaDataFormat = "yaml"
   icon = "fa fa-link"
   path = "manual/rest"
 
-[params.section.BusinessDataSecurity]
-  label = "Data security"
-  icon = "fa fa-shield"
-  path = "manual/data-security"
-
-[params.section.BusinessAudit]
-  label = "Audit"
-  icon = "fa fa-list"
-  path = "manual/audit"
-
 #####################################
 #### Seed framework sections     ####
 #####################################
@@ -250,70 +233,15 @@ MetaDataFormat = "yaml"
   icon = "fa fa-file-text"
   path = ""
 
-[params.section.SeedConcepts]
-  label = "Concepts"
-  icon = "fa fa-lightbulb-o"
-  path = "concepts"
-
 [params.section.SeedManual]
   label = "Manual"
   icon = "fa fa-book"
   path = "manual"
 
-[params.section.SeedAPI]
-  label = "API"
-  icon = "fa fa-info"
-  path = "api"
-
-[params.section.SeedReleaseNotes]
-  label = "Release notes"
-  icon = "fa fa-tag"
-  path = "release-notes"
-
-[params.section.SeedCore]
-  label = "Core"
+[params.section.SeedAdvanced]
+  label = "Advanced topics"
   icon = "fa fa-cogs"
-  path = "manual/core"
-
-[params.section.SeedSecurity]
-  label = "Security"
-  icon = "fa fa-shield"
-  path = "manual/security"
-
-[params.section.SeedWeb]
-  label = "Web"
-  icon = "fa fa-globe"
-  path = "manual/web"
-
-[params.section.SeedRest]
-  label = "Rest"
-  icon = "fa fa-link"
-  path = "manual/rest"
-
-[params.section.SeedTransactions]
-  label = "Transactions"
-  icon = "fa fa-retweet"
-  path = "manual/transactions"
-
-[params.section.SeedPersistence]
-  label = "Persistence"
-  icon = "fa fa-database"
-  path = "manual/persistence"
-
-[params.section.SeedShell]
-  label = "Shell"
-  icon = "fa fa-terminal"
-  path = "manual/shell"
-
-[params.section.SeedTest]
-  label = "Testing"
-  icon = "fa fa-thumbs-up"
-  path = "manual/testing"
-
-[params.section.SeedMetrics]
-  label = "Metrics"
-  icon = "fa fa-chart"
-  path = "manual/metrics"
+  path = "advanced"
 
 #####################################
 #### W20 sections                ####
@@ -324,45 +252,15 @@ MetaDataFormat = "yaml"
   icon = "fa fa-file-text"
   path = ""
 
-[params.section.W20Concepts]
-  label = "Concepts"
-  icon = "fa fa-lightbulb-o"
-  path = "concepts"
-
 [params.section.W20Manual]
   label = "Manual"
   icon = "fa fa-book"
   path = "manual"
 
-[params.section.W20API]
+[params.section.W20Advanced]
   label = "API"
-  icon = "fa fa-info"
-  path = "api"
-
-[params.section.W20ReleaseNotes]
-  label = "Release notes"
-  icon = "fa fa-tag"
-  path = "release-notes"
-
-[params.section.W20Core]
-  label = "Core"
   icon = "fa fa-cogs"
-  path = "manual/core"
-
-[params.section.W20UI]
-  label = "UI"
-  icon = "fa fa-desktop"
-  path = "manual/ui"
-
-[params.section.W20Dataviz]
-  label = "Data visualization"
-  icon = "fa fa-bar-chart"
-  path = "manual/dataviz"
-
-[params.section.W20Extra]
-  label = "Extras"
-  icon = "fa fa-plus-square"
-  path = "manual/extra"
+  path = "api"
 
 #####################################
 #### Tools                       ####
