@@ -11,7 +11,7 @@ notifications:
   irc: "chat.freenode.net#seedstack-dev"
   
 before_install:
-  - git submodule update --init --recursive
+  - git submodule update --init --recursive --remote
 
 install:
   - go get -v github.com/seedstack/hugo
