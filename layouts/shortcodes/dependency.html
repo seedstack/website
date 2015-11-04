@@ -1,12 +1,29 @@
+{{ $groupId := .Get "g" }}
+{{ $artifactId := .Get "a" }}
+{{ $versionParam := printf "%s.%s" $groupId "version" }}
+{{ if isset .Params "v" }}
+    {{ $.Scratch.Add "version" (.Get "v") }}
+{{ else }}
+    {{ if isset .Page.Params $versionParam }}
+        {{ $.Scratch.Add "version" (index .Page.Params $versionParam) }}
+    {{ else }}
+        {{ if isset .Page.Site.Params $versionParam }}
+            {{ $.Scratch.Add "version" (index .Page.Site.Params $versionParam) }}
+        {{ else }}
+            {{ $.Scratch.Add "version" "PUT_LATEST_VERSION_HERE" }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
 When using Maven, use the following snippet:
 <pre><code class="xml">&lt;dependency&gt;
-    &lt;groupId&gt;{{ .Get 0 }}&lt;/groupId&gt;
-    &lt;artifactId&gt;{{ .Get 1 }}&lt;/artifactId&gt;
-    &lt;version&gt;{{ .Page.Site.Params.seedVersion }}&lt;/version&gt;{{ if isset .Params 2 }}
-    &lt;scope&gt;{{ if eq (.Get 2) "test" }}test{{ end }}&lt;/scope&gt;{{ end }}
+    &lt;groupId&gt;{{ $groupId }}&lt;/groupId&gt;
+    &lt;artifactId&gt;{{ $artifactId }}&lt;/artifactId&gt;
+    &lt;version&gt;{{ $.Scratch.Get "version" }}&lt;/version&gt;{{ if isset .Params "s" }}
+    &lt;scope&gt;{{ if eq (.Get "s") "test" }}test{{ end }}&lt;/scope&gt;{{ end }}
 &lt;/dependency&gt;</code></pre>
 
 When using Gradle, use the following snippet:
 <pre><code class="java">dependencies {
-    {{ if isset .Params 2 }}{{ if eq (.Get 2) "test" }}testCompile{{ end }}{{ else }}compile{{ end }}("{{ .Get 0 }}:{{ .Get 1 }}:{{ .Page.Site.Params.seedVersion }}")
+    {{ if isset .Params "s" }}{{ if eq (.Get "s") "test" }}testCompile{{ end }}{{ else }}compile{{ end }}("{{ $groupId }}:{{ $artifactId }}:{{ $.Scratch.Get "version" }}")
 }</code></pre>
