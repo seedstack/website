@@ -49,7 +49,7 @@
         <ul class="nav">
             {{ if in .Dir "addons" }}
                 {{ if isset $parent.Params "repo" }}
-                    {{with $parent.File }}<li><a class="list-group-item" href='{{ $parent.Params.repo }}-docs/{{ html .Dir }}{{ html .LogicalName }}' target="_blank"><i class="fa fa-edit"></i> Contribute to this add-on page</a></li>{{end}}
+                    {{with $parent.File }}<li><a class="list-group-item" href='{{ $path := split (replace .Dir "\\" "/") "/" }}{{ $parent.Params.repo }}/edit/docs/{{ range $index, $element := $path }}{{ if and (gt $index 1) (gt (len $element) 0) }}{{ $element }}/{{ end }}{{ end }}{{ html .LogicalName }}' target="_blank"><i class="fa fa-edit"></i> Contribute to this add-on page</a></li>{{end}}
                 {{ end }}
             {{ else if eq (substr ( printf "%s" $.Site.BaseURL) 0) "http://beta.seedstack.org/" }}
                 {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/docs/edit/beta/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this BETA page</a></li>{{end}}
