@@ -1,35 +1,36 @@
 {{ $parent := . }}
-{{ range .Menus }}
 <div class="side-menu">
-    {{ if gt (len (index $parent.Site.Menus .Menu)) 1 }}
-    <div class="list-group">
-        <ul class="nav">
-            {{ $toc := $parent.TableOfContents }}
-            {{ $currentUrl := $parent.RelPermalink }}
-            {{ range index $parent.Site.Menus .Menu }}
-                {{ $active :=  eq $currentUrl .URL }}
-                <li>
-                    <a href="{{ .URL }}" class="list-group-item {{ if $active }} active {{ end }}">
-                        {{ .Name }}
-                    </a>
-                    {{ if $.Scratch.Get "nextPage" }}
-                        <script>
-                            seedstack.state.nextPage = '{{ .URL }}';
-                        </script>
-                        {{ $.Scratch.Set "nextPage" false }}
-                    {{ end }}
-                    {{ if $active }}
-                        {{ $toc }}
-                        <script>
-                            seedstack.state.previousPage = '{{ $.Scratch.Get "previous" }}';
-                        </script>
-                        {{ $.Scratch.Set "nextPage" true }}
-                    {{ end }}
-                </li>
-                {{ $.Scratch.Set "previous" .URL }}
-            {{ end }}
-        </ul>
-    </div>
+    {{ range .Menus }}
+        {{ if gt (len (index $parent.Site.Menus .Menu)) 1 }}
+        <div class="list-group">
+            <ul class="nav">
+                {{ $toc := $parent.TableOfContents }}
+                {{ $currentUrl := $parent.RelPermalink }}
+                {{ range index $parent.Site.Menus .Menu }}
+                    {{ $active :=  eq $currentUrl .URL }}
+                    <li>
+                        <a href="{{ .URL }}" class="list-group-item {{ if $active }} active {{ end }}">
+                            {{ .Name }}
+                        </a>
+                        {{ if $.Scratch.Get "nextPage" }}
+                            <script>
+                                seedstack.state.nextPage = '{{ .URL }}';
+                            </script>
+                            {{ $.Scratch.Set "nextPage" false }}
+                        {{ end }}
+                        {{ if $active }}
+                            {{ $toc }}
+                            <script>
+                                seedstack.state.previousPage = '{{ $.Scratch.Get "previous" }}';
+                            </script>
+                            {{ $.Scratch.Set "nextPage" true }}
+                        {{ end }}
+                    </li>
+                    {{ $.Scratch.Set "previous" .URL }}
+                {{ end }}
+            </ul>
+        </div>
+        {{ end }}
     {{ end }}
     {{ if $parent.Params.tags }}
     <div class="list-group">
@@ -46,7 +47,11 @@
     {{ end }}
     <div class="list-group">
         <ul class="nav">
-            {{ if eq (substr ( printf "%s" $.Site.BaseURL) 0) "http://beta.seedstack.org/" }}
+            {{ if in .Dir "addons" }}
+                {{ if isset $parent.Params "repo" }}
+                    {{with $parent.File }}<li><a class="list-group-item" href='{{ $path := split (replace .Dir "\\" "/") "/" }}{{ $parent.Params.repo }}/edit/docs/{{ range $index, $element := $path }}{{ if and (gt $index 1) (gt (len $element) 0) }}{{ $element }}/{{ end }}{{ end }}{{ html .LogicalName }}' target="_blank"><i class="fa fa-edit"></i> Contribute to this add-on page</a></li>{{end}}
+                {{ end }}
+            {{ else if eq (substr ( printf "%s" $.Site.BaseURL) 0) "http://beta.seedstack.org/" }}
                 {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/docs/edit/beta/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this BETA page</a></li>{{end}}
             {{ else if eq (substr ( printf "%s" $.Site.BaseURL) 0) "http://dev.seedstack.org/" }}
                 {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/docs/edit/dev/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this DEV page</a></li>{{end}}
@@ -56,4 +61,3 @@
         </ul>
     </div>
 </div>
-{{ end }}

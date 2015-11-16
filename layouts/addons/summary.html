@@ -1,0 +1,57 @@
+<article class="addon" data-addon-backend='{{ isset .Params "backend" }}' data-addon-frontend='{{ isset .Params "frontend" }}'>
+    <header>
+        <h1 style="border-bottom: none;">
+            <a style="text-decoration: none;" href='{{ .Permalink }}'>{{ .Params.addon }}</a>
+        </h1>
+    </header>
+    <div style="padding: 20px 0 20px 0;">
+        {{ .Description }}
+    </div>
+    <footer>
+        <div style="font-size: small;">
+            {{ if isset .Params "author" }}
+                By {{ .Params.author }}
+            {{ end }}
+            <br/>
+            {{ if isset .Params "repo" }}
+                <a href="{{ .Params.repo }}">{{ .Params.repo }}</a>
+            {{ end }}
+            <br/>
+            {{ if isset .Params "min-version" }}
+            Version {{ index .Params "min-version" }} required
+            {{ end }}
+            <div class="pull-right">
+                {{ if isset .Params "backend" }}
+                    <a data-toggle="tooltip" data-title="Backend add-on" style="margin-right: 10px;">
+                        <span class="label label-red" style="padding: 8px;">
+                            <i class="fa fa-database fa-2x" style="vertical-align: middle;"></i>
+                        </span>
+                    </a>
+                {{ end }}
+                {{ if isset .Params "frontend" }}
+                    {{ if or (eq .Params.frontend "responsive") (eq .Params.frontend "desktop") (eq .Params.frontend "tablet") (eq .Params.frontend "mobile") }}
+                        <a data-toggle="tooltip" data-title="Frontend {{ .Params.frontend }} add-on">
+                            <span class="label label-blue" style="padding: 8px;">
+                                {{ if eq .Params.frontend "responsive" }}
+                                    <i class="fa fa-desktop fa-2x" style="vertical-align: middle;"></i>
+                                    <i class="fa fa-tablet fa-2x" style="vertical-align: middle;"></i>
+                                    <i class="fa fa-mobile fa-2x" style="vertical-align: middle;"></i>
+                                {{ end }}
+                                {{ if eq .Params.frontend "desktop" }}
+                                    <i class="fa fa-desktop fa-2x" style="vertical-align: middle;"></i>
+                                {{ end }}
+                                {{ if eq .Params.frontend "tablet" }}
+                                    <i class="fa fa-tablet fa-2x" style="vertical-align: middle;"></i>
+                                {{ end }}
+                                {{ if eq .Params.frontend "mobile" }}
+                                    <i class="fa fa-mobile fa-2x" style="vertical-align: middle;"></i>
+                                {{ end }}
+                            </span>
+                        </a>
+                    {{ end }}
+                {{ end }}
+            </div>
+            <div class="clear-both"/>
+        </div>
+    </footer>
+</article>

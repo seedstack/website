@@ -55,19 +55,19 @@ module.exports = function (grunt) {
                     splittedContent = content.split("+++");
                     frontMatter = toml.parse(splittedContent[1].trim())
                 } catch (e2) {
-                    grunt.fail.warn("Could not find a YAML or TOML header in " + abspath);
+                    grunt.log.warn("Could not find a YAML or TOML header in " + abspath);
                 }
             }
 
-            var href = s(abspath).chompLeft(CONTENT_PATH_PREFIX).chompRight(".md").s;
-
-            // href for index.md files stops at the folder name
-            if (filename === "index.md") {
-                href = s(abspath).chompLeft(CONTENT_PATH_PREFIX).chompRight(filename).s;
-            }
-
             // Build Lunr index for this page
-            if (frontMatter.zones && config.params.zone[frontMatter.zones[0]] && frontMatter.sections && config.params.section[frontMatter.sections[0]]) {
+            if (frontMatter && frontMatter.zones && config.params.zone[frontMatter.zones[0]] && frontMatter.sections && config.params.section[frontMatter.sections[0]]) {
+                var href = s(abspath).chompLeft(CONTENT_PATH_PREFIX).chompRight(".md").s;
+
+                // href for index.md files stops at the folder name
+                if (filename === "index.md") {
+                    href = s(abspath).chompLeft(CONTENT_PATH_PREFIX).chompRight(filename).s;
+                }
+
                 pageIndex = {
                     title: frontMatter.title,
                     tags: frontMatter.tags,

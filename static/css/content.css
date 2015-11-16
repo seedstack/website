@@ -3,6 +3,11 @@
     background-color: white;
 }
 
+.item-wrapper {
+    padding: 20px 20px 20px 20px;
+    background-color: white;
+}
+
 .content-controls {
     margin-bottom: 30px;
 }
@@ -152,71 +157,71 @@
     margin-right: 0.1em;
 }
 
-.doc-content .callout {
+.callout {
     margin: 20px 0;
     padding: 20px 30px;
     border-left: 3px solid #eee;
 }
 
-.doc-content .callout ul, .doc-content .callout ol {
+.callout ul, .callout ol {
     margin: 10px 0 10px 0;
     padding: 20px;
 }
 
-.doc-content .callout h4 {
+.callout h4 {
     margin-top: 0;
     margin-bottom: 5px;
 }
 
-.doc-content .callout-tips {
+.callout-tips {
     background-color: #f7f7fd;
     border-color: #5bc0de
 }
 
-.doc-content .callout-tips h4 {
+.callout-tips h4 {
     color: #5bc0de;
 }
 
-.doc-content .callout-tips i {
+.callout-tips i {
     color: #5bc0de;
 }
 
-.doc-content .callout-danger {
+.callout-danger {
     background-color: #fdf7f7;
     border-color: #d9534f
 }
 
-.doc-content .callout-danger h4 {
+.callout-danger h4 {
     color: #d9534f;
 }
 
-.doc-content .callout-danger i {
+.callout-danger i {
     color: #d9534f;
 }
 
-.doc-content .callout-warning {
+.callout-warning {
     background-color: #fcf8f2;
     border-color: #f0ad4e;
 }
 
-.doc-content .callout-warning h4 {
+.callout-warning h4 {
     color: #f0ad4e;
 }
 
-.doc-content .callout-warning i {
+.callout-warning i {
     color: #f0ad4e;
 }
 
-.doc-content .callout-info {
+.callout-info {
     background-color: #f7faf5;
     border-left: solid 2px #72c02c;
 }
 
-.doc-content .callout-info h4 {
+.callout-info h4 {
     color: #72c02c;
 }
 
-.doc-content .callout-info i {
+.callout-info i {
     color: #72c02c;
 }
 
@@ -242,6 +247,10 @@
     color: #fff;
     background: black;
     border-color: black;
+}
+
+.top-pagination .pagination {
+    margin-top: 0;
 }
 
 @media (max-width: 767px) {

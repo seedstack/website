@@ -132,6 +132,8 @@
 
         resolveVersions();
 
+        $('[data-toggle="tooltip"]').tooltip();
+
         $('#hotkeys-modal, #versions-modal').bind('hidden.bs.modal', function () {
             $("html").css("margin-right", "0px");
         }).bind('show.bs.modal', function () {

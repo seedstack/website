@@ -1,0 +1,17 @@
+<article class="post">
+    <header>
+        <h1>
+            <a style="text-decoration: none;" href='{{ .Permalink }}'>{{ .Params.guide }}</a>
+        </h1>
+    </header>
+
+    {{ if not (eq .Description "") }}
+        {{ .Description }}
+    {{ else }}
+        {{ .Summary }}
+    {{ end }}
+    <a href="{{ .Permalink }}"><small><nobr>read more ({{ .ReadingTime }} minute{{ if gt .ReadingTime 1 }}s{{ end }}) →</nobr></small></a>
+
+    <footer>
+    </footer>
+</article>
