@@ -1,36 +1,57 @@
-<article class="addon">
+<article class="addon" data-addon-backend='{{ isset .Params "backend" }}' data-addon-frontend='{{ isset .Params "frontend" }}'>
     <header>
-        <div id="{{ .Params.addon | urlize }}-stars" class="pull-right" style="margin-top: 5px;">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-half-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-        </div>
         <h1 style="border-bottom: none;">
             <a style="text-decoration: none;" href='{{ .Permalink }}'>{{ .Params.addon }}</a>
-            {{ if eq (lower .Params.author) "seedstack" }}
-                <span style="background-color: #88c758; vertical-align: 50%;" class="label">Official</span>
-            {{ end }}
         </h1>
     </header>
     <div style="padding: 20px 0 20px 0;">
         {{ .Description }}
     </div>
     <footer>
-        {{ if isset .Params "min-version" }}
-            <div class="pull-right">
-                <span class="label label-red">{{ index .Params "min-version" }}</span>
-            </div>
-        {{ end }}
-        <div>
+        <div style="font-size: small;">
             {{ if isset .Params "author" }}
-                <i style="font-size: x-large; vertical-align: middle;" class="fa fa-user"></i> {{ .Params.author }}
+                By {{ .Params.author }}
             {{ end }}
             <br/>
             {{ if isset .Params "repo" }}
-                <i style="font-size: x-large; vertical-align: middle;" class="fa fa-github"></i> <a href="{{ .Params.repo }}">{{ .Params.repo }}</a>
+                <a href="{{ .Params.repo }}">{{ .Params.repo }}</a>
             {{ end }}
+            <br/>
+            {{ if isset .Params "min-version" }}
+            Version {{ index .Params "min-version" }} required
+            {{ end }}
+            <div class="pull-right">
+                {{ if isset .Params "backend" }}
+                    <a data-toggle="tooltip" data-title="Backend add-on" style="margin-right: 10px;">
+                        <span class="label label-red" style="padding: 8px;">
+                            <i class="fa fa-database fa-2x" style="vertical-align: middle;"></i>
+                        </span>
+                    </a>
+                {{ end }}
+                {{ if isset .Params "frontend" }}
+                    {{ if or (eq .Params.frontend "responsive") (eq .Params.frontend "desktop") (eq .Params.frontend "tablet") (eq .Params.frontend "mobile") }}
+                        <a data-toggle="tooltip" data-title="Frontend {{ .Params.frontend }} add-on">
+                            <span class="label label-blue" style="padding: 8px;">
+                                {{ if eq .Params.frontend "responsive" }}
+                                    <i class="fa fa-desktop fa-2x" style="vertical-align: middle;"></i>
+                                    <i class="fa fa-tablet fa-2x" style="vertical-align: middle;"></i>
+                                    <i class="fa fa-mobile fa-2x" style="vertical-align: middle;"></i>
+                                {{ end }}
+                                {{ if eq .Params.frontend "desktop" }}
+                                    <i class="fa fa-desktop fa-2x" style="vertical-align: middle;"></i>
+                                {{ end }}
+                                {{ if eq .Params.frontend "tablet" }}
+                                    <i class="fa fa-tablet fa-2x" style="vertical-align: middle;"></i>
+                                {{ end }}
+                                {{ if eq .Params.frontend "mobile" }}
+                                    <i class="fa fa-mobile fa-2x" style="vertical-align: middle;"></i>
+                                {{ end }}
+                            </span>
+                        </a>
+                    {{ end }}
+                {{ end }}
+            </div>
+            <div class="clear-both"/>
         </div>
     </footer>
 </article>

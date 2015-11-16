@@ -65,36 +65,32 @@
         },
 
         shortcuts: {
+            "A": "/addons",
+            "G": "/guides",
             "B": "/docs/business",
-            "b e": "/docs/business/manual/entity",
-            "b v": "/docs/business/manual/value-object",
-            "b a": "/docs/business/manual/aggregate",
-            "b f": "/docs/business/manual/factory",
-            "b r": "/docs/business/manual/repository",
-            "b s": "/docs/business/manual/service",
-            "b p": "/docs/business/manual/policy",
-            "b A": "/docs/business/manual/assembler",
-            "b F": "/docs/business/manual/finder",
+            "b b": "/docs/business/manual/basics",
+            "b m": "/docs/business/manual/model",
+            "b l": "/docs/business/manual/lifecycle",
+            "b e": "/docs/business/manual/events",
+            "b p": "/docs/business/manual/policies",
+            "b a": "/docs/business/manual/assemblers",
+            "b f": "/docs/business/manual/finders",
             "b P": "/docs/business/manual/pagination",
-            "b R": "/docs/business/manual/rest",
             "S": "/docs/seed",
-            "s c": "/docs/seed/manual/core",
+            "s b": "/docs/seed/manual/basics",
+            "s t": "/docs/seed/manual/testing",
             "s s": "/docs/seed/manual/security",
-            "s t": "/docs/seed/manual/transactions",
-            "s p": "/docs/seed/manual/persistence",
-            "s r": "/docs/seed/manual/rest",
-            "s j": "/docs/seed/manual/jms",
+            "s c": "/docs/seed/manual/crypto",
             "s w": "/docs/seed/manual/web",
-            "s m": "/docs/seed/manual/metrics",
-            "s v": "/docs/seed/manual/validation",
-            "s W": "/docs/seed/manual/ws",
-            "s C": "/docs/seed/manual/cache",
-            "s S": "/docs/seed/manual/scheduling",
+            "s r": "/docs/seed/manual/rest",
+            "s m": "/docs/seed/manual/management",
+            "s T": "/docs/seed/manual/transactions",
             "W": "/docs/w20",
-            "w c": "/docs/w20/manual/core",
+            "w b": "/docs/w20/manual/basics",
+            "w s": "/docs/w20/manual/security",
+            "w c": "/docs/w20/manual/culture",
+            "w h": "/docs/w20/manual/hypermedia",
             "w u": "/docs/w20/manual/ui",
-            "w d": "/docs/w20/manual/dataviz",
-            "w e": "/docs/w20/manual/extra",
             "T": "/docs/tools"
         }
     };
@@ -142,9 +138,6 @@
                 }
             }
         }
-
-        // remove old index, TODO: remove in a few months from 2015-06-29
-        localStorage.removeItem("pagesIndex");
 
         return {
             warm: function (callback) {

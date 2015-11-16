@@ -5,7 +5,12 @@
         </h1>
     </header>
 
-    {{ .Summary }} <a href="{{ .Permalink }}"><small>More...</small></a>
+    {{ if not (eq .Description "") }}
+        {{ .Description }}
+    {{ else }}
+        {{ .Summary }}
+    {{ end }}
+    <a href="{{ .Permalink }}"><small>More...</small></a>
 
     <footer>
     </footer>

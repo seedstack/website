@@ -1,16 +1,17 @@
 {{ $groupId := .Get "g" }}
 {{ $artifactId := .Get "a" }}
 {{ $versionParam := printf "%s.%s" $groupId "version" }}
+{{ $versionParam}}
 {{ if isset .Params "v" }}
-    {{ $.Scratch.Add "version" (.Get "v") }}
+    {{ $.Scratch.Set "version" (.Get "v") }}
 {{ else }}
     {{ if isset .Page.Params $versionParam }}
-        {{ $.Scratch.Add "version" (index .Page.Params $versionParam) }}
+        {{ $.Scratch.Set "version" (index .Page.Params $versionParam) }}
     {{ else }}
         {{ if isset .Page.Site.Params $versionParam }}
-            {{ $.Scratch.Add "version" (index .Page.Site.Params $versionParam) }}
+            {{ $.Scratch.Set "version" (index .Page.Site.Params $versionParam) }}
         {{ else }}
-            {{ $.Scratch.Add "version" "PUT_LATEST_VERSION_HERE" }}
+            {{ $.Scratch.Set "version" "PUT_LATEST_VERSION_HERE" }}
         {{ end }}
     {{ end }}
 {{ end }}

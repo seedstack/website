@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-{{ partial "head.html" . }}
+    {{ partial "head.html" . }}
 </head>
 <body>
 {{ partial "initial-scripts.html" . }}
-{{ $paginator := .Paginate (where .Data.Pages.ByTitle "Title" "Overview") }}
 <div id="header">
     {{ partial "top-menu.html" . }}
     {{ partial "addons-header.html" . }}
@@ -20,37 +19,105 @@
 <div id="content" class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="pull-right top-pagination">
-                {{ template "_internal/pagination.html" . }}
-            </div>
-
-            <span style="line-height: 32px;">Want your add-on listed here ? Follow <a href="https://github.com/seedstack/seedstack/wiki/Register-an-extension-on-website">this guide</a>.</span>
-
-            <div class="clearfix"></div>
-
-            {{ range $index, $element := $paginator.Pages }}
-                {{ if eq (mod $index 2) 0 }}
-                    <div class="row">
-                {{ end }}
-                <div class="col-md-6">
-                    <div class="item-wrapper" style="min-height: 220px;">
-                        {{ .Render "summary" }}
+            <div class="callout callout-info" style="margin-top: 0;">
+                <div style="display:table; width: 100%">
+                    <div style="display:table-cell; width: 50px; vertical-align: middle;">
+                        <i class="fa fa-plug icon-2x" style="line-height: 30px;"></i>
+                    </div>
+                    <div style="display:table-cell; vertical-align: middle;">
+                        Want your SeedStack add-on listed here ? Follow <a
+                            href="https://github.com/seedstack/seedstack/wiki/Register-an-extension-on-website">this
+                        guide</a>.
                     </div>
                 </div>
-                {{ if or (eq (mod $index 2) 1) (eq (add $index 1) (len $paginator.Pages)) }}
-                    </div>
-                    <br/>
-                {{ end }}
-            {{ end }}
-
-            <div class="pull-right">
-                {{ template "_internal/pagination.html" . }}
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3" style="border-right: 1px solid lightgrey; min-height: 100vh;">
+            <form>
+                <h4>Filter</h4>
 
-            <div class="clearfix"></div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="filter" placeholder="Enter filtering terms here..." onkeyup="changeFilter()">
+                </div>
+                <h4>Show only:</h4>
+
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" onclick='showOnly("backend")'> Backend add-ons
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" onclick='showOnly("frontend")'> Frontend add-ons
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-9 addon-items">
+            {{ range $element := (where .Data.Pages.ByDate.Reverse "Title" "Overview") }}
+            <div class="addon-item">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="item-wrapper">
+                            {{ .Render "summary" }}
+                        </div>
+                    </div>
+                </div>
+                <br/>
+            </div>
+            {{ end }}
         </div>
     </div>
 </div>
+<script>
+    var onlyBackend = false, onlyFrontend = false, filter, filterTimeout;
+
+    function computeAddonVisibility() {
+        $('.addon-item').each(function (idx, elt) {
+            var $elt = $(elt);
+            var $article = $(elt).find("article");
+
+            if (!onlyBackend && !onlyFrontend) {
+                $elt.show();
+            } else if (onlyBackend && onlyFrontend && $article.data('addon-backend') == true && $article.data('addon-frontend') == true) {
+                $elt.show();
+            } else if (onlyBackend && !onlyFrontend && $article.data('addon-backend') == true) {
+                $elt.show();
+            } else if (!onlyBackend && onlyFrontend && $article.data('addon-frontend') == true) {
+                $elt.show();
+            } else {
+                $elt.hide();
+                return;
+            }
+
+            var text = $article.text();
+            if (filter && text && text.toLowerCase().indexOf(filter.toLowerCase()) === -1) {
+                $elt.hide();
+            }
+        });
+    }
+
+    function showOnly(type) {
+        if (type === "backend") {
+            onlyBackend = !onlyBackend;
+        }
+        if (type === "frontend") {
+            onlyFrontend = !onlyFrontend;
+        }
+        computeAddonVisibility();
+    }
+
+    function changeFilter() {
+        clearTimeout(filterTimeout);
+        filter = $('#filter').val();
+
+        filterTimeout = setTimeout(function() {
+            computeAddonVisibility();
+        }, 250);
+    }
+</script>
 <div id="footer">
     {{ partial "footer.html" . }}
 </div>

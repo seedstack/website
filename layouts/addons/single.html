@@ -7,14 +7,13 @@
 {{ partial "initial-scripts.html" . }}
 <div id="header">
     {{ partial "top-menu.html" . }}
+    {{ partial "addons-header.html" . }}
     <div class="title-subheader">
         <div class="container">
-            <h3>
-                <img src="/img/logos/addons-logo.svg">
-                <a href="/addons">Add-ons</a>
-                <i class="fa fa-caret-right"></i>
-                <a href="">{{ .Params.addon }}</a>
-            </h3>
+            <ul>
+                <li><h3><i class="fa fa-list"></i> <a href="/addons">All add-ons</a></h3></li>
+                <li><h3 class="active"><i class="fa fa-plug"></i> <a href="">{{ .Params.addon }} add-on</a></h3></li>
+            </ul>
         </div>
     </div>
 </div>
