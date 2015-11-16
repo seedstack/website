@@ -10,7 +10,7 @@
     {{ else }}
         {{ .Summary }}
     {{ end }}
-    <a href="{{ .Permalink }}"><small>More...</small></a>
+    <a href="{{ .Permalink }}"><small><nobr>read more ({{ .ReadingTime }} minute{{ if gt .ReadingTime 1 }}s{{ end }}) →</nobr></small></a>
 
     <footer>
     </footer>

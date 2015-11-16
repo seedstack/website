@@ -34,7 +34,20 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3" style="border-right: 1px solid lightgrey; min-height: 100vh;">
+        <div class="col-md-9 addon-items">
+            {{ range $element := (where .Data.Pages.ByDate.Reverse "Title" "Overview") }}
+            <div class="filterable-item" style="margin-bottom: 20px;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="item-wrapper">
+                            {{ .Render "summary" }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+        <div class="col-md-3" style="border-left: 1px solid lightgrey; min-height: 100vh;">
             <form>
                 <h4>Filter</h4>
 
@@ -55,69 +68,9 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-9 addon-items">
-            {{ range $element := (where .Data.Pages.ByDate.Reverse "Title" "Overview") }}
-            <div class="addon-item">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="item-wrapper">
-                            {{ .Render "summary" }}
-                        </div>
-                    </div>
-                </div>
-                <br/>
-            </div>
-            {{ end }}
-        </div>
     </div>
 </div>
-<script>
-    var onlyBackend = false, onlyFrontend = false, filter, filterTimeout;
-
-    function computeAddonVisibility() {
-        $('.addon-item').each(function (idx, elt) {
-            var $elt = $(elt);
-            var $article = $(elt).find("article");
-
-            if (!onlyBackend && !onlyFrontend) {
-                $elt.show();
-            } else if (onlyBackend && onlyFrontend && $article.data('addon-backend') == true && $article.data('addon-frontend') == true) {
-                $elt.show();
-            } else if (onlyBackend && !onlyFrontend && $article.data('addon-backend') == true) {
-                $elt.show();
-            } else if (!onlyBackend && onlyFrontend && $article.data('addon-frontend') == true) {
-                $elt.show();
-            } else {
-                $elt.hide();
-                return;
-            }
-
-            var text = $article.text();
-            if (filter && text && text.toLowerCase().indexOf(filter.toLowerCase()) === -1) {
-                $elt.hide();
-            }
-        });
-    }
-
-    function showOnly(type) {
-        if (type === "backend") {
-            onlyBackend = !onlyBackend;
-        }
-        if (type === "frontend") {
-            onlyFrontend = !onlyFrontend;
-        }
-        computeAddonVisibility();
-    }
-
-    function changeFilter() {
-        clearTimeout(filterTimeout);
-        filter = $('#filter').val();
-
-        filterTimeout = setTimeout(function() {
-            computeAddonVisibility();
-        }, 250);
-    }
-</script>
+{{ partial "filter-script.html" }}
 <div id="footer">
     {{ partial "footer.html" . }}
 </div>

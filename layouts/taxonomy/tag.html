@@ -19,23 +19,24 @@
 </div>
 <div id="content" class="container">
     <div class="row">
-        {{ $paginator := .Paginator }}
         <div class="col-md-9">
-            <div class="content-wrapper">
-                {{ range $paginator.Pages }}
+            {{ range .Data.Pages }}
+                <div class="content-wrapper filterable-item"  style="margin-bottom: 20px;">
                     {{ .Render "inner_result" }}
-                {{ end }}
-
-                <div class="pull-right">
-                    {{ template "_internal/pagination.html" . }}
                 </div>
-                <div class="clearfix"></div>
-            </div>
+            {{ end }}
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3" style="border-left: 1px solid lightgrey; min-height: 100vh;">
+            <form>
+                <h4>Filter</h4>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="filter" placeholder="Enter filtering terms here..." onkeyup="changeFilter()">
+                </div>
+            </form>
         </div>
     </div>
 </div>
+{{ partial "filter-script.html" }}
 <div id="footer">
     {{ partial "footer.html" . }}
 </div>

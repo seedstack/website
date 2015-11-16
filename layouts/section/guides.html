@@ -19,7 +19,20 @@
 </div>
 <div id="content" class="container">
     <div class="row">
-        <div class="col-md-3" style="border-right: 1px solid lightgrey; min-height: 100vh;">
+        <div class="col-md-9">
+            {{ range $element := (where .Data.Pages.ByDate.Reverse "Weight" -1) }}
+            <div class="content-wrapper filterable-item" style="margin-bottom: 20px;">
+                <div class="doc-content">
+                    {{ .Render "summary" }}
+                </div>
+            </div>
+            {{ end }}
+
+            <div class="text-right">
+                {{ template "_internal/pagination.html" . }}
+            </div>
+        </div>
+        <div class="col-md-3" style="border-left: 1px solid lightgrey; min-height: 100vh;">
             <form>
                 <h4>Filter</h4>
                 <div class="form-group">
@@ -27,48 +40,9 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-9">
-            {{ range $element := (where .Data.Pages.ByDate.Reverse "Weight" -1) }}
-                <div class="content-wrapper guide-item">
-                    <div class="doc-content">
-                        {{ .Render "summary" }}
-                    </div>
-                </div>
-                <br>
-            {{ end }}
-
-            <div class="text-right">
-                {{ template "_internal/pagination.html" . }}
-            </div>
-        </div>
     </div>
 </div>
-<script>
-    var filter, filterTimeout;
-
-    function computeGuideVisibility() {
-        $('.guide-item').each(function (idx, elt) {
-            var $elt = $(elt);
-            var $article = $(elt).find("article");
-            var text = $article.text();
-
-            if (filter && text && text.toLowerCase().indexOf(filter.toLowerCase()) === -1) {
-                $elt.hide();
-            } else {
-                $elt.show();
-            }
-        });
-    }
-
-    function changeFilter() {
-        clearTimeout(filterTimeout);
-        filter = $('#filter').val();
-
-        filterTimeout = setTimeout(function() {
-            computeGuideVisibility();
-        }, 250);
-    }
-</script>
+{{ partial "filter-script.html" }}
 <div id="footer">
     {{ partial "footer.html" . }}
 </div>

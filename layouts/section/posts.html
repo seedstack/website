@@ -20,36 +20,29 @@
 <div id="content" class="container">
     <div class="row">
         <div class="col-md-9">
-            {{ range $paginator.Pages }}
-            <div class="content-wrapper">
+            {{ range .Data.Pages }}
+            <div class="content-wrapper filterable-item" style="margin-bottom: 20px;">
                 <div class="doc-content">
                     {{ .Render "summary" }}
                 </div>
             </div>
-            <br>
             {{ end }}
 
             <div class="text-left">
                 {{ template "_internal/pagination.html" . }}
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="side-menu">
-                <div class="list-group">
-                    <ul class="nav">
-                        <li class="list-group-item"><div style="margin-bottom: 10px;"><i class="fa fa-folder-open"></i> <a href="/post-categories">Categories</a></div>
-                            <ul>
-                            {{ range $name, $taxonomy := (index .Site.Taxonomies "post-categories") }}
-                            <li><a href="/post-categories/{{ $name | urlize }}">{{ $name | title }}</a></li>
-                            {{ end }}
-                            </ul>
-                        </li>
-                    </ul>
+        <div class="col-md-3" style="border-left: 1px solid lightgrey; min-height: 100vh;">
+            <form>
+                <h4>Filter</h4>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="filter" placeholder="Enter filtering terms here..." onkeyup="changeFilter()">
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
+{{ partial "filter-script.html" }}
 <div id="footer">
     {{ partial "footer.html" . }}
 </div>

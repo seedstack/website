@@ -18,11 +18,17 @@
 </div>
 <div id="content" class="container">
     {{ $data := .Data }}
-    <div class="content-wrapper">
-        <div class="tags">
-            {{ range $key, $value := .Data.Terms }}
-            <a class="label label-default" href="{{ $key | urlize }}">{{ $key | title }} <small>({{ len $value }})</small></a>
-            {{ end }}
+    <div class="row">
+        <div class="col-md-9">
+            <div class="content-wrapper">
+                <div class="tags">
+                    {{ range $key, $value := .Data.Terms }}
+                    <a class="label label-default" href="{{ $key | urlize }}">{{ $key | title }} <small>({{ len $value }})</small></a>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3" style="border-left: 1px solid lightgrey; min-height: 100vh;">
         </div>
     </div>
 </div>
