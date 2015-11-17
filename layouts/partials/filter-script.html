@@ -1,0 +1,47 @@
+<script>
+    var onlyBackend = false, onlyFrontend = false, filter, filterTimeout;
+
+    function computeVisibility() {
+        $('.filterable-item').each(function (idx, elt) {
+            var $elt = $(elt);
+            var $article = $(elt).find("article");
+
+            if (!onlyBackend && !onlyFrontend) {
+                $elt.show();
+            } else if (onlyBackend && onlyFrontend && $article.data('addon-backend') == true && $article.data('addon-frontend') == true) {
+                $elt.show();
+            } else if (onlyBackend && !onlyFrontend && $article.data('addon-backend') == true) {
+                $elt.show();
+            } else if (!onlyBackend && onlyFrontend && $article.data('addon-frontend') == true) {
+                $elt.show();
+            } else {
+                $elt.hide();
+                return;
+            }
+
+            var text = $article.text();
+            if (filter && text && text.toLowerCase().indexOf(filter.toLowerCase()) === -1) {
+                $elt.hide();
+            }
+        });
+    }
+
+    function showOnly(type) {
+        if (type === "backend") {
+            onlyBackend = !onlyBackend;
+        }
+        if (type === "frontend") {
+            onlyFrontend = !onlyFrontend;
+        }
+        computeVisibility();
+    }
+
+    function changeFilter() {
+        clearTimeout(filterTimeout);
+        filter = $('#filter').val();
+
+        filterTimeout = setTimeout(function() {
+            computeVisibility();
+        }, 250);
+    }
+</script>

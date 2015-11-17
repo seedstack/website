@@ -1,4 +1,4 @@
 [submodule "content"]
 	path = content
 	url = https://github.com/seedstack/docs.git
-	branch = master
+	branch = dev

@@ -1,4 +1,3 @@
-{{ $section := index .Params.sections 0 }}
 <div class="title-header small">
     <div class="container">
         <div class="row">
@@ -12,14 +11,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="title-subheader">
-    <div class="container">
-        <ul>
-            <li><h3 class='{{ if eq $section "GuidesIntroduction" }}active{{ end }}'><i class="fa fa-file-text"></i><a href="/guides">Introduction</a></h3></li>
-            <li><h3 class='{{ if eq $section "GuidesTasks" }}active{{ end }}'><i class="fa fa-book"></i><a href="/guides/tasks">Tasks</a></h3></li>
-            <li><h3 class='{{ if eq $section "GuidesDesign" }}active{{ end }}'><i class="fa fa-book"></i> <a href="/guides/design">Design</a></h3></li>
-        </ul>
     </div>
 </div>

@@ -2,8 +2,29 @@ baseurl = "http://seedstack.org/"
 MetaDataFormat = "yaml"
 
 [params]
-  description = "Documentation of SeedStack, a modular enterprise-class full development stack."
+  description = "Documentation of SeedStack, the lean development stack."
   author = "The SeedStack authors"
+  "org.seedstack.seed.version" = "2.1.0"
+  "org.seedstack.business.version" = "2.1.0"
+  "org.seedstack.addons.audit.version" = "2.1.0"
+  "org.seedstack.addons.elasticsearch.version" = "2.1.0"
+  "org.seedstack.addons.i18n.version" = "2.1.0"
+  "org.seedstack.addons.io.version" = "2.1.0"
+  "org.seedstack.addons.javamail.version" = "2.1.0"
+  "org.seedstack.addons.jcache.version" = "2.1.0"
+  "org.seedstack.addons.jdbc.version" = "2.1.0"
+  "org.seedstack.addons.jms.version" = "2.1.0"
+  "org.seedstack.addons.jpa.version" = "2.1.0"
+  "org.seedstack.addons.mongodb.version" = "1.0.0"
+  "org.seedstack.addons.monitoring.version" = "2.1.0"
+  "org.seedstack.addons.neo4j.version" = "1.0.0"
+  "org.seedstack.addons.redis.version" = "1.0.0"
+  "org.seedstack.addons.scheduling.version" = "2.1.0"
+  "org.seedstack.addons.solr.version" = "1.0.0"
+  "org.seedstack.addons.spring.version" = "2.1.0"
+  "org.seedstack.addons.validation.version" = "2.1.0"
+  "org.seedstack.addons.w20.version" = "2.1.0"
+  "org.seedstack.addons.ws.version" = "2.1.0"
 
 [blackfriday]
   angledQuotes = true
@@ -14,8 +35,6 @@ MetaDataFormat = "yaml"
   author = "authors"
   zone = "zones"
   section = "sections"
-  subsection = "subsections"
-  post-category = "post-categories"
 
 #####################################
 #### Website zones               ####
@@ -148,100 +167,10 @@ MetaDataFormat = "yaml"
   icon = "fa fa-file-text"
   path = ""
 
-[params.section.BusinessConcepts]
-  label = "Concepts"
-  icon = "fa fa-lightbulb-o"
-  path = "concepts"
-
 [params.section.BusinessManual]
-  label = "Manual"
+  label = "Business manual"
   icon = "fa fa-book"
   path = "manual"
-
-[params.section.BusinessAPI]
-  label = "API"
-  icon = "fa fa-info"
-  path = "api"
-
-[params.section.BusinessReleaseNotes]
-  label = "Release notes"
-  icon = "fa fa-tag"
-  path = "release-notes"
-
-[params.section.BusinessCore]
-  label = "Core"
-  icon = "fa fa-cogs"
-  path = "manual/core"
-
-[params.section.BusinessEntity]
-  label = "Entity"
-  icon = "fa fa-square"
-  path = "manual/entity"
-
-[params.section.BusinessValueObject]
-  label = "Value object"
-  icon = "fa fa-square-o"
-  path = "manual/value-object"
-
-[params.section.BusinessAggregate]
-  label = "Aggregate"
-  icon = "fa fa-th-large"
-  path = "manual/aggregate"
-
-[params.section.BusinessFactory]
-  label = "Factory"
-  icon = "fa fa-magic"
-  path = "manual/factory"
-
-[params.section.BusinessRepository]
-  label = "Repository"
-  icon = "fa fa-archive"
-  path = "manual/repository"
-
-[params.section.BusinessService]
-  label = "Service"
-  icon = "fa fa-cog"
-  path = "manual/service"
-
-[params.section.BusinessEvent]
-  label = "Domain event"
-  icon = "fa fa-bolt"
-  path = "manual/event"
-
-[params.section.BusinessPolicy]
-  label = "Policy"
-  icon = "fa fa-legal"
-  path = "manual/policy"
-
-[params.section.BusinessAssembler]
-  label = "Assembler"
-  icon = "fa fa-arrows-h"
-  path = "manual/assembler"
-
-[params.section.BusinessFinder]
-  label = "Finder"
-  icon = "fa fa-search"
-  path = "manual/finder"
-
-[params.section.BusinessPagination]
-  label = "Pagination"
-  icon = "fa fa-file"
-  path = "manual/pagination"
-
-[params.section.BusinessRest]
-  label = "REST"
-  icon = "fa fa-link"
-  path = "manual/rest"
-
-[params.section.BusinessDataSecurity]
-  label = "Data security"
-  icon = "fa fa-shield"
-  path = "manual/data-security"
-
-[params.section.BusinessAudit]
-  label = "Audit"
-  icon = "fa fa-list"
-  path = "manual/audit"
 
 #####################################
 #### Seed framework sections     ####
@@ -252,100 +181,10 @@ MetaDataFormat = "yaml"
   icon = "fa fa-file-text"
   path = ""
 
-[params.section.SeedConcepts]
-  label = "Concepts"
-  icon = "fa fa-lightbulb-o"
-  path = "concepts"
-
 [params.section.SeedManual]
-  label = "Manual"
+  label = "Seed manual"
   icon = "fa fa-book"
   path = "manual"
-
-[params.section.SeedAPI]
-  label = "API"
-  icon = "fa fa-info"
-  path = "api"
-
-[params.section.SeedReleaseNotes]
-  label = "Release notes"
-  icon = "fa fa-tag"
-  path = "release-notes"
-
-[params.section.SeedCore]
-  label = "Core"
-  icon = "fa fa-cogs"
-  path = "manual/core"
-
-[params.section.SeedSecurity]
-  label = "Security"
-  icon = "fa fa-shield"
-  path = "manual/security"
-
-[params.section.SeedWeb]
-  label = "Web"
-  icon = "fa fa-globe"
-  path = "manual/web"
-
-[params.section.SeedRest]
-  label = "Rest"
-  icon = "fa fa-link"
-  path = "manual/rest"
-
-[params.section.SeedTransactions]
-  label = "Transactions"
-  icon = "fa fa-retweet"
-  path = "manual/transactions"
-
-[params.section.SeedPersistence]
-  label = "Persistence"
-  icon = "fa fa-database"
-  path = "manual/persistence"
-
-[params.section.SeedJMS]
-  label = "JMS"
-  icon = "fa fa-random"
-  path = "manual/jms"
-
-[params.section.SeedWebServices]
-  label = "Web Services"
-  icon = "fa fa-legal"
-  path = "manual/ws"
-
-[params.section.SeedValidation]
-  label = "Validation"
-  icon = "fa fa-check"
-  path = "manual/validation"
-
-[params.section.SeedShell]
-  label = "Shell"
-  icon = "fa fa-terminal"
-  path = "manual/shell"
-
-[params.section.SeedTest]
-  label = "Testing"
-  icon = "fa fa-thumbs-up"
-  path = "manual/testing"
-
-[params.section.SeedScheduling]
-  label = "Scheduling"
-  icon = "fa fa-clock-o"
-  path = "manual/scheduling"
-
-[params.section.SeedCache]
-  label = "Cache"
-  icon = "fa fa-rocket"
-  path = "manual/cache"
-
-[params.section.SeedMail]
-  label = "Mail"
-  icon = "fa fa-envelope"
-  path = "manual/mail"
-
-[params.section.SeedMetrics]
-  label = "Metrics"
-  icon = "fa fa-chart"
-  path = "manual/metrics"
 
 #####################################
 #### W20 sections                ####
@@ -356,45 +195,10 @@ MetaDataFormat = "yaml"
   icon = "fa fa-file-text"
   path = ""
 
-[params.section.W20Concepts]
-  label = "Concepts"
-  icon = "fa fa-lightbulb-o"
-  path = "concepts"
-
 [params.section.W20Manual]
-  label = "Manual"
+  label = "W20 manual"
   icon = "fa fa-book"
   path = "manual"
-
-[params.section.W20API]
-  label = "API"
-  icon = "fa fa-info"
-  path = "api"
-
-[params.section.W20ReleaseNotes]
-  label = "Release notes"
-  icon = "fa fa-tag"
-  path = "release-notes"
-
-[params.section.W20Core]
-  label = "Core"
-  icon = "fa fa-cogs"
-  path = "manual/core"
-
-[params.section.W20UI]
-  label = "UI"
-  icon = "fa fa-desktop"
-  path = "manual/ui"
-
-[params.section.W20Dataviz]
-  label = "Data visualization"
-  icon = "fa fa-bar-chart"
-  path = "manual/dataviz"
-
-[params.section.W20Extra]
-  label = "Extras"
-  icon = "fa fa-plus-square"
-  path = "manual/extra"
 
 #####################################
 #### Tools                       ####
@@ -409,125 +213,6 @@ MetaDataFormat = "yaml"
   label = "Maven plugin"
   icon = "fa fa-cogs"
   path = "maven-plugin"
-
-#####################################
-#### Guides                      ####
-#####################################
-
-[params.section.GuidesIntroduction]
-  label = "Introduction"
-  icon = "fa fa-file-text"
-  path = ""
-
-[params.section.GuidesTasks]
-  label = "Tasks"
-  icon = "fa fa-book"
-  path = "/tasks"
-
-[params.section.GuidesDesign]
-  label = "Design"
-  icon = "fa fa-book"
-  path = "/design"
-
-#####################################
-#### Glossary                    ####
-#####################################
-
-[params.section.GlossaryIntroduction]
-  label = "Introduction"
-  icon = "fa fa-file-text"
-  path = ""
-
-[params.section.GlossaryAF]
-  label = "A-F"
-  icon = "fa fa-file-text"
-  path = "/a-f"
-
-[params.section.GlossaryGM]
-  label = "G-M"
-  icon = "fa fa-file-text"
-  path = "/g-m"
-
-[params.section.GlossaryNS]
-  label = "N-S"
-  icon = "fa fa-file-text"
-  path = "/n-s"
-
-[params.section.GlossaryTZ]
-  label = "T-Z"
-  icon = "fa fa-file-text"
-  path = "/t-z"
-
-[params.GlossaryMap]
-  A = "a-f"
-  B = "a-f"
-  C = "a-f"
-  D = "a-f"
-  E = "a-f"
-  F = "a-f"
-  G = "g-m"
-  H = "g-m"
-  I = "g-m"
-  J = "g-m"
-  K = "g-m"
-  L = "g-m"
-  M = "g-m"
-  N = "n-s"
-  O = "n-s"
-  P = "n-s"
-  Q = "n-s"
-  R = "n-s"
-  S = "n-s"
-  T = "t-z"
-  U = "t-z"
-  V = "t-z"
-  W = "t-z"
-  X = "t-z"
-  Y = "t-z"
-  Z = "t-z"
-
-#####################################
-#### Samples                     ####
-#####################################
-
-[params.section.SamplesIntroduction]
-  label = "Introduction"
-  icon = "fa fa-file-text"
-  path = ""
-
-[params.section.DomainSample]
-  label = "Domain sample"
-  icon = "fa fa-cubes"
-  path = "domain"
-
-[params.section.Showcase]
-  label = "Showcase"
-  icon = "fa fa-cart"
-  path = "showcase"
-
-#####################################
-#### Addons                      ####
-#####################################
-
-[params.section.AddonsIntroduction]
-  label = "Introduction"
-  icon = "fa fa-file-text"
-  path = ""
-
-[params.section.AddonsFunctions]
-  label = "Functions"
-  icon = "fa fa-cube"
-  path = "functions"
-
-[params.section.AddonsSupports]
-  label = "Supports"
-  icon = "fa fa-cogs"
-  path = "supports"
-
-[params.section.AddonsThemes]
-  label = "Themes"
-  icon = "fa fa-paint-brush"
-  path = "themes"
 
 #####################################
 #### Search                      ####
