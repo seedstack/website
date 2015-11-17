@@ -74,11 +74,11 @@
 	path = content/addons/i18n
 	url = https://github.com/seedstack/i18n-addon.git
 	branch = docs
-[submodule "themes/simple"]
-	path = themes/simple
+[submodule "content/themes/simple"]
+	path = content/themes/simple
 	url = https://github.com/seedstack/w20-simple-theme.git
 	branch = docs
-[submodule "themes/business"]
-	path = themes/business
+[submodule "content/themes/business"]
+	path = content/themes/business
 	url = https://github.com/seedstack/w20-business-theme.git
 	branch = docs
