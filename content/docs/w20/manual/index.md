@@ -54,6 +54,7 @@ The properties of a fragment manifest are:
 for module mapping (this allow to "map" a module to a name, which can be used for creating aliases or for module substitution). For an exhaustive list and 
 description of the RequireJS configuration options, please have a look  at its [API](http://requirejs.org/docs/api.html). 
 Remember that this configuration will be merged with all the other declared fragment configuration on application start.
+
 ```
 {
     "id": "demo-fragment",
@@ -65,6 +66,7 @@ Remember that this configuration will be merged with all the other declared frag
     }
 }
 ```
+
 * `modules`: an optional object whose keys are the name of the exposed modules of the fragment. The value of those keys is an object with
 the module path and the configuration schema. The configuration schema contains the name of the configuration properties available for the module. 
 In the example below we expose a module "demoModule" inside a fragment with id "demo-fragment" and a configuration property named "demoConfig" 
@@ -92,6 +94,7 @@ of type string for the module demoModule.
     }
 }
 ```
+
 There is a few additional things to note in this last example:
 
 * In the `path` property we used the fragment id enclosed in curly braces (`{demo-fragment}`). This alias is automatically registered based
@@ -203,6 +206,7 @@ element of the masterpage. Application loading is explained in further details
 in the following section.
 2. Declare the unique `ng-view` element of the application which will include view templates. View change is handled through client-side
 routing which associates an URL to a template. This template is rendered in the `ng-view` tag.
+
 ```
 <!doctype html>
 <!-- Sample masterpage for a W20 app -->
@@ -219,6 +223,7 @@ routing which associates an URL to a template. This template is rendered in the 
 </body>
 </html>
 ```
+
 {{% callout info %}}
 You can notice that HTML attributes that are not part of the HTML specification (such as `w20-app` or `ng-view`) are prefixed with
 "data-". This allow to keep templates valid against HTML validator by defining those attributes as [custom attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*).
@@ -298,6 +303,7 @@ We included it here to give you the full initialization sequence for future refe
 JavaScript logic in W20 are defined in AMD modules. An AMD module is defined using the global function `define` exposed by RequireJS.
 AMD module can be named but it is strongly recommended that you use anonymous AMD modules, each one living in its own JavaScript file. 
 They have the following form:
+
 ```
 define([
         // (1) list of the dependencies of this module
@@ -311,18 +317,21 @@ define([
     };
 });
 ```
+
 Let us expand a little bit on each part of this module definition:
 
 * (1) The list of dependencies is composed of path to dependencies of this module, which are often themselves AMD modules.
 The path can be an absolute path or a map key if a RequireJS mapping has been defined. Remember that fragments manifest location are 
 automatically aliased by their fragment id enclosed in curly braces. This means that you can reference a W20 fragment or your own one as 
 a dependency like this:
+
 ```
 define([
 '{w20-core}/modules/application', 
 '{your-fragment}/modules/your-module'
 ], ... );
 ```
+
 Please note that modules are referenced without their .js extension.
 
 {{% callout info %}}
@@ -338,6 +347,7 @@ second argument.
 
 * (4) The return value of a module is the public part it exposes to the world. The value of this return will be what will be injected
 in other modules factory function if that module is a dependency of them.
+
 ```
 define([
 '{w20-core}/modules/application',
@@ -352,8 +362,10 @@ define([
 
 });
 ```
+
 Now, if we suppose the module above to be named "demo.js" inside a fragment with id "example", if this module is defined as a dependency of another, 
 the last one can access the publicValue property of the object.
+
 ```
 define([
     '{example}/modules/demo',
@@ -369,6 +381,7 @@ define([
 To access the configuration of a module it needs to depend on the `module` module. This special module is used to retrieve the module id, its location
 and the value of its configuration options (those declared in the application manifest). 
 If we suppose a module "sample" with the following configuration:
+
 ```
 "some-fragment/path/some-fragment.w20.json": {
     "modules": {
@@ -378,7 +391,9 @@ If we suppose a module "sample" with the following configuration:
     }
 }
 ```
+
 The configuration is retrieved inside the "sample" module like this:
+
 ```
 define([
     'module',
@@ -389,6 +404,7 @@ define([
     console.log(config.prop); // "Value of property"
 });
 ```
+
 The statement `module && module.config() || {}` is the idiomatic way of safely retrieving the module configuration.
 
 ## Lifecycle callbacks
@@ -467,6 +483,7 @@ Usually an AngularJS app has only one injector and AngularJS modules are only lo
 Wait a minute. Did we not already talk about dependencies between modules ? Yes, we did. We talked of dependencies between AMD modules.
 But AngularJs modules can also list other AngularJS modules as their dependencies. Depending on an AngularJS module implies that the required AngularJS module 
 needs to be loaded before the requiring AngularJS module is loaded.
+
 ```
 // firstModule.js
 define(['{angular}/angular'], function (angular) {
