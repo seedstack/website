@@ -27,7 +27,7 @@ backend and W20 provides such an integration.
 The subject is the security term which refers to a security-centric view of an application user. It always have an
 identifier. A particular W20 application instance can only have zero or one subject connected at a time.
 Principals are key/value pairs associated to a subject and provide additional metadata about it, like its default culture,
-its full name, its avatar, etc...
+its full name, its avatar, etc.
 
 ## Security providers
 
@@ -39,10 +39,10 @@ done through security providers.
 W20 provides a `SimpleAuthenticationProvider` which is configured with two URL:
  
 * an authentication URL which will be requested with a GET upon authentication and a DELETE upon deauthentication.
-* an authorization URL which will be request with a GET upon successful authentication to retrieve subject authorizations.
+* an authorization URL which will be requested with a GET upon successful authentication to retrieve subject authorizations.
 
 The credentials will be passed in clear as query parameters upon authentication so it is recommended that this provider
-is only used in the case of basic authentication where credentials can be omitted as they are directly handled by the
+is only used in the case of [basic authentication](https://tools.ietf.org/html/rfc2617) where credentials can be omitted as they are directly handled by the
 browser.
 
 ## Realms
@@ -111,7 +111,7 @@ automatically be mapped to unified roles of the same name.
 
 # Fragment declaration
 
-Security providers can be registered programatically with the authentication service but can also be declared in fragment
+Security providers can be registered programatically with the authentication service but can also be declared in a fragment
 manifest:
 
     ...
@@ -126,8 +126,8 @@ manifest:
     
     ...
     
-This will register a security realm with the name of the fragment identifier, using the `SimpleSecurityProvider` AngularJS
-service as security provider configured with the `config` section.
+This will register a security realm with the name of the fragment identifier, using the `SimpleSecurityProvider`
+service as the security provider configured with the `config` section.
 
 # Security services
 
