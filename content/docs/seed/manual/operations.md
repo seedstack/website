@@ -1,6 +1,6 @@
 ---
-title: "Management"
-type: "manual"
+title: "Operations"
+type: "home"
 zones:
     - "Seed"
 sections:
