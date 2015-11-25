@@ -183,46 +183,52 @@ default resource serving:
 * Cache friendly,
 * Emulation of servlet 3.0 serving from classpath when not available.
 
+{{% callout info %}}
+Static resource serving is enabled by default. It has a low priority
+Docroot resources always have precedence over classpath resources. If a file under document root leads to the same resulting
+path as in classpath, then the document root file have priority (like robots.txt in above example).
+{{% /callout %}}
+
 ## Default behavior
 
-The default behavior is to serve resources located under the "/resources" document root folder and, if not found, under the
-"META-INF/resources/resources" classpath location on the "/resources/*" path. For example, consider the following folder tree:
+The default behavior is to serve resources located under the document root folder and, if not found, under the
+`META-INF/resources` classpath location on the `/*` path. For example, consider the following folder tree:
 
     docroot/
-        resources/
-            index.html
-            robots.txt
+        index.html
+        robots.txt
             
     META-INF/
         resources/
-            resources/
-                robots.txt
-                lib/
-                    jquery.js
-                    jquery.min.js
-                    jquery.min.js.gz
+            robots.txt
+            lib/
+                jquery.js
+                jquery.min.js
+                jquery.min.js.gz
                     
 The default behavior is to serve index.html, robots.txt and jquery.js on the following paths:
 
-    /resources/robots.txt
-    /resources/index.html
-    /resources/lib/jquery.js
+    /robots.txt
+    /index.html
+    /lib/jquery.js
     
 The jquery.js file will be served as a minified and gzipped version (without the overhead of on-the-fly gzipping since
 a pre-gzipped version is already available). 
 
 {{% callout info %}}
-Docroot resources always have precedence over Classpath resources. If a file under document root leads to the same resulting 
-path as in Classpath, then the document root file have priority (consider robots.txt in above example).
+Docroot resources always have precedence over classpath resources. If a file under document root leads to the same resulting
+path as in classpath, then the document root file have priority (like robots.txt in above example).
 {{% /callout %}}
 
-## Serving path
+## Configuration
+
+Resources are always served on `/*` with a low priority
 
 The default serving path can be altered. For example:
-    
+
     org.seedstack.seed.web.resources.path = /my-custom-resource-path
 
-The serving paths then are updated by appending `/my-custom-resource-path` to the document root base path and the 
+The serving paths then are updated by appending `/my-custom-resource-path` to the document root base path and the
 `META-INF/resources` classpath location thus serving from respective following paths:
 
 * `docroot/my-custom-resource-path` for document root based resources

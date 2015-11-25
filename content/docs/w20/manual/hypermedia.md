@@ -93,7 +93,7 @@ You can use alias for your api endpoint to refer to a previously declared api.
 }
 ```
 
-There is one default alias `@home` which resolve to ***/rest/***
+There is one default alias `@home` which resolve to ***/***
 
 ```json
 "api": {
@@ -184,7 +184,7 @@ any subsequent resources obtained by following the links provided in these resou
               "name": "productRelatedToMyProduct",
               "_links": {
                 "self": {
-                  "href": "/rest/product/myProduct/related"
+                  "href": "/api/product/myProduct/related"
                 }
               }
             }
@@ -239,7 +239,7 @@ homeService('myApi').enter('catalog').get(function (products) {
     
     var relatedProducts = embeddedProducts.$embedded('related')[0].$links('self').get();
     
-    // the last line will GET /rest/product/myProduct/related
+    // the last line will GET /api/product/myProduct/related
 
 });
 ```
