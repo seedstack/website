@@ -22,13 +22,16 @@
         <div class="col-md-9">
             <div class="content-wrapper">
                 <div class="tags">
+                    {{ $.Scratch.Set "tagCount" 0 }}
                     {{ range $key, $value := .Data.Terms }}
+                    {{ $.Scratch.Set "tagCount" (add ($.Scratch.Get "tagCount") 1) }}
                     <a class="label label-default" href="{{ $key | urlize }}">{{ $key | title }} <small>({{ len $value }})</small></a>
                     {{ end }}
                 </div>
             </div>
         </div>
-        <div class="col-md-3" style="border-left: 1px solid lightgrey; min-height: 100vh;">
+        <div class="col-md-3 filter-column">
+            <h4 class="filter-column-header">{{ $.Scratch.Get "tagCount" }} tag(s)</h4>
         </div>
     </div>
 </div>

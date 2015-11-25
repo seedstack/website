@@ -20,7 +20,9 @@
 <div id="content" class="container">
     <div class="row">
         <div class="col-md-9">
+            {{ $.Scratch.Set "guideCount" 0 }}
             {{ range $element := (where .Data.Pages.ByDate.Reverse "Weight" -1) }}
+            {{ $.Scratch.Set "guideCount" (add ($.Scratch.Get "guideCount") 1) }}
             <div class="content-wrapper filterable-item" style="margin-bottom: 20px;">
                 <div class="doc-content">
                     {{ .Render "summary" }}
@@ -32,8 +34,9 @@
                 {{ template "_internal/pagination.html" . }}
             </div>
         </div>
-        <div class="col-md-3" style="border-left: 1px solid lightgrey; min-height: 100vh;">
+        <div class="col-md-3 filter-column">
             <form>
+                <h4 class="filter-column-header">{{ $.Scratch.Get "guideCount" }} guide(s)</h4>
                 <h4>Filter</h4>
                 <div class="form-group">
                     <input type="text" class="form-control" id="filter" placeholder="Enter filtering terms here..." onkeyup="changeFilter()">

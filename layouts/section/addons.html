@@ -35,7 +35,9 @@
     </div>
     <div class="row">
         <div class="col-md-9 addon-items">
+            {{ $.Scratch.Set "addonCount" 0 }}
             {{ range $element := (where .Data.Pages.ByDate.Reverse "Title" "Overview") }}
+            {{ $.Scratch.Set "addonCount" (add ($.Scratch.Get "addonCount") 1) }}
             <div class="filterable-item" style="margin-bottom: 20px;">
                 <div class="row">
                     <div class="col-md-12">
@@ -47,8 +49,9 @@
             </div>
             {{ end }}
         </div>
-        <div class="col-md-3" style="border-left: 1px solid lightgrey; min-height: 100vh;">
+        <div class="col-md-3 filter-column">
             <form>
+                <h4 class="filter-column-header">{{ $.Scratch.Get "addonCount" }} add-on(s)</h4>
                 <h4>Filter</h4>
 
                 <div class="form-group">

@@ -1,3 +1,13 @@
+#content .filter-column-header {
+    padding-bottom: 10px;
+    border-bottom: #ccc solid 1px;
+}
+
+#content .filter-column {
+    border-left: 1px solid lightgrey;
+    min-height: 100vh;
+}
+
 .content-wrapper {
     padding: 40px 30px 19px 30px;
     background-color: white;

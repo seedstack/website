@@ -20,14 +20,17 @@
 <div id="content" class="container">
     <div class="row">
         <div class="col-md-9">
+            {{ $.Scratch.Set "elementCount" 0 }}
             {{ range .Data.Pages }}
+            {{ $.Scratch.Set "elementCount" (add ($.Scratch.Get "elementCount") 1) }}
                 <div class="content-wrapper filterable-item"  style="margin-bottom: 20px;">
                     {{ .Render "inner_result" }}
                 </div>
             {{ end }}
         </div>
-        <div class="col-md-3" style="border-left: 1px solid lightgrey; min-height: 100vh;">
+        <div class="col-md-3 filter-column">
             <form>
+                <h4 class="filter-column-header">{{ $.Scratch.Get "elementCount" }} element(s)</h4>
                 <h4>Filter</h4>
                 <div class="form-group">
                     <input type="text" class="form-control" id="filter" placeholder="Enter filtering terms here..." onkeyup="changeFilter()">
