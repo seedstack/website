@@ -138,7 +138,8 @@ org.skyscreamer:jsonassert:1.2.3
 
 The W20 framework has been further modularized:
 
-* The `w20-ui` fragment has been removed. Its rich components, UI-Grid and UI-Select have been moved to a new `w20-components`
+* Every fragment has become an addon to the exception of the core fragment which is mandatory.
+* The `w20-ui` fragment has been **removed** and its rich components (UI-Grid and UI-Select) have been moved to a new `w20-components`
 fragment. Its CSS framework-independent code has been merged into `w20-core`. Bootstrap 3 and UI-Bootstrap have been
 moved to a new `w20-bootstrap-3` fragment.
 * The `w20-components` fragment is new and contains the UI-Grid and UI-Select rich components previously found in the `w20-ui`
@@ -150,6 +151,27 @@ fragment.
 This allows to use alternative CSS frameworks with W20 such as the older Bootstrap 2 for compatibility purposes or
 [Angular Material](https://material.angularjs.org/) to easily implement [material design](https://www.google.com/design/spec/material-design/introduction.html).
 Bootstrap 4 support will be introduced as a fragment when released.
+
+For `w20-bridge-addon` user, it is necessary to include the additional fragments which was all previously distributed by the `w20-bridge-web`artifact. For instance, this is the declaration necessary for including the w20-core, w20-dataviz, w20-bootstrap-3 and w20-business-theme fragments in maven:
+
+```
+<dependency>
+    <groupId>org.seedstack.addons.w20</groupId>
+    <artifactId>w20-bridge-web</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.seedstack.addons.w20</groupId>
+    <artifactId>w20-bridge-web-dataviz</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.seedstack.addons.w20</groupId>
+    <artifactId>w20-bridge-web-bootstrap-3</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.seedstack.addons.w20</groupId>
+    <artifactId>w20-bridge-web-business-theme</artifactId>
+</dependency>
+```
 
 # New features
 
