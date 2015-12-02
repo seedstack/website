@@ -14,7 +14,7 @@ before_install:
   - git submodule update --init --recursive --remote
 
 install:
-  - go get -v github.com/seedstack/hugo
+  - go get -v github.com/spf13/hugo
   - npm install
 
 script:
