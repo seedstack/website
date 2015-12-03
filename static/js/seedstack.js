@@ -32,6 +32,7 @@
 
     seedstack.ui = {
         openSearch: function () {
+            seedstack.searchService.warm();
             $('.search-open').show();
             $('.search-btn').removeClass('fa-search').addClass('fa-times');
             $('#search-field').focus();
@@ -83,7 +84,7 @@
             "s c": "/docs/seed/manual/crypto",
             "s w": "/docs/seed/manual/web",
             "s r": "/docs/seed/manual/rest",
-            "s m": "/docs/seed/manual/management",
+            "s o": "/docs/seed/manual/operations",
             "s T": "/docs/seed/manual/transactions",
             "W": "/docs/w20",
             "w b": "/docs/w20/manual/basics",
@@ -99,7 +100,7 @@
         var lunrIndex,
             metadata;
 
-        function ensureInitialized(callback) {
+        function ensureInitialized(callback, errback) {
             if (!lunrIndex) {
                 var searchIndexTimestamp = localStorage.getItem("searchIndexTimestamp");
 
@@ -129,19 +130,27 @@
                         callback();
                     }).fail(function () {
                         console.error("unable to fetch index");
+                        errback();
                     });
                 } else {
-                    console.log('loading search index from cache');
-                    metadata = JSON.parse(localStorage.getItem("searchMetadata"));
-                    lunrIndex = lunr.Index.load(JSON.parse(localStorage.getItem("searchIndex")));
                     callback();
                 }
+            } else {
+                callback();
             }
         }
 
         return {
-            warm: function (callback) {
-                ensureInitialized(callback);
+            warm: function (callback, errback) {
+                ensureInitialized(function () {
+                    if (typeof callback === 'function') {
+                        callback();
+                    }
+                }, function () {
+                    if (typeof errback === 'function') {
+                        console.warn("unable to warm cache");
+                    }
+                });
             },
 
             clear: function () {
@@ -152,14 +161,24 @@
                 metadata = undefined;
             },
 
-            search: function (q, callback) {
+            search: function (q, callback, errback) {
                 ensureInitialized(function () {
+                    if (!metadata || !lunrIndex) {
+                        console.log('loading search index from cache');
+                        metadata = JSON.parse(localStorage.getItem("searchMetadata"));
+                        lunrIndex = lunr.Index.load(JSON.parse(localStorage.getItem("searchIndex")));
+                    }
+
                     if (typeof callback === 'function') {
                         callback(lunrIndex.search(q).map(function (result) {
                             return metadata.filter(function (page) {
                                 return page.href === result.ref;
                             })[0];
                         }));
+                    }
+                }, function () {
+                    if (typeof errback === 'function') {
+                        errback();
                     }
                 });
             }

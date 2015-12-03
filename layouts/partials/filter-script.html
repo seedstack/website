@@ -1,7 +1,13 @@
 <script>
-    var onlyBackend = false, onlyFrontend = false, filter, filterTimeout;
+    var onlyBackend = false,
+            onlyFrontend = false,
+            formElt = document.getElementById('criteria'),
+            filterElt = document.getElementById('filter'),
+            filterTimeout;
 
     function computeVisibility() {
+        var filterValue = $(filterElt).val();
+
         $('.filterable-item').each(function (idx, elt) {
             var $elt = $(elt);
             var $article = $(elt).find("article");
@@ -20,7 +26,7 @@
             }
 
             var text = $article.text();
-            if (filter && text && text.toLowerCase().indexOf(filter.toLowerCase()) === -1) {
+            if (filterValue && text && text.toLowerCase().indexOf(filterValue.toLowerCase()) === -1) {
                 $elt.hide();
             }
         });
@@ -36,12 +42,26 @@
         computeVisibility();
     }
 
-    function changeFilter() {
+    function filterChanged() {
         clearTimeout(filterTimeout);
-        filter = $('#filter').val();
 
-        filterTimeout = setTimeout(function() {
+        filterTimeout = setTimeout(function () {
             computeVisibility();
         }, 250);
+    }
+
+    if (formElt) {
+        formElt.onsubmit = function () {
+            window.location = $('.filterable-item:visible:first h1 a').attr('href');
+            return false;
+        };
+    }
+
+    if (filterElt) {
+        filterElt.onkeyup = function () {
+            computeVisibility();
+        };
+
+        filterElt.focus();
     }
 </script>

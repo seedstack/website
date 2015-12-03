@@ -16,7 +16,6 @@ sections:
         </div>
     </div>
 </div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/0.5.9/lunr.min.js"></script>
 <script>
     document.addEventListener('seedstack', function() {
         var $inner = $('.inner-results'),
@@ -84,6 +83,8 @@ sections:
                     );
                 });
             }
+        }, function() {
+            displayMessage('An error occurred during search, please try again later.');
         });
     });
 </script>

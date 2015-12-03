@@ -29,11 +29,11 @@
             {{ end }}
         </div>
         <div class="col-md-3 filter-column">
-            <form>
+            <form id="criteria">
                 <h4 class="filter-column-header">{{ $.Scratch.Get "elementCount" }} element(s)</h4>
                 <h4>Filter</h4>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="filter" placeholder="Enter filtering terms here..." onkeyup="changeFilter()">
+                    <input type="text" class="form-control" id="filter" placeholder="Enter filtering terms here...">
                 </div>
             </form>
         </div>
