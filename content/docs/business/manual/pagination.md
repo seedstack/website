@@ -44,7 +44,7 @@ and the result size has not changed.
 
 # Example
 
-Create a finder by extending the `BaseJpaRangeFinder` class. This abstract class needs you to implement two methods.
+Create a finder by extending the `BaseRangeFinder` class. This abstract class needs you to implement two methods.
 
 - The `computeResultList()` method which should return the list of matching entity with the expected range.
 - The `computeFullRequestSize()` method should return the size of complete list matching the criteria.
@@ -59,7 +59,9 @@ For instance create the following interface:
 
 Implement it as follows:
 
-    public class Dto1SimpleJpaFinder extends BaseJpaRangeFinder<Dto1, Map<String, Object>>
+    @JpaUnit("my-unit")
+    @Transactional
+    public class Dto1SimpleJpaFinder extends BaseRangeFinder<Dto1, String>
         implements Dto1Finder {
 
         @Inject
@@ -67,27 +69,24 @@ Implement it as follows:
 
         @Override
         public PaginatedView<ProductRepresentation> findItemByQuery(Page page, String query) {
-            Map<String, Object> map = new HashMap<String, Object>();
-            if (query != null && !"".equals(query)) {
-                map.put("q", "%" + query + "%");
-            }
             Range range = Range.rangeFromPageInfo(page.getIndex(), page.getCapacity());
-            Result<Dto1> result = find(range, map);
+            Result<Dto1> result = find(range, query);
             return new PaginatedView<Dto1>(result, page);
         }
 
         @Override
-        protected List<Dto1> computeResultList(Range range , Map<String,Object> criteria) {
+        protected List<Dto1> computeResultList(Range range , String criteria) {
             CriteriaQuery<AggRoot1> query = getAggRoot1CriteriaQuery(criteria);
             List<AggRoot1> resultList = entityManager.createQuery(query)
-                    .setFirstResult(new BigDecimal(range.getOffset()).intValueExact())
-                    .setMaxResults(range.getSize()).getResultList();
+                    .setFirstResult((new BigDecimal(range.getOffset()).intValue()))
+                    .setMaxResults(new BigDecimal(range.getSize()).intValue())
+                    .getResultList();
 
             return assemblers.assembleDtoFromAggregate(resultList);
         }
 
         @Override
-        protected long computeFullRequestSize(Map<String,Object> criteria) {
+        protected long computeFullRequestSize(String criteria) {
             CriteriaQuery<Long> query = getAggRoot1CountCriteriaQuery(criteria);
             return entityManager.createQuery(query).getSingleResult();
         }
@@ -97,7 +96,7 @@ Implement it as follows:
 
 Then, inject the finder with its interface and use it as follows:
 
-```
+```java
 @Inject
 Dto1Finder dto1Finder;
 
