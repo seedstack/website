@@ -2,13 +2,11 @@
 Title: "Welcome to SeedStack"
 Description: Welcome message for visitors.
 Authors: 
-- Adrien LAUER
+  - Adrien LAUER
 Date: 2015-05-02
 Slug: welcome-to-seedstack
-Tags:
-- SeedStack
 Zones:
-- Posts
+  - Posts
 ---
 
 Welcome to SeedStack, an Open-Source enterprise-class development stack for building modern and robust applications.

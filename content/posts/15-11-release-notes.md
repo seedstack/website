@@ -2,14 +2,14 @@
 Title: "15.11 release notes"
 Description: We are happy to announce the release of SeedStack 15.11!
 Authors:
-- Pierre THIROUIN
-- Adrien LAUER
+  - Pierre THIROUIN
+  - Adrien LAUER
 Date: 2015-11-27
 Slug: 15-11-release-notes
 Tags:
-- release
+  - release
 Zones:
-- Posts
+  - Posts
 ---
 
 We are happy to announce the release of SeedStack 15.11, codenamed "Hibiscus". This new version comes with a new 
