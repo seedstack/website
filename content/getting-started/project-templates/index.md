@@ -4,29 +4,43 @@ type: "home"
 zones:
     - "GettingStarted"
 sections:
-    - "GettingStartedProjectTypes"
+    - "GettingStartedProjectTemplates"
 menu:
-    GettingStartedProjectTypes:
+    GettingStartedProjectTemplates:
         weight: 10
 ---
 
-SeedStack can be used to develop any type of project with almost any structure but the reference distribution
-comes with several predefined project types that can be easily generated. These templates guarantee you a clean 
-organization of your code and good modularity so stick to them when possible.
+SeedStack-based projects can be created from scratch but we propose a number of predefined project templates in the SeedStack
+reference distribution that can be generated from [Maven archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html)
+or [Yeoman generators](http://yeoman.io/). We recommend that you use these project templates, especially if you are
+new to SeedStack as they provide several benefits:
 
-* [Java Web applications](webapp),   
-* [Java RESTful services](rest),   
-* [Batch jobs](batch),
-* [Reusable business domains](domain),
-* [Browser-only W20 Single Page Applications](w20).
+* They are immediately executable and deployable after generation,
+* They follow best practices, providing clean code organization and good modularity,
+* They are easy to use and provide fast onboarding.
+
+# Reference project templates
+
+The following project templates are available from the reference distribution:
+
+* [Java Web application](webapp) template (backend + frontend),
+* [Java RESTful service](rest) template (backend only),
+* [Batch job](batch) template (backend only),
+* [Reusable business domain](domain) template (reusable component),
+* [W20 Single Page Applications](w20) template (frontend-only).
 
 {{% callout info %}}
 Note that SeedStack is designed with extension in mind so you can design your own project types and provide archetypes
 and code generators for them in a [custom distribution](../distribution/create-your-own).
 {{% /callout %}}
 
-# Inner structure for Java modules
+# Project structure
 
+Each project template has its own layout, adapted to the
+
+## Java modules
+
+When creating a project from a reference template, the
 The following directory structure is recommended for all Java modules:
 
 ```plain

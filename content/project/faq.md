@@ -2,12 +2,9 @@
 title: "FAQ"
 type: "home"
 zones:
-    - "Overview"
+    - "Project"
 sections:
-    - "OverviewFaq"
-menu:
-    OverviewFaq:
-        weight: 10
+    - "ProjectFAQ"
 ---
 
 Answers to common questions about SeedStack.

@@ -1,22 +1,20 @@
 ---
-title: "FAQ"
+title: "Build"
 type: "home"
 zones:
-    - "Overview"
+    - "Project"
 sections:
-    - "OverviewBuild"
-menu:
-    OverviewBuild:
-        weight: 10
+    - "ProjectBuild"
 smokeUrl: "http://seedstack.github.io/smoke-tests"
 ---
 
 {{% callout info %}}
-{{< figure src="/img/docker.png" class="pull-right docker" >}} 
-All compatibility tests have been done with docker containers. 
+{{< figure src="/img/docker.png" class="pull-right docker" >}}
+All compatibility tests have been done with docker containers.
 {{% /callout %}}
 
-**The goal is to test SeedStack with different application servers**
+SeedStack is automatically tested against several runtime environment which are listed on this page with the corresponding
+results.
 
 # Tested Features
 
