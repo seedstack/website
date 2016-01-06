@@ -29,8 +29,7 @@ helpers and base implementations.
 
 {{% callout info %}}
 This documentation is not intended to replace a good understanding of DDD principles which can be gathered from various
-source material described in the [bibliography](bibliography). Nonetheless, you will find an introduction to 
-DDD in general and a presentation of its main concepts in the [concepts](concepts) section.
+source material described in the [bibliography](bibliography).
 {{% /callout %}}
 
 # Requirements
