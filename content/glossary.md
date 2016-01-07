@@ -1,11 +1,8 @@
 ---
-title: "All terms"
+title: "Glossary"
 type: "home"
 zones:
     - "Glossary"
-menu:
-    Glossary:
-        weight: 10
 ---
 
 # Anemic domain model

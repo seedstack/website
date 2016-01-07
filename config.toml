@@ -40,11 +40,6 @@ MetaDataFormat = "yaml"
 #### Website zones               ####
 #####################################
 
-[params.zone.Overview]
-  path = "/Overview"
-  label = "Overview"
-  logo = "overview-logo.svg"
-
 [params.zone.Seed]
   path = "/docs/seed"
   label = "Java framework"
@@ -65,16 +60,6 @@ MetaDataFormat = "yaml"
   label = "Getting started"
   logo = "getting-started-logo.svg"
 
-[params.zone.Tools]
-  path = "/docs/tools"
-  label = "Tools"
-  logo = "tools-logo.svg"
-
-[params.zone.Samples]
-  path = "/samples"
-  label = "Samples"
-  logo = "samples-logo.svg"
-
 [params.zone.Glossary]
   path = "/docs/glossary"
   label = "Glossary"
@@ -84,6 +69,11 @@ MetaDataFormat = "yaml"
   path = "/guides"
   label = "Guides"
   logo = "guides-logo.svg"
+
+[params.zone.Project]
+  path = "/project"
+  label = "Project"
+  logo = "project-logo.svg"
 
 [params.zone.Posts]
   path = "/posts"
@@ -101,35 +91,30 @@ MetaDataFormat = "yaml"
   logo = "search-logo.svg"
 
 #####################################
-#### Overview sections           ####
+#### Project sections           ####
 #####################################
 
-[params.section.OverviewIntroduction]
-  label = "Introduction"
+[params.section.ProjectOverview]
+  label = "Overview"
   icon = "fa fa-file-text"
   path = ""
 
-[params.section.OverviewArchitecture]
-  label = "Architecture"
-  icon = "fa fa-building"
-  path = ""
-
-[params.section.OverviewCommunity]
+[params.section.ProjectCommunity]
   label = "Community"
   icon = "fa fa-community"
-  path = ""
+  path = "community"
 
-[params.section.OverviewRoadmap]
-  label = "Roadmap"
-  icon = "fa fa-road"
-  path = ""
-    
-[params.section.OverviewFaq]
+[params.section.ProjectFAQ]
   label = "FAQ"
   icon = "fa fa-comments-o"
-  path = ""
+  path = "faq"
 
-[params.section.OverviewBuild]
+[params.section.ProjectRoadmap]
+  label = "Roadmap"
+  icon = "fa fa-road"
+  path = "roadmap"
+    
+[params.section.ProjectBuild]
   label = "Build"
   icon = "fa fa-cogs"
   path = ""
@@ -148,10 +133,10 @@ MetaDataFormat = "yaml"
   icon = "fa fa-gift"
   path = "distribution"
 
-[params.section.GettingStartedProjectTypes]
-  label = "Project types"
+[params.section.GettingStartedProjectTemplates]
+  label = "Project templates"
   icon = "fa fa-cubes"
-  path = "project-types"
+  path = "project-templates"
 
 [params.section.GettingStartedTutorial]
   label = "Tutorial"
@@ -186,6 +171,11 @@ MetaDataFormat = "yaml"
   icon = "fa fa-book"
   path = "manual"
 
+[params.section.SeedMavenPlugin]
+label = "Maven plugin"
+icon = "fa fa-cogs"
+path = "maven-plugin"
+
 #####################################
 #### W20 sections                ####
 #####################################
@@ -199,20 +189,6 @@ MetaDataFormat = "yaml"
   label = "W20 manual"
   icon = "fa fa-book"
   path = "manual"
-
-#####################################
-#### Tools                       ####
-#####################################
-
-[params.section.ToolsIntroduction]
-  label = "Introduction"
-  icon = "fa fa-file-text"
-  path = ""
-
-[params.section.ToolsMavenPlugin]
-  label = "Maven plugin"
-  icon = "fa fa-cogs"
-  path = "maven-plugin"
 
 #####################################
 #### Search                      ####

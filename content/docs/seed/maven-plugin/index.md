@@ -1,12 +1,12 @@
 ---
-title: "Maven plugin"
+title: "Overview"
 type: "home"
 zones:
-    - "Tools"
+    - "Seed"
 sections:
-    - "ToolsMavenPlugin"
+    - "SeedMavenPlugin"
 menu:
-    ToolsMavenPlugin:
+    SeedMavenPlugin:
         weight: 10
 ---
 

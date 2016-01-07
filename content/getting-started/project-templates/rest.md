@@ -4,9 +4,9 @@ type: "home"
 zones:
     - "GettingStarted"
 sections:
-    - "GettingStartedProjectTypes"
+    - "GettingStartedProjectTemplates"
 menu:
-    GettingStartedProjectTypes:
+    GettingStartedProjectTemplates:
         weight: 30
 ---
 

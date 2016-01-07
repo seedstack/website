@@ -1,7 +1,6 @@
 {{ $groupId := .Get "g" }}
 {{ $artifactId := .Get "a" }}
 {{ $versionParam := printf "%s.%s" $groupId "version" }}
-{{ $versionParam}}
 {{ if isset .Params "v" }}
     {{ $.Scratch.Set "version" (.Get "v") }}
 {{ else }}
@@ -15,16 +14,28 @@
         {{ end }}
     {{ end }}
 {{ end }}
-
-When using Maven, use the following snippet:
-<pre><code class="xml">&lt;dependency&gt;
+<div class="tab-v2">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href='#tab-{{ replace $groupId "." "-" | urlize }}-{{ $artifactId | urlize }}-maven' data-toggle="tab" aria-expanded="true">Maven</a></li>
+        <li class=""><a href='#tab-{{ replace $groupId "." "-" | urlize }}-{{ $artifactId | urlize }}-gradle' data-toggle="tab" aria-expanded="true">Gradle</a></li>
+    </ul>
+    <span class="tabs-icon fa-2x fa fa-cloud-download pull-right"></span>
+    <div class="clear-both"></div>
+    <div class="tab-content">
+        <div class="tab-pane in active" id='tab-{{ replace $groupId "." "-" | urlize }}-{{ $artifactId | urlize }}-maven'>
+            When using Maven, use the following snippet:
+            <pre style="margin-bottom: 0;"><code class="xml">&lt;dependency&gt;
     &lt;groupId&gt;{{ $groupId }}&lt;/groupId&gt;
     &lt;artifactId&gt;{{ $artifactId }}&lt;/artifactId&gt;
     &lt;version&gt;{{ $.Scratch.Get "version" }}&lt;/version&gt;{{ if isset .Params "s" }}
     &lt;scope&gt;{{ if eq (.Get "s") "test" }}test{{ end }}&lt;/scope&gt;{{ end }}
 &lt;/dependency&gt;</code></pre>
-
-When using Gradle, use the following snippet:
-<pre><code class="java">dependencies {
+        </div>{{ $.Scratch.Add "tabs" (add (.Get 0 | urlize) " ") }}
+        <div class="tab-pane in" id='tab-{{ replace $groupId "." "-" | urlize }}-{{ $artifactId | urlize }}-gradle'>
+            When using Gradle, use the following snippet:
+            <pre style="margin-bottom: 0;"><code class="java">dependencies {
     {{ if isset .Params "s" }}{{ if eq (.Get "s") "test" }}testCompile{{ end }}{{ else }}compile{{ end }}("{{ $groupId }}:{{ $artifactId }}:{{ $.Scratch.Get "version" }}")
 }</code></pre>
+        </div>
+    </div>
+</div>

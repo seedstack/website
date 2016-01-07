@@ -1,12 +1,12 @@
 ---
 title: "Project members"
-type: "home"
+type: home
 zones:
-    - "Overview"
+    - Project
 sections:
-    - "OverviewCommunity"
+    - ProjectCommunity
 menu:
-    OverviewCommunity:
+    ProjectCommunity:
         weight: 20
 ---
 

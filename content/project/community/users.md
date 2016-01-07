@@ -1,12 +1,12 @@
 ---
-title: "SeedStack users"
-type: "home"
+title: "Users"
+type: home
 zones:
-    - "Overview"
+    - Project
 sections:
-    - "OverviewCommunity"
+    - ProjectCommunity
 menu:
-    OverviewCommunity:
+    ProjectCommunity:
         weight: 30
 ---
 

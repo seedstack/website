@@ -1,0 +1,3 @@
+<div class='tab-pane in {{ if not ($.Scratch.Get "tabs") }}active{{ end }}' id="tab-{{ .Get 0 | urlize }}">
+    {{ .Inner }}
+</div>{{ $.Scratch.Add "tabs" (add (.Get 0) "|") }}

@@ -1,17 +1,17 @@
 ---
-title: "Community"
-type: "home"
+title: "Overview"
+type: home
 zones:
-    - "Overview"
+    - Project
 sections:
-    - "OverviewCommunity"
+    - ProjectCommunity
 menu:
-    OverviewCommunity:
+    ProjectCommunity:
         weight: 10
 ---
 
-SeedStack has just arrived on the Open-Source scene. Nonetheless we already 
-have the tools to let people discuss about SeedStack, file issues, ask for help and simply discover the stack together.
+SeedStack has just arrived on the Open-Source scene. Nonetheless we already have the tools to let people discuss about
+SeedStack, file issues, ask for help and simply discover the stack together.
   
 # IRC
 

@@ -1,0 +1,14 @@
+{{ $first := (index (split ($.Scratch.Get "tabs") "|") 0) | urlize }}<div class="tab-v2">
+    <ul class="nav nav-tabs">
+        {{ range (split ($.Scratch.Get "tabs") "|") }}
+            {{ if not (eq . "") }}
+                <li class="{{ if eq (. | urlize) $first }}active{{ end }}"><a href="#tab-{{ . | urlize }}" data-toggle="tab" aria-expanded="true">{{ . }}</a></li>
+            {{ end }}
+        {{ end }}
+    </ul>
+    <span class='tabs-icon fa-2x {{ .Get "icon" }} pull-right'></span>
+    <div class="clear-both"></div>
+    <div class="tab-content">
+        {{ .Inner }}
+    </div>
+</div>{{ $.Scratch.Set "tabs" "" }}

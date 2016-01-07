@@ -253,6 +253,23 @@
     width: auto;
 }
 
+.doc-content ul.nav-tabs {
+    margin-bottom: 0;
+}
+
+.doc-content .tab-v2 .tab-content {
+    padding-left: 0;
+    padding-right: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 1px #eee;
+}
+
+.doc-content .tabs-icon {
+    margin-top: -25px;
+    color: #88c758;
+}
+
 .team-v1 li > .team-img li i.fa-github:hover {
     color: #fff;
     background: black;
