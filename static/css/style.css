@@ -55,6 +55,11 @@ body > #footer > .footer-v3 > .footer {
     background-color: #72c02c;
 }
 
+.header .logo {
+    height: 72px;
+    z-index: 99999;
+}
+
 @media (max-width: 767px) {
     body > #content {
         padding-top: 20px;

@@ -56,16 +56,16 @@ border-top: solid 2px #88c758;
     color: #498819;
 }
 
-.header .navbar-default .navbar-toggle {
+.header .navbar-toggle {
     border: none;
 }
 .header .navbar-toggle,
-.header .navbar-default .navbar-toggle:hover,
-.header .navbar-default .navbar-toggle:focus {
+.header .navbar-toggle:hover,
+.header .navbar-toggle:focus {
     background:  #eee;
 	color: #999;
 }
-.header .navbar-default .navbar-toggle .fa {
+.header .navbar-toggle .fa {
 	color: inherit;
 }
 .header .navbar-toggle:hover {

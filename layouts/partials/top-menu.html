@@ -1,74 +1,66 @@
 <div class="header">
     <div class="container">
-        <div class="topbar">
+        <a class="logo" href="/">SeedStack</a>
+        <div class="topbar hidden-xs hidden-sm">
             <ul class="loginbar pull-right">
-                <li class="hidden-xs hidden-sm"><i class="fa fa-github"></i> <a target="_blank" href="https://github.com/seedstack">GitHub</a></li>
+                <li><i class="fa fa-github"></i> <a target="_blank" href="https://github.com/seedstack">GitHub</a></li>
                 <li class="topbar-devider"></li>
-                <li class="hidden-xs hidden-sm"><i class="fa fa-keyboard-o"></i> <a style="cursor: pointer;" onclick="seedstack.ui.openHelp();">Shortcuts</a></li>
+                <li><i class="fa fa-keyboard-o"></i> <a style="cursor: pointer;" onclick="seedstack.ui.openHelp();">Shortcuts</a></li>
             </ul>
         </div>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="fa fa-bars"></span>
+        </button>
     </div>
-    <div class="navbar navbar-default" data-role="navigation">
+    <div class="collapse navbar-collapse navbar-responsive-collapse" data-role="navigation" style="pointer-events: none;">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse"
-                        data-target=".navbar-responsive-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="fa fa-bars"></span>
-                </button>
-                <a class="navbar-brand" href="/">SeedStack</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-responsive-collapse">
-                <ul class="nav navbar-nav navbar-left" style="margin-left: 5px;">
-                    <li>
-                        <a href="/getting-started">Getting started</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                            Documentation
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/docs/seed">Java framework</a></li>
-                            <li><a href="/docs/w20">Web framework</a></li>
-                            <li><a href="/docs/business">Business framework</a></li>
-                            <li><a href="/guides">Guides</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/addons">Add-ons</a>
-                    </li>
-                    <li>
-                        <a href="/posts">Blog</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                            More
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a target="_blank" href="https://github.com/seedstack/samples">Samples <i style="margin-top: 3px" class="pull-right fa fa-github"></i></a></li>
-                            <li><a href="/project">Project</a></li>
-                            <li><a href="/glossary">Glossary</a></li>
-                            <li><a href="/tags">Tags</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <i class="search fa fa-search search-btn"></i>
-                        <div class="search-open">
-                            <form method="GET" action="/search">
-                                <div class="input-group animated fadeInDown">
-                                    <input id="search-field" type="text" class="form-control" placeholder="Search" name="q">
-                                    <span class="input-group-btn">
-                                        <button class="btn-u" type="submit">Go</button>
-                                    </span>
-                                </div>
-                            </form>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            <ul class="nav navbar-nav" style="pointer-events: auto;">
+                <li>
+                    <a href="/getting-started">Getting started</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                        Documentation
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/docs/seed">Java framework</a></li>
+                        <li><a href="/docs/w20">Web framework</a></li>
+                        <li><a href="/docs/business">Business framework</a></li>
+                        <li><a href="/guides">Guides</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/addons">Add-ons</a>
+                </li>
+                <li>
+                    <a href="/posts">Blog</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                        More
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a target="_blank" href="https://github.com/seedstack/samples">Samples <i style="margin-top: 3px" class="pull-right fa fa-github"></i></a></li>
+                        <li><a href="/project">Project</a></li>
+                        <li><a href="/glossary">Glossary</a></li>
+                        <li><a href="/tags">Tags</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <i class="search fa fa-search search-btn"></i>
+                    <div class="search-open">
+                        <form method="GET" action="/search">
+                            <div class="input-group animated fadeInDown">
+                                <input id="search-field" type="text" class="form-control" placeholder="Search" name="q">
+                                <span class="input-group-btn">
+                                    <button class="btn-u" type="submit">Go</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

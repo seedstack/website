@@ -191,17 +191,16 @@
 }
 
 .navbar-toggle {
-    margin-top: 2px;
+    margin-top: 20px;
     padding: 5px 10px 3px 10px !important;
 }
 
-.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+.logo {
+    color: #687074;
     font-weight: 300;
     font-size: 28px;
-    padding-top: 16px;
     padding-left: 36px;
-    margin-left: -36px;
-    background: transparent url('../img/logos/seedstack-logo.svg') no-repeat left 8px;
+    background: transparent url('../img/logos/seedstack-logo.svg') no-repeat left center;
     background-size: 32px 32px;
 }
 
@@ -297,5 +296,11 @@ kbd {
 
     .title-subheader h3.active a {
         background: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .header .navbar-nav {
+        padding-left: 150px;
     }
 }
