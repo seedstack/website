@@ -47,15 +47,15 @@ Active members are frequently contributing to SeedStack.
 <ul class="list-unstyled team-v1">
 
 {{% member "Épo JEMBA" "https://avatars2.githubusercontent.com/u/887400?v=3" "https://github.com/ejemba" %}}
-Coming soon...
 {{% /member %}}
 
-{{% member "Redouane Loulou" "https://avatars2.githubusercontent.com/u/9444088?v=3" "https://github.com/red1l" %}}
-Coming soon...
+{{% member "Redouane LOULOU" "https://avatars2.githubusercontent.com/u/9444088?v=3" "https://github.com/red1l" %}}
+{{% /member %}}
+
+{{% member "Tuan DO CAO" "https://avatars0.githubusercontent.com/u/8062405?v=3" "https://github.com/notoon" %}}
 {{% /member %}}
 
 {{% member "Yves DAUTREMAY" "https://avatars3.githubusercontent.com/u/3729195?v=3" "https://github.com/ydautremay" %}}
-Coming soon...
 {{% /member %}}
 
 </ul>

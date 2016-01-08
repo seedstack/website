@@ -257,6 +257,10 @@
     margin-bottom: 0;
 }
 
+.doc-content ul.nav-pills {
+    margin-top: 0;
+}
+
 .doc-content .tab-v2 .tab-content {
     padding-left: 0;
     padding-right: 0;
@@ -265,8 +269,12 @@
     border-bottom: solid 1px #eee;
 }
 
+.doc-content .tab-v1 .tab-content {
+    border-bottom: solid 1px #eee;
+}
+
 .doc-content .tabs-icon {
-    margin-top: -25px;
+    margin-top: -30px;
     color: #88c758;
 }
 
