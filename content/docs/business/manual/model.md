@@ -126,7 +126,7 @@ Here is a possible implementation of the VIN class:
 
 	package org.mycompany.myapp.shared.domain.after.sales.vehicle;
 
-	import org.seedstack.business.api.domain.BaseValueObject;
+	import org.seedstack.business.domain.BaseValueObject;
 
 	public class VIN extends BaseValueObject {
 		private final String worldManufacturerIdentifier;
@@ -169,7 +169,7 @@ it into a Value Object:
 	package org.mycompany.myapp.domain.customer;
 
 	import javax.persistence.Embeddable;
-	import org.seedstack.business.api.domain.BaseValueObject;
+	import org.seedstack.business.domain.BaseValueObject;
 
 	public class CustomerId extends BaseValueObject {
 		private String value;

@@ -133,7 +133,7 @@ The default repository can be configured for all the application:
 
 ```
 [org.example.*]
-default.repository.qualifier=org.seedstack.seed.persistence.jpa.api.Jpa
+default.repository.qualifier=org.seedstack.jpa.Jpa
 ```
 
 And then overriden for a specific aggregate root:
@@ -156,7 +156,7 @@ requirements.
 First create a repository interface extending `GenericRepository`. This interface is usually located in the aggregate package.
 
 ```
-import org.seedstack.business.api.domain.Repository;
+import org.seedstack.business.domain.Repository;
 
 public interface OrderRepository extends GenericRepository<Order, Long> {
 
@@ -264,7 +264,7 @@ The factory interface has to extend the `GenericFactory` interface:
 package org.mycompany.myapp.domain.model.order;
 
 import org.javatuples.Triplet;
-import org.seedstack.business.api.domain.GenericFactory;
+import org.seedstack.business.domain.GenericFactory;
 
 public interface OrderFactory extends GenericFactory<Order> {
 
@@ -284,7 +284,7 @@ The factory implementation must extend the `BaseFactory` abstract class and impl
 package org.mycompany.myapp.domain.model.order;
 
 import org.javatuples.Triplet;
-import org.seedstack.business.api.domain.BaseFactory;
+import org.seedstack.business.domain.BaseFactory;
 import org.mycompany.myapp.domain.customer.CustomerId;
 
 public class OrderFactoryImpl extends BaseFactory<Order> implements OrderFactory {
@@ -440,8 +440,8 @@ Below is an example of a basic Timestamp id generation strategy:
 ```
 package org.mycompany.myapp.infrastructure.domain;
 
-import org.seedstack.business.api.domain.BaseEntity;
-import org.seedstack.business.api.domain.identity.IdentityHandler;
+import org.seedstack.business.domain.BaseEntity;
+import org.seedstack.business.domain.identity.IdentityHandler;
 
 @Named("timestamp-id")
 public class TimestampIdentityHandler implements IdentityHandler<BaseEntity<Long>, Long> {
