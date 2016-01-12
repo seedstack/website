@@ -80,7 +80,7 @@ If you need to precise another context, you can specify the context as follows:
 
 # Data import/export
 
-Seed provides features to backup and restore data. This could be done through [Seed Shell](/docs/seed/manual/management#shell) 
+Seed provides features to backup and restore data. This could be done through [Seed Shell](/docs/seed/manual/operations/#shell)
 or data could be loaded at the application startup. Data can be backed up and restored independently from the type of 
 persistence since JSON is used as the pivotal format. Consequently, no SQL script or conversion script is needed. Data 
 import can also be used to initialize data for integration tests.
