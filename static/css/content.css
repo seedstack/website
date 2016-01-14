@@ -278,6 +278,10 @@
     color: #88c758;
 }
 
+.doc-content .timeline-v2 img {
+    margin: auto;
+}
+
 .team-v1 li > .team-img li i.fa-github:hover {
     color: #fff;
     background: black;

@@ -1,0 +1,19 @@
+<li class="equal-height-columns">
+    <div class="cbp_tmtime equal-height-column" style="height: 162px;"><span>{{ .Get "date" }}</span> <span>{{ .Get "month" }}</span></div>
+    <i class="cbp_tmicon rounded-x hidden-xs"></i>
+    <div class="cbp_tmlabel equal-height-column" style="height: 192px;">
+        <h2>{{ .Get "title" }}</h2>
+        {{ if .Get "image" }}
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-responsive" src='{{ .Get "image" }}' alt='{{ .Get "title" }} image'>
+            </div>
+            <div class="col-md-8">
+                {{ .Inner }}
+            </div>
+        </div>
+        {{ else }}
+            {{ .Inner }}
+        {{ end }}
+    </div>
+</li>
