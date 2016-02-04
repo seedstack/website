@@ -221,3 +221,46 @@ Three new add-ons are now provided to use popular NoSQL databases:
 ## Solr add-on
 
 A [Solr add-on](/addons/solr) is now provided to access Solr indexing servers.
+
+# Component versions
+
+## Base
+
+* poms: 2.1.1
+* seed: 2.1.0
+* business: 2.1.0
+* w20: 2.1.1
+
+## Add-ons
+
+* audit-addon: 2.1.0
+* monitoring-addon: 2.1.0
+* elasticsearch-addon: 2.1.0
+* i18n-addon: 2.1.0
+* io-addon: 2.1.0
+* javamail-addon: 2.1.0
+* jcache-addon: 2.1.0
+* jdbc-addon: 2.1.1
+* jms-addon: 2.1.0
+* jpa-addon: 2.1.1
+* ldap-addon: 2.1.0
+* mongodb-addon: 1.0.0
+* neo4j-addon: 1.0.0
+* redis-addon: 1.0.0
+* scheduling-addon: 2.1.0
+* solr-addon: 1.0.0
+* spring-bridge-addon: 2.2.0
+* validation-addon: 2.1.0
+* w20-bridge-addon: 2.1.1
+* web-services-addon: 2.1.1
+* w20-extras: 2.1.0
+* w20-dataviz: 2.1.0
+* w20-material: 2.1.1
+* w20-components: 2.1.1
+* w20-bootstrap-2: 2.1.1
+* w20-bootstrap-3: 2.1.1
+
+## Themes
+
+* w20-simple-theme: 3.1.0
+* w20-business-theme: 1.1.0
