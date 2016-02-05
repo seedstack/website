@@ -80,7 +80,7 @@ Parameters should be given as system properties (`-DparameterName=parameterValue
     </tbody>
 </table>
 
-# Sample
+# Examples
 
 Interactive mode:
 
