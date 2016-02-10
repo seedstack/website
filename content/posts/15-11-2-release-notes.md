@@ -55,7 +55,7 @@ Updated components are highlighted in **bold** characters (with a link to the de
 * web-services-addon: 2.1.1
 * w20-extras: 2.1.1
 * w20-dataviz: 2.1.1
-* w20-material: 2.1.3
+* w20-material: **[2.1.4](https://github.com/seedstack/w20-material/releases/tag/v2.1.4)**
 * w20-components: 2.2.0
 * w20-bootstrap-2: 2.1.2
 * w20-bootstrap-3: 2.1.2

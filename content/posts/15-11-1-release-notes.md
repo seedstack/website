@@ -84,23 +84,23 @@ Updated components are highlighted in **bold** characters.
 
 ## Base
 
-* poms: **2.3.0**
-* seed: **2.2.0**
-* business: **2.2.0**
-* w20: **2.2.0**
+* poms: **[2.3.0](https://github.com/seedstack/poms/releases/tag/v2.3.0)**
+* seed: **[2.2.0](https://github.com/seedstack/seed/releases/tag/v2.2.0)**
+* business: **[2.2.0](https://github.com/seedstack/business/releases/tag/v2.2.0)**
+* w20: **[2.2.0](https://github.com/seedstack/w20/releases/tag/v2.2.0)**
 
 ## Add-ons
 
 * audit-addon: 2.1.0
 * monitoring-addon: 2.1.0
 * elasticsearch-addon: 2.1.0
-* i18n-addon: **2.2.0**
+* i18n-addon: **[2.2.0](https://github.com/seedstack/i18n-addon/releases/tag/v2.2.0)**
 * io-addon: 2.1.0
 * javamail-addon: 2.1.0
 * jcache-addon: 2.1.0
-* jdbc-addon: **2.1.2**
-* jms-addon: **2.1.1**
-* jpa-addon: **2.1.2**
+* jdbc-addon: **[2.1.2](https://github.com/seedstack/jdbc-addon/releases/tag/v2.1.2)**
+* jms-addon: **[2.1.1](https://github.com/seedstack/jms-addon/releases/tag/v2.1.1)**
+* jpa-addon: **[2.1.2](https://github.com/seedstack/jpa-addon/releases/tag/v2.1.2)**
 * ldap-addon: 2.1.0
 * mongodb-addon: 1.0.0
 * neo4j-addon: 1.0.0
@@ -108,18 +108,18 @@ Updated components are highlighted in **bold** characters.
 * scheduling-addon: 2.1.0
 * solr-addon: 1.0.0
 * spring-bridge-addon: 2.2.0
-* swagger-addon: **1.0.0** (new)
-* validation-addon: **2.2.0**
-* w20-bridge-addon: **2.2.0**
+* swagger-addon: **[1.0.0](https://github.com/seedstack/swagger-addon/releases/tag/v1.0.0)** (new)
+* validation-addon: **[2.2.0](https://github.com/seedstack/validation-addon/releases/tag/v2.2.0)**
+* w20-bridge-addon: **[2.2.0](https://github.com/seedstack/w20-bridge-addon/releases/tag/v2.2.0)**
 * web-services-addon: 2.1.1
-* w20-extras: **2.1.1**
-* w20-dataviz: **2.1.1**
-* w20-material: **2.1.3**
-* w20-components: **2.2.0**
-* w20-bootstrap-2: **2.1.2**
-* w20-bootstrap-3: **2.1.2**
+* w20-extras: **[2.1.1](https://github.com/seedstack/w20-extras/releases/tag/v2.1.1)**
+* w20-dataviz: **[2.1.1](https://github.com/seedstack/w20-dataviz/releases/tag/v2.1.1)**
+* w20-material: **[2.1.3](https://github.com/seedstack/w20-material/releases/tag/v2.1.3)**
+* w20-components: **[2.2.0](https://github.com/seedstack/w20-components/releases/tag/v2.2.0)**
+* w20-bootstrap-2: **[2.1.2](https://github.com/seedstack/w20-bootstrap-2/releases/tag/v2.1.2)**
+* w20-bootstrap-3: **[2.1.2](https://github.com/seedstack/w20-bootstrap-3/releases/tag/v2.1.2)**
 
 ## Themes
 
-* w20-simple-theme: **3.1.1**
-* w20-business-theme: **1.1.3**
+* w20-simple-theme: **[3.1.1](https://github.com/seedstack/w20-simple-theme/releases/tag/v3.1.1)**
+* w20-business-theme: **[1.1.3](https://github.com/seedstack/w20-business-theme/releases/tag/v1.1.3)**
