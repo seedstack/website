@@ -117,17 +117,27 @@
 
 .doc-content code {
     font-family: 'Source Code Pro', 'Courier New', monospace;
-    white-space: pre-wrap;
     font-size: 14px;
     line-height: 20px;
     padding: 0;
-}
+    white-space: pre;
+    word-break: normal;
+    word-wrap: normal;}
 
 .doc-content pre {
     font-family: 'Source Code Pro', 'Courier New', monospace;
-    border: none;
+    border-radius: 0;
+    border-color: lightgray;
+    border-width: 1px 1px 1px 2px;
     margin: 20px 0 20px 0;
     padding: 0;
+    overflow: auto;
+    max-width: 100%;
+    max-height: 400px;
+}
+
+.doc-content pre code {
+    padding: 10px;
 }
 
 .doc-content table {
@@ -266,11 +276,7 @@
     padding-right: 0;
     border-left: none;
     border-right: none;
-    border-bottom: solid 1px #eee;
-}
-
-.doc-content .tab-v1 .tab-content {
-    border-bottom: solid 1px #eee;
+    border-bottom: none;
 }
 
 .doc-content .tabs-icon {
