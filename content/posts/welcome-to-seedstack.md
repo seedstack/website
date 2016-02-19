@@ -1,11 +1,11 @@
 ---
-Title: "Welcome to SeedStack"
-Description: Welcome message for visitors.
-Authors: 
+title: "Welcome to SeedStack"
+description: Welcome message for visitors.
+authors:
   - Adrien LAUER
-Date: 2015-05-02
-Slug: welcome-to-seedstack
-Zones:
+date: 2015-05-02
+slug: welcome-to-seedstack
+zones:
   - Posts
 ---
 

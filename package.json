@@ -7,7 +7,7 @@
     "yamljs": "~0.2",
     "toml": "~2.2",
     "string": "~3.2",
-    "natural": "~0.2",
+    "lunr": "~0.6.0",
     "markdown": "~0.5"
   }
 }

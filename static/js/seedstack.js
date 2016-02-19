@@ -91,8 +91,7 @@
             "w s": "/docs/w20/manual/security",
             "w c": "/docs/w20/manual/culture",
             "w h": "/docs/w20/manual/hypermedia",
-            "w u": "/docs/w20/manual/ui",
-            "T": "/docs/tools"
+            "w u": "/docs/w20/manual/ui"
         }
     };
 

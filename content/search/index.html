@@ -17,11 +17,11 @@ sections:
     </div>
 </div>
 <script>
-    document.addEventListener('seedstack', function() {
+    document.addEventListener('seedstack', function () {
         var $inner = $('.inner-results'),
-            query = seedstack.strings.parseQueryString(location);
+                query = seedstack.strings.parseQueryString(location);
 
-        function displaySearchAgain() {
+        function displaySearchAgain(currentQuery) {
             $inner.append(
                     '<form method="GET" action="/search">' +
                     '<div class="input-group animated fadeInDown">' +
@@ -33,7 +33,7 @@ sections:
                     '</form>' +
                     '<br>'
             );
-            $('#search-again-field').focus();
+            $('#search-again-field').focus().val(currentQuery);
         }
 
         function displayMessage(message) {
@@ -42,21 +42,21 @@ sections:
 
         if (!(query.q) || query.q.length < 1 || query.q[0] === "") {
             displayMessage('No query specified.');
-            displaySearchAgain();
+            displaySearchAgain("");
             return;
         }
 
         seedstack.searchService.search(query.q[0], function (results) {
             if (!results.length) {
                 displayMessage('No search results.');
-                displaySearchAgain();
+                displaySearchAgain("");
             } else {
                 $('.title-subheader h3 > a').text('Most relevant results for « ' + query.q + ' »');
-                displaySearchAgain();
+                displaySearchAgain(query.q);
 
                 // compute highlight params
                 var highlight = '';
-                query.q[0].split(' ').forEach(function(term) {
+                query.q[0].replace(/[^\w\s]/g, '').split(' ').forEach(function (term) {
                     highlight += encodeURIComponent(term) + '&h='
                 });
                 if (highlight) {
@@ -66,7 +66,7 @@ sections:
                 // Only show the ten first results
                 results.slice(0, 10).forEach(function (result) {
                     $('.inner-results').append(
-                            '<h3><img src="/img/logos/' + result.zone.logo + '"> <a href="' + result.href + (highlight ? '?h=' + highlight + '&scroll': '') + '">' + result.title + '</a></h3>' +
+                            '<h3><img src="/img/logos/' + result.zone.logo + '"> <a href="' + result.href + (highlight ? '?h=' + highlight + '&scroll' : '') + '">' + result.title + '</a></h3>' +
                             '<ul class="list-inline up-ul">' +
                             '<li>' +
                             'In <a href="' + result.zone.path + '">' + result.zone.label + '</a>' +
@@ -83,7 +83,7 @@ sections:
                     );
                 });
             }
-        }, function() {
+        }, function () {
             displayMessage('An error occurred during search, please try again later.');
         });
     });

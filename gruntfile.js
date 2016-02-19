@@ -40,6 +40,17 @@ module.exports = function (grunt) {
             return pageIndex;
         };
 
+        var buildInfo = function (frontMatter, pageIndex, zone, fmAttribute) {
+            pageIndex.zone = config.params.zone[zone];
+
+            var basePath = s(pageIndex.href).chompLeft(pageIndex.zone.path + "/").s;
+            basePath = basePath.substring(0, basePath.lastIndexOf("/"));
+            pageIndex.section = {
+                label: frontMatter[fmAttribute],
+                path: basePath
+            };
+        };
+
         var processMDFile = function (abspath, filename) {
             var content = grunt.file.read(abspath);
             var splittedContent;
@@ -60,7 +71,7 @@ module.exports = function (grunt) {
             }
 
             // Build Lunr index for this page
-            if (frontMatter && frontMatter.zones && config.params.zone[frontMatter.zones[0]] && frontMatter.sections && config.params.section[frontMatter.sections[0]]) {
+            if (frontMatter) {
                 var href = s(abspath).chompLeft(CONTENT_PATH_PREFIX).chompRight(".md").s;
 
                 // href for index.md files stops at the folder name
@@ -71,14 +82,29 @@ module.exports = function (grunt) {
                 pageIndex = {
                     title: frontMatter.title,
                     tags: frontMatter.tags,
-                    zone: config.params.zone[frontMatter.zones[0]],
-                    section: config.params.section[frontMatter.sections[0]],
                     href: href,
                     content: processContent(splittedContent[2]),
                     summary: s(markdown.toHTML(splittedContent[2])).stripTags().truncate(300, "...").s.replace(/{{[^}]*}}/g, "")
                 };
+
+                if (frontMatter.zones && config.params.zone[frontMatter.zones[0]] && frontMatter.sections && config.params.section[frontMatter.sections[0]]) {
+                    pageIndex.zone = config.params.zone[frontMatter.zones[0]];
+                    pageIndex.section = config.params.section[frontMatter.sections[0]];
+                } else if (frontMatter.addon && config.params.zone["Addons"]) {
+                    buildInfo(frontMatter, pageIndex, "Addons", "addon");
+                } else if (frontMatter.theme && config.params.zone["Themes"]) {
+                    buildInfo(frontMatter, pageIndex, "Themes", "theme");
+                } else if (frontMatter.guide && config.params.zone["Guides"]) {
+                    buildInfo(frontMatter, pageIndex, "Guides", "guide");
+                } else if (frontMatter.zones && frontMatter.zones.indexOf("Posts") !== -1 && config.params.zone["Posts"]) {
+                    buildInfo(frontMatter, pageIndex, "Posts", "title");
+                } else {
+                    grunt.log.writeln("Ignoring page without zone and section: " + abspath);
+                    return null;
+                }
             } else {
-                grunt.log.writeln("Ignoring page without zone and section: " + abspath);
+                grunt.log.writeln("Ignoring page without front matter: " + abspath);
+                return null;
             }
 
             return pageIndex;

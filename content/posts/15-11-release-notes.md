@@ -1,14 +1,14 @@
 ---
-Title: "15.11 release notes"
-Description: We are happy to announce the release of SeedStack 15.11!
-Authors:
+title: "15.11 release notes"
+description: We are happy to announce the release of SeedStack 15.11!
+authors:
   - Pierre THIROUIN
   - Adrien LAUER
-Date: 2015-11-27
-Slug: 15-11-release-notes
-Tags:
+date: 2015-11-27
+slug: 15-11-release-notes
+tags:
   - release
-Zones:
+zones:
   - Posts
 ---
 
