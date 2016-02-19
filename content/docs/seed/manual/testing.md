@@ -103,10 +103,9 @@ that returns a {{< java "org.jboss.shrinkwrap.api.spec.WebArchive" >}} class:
 			return ShrinkWrap
 				.create(WebArchive.class)
 				.addAsResource(
-					"META-INF/configuration/my-conf.props", 
+					"my-conf.props", 
 					"META-INF/configuration/my-conf.props"
-				)
-				.setWebXML("WEB-INF/web.xml");
+				);
 		}
 		
 		@Test
@@ -125,8 +124,7 @@ In this example:
 
 * The test class itself is NOT instantiated by Seed injector and, as such, cannot benefit from AOP interception. It benefits
 from dependency injection though.
-* The kernel is started via the Web application listener (whether specified explicitly in the `web.xml` descriptor or 
-automatically invoked). A unique kernel is used for all test methods. This behavior cannot be altered. 
+* The kernel is started via the Web application listener, automatically registered (no need for a `web.xml` file although one can be specified). A unique kernel is used for all test methods. This behavior cannot be altered. 
 * The first test method, named `my_service_is_injectable()`, is a server-side test. It can test if injected dependencies,
 like a service of the Web application here, are working correctly. 
 * The second test method, named `my_rest_resource_is_working()`, is a client-side test. It is executed in a separate 
