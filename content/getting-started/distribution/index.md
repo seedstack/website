@@ -70,41 +70,13 @@ your modules, add the following dependency snippet:
 There are several types of composites targeted for different needs:
 
 * The `domain` composite is intended for use as a dependency to standalone domain modules,
-* The `app` composite is intended for use as a dependency to the `*-app` module of a Java Web application project.
-* The `web` composite is intended for use as a dependency to the `*-web` module of a Java Web application project.
+* The `rest` composite is intended for use as a dependency to REST micro-services (without UI).
+* The `web` composite is intended for use as a dependency to classic Web applications.
+* The `batch` composite is intended for use as a dependency to standalone batch jobs.
 
-Below you'll find a list of dependencies provided by those composites. You may add any missing dependency you may need
-in your project, beside the composites.
-
-## App composite
-
-<table class="table table-bordered table-striped">
-<tr><th>GrouId</th><th>ArtifactId</th></tr>
-<tr><td>org.seedstack.seed</td><td>seed-core-support-core</td></tr>
-<tr><td>org.seedstack.seed</td><td>seed-security-support-core</td></tr>
-<tr><td>org.seedstack.seed</td><td>seed-validation-support</td></tr>
-<tr><td>org.seedstack.business</td><td>business-core</td></tr>
-</table>
-
-## Web composite
-
-<table class="table table-bordered table-striped">
-<tr><th>GrouId</th><th>ArtifactId</th></tr>
-<tr><td>org.seedstack.seed</td><td>seed-web-support-core</td></tr>
-<tr><td>org.seedstack.seed</td><td>seed-web-support-security</td></tr>
-<tr><td>org.seedstack.seed</td><td>seed-rest-support-core</td></tr>
-<tr><td>org.seedstack.seed</td><td>seed-integrationtest-support-web</td></tr>
-<tr><td>org.seedstack.business</td><td>seed-business-web</td></tr>
-<tr><td>org.seedstack.functions.w20</td><td>seed-w20-function-web</td></tr>
-</table>
-
-## Domain composite
-
-<table class="table table-bordered table-striped">
-<tr><th>GrouId</th><th>ArtifactId</th></tr>
-<tr><td>org.seedstack.seed</td><td>seed-validation-support</td></tr>
-<tr><td>org.seedstack.business</td><td>business-core</td></tr>
-</table>
+{{% callout tips %}}
+It is recommended to only use one composite per project module. Note that you can add any additional dependency you may require (such as add-ons), besides the composite.
+{{% /callout %}}
 
 # Archetypes and generators
 
