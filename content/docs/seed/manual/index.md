@@ -99,6 +99,32 @@ startup and shutdown in response to server events.
 If your Servlet API level is lower than 3.0, please check [this page](web) for the required configuration of your application. 
 {{% /callout %}}
 
+## Lifecycle listeners
+
+It is possible to register lifecycle listeners callbacks that will be invoked upon application startup and shutdown. This
+provides the ability to run arbitrary code in these phases, like initialization or cleanup. To do so, implement the
+{{< java "org.seedstack.seed.LifecycleListener" >}} interface and its two methods `start()` and `stop()`:
+
+    public class MyLifecycleListener implements LifecycleListener {
+        @Override
+        public void start() {
+            // will be invoked upon application startup
+        }
+
+        @Override
+        public void stop() {
+            // will be invoked upon application shutdown
+        }
+    }
+
+{{% callout info %}}
+Note that:
+
+* Classes implementing the `LifecycleListener` interface can be injected with any required dependency.
+* The `start()` method is invoked **after** application initialization phase, during application startup phase.
+* Order of invocation is NOT guaranteed between the same callback of multiple listeners.
+{{% /callout %}}
+
 # Logging
 
 Logging is a necessity in almost any application. Seed is built upon the popular [SLF4J logging facade](http://www.slf4j.org) 
