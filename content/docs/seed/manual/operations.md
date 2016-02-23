@@ -5,6 +5,11 @@ zones:
     - "Seed"
 sections:
     - "SeedManual"
+tags:
+    - "shell"
+    - "metrics"
+    - "monitoring"
+    - "ssh"
 menu:
     SeedManual:
         weight: 60

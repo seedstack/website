@@ -36,7 +36,7 @@
     <div class="row">
         <div class="col-md-9 addon-items">
             {{ $.Scratch.Set "addonCount" 0 }}
-            {{ range $element := (where .Data.Pages.ByDate.Reverse "Title" "Overview") }}
+            {{ range $element := (where .Data.Pages.ByDate.Reverse "Weight" -1) }}
             {{ $.Scratch.Set "addonCount" (add ($.Scratch.Get "addonCount") 1) }}
             <div class="filterable-item" style="margin-bottom: 20px;">
                 <div class="row">

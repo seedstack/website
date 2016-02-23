@@ -5,6 +5,10 @@ zones:
     - "W20"
 sections:
     - "W20Manual"
+tags:
+    - "test"
+    - "unit"
+    - "integration"
 menu:
     W20Manual:
         weight: 70

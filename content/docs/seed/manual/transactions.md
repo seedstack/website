@@ -5,6 +5,13 @@ zones:
     - "Seed"
 sections:
     - "SeedManual"
+tags:
+    - "local"
+    - "jta"
+    - "propagation"
+    - "rollback"
+    - "commit"
+    - "demarcation"
 menu:
     SeedManual:
         weight: 70
@@ -143,7 +150,6 @@ Remember that an explicitly specified {{< java "org.seedstack.seed.transaction.T
     }
 	
 ## With an implicit resource
-
 
 	@Inject
 	Item1Repository item1Repository;

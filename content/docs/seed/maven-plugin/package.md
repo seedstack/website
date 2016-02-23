@@ -5,6 +5,13 @@ zones:
     - "Seed"
 sections:
     - "SeedMavenPlugin"
+tags:
+    - "capsule"
+    - "packaging"
+    - "jar"
+    - "standalone"
+    - "maven"
+    - "plugin"
 menu:
     SeedMavenPlugin:
         weight: 40

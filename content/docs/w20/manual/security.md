@@ -5,6 +5,11 @@ zones:
     - "W20"
 sections:
     - "W20Manual"
+tags:
+    - "permission"
+    - "authentication"
+    - "authorization"
+    - "role"
 menu:
     W20Manual:
         weight: 20

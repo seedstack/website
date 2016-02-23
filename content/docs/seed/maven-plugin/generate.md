@@ -5,6 +5,12 @@ zones:
     - "Seed"
 sections:
     - "SeedMavenPlugin"
+tags:
+    - "maven"
+    - "plugin"
+    - "project"
+    - "generation"
+    - "archetype"
 menu:
     SeedMavenPlugin:
         weight: 20

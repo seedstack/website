@@ -107,8 +107,8 @@
                     console.log('fetching and building search index');
                     $.getJSON("/lunr-index.json", function (fetched) {
                         lunrIndex = lunr(function () {
-                            this.field('title', {boost: 10});
-                            this.field('tags', {boost: 5});
+                            this.field('title', {boost: 15});
+                            this.field('tags', {boost: 10});
                             this.field('content');
                             this.ref('href');
                         });

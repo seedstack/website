@@ -5,6 +5,13 @@ zones:
     - "Business"
 sections:
     - "BusinessManual"
+tags:
+    - "dto"
+    - "mapping"
+    - "object"
+    - "aggregate"
+    - "factory"
+    - "repository"
 menu:
     BusinessManual:
         weight: 60

@@ -24,8 +24,7 @@
     <div class="clear-both"></div>
     <div class="tab-content">
         <div class="tab-pane in active" id="tab-{{ $id }}-maven">
-            When using Maven, use the following snippet:
-            <pre style="margin-bottom: 0;"><code class="xml">&lt;dependency&gt;
+            <pre style="margin-top: 0;"><code class="xml">&lt;dependency&gt;
     &lt;groupId&gt;{{ $groupId }}&lt;/groupId&gt;
     &lt;artifactId&gt;{{ $artifactId }}&lt;/artifactId&gt;<span id="{{ $id }}-version" style="display: none;">
     &lt;version&gt;{{ $.Scratch.Get "version" }}&lt;/version&gt;</span>{{ if isset .Params "s" }}
@@ -37,7 +36,6 @@
             </small>
         </div>{{ $.Scratch.Add "tabs" (add (.Get 0 | urlize) " ") }}
         <div class="tab-pane in" id="tab-{{ $id }}-gradle">
-            When using Gradle, use the following snippet:
             <pre style="margin-bottom: 0;"><code class="java">dependencies {
     {{ if isset .Params "s" }}{{ if eq (.Get "s") "test" }}testCompile{{ end }}{{ else }}compile{{ end }}("{{ $groupId }}:{{ $artifactId }}:{{ $.Scratch.Get "version" }}")
 }</code></pre>

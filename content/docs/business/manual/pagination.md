@@ -5,6 +5,12 @@ zones:
     - "Business"
 sections:
     - "BusinessManual"
+tags:
+    - "pagination"
+    - "data"
+    - "page"
+    - "chunk"
+    - "range"
 menu:
     BusinessManual:
         weight: 80

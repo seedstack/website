@@ -5,6 +5,9 @@ zones:
     - "Seed"
 sections:
     - "SeedManual"
+tags:
+    - "jdni"
+    - "data"
 menu:
     SeedManual:
         weight: 99

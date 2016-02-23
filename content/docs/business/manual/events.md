@@ -5,6 +5,11 @@ zones:
     - "Business"
 sections:
     - "BusinessManual"
+tags:
+    - "publish"
+    - "subscribe"
+    - "aggregate"
+    - "event"
 menu:
     BusinessManual:
         weight: 40

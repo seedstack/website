@@ -5,6 +5,9 @@ zones:
     - "Business"
 sections:
     - "BusinessManual"
+tags:
+    - "policy"
+    - "strategy"
 menu:
     BusinessManual:
         weight: 50

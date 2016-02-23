@@ -5,6 +5,13 @@ zones:
     - "W20"
 sections:
     - "W20Manual"
+tags:
+    - "css"
+    - "display"
+    - "content"
+    - "navigation"
+    - "menu"
+    - "bookmark"
 menu:
     W20Manual:
         weight: 60

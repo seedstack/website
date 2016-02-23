@@ -5,6 +5,12 @@ zones:
     - "Business"
 sections:
     - "BusinessManual"
+tags:
+    - "entity"
+    - "value-object"
+    - "service"
+    - "model"
+    - "identifier"
 menu:
     BusinessManual:
         weight: 20

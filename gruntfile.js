@@ -90,8 +90,8 @@ module.exports = function (grunt) {
                 if (frontMatter.zones && config.params.zone[frontMatter.zones[0]] && frontMatter.sections && config.params.section[frontMatter.sections[0]]) {
                     pageIndex.zone = config.params.zone[frontMatter.zones[0]];
                     pageIndex.section = config.params.section[frontMatter.sections[0]];
-                } else if (frontMatter.addon && config.params.zone["Addons"]) {
-                    buildInfo(frontMatter, pageIndex, "Addons", "addon");
+                } else if (frontMatter.zones && config.params.zone[frontMatter.zones[0]]) {
+                    buildInfo(frontMatter, pageIndex, frontMatter.zones[0], "name");
                 } else if (frontMatter.theme && config.params.zone["Themes"]) {
                     buildInfo(frontMatter, pageIndex, "Themes", "theme");
                 } else if (frontMatter.guide && config.params.zone["Guides"]) {

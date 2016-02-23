@@ -1,10 +1,16 @@
 ---
-title: "Lifecycle of domain objects"
+title: "Aggregates and their lifecycle"
 type: "home"
 zones:
     - "Business"
 sections:
     - "BusinessManual"
+tags:
+    - "repository"
+    - "factory"
+    - "aggregate"
+    - "lifecycle"
+    - "identity"
 menu:
     BusinessManual:
         weight: 30

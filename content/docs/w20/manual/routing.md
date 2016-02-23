@@ -5,6 +5,11 @@ zones:
     - "W20"
 sections:
     - "W20Manual"
+tags:
+    - "route"
+    - "template"
+    - "path"
+    - "view"
 menu:
     W20Manual:
         weight: 15

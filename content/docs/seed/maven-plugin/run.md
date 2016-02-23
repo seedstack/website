@@ -5,6 +5,11 @@ zones:
     - "Seed"
 sections:
     - "SeedMavenPlugin"
+tags:
+    - "maven"
+    - "plugin"
+    - "running"
+    - "executable"
 menu:
     SeedMavenPlugin:
         weight: 30

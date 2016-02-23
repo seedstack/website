@@ -5,6 +5,9 @@ zones:
     - "Business"
 sections:
     - "BusinessManual"
+tags:
+    - "query"
+    - "data"
 menu:
     BusinessManual:
         weight: 70

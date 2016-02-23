@@ -5,6 +5,14 @@ zones:
     - "W20"
 sections:
     - "W20Manual"
+tags:
+    - "configuration"
+    - "fragment"
+    - "manifest"
+    - "lifecycle"
+    - "module"
+    - "startup"
+    - "angular"
 menu:
     W20Manual:
         weight: 10

@@ -5,6 +5,12 @@ zones:
     - "Business"
 sections:
     - "BusinessManual"
+tags:
+    - "architecture"
+    - "package"
+    - "injection"
+    - "tuple"
+    - "design"
 menu:
     BusinessManual:
         weight: 10

@@ -5,6 +5,13 @@ zones:
     - "W20"
 sections:
     - "W20Manual"
+tags:
+    - "hypermedia"
+    - "rest"
+    - "link"
+    - "api"
+    - "resource"
+    - "json"
 menu:
     W20Manual:
         weight: 40

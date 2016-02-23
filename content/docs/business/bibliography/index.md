@@ -5,6 +5,9 @@ zones:
     - "Business"
 sections:
     - "BusinessIntroduction"
+tags:
+    - "ddd"
+    - "book"
 menu:
     BusinessIntroduction:
         weight: 50

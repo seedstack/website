@@ -5,6 +5,16 @@ zones:
     - "Seed"
 sections:
     - "SeedManual"
+tags:
+    - "servlet"
+    - "security"
+    - "url"
+    - "filter"
+    - "static"
+    - "resource"
+    - "mime"
+    - "cors"
+    - "websocket"
 menu:
     SeedManual:
         weight: 40

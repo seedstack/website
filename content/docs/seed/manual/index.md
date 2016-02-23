@@ -5,6 +5,14 @@ zones:
     - "Seed"
 sections:
     - "SeedManual"
+tags:
+    - "startup"
+    - "shutdown"
+    - "configuration"
+    - "injection"
+    - "diagnostic"
+    - "lifecycle"
+    - "logging"
 menu:
     SeedManual:
         weight: 10

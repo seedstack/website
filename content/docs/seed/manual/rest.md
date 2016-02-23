@@ -5,6 +5,14 @@ zones:
     - "Seed"
 sections:
     - "SeedManual"
+tags:
+    - "jax-rs"
+    - "resource"
+    - "http"
+    - "hypermedia"
+    - "api"
+    - "link"
+    - "json"
 menu:
     SeedManual:
         weight: 50

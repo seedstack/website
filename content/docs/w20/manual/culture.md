@@ -5,6 +5,15 @@ zones:
     - "W20"
 sections:
     - "W20Manual"
+tags:
+    - "i18n"
+    - "locale"
+    - "date"
+    - "time"
+    - "format"
+    - "localization"
+    - "internationalization"
+    - "culture"
 menu:
     W20Manual:
         weight: 30

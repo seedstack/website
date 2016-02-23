@@ -5,6 +5,12 @@ zones:
     - "Seed"
 sections:
     - "SeedManual"
+tags:
+    - "integration"
+    - "unit"
+    - "test"
+    - "arquillian"
+    - "web"
 menu:
     SeedManual:
         weight: 20
@@ -155,7 +161,7 @@ do so by adding the following configuration to your project root `pom.xml`:
 		<plugin>
 		  <groupId>org.apache.maven.plugins</groupId>
 		  <artifactId>maven-failsafe-plugin</artifactId>
-		  <version>${maven-failsafe-plugin.version}</version>
+		  <version>...</version>
 		  <executions>
 			<execution>
 			  <id>execute-integration-tests</id>
@@ -176,7 +182,7 @@ do so by adding the following configuration to your project root `pom.xml`:
 		<plugin>
 		  <groupId>org.codehaus.mojo</groupId>
 		  <artifactId>build-helper-maven-plugin</artifactId>
-		  <version>${build-helper-maven-plugin.version}</version>
+		  <version>...</version>
 		  <executions>
 			<execution>
 			  <id>add-it-sources</id>

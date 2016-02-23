@@ -5,6 +5,12 @@ zones:
     - "W20"
 sections:
     - "W20Introduction"
+tags:
+    - "masterpage"
+    - "configuration"
+    - "fragment"
+    - "manifest"
+    - "index"
 menu:
     W20Introduction:
         weight: 10

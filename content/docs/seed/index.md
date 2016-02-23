@@ -5,6 +5,12 @@ zones:
     - "Seed"
 sections:
     - "SeedIntroduction"
+tags:
+    - "modular"
+    - "jar"
+    - "package"
+    - "lifecycle"
+    - "classpath"
 menu:
     SeedIntroduction:
         weight: 10
