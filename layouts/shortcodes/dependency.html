@@ -1,6 +1,7 @@
 {{ $groupId := .Get "g" }}
 {{ $artifactId := .Get "a" }}
 {{ $versionParam := printf "%s.%s" $groupId "version" }}
+{{ $id := ($artifactId | urlize) | printf "%s-%s" (replace $groupId "." "-" | urlize) }}
 {{ if isset .Params "v" }}
     {{ $.Scratch.Set "version" (.Get "v") }}
 {{ else }}
@@ -16,22 +17,26 @@
 {{ end }}
 <div class="tab-v2">
     <ul class="nav nav-tabs">
-        <li class="active"><a href='#tab-{{ replace $groupId "." "-" | urlize }}-{{ $artifactId | urlize }}-maven' data-toggle="tab" aria-expanded="true">Maven</a></li>
-        <li class=""><a href='#tab-{{ replace $groupId "." "-" | urlize }}-{{ $artifactId | urlize }}-gradle' data-toggle="tab" aria-expanded="true">Gradle</a></li>
+        <li class="active"><a href="#tab-{{ $id }}-maven" data-toggle="tab" aria-expanded="true">Maven</a></li>
+        <li class=""><a href="#tab-{{ $id }}-gradle" data-toggle="tab" aria-expanded="true">Gradle</a></li>
     </ul>
-    <span class="tabs-icon fa-2x fa fa-cloud-download pull-right"></span>
+    <span class="tabs-icon fa-2x fa fa-cubes pull-right"></span>
     <div class="clear-both"></div>
     <div class="tab-content">
-        <div class="tab-pane in active" id='tab-{{ replace $groupId "." "-" | urlize }}-{{ $artifactId | urlize }}-maven'>
+        <div class="tab-pane in active" id="tab-{{ $id }}-maven">
             When using Maven, use the following snippet:
             <pre style="margin-bottom: 0;"><code class="xml">&lt;dependency&gt;
     &lt;groupId&gt;{{ $groupId }}&lt;/groupId&gt;
-    &lt;artifactId&gt;{{ $artifactId }}&lt;/artifactId&gt;
-    &lt;version&gt;{{ $.Scratch.Get "version" }}&lt;/version&gt;{{ if isset .Params "s" }}
+    &lt;artifactId&gt;{{ $artifactId }}&lt;/artifactId&gt;<span id="{{ $id }}-version" style="display: none;">
+    &lt;version&gt;{{ $.Scratch.Get "version" }}&lt;/version&gt;</span>{{ if isset .Params "s" }}
     &lt;scope&gt;{{ if eq (.Get "s") "test" }}test{{ end }}&lt;/scope&gt;{{ end }}
 &lt;/dependency&gt;</code></pre>
+            <small class="pull-right" style="color: #aaa; margin-top: -20px; margin-right: 5px;">
+                <span id="{{ $id }}-warn" style="display: none;"><i class="fa fa-warning" style="color: orange;"></i> Specifying versions manually is error-prone, use the <a href="/getting-started/distribution">distribution</a> instead.</span>
+                <a style="cursor: pointer;" id="{{ $id }}-show" onclick="$('#{{ $id }}-version, #{{ $id }}-warn').show(); $('#{{ $id }}-show').hide();">Show version</a>
+            </small>
         </div>{{ $.Scratch.Add "tabs" (add (.Get 0 | urlize) " ") }}
-        <div class="tab-pane in" id='tab-{{ replace $groupId "." "-" | urlize }}-{{ $artifactId | urlize }}-gradle'>
+        <div class="tab-pane in" id="tab-{{ $id }}-gradle">
             When using Gradle, use the following snippet:
             <pre style="margin-bottom: 0;"><code class="java">dependencies {
     {{ if isset .Params "s" }}{{ if eq (.Get "s") "test" }}testCompile{{ end }}{{ else }}compile{{ end }}("{{ $groupId }}:{{ $artifactId }}:{{ $.Scratch.Get "version" }}")

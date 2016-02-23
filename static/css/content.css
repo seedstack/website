@@ -66,11 +66,11 @@
 }
 
 .doc-content h1 {
-    font-weight: 300;
+    font-weight: 400;
     border-bottom: 1px solid #555;
     font-size: 30px;
     line-height: 40px;
-    margin: 20px 0 39px 0;
+    margin: 40px 0 39px 0;
 }
 
 .doc-content h1:first-child {
@@ -78,7 +78,8 @@
 }
 
 .doc-content h2 {
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: bold;
     line-height: 20px;
     margin: 20px 0 20px 0;
 }
@@ -89,7 +90,7 @@
 
 .doc-content h3,
 .doc-content h4 {
-    font-size: 14px;
+    font-size: 16px;
     font-style: italic;
     font-weight: bold;
     margin: 0;
