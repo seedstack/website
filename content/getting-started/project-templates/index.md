@@ -23,11 +23,12 @@ new to SeedStack as they provide several benefits:
 
 The following project templates are available from the reference distribution:
 
-* [Java Web application](webapp) template (backend + frontend),
-* [Java RESTful service](rest) template (backend only),
+* [Web application](web) template (backend + frontend),
+* [RESTful micro-service](rest) template (backend only),
+* [Command-line application](cli) template (backend only),
 * [Batch job](batch) template (backend only),
-* [Reusable business domain](domain) template (reusable component),
-* [W20 Single Page Applications](w20) template (frontend-only).
+* [Reusable business domain](domain) template (reusable backend component),
+* [W20 Single Page Application](w20) template (frontend only).
 
 {{% callout info %}}
 Note that SeedStack is designed with extension in mind so you can design your own project types and provide archetypes
@@ -46,10 +47,6 @@ The following directory structure is recommended for all Java modules:
 ```plain
 - src
 
-  - it  <-- for integration tests if any
-    - java
-    - resources
-    
   - main
     - java
       - org.myorganization... 
@@ -58,7 +55,7 @@ The following directory structure is recommended for all Java modules:
         - configuration  <-- location of the module configuration files if any
           - ...
           
-  - test  <-- for unit tests
+  - test  <-- for unit (*Test) and integration (*IT) tests
     - java
     - resources
     
@@ -82,5 +79,5 @@ one or more feature(s). The following structure is recommended for all W20 fragm
 ```
 
 {{% callout info %}}
-You can learn more about fragments [here](/docs/w20/concepts/fragment). 
+You can learn more about fragments [here](/docs/w20/manual).
 {{% /callout %}}

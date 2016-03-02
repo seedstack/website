@@ -1,5 +1,5 @@
 ---
-title: "Batch application"
+title: "CLI application"
 type: "home"
 zones:
     - "GettingStarted"
@@ -7,36 +7,36 @@ sections:
     - "GettingStartedProjectTemplates"
 menu:
     GettingStartedProjectTemplates:
-        weight: 50
+        weight: 40
 ---
 
-A batch application project is an executable JAR module. It is intended to contain Spring batch jobs and their associated
-Java classes.
+A command-line (CLI) application project is a executable JAR module. It is intended to contain only backend Java classes
+to provide command-line commands.
 
 # Creation
 
-To create a batch application project from scratch, run the following command:
+To create a command-line application project from scratch, run the following command:
 
 ```plain
-mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=batch
+mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=cli
 ```
     
-This will invoke the generate goal of the SeedStack maven plugin which will select the latest version
-of the SeedStack distribution and use its batch Maven archetype. The process is interactive and will ask you a few
-questions about the project to be created.
+This will invoke the generate goal of the SeedStack maven plugin which will select the latest version of the SeedStack
+distribution and use its CLI Maven archetype. The process is interactive and will ask you a few questions about the project
+to be created.
 
 # Result
-
+ 
 After execution, a single module project is created:
 
 ```plain
-- myjob
+- mycli
     |- src
         |- main
         |   |- java
-        |   |   |- org.myorg.myjob
+        |   |   |- org.myorg.mycli
         |   |       |- [application]    <-- application logic
-        |   |       |- batch            <-- batch jobs and tasks
+        |   |       |- cli              <-- command-line handlers
         |   |       |- [domain]
         |   |       |   |- [model]      <-- domain model
         |   |       |   |- [services]   <-- domain services
