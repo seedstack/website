@@ -66,9 +66,10 @@ and execute its `launch()` method with the application arguments. Exactly one la
 an exception will be thrown. 
 
 {{% callout info %}}
-Launchers live in various Seed modules such as the `seed-cli` module, handling command-line-interface (CLI) applications
+Launchers live in various Seed modules such as the [CLI module](cli), handling command-line-interface (CLI) applications
 or the `seed-web-undertow` module, providing an [Undertow](http://undertow.io/) embedded Web server. Without such module
-containing a launcher in classpath an exception will be thrown.
+containing a launcher in classpath an exception will be thrown. If you have more than one launcher in the classpath an
+exception will also be thrown.
 {{% /callout %}} 
 
 {{% callout tips %}}

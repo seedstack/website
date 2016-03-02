@@ -15,7 +15,7 @@ tags:
     - "json"
 menu:
     SeedManual:
-        weight: 50
+        weight: 60
 ---
 
 Seed provides support for [Representational State Transfer][1] (REST) architectural style through the **JAX-RS** 

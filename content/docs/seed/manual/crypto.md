@@ -13,7 +13,7 @@ tags:
     - "hashing"
 menu:
     SeedManual:
-        weight: 35
+        weight: 90
 ---
 
 Seed provides helpers for Java cryptography:

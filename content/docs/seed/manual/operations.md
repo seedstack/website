@@ -12,7 +12,7 @@ tags:
     - "ssh"
 menu:
     SeedManual:
-        weight: 60
+        weight: 80
 ---
 
 Seed provides the necessary tools to closely monitor the performance and the availability of your application or service,

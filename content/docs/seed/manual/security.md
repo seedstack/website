@@ -15,7 +15,7 @@ tags:
     - "data"
 menu:
     SeedManual:
-        weight: 30
+        weight: 50
 ---
 
 Seed provides application security through a powerful security model, which is equally easy to configure and to enforce.
