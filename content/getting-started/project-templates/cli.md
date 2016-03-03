@@ -55,3 +55,8 @@ After execution, a single module project is created:
 Note that the directory in brackets are not created by the archetype. They are the recommended locations if you need
 to add any business domain to your project. You can also choose to put the domain in a separate [domain module](../domain).
 {{% /callout %}}
+
+# More resources
+
+* [CLI documentation](/docs/seed/manual/cli).
+* [Simple CLI example](https://github.com/seedstack/samples/tree/master/cli).

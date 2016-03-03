@@ -49,3 +49,8 @@ You should see a structure similar to the following:
                 |- META-INF
                     |- configuration    <-- test configuration
 ```
+
+# More resources
+
+* [Business framework documentation](/docs/business).
+* [Simple business example](https://github.com/seedstack/samples/tree/master/business).

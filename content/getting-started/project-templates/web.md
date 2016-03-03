@@ -82,3 +82,9 @@ For the last step you can use the following POM snippet:
         </pluginManagement>
     </build>
 
+# More resources
+
+* [W20 documentation](/docs/w20).
+* [Web documentation](/docs/seed/manual/web).
+* [W20 bridge add-on documentation](/addons/w20-bridge).
+* [Simple Web application example](https://github.com/seedstack/store-webapp-sample).

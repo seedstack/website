@@ -80,3 +80,8 @@ For the last step you can use the following POM snippet:
         </pluginManagement>
     </build>
 
+# More resources
+
+* [REST documentation](/docs/seed/manual/rest).
+* [Simple REST micro-service example](https://github.com/seedstack/catalog-microservice-sample).
+
