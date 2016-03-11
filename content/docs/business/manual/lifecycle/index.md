@@ -139,14 +139,14 @@ The default repository can be configured for all the application:
 
 ```
 [org.example.*]
-default.repository.qualifier=org.seedstack.jpa.Jpa
+default-repository=org.seedstack.jpa.Jpa
 ```
 
-And then overriden for a specific aggregate root:
+You can also override it for a specific aggregate root:
 
 ```
 [org.example.domain.customer.Customer]
-default.repository.qualifier=another-qualifier
+default-repository=another-qualifier
 ```
 
 The `default.repository.qualifier` property expects a qualifier annotation class or a string when the qualifier use `@Named("another-qualifer")`.
