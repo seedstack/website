@@ -18,6 +18,25 @@ SeedStack Java components are available as Maven dependencies at the following l
 In the case where you are behind a corporate proxy, you must configure Maven to go through the proxy. You can do so, by
 following [this documentation](https://maven.apache.org/guides/mini/guide-proxies.html).
 
+```xml
+<settings>
+  ...
+  <proxies>
+   <proxy>
+      <id>example-proxy</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>proxy.example.com</host>
+      <port>8080</port>
+      <username>proxyuser</username>
+      <password>somepassword</password>
+      <nonProxyHosts>www.google.com|*.example.com</nonProxyHosts>
+    </proxy>
+  </proxies>
+  ...
+</settings>
+```
+
 # Configuring Maven for SeedStack snapshots
 
 You can configure access to SeedStack snapshots located on JFrog OSS Artifactory. You can do this either specifically for
