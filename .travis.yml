@@ -6,6 +6,11 @@ go: 1.4
 
 git:
   submodules: false
+
+cache:
+  directories:
+    - hugo_0.15_linux_amd64
+    - node_modules
   
 before_install:
   - git submodule update --init --recursive --remote
