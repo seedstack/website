@@ -14,7 +14,10 @@ before_install:
   - git submodule update --init --recursive --remote
 
 install:
-  - go get -v github.com/spf13/hugo
+  - wget https://github.com/spf13/hugo/releases/download/v0.15/hugo_0.15_linux_amd64.tar.gz
+  - tar xzvf hugo_0.15_linux_amd64.tar.gz
+  - mv hugo_0.15_linux_amd64/hugo_0.15_linux_amd64 hugo
+  - chmod +x hugo_0.15_linux_amd64
   - npm install
 
 script:
