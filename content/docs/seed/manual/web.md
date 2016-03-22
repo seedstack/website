@@ -29,7 +29,9 @@ static-resources serving. To enable Web support in your project, add the `seed-w
 
 {{% callout info %}}
 When deploying a Seed application in a standalone Web container, the required minimum Servlet compliance level is 2.5 
-though some features require a Servlet 3.0 compliance level. All the features are available with the embedded Web server.
+though some features require a Servlet 3.0 compliance level. The presence of a `web.xml` file is only required for servlet 2.5.
+
+All the features are available with the embedded Web server.
 {{% /callout %}}
 
 # Security
@@ -459,7 +461,7 @@ client endpoints:
     
         @Deployment
         public static WebArchive createDeployment() {
-            return ShrinkWrap.create(WebArchive.class).setWebXML("WEB-INF/web.xml");
+            return ShrinkWrap.create(WebArchive.class);
         }
     
         @Test

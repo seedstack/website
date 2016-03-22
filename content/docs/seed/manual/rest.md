@@ -142,31 +142,32 @@ Testing REST resources can be done in a real Web environment by using [Seed Web 
 Consider this example:
 
     public class ProductsResourceIT extends AbstractSeedWebIT {
-    
+
+        @ArquillianResource
+        private URL baseURL;
+
         @Deployment
         public static WebArchive createDeployment() {
-            return ShrinkWrap.create(WebArchive.class).setWebXML("WEB-INF/web.xml");
+            return ShrinkWrap.create(WebArchive.class);
         }
     
         @RunAsClient
         @Test
-        public void testCreate(@ArquillianResource URL baseURL) throws JSONException {
+        public void testCreate() throws JSONException {
             JSONObject obj = new JSONObject();
             obj.put("summary", "The world's highest resolution notebook");
             obj.put("categoryId", 1);
             obj.put("designation", "macbook pro");
             obj.put("picture", "mypictureurl");
             obj.put("price", 200.0);
-    
-            //assert response code
+
             String response = expect().statusCode(201).given()
                     .header("Accept", "application/json")
                     .header("Content-Type", "application/json")
                     .body(obj.toString())
                     .post(baseURL.toString() + "rest/products/")
                     .asString();
-    
-            // assert body
+
             JSONAssert.assertEquals(obj, new JSONObject(response), false);
         }
         
