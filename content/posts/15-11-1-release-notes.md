@@ -50,6 +50,18 @@ it add-ons. The main evolution of W20 is the upgrade to AngularJS 1.4.8 and Boot
 
 # New features
 
+## Servlet 3.1: no more web.xml
+
+Seed Web 2.2.0 comes with a support for [Servlet 3.1](https://java.net/downloads/servlet-spec/Final/servlet-3_1-final.pdf),
+but Servlet 2.5 is still supported. If your servlet container supports servlet 3+, **remove all your `web.xml` files and
+according tests configuration**.
+
+        @Deployment
+        public static WebArchive createDeployment() {
+            return ShrinkWrap.create(WebArchive.class)
+                       .setWebXML("WEB-INF/web.xml"); // TODO remove the web.xml configuration
+        }
+
 ## JAX-RS 2
 
 The version 2 of JAX-RS standard has been integrated in the Java framework through the Jersey 2 library. You can now
