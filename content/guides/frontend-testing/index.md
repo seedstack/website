@@ -1,9 +1,11 @@
 ---
 title: "Frontend testing"
-guide: "Frontend testing"
+name: "Frontend testing"
 author: "SeedStack"
 date: 2014-12-10
 weight: -1
+zones:
+    - Guides
 ---
 
 

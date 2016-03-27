@@ -1,9 +1,11 @@
 ---
 title: "Using SeedStack development snapshots"
-guide: "Using SeedStack development snapshots"
+name: "Using SeedStack development snapshots"
 author: "SeedStack"
 weight: -1
 date: 2016-02-19
+zones:
+    - Guides
 ---
 
 Sometimes there is a need to use a development version of a SeedStack component in your project, **for testing purposes**.

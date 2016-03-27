@@ -86,6 +86,11 @@ MetaDataFormat = "yaml"
   label = "Add-ons"
   logo = "addons-logo.svg"
 
+[params.zone.Themes]
+  path = "/themes"
+  label = "Themes"
+  logo = "themes-logo.svg"
+
 [params.zone.Search]
   path = "/search"
   label = "Search"

@@ -1,9 +1,11 @@
 ---
 title: "AngularJS directive design"
-guide: "AngularJS directive design"
+name: "AngularJS directive design"
 author: "SeedStack"
 date: 2014-11-24
 weight: -1
+zones:
+    - Guides
 ---
 
 AngularJS is a web application framework that makes creating complicated web applications much simpler. One of its best

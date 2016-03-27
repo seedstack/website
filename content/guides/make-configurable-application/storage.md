@@ -1,7 +1,9 @@
 ---
 title: "Storage"
-guide: "Make a configurable application"
+name: "Make a configurable application"
 author: "SeedStack"
+zones:
+    - Guides
 menu:
     ConfigurationGuide:
         weight: 50

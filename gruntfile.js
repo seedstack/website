@@ -92,10 +92,6 @@ module.exports = function (grunt) {
                     pageIndex.section = config.params.section[frontMatter.sections[0]];
                 } else if (frontMatter.zones && config.params.zone[frontMatter.zones[0]]) {
                     buildInfo(frontMatter, pageIndex, frontMatter.zones[0], "name");
-                } else if (frontMatter.theme && config.params.zone["Themes"]) {
-                    buildInfo(frontMatter, pageIndex, "Themes", "theme");
-                } else if (frontMatter.guide && config.params.zone["Guides"]) {
-                    buildInfo(frontMatter, pageIndex, "Guides", "guide");
                 } else if (frontMatter.zones && frontMatter.zones.indexOf("Posts") !== -1 && config.params.zone["Posts"]) {
                     buildInfo(frontMatter, pageIndex, "Posts", "title");
                 } else {

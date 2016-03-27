@@ -1,9 +1,11 @@
 ---
 title: "Introduction"
-guide: "Make a configurable application"
+name: "Make a configurable application"
 author: "SeedStack"
 weight: -1
 date: 2014-04-25
+zones:
+    - Guides
 menu:
     ConfigurationGuide:
         weight: 10

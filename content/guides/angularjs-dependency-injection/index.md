@@ -1,9 +1,11 @@
 ---
 title: "AngularJS dependency injection"
-guide: "AngularJS dependency injection"
+name: "AngularJS dependency injection"
 author: "SeedStack"
 date: 2014-11-24
 weight: -1
+zones:
+    - Guides
 ---
 
 

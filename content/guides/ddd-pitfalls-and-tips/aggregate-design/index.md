@@ -1,7 +1,9 @@
 ---
 title: "Aggregate design"
-guide: "DDD pitfalls and tips"
+name: "DDD pitfalls and tips"
 author: "SeedStack"
+zones:
+    - Guides
 menu:
     DDDPitfallsAndTipsGuide:
         weight: 40

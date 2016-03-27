@@ -1,11 +1,13 @@
 ---
 title: "Introduction"
-guide: "DDD pitfalls and tips"
+name: "DDD pitfalls and tips"
 author: "SeedStack"
 weight: -1
 date: 2015-06-23
 aliases:
     - /guides/create/ddd-pitfalls-and-tips
+zones:
+    - Guides
 menu:
     DDDPitfallsAndTipsGuide:
         weight: 10
