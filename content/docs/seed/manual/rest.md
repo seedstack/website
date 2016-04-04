@@ -432,66 +432,97 @@ an array of resource objects. The embedded resources can be full or partial repr
 
 ## Usage
 
-### Creating HAL resources
-
-Seed provides two options to simplify the creation of HAL representations. First, you can take an existing representation 
-and transform it to an HAL representation using the `HALBuilder`:
-
-    HalRepresentation representation = HalBuilder.create(ProductRepresentation)
-                    .self("/rest/products/" + productId)
-                    .link("tags", "/rest/products/" + productId + "/tags");
-                    .embedded("related", relatedProducts);
-
-The second option is to make your representation inherit the `HalRepresentation`.
-
-    public class ProductsRepresentation extends HalRepresentation {
-    
-        private long totalProduct;
-    
-        private long currentPage;
-    
-        ProductsRepresentation() {
-        }
-    
-        public ProductsRepresentation(PaginatedView<ProductRepresentation> page) {
-            this.totalProduct = page.getResultSize();
-            this.currentPage = page.getPageIndex();
-            embedded("products", page.getView());
-        }
-    
-        public long getTotalProduct() {
-            return totalProduct;
-        }
-    
-        public long getCurrentPage() {
-            return currentPage;
-        }
-        
-    }
-
-### Building links
+### Building HAL links
 
 Concatenating strings for building hrefs can quickly become painful and error-prone. With Seed, you have access to a 
 `RelRegistry` which can greatly simplify the task. This registry contains all the resources annotated by `@Rel` and their 
-href. For instance the href of the following resource:
+href. HAL links can have two distinct forms:
+
+* An expanded form, where all variables are sent already resolved to the client,
+* A templated form, where the URI template is sent to the client.
+
+Consider the following resource:
 
     @Path("/products")
     public class ProductsResource {
         
         GET
-        Rel(value = CatalogRels.CATALOG) // defines the resource rel
+        Rel(value = "products") // defines the resource rel
         Produces({MediaType.APPLICATION_JSON, "application/hal+json"})
-        ublic Response products(@DefaultValue("0") @QueryParam("pageIndex") Integer pageIndex,
+        public Response products(@DefaultValue("0") @QueryParam("pageIndex") Integer pageIndex,
                                 @DefaultValue("10") @QueryParam("pageSize") Integer pageSize) {
            ...
         }
     }
 
-... can be created as follows:
+The expanded link can be created as follows:
 
-    String self = relRegistry.uri(CatalogRels.CATALOG)
+    Link link = relRegistry.uri("products") // points to the resource rel
                              .set("pageIndex", pageIndex)
-                             .set("pageSize", pageSize).expand()
+                             .set("pageSize", pageSize);
+
+This will result in the following JSON sent to the client:
+
+    { 
+        "href": "/products?pageIndex=0&pageSize=10" 
+    }
+    
+The templated link can be created as follows:
+
+    Link link = relRegistry.uri("products") // points to the resource rel
+                             .set("pageIndex", pageIndex)
+                             .set("pageSize", pageSize)
+                             .templated();
+                             
+This will result in the following JSON sent to the client:
+
+    { 
+        "href": "/products{?pageIndex,pageSize}", 
+        "templated": true 
+    }
+
+{{% callout info %}}
+Note that seed will automatically use the Servlet context path and the REST prefix to build HAL links, alleviating the need for you
+to build any URI manually.
+{{% /callout %}}
+
+### Creating HAL representations
+
+Seed provides two options to simplify the creation of HAL representations. First, you can take an existing representation 
+and transform it to an HAL representation using the `HALBuilder`:
+
+    @Inject RelRegistry relRegistry;
+    
+    ...
+
+    HalRepresentation representation = HalBuilder.create(productRepresentation)
+                    .self(relRegistry.uri("products").set("id", productId)
+                    .link(relRegistry.uri("find").templated())
+                    .embedded("related", relatedProducts);
+
+The second option is to make your representation inherit the `HalRepresentation`.
+
+    public class ProductsRepresentation extends HalRepresentation {
+        private long totalSize;
+        private long currentPage;
+    
+        ProductsRepresentation() {
+        }
+    
+        public ProductsRepresentation(List<Product> products, int totalSize, int pageIndex) {
+            this.totalSize = totalSize;
+            this.currentPage = pageIndex;
+            embedded("products", products);
+        }
+    
+        public long getTotalSize() {
+            return totalSize;
+        }
+    
+        public long getCurrentPage() {
+            return currentPage;
+        }
+    }
 
 
 [1]: https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
