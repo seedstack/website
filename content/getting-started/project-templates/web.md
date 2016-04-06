@@ -64,7 +64,8 @@ The resulting project can be easily converted to a traditional WAR:
 
 1. Add a `src/main/webapp` folder to hold the document root,
 2. Add a `<packaging>WAR</packaging>` tag to the `pom.xml`,
-3. Configure the `maven-war-plugin` to ignore the absence of the `web.xml` file.
+3. Remove the `build-capsule` plugin execution (`package` goal of `seedstack-maven-plugin`) as this only works with standalone JAR files,
+4. Configure the `maven-war-plugin` to ignore the absence of the `web.xml` file.
 
 For the last step you can use the following POM snippet:
 
