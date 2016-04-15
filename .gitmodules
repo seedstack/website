@@ -108,5 +108,5 @@
 	branch = docs
 [submodule "content/themes/material"]
 	path = content/themes/material
-	url = git@github.com:seedstack/w20-material-theme.git
+	url = https://github.com/seedstack/w20-material-theme.git
 	branch = docs
