@@ -106,3 +106,7 @@
 	path = content/addons/w20-bootstrap-2
 	url = https://github.com/seedstack/w20-bootstrap-2.git
 	branch = docs
+[submodule "content/themes/material"]
+	path = content/themes/material
+	url = git@github.com:seedstack/w20-material-theme.git
+	branch = docs
