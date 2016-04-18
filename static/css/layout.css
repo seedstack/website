@@ -304,3 +304,13 @@ kbd {
         padding-left: 150px;
     }
 }
+
+@media (max-width: 1199px) {
+    .header .navbar-nav > li > a {
+        padding-left: 0;
+    }
+
+    .header .dropdown-menu {
+        min-width: 160px;
+    }
+}
