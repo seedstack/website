@@ -11,7 +11,7 @@ This repository contains the sources of the SeedStack website. The site is hoste
 
 After clone, you must initialize all the submodules:
 
-    git submodule update --remote --recursive --init && git submodule foreach --recursive git checkout master
+    git submodule update --remote --recursive --init && git submodule foreach --recursive git checkout docs
 
 This Website is built with [Hugo](http://gohugo.io/). If you have Hugo in your path you can serve it locally:
 
