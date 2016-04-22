@@ -1,0 +1,33 @@
+{{ $element := getJSON "./static/servers.json" }}
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Category</th>
+        <th>Test</th>
+        {{ range $server := $element.servers }}
+        <th class="text-center">{{ $server | title }}</th>
+        {{ end }}
+    </tr>
+    </thead>
+    <tbody>
+    {{ range $category, $result := $element.results }}
+    {{ range $test, $result := $result }}
+    <tr>
+        <td>{{ $category | title }}</td>
+        <td>{{ $test | title }}</td>
+        {{ range $index, $outcome := $result.success }}
+        {{ $message := index $result.messages $index }}
+        <td>
+            {{ if eq $outcome true }}
+            <span class="label label-success rounded">OK</span>
+            {{ else }}
+            <span class="label label-danger rounded" {{ if $message }}data-toggle="tooltip" title="{{ $message}}"{{ end }}>KO</span>
+            {{ end }}
+        </td>
+        {{ end }}
+    </tr>
+    {{ end }}
+    {{ end }}
+    </tbody>
+</table>
+

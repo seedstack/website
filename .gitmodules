@@ -110,3 +110,7 @@
 	path = content/themes/material
 	url = https://github.com/seedstack/w20-material-theme.git
 	branch = docs
+[submodule "smoke-tests"]
+	path = smoke-tests
+	url = https://github.com/seedstack/smoke-tests.git
+	branch = gh-pages

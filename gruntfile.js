@@ -2,6 +2,7 @@ var toml = require("toml");
 var yaml = require("yamljs");
 var s = require("string");
 var natural = require("natural");
+var _ = require("lodash");
 var markdown = require("markdown").markdown;
 
 var CONTENT_PATH_PREFIX = "content";
@@ -15,7 +16,6 @@ module.exports = function (grunt) {
     }
 
     grunt.registerTask("lunr-index", function () {
-
         grunt.log.writeln("Building pages index");
 
         var indexPages = function () {
@@ -108,5 +108,46 @@ module.exports = function (grunt) {
 
         grunt.file.write("static/lunr-index.json", JSON.stringify(indexPages()));
         grunt.log.ok("Index built");
+    });
+
+    grunt.registerTask("server-results", function () {
+        var results = {};
+        var servers = [];
+        var idx = 0;
+
+        grunt.log.writeln("Building server results");
+
+        grunt.file.recurse("smoke-tests", function (abspath, rootdir, subdir, filename) {
+            if (s(filename).endsWith('.json')) {
+                grunt.log.writeln("Processing " + abspath);
+                var server = JSON.parse(grunt.file.read(abspath));
+
+                if (typeof server.serverName === 'string') {
+                    servers.push(server.serverName);
+
+                    _.each(server.results, function (value, key) {
+                        key = s(key.replace(".", "-")).humanize().s;
+                        var categoryResults = results[key] || {};
+
+                        _.each(value, function (result, test) {
+                            test = s(test).humanize().s;
+                            var testResults = categoryResults[test] || {success: [], messages: []};
+                            testResults.success[idx] = result.success;
+                            testResults.messages[idx] = result.message;
+                            categoryResults[test] = testResults;
+                        });
+
+                        results[key] = categoryResults;
+                    });
+
+                    idx++;
+                }
+            }
+        });
+
+        grunt.file.write("static/servers.json", JSON.stringify({
+            "servers": servers,
+            "results": results
+        }));
     });
 };
