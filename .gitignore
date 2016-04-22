@@ -14,7 +14,7 @@ beta/
 node_modules/
 
 # generated static content
-static/servers.json
+static/smoke-tests.json
 static/lunr-index.json
 static/puml
 /.project

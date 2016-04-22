@@ -110,7 +110,7 @@ module.exports = function (grunt) {
         grunt.log.ok("Index built");
     });
 
-    grunt.registerTask("server-results", function () {
+    grunt.registerTask("smoke-tests", function () {
         var results = {};
         var servers = [];
         var idx = 0;
@@ -130,7 +130,11 @@ module.exports = function (grunt) {
                         var categoryResults = results[key] || {};
 
                         _.each(value, function (result, test) {
-                            test = s(test).humanize().s;
+                            var sTest = s(test);
+                            if (sTest.startsWith("test")) {
+                                sTest = sTest.substring(4);
+                            }
+                            test = sTest.humanize().s;
                             var testResults = categoryResults[test] || {success: [], messages: []};
                             testResults.success[idx] = result.success;
                             testResults.messages[idx] = result.message;
@@ -145,7 +149,7 @@ module.exports = function (grunt) {
             }
         });
 
-        grunt.file.write("static/servers.json", JSON.stringify({
+        grunt.file.write("static/smoke-tests.json", JSON.stringify({
             "servers": servers,
             "results": results
         }));

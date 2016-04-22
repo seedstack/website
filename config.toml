@@ -120,11 +120,6 @@ MetaDataFormat = "yaml"
   icon = "fa fa-road"
   path = "roadmap"
     
-[params.section.ProjectBuild]
-  label = "Build"
-  icon = "fa fa-cogs"
-  path = ""
-
 #####################################
 #### Getting started sections    ####
 #####################################
@@ -177,10 +172,15 @@ MetaDataFormat = "yaml"
   icon = "fa fa-book"
   path = "manual"
 
+[params.section.SeedRuntime]
+  label = "Runtime"
+  icon = "fa fa-server"
+  path = "runtime"
+
 [params.section.SeedMavenPlugin]
-label = "Maven plugin"
-icon = "fa fa-cogs"
-path = "maven-plugin"
+  label = "Maven plugin"
+  icon = "fa fa-cogs"
+  path = "maven-plugin"
 
 #####################################
 #### W20 sections                ####

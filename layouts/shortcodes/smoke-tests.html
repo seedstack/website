@@ -1,23 +1,22 @@
-{{ $element := getJSON "./static/servers.json" }}
+{{ $element := getJSON "./static/smoke-tests.json" }}
+{{ range $category, $result := $element.results }}
+<h2>{{ $category | title }}</h2>
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
-        <th>Category</th>
-        <th>Test</th>
+        <th style="vertical-align: middle;"></th>
         {{ range $server := $element.servers }}
-        <th class="text-center">{{ $server | title }}</th>
+        <th style="vertical-align: middle;" width="80px" class="text-center">{{ $server | title }}</th>
         {{ end }}
     </tr>
     </thead>
     <tbody>
-    {{ range $category, $result := $element.results }}
     {{ range $test, $result := $result }}
     <tr>
-        <td>{{ $category | title }}</td>
         <td>{{ $test | title }}</td>
         {{ range $index, $outcome := $result.success }}
         {{ $message := index $result.messages $index }}
-        <td>
+        <td style="text-align: center;">
             {{ if eq $outcome true }}
             <span class="label label-success rounded">OK</span>
             {{ else }}
@@ -27,7 +26,7 @@
         {{ end }}
     </tr>
     {{ end }}
-    {{ end }}
     </tbody>
 </table>
+{{ end }}
 
