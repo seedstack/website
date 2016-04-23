@@ -36,17 +36,26 @@
     <div class="row">
         <div class="col-md-9 addon-items">
             {{ $.Scratch.Set "addonCount" 0 }}
-            {{ range $element := (where .Data.Pages.ByDate.Reverse "Weight" -1) }}
+            {{ $addons := (where .Data.Pages.ByDate.Reverse "Weight" -1) }}
+            <div class="row">
+            {{ range $index, $element := $addons }}
             {{ $.Scratch.Set "addonCount" (add ($.Scratch.Get "addonCount") 1) }}
-            <div class="filterable-item" style="margin-bottom: 20px;">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="item-wrapper">
-                            {{ .Render "summary" }}
-                        </div>
+            {{ if eq (mod $index 2) 0 }}
+                <div class="col-md-6 filterable-item" style="margin-bottom: 20px;">
+                    <div class="item-wrapper">
+                        {{ .Render "summary" }}
                     </div>
                 </div>
-            </div>
+                {{ if eq $index (sub (len $addons) 1) }}
+                </div>
+                {{ end }}
+            {{ else }}
+                <div class="col-md-6 filterable-item" style="margin-bottom: 20px;">
+                    <div class="item-wrapper">
+                        {{ .Render "summary" }}
+                    </div>
+                </div>
+            {{ end }}
             {{ end }}
         </div>
         <div class="col-md-3 filter-column">

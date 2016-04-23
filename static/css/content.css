@@ -5,7 +5,6 @@
 
 #content .filter-column {
     border-left: 1px solid lightgrey;
-    min-height: 100vh;
 }
 
 .content-wrapper {
@@ -16,6 +15,16 @@
 .item-wrapper {
     padding: 20px 20px 20px 20px;
     background-color: white;
+}
+
+.item-wrapper article.addon {
+    min-height: 180px;
+    overflow: hidden;
+}
+
+.item-wrapper article.addon footer {
+    position: absolute;
+    bottom: 20px;
 }
 
 .content-controls {
