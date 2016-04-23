@@ -6,6 +6,7 @@ weight: -1
 date: 2015-06-23
 aliases:
     - /guides/create/ddd-pitfalls-and-tips
+    - /guides/design/ddd-pitfalls-and-tips
 zones:
     - Guides
 menu:
