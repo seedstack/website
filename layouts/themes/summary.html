@@ -18,10 +18,6 @@
                     {{ if isset .Params "repo" }}
                     <a href="{{ .Params.repo }}">{{ .Params.repo }}</a>
                     {{ end }}
-                    <br/>
-                    {{ if isset .Params "min-version" }}
-                    Version {{ index .Params "min-version" }} required
-                    {{ end }}
                 </div>
             </footer>
         </div>
