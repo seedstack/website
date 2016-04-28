@@ -13,6 +13,9 @@ beta/
 # node
 node_modules/
 
+# distribution pom
+distribution.pom.xml
+
 # generated static content
 static/smoke-tests.json
 static/lunr-index.json

@@ -1,9 +1,0 @@
-{
-    "Name":"applicationServer",
-    "Servers":[
-        {
-            "Name":"tomcat",
-            "Notes":"A dependency (for jta) should be added to the server library. For example: <em>org.apache.geronimo.specs.geronimo-jta_1.1_spec</em>"
-        }
-    ]
-}
