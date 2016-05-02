@@ -58,12 +58,12 @@ MetaDataFormat = "yaml"
   logo = "w20-logo.svg"
 
 [params.zone.GettingStarted]
-  path = "/docs/getting-started"
+  path = "/getting-started"
   label = "Getting started"
   logo = "getting-started-logo.svg"
 
 [params.zone.Glossary]
-  path = "/docs/glossary"
+  path = "/glossary"
   label = "Glossary"
   logo = "glossary-logo.svg"
 

@@ -40,7 +40,7 @@ convenient yet big, library.
 If you're using Maven, SeedStack provides comprehensive dependency management in its distribution, whether by inheriting
 from its parent or by importing its BOM. We recommend doing so to ensure that versions of Seed dependencies are consistent
 across the project. Additionally you won't have to specify the version tag of any Seed dependency. Check the
-[distribution documentation page](/docs/getting-started/distribution) for more information.
+[distribution documentation page](/getting-started/distribution) for more information.
 {{% /callout %}} 
  
 # Startup and shutdown

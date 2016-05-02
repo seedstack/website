@@ -2,6 +2,9 @@
     <header>
         <h1 style="border-bottom: none;">
             <a style="text-decoration: none;" href='{{ .Permalink }}'>{{ .Params.name }}</a>
+            {{ if isset .Params "demo" }}
+            <a href="{{ .Params.demo }}" target="_blank"><button class="btn btn-success pull-right" type="submit"><i class="fa fa-play"></i> Live demo</button></a>
+            {{ end }}
         </h1>
     </header>
     <div class="row">
