@@ -20,10 +20,13 @@ menu:
 
 Seed provides support for [Representational State Transfer][1] (REST) architectural style through the **JAX-RS** 
 specification. Implementation rely on [Jersey](https://jersey.java.net/). To enable REST support in your project, add 
-the `seed-rest-jersey1` module.
+the `seed-rest-jersey2` module. 
 
-{{< dependency g="org.seedstack.seed" a="seed-rest-jersey1" >}}
+{{< dependency g="org.seedstack.seed" a="seed-rest-jersey2" >}}
 
+{{% callout info %}}
+A `seed-rest-jersey1` module is also provided when JAX-RS 2.0 cannot be used in your environment.
+{{% /callout %}}
 
 # JAX-RS 101
 
@@ -32,7 +35,7 @@ by Seed. This means that you can inject any other classes managed by Seed in you
 class is created for each request.
 
 {{% callout info %}}
-In order to avoid possible conflict with static resources, all REST resources are prefixed by default with `/rest/`.
+REST resources are exposed on `/` by default and have priority when their path conflict with a static resource. The default prefix can be changed by specifying the `org.seedstack.seed.rest.path` configuration property.
 {{% /callout %}}
 
 Below is an example of a simple "Hello World" REST resource:
@@ -49,9 +52,9 @@ Below is an example of a simple "Hello World" REST resource:
 
     }
 
-This resource is exposed by default on `/rest/hello`. You can request the resource with:
+This resource is exposed by default on `/hello`. You can request the resource with:
 
-    curl 'http://localhost:8080/rest/hello/world'
+    curl 'http://localhost:8080/hello/world'
 
 The returned response body will be:
 
