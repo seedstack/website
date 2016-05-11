@@ -106,6 +106,24 @@ point to remote bundle. In that case, two placeholders can be used in the URL:
 Dynamic bundles will always be loaded for any language. If no keys are available for a particular language an empty
 object can be returned.
 
+# Usage
+
+As an example if our bundle for en-EN culture contains the following entry:
+
+```
+{
+    "application.key": "my translation"
+}
+```
+
+Inside an html template use the localize filter.
+
+```
+<p> {{ 'application.key' | localize }} </p>
+```
+
+You can also apply the localization programmatically by calling the CultureService.
+
 # Formatting
 
 Numbers and dates can be formatted in various ways by using formatting patterns.
