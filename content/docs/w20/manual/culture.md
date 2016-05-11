@@ -122,6 +122,8 @@ Inside an html template use the localize filter.
 <p> {{ 'application.key' | localize }} </p>
 ```
 
+You can also apply the localization programmatically by calling the CultureService.
+
 # Formatting
 
 Numbers and dates can be formatted in various ways by using formatting patterns.
