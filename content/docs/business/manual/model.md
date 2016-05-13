@@ -50,9 +50,8 @@ framework provides an API for them (see [identity generation](../lifecycle#ident
 
 To create an Entity using the Business framework you have three choices:
 
-* Extend the `BaseEntity` class. The `equals()`, `hashCode()` and `compareTo()` methods will be provided out-of-the-box. You
-must implement the `getEntityId()` method.
-* Implement the `Entity` interface. You must implement the `equals()`, `hashCode()`, `compareTo()` and `getEntityId()` 
+* Extend the `BaseEntity` class. The `equals()` and `hashCode()` methods will be provided out-of-the-box as well as a basic  `toString()` method. You must implement the `getEntityId()` method.
+* Implement the `Entity` interface. You must implement the `equals()`, `hashCode()` and `getEntityId()` 
 methods in this case.
 * Simply annotate any class with the `@DomainEntity` annotation. In this case, you won't be able to use helpers and 
 tools from the framework.
@@ -68,12 +67,9 @@ Consider the following example in which a `Customer` Entity is identified by an 
 public class Customer extends BaseEntity<String> {
     private String email;
     private Address address;
-    private List<Order> orders;
 
-    /* Package protected constructor */
-    Customer (String identity, Address address) {
-        this.email = identity;
-        ...
+    public Customer (String email) {
+        this.email = email;
     }
 
     @Override
@@ -112,10 +108,9 @@ This means that all the required values should be assigned upon creation (i.e. i
 
 To create a Value Object using the Business framework you have three choices:
 
-* Extend the `BaseValueObject` class. In this case, the `equals()`, `hashCode()` and `compareTo()` methods will be
-provided out-of-the-box.
-* Implement the `ValueObject` interface. You must implement the `equals()`, `hashCode()` and `compareTo()` methods in
-this case.
+* Extend the `BaseValueObject` class. In this case, the `equals()`, `hashCode()` methods will be
+provided out-of-the-box as well as a basic `toString()` method.
+* Implement the `ValueObject` interface. You must implement the `equals()` and `hashCode()` in this case.
 * Simply annotate any class with the `@DomainValueObject` annotation. In this case, you won't be able to use helpers and
 tools from the framework.
 
