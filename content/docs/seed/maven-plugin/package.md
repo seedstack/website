@@ -28,7 +28,7 @@ module (for embedded Web applications).
 
 # Parameters
 
-Parameters should be given as system properties (`-DparameterName=parameterValue`):
+Parameters can be given as system properties (`-DparameterName=parameterValue`) or specified in the `pom.xml` plugin declaration:
 
 <table class="table table-striped table-bordered table-condensed">
     <thead>
@@ -47,19 +47,28 @@ Parameters should be given as system properties (`-DparameterName=parameterValue
         <td>The capsule version to be used. If not given, the latest version discoverable is automatically used.</td>
     </tr>
     <tr>
-        <td>light</td>
-        <td>-</td>
+        <td>classpathEntries</td>
+        <td>List of strings</td>
         <td>No</td>
-        <td>
-            If this parameter is specified (no value is necessary), a lightweight Capsule will be built instead of a standalone one.
-            A lightweight Capsule will download its dependencies through Maven the first time it is run.
-        </td>
+        <td>The classpath entries to add to the application classpath. Relative paths are resolved to the location of the capsule JAR. The current user home path (~) can be used.</td>
     </tr>
     <tr>
-        <td>capsuleVersion</td>
-        <td>String</td>
+        <td>systemProperties</td>
+        <td>List of strings</td>
         <td>No</td>
-        <td>The capsule version to be usedThe string of all arguments used to run the Seed application.</td>
+        <td>The system properties to set when launching the application.</td>
+    </tr>
+    <tr>
+        <td>environmentVariables</td>
+        <td>List of strings</td>
+        <td>No</td>
+        <td>The environment variables to set when launching the application.</td>
+    </tr>
+    <tr>
+        <td>jvmArgs</td>
+        <td>List of strings</td>
+        <td>No</td>
+        <td>The JVM arguments to apply when launching the application.</td>
     </tr>
     <tr>
         <td>allowSnapshots</td>
@@ -79,26 +88,13 @@ build such a Capsule, use the following command:
 
     mvn org.seedstack:seedstack-maven-plugin:package
 
-## Lightweight Capsule
-
-A lightweight Capsule rely on Maven to download its dependencies the first time it is run. To build such a Capsule, use
-the following command:
-
-    mvn org.seedstack:seedstack-maven-plugin:package -Dlight
-
-{{% callout warning %}}
-Note that you will need a fully configured Maven environment on the machine you want to the run a lightweight Capsule on.
-It is NOT recommended for production environment as it introduce a potential variability at execution time (should a
-dependency contents change for instance).
-{{% /callout %}}
-
 # Running a capsule
 
 To run a capsule, you simply execute it as a plain executable JAR:
 
     java [jvm-args] -jar my-capsule.jar [args...]
 
-You can specify any argument to the JVM or to the program as usual.
+In addition to any argument already specified in the capsule manifest (with the plugin parameters described above), you can specify any argument to the JVM or to the program as usual.
 
 {{% callout tips %}}
 A lot of options can be specified to alter the default behavior of the Capsule itself. Please refer to the [Capsule user-guide](http://www.capsule.io/user-guide/)
