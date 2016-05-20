@@ -46,9 +46,6 @@
                         {{ .Render "summary" }}
                     </div>
                 </div>
-                {{ if eq $index (sub (len $addons) 1) }}
-                </div>
-                {{ end }}
             {{ else }}
                 <div class="col-md-6 filterable-item" style="margin-bottom: 20px;">
                     <div class="item-wrapper">
@@ -56,6 +53,10 @@
                     </div>
                 </div>
             {{ end }}
+                {{ if eq $index (sub (len $addons) 1) }}
+                </div>
+                {{ end }}
+            
             {{ end }}
         </div>
         <div class="col-md-3 filter-column">

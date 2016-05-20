@@ -114,3 +114,7 @@
 	path = smoke-tests
 	url = https://github.com/seedstack/smoke-tests.git
 	branch = gh-pages
+[submodule "content/addons/mqtt"]
+	path = content/addons/mqtt
+	url = https://github.com/seedstack/mqtt-addon.git
+	branch = docs
