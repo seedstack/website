@@ -165,23 +165,17 @@ where action is dependent upon the HTTP method used (see the `rest` filter defin
 
 # Servlets and Filters
 
-You can register a servlet and its mappings automatically by annotating your servlet class with {{< java "org.seedstack.seed.web.WebServlet" >}}:
+You can register a servlet and its mappings automatically by annotating your servlet class with {{< java "javax.servlet.annotation.WebServlet" >}}:
 
-    @WebServlet(
-        value = "/myservlet/*", 
-        initParams = { @WebInitParam(name = "param", value = "value") }, 
-        name = "my-servlet")
+    @WebServlet("/myservlet/*")
     public class MyServlet extends HttpServlet {
         ...
     }
 
-Similarly, you can register a filter and its mappings automatically by annotating your servlet class with {{< java "org.seedstack.seed.web.WebFilter" >}}:
+Similarly, you can register a filter and its mappings automatically by annotating your servlet class with {{< java "javax.servlet.annotation.WebFilter" >}}:
 
-    @WebFilter(
-        value = "/myfilter/*", 
-        initParams = { @WebInitParam(name = "param", value = "value") }, 
-        name = "my-filter")
-    public class MyFilter extends HttpFilter {
+    @WebFilter("/myfilter/*")
+    public class MyFilter implements Filter {
         ...
     }
 
