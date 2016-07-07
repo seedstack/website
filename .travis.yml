@@ -8,6 +8,7 @@ addons:
   apt:
     packages:
       - oracle-java8-installer
+      - graphviz
 
 git:
   submodules: false
