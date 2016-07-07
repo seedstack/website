@@ -1,0 +1,99 @@
+@startuml
+!include ../common.puml
+
+title Business Framework : Domain Modeling API
+
+'Annotations
+
+  'Ancestors
+!ifdef INTERNALDOC
+  class BusinessElement << ANNO >>
+  class DomainElement << ANNO >>
+
+
+  class DomainAggregateRoot << ANNO >>
+  class DomainEntity << ANNO >>
+  class DomainValueObject << ANNO >>
+  BusinessElement  <-- DomainElement
+   DomainElement <-- DomainAggregateRoot 
+   DomainElement <-- DomainEntity        
+   DomainElement <-- DomainValueObject   
+!endif
+  
+ 
+'Interfaces 
+    interface DomainObject
+    
+
+	interface "AggregateRoot<ID>"	
+	interface "Entity<ID>" {
+		+ ID getEntityId()
+	}
+	interface  "ValueObject"
+	'-----------------------
+	DomainObject <|-- "Entity<ID>"  
+	
+	"Entity<ID>" <|-left- "AggregateRoot<ID>"  
+
+!ifdef INTERNALDOC
+    DomainElement <-- DomainObject 
+	DomainAggregateRoot <-- "AggregateRoot<ID>"
+	DomainEntity <-- "Entity<ID>"   
+	DomainValueObject <-- "ValueObject"
+!endif
+  		
+	DomainObject <|-- ValueObject  
+
+''package "Abstract Bases"
+
+  abstract "BaseAggregateRoot<ID>"
+  abstract "BaseEntity<ID>"
+  abstract "BaseValueOject"
+ 
+  "AggregateRoot<ID>" <|.. "BaseAggregateRoot<ID>"
+  "Entity<ID>" <|.. abstract "BaseEntity<ID>"
+  "ValueObject" <|.. abstract "BaseValueOject"
+
+'
+''package "JPA Bases"
+
+    abstract "BaseJpaAggregateRoot<ID>"
+    abstract "BaseJpaEntity<ID>"
+    abstract "BaseJpaValueOject"
+    
+	"BaseAggregateRoot<ID>" <|-- "BaseJpaAggregateRoot<ID>"
+	"BaseEntity<ID>"        <|-- "BaseJpaEntity<ID>"
+	"BaseValueOject"        <|-- "BaseJpaValueOject"
+
+    abstract "SimpleJpaAggregateRoot<ID>" {
+        @Id 
+        + ID : entityId
+        + ID getEntityId()
+    }
+    abstract "SimpleJpaEntity<ID>" {
+        @Id
+        + ID : entityId
+        + ID getEntityId()
+    }
+    
+    abstract "EmbedJpaAggregateRoot<ID>" {
+        @EmbeddedId
+        + ID : entityId
+        + ID getEntityId()
+     }
+    abstract "EmbedJpaEntity<ID>" {
+        @EmbeddedId
+        + ID : entityId
+        + ID getEntityId()
+
+    }
+    
+	
+	"BaseJpaAggregateRoot<ID>" <|-- "SimpleJpaAggregateRoot<ID>"  
+	"BaseJpaEntity<ID>"    <|-- "SimpleJpaEntity<ID>"
+	  
+	"BaseJpaAggregateRoot<ID>" <|-- "EmbedJpaAggregateRoot<ID>"  
+	"BaseJpaEntity<ID>"    <|-- "EmbedJpaEntity<ID>"  
+	
+
+@enduml

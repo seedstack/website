@@ -304,6 +304,8 @@ Think of it as a "fragment loader". Its initialization sequence is as follow:
 The last phase should be a little bit unclear at this point because we did not introduce modules lifecycle yet. 
 We included it here to give you the full initialization sequence for future reference. Modules are documented in the next section.
 
+![w20loading](/puml/w20/w20-loading.png)
+
 # Modules
   
 ## AMD

@@ -1,0 +1,22 @@
+!define INTERNALDOC2
+
+!define ANNO (@,orchid)
+
+skinparam nodesep 40
+skinparam ranksep 80
+
+skinParam circledCharacterFontColor black
+skinParam circledCharacterFontSize 12
+skinParam circledCharacterFontStyle normal
+skinParam circledCharacterFontName Plain
+skinParam circledCharacterRadius 10
+
+skinParam titleFontColor black
+skinParam titleFontSize  16
+skinParam titleFontStyle normal
+'skinParam titleFontName 
+
+skinParam packageFontColor black
+skinParam packageFontSize  14
+skinParam packageFontStyle normal
+'skinParam packageFontName

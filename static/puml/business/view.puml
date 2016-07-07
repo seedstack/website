@@ -1,0 +1,5 @@
+@startuml
+class View<Item> {
+  List<Item> getView()
+}
+@enduml

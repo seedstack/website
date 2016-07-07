@@ -24,7 +24,7 @@ patterns often used in data restitution: pagination, infinite-scroll, random chu
 The following describes the API. We'll specialize some concepts already presented like the finder.
 We focus the creation of this API on solving the problem of returning portion result out of very big one.
 
-![domain aggregates](/puml/business/business-api-interfaces-finder.puml.png)
+![domain aggregates](/puml/business/business-api-interfaces-finder.png)
 
 - A **Range** is just a class that represents an **offset** and a **size**.
 - A **Result** symbolises a canonical representation of the ranged return of a request made from a persistence. It holds:

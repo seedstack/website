@@ -19,5 +19,5 @@ distribution.pom.xml
 # generated static content
 static/smoke-tests.json
 static/lunr-index.json
-static/puml
+static/puml/**/*.png
 /.project

@@ -1,0 +1,54 @@
+@startuml
+
+
+!include ../common.puml
+
+title Business Framework : Interfaces Tools API
+
+
+
+interface Assembler<A,D,T> {
+	+D assembleDFromAggregate(A sourceAggregate)
+	+void updateDFromAggregate(D sourceD, A sourceAggregate)
+	+void mergeAggregateWithD(A targetAggregate, D sourceD)
+	+T getAggregateClass()
+	+Class<D> getDtoClass()
+}
+
+abstract class AbstractBaseAssembler<A,D,T> {
+}
+
+Assembler <|.. AbstractBaseAssembler
+
+abstract class BaseAssembler<A,D>{
+
+}
+
+abstract class BaseTupleAssembler<A,D>{
+
+}
+
+AbstractBaseAssembler <|-- BaseAssembler
+AbstractBaseAssembler <|-- BaseTupleAssembler
+
+MatchingEntityId -[hidden]- MatchingFactoryParameter
+MatchingFactoryParameter -[hidden]- Secured
+
+class MatchingEntityId  << ANNO >>{
+	int index()
+	int typeIndex()
+}
+
+class MatchingFactoryParameter  << ANNO >>{
+	int index()
+	int typeIndex()
+}
+class Secured << ANNO >>
+
+
+class InterfacesService << ANNO >>
+interface GenericInterfacesService
+InterfacesService <-- "GenericInterfacesService"
+
+
+@enduml

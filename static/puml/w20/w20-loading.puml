@@ -1,0 +1,24 @@
+@startuml
+"index.html" -> "RequireJS": load()
+
+"RequireJS" -> "W20 loader": load()
+
+"W20 loader" -> "Configuration": fetch()
+"Configuration" --> "W20 loader": configuration
+
+"W20 loader" -> "Fragment manifests": fetch()
+"Fragment manifests" --> "W20 loader": manifests
+
+"W20 loader" -> "RequireJS": configure()
+
+"W20 loader" -> "JS modules": load()
+"JS modules" --> "W20 loader": modules
+
+"W20 loader" -> "JS modules": init(modules)
+"JS modules" --> "W20 loader":
+
+"W20 loader" -> "JS modules": start(modules)
+"JS modules" --> "W20 loader":
+
+"W20 loader" -> "index.html": ready()
+@enduml
