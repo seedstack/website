@@ -38,9 +38,7 @@ on [GitHub](https://github.com/seedstack), in their release section.
 
 # Breaking changes
 
-This version has only minor breaking changes that should not impact most projects. 
-The detail of breaking changes is available in the detailed change logs of each component on [GitHub](https://github.com/seedstack),
-in their release section.
+This version has no breaking changes. 
 
 # Component versions
 
