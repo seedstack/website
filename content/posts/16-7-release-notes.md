@@ -22,6 +22,7 @@ We are happy to announce the release of SeedStack 16.7 «Jasmine» will a mainte
 ## Java
 
 * There is no new Java additions.
+
 ## Business
  
 * There is no new Business Framework additions.
