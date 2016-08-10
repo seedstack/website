@@ -11,7 +11,8 @@ zones:
   - Posts
 ---
 
-We are happy to announce the release of SeedStack 16.7 «Jasmine» will a maintenance release. 
+We are happy to announce the release of SeedStack 16.7 «Jasmine». 
+
 
 # New features
 
