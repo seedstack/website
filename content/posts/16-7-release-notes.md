@@ -11,22 +11,22 @@ zones:
   - Posts
 ---
 
-We are happy to announce the release of SeedStack 16.7 «Jasmine». 
+We are happy to announce the release of SeedStack 16.7 «Jasmine», a maintenance realease.
 
 
 # New features
 
 ## Functional additions
 
-* There is no new functionals additions.
+* There is no new functional addition.
 
 ## Java
 
-* There is no new Java additions.
+* There is no new Java addition.
 
 ## Business
  
-* There is no new Business Framework additions.
+* There is no new Business Framework addition.
 
 ## Web
 
