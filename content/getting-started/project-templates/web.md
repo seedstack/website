@@ -16,15 +16,21 @@ automatically manages the W20 frontend.
 
 # Creation
 
+You need to have [Apache Maven 3.1+](https://maven.apache.org/) installed. 
 To create a Java Web application project from scratch, execute the following command:
 
 ```plain
 mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=web
 ```
 
-This will invoke the generate goal of the SeedStack maven plugin which will select the latest version
-of the SeedStack distribution and use its [Web Maven archetype](http://search.maven.org/#browse%7C1221480962).
+{{% callout info %}}
+This will invoke the generate goal of the SeedStack maven plugin [generate goal](/docs/seed/maven-plugin/generate/) which will:
+
+* Discover the latest version of the [SeedStack reference distribution](/getting-started/distribution),
+* Use its [web archetype](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.seedstack%22%20a%3A%22web-archetype%22) to generate the project.
+
 The process is interactive and will ask you a few questions about the project to be created.
+{{% /callout %}}
 
 # Result
  

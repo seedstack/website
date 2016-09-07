@@ -240,10 +240,13 @@ kbd {
     padding: 5px;
 }
 
-.github-link {
-    padding-right: 50px;
+.homepage-subheader-link {
     float: right;
     vertical-align: top;
+}
+
+.homepage-subheader-link.first-link {
+    padding-right: 60px;
 }
 
 .channel-marker {
