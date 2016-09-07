@@ -1,0 +1,47 @@
+@startuml
+interface IdentityHandler {
+  ID handle(E, Map<String, String>)
+}
+
+package "Named interfaces" {
+  interface UUIDHandler
+  interface SequenceHandler
+}
+
+IdentityHandler <|-- SequenceHandler
+IdentityHandler <|-- UUIDHandler
+
+note left of IdentityHandler
+  Super interface of all SEED Identity handlers
+  (and any intermediate interface).
+end note
+
+interface UUIDHandler
+interface SequenceHandler
+
+note as N2
+  Level of abstraction for clarity purpose. 
+  The name of the interface reveals the 
+  expected behaviour (SequenceHandler, 
+  UUIDHandler ...).
+end note
+"Named interfaces" .. N2
+
+package Implementations {
+ class SimpleUUIDHandler
+ class InMemorySequenceHandler
+ class OracleSequenceHandler
+}
+
+note as N3
+  SEED provides at least one implementation 
+  for every SEED "Named interfaces"- each 
+  implementation is qualified by a @Named 
+  class annotation.
+end note
+N3 .. Implementations 
+
+UUIDHandler <|-- SimpleUUIDHandler
+SequenceHandler <|-- InMemorySequenceHandler
+SequenceHandler <|-- OracleSequenceHandler
+@enduml

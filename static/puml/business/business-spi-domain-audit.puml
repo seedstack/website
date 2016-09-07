@@ -1,0 +1,12 @@
+@startuml
+
+
+!include ../common.puml
+
+title Business Framework : Application Tools API
+
+interface TrailWriter {
+	void writeEvent(AuditEvent auditEvent)
+}
+
+@enduml

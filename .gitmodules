@@ -118,3 +118,7 @@
 	path = content/addons/mqtt
 	url = https://github.com/seedstack/mqtt-addon.git
 	branch = docs
+[submodule "content/addons/ldap"]
+	path = content/addons/ldap
+	url = https://github.com/seedstack/ldap-addon.git
+	branch = docs

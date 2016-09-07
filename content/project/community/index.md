@@ -15,8 +15,12 @@ SeedStack, file issues, ask for help and simply discover the stack together.
   
 # IRC
 
-The [#seedstack](irc://chat.freenode.net/seedstack) IRC on the Freenode community is intended to chat with the SeedStack 
+The [#seedstack](irc://chat.freenode.net/seedstack) IRC on the FreeNode community is intended to chat with the SeedStack 
 team and other users.
+
+{{% callout tips %}}
+Join the chat room directly in your browser by using [KiwiIRC](https://kiwiirc.com/client/irc.freenode.net#seedstack).
+{{% /callout %}}
 
 # Mailing list
 

@@ -1,0 +1,92 @@
+@startuml
+
+
+!include ../common.puml
+
+title Business Framework : Domain Tools API
+
+!ifdef INTERNALDOC
+  'Ancestors
+  class BusinessElement << ANNO >>
+  class DomainElement << ANNO >>
+
+  DomainElement -up-> BusinessElement
+
+  class DomainFactory << ANNO >>
+  class DomainRepository << ANNO >>
+  
+  DomainFactory       -up-> DomainElement
+  DomainRepository    -up-> DomainElement
+  DomainService       -up-> DomainElement
+  DomainPolicy        -up-> DomainElement
+  
+!endif
+  class DomainPolicy << ANNO >>
+  class DomainService << ANNO >>
+
+    interface DomainObject
+
+	interface "GenericFactory<DO>"	
+	interface "GenericRepository<A,K>"	
+	interface GenericDomainPolicy	
+	interface GenericDomainService	
+	
+	interface "Factory<DO>" {
+	    +create(Object ...args)
+	}
+	interface "Repository<A,K>" {
+	   +A load(K id)	
+	   +void delete(A aggregate)
+	   +void persist(A aggregate)
+	   +A save(A aggregate)
+
+	}
+	
+!ifdef INTERNALDOC
+'	'-----------------------
+    DomainElement <-- DomainObject 
+	DomainFactory <-- "GenericFactory<DO>"    
+	DomainRepository <-- "GenericRepository<A,K>"  
+	
+!endif
+	DomainPolicy <-- "GenericDomainPolicy"   
+	DomainService <-- "GenericDomainService"  
+	DomainObject <-- "GenericFactory<DO>"    
+	DomainObject <-- "GenericRepository<A,K>"   
+	DomainObject <-- "GenericDomainPolicy"  
+	DomainObject <-- "GenericDomainService" 
+'	"GenericFactory<DO>" <-- "Factory<DO>" 
+'	"GenericRepository<A,K>" -->"Repository<A,K>"     
+
+
+''"Abstract Bases" <<Rect>> {
+
+  abstract "BaseRepository<A,K>"
+  abstract "BaseFactory<DO>"
+
+
+  "GenericFactory<DO>" <|.. "BaseFactory<DO>"  
+  "GenericRepository<A,K>" <|.. "BaseRepository<A,K>"  
+ 
+  
+  
+  ' JPA
+  abstract "BaseJpaRepository<A,K>"
+  "BaseRepository<A,K>" <|-- "BaseJpaRepository<A,K>"
+  
+  "BaseJpaRepository<A,K>" -[hidden]-  "Factory<DO>"  
+  "BaseJpaRepository<A,K>" -[hidden]-   "Repository<A,K>"
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+@enduml

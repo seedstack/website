@@ -1,0 +1,14 @@
+@startuml
+
+
+!include ../common.puml
+
+title Business Framework : Application Tools API
+
+class ApplicationService << ANNO >>
+
+interface GenericApplicationService	
+
+ApplicationService <-- "GenericApplicationService"
+
+@enduml

@@ -15,15 +15,21 @@ Java classes.
 
 # Creation
 
+You need to have [Apache Maven 3.1+](https://maven.apache.org/) installed. 
 To create a batch application project from scratch, run the following command:
 
 ```plain
 mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=batch
 ```
     
-This will invoke the generate goal of the SeedStack maven plugin which will select the latest version
-of the SeedStack distribution and use its batch Maven archetype. The process is interactive and will ask you a few
-questions about the project to be created.
+{{% callout info %}}
+This will invoke the generate goal of the SeedStack maven plugin [generate goal](/docs/seed/maven-plugin/generate/) which will:
+
+* Discover the latest version of the [SeedStack reference distribution](/getting-started/distribution),
+* Use its [batch archetype](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.seedstack%22%20a%3A%22batch-archetype%22) to generate the project.
+
+The process is interactive and will ask you a few questions about the project to be created.
+{{% /callout %}}
 
 # Result
 

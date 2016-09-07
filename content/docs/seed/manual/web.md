@@ -365,9 +365,7 @@ for a complete list of configuration parameters.
 # WebSockets
 
 Seed also integrates the Java API for WebSocket (JSR 356), allowing server and client endpoints to be injected. WebSocket
-support requires Java 7 to work.
-
-{{< dependency g="org.seedstack.seed" a="seed-web-websocket" >}}
+support requires Java 7 and a compatible server to work.
 
 ## Server endpoints
 

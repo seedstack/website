@@ -1,0 +1,83 @@
+@startuml
+
+
+!include ../common.puml
+
+title Business Framework : Interfaces Finder API
+
+
+
+' ---------------------- FINDER ------------------------
+
+class Finder << ANNO >> 
+
+interface RangeFinder<Item, Criteria> {
+	Result<Item> find(Range range, Criteria criteria)
+}
+
+Finder <-- RangeFinder
+
+
+abstract class BaseJpaRangeFinder <Item, Map<String, Object>>{
+	+Result<Item> find(Range range, Map<String,Object> criteria)
+}
+
+RangeFinder <-- BaseJpaRangeFinder
+
+BaseJpaRangeFinder -[hidden]- Range
+BaseJpaRangeFinder -[hidden]- Result
+
+class Range {
+
+	+long getOffset()
+	+int getSize()	
+}
+
+class Result<Item> {
+
+	+List<Item> getResult()
+	+int getSize()
+	+long getFullSize()
+	+long getOffset()
+}
+
+interface View<Item> {
+	List<Item> getView()
+}
+
+abstract class AbstractView<Item> {
+	+List<Item> getView()
+	+long getResultSize()
+}
+
+View <|.. AbstractView
+
+
+class PaginatedView<Item> {
+	+int getPageSize()
+	+long getPageIndex()
+	+long getPagesCount()
+}
+
+class Page {
+	+int getIndex()
+	+int getCapacity()
+	+int getNumberOfElements()
+	+long getTotalNumberOfElements()
+	+Page next()
+}
+
+PaginatedView -[hidden]- Page
+
+
+AbstractView <|.. PaginatedView
+
+class ChunkedView<Item> {
+
+	+long getChunkOffset()
+	+int getChunkSize()
+}
+
+AbstractView <|.. ChunkedView
+ChunkedView -[hidden]- Page
+@enduml
