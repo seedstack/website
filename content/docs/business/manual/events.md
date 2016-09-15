@@ -7,12 +7,13 @@ sections:
     - "BusinessManual"
 tags:
     - "publish"
+    - "pattern"
     - "subscribe"
     - "aggregate"
     - "event"
 menu:
     BusinessManual:
-        weight: 40
+        weight: 60
 ---
 
 Seed Business Framework contains an API to manage domain events. The `EventService` service is used to fire events. Events

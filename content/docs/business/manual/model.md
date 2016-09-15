@@ -7,6 +7,7 @@ sections:
     - "BusinessManual"
 tags:
     - "entity"
+    - "pattern"
     - "value-object"
     - "service"
     - "model"

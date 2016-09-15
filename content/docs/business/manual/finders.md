@@ -7,10 +7,12 @@ sections:
     - "BusinessManual"
 tags:
     - "query"
+    - "pattern"
     - "data"
+    - "finder"
 menu:
     BusinessManual:
-        weight: 70
+        weight: 90
 ---
 
 The role of a finder is to query the persistence layer or any data source to obtain objects specific to an interface of the application. It only does **read-only** operations and is NOT meant to replace the repository as it doesn't produce domain objects but interface-specific objects like REST representations.

@@ -7,10 +7,11 @@ sections:
     - "BusinessManual"
 tags:
     - "policy"
+    - "pattern"
     - "strategy"
 menu:
     BusinessManual:
-        weight: 50
+        weight: 70
 ---
 
 A policy is a variant of the Strategy pattern to encapsulate one or more business rules.

@@ -66,12 +66,14 @@ them is required.
 # The business framework
 
 The business framework is a Java implementation of the DDD approach that builds upon the java framework to provide 
-high-level, ready to use building blocks.
+high-level, ready to use building blocks. To add the business framework to your project, add the following dependency:
+
+{{< dependency g="org.seedstack.business" a="business-core" >}}
 
 Your will be guided through the design and development of your project but it is crucial for its success to understand the 
 concepts and the associated building blocks. While the business framework provides a rich set of helpers and base 
-implementations, no code is generated. The development team has to design and write the code, according to this 
-documentation and the DDD philosophy.
+implementations, no code is generated. **The development team has to design and write the code, according to this 
+documentation and the DDD philosophy.**
 
 Sometimes, several design or implementation choices are possible for a given business need. In that case, the pros 
 and cons of each choice are presented to help you decide which is right for you specific need. When available, additional 
@@ -122,3 +124,8 @@ level you use (see above). It works in two steps:
 can detects qualifiers to differentiate them. See [qualified injection](#qualified-injection) below for more information.
 
 Once a code pattern is properly recognized, it can be injected through its interface in any managed instance.
+
+<div class="pull-right margin-top-20">
+    <a href="manual" class="btn btn-u">Next: start reading the manual...</a>
+</div>
+<div class="clearfix"></div>

@@ -34,6 +34,13 @@ model to address enterprise needs. Naturally, particular use cases and UI ideas 
 the model as the software is produced. But the model itself should be independent of its clients.  
 {{% /callout %}}
 
+# Big picture
+
+The following diagram represents the key concepts of tactical Domain-Driven Design and how they relate to each other. 
+This manual will describe all those patterns and how they can be implemented with SeedStack.
+
+![Tactical domain-driven design](img/all-domain.png)
+
 # Architecture
 
 For starters, it is important to know that DDD doesn't require a particular architecture. Since the domain is defined

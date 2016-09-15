@@ -7,6 +7,7 @@ sections:
     - "BusinessManual"
 tags:
     - "dto"
+    - "pattern"
     - "mapping"
     - "object"
     - "aggregate"
@@ -14,7 +15,7 @@ tags:
     - "repository"
 menu:
     BusinessManual:
-        weight: 60
+        weight: 80
 ---
 
 The assembler pattern is used to transfer a representation of the state of *Aggregates* to *DTO/Representation* objects. 

@@ -13,7 +13,7 @@ tags:
     - "range"
 menu:
     BusinessManual:
-        weight: 80
+        weight: 100
 ---
 
 The data presentation API helps developers presenting the data from their domain to external actors. Those are
