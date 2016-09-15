@@ -13,8 +13,19 @@ menu:
         weight: 70
 ---
 
-A Finder is an object that queries the domain to get lists of domain objects optionally matching some criteria. A Finder
-queries the domain but returns representations.
+The role of a finder is to query the persistence layer or any data source to obtain objects specific to an interface of the application. It only does **read-only** operations and is NOT meant to replace the repository as it doesn't produce domain objects but interface-specific objects like REST representations.
+
+{{% callout info %}}
+A finder shouldn't generally delegate its data retrieval to the domain repository. Instead it should directly issue the most efficient query against the persistence layer and construct DTO objects, completely bypassing the domain. Consider the following implications:
+
+* You should write as many finders as required by your application interfaces.
+* You can query a model completely different from your domain model and optimized for reading purposes (i.e. a read model) or not model at all.
+* You can rely on a completely different technology than the domain persistence, like an high-performance index.
+{{% /callout %}}
+
+{{% callout tips %}}
+Don't create finders needlessly: if your data retrieval needs are simple enough to not require a finder, just use the domain repositories directly in your interface and transform the retrieved domain objects to DTO with assemblers.
+{{% /callout %}}
 
 Creating a Finder with the Business Framework, consists in:
 
