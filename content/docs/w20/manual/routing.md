@@ -97,6 +97,7 @@ of the application.
 
 W20 adds a limited set of attributes on all routes:
 
+* `hidden`: the route will not be visible in the menu but still accessible by its URL,
 * `type`: the type attribute is automatically added if not present (with the `view` value),
 * `path`: the full path of the route,
 * `category`: the category of the route (which can be used to classify the routes for navigation) is added with a default value of `__top`. 
