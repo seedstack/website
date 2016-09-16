@@ -15,14 +15,10 @@ menu:
         weight: 15
 ---
 
-# Routing
-
 AngularJS provides powerful routing capabilities which consists in a matching between a URL and 
 a route definition. This route definition specifies the contents and behavior of the view that will be displayed inside the 
 HTML tag containing the `ngView` attribute. To learn more about AngularJS routing, please check 
 [this documentation](https://docs.angularjs.org/api/ngRoute/provider/$routeProvider).
-
-## Fragment-declared routes
 
 Although the AngularJS programmatic way of defining the application routing can be used unaltered in any W20 application,
 a simpler declarative way of defining the routing is available. It is done through the `routes` section of fragment
@@ -55,7 +51,7 @@ can be configured, the most common one being the `templateUrl` and the `controll
  }
 ```
 
-### Route types
+# Route types
 
 A route definition should contain a `type` attribute. If it is not present, a route type of `view` is assumed which is
 a standard AngularJS route. Two route types are available out-of-the-box:
@@ -87,17 +83,42 @@ definition:
 The handler will be invoked for each detected route of type `myCustomType`. It is required that the returned route
 object is a valid AngularJS route definition.
 
-## Additional route metadata
+# Hidden routes
+
+You can hide a route from the menu by setting the `hidden` attribute to `true` in the route definition object:
+
+```
+ "routes": {
+     "/route1": {
+         "hidden": true
+     }
+ }
+```
+
+# Categorizing routes
+
+The `category` attribute can be used to define a category for the route which will often be rendered as a section or folder in graphical themes. The category name supports hierarchical categories separated with dots:
+
+```
+ "routes": {
+     "/route1": {
+         "category": "a.b.c"
+     }
+ }
+```
+
+This will put the `route1` route in the `c` sub-category of `b` which is itself a sub-category of category `a`. The special category name `__top` define the route as a top-level route (without category). It is the default value of this attribute.
+
+# Additional route metadata
 
 Additional attributes can be attached to route definition and will be ignored by AngularJS. When retrieving the route through
 the AngularJS `$route` service, these attributes will be preserved, allow for further processing during the execution
 of the application.
 
-### W20 route metadata
+## W20 route metadata
 
 W20 adds a limited set of attributes on all routes:
 
-* `hidden`: the route will not be visible in the menu but still accessible by its URL,
 * `type`: the type attribute is automatically added if not present (with the `view` value),
 * `path`: the full path of the route,
 * `category`: the category of the route (which can be used to classify the routes for navigation) is added with a default value of `__top`. 
@@ -109,7 +130,7 @@ key of `application.view.fragment1.route1`.
 injector through a `module.value('myCheck', function checkFn() { ... });` and returning a promise). The routing is suspended
 until the promise is resolved (or rejected).
 
-### Custom metadata
+## Custom metadata
 
 Any additional metadata can be added to the route for custom purposes, but be aware to not interfere with W20 route metadata
 as any custom attribute of the same name will be overwritten before any custom route handler is called.
