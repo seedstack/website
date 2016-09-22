@@ -245,10 +245,6 @@ kbd {
     vertical-align: top;
 }
 
-.homepage-subheader-link.first-link {
-    padding-right: 60px;
-}
-
 .channel-marker {
     z-index: 9999;
     overflow: hidden;
