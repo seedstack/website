@@ -74,6 +74,10 @@ Permission names are completely arbitrary and developer defined but it is recomm
 term (like a "functional area" of the application or a use case) to the most specific term (like an action or an entity
 identifier).
 
+{{% callout tips %}}
+Permission can also be expressed as colon-delimited strings: `users:details:*` is equivalent to `[ 'users', 'details', '*' ]`.
+{{% /callout %}}
+
 ## Roles
 
 Roles are simply collections of permissions and, although they can be checked for explicitly, it is not recommended for
@@ -140,9 +144,9 @@ service as the security provider configured with the `config` section.
  
 The authentication service can be used to alter the currently connected subject:
  
-* authenticate a new subject with its credentials and define it as the globally active subject, 
-* deauthenticate the currently active subject,
-* refresh the currently active subject.
+* Authenticate a new subject with its credentials and define it as the globally active subject.
+* Deauthenticate the currently active subject.
+* Refresh the currently active subject.
 
 The authentication service can also be used to query identity information about the subject, such as its identifier or
 its principals.
@@ -152,28 +156,40 @@ its principals.
 The authorization service can be used to verify specific authorizations on the currently active subject and on a specific
 realm:
 
-* if the subject has a specific role (with possibly specific attributes),
-* if the subject has a specific permission (with possibly specific attributes).
+* If the subject has a specific role (with possibly specific attributes).
+* If the subject has a specific permission (with possibly specific attributes).
 
 It can also be used to query the list of roles, although it is limited to the unified roles.
 
 ## Security expression service
 
 Security expressions are a simple and effective way of checking the authentication and authorization status of the
-currently active subject. They are regular AngularJS expressions which can be evaluated in a specific context. Four 
-operations are available:
+currently active subject. Inject the `SecurityExpressionService` to evaluate them. Security expressions are normal
+AngularJS expressions with the following additional functions available:
 
 * `hasPermission(realm, permission, attributes)` which checks a permission for the currently active subject,
 * `hasRole(realm, role, attributes)` which checks if the currently active subject has a specific role,
 * `isAuthenticated()` which checks if there is a currently active subject,
 * `principal(name)` which returns the value of a specific principal
 
-The result of the security expression is evaluated as a boolean.
+The result of the security expression is evaluated as a boolean:
+
+    var result = securityExpressionService.evaluate("hasPermission('someRealm', 'users:details:clear')");
 
 # Security directive
 
 The `w20Security` directive allows to evaluate a security expression in a view and display the element only if it
-evaluates to true.
+evaluates to true. The expression is evaluated in its current scope, augmented with the security expression service operations described above:
+
+    <div data-w20-security="hasRole('someRealm', 'someRole')">
+        ...
+    </div>
+
+Or:
+
+    <div data-w20-security="someLocalScopeVariable && hasPermission('someRealm', 'users:details:clear')">
+        ...
+    </div>
 
 # Role filtering
 
