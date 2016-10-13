@@ -1,0 +1,25 @@
+{{ $parent := . }}
+{{ range $key, $value := $.Page.Params.menu }}
+{{ $currentUrl := $parent.Page.RelPermalink }}
+{{ if gt (len (index $parent.Page.Site.Menus $key)) 1 }}
+{{ range index $parent.Site.Menus $key }}
+{{ if eq $currentUrl .URL }}
+{{ if eq ($parent.Scratch.Get "hasPrevious") true }}
+    <div class='pull-left margin-top-20'>
+        <a href='{{ $parent.Scratch.Get "previousPage" }}' class="btn btn-default">Previous: {{ $parent.Scratch.Get "previousPageName" }}</a>
+    </div>
+{{ end }}
+{{ $parent.Scratch.Set "current" true }}
+{{ else if eq ($parent.Scratch.Get "current") true }}
+<div class='pull-right margin-top-20'>
+    <a href='{{ .URL }}' class="btn btn-u">Next: {{ .Name }}</a>
+</div>
+{{ $parent.Scratch.Set "current" false }}
+{{ end }}
+{{ $parent.Scratch.Set "hasPrevious" true }}
+{{ $parent.Scratch.Set "previousPage" .URL }}
+{{ $parent.Scratch.Set "previousPageName" .Name }}
+{{ end }}
+{{ end }}
+{{ end }}
+<div class="clearfix"></div>

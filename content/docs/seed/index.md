@@ -116,8 +116,4 @@ The kernel is a part of [Nuun IO](https://github.com/nuun-io) and is independent
 about it, please check [its own documentation](https://github.com/nuun-io/kernel/wiki).
 {{% /callout %}}
 
-<div class="pull-right margin-top-20">
-    <a href="manual" class="btn btn-u">Next: start reading the manual...</a>
-</div>
-<div class="clearfix"></div>
-
+{{% next href="manual" label="start reading the manual..." %}}

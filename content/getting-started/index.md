@@ -59,3 +59,5 @@ There are two main technologies found in SeedStack:
 * **HTML/CSS/JS** components which are distributed with [Bower](http://bower.io/search/). These components are also
 repackaged as Maven artifacts if Bower is unavailable in your environment.
 {{% /callout %}}
+
+{{% next href="tutorial" label="follow the tutorial..." %}}

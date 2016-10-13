@@ -12,21 +12,21 @@
                         <a href="{{ .URL }}" class="list-group-item {{ if $active }} active {{ end }}">
                             {{ .Name }}
                         </a>
-                        {{ if $.Scratch.Get "nextPage" }}
+                        {{ if $parent.Scratch.Get "nextPage" }}
                             <script>
                                 seedstack.state.nextPage = '{{ .URL }}';
                             </script>
-                            {{ $.Scratch.Set "nextPage" false }}
+                            {{ $parent.Scratch.Set "nextPage" false }}
                         {{ end }}
                         {{ if $active }}
                             {{ $toc }}
                             <script>
-                                seedstack.state.previousPage = '{{ $.Scratch.Get "previous" }}';
+                                seedstack.state.previousPage = '{{ $parent.Scratch.Get "previousPage" }}';
                             </script>
-                            {{ $.Scratch.Set "nextPage" true }}
+                            {{ $parent.Scratch.Set "nextPage" true }}
                         {{ end }}
                     </li>
-                    {{ $.Scratch.Set "previous" .URL }}
+                    {{ $parent.Scratch.Set "previousPage" .URL }}
                 {{ end }}
             </ul>
         </div>

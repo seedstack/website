@@ -125,7 +125,4 @@ can detects qualifiers to differentiate them. See [qualified injection](#qualifi
 
 Once a code pattern is properly recognized, it can be injected through its interface in any managed instance.
 
-<div class="pull-right margin-top-20">
-    <a href="manual" class="btn btn-u">Next: start reading the manual...</a>
-</div>
-<div class="clearfix"></div>
+{{% next href="manual" label="start reading the manual..." %}}
