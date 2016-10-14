@@ -19,7 +19,7 @@ menu:
 
 Seed transaction management allows interactions between the application code and one or more external resource(s) to be
 done transactionally (ie. in an all-or-nothing paradigm). It is used in conjunction with other supports handling external 
-resources such as persistence or messaging. For more detail about transactions, refer to this [wikipedia page](http://en.wikipedia.org/wiki/Transaction_processing).
+resources such as persistence or messaging.<!--more--> For more detail about transactions, refer to this [wikipedia page](http://en.wikipedia.org/wiki/Transaction_processing).
 
 # Dependency
 

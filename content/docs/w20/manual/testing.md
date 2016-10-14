@@ -16,7 +16,7 @@ menu:
 
 As your application grows it becomes harder to assert that all your features are still working correctly. 
 Whether you are doing some refactoring, upgrading a library version or adding new features, you want 
-a mechanism to assert that thing are working correctly and protect yourself from regression. 
+a mechanism to assert that thing are working correctly and protect yourself from regression.<!--more-->
 
 # Testing
 

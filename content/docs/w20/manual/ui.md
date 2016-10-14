@@ -18,7 +18,7 @@ menu:
 ---
 
 The user interface can be customized with the graphical framework of your choice along with services which helps in areas such as
-navigation, display and theming.
+navigation, display and theming.<!--more-->
  
 # UI Framework
 

@@ -10,7 +10,7 @@ zones:
 
 SeedStack is an extensible solution that can be enriched with add-ons to provide new functionality or features.
 Writing an add-on is not a difficult task as it is very similar to writing an application but some rules and
-conventions must be obeyed. This guide will describe these rules and conventions.
+conventions must be obeyed. This guide will describe these rules and conventions.<!--more-->
  
 # Project structure
  

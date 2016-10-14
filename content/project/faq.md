@@ -7,7 +7,7 @@ sections:
     - "ProjectFAQ"
 ---
 
-Answers to common questions about SeedStack.
+Answers to common questions about SeedStack.<!--more-->
 
 # How is SeedStack licensed ?
 

@@ -21,7 +21,7 @@ The domain model is expressed through three patterns:
 
 * **Entity** which is an object defined primarily by its identity.
 * **Value Object** which is an object with no conceptual identity and solely defined by is attributes.
-* **Service** which hold domain logic that doesn't clearly belong to an entity nor a value object.
+* **Service** which hold domain logic that doesn't clearly belong to an entity nor a value object.<!--more-->
 
 # Entities
 

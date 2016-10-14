@@ -15,14 +15,8 @@ menu:
         weight: 15
 ---
 
-AngularJS provides powerful routing capabilities which consists in a matching between a URL and 
-a route definition. This route definition specifies the contents and behavior of the view that will be displayed inside the 
-HTML tag containing the `ngView` attribute. To learn more about AngularJS routing, please check 
-[this documentation](https://docs.angularjs.org/api/ngRoute/provider/$routeProvider).
-
-Although the AngularJS programmatic way of defining the application routing can be used unaltered in any W20 application,
-a simpler declarative way of defining the routing is available. It is done through the `routes` section of fragment
-manifests:
+W20 provides a declarative syntax to register AngularJS routes in your application.<!--more--> It is done through the `routes` section 
+of fragment manifests:
 
     "routes": {
         "/route1": {
@@ -50,6 +44,12 @@ can be configured, the most common one being the `templateUrl` and the `controll
      }
  }
 ```
+
+{{% callout info %}}
+The route definition object specifies the contents and behavior of the view that will be displayed inside the HTML tag 
+containing the `ngView` attribute. To learn more about AngularJS routing, please check
+[this documentation](https://docs.angularjs.org/api/ngRoute/provider/$routeProvider).
+{{% /callout %}}
 
 # Route types
 

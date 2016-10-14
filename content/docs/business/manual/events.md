@@ -17,7 +17,7 @@ menu:
 ---
 
 Seed Business Framework contains an API to manage domain events. The `EventService` service is used to fire events. Events
-must be immutable and extend `DomainEvent` (which extends `BaseValueObject`).
+must be immutable and extend `DomainEvent` (which extends `BaseValueObject`).<!--more-->
 
 {{% callout info %}}
 **Notice:** Events can also be defined by implementing the `Event` interface. Nevertheless, this requires to 

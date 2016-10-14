@@ -18,7 +18,7 @@ menu:
 
 A repository is a pattern used to store and retrieve Aggregates from persistence with a **simple and global interface**,
 providing the illusion of an in-memory collection. A repository manipulates a whole aggregate through its aggregate 
-root and ensures that it is persisted and retrieved in a coherent manner.
+root and ensures that it is persisted and retrieved in a coherent manner.<!--more-->
 
 # Default repository
 

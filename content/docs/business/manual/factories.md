@@ -16,7 +16,7 @@ menu:
         weight: 50
 ---
 
-A factory is a pattern used to **create domain objects**, checking that provided data is complete and consistent.
+A factory is a pattern used to **create domain objects**, checking that provided data is complete and consistent.<!--more-->
 
 To be created by a factory the domain object must also implements `Producible`. This is necessary because all
 the domain objects are not producible by a factory. For instance an entity is only be producible by an aggregate

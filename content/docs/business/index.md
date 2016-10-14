@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "Business framework"
 type: "home"
 zones:
     - "Business"
@@ -13,7 +13,7 @@ menu:
 SeedStack business framework is a simple and coherent set of building blocks that enable you to code high quality business 
 logic efficiently. It is based on the **"Domain-Driven Design (DDD)"** software development approach from which it implements
 the main concepts. Following the DDD principles will help you to produce a supple and scalable design. Using the business
-framework will help you to implement it quickly and cleanly.
+framework will help you to implement it quickly and cleanly.<!--more-->
 
 The term term has been coined by Eric Evans in his book "Domain-Driven design", published in 2003. It is an approach of
 software development for medium to complex needs, based on the following premises:

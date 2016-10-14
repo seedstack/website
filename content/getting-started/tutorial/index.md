@@ -1,5 +1,5 @@
 ---
-title: "Step 1 - Creation"
+title: "Create your first SeedStack project"
 type: "home"
 zones:
     - "GettingStarted"
@@ -11,14 +11,14 @@ menu:
 ---
 
 Welcome to the SeedStack tutorial! It is intended to walk you through the most interesting features of SeedStack, by 
-making you build a simple Web application from scratch.
+making you build a simple Web application from scratch.<!--more-->
 
 {{% callout info %}}
 SeedStack can be used for any type of project and provides templates for several [predefined project types](../project-templates).
 This tutorial is focused on a **[Web application project](../project-templates/web)**.
 {{% /callout %}}
 
-# Project creation
+# Project generation
 
 The first step is to create the Web application using the latest project template:
 

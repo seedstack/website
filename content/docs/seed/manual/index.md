@@ -1,5 +1,5 @@
 ---
-title: "Basics"
+title: "Java framework basics"
 type: "home"
 zones:
     - "Seed"
@@ -21,7 +21,7 @@ menu:
 SeedStack Java framework (or simply Seed) is a solution for building Java applications, no matter how simple or advanced,
 without pain. It does so by providing a simple yet highly modular architecture and by taking charge of various technical 
 aspects frequently encountered in enterprise applications. It accommodates any kind of Java 1.6+ runtime and offers the 
-same level of features from command-line standalone JVMs to full-fledged Web application servers. 
+same level of features from command-line standalone JVMs to full-fledged Web application servers.<!--more-->
 
 # Dependencies
 

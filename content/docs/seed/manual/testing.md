@@ -17,7 +17,7 @@ menu:
 ---
 
 Seed offers various tools to facilitate the writing of your tests in the `seed-testing` module, notably a JUnit test runner
-for integration testing. This runner handles kernel startup and shutdown as well as injection of test classes. It can also
+for integration testing.<!--more--> This runner handles kernel startup and shutdown as well as injection of test classes. It can also
 detect and activate Seed test plugins which augment the test behavior. For instance the Seed security test plugin can
 login a predefined user based on an annotation.
 

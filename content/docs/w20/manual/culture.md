@@ -20,7 +20,7 @@ menu:
 ---
 
 W20 provides an extensive culture support through the jQuery Globalize library. It provides the developer tools to 
-internationalize a W20 application which can then be localized via fragment manifests. As AngularJS
+internationalize a W20 application which can then be localized via fragment manifests.<!--more--> As AngularJS
 also provides internalization support, W20 attempts to convert the active Globalize culture definition to an 
 AngularJS locale, on a best-effort basis. This automatic conversion has limits, so it is recommended to stick to
 the W20 functions and services for internationalization. 

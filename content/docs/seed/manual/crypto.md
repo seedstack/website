@@ -16,12 +16,8 @@ menu:
         weight: 90
 ---
 
-Seed provides helpers for Java cryptography:
-
- * Private key encryption
- * Secure hashing
- * KeyStore configuration
- * SSL configuration
+Seed provides helpers for Java cryptography: private key encryption, secure hashing, KeyStore configuration and SSL 
+configuration.<!--more--> To use these helpers add the `seed-crypto` module to your classpath. 
 
 {{< dependency g="org.seedstack.seed" a="seed-crypto" >}}
 

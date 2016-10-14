@@ -12,7 +12,7 @@ menu:
 
 SeedStack modular design involves a lot of small modules that focus on a particular technology or scope. This enables you
 to cherry-pick the modules you really need for your projects and not more. It also allows us to update components 
-independently, in their own lifecycle, without disruption to other parts of the stack.
+independently, in their own lifecycle, without disruption to other parts of the stack.<!--more-->
 
 Usually, managing projects with numerous dependent modules, each with their own lifecycle, can be a complex task. Not so 
 much with the SeedStack distribution which **automatically handles the dependency management for you**. The main benefits of 

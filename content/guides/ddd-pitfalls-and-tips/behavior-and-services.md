@@ -10,7 +10,7 @@ menu:
 ---
 
 Sometimes behavior doesn't fit into Entities or Value Objects. Pure operations may exist in the domain and should therefore
-be modeled as such. Domain-Driven-Design propose the Service pattern to model these operations. 
+be modeled as such. Domain-Driven-Design propose the Service pattern to model these operations.<!--more-->
 
 It is important to strike a balance between modeling all behavior inside objects and modeling all behavior as Services. 
 Complex operations can easily muddle the conceptual clarity of simple objects and, when applying on many different domain 

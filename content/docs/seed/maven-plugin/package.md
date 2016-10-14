@@ -18,7 +18,7 @@ menu:
 ---
 
 The `package` goal packages any self-executable SeedStack application in a [Capsule](http://www.capsule.io/).
-A Capsule is a way of packaging and running any application with all its dependencies from a unique plain executable JAR.
+A Capsule is a way of packaging and running any application with all its dependencies from a unique plain executable JAR.<!--more-->
 
 {{% callout info %}}
 Self-executable SeedStack application are applications that contains one and only one implementation of the {{< java "org.seedstack.seed.spi.SeedLauncher" >}}

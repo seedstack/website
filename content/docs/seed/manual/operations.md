@@ -18,7 +18,7 @@ menu:
 Seed provides the necessary tools to closely monitor the performance and the availability of your application or service,
 and even to take action if necessary. It does so by capturing metrics on key application components and checking their 
 health status. Custom metrics and health-checks can be defined. If you need to take action, you can execute predefined 
-or custom management commands through SSH. 
+or custom management commands through SSH.<!--more-->
   
 {{< dependency g="org.seedstack.seed" a="seed-metrics" >}}
 

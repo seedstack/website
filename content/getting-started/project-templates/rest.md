@@ -11,7 +11,7 @@ menu:
 ---
 
 A REST micro-service project is an executable JAR module embedding the Undertow Web server. It is intended to only contain
-backend Java classes to provide a REST API. It is the ideal template for lightweight REST micro-services.
+backend Java classes to provide a REST API. It is the ideal template for lightweight REST micro-services.<!--more-->
 
 # Creation
 

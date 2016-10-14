@@ -18,7 +18,7 @@ menu:
 
 The data presentation API helps developers presenting the data from their domain to external actors. Those are
 generally remote REST clients like a browser, web services consumers or RPC/RMI clients. The data presentation API supports
-patterns often used in data restitution: pagination, infinite-scroll, random chunk access.
+patterns often used in data restitution: pagination, infinite-scroll, random chunk access.<!--more-->
 
 # Concepts
 The following describes the API. We'll specialize some concepts already presented like the finder.

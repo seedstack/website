@@ -13,7 +13,7 @@ zones:
 
 We are happy to announce the release of SeedStack 16.4, the first major release of 2016. Building on the recently introduced
 add-on architecture, this releases brings several new components and features. A lot of improvements have also been done
-under-the-hood to keep SeedStack up-to-date with current technologies and standards.
+under-the-hood to keep SeedStack up-to-date with current technologies and standards.<!--more-->
 
 # New features
 

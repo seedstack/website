@@ -10,6 +10,8 @@ menu:
         weight: 30
 ---
 
+This page lists the major users of SeedStack.<!--more--> 
+
 {{% user "PSA Peugeot-Citroën" "/img/clients/psa.svg" "France" "Car manufacturing" "http://www.psa-peugeot-citroen.com" %}}
 Since the end of 2013 SeedStack is the foundation of all the new enterprise applications of "PSA Peugeot Citroën". More than
 50 Java web information systems for different domains like vehicle trading, research and development, digital, manufacturing,

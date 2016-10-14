@@ -10,7 +10,7 @@ zones:
 
 
 Dependency injection in AngularJS is supremely useful, and the key to making easily testable components. This article 
-explains how AngularJS dependency injection system works.
+explains how AngularJS dependency injection system works.<!--more-->
 
 # The Provider ($provide)
 

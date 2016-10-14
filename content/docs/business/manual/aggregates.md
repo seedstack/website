@@ -18,7 +18,7 @@ menu:
 Domain objects have a lifecycle: they are created, go through various states and eventually die (either being archived
 or deleted). Many of these objects are simple, transient objects which are simply created with a call to their constructor
 and thrown away after use. There is no need to complicate such objects. But some objects are more rich, with a complex
-lifecycle and numerous relationships with other objects. 
+lifecycle and numerous relationships with other objects.<!--more-->
 
 The challenges of managing these objects can also be addressed with several patterns. The first one is the **aggregate pattern,
 which define clear ownership and boundaries between domain objects**.

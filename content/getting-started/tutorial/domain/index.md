@@ -1,5 +1,5 @@
 ---
-title: "Step 2 - The domain"
+title: "Step 1 - The domain"
 type: "home"
 zones:
     - "GettingStarted"
@@ -11,7 +11,7 @@ menu:
 ---
 
 Now it is time to write the domain of the application. To do so, we will use the [business framework](/docs/business) which
-is implementing Domain-Driven Design principles and patterns.
+is implementing Domain-Driven Design principles and patterns.<!--more-->
 
 # The domain model
 

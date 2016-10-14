@@ -23,7 +23,7 @@ menu:
 Seed has great support for Web applications whether by using its lightweight embedded Web server or in more classical
 environments, when using an external Web application server. Seed provides tight integration with the Java Servlet 
 specification along with support for HTTP security, WebSockets, Cross-Origin Resource Sharing (CORS), or advanced 
-static-resources serving. To enable Web support in your project, add the `seed-web-core` module to your classpath.
+static-resources serving.<!--more--> To enable Web support in your project, add the `seed-web-core` module to your classpath.
 
 {{< dependency g="org.seedstack.seed" a="seed-web-core" >}}
 

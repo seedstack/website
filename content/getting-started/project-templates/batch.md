@@ -11,7 +11,7 @@ menu:
 ---
 
 A batch application project is an executable JAR module. It is intended to contain Spring batch jobs and their associated
-Java classes.
+Java classes.<!--more-->
 
 # Creation
 

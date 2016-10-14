@@ -12,7 +12,7 @@ zones:
   - Posts
 ---
 
-We are happy to announce the release of SeedStack 15.11.2, the second incremental update of SeedStack 15.11.
+We are happy to announce the release of SeedStack 15.11.2, the second incremental update of SeedStack 15.11.<!--more-->
 
 # Fixes
 

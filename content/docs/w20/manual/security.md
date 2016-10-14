@@ -16,7 +16,7 @@ menu:
 ---
 
 W20 applications can be integrated with security backends to authenticate users and display views that are consistent with
-the backend security model. 
+the backend security model.<!--more-->
 
 {{% callout danger %}}
 Before going into details, **it is crucial to understand that a client-side Web application such as a W20 one can almost 

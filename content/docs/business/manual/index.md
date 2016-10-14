@@ -1,5 +1,5 @@
 ---
-title: "Basics"
+title: "Business framework basics"
 type: "home"
 zones:
     - "Business"
@@ -18,7 +18,7 @@ menu:
 
 This manual will begin by to introducing and explaining all the concepts that you will need to know and master to build
 successful business applications. These concepts come from the DDD software approach which is central to the Business
-framework. You will NOT be presented with in-depth coverage of all the DDD subtleties, so to go beyond the basics you
+framework.<!--more--> You will NOT be presented with in-depth coverage of all the DDD subtleties, so to go beyond the basics you
 should have a look at the [bibliography](../bibliography). Moreover, links will be provided in the text when related
 quality content is available.
 

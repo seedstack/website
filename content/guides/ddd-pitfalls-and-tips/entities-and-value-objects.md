@@ -12,7 +12,7 @@ menu:
 Modeling business concepts with objects may seem very intuitive at first sight but there are a lot of difficulties 
 awaiting us in the details. To clarify the meaning of model elements and propose a set of design practices, Domain-Driven
 Design defines three patterns that express the model: Entities, Value Objects and Services. This chapter will focus
-on Entities and Value Objects, leaving Services for their [own chapter](../behavior-and-services).
+on Entities and Value Objects, leaving Services for their [own chapter](../behavior-and-services).<!--more-->
 
 # Entities
     

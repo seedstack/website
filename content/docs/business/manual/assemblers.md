@@ -19,7 +19,7 @@ menu:
 ---
 
 The assembler pattern is used to transfer a representation of the state of *Aggregates* to *DTO/Representation* objects. 
-The Business Framework provides a interface and few base classes to ease the development of assemblers.
+The Business Framework provides a interface and few base classes to ease the development of assemblers.<!--more-->
 
 # Default assembler
 

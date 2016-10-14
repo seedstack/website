@@ -15,7 +15,9 @@ menu:
         weight: 90
 ---
 
-The role of a finder is to query the persistence layer or any data source to obtain objects specific to an interface of the application. It only does **read-only** operations and is NOT meant to replace the repository as it doesn't produce domain objects but interface-specific objects like REST representations.
+The role of a finder is to query the persistence layer or any data source to obtain objects specific to an interface of 
+the application. It only does **read-only** operations and is NOT meant to replace the repository as it doesn't produce 
+domain objects but interface-specific objects like REST representations.<!--more-->
 
 {{% callout info %}}
 A finder shouldn't generally delegate its data retrieval to the domain repository. Instead it should directly issue the most efficient query against the persistence layer and construct DTO objects, completely bypassing the domain. Consider the following implications:

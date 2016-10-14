@@ -12,7 +12,7 @@ menu:
 
 A Java Web application project is a JAR module embedding the Undertow Web server. It is intended to contain backend
 Java classes as well as frontend W20 static resources. It also includes the [W20 bridge add-on](/addons/w20-bridge) which
-automatically manages the W20 frontend.
+automatically manages the W20 frontend.<!--more-->
 
 # Creation
 

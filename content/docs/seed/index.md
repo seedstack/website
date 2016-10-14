@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "Java framework"
 type: "home"
 zones:
     - "Seed"
@@ -17,7 +17,7 @@ menu:
 ---
 
 SeedStack Java framework, also simply known as "Seed", is a comprehensive solution enabling you to build Java applications
-or cloud services easily and efficiently. 
+or cloud services easily and efficiently.<!--more-->
 
 # Opinionated...
 

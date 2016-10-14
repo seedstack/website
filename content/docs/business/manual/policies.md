@@ -14,7 +14,7 @@ menu:
         weight: 70
 ---
 
-A policy is a variant of the Strategy pattern to encapsulate one or more business rules.
+A policy is a variant of the Strategy pattern to encapsulate one or more business rules.<!--more-->
 
 # Definition
 

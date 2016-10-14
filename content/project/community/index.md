@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "Community"
 type: home
 zones:
     - Project
@@ -11,7 +11,7 @@ menu:
 ---
 
 SeedStack has just arrived on the Open-Source scene. Nonetheless we already have the tools to let people discuss about
-SeedStack, file issues, ask for help and simply discover the stack together.
+SeedStack, file issues, ask for help and simply discover the stack together.<!--more-->
   
 # IRC
 

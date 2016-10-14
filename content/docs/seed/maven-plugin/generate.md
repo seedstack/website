@@ -17,7 +17,7 @@ menu:
 ---
 
 To create a SeedStack project from scratch you can use `generate` goal from the SeedStack Maven Plugin.
-This goal is invoked from the command line.
+This goal is invoked from the command line.<!--more-->
 
 # Parameters
 

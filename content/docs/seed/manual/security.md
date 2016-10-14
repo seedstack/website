@@ -18,7 +18,7 @@ menu:
         weight: 50
 ---
 
-Seed provides application security through a powerful security model, which is equally easy to configure and to enforce.
+Seed provides application security through a powerful security model, which is equally easy to configure and to enforce.<!--more-->
 It takes charge of the following tasks:
 
 * Identification (provides the identity of a subject),

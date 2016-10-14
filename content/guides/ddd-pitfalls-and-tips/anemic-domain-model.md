@@ -11,7 +11,7 @@ menu:
 
 An Anemic Domain Model is something that can be found a lot of projects and, astonishingly, is often viewed as a good 
 practice. But as you may already have deduced from its name, it doesn't sound like something desirable and certainly not 
-in DDD-oriented software.
+in DDD-oriented software.<!--more-->
 
 And indeed it isn't. An Anemic Domain Model is the result of having all, or almost all, the behavior of the Domain in
 separate classes (often called Services) that are directly changing the internal state of entities through setters. In

@@ -11,7 +11,7 @@ zones:
 AngularJS is a web application framework that makes creating complicated web applications much simpler. One of its best
 features is the ability to create directives, or reusable web components. It gives you the ability to create new HTML
 tags and attributes, which can dynamically display content in response to data changes, as well as update the data when
-appropriate.
+appropriate.<!--more-->
 
 They’re a big productivity booster because they let you wrap up a complicated interaction with the DOM in a nice,
 reusable package.

@@ -1,5 +1,5 @@
 ---
-title: "Basics"
+title: "Web framework basics"
 type: "home"
 zones:
     - "W20"
@@ -18,7 +18,8 @@ menu:
         weight: 10
 ---
 
-This manual will provide you with a deeper understanding of the fundamentals of W20.
+W20 is an integration framework for the AngularJS-based Single Page Applications (SPA). It offers a modular programming
+model based on fragments and high-level services to accelerate your Web development.<!--more-->
 
 # Fragments and configuration
 

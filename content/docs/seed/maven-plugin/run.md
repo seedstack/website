@@ -15,7 +15,7 @@ menu:
         weight: 30
 ---
 
-The `run` goal runs any self-executable SeedStack application directly from the command line.
+The `run` goal runs any self-executable SeedStack application directly from the command line.<!--more-->
 
 {{% callout info %}}
 Self-executable SeedStack application are applications that contains one and only one implementation of the {{< java "org.seedstack.seed.spi.SeedLauncher" >}}

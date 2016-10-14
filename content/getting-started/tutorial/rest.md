@@ -1,5 +1,5 @@
 ---
-title: "Step 5 - The REST API"
+title: "Step 4 - The REST API"
 type: "home"
 zones:
     - "GettingStarted"
@@ -11,7 +11,7 @@ menu:
 ---
 
 For our domain and its client application to be useful to others, we need to create an interface with the outside world.
-In this example, we choose to build a simply REST API. SeedStack provides full JAX-RS 2 support through Jersey 2.
+In this example, we choose to build a simply REST API.<!--more--> SeedStack provides full JAX-RS 2 support through Jersey 2.
 
 We start by adding a simplified REST representation of an order to the `org.myorg.myapp.rest.order` package:
 

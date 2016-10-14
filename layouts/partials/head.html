@@ -1,14 +1,8 @@
 {{ if isset .Params.zones 0 }}
     {{ $.Scratch.Add "zone" (index .Site.Params.zone (index .Params.zones 0) "label") }}
 {{ end }}
-{{ if isset .Params.sections 0 }}
-    {{ $.Scratch.Add "section" (index .Site.Params.section (index .Params.sections 0) "label") }}
-{{ end }}
-{{ if isset .Params.subsections 0 }}
-    {{ $.Scratch.Add "subsection" (index .Params.subsections 0) }}
-{{ end }}
 <title>
-    {{ if not (eq .Title "") }} {{ if isset .Params.subsections 0 }} {{ if not (eq .Title ($.Scratch.Get "subsection")) }} {{ $.Scratch.Get "subsection" }} - {{ .Title }} {{ else }} {{ .Title }} {{ end }} {{ else }} {{ if isset .Params.sections 0 }} {{ if not (eq .Title ($.Scratch.Get "section")) }} {{ $.Scratch.Get "section" }} - {{ .Title }} {{ else }} {{ if isset .Params.zones 0 }} {{ $.Scratch.Get "zone" }} - {{ $.Scratch.Get "section" }} {{ else }} {{ .Title }} {{ end }} {{ end }} {{ else }} {{ if isset .Params.zones 0 }} {{ $.Scratch.Get "zone" }} - {{ .Title }} {{ else }} {{ .Title }} {{ end }} {{ end }} {{ end }} {{ else }} SeedStack {{ end }}
+    {{ if or (eq ($.Scratch.Get "zone") "Add-ons") (eq ($.Scratch.Get "zone") "Themes") }}{{ .Params.name }} - {{ end }}{{ if eq .Title ""}}SeedStack{{ else }}{{ .Title }}{{ end }}
 </title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,6 +37,14 @@
 }
 </script>
 <!-- end of JSON+LD structured data -->
+
+<!-- opengraph -->
+<meta property="og:title" content="{{ .Title }}" />
+{{ if .IsPage }}<meta property="og:description" content="{{ .Summary }}" />{{ end }}
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:site_name" content="SeedStack" />
+<meta property="og:image" content="{{ .Site.BaseURL }}img/opengraph-default.png" />
+<!-- end of opengraph -->
 
 <!-- opensearch -->
 <link rel="search" type="application/opensearchdescription+xml" href="{{ .Site.BaseURL }}opensearch.xml" title="SeedStack" />

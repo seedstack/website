@@ -13,7 +13,7 @@ menu:
         weight: 10
 ---
 
-The SeedStack Maven plugin provides goals to manage SeedStack-based artifacts. To invoke the plugin, use the following 
+The SeedStack Maven plugin provides goals to manage SeedStack-based artifacts.<!--more--> To invoke the plugin, use the following 
 command line:
 
     mvn org.seedstack:seedstack-maven-plugin:<goal>

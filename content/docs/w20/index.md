@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "Web framework"
 type: "home"
 zones:
     - "W20"
@@ -18,7 +18,7 @@ menu:
 
 W20 is a web solution designed to allow developers to quickly and simply create enterprise-grade **Single Page
 Application** (SPA). It is **server agnostic** which means it can work with any HTTP capable server technology. In fact,
-it can even work without any server.
+it can even work without any server.<!--more-->
 
 # Benefits
 

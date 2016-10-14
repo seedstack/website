@@ -13,7 +13,7 @@ menu:
 ---
 
 Writing advanced command-line applications is simple with the Java framework command-line interface (CLI) module. Seed
-provides support for multiple commands, each with their own options and argument combinations. To enable CLI support
+provides support for multiple commands, each with their own options and argument combinations.<!--more--> To enable CLI support
 to your project, add the `seed-cli` module to your classpath.
 
 {{< dependency g="org.seedstack.seed" a="seed-cli" >}}

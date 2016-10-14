@@ -20,7 +20,7 @@ menu:
 Hypermedia is a powerful aspect of the REST architectural style. A client application can consume and navigate through 
 REST resources via structured links relations. Navigation through APIs resemble web navigation: from a web page it is 
 possible to follow links to new documents. In the same way, hypermedia provides a mechanism to interact with remote data 
-with navigation and discovery in mind.
+with navigation and discovery in mind.<!--more-->
 
 For an overview of this concept, please refer to the documentation of the Java framework [Restful API](/docs/seed/manual/rest#designing-restful-api).
 

@@ -11,7 +11,7 @@ menu:
 ---
 
 A command-line (CLI) application project is a executable JAR module. It is intended to contain only backend Java classes
-to provide command-line commands.
+to provide command-line commands.<!--more-->
 
 # Creation
 

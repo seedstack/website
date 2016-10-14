@@ -8,7 +8,7 @@ sections:
 ---
 
 The SeedStack Java framework is designed to work equally well and provide the same level of features in a standalone or
-a managed environment.
+a managed environment.<!--more-->
 
 # Java
 

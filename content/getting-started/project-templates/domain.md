@@ -11,7 +11,7 @@ menu:
 ---
 
 If you are using the [business framework](/docs/business) you can choose to write your domain in its own module for 
-reuse and modularity purposes. In that case, each domain (e.g. each business context) should go in its own module.
+reuse and modularity purposes. In that case, each domain (e.g. each business context) should go in its own module.<!--more-->
 
 # Creation
 

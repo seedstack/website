@@ -13,7 +13,7 @@ Most business domains have very interconnected Entities, sometimes up to the poi
 from any Entity to any other. We can try to minimize the number of associations in our design, and this is a good practice
 but it can lead to a translation loss between business and software. In a typical object model, it is difficult to 
 clearly see the boundaries of a change. This is particularly acute in systems with concurrent access such as Web
-applications.
+applications.<!--more-->
 
 {{% callout info %}}
 It is difficult to guarantee the consistency of changes to objects in a model with complex associations and no clear

@@ -12,7 +12,7 @@ menu:
 
 SeedStack-based projects can be created from scratch but we propose a number of predefined project templates in the SeedStack
 reference distribution that can be generated from [Maven archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html)
-or [Yeoman generators](http://yeoman.io/). We recommend that you use these project templates, especially if you are
+or [Yeoman generators](http://yeoman.io/).<!--more--> We recommend that you use these project templates, especially if you are
 new to SeedStack as they provide several benefits:
 
 * They are immediately executable and deployable after generation,

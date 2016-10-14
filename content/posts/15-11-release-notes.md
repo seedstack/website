@@ -14,7 +14,7 @@ zones:
 
 We are happy to announce the release of SeedStack 15.11, codenamed "Hibiscus". This new version comes with a new 
 add-on architecture and several new features like business framework improvements, a full-featured cryptography 
-module and support for several NoSQL technologies.
+module and support for several NoSQL technologies.<!--more-->
 
 # Automatic upgrade
 
