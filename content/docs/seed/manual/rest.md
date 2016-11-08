@@ -28,15 +28,21 @@ the `seed-rest-jersey2` module.
 A `seed-rest-jersey1` module is also provided when JAX-RS 2.0 cannot be used in your environment.
 {{% /callout %}}
 
-# JAX-RS 101
+# Base prefix
+
+REST resources are exposed on `/` by default and have precedence when their path conflict with a static resource. You can choose to change the default prefix by specifying the following configuration property:
+
+```ini
+org.seedstack.seed.rest.path = /api
+```
+
+This would place the REST API on its own path, avoiding any conflict with other application resources.
+
+# JAX-RS basics
 
 Within JAX-RS context, resources are classes annotated with `@Path`. All these classes are automatically detected and registered 
 by Seed. This means that you can inject any other classes managed by Seed in your resources. A new instance of the resource 
 class is created for each request.
-
-{{% callout info %}}
-REST resources are exposed on `/` by default and have priority when their path conflict with a static resource. The default prefix can be changed by specifying the `org.seedstack.seed.rest.path` configuration property.
-{{% /callout %}}
 
 Below is an example of a simple "Hello World" REST resource:
 
