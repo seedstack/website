@@ -1,8 +1,6 @@
 <article class="post">
     <header>
-        <h1>
-            <a style="text-decoration: none;" href='{{ .Permalink }}'>{{ .Params.name }}</a>
-        </h1>
+        <h1 class="nocount"><a style="text-decoration: none;" href='{{ .Permalink }}'>{{ .Params.name }}</a></h1>
     </header>
 
     {{ if not (eq .Description "") }}

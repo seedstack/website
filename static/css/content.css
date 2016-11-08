@@ -187,6 +187,67 @@
     margin-right: 0.1em;
 }
 
+
+.doc-content {
+    counter-reset : h1;
+}
+
+.doc-content h1 {
+    counter-reset : h2;
+}
+
+.doc-content h2 {
+    counter-reset : h3;
+}
+
+.doc-content h3 {
+    counter-reset : h4;
+}
+
+.doc-content h4 {
+    counter-reset : h5;
+}
+
+.doc-content h5 {
+    counter-reset : h6;
+}
+
+.doc-content h1:before {
+    content : counter(h1,decimal) ". ";
+    counter-increment : h1;
+}
+
+.doc-content h2:before {
+    content : counter(h1,decimal) "." counter(h2,decimal) ". ";
+    counter-increment : h2;
+}
+
+.doc-content h3:before {
+    content : counter(h1,decimal) "." counter(h2,decimal) "." counter(h3,decimal) ". ";
+    counter-increment : h3;
+}
+
+.doc-content h4:before {
+    content : counter(h1,decimal) "." counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) ". ";
+    counter-increment : h4;
+}
+
+.doc-content h5:before {
+    content : counter(h1,decimal) "." counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) "." counter(h5,decimal) ". ";
+    counter-increment : h5;
+}
+
+.doc-content h6:before {
+    content : counter(h1,decimal) "." counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) "." counter(h5,decimal) "." counter(h6,decimal) ". ";
+    counter-increment : h6;
+}
+
+.doc-content h1.nocount:before, .doc-content h2.nocount:before, .doc-content h3.nocount:before, .doc-content h4.nocount:before, .doc-content h5.nocount:before, .doc-content h6.nocount:before {
+    content : "";
+    counter-increment : none;
+}
+
+
 .callout {
     margin: 20px 0;
     padding: 20px 30px;
@@ -318,3 +379,4 @@
         padding: 20px;
     }
 }
+
