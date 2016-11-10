@@ -34,7 +34,7 @@ ability for you to define 5 types of custom metrics:
 * **Timer**, which combines an histogram of an event duration and a meter of the rate of its occurrence.
 
 {{% callout info %}}
-Seed metrics module implementation is based on the [Metrics](http://metrics.codahale.com/) library. Please check its
+Seed metrics module implementation is based on the [Metrics](http://metrics.dropwizard.io/) library. Please check its
 documentation for more information.
 {{% /callout %}}
 
