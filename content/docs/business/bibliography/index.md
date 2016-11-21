@@ -48,7 +48,7 @@ as well other sources since published such as Jimmy Nilsson's Applying Domain Dr
 forums. The main topics covered in the book include: Building Domain Knowledge, The Ubiquitous Language, Model Driven 
 Design, Refactoring Toward Deeper Insight, and Preserving Model Integrity.
 
-[Free PDF version](.), also available in [french](http://blog.infosaurus.fr/public/docs/DDDViteFait.pdf) or in 
-[chinese](.). You can also [buy a paper version](http://www.amazon.com/Domain-Driven-Design-Quickly-Abel-Avram/dp/1411609255).
+[Free PDF version](http://www.infoq.com/resource/minibooks/domain-driven-design-quickly/en/pdf/DomainDrivenDesignQuicklyOnline.pdf), also available in [french](http://blog.infosaurus.fr/public/docs/DDDViteFait.pdf) or in 
+[chinese](http://www.infoq.com/resource/minibooks/domain-driven-design-quickly/zh/pdf/dddquickly-chinese-version.pdf). You can also [buy a paper version](http://www.amazon.com/Domain-Driven-Design-Quickly-Abel-Avram/dp/1411609255).
 
 <div style="clear: both;"></div>
