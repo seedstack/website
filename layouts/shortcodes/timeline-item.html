@@ -5,7 +5,7 @@
     </div>
     <i class="cbp_tmicon rounded-x hidden-xs"></i>
     <div class="cbp_tmlabel equal-height-column" style="height: 192px;">
-        <h2>{{ .Get "title" }}{{ if .Get "link" }}<span class="pull-right"><small><a href='{{ .Get "link" }}'>Details...</a></small></span>{{ end }}</h2>
+        <h2 class="nocount">{{ .Get "title" }}{{ if .Get "link" }}<span class="pull-right"><small><a href='{{ .Get "link" }}'>Details...</a></small></span>{{ end }}</h2>
         {{ if .Get "image" }}
         <div class="row">
             <div class="col-md-4">
