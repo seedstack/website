@@ -5,7 +5,7 @@
 .title-header {
     height: 180px;
     overflow: hidden;
-    background: #89c758 url('../img/bg-pattern.png') repeat left top;
+    background: #3498db url('../img/bg-pattern.png') repeat left top;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 -2px 1px #cff0b5;
 }
 
@@ -33,26 +33,23 @@
 
 .title-header h1 {
     margin: 30px 15px 15px 0;
-    font-family: 'Bitter', sans-serif;
-    font-weight: normal;
+    font-weight: 400;
     color: #f9f9f9;
-    line-height: 70px;
+    line-height: 48px;
     padding: 0;
-    font-size: 70px;
+    font-size: 48px;
     font-style: normal;
     text-shadow: 1px 1px 1px #555;
 }
 
 .title-header h2 {
-    margin: 30px 15px 15px 0;
-    font-family: 'Bitter', sans-serif;
-    font-weight: normal;
+    margin: 10px 0;
+    font-weight: 400;
+    font-size: 26px;
     color: #f9f9f9;
-    line-height: 40px;
+    line-height: 30px;
     padding: 0;
-    font-size: 40px;
     font-style: normal;
-    text-shadow: 1px 1px 1px #555;
 }
 
 .title-header p {
@@ -68,7 +65,7 @@
 
 .title-header p.bigger {
     font-size: 30px;
-    line-height: 35px;
+    line-height: 40px;
 }
 
 .title-header p i {
@@ -79,7 +76,7 @@
 
 .title-subheader {
     padding: 0 20px 0 20px;
-    background-color: #498819;
+    background-color: #2980b9;
     min-height: 40px;
 }
 
@@ -88,25 +85,30 @@
     font-weight: 300;
 }
 
-.title-subheader h3 {
+.title-subheader span {
     margin: 0;
     padding: 5px 0 5px 0;
-    line-height: 30px;
+    line-height: 40px;
     white-space: nowrap;
+    font-size: 20px;
 }
 
-.title-subheader h3 > img {
+.title-subheader span > img {
     height: 30px;
     vertical-align: top;
 }
 
-.title-subheader h3.active a {
+.title-subheader span.active a {
     font-weight: 400;
-    color: orange;
+    color: #6be1ff;
     background: transparent url('../img/triangle.svg') no-repeat 50% 24px;
     background-size: 20px 10px;
     margin-bottom: -10px;
     padding-bottom: 10px;
+}
+
+.title-subheader span.active a:hover {
+    color: white;
 }
 
 .title-subheader ul {
@@ -132,15 +134,23 @@
     border: 0;
 }
 
-.quick-start h4 {
-    color: #FFFFFF;
+.quick-start span {
+    color: white;
+    font-size: 18px;
+}
+
+.quick-start button {
+    font-size: 20px;
+    line-height: 20px;
+    padding: 8px;
 }
 
 .quick-start .quick-paste {
-    background-color: rgba(73, 136, 25, 0.5);
-    padding: 10px;
-    line-height: 21px;
-    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    line-height: 20px;
+    padding: 10px 10px 6px 10px;
+    margin-right: 10px;
     font-family: 'Source Code Pro', courier, monospace !important;
     list-style-type: none;
     user-select: none;
@@ -154,23 +164,16 @@
     -moz-user-select: text;
     -ms-user-select: text;
     -webkit-user-select: text;
-    color: white;
+    color: #15425d;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .quick-start .quick-paste > li.unix::before {
     content: '$ ';
-    color: white;
-}
-
-.quick-start .quick-paste > li.windows::before {
-    content: '> ';
-    color: white;
-}
-
-.btn-u.btn-u-download-win {
-    background: #498819;
-    font-size: 18px;
-    height: 43px;
+    font-weight: bold;
+    color: #15425d;
+    font-size: 16px;
 }
 
 .prompt {
@@ -219,7 +222,7 @@
     height: auto;
     padding: 50px 0;
     position: relative;
-    background: #89c758 url('../img/bg-pattern.png') repeat fixed;
+    background: #3498db url('../img/bg-pattern.png') repeat fixed;
 }
 
 kbd {
@@ -241,8 +244,15 @@ kbd {
 }
 
 .homepage-subheader-link {
-    float: right;
     vertical-align: top;
+}
+
+.homepage-subheader-link a:hover {
+    color: white;
+}
+
+.homepage-subheader-link.twitter-logo {
+    padding: 10px 60px 0 0;
 }
 
 .channel-marker {
@@ -266,6 +276,27 @@ kbd {
     padding: 10px 0 10px 0;
 }
 
+i.icon-bg-u {
+    color:white;
+}
+
+.bg-parallax.service-info i.service-info-icon {
+    color: white;
+    border-color: white;
+}
+
+.bg-parallax.service-info .info-description p {
+    color: white;
+}
+
+.bg-parallax.service-info p {
+    color: white;
+}
+
+.bg-parallax.service-info .info-description h3 {
+    color: white;
+}
+
 .channel-marker span a {
     color: #fff;
     text-decoration: underline;
@@ -287,17 +318,6 @@ kbd {
     }
 }
 
-@media (max-width: 992px) {
-    .github-link {
-        padding-right: 0;
-        float: none;
-    }
-
-    .title-subheader h3.active a {
-        background: none;
-    }
-}
-
 @media (min-width: 992px) {
     .header .navbar-nav {
         padding-left: 150px;
@@ -305,11 +325,33 @@ kbd {
 }
 
 @media (max-width: 1199px) {
+    .quick-start button {
+        padding: 20px;
+    }
+
     .header .navbar-nav > li > a {
         padding-left: 0;
     }
 
     .header .dropdown-menu {
         min-width: 160px;
+    }
+}
+
+@media (max-width: 991px) {
+    .header .navbar-collapse .container {
+        padding: 10px;
+    }
+
+    .header .nav > li > .search {
+        margin-left: 0;
+    }
+
+    .quick-start button {
+        padding: 10px;
+    }
+
+    .title-subheader span.active a {
+        background: none;
     }
 }

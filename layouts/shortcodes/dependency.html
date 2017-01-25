@@ -2,6 +2,9 @@
 {{ $artifactId := .Get "a" }}
 {{ $versionParam := printf "%s.%s" $groupId "version" }}
 {{ $id := ($artifactId | urlize) | printf "%s-%s" (replace $groupId "." "-" | urlize) }}
+{{ if isset .Params "t" }}
+    {{ $.Scratch.Set "type" (.Get "t") }}
+{{ end }}
 {{ if isset .Params "v" }}
     {{ $.Scratch.Set "version" (.Get "v") }}
 {{ else }}
@@ -22,21 +25,24 @@
     </ul>
     <span class="tabs-icon fa-2x fa fa-cubes pull-right"></span>
     <div class="clear-both"></div>
-    <div class="tab-content">
+    <div class="tab-content" style="padding-top: 0;">
         <div class="tab-pane in active" id="tab-{{ $id }}-maven">
-            <pre style="margin-top: 0;"><code class="xml">&lt;dependency&gt;
+            <pre><code class="language-xml">&lt;dependency&gt;
     &lt;groupId&gt;{{ $groupId }}&lt;/groupId&gt;
-    &lt;artifactId&gt;{{ $artifactId }}&lt;/artifactId&gt;<span id="{{ $id }}-version" style="display: none;">
-    &lt;version&gt;{{ $.Scratch.Get "version" }}&lt;/version&gt;</span>{{ if isset .Params "s" }}
+    &lt;artifactId&gt;{{ $artifactId }}&lt;/artifactId&gt;<span id="{{ $id }}-version" {{ if eq (substr $groupId 0 13) "org.seedstack" }}style="display: none;"{{ end }}>
+    &lt;version&gt;{{ $.Scratch.Get "version" }}&lt;/version&gt;</span>{{ if isset .Params "t" }}
+    &lt;type&gt;{{ $.Scratch.Get "type" }}&lt;/type&gt;</span>{{ end }}{{ if isset .Params "s" }}
     &lt;scope&gt;{{ if eq (.Get "s") "test" }}test{{ end }}&lt;/scope&gt;{{ end }}
 &lt;/dependency&gt;</code></pre>
             <small class="pull-right" style="color: #aaa; margin-top: -20px; margin-right: 5px;">
                 <span id="{{ $id }}-warn" style="display: none;"><i class="fa fa-warning" style="color: orange;"></i> Specifying versions manually is error-prone, use the <a href="{{ $.Site.BaseURL }}getting-started/distribution">distribution</a> instead.</span>
-                <a style="cursor: pointer;" id="{{ $id }}-show" onclick="$('#{{ $id }}-version, #{{ $id }}-warn').show(); $('#{{ $id }}-show').hide();">Show version</a>
+                {{ if eq (substr $groupId 0 13) "org.seedstack" }}
+                    <a style="cursor: pointer;" id="{{ $id }}-show" onclick="$('#{{ $id }}-version, #{{ $id }}-warn').show(); $('#{{ $id }}-show').hide();">Show version</a>
+                {{ end }}
             </small>
         </div>{{ $.Scratch.Add "tabs" (add (.Get 0 | urlize) " ") }}
         <div class="tab-pane in" id="tab-{{ $id }}-gradle">
-            <pre style="margin-bottom: 0;"><code class="java">dependencies {
+            <pre><code class="language-gradle">dependencies {
     {{ if isset .Params "s" }}{{ if eq (.Get "s") "test" }}testCompile{{ end }}{{ else }}compile{{ end }}("{{ $groupId }}:{{ $artifactId }}:{{ $.Scratch.Get "version" }}")
 }</code></pre>
         </div>

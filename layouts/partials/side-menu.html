@@ -1,7 +1,6 @@
 {{ $parent := . }}
 <div class="side-menu">
     {{ range .Menus }}
-        {{ if gt (len (index $parent.Site.Menus .Menu)) 1 }}
         <div class="list-group">
             <ul class="nav">
                 {{ $toc := $parent.TableOfContents }}
@@ -9,14 +8,16 @@
                 {{ range index $parent.Site.Menus .Menu }}
                     {{ $active :=  eq $currentUrl .URL }}
                     <li>
-                        <a href="{{ .URL }}" class="list-group-item {{ if $active }} active {{ end }}">
-                            {{ .Name }}
-                        </a>
-                        {{ if $parent.Scratch.Get "nextPage" }}
-                            <script>
-                                seedstack.state.nextPage = '{{ .URL }}';
-                            </script>
-                            {{ $parent.Scratch.Set "nextPage" false }}
+                        {{ if gt (len (index $parent.Site.Menus .Menu)) 1 }}
+                            <a href="{{ .URL }}" class="list-group-item {{ if $active }} active {{ end }}">
+                                {{ .Name }}
+                            </a>
+                            {{ if $parent.Scratch.Get "nextPage" }}
+                                <script>
+                                    seedstack.state.nextPage = '{{ .URL }}';
+                                </script>
+                                {{ $parent.Scratch.Set "nextPage" false }}
+                            {{ end }}
                         {{ end }}
                         {{ if $active }}
                             {{ $toc }}
@@ -30,7 +31,6 @@
                 {{ end }}
             </ul>
         </div>
-        {{ end }}
     {{ end }}
     {{ if $parent.Params.tags }}
     <div class="list-group">

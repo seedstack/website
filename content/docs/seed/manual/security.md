@@ -12,80 +12,42 @@ tags:
     - "access-control"
     - "identification"
     - "role"
-    - "data"
 menu:
     SeedManual:
-        weight: 50
+        weight: 60
 ---
 
-Seed provides application security through a powerful security model, which is equally easy to configure and to enforce.<!--more-->
-It takes charge of the following tasks:
+The `seed-security-core` module provides application-level security.<!--more--> It takes charge of the following tasks:
 
 * Identification (provides the identity of a subject),
 * Authentication (verifies the subject identity),
 * Authorization (defines which roles and permissions a subject can have),
 * Access-control (enforces access restrictions to entry-points and/or to any arbitrary code). 
 
-To enable security to your project, you need to add the `seed-security-core` module. {{< dependency g="org.seedstack.seed" a="seed-security-core" >}}
-    
-In a Web application, you may want to enable HTTP-based security by adding the `seed-web-security` module. {{< dependency g="org.seedstack.seed" a="seed-web-security" >}}
-    
 {{% callout info %}}
-The internal security engine is [Apache Shiro](http://shiro.apache.org/). Seed provides additional benefits on top of Shiro
-such as:
-
-* Easy, unified configuration.
-* Built-in security realms such as LDAP, X509 certificate or configuration-based.
-* A plugin mechanism to dynamically register additional entry point security.
-* Security scopes which restrict roles and permissions to specified scopes, like a geographical area.
-* Data security which can nullify or obfuscate object attributes based on subject authorizations.
+The security engine used by SeedStack is [Apache Shiro](http://shiro.apache.org/).
 {{% /callout %}}
 
-# Definitions
+# Dependency
 
-## Subject
+Security support requires the following dependency in your project:
 
-A *subject* is defined as any entity that request access to an *object*. For instance, subject are often end-users which
-request to access a specific resource through a User-Interface. But subjects can really be anything like a remote computer
-or a local program.  
+{{< dependency g="org.seedstack.seed" a="seed-security-core" >}}
 
-## Principal
+# Subjects
 
-A *principal* is a defining characteristic of a subject that can be uniquely identified, like an identifier, a name,
-a social-security number, a language, etc...
+Subjects represent the entity which executes actions on the application. The most common type of subject is the "User"
+type, which represents a human operator interacting with the application. Subjects are allowed to perform certain actions 
+in your application through their association with roles or direct permissions. Assigning roles and permissions to subjects
+is done through one or more `Realm`.    
+
+# Roles
+
+A Role is a named entity that typically represents a set of behaviors or responsibilities. Those behaviors translate to 
+things you can or can't do with an application. Roles are typically assigned to subject like user accounts, so by 
+association, subjects can *do* the things attributed to various roles.
  
-## User
-
-A *user* is a specific kind of subject that is defined by principals usually referring to a human operator, like a name
-or a user-identifier.
-
-## Identification
-
-Identification is the process of uniquely tracking a subject across its interactions with the system. 
-
-## Authentication
-
-Authentication is the process of verifying the subject identity by validating a proof of identity. This is usually done 
-by submitting a principal identifying the subject (like a user-identifier) and a proof of identity that the system 
-understands and trusts, such as a password, a certificate or any other mean. 
-
-## Authorization
-
-Authorization is the process of determining an access policy for a subject. This is done by compiling all granted rights
-into an access policy.
-
-## Access control
-
-Access control is the process of verifying the authorizations of a subject relative to an object. It enforces the policy
-that is used to determine *who* has access to *what*.
-
-# Model
-
-Seed provides a security meta-model that is easy to understand yet powerful enough for the most complex applications. This
-meta-model revolves around three main concepts: permissions, roles and subject. It allows to define a fine-grained and
-modular security policy.
-
-## Permissions
+# Permissions
 
 Permissions are the most atomic elements of a security policy. They describe concrete actions and represent what can
 be done in an application. A well-formed permission statement describes one or more resource(s) and what actions are
@@ -105,7 +67,7 @@ perform such behavior. Defining who (which subject) can do what (which permissio
 subjects.
 {{% /callout %}}
 
-### Simple usage
+## Simple usage
 
 The simplest expression of a permission is a single term String:
   
@@ -117,7 +79,7 @@ These permissions represent the ability to `print`, `delete` or `view` a documen
 to be granted one-by-one or with a `*` wildcard, which will grant all the permissions of the application. This may work
 in the simplest applications but it is not recommended. The *multi-level* permissions should be preferred.
 
-### Multi-level
+## Multi-level
 
 Instead of expressing the permission as a single term, a multi-level permission can be used:
 
@@ -129,7 +91,7 @@ The colon (`:`) is a special character that is used to delimit the different par
 are no enforced requirements on how a multi-level permission should be organized, but it is recommended to go from the most
 general to the most specific, from left to right. Also, there is no limit to the number of parts.
 
-### Multiple values
+## Multiple values
 
 Each part can contain multiple values, separated by commas (`,`):
 
@@ -137,7 +99,7 @@ Each part can contain multiple values, separated by commas (`,`):
     
 When assigning this permission to a subject, this grants the ability to `print` and `view` documents.
 
-### All values
+## All values
 
 To grant all permissions of a specific level, use the `*` wildcard character:
 
@@ -148,7 +110,7 @@ The first permission, when assigned to a subject, allow to do any action on docu
 of the `document:XXX` pattern will be granted). The second permission grants the view action on all application resources
 (meaning that any permission check of the `XXX:view` pattern will be granted).
 
-### Instance-level checks
+## Instance-level checks
 
 The identifier of a specific instance can be used at the end of a permission:
 
@@ -156,7 +118,7 @@ The identifier of a specific instance can be used at the end of a permission:
 
 This permission allows to print the document identified by the `doc273` identifier. 
 
-### Missing parts
+## Missing parts
 
 Missing parts in permissions imply that the user has access to all values corresponding to that part:
 
@@ -166,164 +128,135 @@ This permission is equivalent to:
     
     printer:print:*
     
-Note that you can only leave off parts from the *end* of the permission.
-
-## Roles
-
-A Role is a named entity that typically represents a set of behaviors or responsibilities. Those behaviors translate to 
-things you can or can't do with an application. Roles are typically assigned to subject like user accounts, so by 
-association, subjects can *do* the things attributed to various roles. There are two kinds of roles that can be used:
-
-* **Implicit roles**: nothing is explicitly expressed in the application to assign permissions to implicit roles. The 
-allowed behavior is implicitly derived from the role name only. For instance the `admin` role can do any administration
-task and those administration task are protected by a checking if the subject has the `admin` role. This kind of role, 
-while superficially simpler, is **strongly discouraged**. Adding, removing or redefining such roles later in the life of
-an application will be difficult, costly and may lead to holes in the security model.
-* **Explicit roles**: they are expressed as a named collection of actual permissions. In this form, the allowed behavior
-is explicitly defined and the code only contains specific permission checks which directly relates to the code behavior.
-Altering the security model later in the life of an application will be easy and won't require to change existing code 
-with the potential security implications. This kind of role, is **recommended**. 
-
-## Subjects
-
-Subjects represent the entity which executes actions on the application. The most common type of subject is the `User`
-type, which represents a human operator interacting with the application. Subjects are allowed to perform certain actions 
-in your application through their association with roles or direct permissions. Assigning roles and permissions to subjects
-is done through a `Realm` implementation.
-
-## Realms
-
-A realm implementation role is to translate a specific data-model, like an LDAP directory or a set of database tables, 
-into a security policy expressed with the security meta-model described above. Seed provides several predefined realms:
-
-* The `ConfigurationRealm` which computes the security policy from specific properties in the application configuration.
-* The `X509CertificateRealm` which computes the security policy from an X509 certificate.
-* The `LdapRealm` which computes the security policy from requests to a configured LDAP directory. This realm is available
-in the [LDAP add-on]({{< ref "addons/ldap/index.md" >}}).
-
-{{% callout info %}}
-Custom realms can be implemented to compute any data-model into an enforceable security policy.
-{{% /callout %}}
-
-# Configuration
-
-Beyond defining the security model of the application, the security infrastructure must be configured.
-
-## Realm configuration
-
-A Realm is a component that can access specific security data such as users, roles, and permissions. The Realm translates 
-this specific data into a format that is understood by the security engine. There is usually a 1-to-1 relation between
-a realm and a datasource, such as an LDAP directory, a set of relational tables or configuration properties.
- 
-{{% callout info %}}
-Most of the security datasources usually store both authentication and authorization data, so a realm can perform both 
-the authentication and authorization tasks.
-{{% /callout %}}
-
-To specify the realm(s) to enable, use the following configuration property:
-
-```ini
-org.seedstack.seed.security.realms = list of realms to use
-```
+Note that you can only leave off parts from the *end* of the permission. 
     
-The realm name correspond to the simple name of the Java class that implements the realm. For instance to enable the
-LDAP realm (which is implemented in the {{< java "org.seedstack.ldap.internal.realms.LDAPRealm" >}} Java class), use 
-the following configuration:
+# Realms
 
-```ini
-org.seedstack.seed.security.realms = LdapRealm
-```
+A security realm is responsible for authenticating and authorizing subjects. Realms can retrieve information from various
+data sources.
+
+Configuring realms is done as below:
     
-If the property is not specified, the default realm is `ConfigurationRealm`.
+{{% config p="security.realms" %}}
+```yaml
+security:
+  # Ordered list of security realms used to authenticate and authorize subjects
+  realms:
+    - 
+      # Name of the security realm
+      name: (String)
+      
+      # Name of the role mapper used for this realm (optional)
+      roleMapper: (String)
+      
+      # Name of the permission resolver used for this realm (optional)
+      permissionResolver: (String)
+```
+{{% /config %}}    
 
-{{% callout info %}}
-Note that you can specify multiple realms. In that case the realms are tried in sequence and if at least one realm
-successfully authenticates the subject, the overall attempt is considered successful. If none authenticate successfully, 
-the attempt fails. The data from all the successful realms are merged.
+## Built-in realms
+
+SeedStack provides the following realms:
+
+* `ConfigurationRealm` which uses the application configuration.
+* `X509CertificateRealm` which uses X509 certificates.
+* `LdapRealm` which uses an LDAP directory.
+
+{{% callout warning %}}
+`ConfigurationRealm` is the default realm, which is fine for development and testing purposes. You may need to use
+more robust and flexible realms in production, like the `LdapRealm`.
 {{% /callout %}}
 
-### Configuration realm
+### Configuration-based realm
 
 This realm relies on the application configuration to authenticate subject and retrieve their roles. It is mainly intended
 to be used for testing purposes. To declare subjects (called users in this realm), use the following configuration:
  
-```ini
-[org.seedstack.seed.security.users]
-user1 = password, role1, role2
-user2 = password, role3
+{{% config p="security.users" %}}
+```yaml
+security:
+  # Map of users and their properties
+  users:
+    user1:
+      # Password of the user
+      password: somePassword
+      
+      # List of roles granted to the user.
+      roles: [ role1, role2 ]
 ```
+{{% /config %}}   
+ 
+This configuration defines one subject named `user1` with its respective password and roles.
 
-This will define two subjects, `user1` and `user2` with their respective passwords and roles.
-
-### X509 realm
-
-This realm, which is intended to be used in a Web context, uses the certificates authorized by the Web server when an SSL 
+### X509 certificate realm
+ 
+This realm, which is intended to be used in Web applications, uses the certificates authorized by the Web server when an SSL 
 connection is in use. It stores the certificates in the user principals as well as the UID declared in the certificate. 
 It also uses the CN of the issuer of the certificates to define the basic roles of the user.
 
 ### LDAP realm
 
-Check the [LDAP add-on documentation]({{< ref "addons/ldap/index.md" >}}).
+This realm is available in the [LDAP add-on]({{< ref "addons/ldap/index.md" >}}).
 
-## Role/permission resolver
+### Custom realm
 
-There is a role/permission resolver component per Realm. It resolves the Permissions assigned to a Role and provides them 
-to the Realm. To attach a role/permission resolver to a Realm, use the following configuration:
+You can create a custom realm by:
 
-```ini
-org.seedstack.seed.security.<RealmName>.role-permission-resolver = ConfigurationRolePermissionResolver
+* Creating a class that implements {{< java "org.seedstack.seed.security.Realm" >}}.
+* Use the realm class simple name in the name configuration attribute of the realm.
+
+## Permission resolver
+   
+Each realm has its own permission resolver. It resolves the permissions granted for a given role. 
+
+### Configuration-based permission resolver
+
+This is the default permission resolver. It uses the application configuration to resolve permissions for roles:
+
+{{% config p="security.permissions" %}}
+```yaml
+security:
+  # Map of permissions for a particular role
+  permissions:
+    role1Name: 
+      - permission1
+      - permission2
+      - permission3
+    role2Name: 
+      - permission1
+      - permission4
 ```
-    
-Where `<RealmName>` corresponds to the name of the Realm this role/permission resolver is mapped to. The value corresponds
-to the simple name of the implementing Java class. When no resolver is specified, the configuration-based role/permission
-resolver is used.
+{{% /config %}}  
 
-### Configuration-based role/permission
+### Custom permission resolver
 
-This role/permission resolver uses the application configuration to do resolution. You can assign permissions to roles
-with the following configuration:
+You can create a custom permission resolver by:
 
-```ini
-[org.seedstack.seed.security.permissions]
-role1 = permission1a:permission1b, permission2a:permission2b
-role2 = permission3, permission4a:permission4b
-role3 = permission5
-role4 = permission6
+* Creating a class that implements {{< java "org.seedstack.seed.security.RolePermissionResolver" >}}.
+* Using your class simple name in the permissionResolver configuration attribute of the realm.
+
+## Role mapper
+
+Each realm has its own role mapper. It has the ability to map a role name retrieved by the realm to a more friendly 
+application role name. 
+
+### Configuration-based role mapper
+
+This is the default role mapper. It uses the application configuration to map role names:
+
+{{% config p="security.roles" %}}
+```yaml
+security:
+  # Mapping of role names
+  roles:
+    role1: [ 'ORG.APP.ROLE1', 'ORG.GLOBAL.ADMIN' ]
+    role2: [ 'ORG.APP.ROLE2' ]
+    role3: 'ORG.APP.{location}.ROLE3'
+    role4: '*'
 ```
+{{% /config %}}  
 
-This configuration assign permissions listed in values to their respective roles as keys. This is the default role/permission
-resolver.
-
-## Role mapping
-
-**Optionally**, roles provided by realms can be mapped to application-specific roles. To do this, a role mapping component
-should be defined in configuration:
-
-```ini
-org.seedstack.seed.security.<RealmName>.role-mapping = ConfigurationRoleMapping
-```
-    
-Where `<RealmName>` corresponds to the name of the Realm this role mapping component is mapped to. The value corresponds
-to the simple name of the implementing Java class. When no mapping is specified, the configuration-based role mapping
-is used.
-
-{{% callout info %}}
-When no role mapping is specified, the roles provided by realms are directly used as application roles.
-{{% /callout %}}
-    
-### Configuration-based role mapping
-
-This role mapping uses the application configuration to do the mapping:
-
-```ini
-[org.seedstack.seed.security.roles]
-role1 = ORG.APP.ROLE1, ORG.GLOBAL.ADMIN
-role2 = ORG.APP.ROLE2
-role3 = ORG.APP.{location}.ROLE3
-role4 = *
-```
-
-This configuration defines the following mappings:
+The configuration above configuration defines the following mappings:
 
 * Application-role `role1` is attributed to the subject when the realm provides `ORG.APP.ROLE1` **OR** `ORG.GLOBAL.ADMIN`.
 * Application-role `role2` is attributed to the subject when the realm provides `ORG.APP.ROLE2`.
@@ -331,198 +264,320 @@ This configuration defines the following mappings:
 into a security scope. As such a scoped `role3` is attributed to the subject, which is only valid in `FR` location.
 * Application-role `role4` is attributed to every subject authenticated.
 
-## Example
+{{% callout warning %}}
+An application role is granted when **at least one** of the realm roles in the list is granted (logical OR).
+{{% /callout %}}
 
-The following example is based on the defaults: a `ConfigurationRealm`, a `ConfigurationRolePermissionResolver` and a `ConfigurationRoleMapping`. Their declaration is optional but present here for clarity. You may want to replace each by a more suitable component, especially the `ConfigurationRealm` which uses the configuration as its users repository.
+### Custom role mapper
 
-```ini
-[org.seedstack.seed.security]
-realms = ConfigurationRealm
-ConfigurationRealm.role-mapping = ConfigurationRoleMapping
-ConfigurationRealm.role-permission-resolver = ConfigurationRolePermissionResolver
+You can create a custom role mapper by:
 
-[org.seedstack.seed.security.users]
-admin = password1, APP.ADMIN
-user1 = password2, APP.FR.MANAGER, APP.UK.MANAGER
-user2 = password3, APP.BASIC
+* Creating a class that implements {{< java "org.seedstack.seed.security.RoleMapping" >}}.
+* Using your class simple name in the roleMapper configuration attribute of the realm.
 
-[org.seedstack.seed.security.roles]
-admin = APP.ADMIN
-manager = APP.ADMIN, APP.{location}.MANAGER
-normal = APP.ADMIN, APP.BASIC
-guest = *
+# Example
 
-[org.seedstack.seed.security.permissions]
-admin = users:clear, cache:invalidate
-manager = users:delete, users:create
-normal = users:list
+The following example is based on the defaults: 
+
+* A `ConfigurationRealm`,
+* A `ConfigurationRolePermissionResolver`,
+* A `ConfigurationRoleMapping`.
+
+```yaml
+security:
+  users:
+    admin:
+      password: password1
+      roles: 'APP.ADMIN'
+    user1:
+      password: password2
+      roles: [ 'APP.FR.MANAGER', 'APP.UK.MANAGER' ]
+    user2:
+      password: password3
+      roles: 'APP.BASIC'
+  roles:
+    admin: 'APP.ADMIN'
+    manager: [ 'APP.ADMIN', 'APP.{location}.MANAGER' ]
+    normal: [ 'APP.ADMIN', 'APP.BASIC' ]
+    guest: '*'
+  permissions:
+    admin: [ 'users:clear', 'cache:invalidate' ]
+    manager: [ 'users:delete', 'users:create' ]
+    normal: 'users:list'
 ```
 
 Note that:
 
-* Application-roles (`admin`, `manager`, `normal` and `guest`) are attributed to a subject if it has **at least one** of the corresponding realm roles (`APP.ADMIN`, `APP.FR.MANAGER` , `APP.UK.MANAGER`, `APP.BASIC`). For instance, having the `APP.ADMIN` realm role is enough to have the `manager` application-role.
+* Application-roles (`admin`, `manager`, `normal` and `guest`) are attributed to a subject if it has **at least one** 
+of the corresponding realm roles (`APP.ADMIN`, `APP.FR.MANAGER` , `APP.UK.MANAGER`, `APP.BASIC`). 
+For instance, having the `APP.ADMIN` realm role is enough to have the `manager` application-role.
 * Subject `user1` will only have the `users:delete` and `users:create` permissions on `FR` and `UK` locations.
 * Subject `admin` will have the `users:delete` and `users:create` permissions everywhere (no location restriction).
 * The `guest` application-role will be attributed to every identified subject.
 
-# Usage
+# Code access-control
 
-Access policy enforcement is achieved by using the Seed security API to protect specific sections of the application code. 
-Any code can be secured, although restrictions may apply in some cases.
+Access-control can be done by two means: annotation-based checks and programmatic checks.
 
-## Enforcement strategy
-
-It is recommended to follow a well-defined strategy in placing security checks in application code. Failing to do so may
-lead to unexpected security holes, as *one missing or incomplete check may be enough to compromise the entire application*.
-Any well thought-out strategy will do, but you can consider applying one of the following (or both):
-
-* **Entry-point security**. This strategy consists in only securing the code that allow to interact with the application.
-This includes REST resources, servlets and filters, Web-Services, administrative commands, etc... Any applicative code
-can theoretically only be reached through one of these entry points, so this strategy may be enough for most
-applications.
-* **In-depth security**. This strategy consists in independently securing each application behavior, regardless of its
-depth in the call hierarchy. This includes all the entry points of the previous strategy as well as services, repositories,
-finders, etc... It ensures that no behavior can be executed without the appropriate authorizations, regardless how it is
-accessed. This strategy provides higher security, especially in applications with a lot of entry points or when entry 
-points are often modified, but is costlier to implement. This cost can be mitigated by limiting the checks to critical 
-application behavior only.
+{{% callout tips %}}
+It is **strongly recommended** to check for permissions, instead of checking for roles. Since a permission represent
+an action, it is a natural fit for protecting the portion of code implementing this very action. On the contrary a 
+role check is generally too broad.
+{{% /callout %}}
 
 ## Annotation-based checks
 
 There are two annotations that checks for authorizations before allowing method execution:
 
-* `@RequiresRoles` which checks that the current subject has one or more role(s) before allowing to execute the method.
-* `@RequiresPermissions` which checks that the current subject has one or more permission(s) before allowing to execute
-the method.
+* {{< java "org.seedstack.seed.security.RequiresRoles" "@" >}} which checks that the current subject has one or more 
+role(s) before allowing to execute the method.
+* {{< java "org.seedstack.seed.security.RequiresPermissions" "@" >}} which checks that the current subject has one or 
+more permission(s) before allowing to execute the method.
 
 When the security check fails, an exception of type {{< java "org.seedstack.seed.security.AuthorizationException" >}}
-is thrown.
+is thrown:
 
-{{% callout warning %}}
-Note that these annotation-based security checks are implemented with **method interception** and are subject to 
-**[its limitations]({{< ref "docs/seed/manual/index.md#method-interception" >}})**.
-{{% /callout %}}
-
-Examples:
 ```java
-@RequiresRoles("administrator")
-public void deleteUser(User user) {
-    // This method is executed only if current subject has role 'administrator'
-    // When not, an AuthorizationException is thrown
-}
-
-@RequiresPermissions("account:create")
-public void createAccount(Account account) {
-    // This method is executed only if current subject has permission 'account:create'
-    // When not, an AuthorizationException is thrown
+public class SomeClass {
+    @RequiresRoles("administrator")
+    public void deleteUser(User user) {
+        // This method is executed only if current subject has role 'administrator'
+        // When not, an AuthorizationException is thrown
+    }
+    
+    @RequiresPermissions("account:create")
+    public void createAccount(Account account) {
+        // This method is executed only if current subject has permission 'account:create'
+        // When not, an AuthorizationException is thrown
+    }
 }
 ```
+
+{{% callout danger %}}
+Note that these annotation-based security checks are implemented with **method interception** and are subject to 
+**[its limitations](/docs/seed/dependency-injection/#method-interception)**.
+{{% /callout %}}
 
 ## Programmatic checks
 
-If annotation-based security checks cannot be used, or if an programmatic style is preferred, the 
-{{< java "org.seedstack.seed.security.SecuritySupport" >}} facade can be used. It provides various methods to explicitly check for 
-current subject authorizations. It is more versatile than annotation-based checks and it is required when checking 
-dynamically generated authorizations. To use it, simply inject it where needed:
+If annotation-based security checks cannot be used, or if a programmatic style is preferred, the 
+{{< java "org.seedstack.seed.security.SecuritySupport" >}} facade can be injected: 
 
+```java
+public class SomeClass {
 	@Inject
 	private SecuritySupport securitySupport;
-
-To check if the current subject, if any, is authenticated:
-
-    if (securitySupport.isAuthenticated()) {
-        ...
-    }
+	
+	public void doChecks() {
+        // To check if the current subject, if any, is authenticated:
+        if (securitySupport.isAuthenticated()) {
+            doSomething();
+        }
+        
+        // To check if the current subject, if any, has a specific role:
+        if (securitySupport.hasRole("admin")) {
+            clearUsers();
+        }
     
-To check if the current subject, if any, has a specific role:
+        // To check if the current subject, if any, has a specific permission:
+        if (securitySupport.isPermitted("cache:invalidate")) {
+            flushCache();
+        }	    
+	}
+}
+```
 
-    if (securitySupport.hasRole("jedi")) {
-        ...
-    }
+## Access to subject principals
 
-To check if the current subject, if any, has a specific permission:
+The {{< java "org.seedstack.seed.security.SecuritySupport" >}} facade provides access to current subject principals:
 
-	if (securitySupport.isPermitted("jediCouncil:attend")) {
-		...
-    }
+```java
+public class SomeClass {
+	@Inject
+	private SecuritySupport securitySupport;
+	
+	public void retrievePrincipals() {
+        // Get current subject id
+        securitySupport.getSimplePrincipalByName(Principals.IDENTITY).getValue();
+        
+        // Get current subject first name, if any
+        securitySupport.getSimplePrincipalByName(Principals.FIRST_NAME).getValue(); 
+	}
+}
+```
+
+# HTTP access-control
  
-{{% callout info %}}
-There are multiple variations for each of these methods, and many more possibilities. Please refer to the 
-[javadoc](/javadoc/org/seedstack/seed/security/api/SecuritySupport.html) for more information.
+In a Web application, security can also be enforced at the HTTP-level by a servlet filter using URL filtering patterns. 
+This feature requires the following dependency in your project:
+
+{{< dependency g="org.seedstack.seed" a="seed-web-security" >}}
+
+The security servlet filter is automatically added on `/*` and has the ability to intercept all application URLs.
+
+## URL patterns
+
+You can configure URL patterns to intercept in configuration:
+
+{{% config p="security.web.urls" %}}
+```yaml
+security:
+  web:
+      # List of secured URL patterns
+      urls:
+        -
+          pattern: /some/path/specific
+          filters: [ filter1, filter2 ]
+        -
+          pattern: /some/path/**
+          filters: [ filter3, filter4, filter5 ]
+        -
+          pattern: /other/path/*
+          filters: [ filter6 ]
+        -
+          pattern: /**
+          filters: fallbackFilter
+```
+{{% /config %}}  
+    
+The URL patterns are [Ant-style path expressions](https://ant.apache.org/manual/dirtasks.html#patterns) relative to your 
+Web application's context root.
+
+{{% callout warning %}}
+Order is important as the first pattern to match the incoming request is applied and subsequent patterns are ignored. 
+This behavior allows to define a catch-all default pattern at the end that will apply if no above filters matched. 
 {{% /callout %}}
 
-## Other checks
+## Filters 
+
+When a pattern is matched, the filters relative to this pattern are applied in sequence.
+
+### Built-in filters
+
+Various built-in filters are directly available by specifying their names (and eventual parameters) in the filter chain:
+
+* `anon`: immediately allows access to the path without performing security checks of any kind (unless you add other 
+filters after it in the chain).
+* `authc`: authenticates the subject using the request params (`username` and `password`). This can be used for form 
+authentication.
+* `authcBasic`: triggers and checks a basic authentication.
+* `cert`: extracts the certificates found by the JEE server and provides them to a `X509CertificateRealm`. You can specify 
+the `optional` parameter to allow the request even if certificate authentication fails: `cert[optional]`.
+* `logout`: logs out the current subject. Note that it will clear the subject session and will invalidate the corresponding 
+security caches. Note that basic authentication credentials are kept by user-agents (like browsers), meaning that 
+authentication will automatically happen again during the next request.
+* `noSessionCreation`: will prevent the creation of a security session.
+* `perms`: checks for the permission specified as a parameter. Only allows access if the current subject has the
+specified permission. Multiple permissions can be specified with commas: `perms[users:delete, cache:invalidate]` for 
+instance.
+* `port`: requires the request to be on the specified port: `port[8080]` for instance.
+* `rest`: similar to the `perms` filter but appends a CRUD verb derived from the HTTP method to the specified permission(s). 
+For instance, `rest[users]` will check the following permissions depending on the HTTP verb:
+    * DELETE checks for the `users:delete` permission,
+    * GET checks for the `users:read` permission,
+    * HEAD checks for the `users:read` permission,
+    * OPTIONS checks for the `users:read` permission,
+    * POST checks for the `users:create` permission,
+    * PUT checks for the `users:update` permission,
+    * TRACE checks for the `users:read` permission.
+*  `roles`: checks that the subject has the specified role(s). Only allows access if current subject has **all** the 
+specified roles. Multiple roles can be specified with commas: `roles[manager, admin]` for instance.
+*  `ssl`: Only allows access if the request is on port 443 and `ServletRequest.isSecure()` returns true.
+*  `user`: Only allows access if the user is identified.
+
+### Custom filters
+
+You can define you own custom security filters by
  
-Seed security can provide additional ways to verify security depending on the technology used to access the application. 
-For instance, in a Web application, HTTP requests can be filtered to execute security tasks or checks. For more information
-about applying HTTP security filtering, refer to [this documentation]({{< ref "docs/seed/manual/web.md#security" >}}).
+1. Creating a class implementing {{< java "javax.servlet.Filter" >}} 
+2. Annotating it with {{< java "org.seedstack.seed.web.SecurityFilter" "@" >}}. The annotation value will define 
+the name of the filter that can be used in filter chains. 
 
-## Access subject principals
+Consider a filter that always returns HTTP response code 418:
 
-Note that `SecuritySupport` provides access to current subject Principals:
+```java
+@SecurityFilter("teapot")
+public class TeapotFilter implements Filter {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        // nothing to do
+    }
 
-	// Get current subject id
-	securitySupport.getSimplePrincipalByName(Principals.IDENTITY).getValue();
-	
-	// Get current subject first name, if any
-	securitySupport.getSimplePrincipalByName(Principals.FIRST_NAME).getValue();
+    @Override
+    public void doFilter(ServletRequest request, 
+                         ServletResponse response, 
+                         FilterChain chain) throws IOException, ServletException {
+        ((HttpServletResponse)response).sendError(418);
+    }
 
-# Extension
+    @Override
+    public void destroy() {
+        // nothing to do
+    }
+}
+```
 
-As Seed security is based on [Apache Shiro](http://shiro.apache.org), it can be extended by adding existing Shiro components
-or by writing your own components. Seed also provides SPI to extend its own security features.
+You can use this filter like this:
 
-## Creating a Realm
+```yaml
+security:
+  web:
+      urls:
+        -
+          pattern: /teapot
+          filters: teapot
+```
 
-You can create a custom Realm by following these steps:
+When a subject access the `/teapot` URL, an HTTP response code 418 will be returned. To create advanced security filters, 
+you can extend existing Shiro security filters, or use them as models.
 
-1. Create a class that implements {{< java "org.apache.shiro.realm.Realm" >}} or extends an existing Shiro realm.
-2. Use the realm class simple name as the realm name in the application configuration.
+## Example
 
-## Creating a RolePermissionResolver
+Consider the following configuration:
 
-You can create a custom Role/Permission resolver by following these steps:
+```yaml
+security:
+  web:
+      urls:
+        -
+          pattern: /static/**
+          filters: anon
+        -
+          pattern: /api/users
+          filters: [ ssl, authcBasic, 'rest[users]' ]
+        -
+          pattern: /api/**
+          filters: [ authcBasic, 'roles[normal]' ]
+        -
+          pattern: /**
+          filters: authcBasic
+```
 
-1. Create a class that implements {{< java "org.apache.shiro.authz.permission.RolePermissionResolver" >}}.
-2. Declare you want to use it on a realm in your properties.
+This gives the following HTTP security policy:
 
-## Creating a RoleMapping
+* Anything served under `/static` can be accessed anonymously.
+* The `/api/users` resource can only be accessed by authenticated subjects in HTTPS with the `users:<action>` permission, 
+where `<action>` is dependent upon the HTTP method used (see the `rest` filter above for details).
+* Anything else served under `/api` can only be accessed by authenticated subjects with the `basic` application-role.
+* All others URLs can only be accessed by authenticated subjects.
+* In this example, authentication is handled with the Basic Authentication scheme.
 
-You can create a custom Role mapping by following these steps:
-
-1. Create a class that implements {{< java "org.seedstack.seed.support.security.core.authorization.RoleMapping" >}}.
-2. Declare you want to use it on a realm in your properties.
 
 # Testing
 
-Testing the security model and its implementation is crucial to ensure effective security. This can be easily done with
-Seed through specific integration tests. For a general overview of integration testing, please check 
-[this documentation]({{< ref "docs/seed/manual/testing.md" >}}). 
+Testing the security model and its effective enforcement is a good practice. 
 
-## Configuration
+## Defining test users
 
-You can choose to fully emulate your security infrastructure, for instance by using an LDAP test directory instead of the 
-real one. The main benefit of this approach is that it tests the security effectiveness as closely as possible to the 
-real environment. A simpler but still adequate approach is to override the security realm configuration to use a 
-`ConfigurationRealm` and define test users in application configuration:
-
-```ini
-[org.seedstack.seed.security.users]
-testUser1 = password, role1, role2
-testUser2 = password, role1
-testUser3 = password, role3
-...
-```
-	
-For more information about the Configuration realm, refer to [this section](#configuration-realm).
-For more information on how to override the configuration for testing, refer to [this documentation](#override).
+In your test configuration, you can use the `ConfigurationRealm` realm to define test users like described [here](#configuration-based-realm). 
 
 ## Subject authentication
 
 To authenticate a subject before a test method is executed, use the {{< java "org.seedstack.seed.security.WithUser" "@" >}} annotation:
 
+```java
 	@RunWith(SeedITRunner.class)
-	public class MyITWithSecurity {
+	public class SomeSecurityIT {
 	    @Inject
 	    private SecuritySupport securitySupport;
 	    
@@ -530,203 +585,17 @@ To authenticate a subject before a test method is executed, use the {{< java "or
 	    private MySecuredService mySecuredService;
 	 
 
-	    @Test(expected = AuthorizationException)
-	    @WithUser(id = "testUser1", password = "password")
-	    public void unprivileged_user_cannot_access_secured_service() {
+	    @Test(expected = AuthorizationException.class)
+	    @WithUser(id = "basic", password = "password")
+	    public void unprivilegedUserCannotAccessSecuredService() {
 	        mySecuredService.securedMethod();
 	        fail("securedMethod() shouldn't have been called");
 	    }
 	    
 	    @Test
-	    @WithUser(id = "testUser3", password = "password")
-	    public void admin_user_is_allowed_to_access_secured_service() {
+	    @WithUser(id = "admin", password = "password")
+	    public void adminUserIsAllowedToAccessSecuredService() {
 	        mySecuredService.securedMethod();
 	    }
 	}
-
-# Data security
-
-The goal of the security on data is to protect the data exposed by an application. It has the ability to obfuscate any 
-attribute of any object that does not pass the security restriction defined on it. For instance, an account number 
-`79927391338710` can be transformed into `799273******10`.
-
-## @Restriction annotation
-
-This annotation can be applied on any class attribute. The field value will be obfuscated when data security will be applied:
-
-    public class MySecuredPojo {
-        @Restriction(value = "${ hasRole('manager') }", obfuscation = AccountObfuscationHandler.class)
-        private String accountNumber;
-        
-        ...
-    }
-
-The value of the annotation is a security expression (see [this section](#security-expressions) for more details). If it 
-evaluates to false against the current Subject the field will be obfuscated according to the `DataObfuscationHandler` 
-specified (see [this section](#dataobfuscationhandler) for more details). The default obfuscation handler nullifies the 
-field.
-
-## Data security service
-
-The security on data can be applied by using the `DataSecurityService` as follows:
-
-    @Inject
-    private DataSecurityService dataSecurityService;
-
-    dataSecurityService.secure(myDto);
-
-This service will go recursively through the object fields and look for restrictions. Each restriction that evaluates to f
-alse against the current Subject will trigger the obfuscation of its associated field.
-
-## @Secured annotation
-
-You can add a `@Secured` annotation on any method parameter to automatically apply data security on it. You can also 
-apply the `@Secured` annotation directly on the method to apply data security on the return value:
-
-    @Secured
-    public SecuredPojo1 securedMethod(@Secured SecuredPojo2 securedPojo2) {
-        ...
-    }
-
-Every method annotated with `@Secured` or with the annotation applied to at least one of its parameters will be intercepted 
-and the relevant objects will be secured. Note that the 
-[usual interception limitations]({{< ref "docs/seed/manual/index.md#dependency-injection" >}}) apply.
-
-{{% callout warning %}}
-Please note that the data security interceptor will inspect the whole object graph starting from the secured object, so 
-you may encounter some performance penalty depending on its size. It shouldn't be a problem for typical use.
-{{% /callout %}}
-
-## Security expressions
-
-Security expressions are strings that respect the [Unified Expression Language (UEL)](https://uel.java.net/) syntax. The 
-following methods are available:
-
-* `hasRole(String role)`. Returns true if the current subject has the specified role, false otherwise.
-* `hasOneRole(String... roles)`. Returns true if the current subject has at least one of the specified roles, false otherwise.
-* `hasAllRoles(String... roles)`. Returns true if the current subject has all the specified roles, false otherwise.
-* `hasRole(String role, String... scopes)`. Returns true if the current subject has the specified role for all the specified scopes, false otherwise.
-* `hasPermission(String permission)`. Returns true if the current subject has the specified permission, false otherwise.
-* `hasOnePermission(String... permissions)`. Returns true if the current subject has at least one of the specified permissions, false otherwise.
-* `hasAllPermissions(String... permissions)`. Returns true if the current subject has all the specified permissions, false otherwise.
-* `hasPermission(String permission, String... scopes)`. Returns true if the current subject has the specified permission on the specified scopes, false otherwise.
-
-Examples:
-
-```plain
-${ !hasRole('manager') && hasPermission('salary:view') }
-${ hasAllPermissions('salary:view', 'salary:update') }
-${ hasPermission('users:manage', 'FR') }
 ```
-
-More resources on EL:
-
-* [Oracle tutorial](http://docs.oracle.com/javaee/6/tutorial/doc/gjddd.html)
-* [Unified Expression Language](https://uel.java.net/)
-
-## DataObfuscationHandler
-
-The goal of a `DataObfuscationHandler` is to obfuscate data with a specific algorithm.
-For instance, it could take a name, eg. "Doe" and return an anonymised name "D.". This would be implemented as follows:
-
-    /*
-     * This {@code DataObfuscationHandler} takes a {@code String}, eg. "Doe" and
-     * obfuscate it into "D.".
-     */
-    public static class NameObfuscationHandler implements DataObfuscationHandler<String> {
-		@Override
-		public String obfuscate(String data) {
-			String result = "";
-			if (data != null && data.length() > 0) {
-				result = data.charAt(0) + ".";
-                result = result.toUpperCase();
-			}
-			return result;
-		}
-	}
-
-## Custom annotations
-
-Custom restriction annotations can be defined and registered with data security by defining a `DataSecurityHandler`. Start 
-with defining a custom annotation:
-    
-    @Retention(RetentionPolicy.RUNTIME)
-    @Target({ ElementType.FIELD})
-    public @interface MyRestriction {
-    	
-    	String expression();
-    	
-    	Todo todo() default Todo.Nullify;
-    
-    	public enum Todo {
-    		Hide, Round, Nullify
-    	}
-    	
-    }
-
-Then, define a `DataSecurityHandler` which handles the `@MyRestriction` annotation.
-
-    public class MyDataSecurityHandler implements DataSecurityHandler<MyRestriction> {
-    
-    	@Override
-    	public Object securityExpression(MyRestriction annotation) {
-    		return annotation.expression();
-    	}
-    
-    	@Override
-    	public Class<? extends DataObfuscationHandler<?>> securityObfuscationHandler(
-    																MyRestriction annotation) {    
-    		if (annotation.todo() .equals( Todo.Round  )) {
-    			// Uses the rounding obfuscation handler defined below
-    			return RoundingObfuscationHandler.class;
-    		}
-    		
-    		if (annotation.todo() .equals( Todo.Hide  )) {
-    			// Uses the name obfuscation handler defined in the previous section
-    			return NameObfuscationHandler.class;
-    		}
-    		
-    		return null;
-    	}
-    	
-    	public static class RoundingObfuscationHandler 
-    						implements DataObfuscationHandler<Integer> {
-    
-    		@Override
-    		public Integer obfuscate(Integer data) {
-                Integer result = 0;
-    			if (data != null) {
-                	result = (int) (Math.ceil(data / 1000) * 1000);
-                }
-    			return result;
-    		}    		
-    	}
-    }
-
-Then, you can apply the annotation on a POJO:
-    
-    public class MyPojo {    	
-    
-    	private String firstName;
-    	
-    	@MyRestriction(expression="${1 == 2}" , todo = Todo.Hide)
-    	private String name;
-    	
-    	@MyRestriction(
-    		expression="${ hasRole('manager') }", 
-    		todo=Todo.Round
-    	)
-    	private Integer salary;
-    
-    	@MyRestriction(expression="${false}")
-    	private String password;
-    
-    	public MyPojo(String name, String firstName, String password, Integer salary) {
-    		this.name = name;
-    		this.firstName = firstName;
-    		this.password = password;
-    		this.salary = salary;
-    	}
-    	
-        ...    	
-    }

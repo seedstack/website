@@ -1,5 +1,5 @@
 ---
-title: "Domain module (reusable)"
+title: "Domain module"
 type: "home"
 zones:
     - "GettingStarted"

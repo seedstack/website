@@ -124,5 +124,3 @@ level you use (see above). It works in two steps:
 can detects qualifiers to differentiate them. See [qualified injection](#qualified-injection) below for more information.
 
 Once a code pattern is properly recognized, it can be injected through its interface in any managed instance.
-
-{{% next href="manual" label="start reading the manual..." %}}

@@ -15,7 +15,7 @@ making you build a simple Web application from scratch.<!--more-->
 
 {{% callout info %}}
 SeedStack can be used for any type of project and provides templates for several [predefined project types]({{< ref "getting-started/project-templates/index.md" >}}).
-This tutorial is focused on a **[Web application project]({{< ref "getting-started/project-templates/web.md" >}})**.
+This tutorial is focused on a **[REST microservice project]({{< ref "getting-started/project-templates/rest.md" >}})**.
 {{% /callout %}}
 
 # Project generation
@@ -28,7 +28,7 @@ mvn org.seedstack:seedstack-maven-plugin:generate
     
 The generator will ask you a few questions, below are the recommended answers:
 
-* Project type: `web`,
+* Project type: `rest`,
 * Project group id: `org.myorg.myapp`,
 * Project artifact id: `my-app`.
 
@@ -62,4 +62,13 @@ mvn seedstack:run
 When the application has started, you can display the Web UI by pointing your Browser of choice at
 [http://localhost:8080](http://localhost:8080). You can now import the project in your IDE if desired.
 
-{{% navbar %}}
+# Displaying configuration options
+ 
+You can display all configuration options of your SeedStack project by running:
+
+    mvn org.seedstack:seedstack-maven-plugin:config
+
+If you want more information about a particular option:
+ 
+    mvn org.seedstack:seedstack-maven-plugin:config name.of.option
+

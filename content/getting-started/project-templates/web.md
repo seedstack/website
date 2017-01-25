@@ -66,39 +66,8 @@ to add any business domain or static resources to your project. You can also cho
 
 # Conversion to WAR
 
-The resulting project can be easily converted to a traditional WAR:
-
-1. Add a `src/main/webapp` folder to hold the document root,
-2. Add a `<packaging>WAR</packaging>` tag to the `pom.xml`,
-3. Remove the `build-capsule` plugin execution (`package` goal of `seedstack-maven-plugin`) as this only works with standalone JAR files,
-4. Configure the `maven-war-plugin` to ignore the absence of the `web.xml` file:
-
-        <build>
-             <pluginManagement>
-                 <plugins>
-                     <plugin>
-                         <groupId>org.apache.maven.plugins</groupId>
-                         <artifactId>maven-war-plugin</artifactId>
-                         <configuration>
-                             <failOnMissingWebXml>false</failOnMissingWebXml>
-                         </configuration>
-                     </plugin>
-                 </plugins>
-             </pluginManagement>
-         </build>
-         
-5. Exclude the embedded Web server from the Web composite:
-
-        <dependency>
-            <groupId>org.seedstack</groupId>
-            <artifactId>web-composite</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.seedstack.seed</groupId>
-                    <artifactId>seed-web-undertow</artifactId>
-                </exclusion>
-            </exclusions>
-        <dependency>
+This project is designed to be run from the command-line with its embedded Web server. To convert it to a classic WAR,
+see [this guide](/guides/conversion-to-war).
         
 
 # More resources

@@ -64,27 +64,8 @@ to add any business domain to your project. You can also choose to put the domai
 
 # Conversion to WAR
 
-The resulting project can be easily converted to a traditional WAR:
-
-1. Add a `src/main/webapp` folder to hold the document root,
-2. Add a `<packaging>WAR</packaging>` tag to the `pom.xml`,
-3. Configure the `maven-war-plugin` to ignore the absence of the `web.xml` file.
-
-For the last step you can use the following POM snippet:
-
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <configuration>
-                        <failOnMissingWebXml>false</failOnMissingWebXml>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
+This project is designed to be run from the command-line with its embedded Web server. To convert it to a classic WAR,
+see [this guide](/guides/conversion-to-war).
 
 # More resources
 

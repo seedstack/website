@@ -1,20 +1,16 @@
 <div id="hotkeys-modal" class="modal">
-    <div class="modal-dialog" style="min-width: 960px !important;">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Keyboard shortcuts <a id="show-all-shortcuts" style="cursor: pointer;" onclick="seedstack.ui.showAllShortcuts();">(Show all)</a></h4>
+                <h4 class="modal-title">Keyboard shortcuts</h4>
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                         <table class="keyboard-mappings">
                             <tbody>
-                            <tr>
-                                <th></th>
-                                <th>Global shortcuts</th>
-                            </tr>
                             <tr>
                                 <td class="keys">
                                     <kbd>?</kbd>
@@ -27,6 +23,7 @@
                                 </td>
                                 <td>Focus the search field</td>
                             </tr>
+                            <tr style="height: 20px;"><td></td></tr>
                             <tr>
                                 <td class="keys">
                                     <kbd>alt</kbd> <kbd>↑</kbd>
@@ -39,194 +36,31 @@
                                 </td>
                                 <td>Go to next menu item</td>
                             </tr>
+                            <tr style="height: 20px;"><td></td></tr>
                             <tr>
                                 <td class="keys">
-                                    <kbd>g</kbd> <kbd>S</kbd>
+                                    <kbd>g</kbd> <kbd>s</kbd>
                                 </td>
-                                <td>Go to Seed framework</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>W</kbd>
-                                </td>
-                                <td>Go to W20 framework</td>
+                                <td>Go to Java framework documentation</td>
                             </tr>
                             <tr>
                                 <td class="keys">
-                                    <kbd>g</kbd> <kbd>B</kbd>
+                                    <kbd>g</kbd> <kbd>b</kbd>
                                 </td>
-                                <td>Go to Business framework</td>
+                                <td>Go to Business framework documentation</td>
                             </tr>
                             <tr>
                                 <td class="keys">
-                                    <kbd>g</kbd> <kbd>A</kbd>
+                                    <kbd>g</kbd> <kbd>s</kbd>
                                 </td>
-                                <td>Go to add-ons</td>
+                                <td>Go to add-ons library</td>
                             </tr>
                             <tr>
                                 <td class="keys">
-                                    <kbd>g</kbd> <kbd>G</kbd>
+                                    <kbd>g</kbd> <kbd>g</kbd>
                                 </td>
-                                <td>Go to guides</td>
+                                <td>Go to guides list</td>
                             </tr>
-                        </table>
-                    </div>
-                    <div class="col-md-4 hidden-shortcuts" style="display: none;">
-                        <table class="keyboard-mappings">
-                            <tbody>
-                            <tr>
-                                <th></th>
-                                <th>Seed framework</th>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>b</kbd>
-                                </td>
-                                <td>Go to basics</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>t</kbd>
-                                </td>
-                                <td>Go to testing</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>s</kbd>
-                                </td>
-                                <td>Go to security</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>c</kbd>
-                                </td>
-                                <td>Go to cryptography</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>w</kbd>
-                                </td>
-                                <td>Go to Web</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>r</kbd>
-                                </td>
-                                <td>Go to REST</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>o</kbd>
-                                </td>
-                                <td>Go to operations</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>s</kbd> <kbd>T</kbd>
-                                </td>
-                                <td>Go to transactions</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-md-4 hidden-shortcuts" style="display: none;">
-                        <table class="keyboard-mappings">
-                            <tbody>
-                            <tr>
-                                <th></th>
-                                <th>Business framework</th>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>b</kbd> <kbd>b</kbd>
-                                </td>
-                                <td>Go to basics</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>b</kbd> <kbd>m</kbd>
-                                </td>
-                                <td>Go to model</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>b</kbd> <kbd>l</kbd>
-                                </td>
-                                <td>Go to lifecycle</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>b</kbd> <kbd>e</kbd>
-                                </td>
-                                <td>Go to events</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>b</kbd> <kbd>p</kbd>
-                                </td>
-                                <td>Go to policies</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>b</kbd> <kbd>a</kbd>
-                                </td>
-                                <td>Go to assemblers</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>b</kbd> <kbd>f</kbd>
-                                </td>
-                                <td>Go to finders</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>b</kbd> <kbd>P</kbd>
-                                </td>
-                                <td>Go to pagination</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 hidden-shortcuts" style="display: none;">
-                        <table class="keyboard-mappings">
-                            <tbody>
-                            <tr>
-                                <th></th>
-                                <th>W20 framework</th>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>w</kbd> <kbd>b</kbd>
-                                </td>
-                                <td>Go to basics</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>w</kbd> <kbd>s</kbd>
-                                </td>
-                                <td>Go to security</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>w</kbd> <kbd>c</kbd>
-                                </td>
-                                <td>Go to culture</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>w</kbd> <kbd>h</kbd>
-                                </td>
-                                <td>Go to hypermedia</td>
-                            </tr>
-                            <tr>
-                                <td class="keys">
-                                    <kbd>g</kbd> <kbd>w</kbd> <kbd>u</kbd>
-                                </td>
-                                <td>Go to UI</td>
-                            </tr>
-                            </tbody>
                         </table>
                     </div>
                 </div>

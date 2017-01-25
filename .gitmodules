@@ -1,120 +1,84 @@
 [submodule "content/addons/spring-bridge"]
 	path = content/addons/spring-bridge
 	url = https://github.com/seedstack/spring-bridge-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/elasticsearch"]
 	path = content/addons/elasticsearch
 	url = https://github.com/seedstack/elasticsearch-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/javamail"]
 	path = content/addons/javamail
 	url = https://github.com/seedstack/javamail-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/jcache"]
 	path = content/addons/jcache
 	url = https://github.com/seedstack/jcache-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/w20-bridge"]
 	path = content/addons/w20-bridge
 	url = https://github.com/seedstack/w20-bridge-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/monitoring"]
 	path = content/addons/monitoring
 	url = https://github.com/seedstack/monitoring-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/audit"]
 	path = content/addons/audit
 	url = https://github.com/seedstack/audit-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/web-services"]
 	path = content/addons/web-services
 	url = https://github.com/seedstack/web-services-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/validation"]
 	path = content/addons/validation
 	url = https://github.com/seedstack/validation-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/solr"]
 	path = content/addons/solr
 	url = https://github.com/seedstack/solr-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/scheduling"]
 	path = content/addons/scheduling
 	url = https://github.com/seedstack/scheduling-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/redis"]
 	path = content/addons/redis
 	url = https://github.com/seedstack/redis-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/neo4j"]
 	path = content/addons/neo4j
 	url = https://github.com/seedstack/neo4j-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/mongodb"]
 	path = content/addons/mongodb
 	url = https://github.com/seedstack/mongodb-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/jpa"]
 	path = content/addons/jpa
 	url = https://github.com/seedstack/jpa-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/jms"]
 	path = content/addons/jms
 	url = https://github.com/seedstack/jms-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/jdbc"]
 	path = content/addons/jdbc
 	url = https://github.com/seedstack/jdbc-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/io"]
 	path = content/addons/io
 	url = https://github.com/seedstack/io-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/i18n"]
 	path = content/addons/i18n
 	url = https://github.com/seedstack/i18n-addon.git
-	branch = docs-16.7
-[submodule "content/themes/simple"]
-	path = content/themes/simple
-	url = https://github.com/seedstack/w20-simple-theme.git
-	branch = docs-16.7
-[submodule "content/themes/business"]
-	path = content/themes/business
-	url = https://github.com/seedstack/w20-business-theme.git
-	branch = docs-16.7
-[submodule "content/addons/w20-dataviz"]
-	path = content/addons/w20-dataviz
-	url = https://github.com/seedstack/w20-dataviz.git
-	branch = docs-16.7
-[submodule "content/addons/w20-components"]
-	path = content/addons/w20-components
-	url = https://github.com/seedstack/w20-components.git
-	branch = docs-16.7
-[submodule "content/addons/w20-extras"]
-	path = content/addons/w20-extras
-	url = https://github.com/seedstack/w20-extras.git
-	branch = docs-16.7
-[submodule "content/addons/w20-material"]
-	path = content/addons/w20-material
-	url = https://github.com/seedstack/w20-material.git
-	branch = docs-16.7
-[submodule "content/addons/w20-bootstrap-3"]
-	path = content/addons/w20-bootstrap-3
-	url = https://github.com/seedstack/w20-bootstrap-3.git
-	branch = docs-16.7
-[submodule "content/addons/w20-bootstrap-2"]
-	path = content/addons/w20-bootstrap-2
-	url = https://github.com/seedstack/w20-bootstrap-2.git
-	branch = docs-16.7
-[submodule "content/themes/material"]
-	path = content/themes/material
-	url = https://github.com/seedstack/w20-material-theme.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/mqtt"]
 	path = content/addons/mqtt
 	url = https://github.com/seedstack/mqtt-addon.git
-	branch = docs-16.7
+	branch = docs
 [submodule "content/addons/ldap"]
 	path = content/addons/ldap
 	url = https://github.com/seedstack/ldap-addon.git
-	branch = docs-16.7
+	branch = docs

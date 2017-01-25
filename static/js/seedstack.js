@@ -60,38 +60,13 @@
             $('#versions-modal').modal('hide');
         },
 
-        showAllShortcuts: function () {
-            $('.hidden-shortcuts').show();
-            $('#show-all-shortcuts').hide();
-        },
-
         shortcuts: {
-            "A": "/addons",
-            "G": "/guides",
-            "B": "/docs/business",
-            "b b": "/docs/business/manual/basics",
-            "b m": "/docs/business/manual/model",
-            "b l": "/docs/business/manual/lifecycle",
-            "b e": "/docs/business/manual/events",
-            "b p": "/docs/business/manual/policies",
-            "b a": "/docs/business/manual/assemblers",
-            "b f": "/docs/business/manual/finders",
-            "b P": "/docs/business/manual/pagination",
-            "S": "/docs/seed",
-            "s b": "/docs/seed/manual/basics",
-            "s t": "/docs/seed/manual/testing",
-            "s s": "/docs/seed/manual/security",
-            "s c": "/docs/seed/manual/crypto",
-            "s w": "/docs/seed/manual/web",
-            "s r": "/docs/seed/manual/rest",
-            "s o": "/docs/seed/manual/operations",
-            "s T": "/docs/seed/manual/transactions",
-            "W": "/docs/w20",
-            "w b": "/docs/w20/manual/basics",
-            "w s": "/docs/w20/manual/security",
-            "w c": "/docs/w20/manual/culture",
-            "w h": "/docs/w20/manual/hypermedia",
-            "w u": "/docs/w20/manual/ui"
+            "h": "/",
+            "o": "/docs/overview",
+            "b": "/docs/business",
+            "s": "/docs/seed",
+            "a": "/addons",
+            "g": "/guides"
         }
     };
 
