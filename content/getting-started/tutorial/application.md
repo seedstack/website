@@ -137,5 +137,3 @@ executed after the startup and before the shutdown of the application:
     }
 
 This `LifecycleListener` will add one seller, several products and orders to clean database collections.
-
-{{% navbar %}}

@@ -1,63 +1,72 @@
 ---
-title: "Introduction to SeedStack"
+title: "Quick start"
 type: "home"
 zones:
     - "GettingStarted"
 sections:
-    - "GettingStartedIntroduction"
+    - "GettingStartedQuickStart"
 menu:
-    GettingStartedIntroduction:
+    GettingStartedQuickStart:
         weight: 10
 ---
 
-**SeedStack is a comprehensive software development stack** aimed at application or (micro-)service creation. It addresses both
-backend and frontend needs in a modular yet seamless solution. It means that you can cherry-pick the components or
-choose to take advantage of the full stack for maximum development speed.<!--more-->
+**SeedStack is an opinionated, easy-to-use Java development stack.** It is a general purpose development solution which
+can be used to address various project types with a particular focus on REST microservices and applications.
+ 
+# Start from scratch
 
-**SeedStack is strongly opinionated** and, as such, not an ubiquitous solution for every need. Its main focus is on helping
-you to build better applications or services, ones that will be valuable assets in the long run and that you can evolve
-and maintain as long as needed. It does so by providing:
+The easiest way to get started with SeedStack is to use the project generator:
+ 
+    mvn org.seedstack:seedstack-maven-plugin:generate
+    
+The SeedStack maven plugin will ask you a small number of questions, starting with the [type of project](project-templates) you want to create.
 
-  * A highly modular architecture,
-  * Integration of a wide range of curated technologies,
-  * Easy-to-use building blocks.
+## Run from the command-line
+    
+To launch the project from the command-line, just use the `run` goal of the SeedStack Maven plugin:
+ 
+    mvn org.seedstack:seedstack-maven-plugin:run
+    
+This will launch the `org.seedstack.seed.core.SeedMain` main class.
+        
+## Run from your IDE
+        
+To launch the project from your IDE, just define a plain "Java application" running configuration targeting the 
+`org.seedstack.seed.core.SeedMain` main class.
 
-**SeedStack is designed with enterprise-class requirements in mind**. High modularity, powerful configuration, advanced
-security, self-monitoring or side-channel administrative commands are typical examples of such features. They are easy
-to configure if you need them and won't get in your way if you don't. In fact, SeedStack high modularity allows you to
-only include the features you really need for each project.
 
-**SeedStack is customizable and extensible at multiple levels**. Beyond configuring and extending each component, you can
-tailor the whole stack to your personal or organization needs. The concept of distribution allows you to create a custom
-solution with its own component choices, conventions and templates that you can then apply to all your organization
-projects. We provide a reference Open-Source distribution for common needs but massive gains can be found by creating
-your own (proprietary or not), especially if your organization is mid-sized or large.
+# Follow the tutorial
 
-# Composition
+Learn about SeedStack by following the tutorial. It is based upon an very simple e-commerce use case and will walk you through 
+the essentials of a project.
 
-SeedStack is made of three major frameworks:
+{{< button href="tutorial" icon="fa fa-graduation-cap" label="Follow the tutorial!" >}}
 
-* **The Java framework**, also known as Seed, is the foundation of the application or service backend. Its role is to
-provide access to a range of technologies from application code.
-* **The Web framework**, also known as W20, is the foundation of the application Web frontend if any. At its core, it
-seamlessly integrates RequireJS and AngularJS to enable the creation of composite Web frontends. It also provides a
-complete Bootstrap-based UI solution.
-* **The Business framework** is the foundation of your business code. Based on the Domain-Driven Design
-methodology, it implements all its concepts as read-to-use building blocks. It also provides various services often
-needed around business code.
+# Get the samples
 
-![Stack diagram](img/stack.svg)
+We provide several samples demonstrating various aspects of SeedStack. 
 
-Modularity is at the heart of SeedStack so you can tailor the solution to your exact needs by adding only the relevant
-components. Components are mostly independent of each other and, although there are dependencies between some of them,
-they are kept to a minimum.
+{{< button href="samples" icon="fa fa-file-text-o" label="Get the samples!" >}}
 
-{{% callout info %}}
-There are two main technologies found in SeedStack:
+# Integration into an existing project
 
-* **Java** components which are distributed as Maven artifacts on [Maven Central](http://search.maven.org),
-* **HTML/CSS/JS** components which are distributed with [Bower](http://bower.io/search/). These components are also
-repackaged as Maven artifacts if Bower is unavailable in your environment.
-{{% /callout %}}
+You can choose to integrate SeedStack in an existing project by including the following dependency management snippet in
+your Maven project POM:
 
-{{% next href="tutorial" label="follow the tutorial..." %}}
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.seedstack</groupId>
+                <artifactId>seedstack-bom</artifactId>
+                <version>16.11.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        <dependencies>
+    <dependencyManagement>
+
+To make a working SeedStack project you need to add an artifact containing a runtime environment. 
+You can try the `seed-web-undertow` artifact, containing the [Undertow embedded Web server](http://undertow.io):
+ 
+{{< dependency g="org.seedstack.seed" a="seed-web-undertow" >}}
+    

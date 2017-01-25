@@ -139,5 +139,3 @@ You can now request the mock orders we created earlier with one of the following
 customer.
 * `/api/orders/{orderId}` which is the detail of a specific order (like `/orders/1`). For simplicity, we just return the same
 representation as in the list but we can build another, more detailed, representation of an `Order` for this sub-resource.
-
-{{% navbar %}}

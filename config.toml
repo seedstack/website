@@ -2,8 +2,9 @@ baseurl = "http://seedstack.org/"
 MetaDataFormat = "yaml"
 
 [params]
-  description = "Documentation of SeedStack, the lean development stack."
+  description = "SeedStack is an opinionated, easy-to-use Java development stack."
   author = "The SeedStack authors"
+  "ch.qos.logback.version" = "1.1.10"
   "org.seedstack.seed.version" = "2.3.0"
   "org.seedstack.business.version" = "2.3.1"
   "org.seedstack.addons.audit.version" = "2.1.1"
@@ -42,6 +43,11 @@ MetaDataFormat = "yaml"
 #### Website zones               ####
 #####################################
 
+[params.zone.Overview]
+  path = "/docs"
+  label = "Overview"
+  logo = "seed-logo.svg"
+
 [params.zone.Seed]
   path = "/docs/seed"
   label = "Java framework"
@@ -51,11 +57,6 @@ MetaDataFormat = "yaml"
   path = "/docs/business"
   label = "Business framework"
   logo = "business-logo.svg"
-
-[params.zone.W20]
-  path = "/docs/w20"
-  label = "Web framework"
-  logo = "w20-logo.svg"
 
 [params.zone.GettingStarted]
   path = "/getting-started"
@@ -86,11 +87,6 @@ MetaDataFormat = "yaml"
   path = "/addons"
   label = "Add-ons"
   logo = "addons-logo.svg"
-
-[params.zone.Themes]
-  path = "/themes"
-  label = "Themes"
-  logo = "themes-logo.svg"
 
 [params.zone.Search]
   path = "/search"
@@ -125,15 +121,10 @@ MetaDataFormat = "yaml"
 #### Getting started sections    ####
 #####################################
 
-[params.section.GettingStartedIntroduction]
-  label = "Introduction"
-  icon = "fa fa-file-text"
+[params.section.GettingStartedQuickStart]
+  label = "Quick start"
+  icon = "fa fa-rocket"
   path = ""
-
-[params.section.GettingStartedDistribution]
-  label = "Distribution"
-  icon = "fa fa-gift"
-  path = "distribution"
 
 [params.section.GettingStartedProjectTemplates]
   label = "Project templates"
@@ -144,6 +135,25 @@ MetaDataFormat = "yaml"
   label = "Tutorial"
   icon = "fa fa-graduation-cap"
   path = "tutorial"
+
+#####################################
+#### Overview sections           ####
+#####################################
+
+[params.section.OverviewEssentials]
+  label = "Overview"
+  icon = "fa fa-certificate"
+  path = ""
+
+[params.section.OverviewMavenPlugin]
+  label = "Maven plugin"
+  icon = "fa fa-cogs"
+  path = "maven-plugin"
+
+[params.section.OverviewRuntime]
+  label = "Runtime"
+  icon = "fa fa-server"
+  path = "runtime"
 
 #####################################
 #### Business framework sections ####
@@ -163,37 +173,13 @@ MetaDataFormat = "yaml"
 #### Seed framework sections     ####
 #####################################
 
-[params.section.SeedIntroduction]
-  label = "Introduction"
-  icon = "fa fa-file-text"
+[params.section.SeedEssentials]
+  label = "Essentials"
+  icon = "fa fa-compass"
   path = ""
 
 [params.section.SeedManual]
   label = "Seed manual"
-  icon = "fa fa-book"
-  path = "manual"
-
-[params.section.SeedRuntime]
-  label = "Runtime"
-  icon = "fa fa-server"
-  path = "runtime"
-
-[params.section.SeedMavenPlugin]
-  label = "Maven plugin"
-  icon = "fa fa-cogs"
-  path = "maven-plugin"
-
-#####################################
-#### W20 sections                ####
-#####################################
-
-[params.section.W20Introduction]
-  label = "Introduction"
-  icon = "fa fa-file-text"
-  path = ""
-
-[params.section.W20Manual]
-  label = "W20 manual"
   icon = "fa fa-book"
   path = "manual"
 

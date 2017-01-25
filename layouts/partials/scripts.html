@@ -1,6 +1,8 @@
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/gradle.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/0.5.9/lunr.min.js"></script>
 <script src="/assets/unify/plugins/smoothScroll.js"></script>
@@ -57,6 +59,7 @@
         Mousetrap.bind('esc', function () {
             seedstack.ui.closeHelp();
             seedstack.ui.closeSearch();
+            seedstack.ui.closeVersions();
             return false;
         });
 
@@ -120,9 +123,8 @@
                             }
                         });
 
-                        $('.loginbar').prepend(
-                                '<li class="hidden-xs hidden-sm"><i class="fa fa-tag"></i> <a style="cursor: pointer;" onclick="seedstack.ui.openVersions();">Latest version: ' + pom.project.version + '</a></li>' +
-                                '<li class="topbar-devider"></li>'
+                        $('.homepage-subheader-link').html(
+                                '<span><a style="cursor: pointer;" onclick="seedstack.ui.openVersions();">Latest version: ' + pom.project.version + '</a></span>'
                         );
 
                         seedstack.versions = versions;
@@ -137,7 +139,9 @@
 
         resolveVersions();
 
-        $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="tooltip"]').tooltip({
+            container: 'body'
+        });
 
         $('#hotkeys-modal, #versions-modal').bind('hidden.bs.modal', function () {
             $("html").css("margin-right", "0px");

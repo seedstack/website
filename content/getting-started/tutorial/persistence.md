@@ -143,4 +143,3 @@ The `Seller` entity becomes:
         ...
     }
 
-{{% navbar %}}

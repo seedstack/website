@@ -13,6 +13,9 @@
             {{ if eq "danger" (.Get 0) }}
                 <i class="fa fa-exclamation-triangle icon-2x"></i>
             {{ end }}
+            {{ if eq "ref" (.Get 0) }}
+                <i class="fa fa-hand-o-right icon-2x"></i>
+            {{ end }}
         </div>
         <div style="display:table-cell; vertical-align: middle;">
             {{ .Inner }}

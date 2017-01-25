@@ -2,7 +2,7 @@
     {{ $.Scratch.Add "zone" (index .Site.Params.zone (index .Params.zones 0) "label") }}
 {{ end }}
 <title>
-    {{ if or (eq ($.Scratch.Get "zone") "Add-ons") (eq ($.Scratch.Get "zone") "Themes") }}{{ .Params.name }} - {{ end }}{{ if eq .Title ""}}SeedStack{{ else }}{{ .Title }}{{ end }}
+    {{ if or (eq ($.Scratch.Get "zone") "Add-ons") (eq ($.Scratch.Get "zone") "Themes") }}{{ .Params.name }} - {{ end }}{{ if eq .Title ""}}SeedStack - Clean Java development stack{{ else }}{{ .Title }}{{ end }}
 </title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

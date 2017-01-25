@@ -313,5 +313,3 @@ With the following implementation:
 
 Note that this service injects and uses the business framework `DomainRegistry` which can be used to retrieve domain
 elements dynamically, such as the policy in this case (which depends upon the seller instance).
-
-{{% navbar %}}

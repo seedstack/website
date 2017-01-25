@@ -12,8 +12,8 @@
 
 .side-menu #TableOfContents {
     list-style-type: none;
-    background-color: rgba(152, 255, 59, 0.20);
     padding: 20px 10px 20px 10px;
+    background-color: rgba(52, 152, 219, 0.2);
 }
 
 .side-menu #TableOfContents ul {
@@ -37,16 +37,6 @@
     border: none;
 }
 
-.side-menu > .title > a {
-    background-color: #72c02c;
-    vertical-align: top;
-}
-
-.side-menu > .label {
-    background-color: #72c02c;
-    font-family: 'Open Sans', 'Helvetica', sans-serif;
-}
-
 .side-menu.affix {
     top: 40px;
 }
@@ -60,16 +50,6 @@
     padding-right: 0.5em;
     line-height: 20px;
     font-family: 'Open Sans', 'Helvetica', sans-serif;
-}
-
-.side-menu a.list-group-item.active {
-    background-color: #72c02c;
-    border-color: #72c02c;
-}
-
-.side-menu a.list-group-item.active:hover {
-    background-color: #72c02c;
-    border-color: #72c02c;
 }
 
 .side-menu ul#tags {

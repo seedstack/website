@@ -58,7 +58,7 @@
 
 .doc-content p + p {
     text-indent: 1em;
-    margin-top: 0;
+    margin-top: 20px;
 }
 
 .doc-content ul, .doc-content ol {
@@ -148,6 +148,7 @@
 
 .doc-content pre code {
     padding: 10px;
+    display: block;
 }
 
 .doc-content table {
@@ -247,7 +248,6 @@
     counter-increment : none;
 }
 
-
 .callout {
     margin: 20px 0;
     padding: 20px 30px;
@@ -264,17 +264,34 @@
     margin-bottom: 5px;
 }
 
+.callout i {
+    vertical-align: middle;
+}
+
 .callout-tips {
     background-color: #f7f7fd;
-    border-color: #5bc0de
+    border-color: #3498db;
 }
 
 .callout-tips h4 {
-    color: #5bc0de;
+    color: #3498db;
 }
 
 .callout-tips i {
-    color: #5bc0de;
+    color: #3498db;
+}
+
+.callout-ref {
+    background-color: #fdf7f7;
+    border-color: #3498db;
+}
+
+.callout-ref h4 {
+    color: #3498db;
+}
+
+.callout-ref i {
+    color: #3498db;
 }
 
 .callout-danger {
@@ -305,15 +322,15 @@
 
 .callout-info {
     background-color: #f7faf5;
-    border-left: solid 2px #72c02c;
+    border-left: solid 2px #3498db;
 }
 
 .callout-info h4 {
-    color: #72c02c;
+    color: #3498db;
 }
 
 .callout-info i {
-    color: #72c02c;
+    color: #3498db;
 }
 
 .doc-content .highlight {
@@ -352,7 +369,7 @@
 
 .doc-content .tabs-icon {
     margin-top: -30px;
-    color: #88c758;
+    color: #3498db;
 }
 
 .doc-content .timeline-v2 img {

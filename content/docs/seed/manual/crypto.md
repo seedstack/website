@@ -13,139 +13,221 @@ tags:
     - "hashing"
 menu:
     SeedManual:
-        weight: 90
+        weight: 70
 ---
 
-Seed provides helpers for Java cryptography: private key encryption, secure hashing, KeyStore configuration and SSL 
-configuration.<!--more--> To use these helpers add the `seed-crypto` module to your classpath. 
+SeedStack support easy configuration of Java key stores and SSL along with services for private key encryption 
+and secure hashing.<!--more--> 
 
-{{< dependency g="org.seedstack.seed" a="seed-crypto" >}}
+# Key stores
 
-# Encryption
+A key store is a storage facility for cryptographic keys and certificates. Key stores are created using the `keytool` 
+command-line tool (see [keytool documentation](http://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html)).
 
-Seed provides an `EncryptionService` which allows you to securely store or exchange data. It is based on a Public Key Infrastructure (PKI),
-i.e. it encrypt data using a public key and then decrypt it with a private key. To use it you will have to declare the key pair to use.
-In java keys are stored using a `KeyStore`.
+Here is an example creating a key store named `some.keystore` with a key pair named `alias1`:
 
-## KeyStores
-
-Key stores are created using the `keytool` command-line tool (see [keytool documentation](http://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html)).
-Here is an example creating a keystore with a key pair:
-
-```ini
-keytool -genkeypair -dname "cn=Mark Jones, ou=Java, o=Oracle, c=US"
-    -alias database -keypass <new password for private key>
-    -keystore ./src/main/resources/app.keystore
-    -storepass <new password for keystore> -validity 180
+```bash
+keytool -genkeypair -dname "cn=Mark Jones, ou=Java, o=Oracle, c=US" -keystore some.keystore -storepass <keystore password> -validity 180 -alias alias1 -keypass <alias password>
 ```
 
-Then, it is possible to declare the key store in your configuration as follows. Notice that multiple key stores can be registered.
-The key store configuration is prefixed by `org.seedstack.seed.crypto.keystore.<keystore name>`. The prefix ends with a
-logical key store name.
+You can configure key stores in your application as below:
 
-```ini
-org.seedstack.seed.crypto.keystores=keystoreName, keystoreName2
+{{% config p="crypto.keystores" %}}
+```yaml
+crypto:
+  # Configured key stores
+  keystores:
+    # Logical name of the key store
+    keystore1:
+      # Path of the key store
+      path: (String)
+      
+      # Password of the key store
+      password: (String)
+      
+      # [Optional] Type of the key store (use the default key store type if not specified)
+      type: (String)
+      
+      # [Optional] The security provider to use (will default to the registered list if not provided)
+      provider: (String)
+      
+      # Configured aliases in the key store
+      aliases:
+        # Name of the alias in the key store
+        alias1:
+          # Password of the alias
+          password: (String)
+         
+          # String qualifier to use for injecting the cryptography services (defaults to the name of the alias if not specified)
+          qualifier: (String)
 
-[org.seedstack.seed.crypto.keystore.keystoreName]
-path=src/main/resources/app.keystore
-password=<new password for keystore>
-
-# Optional configuration
-type=<keystore type>
-provider=<keystore provider>
-
-[org.seedstack.seed.crypto.keystore.keystoreName2]
-...
+  # Configured external certificates 
+  certificates:
+    # Logical name of the certificate
+    certificate1:
+      # File location of the certificate (exclusive with resource)
+      file: (String)
+      
+      # Classpath location of the certificate (exclusive with file)
+      resource: (String)
 ```
+{{% /config %}}  
 
-{{% callout tips %}}
-Two keytstore names are registered by default: `master` and `default`. The usage of the master keystore is described later
-in this [documentation](#configuration-files-protection). The default is only a shortcut when you don't need to have multiple
-keystores. So you don't have to specify:
+# Certificates
 
-```ini
-org.seedstack.seed.crypto.keystores=default, master
+It is recommended to store your key/pairs inside key stores but you can use an standalone certificates if you need too.
+You can configure them as below:
+
+{{% config p="crypto.certificates" %}}
+```yaml
+crypto:
+  # Configured external certificates 
+  certificates:
+    # Logical name of the certificate
+    certificate1:
+      # File location of the certificate (exclusive with resource)
+      file: (String)
+      
+      # Classpath location of the certificate (exclusive with file)
+      resource: (String)
 ```
-{{% /callout %}}
+{{% /config %}}  
 
-## Key pairs
+# Encryption and decryption
 
-Java key stores protect keys using passwords and associate public/private key pairs to aliases. For instance, if you want
-to register the previously key pair, do it as follows.
-
-```ini
-[org.seedstack.seed.crypto.keystore.keystoreName.alias]
-database.password=21B06221FC9EC83BAAD
-ssl.password=70E65711ACFEF03F59A
-```
-
-{{% callout warning %}}
-It is recommended for security to store certificates in a key store. But if you can't, it is still possible to use an external certificate as follows.
-{{% /callout %}}
-
-```ini
-[org.seedstack.seed.crypto.cert]
-client1.resource=client.cer
-client2.file=src/main/resources/seed.crt
-```
-In this example `client1` and `client2` correspond to keystore aliases. The first alias is loaded from a resource and
-the second from a file. A current limitation with external certificates is that the aliases have to be present in one of the configured keystores.
-
-## EncryptionService
-When a key store is configured, it is then possible to inject an `EncryptionService` for a specific alias.
-The alias password has to be configured for accessing the private key. Otherwise the `EncryptionService`
-will still be bound, but it won't be able to decrypt data. Only the encryption will be possible.
+You can use a key/pair from a key store or a certificate to encrypt and decrypt data. Just inject an 
+{{< java "org.seedstack.seed.crypto.EncryptionService" >}} qualified with the alias or certificate name:
 
 ```java
-@Inject
-@Named("database") // named with the key pair alias
-private EncryptionService encryptionService;
+public class SomeClass {
+    @Inject
+    @Named("alias1")
+    private EncryptionService encryptionService1;
+    
+    @Inject
+    @Named("certificate1")
+    private EncryptionService encryptionService2;
+}
 ```
 
-And use it to crypt or decrypt data as follows:
+* The service `encryptionService1` will encrypt and decrypt data using the key/pair named `alias1` stored in `keystore1`. 
+* The service `encryptionService2` will encrypt and decrypt data using the key/pair from the certificate `certificate1`.
+
+{{% callout info %}}
+By default, the name of the alias is used as the injection qualifier. When multiple key stores contain the same alias 
+name, you can specify a different qualifier in the `qualifier` configuration option of the concerned alias(es).  
+{{% /callout %}}  
+
+You can encrypt and decrypt data with as below:
 
 ```java
-final String stringToCrypt = "secret in plain text";
-
-byte[] encryptedString = encryptionService.encrypt(chaine.getBytes());
-byte[] decryptedString = encryptionService.decrypt(encrypt);
+public class SomeClass {
+    @Inject
+    @Named("alias1")
+    private EncryptionService encryptionService;
+    
+    public byte[] encrypt(byte[] data) {
+        return encryptionService.encrypt(data);
+    }
+    
+    public byte[] decrypt(byte[] data) {
+        return encryptionService.decrypt(data);
+    }
+}
 ```
 
 # Secure hashing
 
-Seed crypto also comes with an `HashService` which provides the current best default hashing algorithms.
+You can do secure hashing using the `PBKDF2WithHmacSHA1` algorithm by injecting the {{< java "org.seedstack.seed.crypto.HashingService" >}}
+interface:
 
 ```java
-@Inject
-private HashingService hashingService;
-...
-Hash hash = hashingService.createHash("string to hash");
+public class SomeClass {
+    @Inject
+    private HashingService hashingService;
+    
+    public void hash(char[] password) {
+        // Hashes the password returning an object containing the salt value and the hash value  
+        Hash hash = hashingService.createHash(password);
+    }
+    
+    public void validate(char[] password, Hash knownHash) {
+        // Validate the password against an already known hash
+        boolean valid = hashingService.validatePassword(password, knownHash);
+    }
+}
 ```
 
-It also provides a **secure password validation**. It takes a password, hashes it and checks
-it against the previously hashed password.
+# Encrypting configuration values
 
-```java
-Hash hash = hashingService.validatePassword(passwordToCheck, verifiedHash);
+## The decrypt function
+
+Sometimes you are required to put sensitive data, like passwords, in configuration files. You can choose to encrypt
+such sensitive data and let SeedStack decrypt it only at runtime when needed. This is done with the `$decrypt(alias, value)` 
+configuration function:
+
+```yaml
+crypto:
+  keystores:
+    master:
+      path: master.keystore
+      password: ${env.MASTER_KS_PASSWORD}
+      aliases:
+        alias1:
+          password: ${env.MASTER_KS_ALIAS1_PASSWORD}
+myConfig:
+  password: $decrypt('alias1', '5BC99359A5...A49580F0DE3')
 ```
 
-# Configuration files protection
+The `myConfig.password` value is encrypted in the files and only decrypted on-the-fly when accessed by the application:
+* The key store named `master` is always used for decrypting values.
+* The alias used to decrypt values is specified as the first argument of the `$decrypt` function.
 
-Sometimes, you need to have **sensitive data in your configuration files**. Using Seed cryto, it is possible to
-encrypt values in your props files. This values are decrypted at runtime. For instance, you can encrypt a password
-and specify it in the props file with the `${password:XXX}` syntax.
+{{% callout warning %}}
+The master key store and its aliases passwords must be left unencrypted. To avoid a security hole, you need to externalize 
+those passwords and provide them only at runtime, in a secured manner. All others sensitive values can be encrypted.
+{{% /callout %}}
+   
+## The crypt tool
 
-```ini
-[org.seedstack.seed.crypto.keystore.keystoreName.alias]
-client.password=${password:70E65711ACFEF03F59AFCED...F96563A19B18954B49DD59}
+To crypt configuration values, you can use the `crypt` tool provided by SeedStack. You can call it with the 
+[crypt goal](/docs/overview/maven-plugin/crypt) of the SeedStack Maven plugin:
+  
+```bash
+mvn -Dargs="--alias alias1 thePasswOrd" -q org.seedstack:seedstack-maven-plugin:crypt
 ```
+  
+This will crypt the value `thePasswOrd` with the key in the `alias1` alias of the configure `master` key store.  
 
-The password decrypting is done using an `EncryptionService`. This service expect a key store named `master` with a
-key alias named `seed`.
+{{% callout info %}}
+You must have a `master` key store already configured in your application.
+{{% /callout %}}
 
-```ini
-[org.seedstack.seed.crypto.keystore.master]
-path=src/main/resources/masterkeystore.jck
-password=${env:KS_PASSWD}
-alias.seed.password=${env:KEY_PASSWD}
+# SSL
+
+The SSL configuration required for HTTPS operation of embedded Web servers such as the 
+[built-in Undertow](/docs/seed/manual/web/#with-undertow) can be found below: 
+
+{{% config p="crypto.ssl" %}}
+```yaml
+  # SSL configuration (used by embedded Web servers like Undertow)    
+  ssl:
+    # The protocol to use for SSL communication
+    protocol: (String)
+    
+    # The name of the key store used to load the SSL key managers ('master' by default)
+    keyStore: (String)
+     
+    # The name of the key store used as a trust store for SSL ('master' by default)
+    trustStore: (String)
+    
+    # The name of the alias in the key store ('ssl' by default)
+    alias: (String)
+
+    # The set of ciphers that can be used for SSL communication
+    ciphers: [ (String) ]
+    
+    # The client authentication mode
+    clientAuthMode: (NOT_REQUESTED|REQUESTED|REQUIRED)
 ```
+{{% /config %}}  
