@@ -9,6 +9,8 @@ zones:
 ---
 
 Sometimes there is a need to use a development version of a SeedStack component in your project, **for testing purposes**.
+This guide will help you configure Maven to access SeedStack SNAPSHOT dependencies.<!--more-->
+ 
 SeedStack Java components are available as Maven dependencies at the following locations:
 
 * Releases are available on [Bintray](https://bintray.com/seedstack/jars), [JCenter](https://bintray.com/bintray/jcenter)

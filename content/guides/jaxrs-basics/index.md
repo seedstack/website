@@ -9,7 +9,7 @@ zones:
 ---
 
 JAX-RS is a specification providing a standard way to write REST resources in Java. SeedStack implements the JAX-RS
-standard through the [Jersey 2](https://jersey.java.net/) implementation.
+standard through the [Jersey 2](https://jersey.java.net/) implementation.<!--more-->
 
 # Working with JAX-RS resources
 

@@ -9,7 +9,7 @@ zones:
 ---
 
 SeedStack projects created by the [generate goal](/docs/overview/maven-plugin/generate) of the SeedStack Maven plugin are
-designed to be run from command-line with an embedded Web server. You can convert this kind of project to a classic WAR:
+designed to be run from command-line with an embedded Web server. You can convert this kind of project to a classic WAR.<!--more-->
 
 1. Add a `src/main/webapp` folder to hold the document root.
 2. Add a `<packaging>war</packaging>` tag to the `pom.xml`.
