@@ -56,7 +56,7 @@ split into optional sub-modules:
 The code of each module lives in several Java packages, all prefixed by org.seedstack.seed.???, where ??? is the name 
 of the module:
 
-* `org.seedstack.seed.[module]` which contains classes destined to be used by client code,
+* `org.seedstack.seed.[module]` which contains classes to be used by client code,
 * `org.seedstack.seed.[module].spi` which contains the classes needed to extend the module features,
 * `org.seedstack.seed.[module].internal` which contains the module internal classes,
 * `org.seedstack.seed.[module].test` which contains testing tools for the module.
@@ -69,7 +69,7 @@ and subject to change between versions without notice.
 ## Class organisation
 
 Seed follows [SOLID principles](https://en.wikipedia.org/wiki/SOLID_\(object-oriented_design\)) and each class tend to only
-have one responsibility, allowing to easily understand what it does. It also does help to keep you implementation simple
+have one responsibility, allowing to easily understand what it does. It also does help to keep your implementation simple
 and testable.
 
 # Lifecycle
@@ -103,10 +103,8 @@ The kernel orchestrates the application lifecycle through the following phases:
 * In the bootstrapping phase, the runtime starts the kernel which uses the Java service loader mechanism to detect all 
 the plugins present in the classpath. These plugins register their classpath information requests to the kernel and express 
 their requirements on other plugins.
-* In the initialization phase, the kernel resolve all the classpath requests in only one full classpath scan and invoke 
-the initialization logic of all plugins in the correct order.
-* In the starting phase, the kernel collects the injection bindings dynamically defined by each plugin from the results of the 
-initialization phase and builds the application main injector. Then the kernel invokes the starting logic of all plugins 
+* In the initialization phase, the kernel resolves all the classpath requests in only one full classpath scan while invoking the initialization logic of all plugins in the correct order.
+* In the starting phase, the kernel builds the application main injector by collecting all injection bindings dynamically defined from each plugin during initialization phase. Then the kernel invokes the starting logic of all plugins 
 in the correct order. At this point, the application is fully operational.
 * In the stopping phase, the runtime stops the kernel which invokes the stopping logic of all plugins in the correct 
 order. A this point, the application is stopped.
