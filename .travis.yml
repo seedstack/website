@@ -20,7 +20,7 @@ cache:
   
 before_install:
   - git submodule update --init --recursive
-  - IFS='-' read -r -a ARCHIVE <<< $TRAVIS_BRANCH
+  - IFS='-' read -r -a ARCHIVE <<< "$TRAVIS_BRANCH"
 
 install:
   - wget https://github.com/spf13/hugo/releases/download/v0.17/hugo_0.17_Linux-64bit.tar.gz
