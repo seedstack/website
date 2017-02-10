@@ -10,6 +10,8 @@
 <meta name="robots" content="noindex,nofollow">
 {{ else if eq (printf "%s" $.Site.BaseURL) "http://dev.seedstack.org/" }}
 <meta name="robots" content="noindex,nofollow">
+{{ else if in (printf "%s" $.Site.BaseURL) "http://seedstack.org/archives/" }}
+<meta name="robots" content="noindex,nofollow">
 {{ end }}
 
 <!-- style -->
