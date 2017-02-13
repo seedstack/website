@@ -120,6 +120,52 @@ class SomeClass {
 }
 ```
 
+## Class configuration
+
+It is possible to assign configuration properties to classes, individually or by package. The top-level tree node must
+be named `classes`. Below that, each node having a value will denote a configuration property at its level in the package
+hierarchy. Consider this example:    
+  
+```yaml
+classes:
+  org:
+    myorg:
+      myapp:
+        appLevelProperty: value1
+        domain:
+          packageLevelProperty: value2
+          model:
+            SomeModelClass:
+              classLevelProperty: value3
+``` 
+
+You can obtain the configuration properties assigned to a class by using the {{< java "org.seedstack.seed.Application" >}}
+interface:
+
+```java
+class SomeClass {
+    @Inject
+    private Application application;
+    
+    public void someMethod() {
+        ClassConfiguration<SomeModelClass> classConfig = 
+            application.getConfiguration(SomeModelClass.class);
+        
+        // will be 'value1' 
+        classConfig.get("appLevelProperty");     
+
+        // will be 'value2' 
+        classConfig.get("packageLevelProperty");
+
+        // will be 'value3' 
+        classConfig.get("classLevelProperty");
+    }
+}
+```
+
+* Class configuration properties are cumulative from the top package to the class level.
+* Specific properties (lower-level) override general (higher-level) properties with the same name.
+
 # Mapping
 
 The following mapping rules apply:
