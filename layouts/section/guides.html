@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-md-9">
             {{ $.Scratch.Set "guideCount" 0 }}
-            {{ range $element := (where .Data.Pages.ByDate.Reverse "Weight" -1) }}
+            {{ range $element := (where .Data.Pages.ByDate.Reverse "Weight" 0) }}
             {{ $.Scratch.Set "guideCount" (add ($.Scratch.Get "guideCount") 1) }}
             <div class="content-wrapper filterable-item" style="margin-bottom: 20px;">
                 <div class="doc-content">

@@ -1,7 +1,7 @@
 ---
 title: "Anemic Domain Model"
-name: "DDD pitfalls and tips"
-author: "SeedStack"
+parent: "DDD pitfalls and tips"
+weight: -1
 zones:
     - Guides
 menu:

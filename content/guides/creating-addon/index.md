@@ -1,9 +1,7 @@
 ---
 title: "Creating an add-on"
-name: "Creating an add-on"
-author: "SeedStack"
+author: "Adrien LAUER"
 date: 2016-08-31
-weight: -1
 zones:
     - Guides
 ---

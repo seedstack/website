@@ -30,10 +30,6 @@
 	path = content/addons/web-services
 	url = https://github.com/seedstack/web-services-addon.git
 	branch = docs
-[submodule "content/addons/validation"]
-	path = content/addons/validation
-	url = https://github.com/seedstack/validation-addon.git
-	branch = docs
 [submodule "content/addons/solr"]
 	path = content/addons/solr
 	url = https://github.com/seedstack/solr-addon.git
@@ -81,4 +77,12 @@
 [submodule "content/addons/ldap"]
 	path = content/addons/ldap
 	url = https://github.com/seedstack/ldap-addon.git
+	branch = docs
+[submodule "content/addons/data-security"]
+	path = content/addons/data-security
+	url = https://github.com/seedstack/data-security-addon.git
+	branch = docs
+[submodule "content/addons/shell"]
+	path = content/addons/shell
+	url = https://github.com/seedstack/shell-addon.git
 	branch = docs

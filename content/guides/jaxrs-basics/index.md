@@ -1,8 +1,6 @@
 ---
 title: "JAX-RS basics"
-name: "JAX-RS basics"
-author: "SeedStack"
-weight: -1
+author: "Emmanuel VINEL"
 date: 2017-02-09
 zones:
     - Guides

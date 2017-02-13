@@ -1,8 +1,6 @@
 ---
 title: "Converting a standalone Web project to WAR"
-name: "Converting a standalone Web project to WAR"
-author: "SeedStack"
-weight: -1
+author: "Adrien LAUER"
 date: 2017-02-06
 zones:
     - Guides

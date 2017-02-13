@@ -1,7 +1,7 @@
 <article class="addon" data-addon-backend='{{ isset .Params "backend" }}' data-addon-frontend='{{ isset .Params "frontend" }}'>
     <header>
         <h1 class="nocount" style="border-bottom: none;">
-            <a style="text-decoration: none;" href='{{ .Permalink }}'>{{ .Params.name }}</a>
+            <a style="text-decoration: none;" href='{{ .Permalink }}'>{{ .Title }}</a>
             {{ if isset .Params "demo" }}
             <a href="{{ .Params.demo }}" target="_blank"><button class="btn btn-success pull-right" type="submit"><i class="fa fa-play"></i> Live demo</button></a>
             {{ end }}

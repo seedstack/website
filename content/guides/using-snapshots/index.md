@@ -1,8 +1,6 @@
 ---
 title: "Using SeedStack development snapshots"
-name: "Using SeedStack development snapshots"
-author: "SeedStack"
-weight: -1
+author: "Adrien LAUER"
 date: 2016-02-19
 zones:
     - Guides

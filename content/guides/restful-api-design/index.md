@@ -1,15 +1,15 @@
 ---
 title: "RESTful API design"
-name: "RESTful API design"
-author: "SeedStack"
-weight: -1
+author: "Pierre THIROUIN"
 date: 2017-02-08
 zones:
     - Guides
 ---
 
 The [Representational State Transfer][1] (REST) architectural style was defined in 2000 by Roy Fielding. This architectural 
-style defines a set of constraints based on the Web architecture.<!--more--> These constraints are the following:
+style defines a set of constraints based on the Web architecture.<!--more--> 
+
+These constraints are the following:
 
 1. Client-Server
 2. Stateless

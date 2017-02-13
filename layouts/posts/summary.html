@@ -4,7 +4,5 @@
     </header>
 
     {{ .Summary }}... <small><a href='{{ .Permalink }}'><nobr>read more ({{ .ReadingTime }} minute{{ if gt .ReadingTime 1 }}s{{ end }}) →</nobr></a></small>
-    <footer style="padding-top: 10px;">
-        <span>Author(s): {{ range .Params.authors }}{{ . }} {{ end }}</span>
-    </footer>
+    <small class="pull-right">by {{ range .Params.authors }}{{ . }} {{ end }}</small>
 </article>

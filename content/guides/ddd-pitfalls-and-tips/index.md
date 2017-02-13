@@ -1,8 +1,6 @@
 ---
-title: "Introduction"
-name: "DDD pitfalls and tips"
-author: "SeedStack"
-weight: -1
+title: "DDD pitfalls and tips"
+author: "Adrien LAUER"
 date: 2015-06-23
 aliases:
     - /guides/create/ddd-pitfalls-and-tips
