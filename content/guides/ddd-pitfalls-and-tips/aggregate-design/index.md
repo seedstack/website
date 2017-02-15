@@ -102,7 +102,7 @@ is not as versatile as we would like and imposes its constraints upon queries th
 If the system is required to provide a lot of complex and different sets of data to the end-user while being able to be
 changed transactionally, consider using a read-model that is different from the domain model and is optimized to answer
 those data sets. Such a read-model could even be implemented with another persistence technology, like full-text indexing,
-kept in sync with [domain events](/docs/business/manual/event). It may be worth the cost.
+kept in sync with [domain events]({{< ref "docs/business/manual/events.md" >}}). It may be worth the cost.
  
 If only a few queries must be specifically optimized, it could be best to hold direct object references to other Aggregates.
 This must be well considered before being attempted in the light of potential performance trade-offs this could incur to 

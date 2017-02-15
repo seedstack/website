@@ -31,7 +31,7 @@
     &lt;scope&gt;{{ if eq (.Get "s") "test" }}test{{ end }}&lt;/scope&gt;{{ end }}
 &lt;/dependency&gt;</code></pre>
             <small class="pull-right" style="color: #aaa; margin-top: -20px; margin-right: 5px;">
-                <span id="{{ $id }}-warn" style="display: none;"><i class="fa fa-warning" style="color: orange;"></i> Specifying versions manually is error-prone, use the <a href="/getting-started/distribution">distribution</a> instead.</span>
+                <span id="{{ $id }}-warn" style="display: none;"><i class="fa fa-warning" style="color: orange;"></i> Specifying versions manually is error-prone, use the <a href="{{ $.Site.BaseURL }}getting-started/distribution">distribution</a> instead.</span>
                 <a style="cursor: pointer;" id="{{ $id }}-show" onclick="$('#{{ $id }}-version, #{{ $id }}-warn').show(); $('#{{ $id }}-show').hide();">Show version</a>
             </small>
         </div>{{ $.Scratch.Add "tabs" (add (.Get 0 | urlize) " ") }}

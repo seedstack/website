@@ -11,7 +11,7 @@ menu:
 ---
 
 A Java Web application project is a JAR module embedding the Undertow Web server. It is intended to contain backend
-Java classes as well as frontend W20 static resources. It also includes the [W20 bridge add-on](/addons/w20-bridge) which
+Java classes as well as frontend W20 static resources. It also includes the [W20 bridge add-on]({{< ref "addons/w20-bridge/index.md" >}}) which
 automatically manages the W20 frontend.<!--more-->
 
 # Creation
@@ -24,9 +24,9 @@ mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=web
 ```
 
 {{% callout info %}}
-This will invoke the generate goal of the SeedStack maven plugin [generate goal](/docs/seed/maven-plugin/generate/) which will:
+This will invoke the generate goal of the SeedStack maven plugin [generate goal]({{< ref "docs/seed/maven-plugin/generate.md" >}}) which will:
 
-* Discover the latest version of the [SeedStack reference distribution](/getting-started/distribution),
+* Discover the latest version of the [SeedStack reference distribution]({{< ref "getting-started/distribution/index.md" >}}),
 * Use its [web archetype](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.seedstack%22%20a%3A%22web-archetype%22) to generate the project.
 
 The process is interactive and will ask you a few questions about the project to be created.
@@ -61,7 +61,7 @@ After execution, a single module project is created:
 
 {{% callout info %}}
 Note that the directory in brackets are not created by the archetype. They are the recommended locations if you need
-to add any business domain or static resources to your project. You can also choose to put the domain in a separate [domain module](../domain).
+to add any business domain or static resources to your project. You can also choose to put the domain in a separate [domain module]({{< ref "getting-started/project-templates/domain.md" >}}).
 {{% /callout %}}
 
 # Conversion to WAR
@@ -103,7 +103,7 @@ The resulting project can be easily converted to a traditional WAR:
 
 # More resources
 
-* [W20 documentation](/docs/w20).
-* [Web documentation](/docs/seed/manual/web).
-* [W20 bridge add-on documentation](/addons/w20-bridge).
+* [W20 documentation]({{< ref "docs/w20/index.md" >}}).
+* [Web documentation]({{< ref "docs/seed/manual/web.md" >}}).
+* [W20 bridge add-on documentation]({{< ref "addons/w20-bridge/index.md" >}}).
 * [Simple Web application example](https://github.com/seedstack/store-webapp-sample).

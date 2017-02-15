@@ -38,7 +38,7 @@
             <li class="list-group-item"><div style="margin-bottom: 10px;"><i class="fa fa-tag"></i> Tags</div>
                 <div class="tags">
                     {{ range $parent.Params.tags }}
-                    <a class="label label-default" href="/tags/{{ . | urlize }}">{{ . | title }}</a>
+                    <a class="label label-default" href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . | title }}</a>
                     {{ end }}
                 </div>
             </li>

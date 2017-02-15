@@ -22,7 +22,7 @@ REST resources via structured links relations. Navigation through APIs resemble 
 possible to follow links to new documents. In the same way, hypermedia provides a mechanism to interact with remote data 
 with navigation and discovery in mind.<!--more-->
 
-For an overview of this concept, please refer to the documentation of the Java framework [Restful API](/docs/seed/manual/rest#designing-restful-api).
+For an overview of this concept, please refer to the documentation of the Java framework [Restful API]({{< ref "docs/seed/manual/rest.md#designing-restful-api" >}}).
 
 # Hypermedia module
 

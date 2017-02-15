@@ -23,9 +23,9 @@ mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=batch
 ```
     
 {{% callout info %}}
-This will invoke the generate goal of the SeedStack maven plugin [generate goal](/docs/seed/maven-plugin/generate/) which will:
+This will invoke the generate goal of the SeedStack maven plugin [generate goal]({{< ref "docs/seed/maven-plugin/generate.md" >}}) which will:
 
-* Discover the latest version of the [SeedStack reference distribution](/getting-started/distribution),
+* Discover the latest version of the [SeedStack reference distribution]({{< ref "getting-started/distribution/index.md" >}}),
 * Use its [batch archetype](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.seedstack%22%20a%3A%22batch-archetype%22) to generate the project.
 
 The process is interactive and will ask you a few questions about the project to be created.
@@ -59,10 +59,10 @@ After execution, a single module project is created:
 
 {{% callout info %}}
 Note that the directory in brackets are not created by the archetype. They are the recommended locations if you need
-to add any business domain to your project. You can also choose to put the domain in a separate [domain module](../domain).
+to add any business domain to your project. You can also choose to put the domain in a separate [domain module]({{< ref "getting-started/project-templates/domain.md" >}}).
 {{% /callout %}}
 
 # More resources
 
-* [Batch add-on documentation](/addons/spring-bridge/batch/).
+* [Batch add-on documentation]({{< ref "addons/spring-bridge/batch.md" >}}).
 * [Simple batch job example](https://github.com/seedstack/samples/tree/master/batch).

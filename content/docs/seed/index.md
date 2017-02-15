@@ -27,9 +27,9 @@ and yet scales well when applied on full-blown enterprise projects.
 
 # ...yet modular
 
-Built on an [extensible plugin system](concepts), Seed is highly modular and allows you to choose the technologies you really
+Built on an extensible plugin system, Seed is highly modular and allows you to choose the technologies you really
 need while leaving out the unnecessary bits. Besides, you can extend the core framework abilities by cherry-picking modules
-from the [add-ons library](/addons) or by rolling-out your own.
+from the [add-ons library]({{< baseURL >}}addons) or by rolling-out your own.
 
 The framework is composed of several separate modules, each one providing a particular technology. The `seed-core` module
 implements basic framework functionality like application lifecycle, configuration or dependency injection. Its presence 

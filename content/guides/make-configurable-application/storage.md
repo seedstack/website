@@ -52,6 +52,6 @@ In all cases, each application MUST have a different identifier.
 {{% /callout %}}
 
 {{% callout info %}}
-Note that this value can be externalised as any configuration value (see [this page](../props) 
+Note that this value can be externalised as any configuration value (see [this page]({{< ref "guides/make-configurable-application/props.md" >}}) 
 for more details).
 {{% /callout %}}

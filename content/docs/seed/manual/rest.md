@@ -147,7 +147,7 @@ status code `400`.
 
 # Testing
 
-Testing REST resources can be done in a real Web environment by using [Seed Web integration testing](../testing#web-integration-tests).
+Testing REST resources can be done in a real Web environment by using [Seed Web integration testing]({{< ref "docs/seed/manual/testing.md#web-integration-tests" >}}).
 Consider this example:
 
     public class ProductsResourceIT extends AbstractSeedWebIT {

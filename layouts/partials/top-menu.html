@@ -1,6 +1,6 @@
 <div class="header">
     <div class="container">
-        <a class="logo" href="/">SeedStack</a>
+        <a class="logo" href="{{ $.Site.BaseURL }}">SeedStack</a>
         <div class="topbar hidden-xs hidden-sm">
             <ul class="loginbar pull-right">
                 <li><i class="fa fa-stack-overflow"></i> <a style="color: orange;" target="_blank" href="http://stackoverflow.com/questions/ask?tags=seedstack">Ask a question</a></li>
@@ -21,41 +21,41 @@
         <div class="container">
             <ul class="nav navbar-nav" style="pointer-events: auto;">
                 <li>
-                    <a href="/getting-started">Getting started</a>
+                    <a href="{{ $.Site.BaseURL }}getting-started">Getting started</a>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
                         Documentation
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="/docs/seed">Java framework</a></li>
-                        <li><a href="/docs/w20">Web framework</a></li>
-                        <li><a href="/docs/business">Business framework</a></li>
-                        <li><a href="/guides">Guides</a></li>
+                        <li><a href="{{ $.Site.BaseURL }}docs/seed">Java framework</a></li>
+                        <li><a href="{{ $.Site.BaseURL }}docs/w20">Web framework</a></li>
+                        <li><a href="{{ $.Site.BaseURL }}docs/business">Business framework</a></li>
+                        <li><a href="{{ $.Site.BaseURL }}guides">Guides</a></li>
                         <li><a target="_blank" href="https://github.com/seedstack/samples">Samples</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="/addons">Add-ons</a>
+                    <a href="{{ $.Site.BaseURL }}addons">Add-ons</a>
                 </li>
                 <li>
-                    <a href="/themes">Themes</a>
+                    <a href="{{ $.Site.BaseURL }}themes">Themes</a>
                 </li>
                 <li>
-                    <a href="/posts">Blog</a>
+                    <a href="{{ $.Site.BaseURL }}posts">Blog</a>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
                         More
                     </a>
                     <ul class="dropdown-menu">
-                        <!--<li><a href="/features">Feature browser</a></li>-->
-                        <!--<li><a href="/project">Project</a></li>-->
-                        <li><a href="/project/community">Community</a></li>
-                        <li><a href="/project/roadmap">Roadmap</a></li>
-                        <li><a href="/project/faq">FAQ</a></li>
-                        <li><a href="/glossary">Glossary</a></li>
-                        <li><a href="/tags">Tags</a></li>
+                        <!--<li><a href="{{ $.Site.BaseURL }}features">Feature browser</a></li>-->
+                        <!--<li><a href="{{ $.Site.BaseURL }}project">Project</a></li>-->
+                        <li><a href="{{ $.Site.BaseURL }}project/community">Community</a></li>
+                        <li><a href="{{ $.Site.BaseURL }}project/roadmap">Roadmap</a></li>
+                        <li><a href="{{ $.Site.BaseURL }}project/faq">FAQ</a></li>
+                        <li><a href="{{ $.Site.BaseURL }}glossary">Glossary</a></li>
+                        <li><a href="{{ $.Site.BaseURL }}tags">Tags</a></li>
                     </ul>
                 </li>
                 <li>
@@ -70,7 +70,7 @@
                             </div>
                         </form>
                         <!--<div style="margin-top: 20px; text-align: right; font-style: italic;">-->
-                            <!--<small>You can also browse the <a href="/features">feature map</a>.</small>-->
+                            <!--<small>You can also browse the <a href="{{ $.Site.BaseURL }}features">feature map</a>.</small>-->
                         <!--</div>-->
                     </div>
                 </li>

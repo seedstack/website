@@ -23,17 +23,12 @@ new to SeedStack as they provide several benefits:
 
 The following project templates are available from the reference distribution:
 
-* [Web application](web) template (backend + frontend),
-* [RESTful micro-service](rest) template (backend only),
-* [Command-line application](cli) template (backend only),
-* [Batch job](batch) template (backend only),
-* [Reusable business domain](domain) template (reusable backend component),
-* [W20 Single Page Application](w20) template (frontend only).
-
-{{% callout info %}}
-Note that SeedStack is designed with extension in mind so you can design your own project types and provide archetypes
-and code generators for them in a [custom distribution](../distribution/create-your-own).
-{{% /callout %}}
+* [Web application]({{< ref "getting-started/project-templates/web.md" >}}) template (backend + frontend),
+* [RESTful micro-service]({{< ref "getting-started/project-templates/rest.md" >}}) template (backend only),
+* [Command-line application]({{< ref "getting-started/project-templates/cli.md" >}}) template (backend only),
+* [Batch job]({{< ref "getting-started/project-templates/batch.md" >}}) template (backend only),
+* [Reusable business domain]({{< ref "getting-started/project-templates/domain.md" >}}) template (reusable backend component),
+* [W20 Single Page Application]({{< ref "getting-started/project-templates/w20.md" >}}) template (frontend only).
 
 # Project structure
 
@@ -79,5 +74,5 @@ one or more feature(s). The following structure is recommended for all W20 fragm
 ```
 
 {{% callout info %}}
-You can learn more about fragments [here](/docs/w20/manual).
+You can learn more about fragments [here]({{< ref "docs/w20/manual/index.md" >}}).
 {{% /callout %}}

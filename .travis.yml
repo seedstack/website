@@ -19,7 +19,7 @@ cache:
     - node_modules
   
 before_install:
-  - git submodule update --init --recursive
+  - git submodule update --init --recursive --remote
   - IFS='-' read -r -a ARCHIVE <<< "$TRAVIS_BRANCH"
 
 install:

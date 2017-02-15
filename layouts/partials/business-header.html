@@ -8,7 +8,7 @@
             </div>
             <div class="col-md-3 hidden-sm hidden-xs">
                 <div class="header-image-wrapper">
-                    <img class="header-image" src="/img/logos/business-logo.svg">
+                    <img class="header-image" src="{{ $.Site.BaseURL }}img/logos/business-logo.svg">
                 </div>
             </div>
         </div>
@@ -17,9 +17,9 @@
 <div class="title-subheader">
     <div class="container">
         <ul>
-            <li><h3 class='{{ if eq $section "BusinessIntroduction" }}active{{ end }}'><i class="fa fa-play-circle"></i> <a href="/docs/business">Introduction</a></h3></li>
-            <li><h3 class='{{ if eq $section "BusinessManual" }}active{{ end }}'><i class="fa fa-book"></i> <a href="/docs/business/manual">Manual</a></h3></li>
-            <li><h3><i class="fa fa-info-circle"></i> <a href="/javadoc" target="_blank">Javadoc</a></h3></li>
+            <li><h3 class='{{ if eq $section "BusinessIntroduction" }}active{{ end }}'><i class="fa fa-play-circle"></i> <a href="{{ $.Site.BaseURL }}docs/business">Introduction</a></h3></li>
+            <li><h3 class='{{ if eq $section "BusinessManual" }}active{{ end }}'><i class="fa fa-book"></i> <a href="{{ $.Site.BaseURL }}docs/business/manual">Manual</a></h3></li>
+            <li><h3><i class="fa fa-info-circle"></i> <a href="{{ $.Site.BaseURL }}javadoc" target="_blank">Javadoc</a></h3></li>
             <li><h3><i class="fa fa-tag"></i> <a href="https://github.com/seedstack/business/releases" target="_blank">Releases</a></h3></li>
             <li><h3><i class="fa fa-github"></i> <a href="https://github.com/seedstack/business" target="_blank">Source</a></h3></li>
         </ul>

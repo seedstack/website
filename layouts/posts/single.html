@@ -11,7 +11,7 @@
     <div class="title-subheader">
         <div class="container">
             <ul>
-                <li><h3><i class="fa fa-list"></i> <a href="/posts">All posts</a></h3></li>
+                <li><h3><i class="fa fa-list"></i> <a href="{{ $.Site.BaseURL }}posts">All posts</a></h3></li>
                 <li><h3 class="active"><i class="fa fa-file-text"></i> <a href="">{{ .Title }}</a></h3></li>
             </ul>
         </div>
@@ -33,7 +33,7 @@
                         <li class="list-group-item"><div style="margin-bottom: 10px;"><i class="fa fa-tag"></i> Tags</div>
                             <div class="tags">
                                 {{ range .Params.tags }}
-                                <a class="label label-default" href="/tags/{{ . | urlize }}">{{ . | title }}</a>
+                                <a class="label label-default" href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . | title }}</a>
                                 {{ end }}
                             </div>
                         </li>

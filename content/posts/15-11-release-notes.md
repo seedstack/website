@@ -34,7 +34,7 @@ of this post describes all changes made by the tool but also details the eventua
 ## Add-on architecture
 
 A lot of modules have been extracted as add-ons. As such the foundation frameworks are lighter and simpler to understand.
-The full list of available add-ons is available [here](/addons). Click on the add-on title to access
+The full list of available add-ons is available [here]({{< baseURL >}}addons). Click on the add-on title to access
 its documentation.
 
 {{% callout info %}}
@@ -177,7 +177,7 @@ For `w20-bridge-addon` user, it is necessary to include the additional fragments
 
 ## Cryptography
 
-Seed provides a new [cryptography module](/docs/seed/manual/crypto/) which allow you to easily configure and use keystores.
+Seed provides a new [cryptography module]({{< ref "docs/seed/manual/crypto.md" >}}) which allow you to easily configure and use keystores.
 It also provides a simpler API to encrypt and decrypt data.
 
 ## Domain registry
@@ -208,19 +208,19 @@ This new registry can be used for factories, policies, repositories and services
 When using the Spring-bridge add-on, you can now let Spring manage the JPA transactions across framework boundaries.
 In this case, Seed code will be injected with a Spring-managed JPA entity manager instead of the Seed-managed one. This
 is particularly useful in Spring batch jobs where there are clear performance benefits to let Spring batch manage the
-transactions. More information about this feature [here](/addons/spring-bridge/transactions/).
+transactions. More information about this feature [here]({{< ref "addons/spring-bridge/transactions.md" >}}).
 
 ## NoSQL add-ons
 
 Three new add-ons are now provided to use popular NoSQL databases:
 
-* [MongoDB add-on](/addons/mongodb),
-* [Redis add-on](/addons/redis),
-* [Neo4J add-on](/addons/neo4j),
+* [MongoDB add-on]({{< ref "addons/mongodb/index.md" >}}),
+* [Redis add-on]({{< ref "addons/redis/index.md" >}}),
+* [Neo4J add-on]({{< ref "addons/neo4j/index.md" >}}),
 
 ## Solr add-on
 
-A [Solr add-on](/addons/solr) is now provided to access Solr indexing servers.
+A [Solr add-on]({{< ref "addons/solr/index.md" >}}) is now provided to access Solr indexing servers.
 
 # Component versions
 

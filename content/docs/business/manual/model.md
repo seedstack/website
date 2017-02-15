@@ -45,7 +45,7 @@ There are different kind of creation strategies for identities:
 * The application can rely on an external identity generator, like a database sequence.
 
 The first case is easily handled using factories. The other cases, can be usually more complicated, but the Business
-framework provides an API for them (see [identity generation](../lifecycle#identity-generation)).
+framework provides an API for them (see [identity generation]({{< ref "docs/business/manual/factories.md#identity-generation" >}})).
 
 ## Declaration
 

@@ -15,7 +15,7 @@ be modeled as such. Domain-Driven-Design propose the Service pattern to model th
 It is important to strike a balance between modeling all behavior inside objects and modeling all behavior as Services. 
 Complex operations can easily muddle the conceptual clarity of simple objects and, when applying on many different domain 
 objects at once, blur the responsibility between them. On the other hand, using Services exclusively can lead to an 
-[Anemic Domain Model](../anemic-domain-model), which is equally something to avoid.
+[Anemic Domain Model]({{< ref "guides/ddd-pitfalls-and-tips/anemic-domain-model.md" >}}), which is equally something to avoid.
  
 # Characteristics
 

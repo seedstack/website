@@ -305,7 +305,7 @@ Think of it as a "fragment loader". Its initialization sequence is as follow:
 The last phase should be a little bit unclear at this point because we did not introduce modules lifecycle yet. 
 We included it here to give you the full initialization sequence for future reference. Modules are documented in the next section.
 
-![w20loading](/puml/w20/w20-loading.png)
+![w20loading]({{< baseURL >}}puml/w20/w20-loading.png)
 
 # Modules
   
@@ -547,4 +547,4 @@ provide additional benefits such as:
 * Configuration options available from Props/Properties format.
 * Automatic activation of fragments bundled in JAR. 
 
-This bridge between SeedStack front and back end is provided by the [W20-bridge addon](http://seedstack.org/addons/w20-bridge/)
+This bridge between SeedStack front and back end is provided by the [W20-bridge addon]({{< ref "addons/w20-bridge/index.md" >}})

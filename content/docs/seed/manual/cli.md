@@ -62,7 +62,7 @@ becomes as simple as:
 
     java [jvm-args] -jar app.jar [app-args]
 
-Check the [SeedStack Maven plugin](/docs/tools/maven-plugin) for more information about how to easily package such a JAR.
+Check the [SeedStack Maven plugin]({{< ref "docs/seed/maven-plugin/index.md" >}}) for more information about how to easily package such a JAR.
 {{% /callout %}}
 
 # Arguments and options

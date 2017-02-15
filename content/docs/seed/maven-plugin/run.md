@@ -66,6 +66,6 @@ corresponding arguments:
 
 {{% callout info %}}
 Note that a SeedStack CLI application needs at least one {{< java "org.seedstack.seed.cli.CommandLineHandler" >}} in the
-classpath which name must be specified as an argument. In this example we assume that the [SeedStack Spring bridge add-on](http://seedstack.org/addons/spring-bridge/batch)
+classpath which name must be specified as an argument. In this example we assume that the [SeedStack Spring bridge add-on]({{< ref "addons/spring-bridge/batch.md" >}})
 `run-job` command-line handler is also present in the classpath.
 {{% /callout %}}

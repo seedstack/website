@@ -14,8 +14,8 @@ Welcome to the SeedStack tutorial! It is intended to walk you through the most i
 making you build a simple Web application from scratch.<!--more-->
 
 {{% callout info %}}
-SeedStack can be used for any type of project and provides templates for several [predefined project types](../project-templates).
-This tutorial is focused on a **[Web application project](../project-templates/web)**.
+SeedStack can be used for any type of project and provides templates for several [predefined project types]({{< ref "getting-started/project-templates/index.md" >}}).
+This tutorial is focused on a **[Web application project]({{< ref "getting-started/project-templates/web.md" >}})**.
 {{% /callout %}}
 
 # Project generation

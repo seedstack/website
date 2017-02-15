@@ -32,8 +32,7 @@ Each organization can create its own tailored distribution(s) which can include 
 along with the organization private components and extensions to the stack. We provide a reference Open-Source 
 distribution that can be used as-is or as a base for customization. 
 
-This page is only about the reference distribution. For more information about creating your own distribution, please
-check [this page](create-your-own).
+This page is only about the reference distribution.
 {{% /callout %}}
 
 # Dependency management

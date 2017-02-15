@@ -76,19 +76,19 @@ sections:
                     }
 
                     $('.inner-results').append(
-                            '<h3><img src="/img/logos/' + result.zone.logo + '">' +
-                            (result.section.label ? ' <a href="' + sectionHref + highlightParams + '">' + result.section.label + '</a>' : '') +
-                            (result.href !== sectionHref ? ((result.section.label ? ' <i class="fa fa-caret-right"></i>' : '') + ' <a href="' + result.href + highlightParams + '">' + result.title + '</a>') : '') +
+                            '<h3><img src="' + seedstack.baseUrl + 'img/logos/' + result.zone.logo + '">' +
+                            (result.section.label ? ' <a href="' + seedstack.baseUrl + '' + sectionHref + highlightParams + '">' + result.section.label + '</a>' : '') +
+                            (result.href !== sectionHref ? ((result.section.label ? ' <i class="fa fa-caret-right"></i>' : '') + ' <a href="' + seedstack.baseUrl + '' + result.href + highlightParams + '">' + result.title + '</a>') : '') +
                             '</h3>' +
                             '<ul class="list-inline up-ul">' +
                             '<li>' +
-                            'In <a href="' + result.zone.path + '">' + result.zone.label + '</a>' +
+                            'In <a href="' + seedstack.baseUrl + '' + result.zone.path + '">' + result.zone.label + '</a>' +
                             '</li>' +
                             '</ul>' +
                             '<p>' + result.summary + '</p>' +
                             '<div class="tags">' +
                             (result.tags ? result.tags.map(function (tag) {
-                                return '<a class="label label-default" href="/tags/' + tag.replace(/ /g, '-') + '">' + seedstack.strings.toTitleCase(tag) + '</a></span>';
+                                return '<a class="label label-default" href="' + seedstack.baseUrl + '/tags/' + tag.replace(/ /g, '-') + '">' + seedstack.strings.toTitleCase(tag) + '</a></span>';
                             }).join(" ") : '') +
                             '</div>' +
                             '<hr>'

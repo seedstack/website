@@ -29,7 +29,7 @@ helpers and base implementations.
 
 {{% callout info %}}
 This documentation is not intended to replace a good understanding of DDD principles which can be gathered from various
-source material described in the [bibliography](bibliography).
+source material described in the [bibliography]({{< ref "docs/business/bibliography/index.md" >}}).
 {{% /callout %}}
 
 # Requirements

@@ -199,7 +199,7 @@ into a security policy expressed with the security meta-model described above. S
 * The `ConfigurationRealm` which computes the security policy from specific properties in the application configuration.
 * The `X509CertificateRealm` which computes the security policy from an X509 certificate.
 * The `LdapRealm` which computes the security policy from requests to a configured LDAP directory. This realm is available
-in the [LDAP add-on](/addons/ldap).
+in the [LDAP add-on]({{< ref "addons/ldap/index.md" >}}).
 
 {{% callout info %}}
 Custom realms can be implemented to compute any data-model into an enforceable security policy.
@@ -263,7 +263,7 @@ It also uses the CN of the issuer of the certificates to define the basic roles 
 
 ### LDAP realm
 
-Check the [LDAP add-on documentation](/addons/ldap).
+Check the [LDAP add-on documentation]({{< ref "addons/ldap/index.md" >}}).
 
 ## Role/permission resolver
 
@@ -400,7 +400,7 @@ is thrown.
 
 {{% callout warning %}}
 Note that these annotation-based security checks are implemented with **method interception** and are subject to 
-**[its limitations](../../../concepts/dependency-injection#method-interception)**.
+**[its limitations]({{< ref "docs/seed/manual/index.md#method-interception" >}})**.
 {{% /callout %}}
 
 Examples:
@@ -448,14 +448,14 @@ To check if the current subject, if any, has a specific permission:
  
 {{% callout info %}}
 There are multiple variations for each of these methods, and many more possibilities. Please refer to the 
-[javadoc](/seed/org/seedstack/seed/security/api/SecuritySupport.html) for more information.
+[javadoc](/javadoc/org/seedstack/seed/security/api/SecuritySupport.html) for more information.
 {{% /callout %}}
 
 ## Other checks
  
 Seed security can provide additional ways to verify security depending on the technology used to access the application. 
 For instance, in a Web application, HTTP requests can be filtered to execute security tasks or checks. For more information
-about applying HTTP security filtering, refer to [this documentation](../../web/security).
+about applying HTTP security filtering, refer to [this documentation]({{< ref "docs/seed/manual/web.md#security" >}}).
 
 ## Access subject principals
 
@@ -497,7 +497,7 @@ You can create a custom Role mapping by following these steps:
 
 Testing the security model and its implementation is crucial to ensure effective security. This can be easily done with
 Seed through specific integration tests. For a general overview of integration testing, please check 
-[this documentation](../testing). 
+[this documentation]({{< ref "docs/seed/manual/testing.md" >}}). 
 
 ## Configuration
 
@@ -515,7 +515,7 @@ testUser3 = password, role3
 ```
 	
 For more information about the Configuration realm, refer to [this section](#configuration-realm).
-For more information on how to override the configuration for testing, refer to [this documentation](../#override).
+For more information on how to override the configuration for testing, refer to [this documentation](#override).
 
 ## Subject authentication
 
@@ -590,7 +590,7 @@ apply the `@Secured` annotation directly on the method to apply data security on
 
 Every method annotated with `@Secured` or with the annotation applied to at least one of its parameters will be intercepted 
 and the relevant objects will be secured. Note that the 
-[usual interception limitations](/docs/seed/concepts/dependency-injection/#method-interception) apply.
+[usual interception limitations]({{< ref "docs/seed/manual/index.md#dependency-injection" >}}) apply.
 
 {{% callout warning %}}
 Please note that the data security interceptor will inspect the whole object graph starting from the secured object, so 

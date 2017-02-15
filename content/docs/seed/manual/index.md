@@ -40,7 +40,7 @@ convenient yet big, library.
 If you're using Maven, SeedStack provides comprehensive dependency management in its distribution, whether by inheriting
 from its parent or by importing its BOM. We recommend doing so to ensure that versions of Seed dependencies are consistent
 across the project. Additionally you won't have to specify the version tag of any Seed dependency. Check the
-[distribution documentation page](/getting-started/distribution) for more information.
+[distribution documentation page]({{< ref "getting-started/distribution/index.md" >}}) for more information.
 {{% /callout %}} 
  
 # Startup and shutdown
@@ -66,7 +66,7 @@ and execute its `launch()` method with the application arguments. Exactly one la
 an exception will be thrown. 
 
 {{% callout info %}}
-Launchers live in various Seed modules such as the [CLI module](cli), handling command-line-interface (CLI) applications
+Launchers live in various Seed modules such as the [CLI module]({{< ref "cli.md" >}}), handling command-line-interface (CLI) applications
 or the `seed-web-undertow` module, providing an [Undertow](http://undertow.io/) embedded Web server. Without such module
 containing a launcher in classpath an exception will be thrown. If you have more than one launcher in the classpath an
 exception will also be thrown.
@@ -80,7 +80,7 @@ becomes as simple as:
 
     java [jvm-args] -jar app.jar [app-args]
 
-Check the [SeedStack Maven plugin](/docs/tools/maven-plugin) for more information about how to easily package such a JAR.  
+Check the [SeedStack Maven plugin]({{< ref "docs/seed/maven-plugin/index.md" >}}) for more information about how to easily package such a JAR.  
 {{% /callout %}}
  
 ### Shutdown from command line
@@ -105,7 +105,7 @@ the Servlet 3.0 level of Servlet API, the `seed-web-core` module already contain
 startup and shutdown in response to server events.
 
 {{% callout tips %}}
-If your Servlet API level is lower than 3.0, please check [this page](web) for the required configuration of your application. 
+If your Servlet API level is lower than 3.0, please check [this page]({{< ref "web.md" >}}) for the required configuration of your application. 
 {{% /callout %}}
 
 # Logging
@@ -143,7 +143,7 @@ supports two configuration file formats:
 
 * The recommended **Props format** which is a superset of the classic Java Properties format providing a more concise and 
 expressive configuration language. Props files must have the `props` extension.
-* The legacy **Properties format** which is described [here](<http://docs.oracle.com/javase/6/docs/api/java/util/Properties.html#load\(java.io.Reader\)>). 
+* The legacy **Properties format** which is described [here](http://docs.oracle.com/javase/6/docs/api/java/util/Properties.html#load\(java.io.Reader\.md). 
 
 All files must be located under the `META-INF/configuration` directory: 
 

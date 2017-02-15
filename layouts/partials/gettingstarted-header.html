@@ -8,7 +8,7 @@
             </div>
             <div class="col-md-3 hidden-sm hidden-xs">
                 <div class="header-image-wrapper">
-                    <img class="header-image" src="/img/logos/getting-started-logo.svg">
+                    <img class="header-image" src="{{ $.Site.BaseURL }}img/logos/getting-started-logo.svg">
                 </div>
             </div>
         </div>
@@ -17,10 +17,10 @@
 <div class="title-subheader">
     <div class="container">
         <ul>
-            <li><h3 class='{{ if eq $section "GettingStartedIntroduction" }}active{{ end }}'><i class="fa fa-play-circle"></i> <a href="/getting-started">Introduction</a></h3></li>
-            <li><h3 class='{{ if eq $section "GettingStartedTutorial" }}active{{ end }}'><i class="fa fa-graduation-cap"></i> <a href="/getting-started/tutorial">Tutorial</a></h3></li>
-            <li><h3 class='{{ if eq $section "GettingStartedDistribution" }}active{{ end }}'><i class="fa fa-gift"></i> <a href="/getting-started/distribution">Distribution</a></h3></li>
-            <li><h3 class='{{ if eq $section "GettingStartedProjectTemplates" }}active{{ end }}'><i class="fa fa-cubes"></i> <a href="/getting-started/project-templates">Project templates</a></h3></li>
+            <li><h3 class='{{ if eq $section "GettingStartedIntroduction" }}active{{ end }}'><i class="fa fa-play-circle"></i> <a href="{{ $.Site.BaseURL }}getting-started">Introduction</a></h3></li>
+            <li><h3 class='{{ if eq $section "GettingStartedTutorial" }}active{{ end }}'><i class="fa fa-graduation-cap"></i> <a href="{{ $.Site.BaseURL }}getting-started/tutorial">Tutorial</a></h3></li>
+            <li><h3 class='{{ if eq $section "GettingStartedDistribution" }}active{{ end }}'><i class="fa fa-gift"></i> <a href="{{ $.Site.BaseURL }}getting-started/distribution">Distribution</a></h3></li>
+            <li><h3 class='{{ if eq $section "GettingStartedProjectTemplates" }}active{{ end }}'><i class="fa fa-cubes"></i> <a href="{{ $.Site.BaseURL }}getting-started/project-templates">Project templates</a></h3></li>
         </ul>
     </div>
 </div>

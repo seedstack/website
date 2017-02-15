@@ -12,7 +12,7 @@ menu:
 Modeling business concepts with objects may seem very intuitive at first sight but there are a lot of difficulties 
 awaiting us in the details. To clarify the meaning of model elements and propose a set of design practices, Domain-Driven
 Design defines three patterns that express the model: Entities, Value Objects and Services. This chapter will focus
-on Entities and Value Objects, leaving Services for their [own chapter](../behavior-and-services).<!--more-->
+on Entities and Value Objects, leaving Services for their [own chapter]({{< ref "guides/ddd-pitfalls-and-tips/behavior-and-services.md" >}}).<!--more-->
 
 # Entities
     
@@ -65,7 +65,7 @@ The factory method which create the entity must be annotated with `@Create`:
 
 Here, the specified handler class (`SequenceHandler`) is an interface so configuration is required to specify the qualifier
 of the implementation (it could be `oracle-sequence` for instance) and the additional implementation properties (like a
-sequence name). For more information, refer to the [documentation](/docs/business/manual/factory/identity/). 
+sequence name). For more information, refer to the [documentation]({{< ref "docs/business/manual/factories.md#identity" >}}). 
 
 {{% callout info %}}
 This mechanism can be used to delegate the identity generation to a specific technology without tainting your domain (by

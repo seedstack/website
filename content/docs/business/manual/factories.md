@@ -97,7 +97,7 @@ public interface OrderFactory extends GenericFactory<Order> {
 * `Order` is the type which is the expected to be returned by all the create methods.
 * `createOrder` method creates an `Order` aggregate with the required parameters. Some parameters can be grouped with a tuple like
 `oderItemTriplets` which represents a list `OrderItem` entities belonging to the `Order` aggregate (see
-[tuples](/docs/business/manual#tuples) for more information on tuple pattern).
+[tuples]({{< ref "docs/business/manual/index.md#tuples" >}}) for more information on tuple pattern).
 
 The factory implementation must extend the `BaseFactory` abstract class and implement its own interface.
 

@@ -19,6 +19,6 @@
     </ul>
     <p>{{ .Summary }}...</p>
     <div class="tags">
-        {{ range .Params.tags }}<a class="label label-default" href="/tags/{{ . | urlize }}">{{ . | title }}</a> {{ end }}</span>
+        {{ range .Params.tags }}<a class="label label-default" href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . | title }}</a> {{ end }}</span>
     </div>
 </article>

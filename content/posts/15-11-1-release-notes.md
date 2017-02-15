@@ -45,7 +45,7 @@ A detailed blog post will soon be published with the procedure details.
 
 ## W20 bridge
 
-The [W20 bridge add-on](http://seedstack.org/addons/w20-bridge) contains minor fixes and the latest version of W20 and
+The [W20 bridge add-on]({{< ref "addons/w20-bridge/index.md" >}}) contains minor fixes and the latest version of W20 and
 it add-ons. The main evolution of W20 is the upgrade to AngularJS 1.4.8 and Bootstrap 3.3.6.
 
 # New features

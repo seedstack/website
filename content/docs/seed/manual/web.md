@@ -437,7 +437,7 @@ managed by Seed.
 
 ## Testing
 
-You can test WebSocket endpoints with [Seed Web integration testing](../testing). Here is an example which tests two 
+You can test WebSocket endpoints with [Seed Web integration testing]({{< ref "docs/seed/manual/testing.md" >}}). Here is an example which tests two 
 client endpoints:
 
     public class WebSocketIT extends AbstractSeedWebIT {

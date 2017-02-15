@@ -44,16 +44,3 @@ fully compatible with several popular Servlet containers, listed below.
 {{% callout tips %}}
 A JEE container is **NOT** necessary for running SeedStack Java applications but can be used if needed.
 {{% /callout %}}
-
-# Tests
-
-Key features of the Java framework and its add-ons are automatically tested in several runtime environments. The table
-below details the testing results.
-
-{{% smoke-tests %}}
-
-{{% callout info %}}
-{{< figure src="/img/docker.png" class="pull-right docker" >}}
-These tests are done with docker containers, using the latest official image of the runtime environments. For more
-information, have a look a [the smoke-tests repository](https://github.com/seedstack/smoke-tests).
-{{% /callout %}}

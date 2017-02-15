@@ -14,7 +14,7 @@ additional resources as well. This section will lead you to a better understandi
 and if they need to be externalised. 
 
 {{% callout info %}}
-If you need to externalise props files, please have a look at [this page](../props) instead.
+If you need to externalise props files, please have a look at [this page]({{< ref "guides/make-configurable-application/props.md" >}}) instead.
 {{% /callout %}}
 
 # JPA persistence.xml
@@ -26,9 +26,9 @@ This file is located in the `META-INF` directory of the classpath. This file is 
 shouldn't be externalised at all. To externalise the database configuration, you have two options:
 
 * Configure JPA to retrieve the data source through JNDI using a well defined name. You can find more information on
-JPA JNDI configuration [here](/addons/jpa#datasource-via-jndi). It is strongly discouraged to externalise the
+JPA JNDI configuration [here]({{< ref "addons/jpa/index.md#datasource-via-jndi" >}}). It is strongly discouraged to externalise the
 JNDI name of the data source since this name can be used internally by the application. The JPA unit name(s) shouldn't
 be externalised at all.
 * Use the Seed unified configuration to specify the data source properties. Those can then be externalised using the
-props externalisation mechanism described [here](../props).
+props externalisation mechanism described [here]({{< ref "guides/make-configurable-application/props.md" >}}).
 

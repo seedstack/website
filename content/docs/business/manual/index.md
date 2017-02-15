@@ -19,7 +19,7 @@ menu:
 This manual will begin by to introducing and explaining all the concepts that you will need to know and master to build
 successful business applications. These concepts come from the DDD software approach which is central to the Business
 framework.<!--more--> You will NOT be presented with in-depth coverage of all the DDD subtleties, so to go beyond the basics you
-should have a look at the [bibliography](../bibliography). Moreover, links will be provided in the text when related
+should have a look at the [bibliography]({{< ref "docs/business/bibliography/index.md" >}}). Moreover, links will be provided in the text when related
 quality content is available.
 
 Domain-Driven Design is **more about a way of thinking than about code** but this approach has nonetheless a great
@@ -86,7 +86,7 @@ As such, we can move the infrastructure layer to the side.
 As an example of this architecture, we would have a `JpaCustomerRepository` implementation class which would belong to
 the infrastructure and which implements the `CustomerRepository` interface defined in the domain layer. When injecting
 the repository elsewhere like in services, we would only use the interface. The
-[dependency injection mechanism](/docs/seed/concepts/dependency-injection/) of the Java framework would provide
+[dependency injection mechanism]({{< ref "docs/seed/manual/index.md#dependency-injection" >}}) of the Java framework would provide
 the correct implementation from the infrastructure.
 
 ## Interface layer
