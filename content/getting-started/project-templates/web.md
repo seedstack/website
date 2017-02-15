@@ -24,9 +24,9 @@ mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=web
 ```
 
 {{% callout info %}}
-This will invoke the generate goal of the SeedStack maven plugin [generate goal]({{< ref "docs/seed/maven-plugin/generate.md" >}}) which will:
+This will invoke the generate goal of the SeedStack maven plugin [generate goal]({{< ref "docs/overview/maven-plugin/generate.md" >}}) which will:
 
-* Discover the latest version of the [SeedStack reference distribution]({{< ref "getting-started/distribution/index.md" >}}),
+* Discover the latest version of the [SeedStack reference distribution]({{< ref "docs/overview/distribution.md" >}}),
 * Use its [web archetype](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.seedstack%22%20a%3A%22web-archetype%22) to generate the project.
 
 The process is interactive and will ask you a few questions about the project to be created.
@@ -72,7 +72,7 @@ see [this guide](/guides/conversion-to-war).
 
 # More resources
 
-* [W20 documentation]({{< ref "docs/w20/index.md" >}}).
+* [W20 documentation](https://w20-framework.github.io)
 * [Web documentation]({{< ref "docs/seed/manual/web.md" >}}).
 * [W20 bridge add-on documentation]({{< ref "addons/w20-bridge/index.md" >}}).
 * [Simple Web application example](https://github.com/seedstack/store-webapp-sample).
