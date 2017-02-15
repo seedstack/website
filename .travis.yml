@@ -35,10 +35,10 @@ script:
   - if [[ $TRAVIS_BRANCH = master ]]; then ./hugo_0.17_linux_amd64/hugo_0.17_linux_amd64 && echo seedstack.org >| public/CNAME && (curl -o public/distribution.pom.xml https://repo1.maven.org/maven2/org/seedstack/distribution/$SEEDSTACK_STABLE_VERSION/distribution-$SEEDSTACK_STABLE_VERSION.pom || :); fi
   - if [[ $TRAVIS_BRANCH = beta ]]; then ./hugo_0.17_linux_amd64/hugo_0.17_linux_amd64 -d beta -b http://beta.seedstack.org/ && echo beta.seedstack.org >| beta/CNAME && (curl -o beta/distribution.pom.xml https://repo1.maven.org/maven2/org/seedstack/distribution/$SEEDSTACK_BETA_VERSION/distribution-$SEEDSTACK_BETA_VERSION.pom || :); fi
   - if [[ $TRAVIS_BRANCH = dev ]]; then ./hugo_0.17_linux_amd64/hugo_0.17_linux_amd64 -d dev -b http://dev.seedstack.org/ && echo dev.seedstack.org >| dev/CNAME; fi
-  - if [[ $TRAVIS_BRANCH = archive-* ]]; then ./hugo_0.17_linux_amd64/hugo_0.17_linux_amd64 -d ${ARCHIVE[1]} -b http://seedstack.org/archives/${ARCHIVE[1]}/; fi
+  - if [[ $TRAVIS_BRANCH = archive-* ]]; then ./hugo_0.17_linux_amd64/hugo_0.17_linux_amd64 -d archives/${ARCHIVE[1]} -b http://seedstack.org/archives/${ARCHIVE[1]}/; fi
 
 after_success:
   - if [[ $TRAVIS_PULL_REQUEST = false ]] && [[ $TRAVIS_BRANCH = master ]]; then ./deploy_ghpages.sh && (curl http://www.google.com/webmasters/tools/ping?sitemap=http%3A%2F%2Fseedstack.org%2Fsitemap.xml > /dev/null || :); fi
   - if [[ $TRAVIS_PULL_REQUEST = false ]] && [[ $TRAVIS_BRANCH = beta ]]; then ./deploy_ghpages.sh beta beta; fi
   - if [[ $TRAVIS_PULL_REQUEST = false ]] && [[ $TRAVIS_BRANCH = dev ]]; then ./deploy_ghpages.sh dev dev; fi
-  - if [[ $TRAVIS_PULL_REQUEST = false ]] && [[ $TRAVIS_BRANCH = archive-* ]]; then ./deploy_ghpages.sh archives ${ARCHIVE[1]}; fi
+  - if [[ $TRAVIS_PULL_REQUEST = false ]] && [[ $TRAVIS_BRANCH = archive-* ]]; then ./deploy_ghpages.sh archives archives; fi
