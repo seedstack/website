@@ -119,7 +119,12 @@ MetaDataFormat = "yaml"
   label = "Roadmap"
   icon = "fa fa-road"
   path = "roadmap"
-    
+
+[params.section.ProjectOldVersions]
+  label = "Old versions"
+  icon = "fa fa-archive"
+  path = "old-versions"
+
 #####################################
 #### Getting started sections    ####
 #####################################
