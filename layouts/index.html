@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10">
-                <h1>/the/microservice/factory</h1>
+                <h1>/the&#8203;/microservice&#8203;/factory</h1>
                 <h2>Take advantage of Domain-Driven Design<br>to build great Java microservices and applications.</h2>
                 <div class="quick-start hidden-xs">
                     <span>Create your project by running...</span>
@@ -20,10 +20,10 @@
                         <ul class="quick-paste">
                             <li class="unix"><span>mvn org.seedstack:seedstack-maven-plugin:generate</span></li>
                         </ul>
-                        <a href="/getting-started">
+                        <a href="{{ $.Site.BaseURL }}getting-started">
                             <button class="btn-u btn-u-red" style="margin-right: 10px;"><i class="fa fa-rocket"></i> Start now</button>
                         </a>
-                        <a href="/docs/overview">
+                        <a href="{{ $.Site.BaseURL }}docs/overview">
                             <button class="btn-u btn-u-default"><i class="fa fa-file-text-o"></i> Learn more</button>
                         </a>
                     </div>
@@ -50,70 +50,58 @@
         </div>
         <div class="row margin-bottom-40">
             <div class="col-md-5 col-md-offset-1">
-                <div class="content-boxes-v5 margin-bottom-30">
-                    <i class="rounded-x fa fa-diamond icon-bg-u"></i>
+                <div class="content-boxes-v5 margin-bottom-30 homepage-feature-1">
+                    <i class="rounded-x fa fa-diamond"></i>
                     <div class="overflow-h">
                         <h3 class="no-top-space">Write better code</h3>
                         <p>
-                            Type-safe dependency injection
-                            <small><a href="/docs/seed/dependency-injection">more</a></small>
+                            <a href="{{ $.Site.BaseURL }}docs/seed/dependency-injection">Type-safe dependency injection</a>
                             <br/>
-                            Clean configuration system
-                            <small><a href="/docs/seed/configuration">more</a></small>
+                            <a href="{{ $.Site.BaseURL }}docs/seed/configuration">Clean configuration system</a>
                             <br/>
-                            Testing tools
-                            <small><a href="/docs/seed/manual/testing">more</a></small>
+                            <a href="{{ $.Site.BaseURL }}docs/seed/manual/testing">Testing tools</a>
                         </p>
                     </div>
                 </div>
-                <div class="content-boxes-v5 md-margin-bottom-30">
-                    <i class="rounded-x fa fa-industry icon-bg-darker"></i>
+                <div class="content-boxes-v5 md-margin-bottom-30 homepage-feature-2">
+                    <i class="rounded-x fa fa-industry"></i>
                     <div class="overflow-h">
                         <h3 class="no-top-space">Create robust projects</h3>
                         <p>
-                            Reference project templates
-                            <small><a href="/getting-started/project-templates">more</a></small>
+                            <a href="{{ $.Site.BaseURL }}getting-started/project-templates">Reference project templates</a>
                             <br/>
-                            Global dependency-management
-                            <small><a href="/docs/overview/distribution">more</a></small>
+                            <a href="{{ $.Site.BaseURL }}docs/overview/distribution">Global dependency-management</a>
                             <br/>
-                            Universal one-JAR packaging
-                            <small><a href="/docs/overview/maven-plugin/package">more</a></small>
+                            <a href="{{ $.Site.BaseURL }}docs/overview/maven-plugin/package">Universal one-JAR packaging</a>
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-md-5 col-md-offset-1">
-                <div class="content-boxes-v5 margin-bottom-30">
-                    <i class="rounded-x fa fa-briefcase icon-bg-darker"></i>
+                <div class="content-boxes-v5 margin-bottom-30 homepage-feature-3">
+                    <i class="rounded-x fa fa-briefcase"></i>
                     <div class="overflow-h">
                         <h3 class="no-top-space">Focus on business</h3>
                         <p>
-                            Domain-Driven Design tactical patterns
-                            <small><a href="/docs/business/manual#big-picture">more</a></small>
+                            <a href="{{ $.Site.BaseURL }}docs/business/manual#big-picture">Domain-Driven Design tactical patterns</a>
                             <br/>
-                            Layered code architecture
-                            <small><a href="/docs/business/manual#layered-architecture">more</a></small>
+                            <a href="{{ $.Site.BaseURL }}docs/business/manual#layered-architecture">Layered code architecture</a>
                             <br/>
-                            No plumbing code
-                            <small><a href="/docs/overview#an-integration-stack">more</a></small>
+                            <a href="{{ $.Site.BaseURL }}docs/overview#an-integration-stack">No plumbing code</a>
                             <br/>
                         </p>
                     </div>
                 </div>
-                <div class="content-boxes-v5 md-margin-bottom-30">
-                    <i class="rounded-x fa fa-puzzle-piece icon-bg-u"></i>
+                <div class="content-boxes-v5 md-margin-bottom-30 homepage-feature-4">
+                    <i class="rounded-x fa fa-puzzle-piece"></i>
                     <div class="overflow-h">
                         <h3 class="no-top-space">Compose systems</h3>
                         <p>
-                            Extensible modular architecture
-                            <small><a href="/docs/overview#a-modular-architecture">more</a></small>
+                            <a href="{{ $.Site.BaseURL }}docs/overview#a-modular-architecture">Extensible modular architecture</a>
                             <br/>
-                            Rich API
-                            <small><a href="/javadoc">more</a></small>
+                            <a href="{{ $.Site.BaseURL }}javadoc">Rich API</a>
                             <br/>
-                            Add-ons library
-                            <small><a href="/addons">more</a></small>
+                            <a href="{{ $.Site.BaseURL }}addons">Add-ons library</a>
                         </p>
                     </div>
                 </div>

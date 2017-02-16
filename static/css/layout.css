@@ -239,6 +239,58 @@ kbd {
     box-shadow: inset 0 -1px 0 #bbb
 }
 
+.content-boxes-v5 i {
+    line-height: 25px;
+}
+
+.content-boxes-v5 a {
+    color: #555;
+}
+
+.content-boxes-v5.homepage-feature-1 i {
+    color: white;
+    border: 2px solid #2ecc71;
+    background: #2ecc71;
+}
+
+.content-boxes-v5.homepage-feature-1:hover i {
+    color: #2ecc71;
+    background: white;
+}
+
+.content-boxes-v5.homepage-feature-2 i {
+    color: white;
+    border: 2px solid #9b6bcc;
+    background: #9b6bcc;
+}
+
+.content-boxes-v5.homepage-feature-2:hover i {
+    color: #9b6bcc;
+    background: white;
+}
+
+.content-boxes-v5.homepage-feature-3 i {
+    color: white;
+    border: 2px solid #ffd00f;
+    background: #ffd00f;
+}
+
+.content-boxes-v5.homepage-feature-3:hover i {
+    color: #ffd00f;
+    background: white;
+}
+
+.content-boxes-v5.homepage-feature-4 i {
+    color: white;
+    border: 2px solid #1bd5b4;
+    background: #1bd5b4;
+}
+
+.content-boxes-v5.homepage-feature-4:hover i {
+    color: #1bd5b4;
+    background: white;
+}
+
 .keyboard-mappings tr td {
     padding: 5px;
 }
