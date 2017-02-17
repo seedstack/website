@@ -15,10 +15,8 @@ After clone, you must initialize all the submodules:
 
 This Website is built with [Hugo](http://gohugo.io/). If you have Hugo in your path you can serve it locally:
 
-    hugo server
+    hugo serve
     
-Add the `-w` flag to automatically watch the changes in content and refresh the displayed page(s) accordingly.
-
 # Publication
 
 The generated Website is automatically published on the corresponding channel repository after each change:

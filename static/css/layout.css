@@ -248,47 +248,47 @@ kbd {
 }
 
 .content-boxes-v5.homepage-feature-1 i {
-    color: white;
+    color: #2ecc71;
     border: 2px solid #2ecc71;
-    background: #2ecc71;
+    background: white;
 }
 
 .content-boxes-v5.homepage-feature-1:hover i {
-    color: #2ecc71;
-    background: white;
+    color: white;
+    background: #2ecc71;
 }
 
 .content-boxes-v5.homepage-feature-2 i {
-    color: white;
+    color: #9b6bcc;
     border: 2px solid #9b6bcc;
-    background: #9b6bcc;
+    background: white;
 }
 
 .content-boxes-v5.homepage-feature-2:hover i {
-    color: #9b6bcc;
-    background: white;
+    color: white;
+    background: #9b6bcc;
 }
 
 .content-boxes-v5.homepage-feature-3 i {
-    color: white;
+    color: #ffd00f;
     border: 2px solid #ffd00f;
-    background: #ffd00f;
+    background: white;
 }
 
 .content-boxes-v5.homepage-feature-3:hover i {
-    color: #ffd00f;
-    background: white;
+    color: white;
+    background: #ffd00f;
 }
 
 .content-boxes-v5.homepage-feature-4 i {
-    color: white;
-    border: 2px solid #1bd5b4;
-    background: #1bd5b4;
+    color: #f5316d;
+    border: 2px solid #f5316d;
+    background: white;
 }
 
 .content-boxes-v5.homepage-feature-4:hover i {
-    color: #1bd5b4;
-    background: white;
+    color: white;
+    background: #f5316d;
 }
 
 .keyboard-mappings tr td {
