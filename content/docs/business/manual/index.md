@@ -1,5 +1,5 @@
 ---
-title: "Business framework basics"
+title: "Business framework manual"
 type: "home"
 zones:
     - "Business"

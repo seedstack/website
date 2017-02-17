@@ -1,10 +1,12 @@
 ---
-title: "Usage"
+title: "Maven plugin"
 type: "home"
 zones:
     - "Overview"
 sections:
     - "OverviewMavenPlugin"
+aliases:
+    - "/docs/seed/maven-plugin"
 tags:
     - "maven"
     - "plugin"

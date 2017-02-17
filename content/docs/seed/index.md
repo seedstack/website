@@ -1,5 +1,5 @@
 ---
-title: "Basics"
+title: "Java framework"
 type: "home"
 zones:
     - "Seed"

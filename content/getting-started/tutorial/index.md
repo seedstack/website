@@ -1,5 +1,5 @@
 ---
-title: "Create your first SeedStack project"
+title: "Tutorial"
 type: "home"
 zones:
     - "GettingStarted"

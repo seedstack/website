@@ -1,5 +1,5 @@
 ---
-title: "Project types"
+title: "Project templates"
 type: "home"
 zones:
     - "GettingStarted"

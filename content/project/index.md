@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "Project info"
 type: "home"
 zones:
     - "Project"
