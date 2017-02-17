@@ -442,7 +442,6 @@ define a Policy interface as follows:
 ```java
 @Policy
 public interface TaxesPolicy {
-
     Integer computeTaxes(Order order);
 }
 ```
@@ -453,22 +452,22 @@ a String.
 ```java
 @Named("FR")
 public class FranceTaxesPolicy implements TaxesService {
-
     Integer computeTaxes(Order order){
-        ...
+        // ...
     }
-
 }
 ```
 
 Finally you can inject it as follows:
 
 ```java
-@Inject @Named("FR")
-private TaxesPolicy frenchTaxes;
-
-@Inject @Named("UK")
-private TaxesPolicy ukTaxes;
+public class SomeClass {
+    @Inject @Named("FR")
+    private TaxesPolicy frenchTaxes;
+    
+    @Inject @Named("UK")
+    private TaxesPolicy ukTaxes;
+}
 ```
 
 Or you can select it dynamically using the {{< java "org.seedstack.business.domain.DomainRegistry" >}}:
@@ -482,16 +481,6 @@ TaxesPolicy userTaxesPolicy = domainRegistry.getPolicy(TaxesPolicy.class, userLo
 If a qualifier is often used, you can create a custom qualifier annotation as follows.
 
 ```java
-import static java.lang.annotation.ElementType.FIELD;
-import static java.lang.annotation.ElementType.METHOD;
-import static java.lang.annotation.ElementType.TYPE;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
-import javax.inject.Qualifier;
-
 @Qualifier
 @Target({ TYPE, METHOD, FIELD })
 @Retention(RUNTIME)

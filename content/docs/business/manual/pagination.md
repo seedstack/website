@@ -57,92 +57,99 @@ Create a finder by extending the `BaseRangeFinder` class. This abstract class ne
 
 For instance create the following interface:
 
-     @Finder
-     public interface Dto1Finder extends RangeFinder<Dto1, Map<String, Object>> {
-
-         PaginatedView<ProductRepresentation> findItemByQuery(Page page, String searchQuery);
-     }
+```java
+@Finder
+public interface Dto1Finder extends RangeFinder<Dto1, Map<String, Object>> {
+    PaginatedView<ProductRepresentation> findItemByQuery(Page page, String searchQuery);
+}
+```
 
 Implement it as follows:
 
-    @JpaUnit("my-unit")
-    @Transactional
-    public class Dto1SimpleJpaFinder extends BaseRangeFinder<Dto1, String>
-        implements Dto1Finder {
+```java
+@JpaUnit("my-unit")
+@Transactional
+public class Dto1SimpleJpaFinder extends BaseRangeFinder<Dto1, String>
+    implements Dto1Finder {
 
-        @Inject
-        private EntityManager entityManager;
+    @Inject
+    private EntityManager entityManager;
 
-        @Override
-        public PaginatedView<ProductRepresentation> findItemByQuery(Page page, String query) {
-            Range range = Range.rangeFromPageInfo(page.getIndex(), page.getCapacity());
-            Result<Dto1> result = find(range, query);
-            return new PaginatedView<Dto1>(result, page);
-        }
-
-        @Override
-        protected List<Dto1> computeResultList(Range range , String criteria) {
-            CriteriaQuery<AggRoot1> query = getAggRoot1CriteriaQuery(criteria);
-            List<AggRoot1> resultList = entityManager.createQuery(query)
-                    .setFirstResult((new BigDecimal(range.getOffset()).intValue()))
-                    .setMaxResults(new BigDecimal(range.getSize()).intValue())
-                    .getResultList();
-
-            return assemblers.assembleDtoFromAggregate(resultList);
-        }
-
-        @Override
-        protected long computeFullRequestSize(String criteria) {
-            CriteriaQuery<Long> query = getAggRoot1CountCriteriaQuery(criteria);
-            return entityManager.createQuery(query).getSingleResult();
-        }
-
-        ...
+    @Override
+    public PaginatedView<ProductRepresentation> findItemByQuery(Page page, String query) {
+        Range range = Range.rangeFromPageInfo(page.getIndex(), page.getCapacity());
+        Result<Dto1> result = find(range, query);
+        return new PaginatedView<Dto1>(result, page);
     }
 
-Then, inject the finder with its interface and use it as follows:
+    @Override
+    protected List<Dto1> computeResultList(Range range , String criteria) {
+        CriteriaQuery<AggRoot1> query = getAggRoot1CriteriaQuery(criteria);
+        List<AggRoot1> resultList = entityManager.createQuery(query)
+                .setFirstResult((new BigDecimal(range.getOffset()).intValue()))
+                .setMaxResults(new BigDecimal(range.getSize()).intValue())
+                .getResultList();
+
+        return assemblers.assembleDtoFromAggregate(resultList);
+    }
+
+    @Override
+    protected long computeFullRequestSize(String criteria) {
+        CriteriaQuery<Long> query = getAggRoot1CountCriteriaQuery(criteria);
+        return entityManager.createQuery(query).getSingleResult();
+    }
+}
+```
+
+You can inject the finder with its interface. Below is an example of using such a finder in an hypermedia-enabled paginated
+resource:
 
 ```java
-@Inject
-Dto1Finder dto1Finder;
-
-@GET
-@Rel("search")
-@Produces(MediaType.APPLICATION_JSON)
-public Response list(@QueryParam("q") String searchQuery,
-                     @DefaultValue("0") @QueryParam("pageIndex") Long pageIndex,
-                     @DefaultValue("10") @QueryParam("pageSize") Integer pageSize) {
-
-    // Call the finder with the requested page
-    Page page = new Page(pageIndex, pageSize);
-    PaginatedView<Dto1> view = dto1Finder.findItemByQuery(page, searchQuery);
-
-    // Create an HAL representation with the page and the total number of elements
-    Dto1sRepresentation representation = new Dto1sRepresentation(page,
-        view.getResultSize());
-
-    // Add the list of item to the representation
-    representation.embedded("items", view.getView());
-
-    // If a next page is available add to link to it
-    if (view.hasNext()) {
-        Page next = view.next();
-
-        representation.link("next", relRegistry.uri("search")
-                .set("pageIndex", next.getIndex())
-                .set("pageSize", next.getCapacity()).expand());
+@Path("/some-resource")
+public class SomeResource {
+    @Inject
+    private Dto1Finder dto1Finder;
+    
+    @GET
+    @Rel("search")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response list(@QueryParam("q") String searchQuery,
+                         @DefaultValue("0") @QueryParam("pageIndex") Long pageIndex,
+                         @DefaultValue("10") @QueryParam("pageSize") Integer pageSize) {
+    
+        // Call the finder with the requested page
+        Page page = new Page(pageIndex, pageSize);
+        PaginatedView<Dto1> view = dto1Finder.findItemByQuery(page, searchQuery);
+    
+        // Create an HAL representation with the page and the total number of elements
+        Dto1sRepresentation representation = new Dto1sRepresentation(page,
+            view.getResultSize());
+    
+        // Add the list of item to the representation
+        representation.embedded("items", view.getView());
+    
+        // If a next page is available add to link to it
+        if (view.hasNext()) {
+            Page next = view.next();
+    
+            representation.link("next", relRegistry.uri("search")
+                    .set("pageIndex", next.getIndex())
+                    .set("pageSize", next.getCapacity())
+                    .expand());
+        }
+    
+        // If a previous page is available add to link to it
+        if (view.hasPrev()) {
+            Page prev = view.prev();
+    
+            representation.link("prev", relRegistry.uri("search")
+                    .set("pageIndex", prev.getIndex())
+                    .set("pageSize", prev.getCapacity())
+                    .expand());
+        }
+    
+        return Response.ok(representation).build();
     }
-
-    // If a previous page is available add to link to it
-    if (view.hasPrev()) {
-        Page prev = view.prev();
-
-        representation.link("prev", relRegistry.uri("search")
-                .set("pageIndex", prev.getIndex())
-                .set("pageSize", prev.getCapacity()).expand());
-    }
-
-    return Response.ok(representation).build();
 }
 ```
 

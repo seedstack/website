@@ -43,12 +43,10 @@ Business Framework Finders are POJOs, there is no mandated interface. Just annot
 
 Create the interface for your finder. A finder is annotated with `@Finder` and is declared as read only.
 
-```
+```java
 @Finder
 public interface CustomerFinder {
-
     List<CustomerRepresentation> findAllCustomers();
-
 }
 ```
 
@@ -56,9 +54,8 @@ public interface CustomerFinder {
 
 In the infrastructure layer, provide the implementation (here with JPA):
 
-```
+```java
 public class CustomerJpaFinder implements CustomerFinder {
-
     @Inject
     private FluentAssembler assembler;
 
@@ -72,7 +69,6 @@ public class CustomerJpaFinder implements CustomerFinder {
                    .assemble(entityManager.createQuery(q).getResultList())
                    .to(CustomerRepresentation.class);
     }
-
 }
 ```
 

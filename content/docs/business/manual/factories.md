@@ -35,16 +35,12 @@ The types implementing `DomainObject` and `Producible` are the followings:
 The default factory has a single method `create` with varargs that will match via reflection the constructor corresponding
 to the passed arguments. The created domain object should implement the desired constructors:
 
-```
+```java
 public class Customer extends BaseAggregate<Long> {
     private Long id;
 
-    Customer() {
-        ...
-    }
-
-    Customer(String firstName, String lastName) { // This constructor will be called
-        ...
+    Customer(String firstName, String lastName) {
+        // ...
     }
 }
 ```
@@ -52,17 +48,19 @@ public class Customer extends BaseAggregate<Long> {
 The default factory can then be injected and used by invoking its `create()` method with arguments unambiguously corresponding
 to only one constructor:
 
+```java
+public class SomeClass {
+    @Inject
+    private Factory<Customer> factory;
+    
+    public void someMethod() {
+        Customer customer = factory.create("John", "Doe");
+    }
+}
 ```
-@Inject
-Factory<Customer> factory;
 
-Customer customer = factory.create("John", "Doe");
-```
-
-One benefit over the plain constructor approach is that default factories will invoke identity generation (see [below](#identity-generation))
-and/or validation automatically after object instantiation. The
-
-As other factories this method will provide validation on the created object. But it won't survive to refactoring, so be careful using the method (ie. unit test it!).
+One benefit over the plain constructor approach is that default factories will invoke identity generation 
+(see [below](#identity-generation)) and/or validation automatically after object instantiation.
 
 {{% callout info %}}
 This factory can only be used to create domain objects that implement the `Producible` and `DomainObject` interfaces. Classes
@@ -101,7 +99,7 @@ public interface OrderFactory extends GenericFactory<Order> {
 
 The factory implementation must extend the `BaseFactory` abstract class and implement its own interface.
 
-```
+```java
 package org.mycompany.myapp.domain.model.order;
 
 import org.javatuples.Triplet;
@@ -109,7 +107,6 @@ import org.seedstack.business.domain.BaseFactory;
 import org.mycompany.myapp.domain.customer.CustomerId;
 
 public class OrderFactoryImpl extends BaseFactory<Order> implements OrderFactory {
-
     @Override
     public Order createOrder(String customerId) {
         Order o = new Order();
@@ -140,11 +137,10 @@ A generation strategy makes sure a unique identity is provided to any new Entity
 
 Below is an aggregate using the identity strategy:
 
-```
+```java
 package org.mycompany.myapp.domain.model.myaggregate;
 
 public class MyAggregate extends BaseAggregateRoot<UUID> {
-
     @Identity(handler = UUIDHandler.class)
     private UUID id;
 
@@ -156,11 +152,10 @@ public class MyAggregate extends BaseAggregateRoot<UUID> {
 
 Below is an Entity using the identity strategy:
 
-```
+```java
 package org.mycompany.myapp.domain.model.myaggregate;
 
 public class MyEntity extends BaseEntity<Long> {
-
     @Identity(handler = SequenceHandler.class)
     private Long id;
 }
@@ -172,17 +167,26 @@ The `@Identity` annotation is applied on attribute holding the object identity. 
 * `source`: a String that can be used in a custom handler. For instance, it could provide a SEQUENCE name for DB.
 
 Only specifying the identity strategy is not enough to effectively generate an identity. An implementation of the strategy
-must be configured:
+must be configured using [class configuration]({{< ref "docs/seed/configuration.md#class-configuration" >}}):
 
-	[org.mycompany.myapp.domain.model.myaggregate.MyAggregate]
-	identity.handler-qualifier = simple-UUID
+```yaml
+classes:
+  org:
+    mycompany:
+      myapp:
+        domain:
+          model:
+            myaggregate:
+              MyAggregate:
+                identityHandler: simpleUUID
+              MyEntity:
+                identityHandler: oracleSequence
+                identitySequenceName: MY_SEQUENCE
+```
 
-	[org.mycompany.myapp.domain.model.myaggregate.MyEntity]
-	identity.handler-qualifier = oracle-sequence
-	identity.sequence-name = SEQ_TEST
-
-In this case we can see that the `simple-UUID` implementation will be used for `MyAggregate`. Similarly, the `oracle-sequence`
-implementation will be used for `MyEntity` but is further configured with a sequence name.
+In this case we can see that the `simpleUUID` implementation will be used for `MyAggregate`. Similarly, the `oracleSequence`
+implementation will be used for `MyEntity`. Note that this latter handler is further configured with the database 
+sequence name.
 
 ## Usage
 
@@ -191,7 +195,7 @@ The chosen identity strategy is applied:
 * Automatically, on methods annotated with the `@Create` annotation. They are intercepted to apply the identity strategy
 on their return value.
 
-```
+```java
 public class MyAggregateFactoryDefault extends BaseFactory<MyAggregate>
         implements MyAggregateFactory {
 
@@ -217,12 +221,12 @@ public class MyAggregateFactoryDefault extends BaseFactory<MyAggregate>
 * Manually, by injecting the `IdentityService` service and invoking its `identify()` method with the entity to generate
 an identity for as argument.
 
-```
+```java
 public class MyAggregateFactoryDefault extends BaseFactory<MyAggregate>
         implements MyAggregateFactory {
 
     @Inject
-    IdentityService identityService;
+    private IdentityService identityService;
 
     @Override
     public MyAggregate createMyAggregate(String name) {
@@ -258,7 +262,7 @@ Two different options are available to define custom identity handlers:
 
 Below is an example of a basic Timestamp id generation strategy:
 
-```
+```java
 package org.mycompany.myapp.infrastructure.domain;
 
 import org.seedstack.business.domain.BaseEntity;
@@ -274,37 +278,70 @@ public class TimestampIdentityHandler implements IdentityHandler<BaseEntity<Long
 }
 ```
 
-## Provided identity strategies
+## Built-in identity strategies
 
-### SequenceHandler
+### Sequence
 
-Handles sequence generated ID. Two implementations are provided:
+The sequence strategy provides a unique ever-incrementing number. Note that there is no requirement for numbers to be
+contiguous. Implementations of this strategy must implement the {{< java "org.seedstack.business.domain.identity.SequenceHandler" >}}
+interface. 
 
-* `OracleSequenceHandler`: Get next oracle sequence value for new entity id. The following properties.
+#### In-memory implementation
 
-```
-[org.mycompany.myapp...YourEntity]
-identity.handler-qualifier = oracle-sequence
-identity.sequence-name = your_sequence_name
-```
+This implementation should only be used for testing (no state is preserved across restarts). It is
+implemented by {{< java "org.seedstack.business.test.identity.InMemorySequenceHandler" >}}. It is configured as follows:
 
-* `InMemorySequenceHandler`: To be used **ONLY** for testing (preserves behaviour without a database). The following
-properties.
-
-```
-[org.mycompany.myapp...YourEntity]
-identity.handler-qualifier = inmemory-sequence
-```
-
-### UUIDHandler
-
-Use for handling UUID generated ID. One implementation is provided:
-
-* `SimpleUUIDHandler`: Get new random UUID from java.util.UUID.randomUUID(). Need one property using entity props
-configuration:
-
-```
-[org.mycompany.myapp...YourEntity]
-identity.handler-qualifier = simple-UUID
+```yaml
+classes:
+  org:
+    mycompany:
+      myapp:
+        domain:
+          model:
+            myaggregate:
+              MyAggregate:
+                identityHandler: inMemorySequence
 ```
 
+#### Oracle sequence handler
+
+This implementation will delegate the identity generation to an Oracle database. It is implemented by 
+{{< java "org.seedstack.jpa.internal.OracleSequenceHandler" >}} in the [JPA add-on]({{< ref "addons/jpa/index.md" >}}). 
+It is configured as follows:
+
+```yaml
+classes:
+  org:
+    mycompany:
+      myapp:
+        domain:
+          model:
+            myaggregate:
+              MyAggregate:
+                identityHandler: oracleSequence
+                sequenceName: MY_SEQUENCE
+```
+
+Note that this implementations needs the database sequence name in the `sequenceName` configuration attribute.
+
+### UUID
+
+The UUID strategy provides an [Universally Unique Identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier).
+Implementations of this strategy must implement the {{< java "org.seedstack.business.domain.identity.UUIDHandler" >}}
+interface. 
+
+#### Simple UUID
+
+This implementation uses `randomUUID()` method from the {{< java "java.util.UUID" >}} Java class. It is configured as follows: 
+
+```yaml
+classes:
+  org:
+    mycompany:
+      myapp:
+        domain:
+          model:
+            myaggregate:
+              MyAggregate:
+                identityHandler: simpleUUID
+```

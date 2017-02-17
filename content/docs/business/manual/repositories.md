@@ -26,31 +26,36 @@ The Business Framework provides a default repository that can perform CRUD actio
 It can be injected with the `Repository` interface and a qualifier.
 
 ```
-@Inject @Jpa
-private Repository<Customer, String> customerRepo;
-
-...
-Customer customer = customerRepo.load(customerId);
+public class SomeClass {
+    @Inject @Jpa
+    private Repository<Customer, String> customerRepo;
+    
+    public void someMethod() {
+        Customer customer = customerRepo.load(customerId);
+        // ...
+    }
+}
 ```
 
 {{% callout info %}}
-By default, you have to explicitly specify the qualifier.
-But if you have only one persistence and one default repository, you can configure the one to use.
-The default repository can be configured for all the application:
+By default, you have to explicitly specify the qualifier. But you can choose to configure a default repository using 
+[class configuration]({{< ref "docs/seed/configuration.md#class-configuration" >}}):
 
-```
-[org.example.*]
-default-repository=org.seedstack.jpa.Jpa
+```yaml
+classes:
+  org:
+    myorg:
+      myapp:
+        domain:
+          model:
+            # JPA will be used for all aggregates... 
+            defaultRepository: org.seedstack.jpa.Jpa
+            someaggregate:
+              # ... except for this one, using MongoDb Morphia
+              defaultRepository: org.seedstack.mongodb.morphia.Morphia
 ```
 
-You can also override it for a specific aggregate root:
-
-```
-[org.example.domain.customer.Customer]
-default-repository=another-qualifier
-```
-
-The `default.repository.qualifier` property expects a qualifier annotation class or a string when the qualifier use `@Named("another-qualifer")`.
+The `defaultRepository` property expects a qualifier annotation class or a string when using named qualifiers (eg. `@Named("someQualifier")`).
 {{% /callout %}}
 
 # Custom repository
@@ -62,12 +67,9 @@ requirements.
 
 First create a repository interface extending `GenericRepository`. This interface is usually located in the aggregate package.
 
-```
-import org.seedstack.business.domain.Repository;
-
+```java
 public interface OrderRepository extends GenericRepository<Order, Long> {
-
-     Order findOrderByCategory(String categoryId)
+     Order findOrderByCategory(String categoryId);
 }
 ```
 
@@ -78,11 +80,12 @@ But you won't be able to use the framework's helpers like the assembler DSL `fro
 
 Then add an implementation in the infrastructure layer.
 
-```
+```java
 public class OrderJpaRepository extends BaseJpaRepository<Order, Long> implements OrderRepository {
-
     @Override
-    public Order findOrderByCategory(String categoryId){ ... }
+    public Order findOrderByCategory(String categoryId){ 
+        // ... 
+    }
 }
 ```
 

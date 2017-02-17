@@ -44,37 +44,21 @@ the current month.
 
 In `org.mycompany.myapp.policy` package
 
-```
-package org.mycompany.myapp.policy;
-
-import org.mycompany.myapp.domain.model.carsold.CarSold;
-import org.mycompany.myapp.domain.shared.vo.Price;
-import org.seedstack.business.domain.DomainPolicy;
-
-import java.util.List;
-
+```java
 @DomainPolicy
 public interface BonusPolicy {
-	Price computeBonus(List<CarSold> carSolds);
+	Price computeBonus(List<CarSold> soldCars);
 }
 ```
 
 ## BonusPolicy implementation
 
-Below is an implementation example.
+Below is an implementation example, in `org.mycompany.myapp.policy.internal` package:
 
-In `org.mycompany.myapp.policy.internal` package
-
-```
-package org.mycompany.myapp.policy.internal;
-
-import ...
-
+```java
 public class BonusPolicyInternal implements BonusPolicy{
-
     @Override
-	public Price computeBonus(List<CarSold> soldCarsList) {
-        ...
+	public Price computeBonus(List<CarSold> soldCars) {
 		return finalBonus;
 	}
 }
@@ -87,12 +71,7 @@ Wherever the policy is used to compute the bonus of a particular employee, just 
 
 - Interface
 
-```
-package org.mycompany.myapp.application.service;
-
-import org.mycompany.myapp.domain.model.employee.Employee;
-import org.seedstack.business.Service;
-
+```java
 @Service
 public interface SalesBonusService {
     double calculateCurrentBonusFor(Employee employee);
@@ -101,21 +80,14 @@ public interface SalesBonusService {
 
 - Implementation
 
-```
-package org.mycompany.myapp.application.service.internal;
-
-import ...
-
+```java
 public class SalesBonusServiceInternal implements SalesBonusService {
-	
 	@Inject
-	CarSoldRepository carSoldRepository;
-	
+	private CarSoldRepository carSoldRepository;
 	@Inject
-	CarForSaleRepository carForSaleRepository;
-	
+	private CarForSaleRepository carForSaleRepository;
 	@Inject
-	BonusPolicy bonusPolicy;
+	private BonusPolicy bonusPolicy;
 	
 	@Override
 	public double calculateCurrentBonusFor(Employee employee) {

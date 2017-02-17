@@ -64,7 +64,7 @@ Entity identifier.
 
 Consider the following example in which a `Customer` Entity is identified by an e-mail of String type. 
 
-```
+```java
 public class Customer extends BaseEntity<String> {
     private String email;
     private Address address;
@@ -79,14 +79,20 @@ public class Customer extends BaseEntity<String> {
     }
 
     /* Meaningful methods */
-    public void changeAddress(Address newAddress) { ... }
+    public void changeAddress(Address newAddress) { 
+        // ...
+     }
 
     /* Getters */
-    public Address getAddress() { ... }
-    public String getEmail() { ... }
-    public List<Order> getOrders() { ... }
+    public Address getAddress() { 
+        return address;
+    }
     
-    /* Try to avoid setters as they allow to alter the internal state of the entity */
+    public String getEmail() { 
+        return email;         
+    }
+    
+    // Avoid pure setters as they allow to alter the internal state of the entity violating encapsulation.
 }
 ```
 
@@ -126,41 +132,47 @@ for the conceptual definition. To simplify our example, we will just consider th
 
 Here is a possible implementation of the VIN class:
 
-	package org.mycompany.myapp.shared.domain.after.sales.vehicle;
+```java
+public class VIN extends BaseValueObject {
+    private final String worldManufacturerIdentifier;
+    private final String vehicleDescriptorSection;
+    private final String vehicleIdentifierSection;
 
-	import org.seedstack.business.domain.BaseValueObject;
+    public vehicleIdentificationNumber(
+            String worldManufacturerIdentifier,
+            String vehicleDescriptorSection,
+            String vehicleIdentifierSection) {
+        this.worldManufacturerIdentifier = worldManufacturerIdentifier;
+        this.vehicleDescriptorSection = vehicleDescriptorSection;
+        this.vehicleIdentifierSection = vehicleIdentifierSection;
+    }
 
-	public class VIN extends BaseValueObject {
-		private final String worldManufacturerIdentifier;
-		private final String vehicleDescriptorSection;
-		private final String vehicleIdentifierSection;
+    public vehicleIdentificationNumber(String vin) {
+        this.worldManufacturerIdentifier = vin.substring(0,3);
+        this.vehicleDescriptorSection = vin.substring(3,9);
+        this.vehicleIdentifierSection = vin.substring(9,17);
+    }
 
-		public vehicleIdentificationNumber(
-				String worldManufacturerIdentifier,
-				String vehicleDescriptorSection,
-				String vehicleIdentifierSection) {
-			this.worldManufacturerIdentifier = worldManufacturerIdentifier;
-			this.vehicleDescriptorSection = vehicleDescriptorSection;
-			this.vehicleIdentifierSection = vehicleIdentifierSection;
-		}
+    public String getWorldManufacturerIdentifier() { 
+        return worldManufacturerIdentifier;
+    }
+    
+    public String getVehicleDescriptorSection() { 
+        return vehicleDescriptorSection;        
+    }
+    
+    public String getVehicleIdentifierSection() { 
+        return vehicleIdentifierSection;
+    }
 
-		public vehicleIdentificationNumber(String vin) {
-			this.worldManufacturerIdentifier = vin.substring(0,3);
-			this.vehicleDescriptorSection = vin.substring(3,9);
-			this.vehicleIdentifierSection = vin.substring(9,17);
-		}
-
-		/* Getters */
-		public String getWorldManufacturerIdentifier() { ... }
-		public String getVehicleDescriptorSection() { ... }
-		public String getVehicleIdentifierSection() { ... }
-
-		@Override
-		public String toString(){
-			return worldManufacturerIdentifier + vehicleDescriptorSection
-					+ vehicleIdentifierSection;
-		}
-	}
+    @Override
+    public String toString(){
+        return worldManufacturerIdentifier 
+                + vehicleDescriptorSection
+                + vehicleIdentifierSection;
+    }
+}
+```
 
 ## Usage as identifiers
 
@@ -168,21 +180,18 @@ Value Object can also be used to represent complex identifiers for entities. For
 in the example above to identity a `Vehicle` class. You can also add meaning and behavior to a simple value by embedding
 it into a Value Object:
 
-	package org.mycompany.myapp.domain.customer;
+```java
+public class CustomerId extends BaseValueObject {
+    private String value;
 
-	import javax.persistence.Embeddable;
-	import org.seedstack.business.domain.BaseValueObject;
-
-	public class CustomerId extends BaseValueObject {
-		private String value;
-
-		public CustomerId(String customerId) {
-			this.value = customerId;
-		}
-		public String getValue() {
-			return value;
-		}
-	}
+    public CustomerId(String customerId) {
+        this.value = customerId;
+    }
+    public String getValue() {
+        return value;
+    }
+}
+```
 
 In this example, the `CustomerId` Value Object add meaning to the plain string. You won't manipulate a String anymore
 in your code but a CustomerId, with its own type. This type can evolve later to provide additional behavior or to
@@ -222,13 +231,13 @@ account which is credited on another account.
 It's implementation can be rather simple or complex depending on the rules applying to the process (currency exchange
 rate, transfer authorisation between countries, amount on originating account, etc...).
 
-```
+```java
 @Service
 public interface AccountTransferService {
-
-    public AccountTransferReport transferMoney(Account toBeDebited, Account toBeCredited,
+    AccountTransferReport transferMoney(
+            Account toBeDebited, 
+            Account toBeCredited,
             Amount transferAmount);
-
 }
 ```
 

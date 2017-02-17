@@ -83,37 +83,37 @@ Aggregate root identifier.
 
 # Example
 
-    public class Order extends BaseAggregateRoot<Long> {
-        private Long orderId;
-        private Date checkoutDate;
-        private double price;
-        private List<OrderItem> items;
+```java
+public class Order extends BaseAggregateRoot<Long> {
+    private Long orderId;
+    private Date checkoutDate;
+    private double price;
+    private List<OrderItem> items;
 
-        Order() {
-        }
-
-        @Override
-        public Long getEntityId() {
-            return orderId;
-        }
-
-        public void addOrderItem(int quantity, long productId, double price) {
-            OrderItem orderItem = new OrderItem();
-            orderItem.setQuantity(quantity);
-            orderItem.setProductId(productId);
-            orderItem.setPrice(price);
-            items.add(orderItem);
-        }
-
-        public void clearOrderItems() {
-            items.clear();
-        }
-
-        public Long getOrderId() {
-            return orderId;
-        }
-
-        ...
+    Order() {
     }
+
+    @Override
+    public Long getEntityId() {
+        return orderId;
+    }
+
+    public void addOrderItem(int quantity, long productId, double price) {
+        OrderItem orderItem = new OrderItem();
+        orderItem.setQuantity(quantity);
+        orderItem.setProductId(productId);
+        orderItem.setPrice(price);
+        items.add(orderItem);
+    }
+
+    public void clearOrderItems() {
+        items.clear();
+    }
+
+    public Long getOrderId() {
+        return orderId;
+    }
+}
+```
 
 

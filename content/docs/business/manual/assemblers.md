@@ -26,16 +26,22 @@ The Business Framework provides a interface and few base classes to ease the dev
 By default, if your mapping is obvious, you don't have to create an explicit assembler. You just add the `@DtoOf` annotation
 on your DTO class to link them to their related Aggregate root:
 
-    @DtoOf(Product.class)
-    class ProductRepresentation {
-        ...
-    }
+```java
+@DtoOf(Product.class)
+class ProductRepresentation {
+    // ...
+}
+```
 
 You can then inject a ModelMapper-based assembler with the `@ModelMapper` annotation:
 
+```java
+public class SomeClass {
     @Inject
     @ModelMapper
-    Assembler<Product, ProductRepresentation> productAssembler;
+    private Assembler<Product, ProductRepresentation> productAssembler;
+}
+```
 
 This assembler uses the default settings of the [ModelMapper library](http://modelmapper.org/).
  
@@ -69,9 +75,8 @@ Note that the aggregate identity should never be updated by the DTO.
 
 An assembler assembling a representation of a product.
 
-```
+```java
 public class ProductAssembler extends BaseAssembler<Product,ProductRepresentation> {
-
     @Override
     protected void doAssembleDtoFromAggregate(ProductRepresentation targetDto, 
 	         Product sourceAggregate) {
@@ -93,29 +98,31 @@ public class ProductAssembler extends BaseAssembler<Product,ProductRepresentatio
 }
 ```
 
-You can inject the assembler via its interface or directly via the
-implementation class. Both way are acceptable, but the first way
+You can inject the assembler via its interface or directly via the implementation class. Both way are acceptable, but the first way
 provides a more encapsulated interface to the developer using it.
 
+```java
+public class SomeClass {
+    @Inject
+    private Repository<Product, ProductId> productRepository;
+    @Inject
+    private Assembler<Product, ProductRepresentation> productAssembler1;
+    @Inject
+    private ProductAssembler productAssembler2;
+    
+    public void someMethod(Product product) {
+        // representation is assembled from the product aggregate
+        ProductRepresentation representation = productAssembler1.assembleDtoFromAggregate(product);
+    }
+    
+    public void otherMethod(ProductRepresentation productRepresentation) {
+        // product is retrieved and the DTO is merged into it
+        Product product = productRepository.load(productRepresentation.getId());
+        productAssembler2.mergeAggregateWithDto(product, productRepresentation);
+    }
+}
 ```
-@Inject
-Assembler<Product, ProductRepresentation> productAssembler;
 
-@Inject
-ProductAssembler productAssembler;
-```
-
-Then,
-
-```
-// assemble a representation
-representation = productAssembler.assembleDtoFromAggregate(product);
-
-// merge an aggregate
-Product productToMerge = catalog.retrieve(productId);
-productAssembler.mergeAggregateWithDto(productToMerge, productRepresentationSource);
-catalog.update(productToMerge);
-```
 
 # Domain-Specific Language
 
@@ -182,7 +189,7 @@ annotate the DTO's getters matching the factory method's parameters
 with `@MatchingFactoryParameter(index=0)`. The index represents the
 position of the parameters in the factory method.
 
-```
+```java
 public class ProductRepesentation {
 
     private Short storeId;
@@ -203,9 +210,8 @@ public class ProductRepesentation {
 }
 ```
 
-```
+```java
 public interface ProductFactory extends GenericFactory<Product> {
-
 	Product createProduct(Short storeId, Short productCode, String name);
 }
 ```
@@ -246,29 +252,35 @@ methods matching the ID constructor parameters with
 represents the position of the parameters in the constructor method.
 {{% /callout %}}
 
-```
+```java
 public class ProductRepesentation {
-
     private Short storeId;
     private Short productCode;
     private String name;
-    private String description
+    private String description;
 
     @MatchingEntityId(index=0)
-    public Short getStoreId() { ... }
+    public Short getStoreId() {
+        return storeId;
+     }
 
     @MatchingEntityId(index=1)
-    public Short getProductCode() { ... }
+    public Short getProductCode() { 
+        return productCode;
+    }
 
-    public Short getName() { ... }
+    public Short getName() { 
+        return name;
+    }
 
-    public Short getDescription() { ... }
+    public Short getDescription() { 
+        return description;
+    }
 }
 ```
 
-```
+```java
 public class ProductId extends BaseValueObject {
-
 	private Short storeId;
 	private Short productCode;
 
@@ -349,7 +361,7 @@ Note that, as you implemented an assembler, you don't use the default
 assembler anymore. So remove the `@DtoOf` annotation on the DTO.
 {{% /callout %}}
 
-```
+```java
 public class ProductModelMapperAssembler extends ModelMapperAssembler<Product, ProductRepresentation> {
 
     @Override
@@ -380,4 +392,3 @@ private Assembler<Product, ProductRepresentation> assembler;
 assembler.assembleDtoFromAggregate(aProduct);
 ```
 
----
