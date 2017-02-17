@@ -86,3 +86,7 @@
 	path = content/addons/shell
 	url = https://github.com/seedstack/shell-addon.git
 	branch = docs
+[submodule "content/addons/netflix"]
+	path = content/addons/netflix
+	url = https://github.com/seedstack/netflix-addon.git
+	branch = docs

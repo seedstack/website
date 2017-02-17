@@ -84,7 +84,7 @@ MetaDataFormat = "yaml"
 [params.zone.Posts]
   path = "/posts"
   label = "Posts"
-  logo = "blog-logo.svg"
+  logo = "news-logo.svg"
 
 [params.zone.Addons]
   path = "/addons"
