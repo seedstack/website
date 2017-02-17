@@ -68,7 +68,7 @@ the application is initialized with the minimal amount of plugins necessary to e
  
 Tools can be run:
 
-* With the [Maven plugin]({{< ref "docs/overview/maven-plugin" >}}), either with the `tool` goal which can
+* With the [Maven plugin]({{< ref "docs/overview/maven-plugin/index.md" >}}), either with the `tool` goal which can
 run any tool by name or with a specific goal for simplicity.
 * By executing the {{< java "org.seedstack.core.SeedMain" >}} class with the system property `seedstack.tool` set to the 
 name of the tool to execute. 
