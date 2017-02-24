@@ -13,9 +13,9 @@ menu:
 ---
 
 Domain-Driven Design is focused on creating high-quality software that not only meet the users needs, but also is designed
-to deliver true business value. Software that is not merely working but has the potential to accompany the business
+to deliver true business value.<!--more--> Software that is not merely working but has the potential to accompany the business
 strategic initiatives and provide a clear competitive advantage. Software that can be evolved throughout the years to
-remain a valuable asset instead of being a recurring cost.<!--more-->
+remain a valuable asset instead of being a recurring cost.
 
 It does so by addressing both the strategic needs of the business and the tactical ways of translating them into real
 software that works. This guide doesn't even try to address the strategic side of DDD but is focused on the common

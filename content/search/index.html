@@ -54,7 +54,7 @@ sections:
                 displayMessage('No search results.');
                 displaySearchAgain("");
             } else {
-                $('.title-subheader h3 > a').text('Most relevant results for « ' + query.q + ' »');
+                $('.title-subheader span > a').text('Most relevant results for « ' + query.q + ' »');
                 displaySearchAgain(query.q);
 
                 // compute highlight params
@@ -72,6 +72,9 @@ sections:
                         if (result.zone.path.indexOf("/") === 0) {
                             result.zone.path = result.zone.path.substring(1);
                         }
+                        if (result.section.path.indexOf("/") === 0) {
+                            result.section.path = result.section.path.substring(1);
+                        }
                         if (result.href.indexOf("/") === 0) {
                             result.href = result.href.substring(1);
                         }
@@ -86,9 +89,9 @@ sections:
 
                     var moreIndex = result.summary.indexOf("&lt;!--more--&gt;");
                     $('.inner-results').append(
-                            '<h3><a href="' + seedstack.baseUrl + result.zone.path + '"><img src="' + seedstack.baseUrl + 'img/logos/' + result.zone.logo + '"></a>' +
-                            (result.section.label ? ' <a href="' + seedstack.baseUrl + sectionHref + '">' + result.section.label + '</a>' : '') +
-                            (result.href !== sectionHref ? ((result.section.label ? ' <i class="fa fa-caret-right"></i>' : '') + ' <a href="' + seedstack.baseUrl + result.href + highlightParams + '">' + result.title + '</a>') : '') +
+                            '<h3><a href="' + seedstack.baseUrl + result.zone.path + highlightParams + '"><img src="' + seedstack.baseUrl + 'img/logos/' + result.zone.logo + '"></a>' +
+                            (result.section.label ? ' <a href="' + seedstack.baseUrl + sectionHref + highlightParams + '">' + result.section.label + '</a>' : ' <a href="' + seedstack.baseUrl + result.section.path + highlightParams + '">' + (result.parent || result.title) + '</a>') +
+                            (result.parent || result.zone.path !== "glossary" && result.zone.path !== "addons" && result.zone.path !== "guides" ? ' <i class="fa fa-caret-right"></i> <a href="' + seedstack.baseUrl + result.href + highlightParams + '">' + result.title + '</a>' : '') +
                             '</h3>' +
                             '<p>' + (moreIndex !== -1 ? result.summary.substring(0, moreIndex) : result.summary)+ '</p>' +
                             '<div class="tags">' +

@@ -1,6 +1,8 @@
 ---
 title: "Glossary"
 type: "home"
+sections:
+    - "GlossaryAll"
 zones:
     - "Glossary"
 ---

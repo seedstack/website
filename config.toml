@@ -200,3 +200,12 @@ MetaDataFormat = "yaml"
   icon = "fa fa-search"
   path = ""
 
+#####################################
+#### Glossary                    ####
+#####################################
+
+[params.section.GlossaryAll]
+  label = "Glossary"
+  icon = "fa fa-book"
+  path = ""
+

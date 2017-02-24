@@ -86,7 +86,10 @@ module.exports = function (grunt) {
                     content: processContent(splittedContent[2]),
                     summary: s(markdown.toHTML(splittedContent[2])).stripTags().truncate(300, "...").s.replace(/{{[^}]*}}/g, "")
                 };
-
+		
+		if (frontMatter.parent) {
+		    pageIndex.parent = frontMatter.parent;
+		}
                 if (frontMatter.zones && config.params.zone[frontMatter.zones[0]] && frontMatter.sections && config.params.section[frontMatter.sections[0]]) {
                     pageIndex.zone = config.params.zone[frontMatter.zones[0]];
                     pageIndex.section = config.params.section[frontMatter.sections[0]];

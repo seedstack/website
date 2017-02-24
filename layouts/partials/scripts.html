@@ -153,9 +153,12 @@
         if (query.h && query.h.length > 0) {
             $('.doc-content').highlight(query.h);
             if (query.scroll) {
-                $('html, body').animate({
-                    scrollTop: $('span[class=highlight]:first').offset().top - 20
-                }, 250);
+                var firstOccurence = $('span[class=highlight]:first');
+                if (firstOccurence.length > 0) {
+                    $('html, body').animate({
+                        scrollTop: firstOccurence.offset().top - 20
+                    }, 250);
+                }
             }
         }
     });
