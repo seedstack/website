@@ -17,7 +17,7 @@ menu:
 
 SeedStack provides a simple and powerful configuration system. Configuration can be read from multiple sources and in 
 multiple formats. The recommended way to specify configuration is a [YAML](https://en.wikipedia.org/wiki/YAML) file 
-named `application.yaml` located at the root of the classpath. 
+named `application.yaml` located at the root of the classpath.<!--more--> 
 
 # Usage
 

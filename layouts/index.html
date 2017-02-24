@@ -11,7 +11,7 @@
 <div class="title-header big">
     <div class="container">
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-8">
                 <h1>Clean Java development</h1>
                 <h2>Take advantage of Domain-Driven Design<br> to build great Java microservices and applications.</h2>
                 <div class="quick-start hidden-xs">
@@ -20,14 +20,14 @@
                         <ul class="quick-paste">
                             <li class="unix"><span>mvn org.seedstack:seedstack-maven-plugin:generate</span></li>
                         </ul>
-                        <a href="{{ $.Site.BaseURL }}getting-started">
-                            <button class="btn-u btn-u-red" style="margin-right: 10px;"><i class="fa fa-rocket"></i> <small>Start now</small></button>
-                        </a>
-                        <a href="{{ $.Site.BaseURL }}docs/overview">
-                            <button class="btn-u btn-u-default"><i class="fa fa-file-text-o"></i> <small>Learn more</small></button>
+                        <a style="text-align: right;" href="{{ $.Site.BaseURL }}getting-started">
+                            <button class="btn-u btn-u-red" style="margin-right: 10px; width: 130px;"><i class="fa fa-rocket"></i> <small>Start now</small></button>
                         </a>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-4 big-logo hidden-xs hidden-sm">
+                <img src="{{ $.Site.BaseURL }}img/mascot.png">
             </div>
         </div>
     </div>
@@ -46,7 +46,7 @@
 <div class="content-md" style="padding-bottom: 0;">
     <div class="container">
         <div class="headline-center margin-bottom-60">
-            <h2>SeedStack is an opinionated, easy-to-use Java development stack.</h2>
+            <h2>SeedStack is an opinionated, easy-to-use Java development stack.</h2><a style="color: #555" href="{{ $.Site.BaseURL }}/docs/overview">Learn more...</a>
         </div>
         <div class="row margin-bottom-40">
             <div class="col-md-5 col-md-offset-1">
@@ -178,7 +178,7 @@
                 </div>
             </div>
             <div class="row text-light hidden-xs text-center">
-                <p>This is a demo of a Web project creation. Discover other project templates <a style="color: white; text-decoration: underline;" href="{{ $.Site.BaseURL }}getting-started/project-types/">here</a>.
+                <p>This is a demo of a Web project creation. Discover other project templates <a style="color: white; text-decoration: underline;" href="{{ $.Site.BaseURL }}getting-started/project-templates/">here</a>.
             </div>
         </div>
     </div>

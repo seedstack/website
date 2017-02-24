@@ -47,52 +47,52 @@ MetaDataFormat = "yaml"
 #####################################
 
 [params.zone.Overview]
-  path = "/docs"
+  path = "docs/overview"
   label = "Overview"
-  logo = "seed-logo.svg"
+  logo = "glossary-logo.svg"
 
 [params.zone.Seed]
-  path = "/docs/seed"
+  path = "docs/seed"
   label = "Java framework"
   logo = "seed-logo.svg"
 
 [params.zone.Business]
-  path = "/docs/business"
+  path = "docs/business"
   label = "Business framework"
   logo = "business-logo.svg"
 
 [params.zone.GettingStarted]
-  path = "/getting-started"
+  path = "getting-started"
   label = "Getting started"
   logo = "getting-started-logo.svg"
 
 [params.zone.Glossary]
-  path = "/glossary"
+  path = "glossary"
   label = "Glossary"
   logo = "glossary-logo.svg"
 
 [params.zone.Guides]
-  path = "/guides"
+  path = "guides"
   label = "Guides"
   logo = "guides-logo.svg"
 
 [params.zone.Project]
-  path = "/project"
+  path = "project"
   label = "Project"
   logo = "project-logo.svg"
 
 [params.zone.Posts]
-  path = "/posts"
+  path = "posts"
   label = "Posts"
   logo = "news-logo.svg"
 
 [params.zone.Addons]
-  path = "/addons"
+  path = "addons"
   label = "Add-ons"
   logo = "addons-logo.svg"
 
 [params.zone.Search]
-  path = "/search"
+  path = "search"
   label = "Search"
   logo = "search-logo.svg"
 
@@ -173,7 +173,7 @@ MetaDataFormat = "yaml"
   path = ""
 
 [params.section.BusinessManual]
-  label = "Business manual"
+  label = "Manual"
   icon = "fa fa-book"
   path = "manual"
 
@@ -187,7 +187,7 @@ MetaDataFormat = "yaml"
   path = ""
 
 [params.section.SeedManual]
-  label = "Seed manual"
+  label = "Manual"
   icon = "fa fa-book"
   path = "manual"
 

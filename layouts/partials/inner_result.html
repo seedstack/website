@@ -1,23 +1,25 @@
-{{ $zone := index .Params.zones 0 }}
+{{ $zone := index .Params.zones 0 | lower }}
+{{ if isset .Params.sections 0 }}
+    {{ $.Scratch.Set "section" (index .Params.sections 0 | lower) }}
+{{ end }}
 <article class="inner-results">
-    <h1><img src='/img/logos/{{ index .Site.Params.zone $zone "logo" }}'>
-        {{ if eq $zone "Addons" }}
+    <h3><a href='{{ $.Site.BaseURL }}{{ index .Site.Params.zone $zone "path" }}'><img src='/img/logos/{{ index .Site.Params.zone $zone "logo" }}'></a>
+        {{ if eq $zone "addons" }}
             {{ $.Scratch.Set "href" (delimit (first 5 (split .Permalink "/")) "/") }}
-            <a href='{{ $.Scratch.Get "href" }}'>{{ .Params.name }}</a>
+            <a href='{{ $.Scratch.Get "href" }}'>{{ or .Params.parent .Title }}</a>
         {{ end }}
         {{ if ne (printf "%s/" ($.Scratch.Get "href")) (.Permalink) }}
+            {{ if $.Scratch.Get "section" }}
+            <a href='{{ $.Site.BaseURL }}{{ index .Site.Params.zone $zone "path" }}/{{ index .Site.Params.section ($.Scratch.Get "section") "path" }}'>{{ index .Site.Params.section ($.Scratch.Get "section") "label" }}</a>
+            <i class="fa fa-caret-right"></i>
+            {{ end }}
             {{ if $.Scratch.Get "href" }}
             <i class="fa fa-caret-right"></i>
             {{ end }}
             <a href="{{ .Permalink }}">{{ .Title }}</a>
         {{ end }}
-    </h1>
-    <ul class="list-inline up-ul">
-        <li>
-            In <a href='{{ index .Site.Params.zone $zone "path" }}'>{{ index .Site.Params.zone $zone "label" }}</a>
-        </li>
-    </ul>
-    <p>{{ .Summary }}...</p>
+    </h3>
+    <p>{{ .Summary }}</p>
     <div class="tags">
         {{ range .Params.tags }}<a class="label label-default" href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . | title }}</a> {{ end }}</span>
     </div>
