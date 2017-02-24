@@ -1,0 +1,1 @@
+{{ $groupId := .Get "g" }}{{ $versionParam := printf "%s.%s" $groupId "version" }}{{ if isset .Page.Site.Params $versionParam }}{{ index .Page.Site.Params $versionParam }}{{ else }}PUT_LATEST_VERSION_HERE{{ end }}

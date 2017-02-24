@@ -66,9 +66,12 @@ When the application has started, you can display the Web UI by pointing your Br
  
 You can display all configuration options of your SeedStack project by running:
 
-    mvn org.seedstack:seedstack-maven-plugin:config
+```plain
+mvn org.seedstack:seedstack-maven-plugin:config
+```
 
 If you want more information about a particular option:
  
-    mvn org.seedstack:seedstack-maven-plugin:config name.of.option
-
+```plain
+mvn org.seedstack:seedstack-maven-plugin:config name.of.option
+```

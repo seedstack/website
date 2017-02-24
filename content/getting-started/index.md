@@ -17,7 +17,9 @@ can be used to address various project types with a particular focus on REST mic
 
 The easiest way to get started with SeedStack is to use the project generator:
  
-    mvn org.seedstack:seedstack-maven-plugin:generate
+```plain
+mvn org.seedstack:seedstack-maven-plugin:generate
+```
     
 The SeedStack maven plugin will ask you a small number of questions, starting with the [type of project](project-templates) you want to create.
 
@@ -25,7 +27,9 @@ The SeedStack maven plugin will ask you a small number of questions, starting wi
     
 To launch the project from the command-line, just use the `run` goal of the SeedStack Maven plugin:
  
-    mvn org.seedstack:seedstack-maven-plugin:run
+```plain
+mvn org.seedstack:seedstack-maven-plugin:run
+```
     
 This will launch the `org.seedstack.seed.core.SeedMain` main class.
         
@@ -33,7 +37,6 @@ This will launch the `org.seedstack.seed.core.SeedMain` main class.
         
 To launch the project from your IDE, just define a plain "Java application" running configuration targeting the 
 `org.seedstack.seed.core.SeedMain` main class.
-
 
 # Follow the tutorial
 
@@ -53,17 +56,19 @@ We provide several samples demonstrating various aspects of SeedStack.
 You can choose to integrate SeedStack in an existing project by including the following dependency management snippet in
 your Maven project POM:
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.seedstack</groupId>
-                <artifactId>seedstack-bom</artifactId>
-                <version>16.11.1</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        <dependencies>
-    <dependencyManagement>
+```xml
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.seedstack</groupId>
+            <artifactId>seedstack-bom</artifactId>
+            <version>{{< version g="org.seedstack" >}}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
 
 To make a working SeedStack project you need to add an artifact containing a runtime environment. 
 You can try the `seed-web-undertow` artifact, containing the [Undertow embedded Web server](http://undertow.io):

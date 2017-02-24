@@ -29,7 +29,7 @@ snippet in your project root POM:
             <dependency>
                 <groupId>org.seedstack</groupId>
                 <artifactId>seedstack-bom</artifactId>
-                <version>__DISTRIBUTION_VERSION__</version>
+                <version>{{< version g="org.seedstack" >}}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -43,7 +43,8 @@ You can still override the version of a particular component by adding a specifi
 
     <dependencyManagement>
         <dependencies>
-            <!-- BOM import here -->
+            <!-- SeedStack BOM import here -->
+            
             <dependency>
                 <groupId>org.seedstack.seed</groupId>
                 <artifactId>seed-rest-jersey2</artifactId>

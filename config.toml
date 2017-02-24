@@ -4,6 +4,7 @@ MetaDataFormat = "yaml"
 [params]
   description = "SeedStack, Clean Java development stack"
   author = "The SeedStack authors"
+  "org.seedstack.version" = "16.11.2"
   "ch.qos.logback.version" = "1.1.10"
   "org.seedstack.poms.version" = "3.0.0"
   "org.seedstack.seed.version" = "3.0.3"
