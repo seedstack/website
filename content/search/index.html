@@ -68,6 +68,15 @@ sections:
 
                 // Only show the ten first results
                 results.slice(0, 50).forEach(function (result) {
+                    if (seedstack.baseUrl.lastIndexOf("/") === seedstack.baseUrl.length - 1) {
+                        if (result.zone.path.indexOf("/") === 0) {
+                            result.zone.path = result.zone.path.substring(1);
+                        }
+                        if (result.href.indexOf("/") === 0) {
+                            result.href = result.href.substring(1);
+                        }
+                    }
+
                     var sectionHref = result.zone.path + '/' + result.section.path,
                         highlightParams = highlight ? '?h=' + highlight + '&scroll' : '';
 
@@ -77,15 +86,10 @@ sections:
 
                     var moreIndex = result.summary.indexOf("&lt;!--more--&gt;");
                     $('.inner-results').append(
-                            '<h3><img src="' + seedstack.baseUrl + 'img/logos/' + result.zone.logo + '">' +
-                            (result.section.label ? ' <a href="' + seedstack.baseUrl + '' + sectionHref + highlightParams + '">' + result.section.label + '</a>' : '') +
-                            (result.href !== sectionHref ? ((result.section.label ? ' <i class="fa fa-caret-right"></i>' : '') + ' <a href="' + seedstack.baseUrl + '' + result.href + highlightParams + '">' + result.title + '</a>') : '') +
+                            '<h3><a href="' + seedstack.baseUrl + result.zone.path + '"><img src="' + seedstack.baseUrl + 'img/logos/' + result.zone.logo + '"></a>' +
+                            (result.section.label ? ' <a href="' + seedstack.baseUrl + sectionHref + '">' + result.section.label + '</a>' : '') +
+                            (result.href !== sectionHref ? ((result.section.label ? ' <i class="fa fa-caret-right"></i>' : '') + ' <a href="' + seedstack.baseUrl + result.href + highlightParams + '">' + result.title + '</a>') : '') +
                             '</h3>' +
-                            '<ul class="list-inline up-ul">' +
-                            '<li>' +
-                            'In <a href="' + seedstack.baseUrl + '' + result.zone.path + '">' + result.zone.label + '</a>' +
-                            '</li>' +
-                            '</ul>' +
                             '<p>' + (moreIndex !== -1 ? result.summary.substring(0, moreIndex) : result.summary)+ '</p>' +
                             '<div class="tags">' +
                             (result.tags ? result.tags.map(function (tag) {

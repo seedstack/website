@@ -15,8 +15,6 @@
 
 .title-header .big-logo {
     height: 350px;
-    padding-top: 25px;
-    padding-bottom: 25px;
     text-align: right;
 }
 
@@ -377,10 +375,6 @@ i.icon-bg-u {
 }
 
 @media (max-width: 1199px) {
-    .quick-start button {
-        padding: 20px;
-    }
-
     .header .navbar-nav > li > a {
         padding-left: 0;
     }
@@ -397,10 +391,6 @@ i.icon-bg-u {
 
     .header .nav > li > .search {
         margin-left: 0;
-    }
-
-    .quick-start button {
-        padding: 10px;
     }
 
     .title-subheader span.active a {

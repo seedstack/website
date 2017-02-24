@@ -1,5 +1,5 @@
 {{ if isset .Params.zones 0 }}
-    {{ $.Scratch.Add "zone" (index .Site.Params.zone (index .Params.zones 0) "label") }}
+    {{ $.Scratch.Add "zone" (index .Site.Params.zone (index .Params.zones 0 | lower) "label") }}
 {{ end }}
 <title>
     {{ if eq .Title ""}}SeedStack - Clean Java development{{ else }}{{ .Title }}{{ end }}{{ if and (or (eq ($.Scratch.Get "zone") "Add-ons") (eq ($.Scratch.Get "zone") "Guides")) (isset .Params "parent") }} - {{ .Params.parent }}{{ end }}
