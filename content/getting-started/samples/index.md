@@ -126,6 +126,19 @@ GitHub: https://github.com/seedstack/web-services-sample/tree/master
 <br>Relevant docs: [Web-Services add-on]({{< ref "addons/web-services/index.md" >}}).
 {{% /callout %}}
 
+# W20 bridge
+
+This sample demonstrates integration of the [W20 framework](//w20-framework.github.io):
+ 
+* Usage of W20 JAR packaging,
+* Custom W20 configuration handler,
+* Basic W20 UI.
+
+{{% callout ref %}}
+GitHub: https://github.com/seedstack/samples/tree/master/w20-bridge
+<br>Relevant docs: [W20 bridge add-on]({{< ref "addons/w20-bridge/index.md" >}}).
+{{% /callout %}}
+
 # Spring bridge
 
 This sample demonstrates the integration of Spring framework with SeedStack:
@@ -140,13 +153,11 @@ GitHub: https://github.com/seedstack/samples/tree/master/spring-bridge
 <br>Relevant docs: [Spring bridge]({{< ref "addons/spring-bridge/index.md" >}}).
 {{% /callout %}}
 
-# Batch jobs
+# Batch job
 
 This sample demonstrates the integration of Spring framework and Spring batch with SeedStack:
 
-* The batch job is launched with the SeedStack CLI launcher,
-* Injection of SeedStack-managed instances in Spring beans,
-* Injection of Spring beans in SeedStack-managed instances.
+* Running of Spring batch job with SeedStack.
 
 {{% callout ref %}}
 GitHub: https://github.com/seedstack/samples/tree/master/batch
