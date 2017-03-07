@@ -214,6 +214,41 @@ map complex types like:
 The constraints will be automatically checked after mapping. If a constraint is violated a {{< java "org.seedstack.coffig.ConfigurationException" >}}
 will be thrown with the details.
  
+# Profiles
+ 
+One or more configuration profiles can be attached to any configuration node with the following syntax:
+  
+```yaml
+someConfig:
+    someProperty<profile1>: value1
+    someProperty<profile2,profile3>: value2
+otherConfig<profile3>:
+    otherProperty: value3
+```    
+
+You can activate one or more configuration profile at application startup by specifying them in the `seedstack.profiles`
+system property:
+
+```bash
+java -Dseedstack.profiles="profile2,profile3" ...
+```
+
+Considering the example above, if you activate `profile1`, the resulting configuration will be:
+
+```yaml
+someConfig:
+    someProperty: value1
+```  
+
+If you activate `profile2` and `profile3`, the resulting configuration will be:
+
+```yaml
+someConfig:
+    someProperty: value2
+otherConfig:
+    otherProperty: value3
+```  
+ 
 # Macros
  
 Macros are references to other nodes in the global configuration tree and are replaced by the value of the referenced 
