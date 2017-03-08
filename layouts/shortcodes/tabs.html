@@ -1,11 +1,11 @@
-{{ $type := .Get "type" }}{{ $v3 := eq $type "v3"}}{{ $first := (index (split ($.Scratch.Get "tabs") "|") 0) | urlize }}<div class='{{ if $v3 }}row {{ end }}tab-{{ or $type "v2" }}'>
+{{ $type := .Get "type" }}{{ $v3 := eq $type "v3"}}{{ $first := (index (split (.Get "list") "|") 0) | urlize }}<div class='{{ if $v3 }}row {{ end }}tab-{{ or $type "v2" }}'>
     {{ if $v3 }}
     <div class="col-sm-3">
     <ul class="nav nav-pills nav-stacked">
     {{ else }}
     <ul class="nav nav-tabs">
     {{ end }}
-        {{ range (split ($.Scratch.Get "tabs") "|") }}
+        {{ range (split (.Get "list") "|") }}
             {{ if not (eq . "") }}
                 <li class="{{ if eq (. | urlize) $first }}active{{ end }}"><a href="#tab-{{ . | urlize }}" data-toggle="tab" aria-expanded="true">{{ . }}</a></li>
             {{ end }}
@@ -24,4 +24,4 @@
     {{ if $v3 }}
     </div>
     {{ end }}
-</div>{{ $.Scratch.Set "tabs" "" }}
+</div>

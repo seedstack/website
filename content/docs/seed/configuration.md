@@ -54,8 +54,10 @@ someConfig:
 To inject configuration objects, use the {{< java "org.seedstack.seed.Configuration" "@" >}} annotation:
 
 ```java    
-@Configuration
-private MyConfig myConfig;
+public class SomeClass {
+    @Configuration
+    private MyConfig myConfig;
+}
 ```
 
 This will map the global configuration to an instance of the `MyConfig` class and inject it into the field. You can
@@ -71,7 +73,7 @@ value will be injected; if false the field will be left as-is allowing to custom
 Note that you can map tree nodes , without defining configuration classes:
 
 ```java
-class SomeClass {
+public class SomeClass {
     @Configuration("someConfig.string")
     private String someString; // will be "Hello World!"
     
@@ -93,7 +95,7 @@ the `getConfiguration()` method. This will return a {{< java "org.seedstack.coff
 facade of the configuration system:
 
 ```java
-class SomeClass {
+public class SomeClass {
     @Inject
     private Application application;
     
@@ -143,7 +145,7 @@ You can obtain the configuration properties assigned to a class by using the {{<
 interface:
 
 ```java
-class SomeClass {
+public class SomeClass {
     @Inject
     private Application application;
     
@@ -503,7 +505,7 @@ test.key2=2
 Is accessible as:
 
 ```java
-class SomeClass {
+public class SomeClass {
     @Configuration("test\\.key1")
     private String key1; // will be "value1"
     

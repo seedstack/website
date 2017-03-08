@@ -73,6 +73,7 @@ logging:
   # The pattern for the default console appender
   pattern: (String)
   
+  # Configured loggers with the name of logger as key
   loggers:
     org.seedstack.samples.logging.SampleLogger:
       # Logging level for this specific logger

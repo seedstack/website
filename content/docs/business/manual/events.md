@@ -16,23 +16,100 @@ menu:
         weight: 60
 ---
 
-Seed Business Framework contains an API to manage domain events. The `EventService` service is used to fire events. Events
-must be immutable and extend `DomainEvent` (which extends `BaseValueObject`).<!--more-->
-
-{{% callout info %}}
-**Notice:** Events can also be defined by implementing the `Event` interface. Nevertheless, this requires to 
-implement `equals()` and `hashCode()` methods. Otherwise event test fixtures and call cycle detection will not work.
+{{% callout def %}}
+**A domain event is used to represent something that happened in the domain.<br>
+It happened in the past and is of interest to the business.**
 {{% /callout %}}
 
-For instance this event:
+# Characteristics
+
+## Past-tense
+
+A domain event always represent something that happened in the past. Its name must be in the past tense and be based upon
+the ubiquitous language.
+
+## Contents
+
+A domain event can be as little as just a name. More often, it will contain values and identifiers that represent the 
+relevant state at the time the event happened. That state should be minimized and the receivers should query the model
+to access additional information if necessary.
+
+## Immutable
+
+As they represent something in the past, domain events must be immutable. As such they can only contain immutable objects like 
+[value objects]({{< ref "docs/business/manual/value-objects.md" >}}), primitive types, strings, etc...
+
+## Simple
+
+Domain events are first and foremost about communication, within the system but also with other systems. A domain
+event should therefore be kept as simple as possible as be easy to serialize.
+
+# Declaration
+
+In the business framework a domain event is a special sub-type of value object. To create a domain event with the 
+business framework, you have two alternatives.
+
+{{% tabs list="Basic|Interface" %}}
+{{% tab "Basic" true %}}
+Extend the {{< java "org.seedstack.business.domain.BaseDomainEvent" >}} class:
 
 ```java
-class MyEvent extends DomainEvent {
-	// ...
+public class SomeDomainEvent extends BaseDomainEvent {
+    private String attribute1;
+    private String attribute2;
+
+    public SomeDomainEvent(String attribute1, String attribute2) {
+        this.attribute1 = attribute1;
+        this.attribute2 = attribute2;
+    }
+
+    // Other methods
 }
 ```
 
-Can be fired as follows:
+By extending {{< java "org.seedstack.business.domain.BaseDomainEvent" >}}, you will have a default implementation of the
+`equals()` and `hashCode()` methods, consistent with the definition of a value object. A `toString()` is also provided by default.
+{{% /tab %}}
+{{% tab "Interface" %}}
+Implement the {{< java "org.seedstack.business.domain.DomainEvent" >}} interface:
+
+```java
+public class SomeDomainEvent implements DomainEvent {
+    private String attribute1;
+    private String attribute2;
+
+    public SomeDomainEvent(String attribute1, String attribute2) {
+        this.attribute1 = attribute1;
+        this.attribute2 = attribute2;
+    }
+    
+    public int hashCode() {
+        // TODO: implement based on all attributes
+    }
+
+    public boolean equals() {
+        // TODO: implement based on all attributes
+    }
+
+    // Other methods
+}
+```
+
+Implementing {{< java "org.seedstack.business.domain.DomainEvent" >}} allows you to fully control the inheritance of your
+event. However, you will have to implement `equals()` and `hashCode()` methods yourself, consistently with the definition 
+of a value object (i.e. based on all the event attributes). 
+{{% /tab %}}
+{{% /tabs %}}
+
+# Usage
+
+{{% callout info %}}
+Events are published and received **synchronously**.
+{{% /callout %}}
+
+## Publishing events
+
+To publish an event, inject {{< java "org.seedstack.business.EventService" >}} where required: 
 
 ```java
 public class SomeClass {
@@ -40,160 +117,32 @@ public class SomeClass {
     private EventService eventService;
     
     public void someMethod() {
-        eventService.fire(new MyEvent());
+        eventService.fire(new SomeDomainEvent("val1", "val2"));
     }
 }
 ```
 
-# Handling events
+## Subscribing to events
 
-**EventHandlers** must implement `EventHandler` in order to receive fired events: 
+To subscribe to an event, simply create a class implementing the {{< java "org.seedstack.business.EventHandler" >}} interface
+with the class of the event to subscribe to as generic parameter:
 
 ```java
-public class MyHandler implements EventHandler<MyEvent> {
+public class SomeEventHandler implements EventHandler<SomeDomainEvent> {
     @Override
-    public void handle(MyEvent event) {
-        // ...
+    public void handle(SomeDomainEvent someDomainEvent) {
+        // handle event
     }
 }
 ```
 
-- `MyHandler` implements `EventHandler<MyEvent>` which means it listens to events of `MyEvent` type.
-- `handle` method has to be implemented to define the handler's behaviour.
-
-## Synchronous behavior
-Events are fired synchronously and **belong to current transaction**. Depending on `Exception` management, a fired exception might rollback the transaction.
-
-## Event inheritance
-If a triggered event is assignable to `MyEvent` (by inheritance), it will also be handled - consequently, a handler that 
-implements `EventHandler<DomainEvent>` will be called on any event implementing `DomainEvent`.
-
-
-# Testing events
-
-The **seed-business-core-test** module provides an `EventFixture` class for integration tests on events. 
-
-- Test that a given event was handled by an expected `EventHandler`:
-
-```
-@Inject
-private EventFixture fixture;
-...
-fixture.given(eventFactory.createMyEvent())
-    .whenFired()
-    .wasHandledBy(MyHandler.class);
-```
-
-- Test that a given event was handled by exactly a provided list of `EventHandler`s:
-
-```
-@Inject
-private EventFixture fixture;
-...
-fixture.given(eventFactory.createMyEvent())
-    .whenFired()
-    .wasHandledExactlyBy(MyHandler.class, MyHandler2.class);
-```
-
-- Test that a given event was not handled by an expected  `EventHandler`:
-
-```
-@Inject
-private EventFixture fixture;
-...
-fixture.given(eventFactory.createMyEvent())
-    .whenFired()
-    .wasNotHandledBy(MyHandler3.class);
-```
-
-- Test that a given event was generated from an expected `method()` with appropriate *parameters*
-
-```
-@Inject
-private EventFixture fixture;
-...
-MyEvent myEvent = eventFactory.createMyEvent(SOME_EVENT_PARAM);
-fixtures.given(MyService.class)
-     .whenCalled("doSomething", SOME_METHOD_PARAM)
-     .eventWasHandledBy(myEvent, MyHandler.class);
-```
-
-Test if `MyHandler` handler received `myEvent` event when `doSomething()` method of `MyService` is called.
-
-# Provided events
-
-## Aggregate events
-
-**Seed Business Framework** provides following events:
-
-- `AggregateReadEvent`: triggered when reading an aggregate - eg. repository `load()` method
-- `AggregatePersistedEvent`: triggered when persisting an aggregate - eg. repository `save()` method
-- `AggregateDeletedEvent`: triggered when deleting an aggregate - eg. repository `delete()` method
-
-Above behaviour is defined by method annotations, respectively: `@Read`, `@Persist` and `@Delete`.
-These annotations are only intercepted (and functional) within a repository class implementing `GenericRepository` (read [more](#!/business-doc/hands-on-domain/repository) on repositories).
-
->This mechanism is disabled by default.
-
-To enable this feature, use following configuration:
-
-```yaml
-business:
-  events:
-    publishRepositoryEvents: true
-```
-
-Handle aggregate read events:
-
-- Define a custom read method:
-
-```java
-public interface MyRepository extends GenericRepository<AgregateRoot, AggregateIdKey> {
-    @Read
-    AgregateRoot loadByName(String name);
-}
-```
 {{% callout tips %}}
-{{< java "org.seedstack.business.domain.Repository" >}} methods (load, delete, persist, save) are already annotated with 
-appropriate annotations.
+Multiple handlers can be declared for the same type of event, allowing any part of the system to react to any event that
+happened in the domain.
 {{% /callout %}}
 
-- The repository reading method is called, triggering an `AggregateReadEvent`:
-
-```
-// fire an AggregateReadEvent for the AgregateRoot
-productRepository.loadByName(aggregateName);
-```
-
-- `MyHandler` handles the triggered `AggregateReadEvent` event:
-
-```java
-// handle an AggregateReadEvent
-class MyHandler implements EventHandler<AggregateReadEvent> {
-    public void handle(BaseRepositoryEvent event) {
-        // ...
-    }
-}
-```
-
-{{% callout info %}}
-**IMPORTANT:** Above handler receives all `AggregateReadEvent` from any repository `@Read` annotated method. Since 
-`AggregateReadEvent` events contain the aggregate root class and a context with the called method and its arguments, 
-the handler behaviour can be defined accordingly.
+{{% callout tips %}}
+If you have an event hierarchy, you can subscribe at any level in this hierarchy. Subscribing to a particular event class
+implies that you will receive events of this class and all its sub-classes.
 {{% /callout %}}
 
----
-
-Since all "aggregate events" extend `BaseAggregateEvent`, it is possible to intercept them all in one handler:
-
-```java
-// handle an BaseAggregateEvent
-class MyHandler implements EventHandler<BaseAggregateEvent> {
-    public void handle(BaseRepositoryEvent event) {
-        // if "event" depends on Product aggregate
-        if (Product.class.isAssignableFrom(event.getAggregateRoot())) {
-            // TODO
-        }
-    }
-}
-```
