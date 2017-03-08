@@ -29,4 +29,26 @@
         </xsd:complexType>
     </xsd:element>
 
+    <xsd:element name="configuration">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:attribute name="key" type="xsd:string" use="required"/>
+                    <xsd:attribute name="default" type="xsd:string" use="optional"/>
+                    <xsd:attribute name="mandatory" type="xsd:boolean" use="optional" default="true"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="datasource">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:attribute name="name" type="xsd:string" use="required"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
 </xsd:schema>

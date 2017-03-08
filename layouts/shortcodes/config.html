@@ -2,13 +2,14 @@
 <div class="tab-v2">
     <ul class="nav nav-tabs">
         <li class="active"><a href="#tab-{{ $id }}-config" data-toggle="tab" aria-expanded="true">Configuration</a></li>
-        <li class=""><a href="#tab-{{ $id }}-dump" data-toggle="tab" aria-expanded="true">CLI info</a></li>
+        <li class=""><a href="#tab-{{ $id }}-dump" data-toggle="tab" aria-expanded="true">Tool</a></li>
     </ul>
     <span class="tabs-icon fa-2x fa fa-wrench pull-right"></span>
     <div class="clear-both"></div>
     <div class="tab-content" style="padding-top: 0;">
         <div class="tab-pane in active" id="tab-{{ $id }}-config">{{ .Inner }}</div>
         <div class="tab-pane in" id="tab-{{ $id }}-dump">
+            <p style="margin-top: 20px;">To dump the <code>{{ .Get "p" }}</code> configuration options:</p>
             <pre><code class="language-bash">mvn -q -Dargs="{{ .Get "p" }}" seedstack:config</code></pre>
         </div>
     </div>
