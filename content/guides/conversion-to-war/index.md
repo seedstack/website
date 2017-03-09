@@ -34,12 +34,13 @@ standalone JAR files.
         <dependency>
             <groupId>org.seedstack</groupId>
             <artifactId>web-composite</artifactId>
+            <type>pom</type>
             <exclusions>
                 <exclusion>
                     <groupId>org.seedstack.seed</groupId>
                     <artifactId>seed-web-undertow</artifactId>
                 </exclusion>
             </exclusions>
-        <dependency>
+        </dependency>
                 
                 
