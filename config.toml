@@ -4,6 +4,7 @@ MetaDataFormat = "yaml"
 [params]
   description = "SeedStack, Clean Java development stack"
   author = "The SeedStack authors"
+  "javax.mail.version" = "1.4.8"
   "org.seedstack.version" = "16.11.2"
   "ch.qos.logback.version" = "1.1.10"
   "org.seedstack.poms.version" = "3.0.0"
@@ -168,9 +169,9 @@ MetaDataFormat = "yaml"
 #### Business framework sections ####
 #####################################
 
-[params.section.BusinessIntroduction]
-  label = "Introduction"
-  icon = "fa fa-file-text"
+[params.section.BusinessEssentials]
+  label = "Essentials"
+  icon = "fa fa-certificate"
   path = ""
 
 [params.section.BusinessManual]

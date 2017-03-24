@@ -103,27 +103,33 @@ In some cases, you'll need to specify a scope though:
 * If an object is expensive to create,
 * If an object is tied up to external resource.
 
-Note that since the technical aspects that are often the motivation to implement a singleton are already handled by
-the framework, it is unlikely that you will need to apply this scope yourself. Remember that by keeping your **application
-code as stateless and immutable as possible** you will:
+{{% callout tips %}}
+The technical aspects that are often the motivation to implement a singleton are often already handled by the framework.
+It is unlikely that you will need to apply this scope yourself, but if you must, remember that keeping your **application
+as stateless and immutable as possible** will:
 
 * Reduce the probability of bugs,
 * Improve its scalability,
 * Improve its testability.
+{{% /callout %}}
 
 # Static injections
 
 Injection on static fields is a specific case of injection that requires an explicit binding that is very rarely used
-in SeedStack internal code and never in application code. It means that, by default, injection on static fields of your 
+in SeedStack internal code and **never in application code**. It means that, by default, injection on static fields of your 
 classes won't be enabled. This is a good thing because static injections are difficult to test, make dependencies opaque
 and rely on global state.
 
 # Custom injections
 
 Custom injections can be used for advanced injection behavior that is not possible to achieve through the standard 
-`@Inject` injection points. They rely instead on specific annotations to trigger the injection. The `@Logging` annotation
-described [here](#logging) is an example of custom injection. SeedStack doesn't rely heavily on custom injection, using
-standard injection when possible.
+`@Inject` injection points. They rely instead on specific annotations to trigger the injection. The most notable examples of 
+custom injection in SeedStack are:
+
+* The {{< java "org.seedstack.seed.Logging" "@" >}} annotation described [here]({{<ref "docs/seed/logging.md">}}).
+* The {{< java "org.seedstack.seed.Configuration" "@" >}} annotation described [here]({{<ref "docs/seed/configuration.md">}}).
+
+In SeedStack, custom injection is the exception, preferring standard `@Inject` injection.
 
 # Method interception
 

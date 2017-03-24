@@ -146,6 +146,10 @@
     max-height: 400px;
 }
 
+.doc-content pre:last-child {
+    max-height: none;
+}
+
 .doc-content pre code {
     padding: 10px;
     display: block;
@@ -269,7 +273,7 @@
 }
 
 .callout-tips {
-    background-color: #f7f7fd;
+    background-color: #f8f8ff;
     border-color: #3498db;
 }
 
@@ -282,7 +286,7 @@
 }
 
 .callout-ref {
-    background-color: #fdf7f7;
+    background-color: #f8f8ff;
     border-color: #3498db;
 }
 
@@ -321,7 +325,7 @@
 }
 
 .callout-info {
-    background-color: #f7faf5;
+    background-color: #f8f8ff;
     border-left: solid 2px #3498db;
 }
 
@@ -331,6 +335,19 @@
 
 .callout-info i {
     color: #3498db;
+}
+
+.callout-def {
+    background-color: #f7faf5;
+    border-left: solid 2px #5db27e;
+}
+
+.callout-def h4 {
+    color: #5db27e;
+}
+
+.callout-def i {
+    color: #5db27e;
 }
 
 .doc-content .highlight {

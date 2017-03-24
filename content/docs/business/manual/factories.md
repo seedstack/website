@@ -13,161 +13,143 @@ tags:
     - "persistence"
 menu:
     BusinessManual:
-        weight: 50
+        weight: 30
 ---
 
-A factory is a pattern used to **create domain objects**, checking that provided data is complete and consistent.<!--more-->
+{{% callout def %}}
+**A factory is responsible for creating a whole, internally consistent aggregate when it is too complicated to do
+it in a constructor.**
+{{% /callout %}}
 
-To be created by a factory the domain object must also implements `Producible`. This is necessary because all
-the domain objects are not producible by a factory. For instance an entity is only be producible by an aggregate
-root.
+# Characteristics
 
-The types implementing `DomainObject` and `Producible` are the followings:
+## Objects produced
 
-* AggregateRoot,
-* DomainPolicy,
-* ValueObject,
-* DomainEvent,
-* DomainService.
+A factory is part of the domain and responsible for creating some domain objects. In the business framework a factory
+can only create domain objects implementing {{< java "org.seedstack.business.Producible" >}}:
 
-# Default factory
+* Aggregates through their aggregate root,
+* Value objects,
+* Domain events.
 
-The default factory has a single method `create` with varargs that will match via reflection the constructor corresponding
-to the passed arguments. The created domain object should implement the desired constructors:
+Note that non-root entities are not produced by factories but should be created by their aggregate root.
 
+## Identity creation
+
+Being responsible for creating valid aggregates, factories may need to create their identity. This can be done from 
+input parameters given to the factory or by using a generation mechanism. This mechanism can be automated by the business
+framework, see [below]({{< ref "docs/business/manual/factories.md#identity-generation" >}}). 
+
+# Explicit factory
+
+## Declaration
+
+To declare a factory with the business framework, create an interface extending {{< java "org.seedstack.business.domain.GenericFactory" >}}
+with at least one method for creating the produced object: 
+  
 ```java
-public class Customer extends BaseAggregate<Long> {
-    private Long id;
-
-    Customer(String firstName, String lastName) {
-        // ...
-    }
+public interface SomeFactory extends GenericFactory<SomeAggregate> {
+    
+    SomeAggregate createFromName(String name);
 }
 ```
 
-The default factory can then be injected and used by invoking its `create()` method with arguments unambiguously corresponding
-to only one constructor:
+{{% callout info %}}
+This interface must be co-located with the produced object. In the case of a factory producing an aggregate, the 
+interface should be placed in the corresponding aggregate package.
+{{% /callout %}}
+  
+Then implement this interface in a class extending {{< java "org.seedstack.business.domain.BaseFactory" >}}:
+  
+```java
+public class SomeFactoryImpl extends BaseFactory<SomeAggregate> implements SomeFactory {
+    
+    SomeAggregate createFromName(String name) {
+        SomeAggregate someAggregate = new SomeAggregate(new Name(name));
+        someAggregate.initialize(new Date());
+        return someAggregate;
+    }
+}
+```  
+
+{{% callout info %}}
+Normally, a factory implementation should not depend upon technical aspects like a library or a particular technology. 
+As such you can put the implementation along the interface, in the aggregate package. This allows to declare the aggregate 
+constructors with default (package) visibility and force client code to use the factory. 
+{{% /callout %}}
+
+## Usage
+
+To use your factory, simply [inject it]({{< ref "docs/seed/dependency-injection.md" >}}) where required: 
 
 ```java
 public class SomeClass {
     @Inject
-    private Factory<Customer> factory;
+    private SomeFactory someFactory;
     
     public void someMethod() {
-        Customer customer = factory.create("John", "Doe");
+        SomeAggregate someAggregate = someFactory.createFromName("someName");
+        // do something with aggregate
     }
 }
 ```
 
-One benefit over the plain constructor approach is that default factories will invoke identity generation 
-(see [below](#identity-generation)) and/or validation automatically after object instantiation.
-
 {{% callout info %}}
-This factory can only be used to create domain objects that implement the `Producible` and `DomainObject` interfaces. Classes
-extending Business framework base classes will already implement those interfaces but annotated POJO, such as policies or
-services, must implement them explicitly. As an alternative, you implement the `GenericDomainPolicy` and `GenericDomainService`
-interfaces instead.
-{{% /callout %}}
+By default, factories are instantiated each time they are injected, avoiding the risk to wrongly keep an internal state 
+between uses. In some cases, after having well considered the issue, you can choose to make your factory a singleton by
+annotating the factory implementation with {{< java "javax.inject.Singleton" "@" >}}.
+{{% /callout %}}  
+  
+# Default factory
 
-# Custom factory
-
-A custom factory is composed of an interface, which is located in the package of the aggregate it constructs, and an
-implementation which can be located either:
-
-* In the aggregate package too,
-* Or in an infrastructure package if it is dependent upon a specific technology.
-
-The factory interface has to extend the `GenericFactory` interface:
-
-```
-package org.mycompany.myapp.domain.model.order;
-
-import org.javatuples.Triplet;
-import org.seedstack.business.domain.GenericFactory;
-
-public interface OrderFactory extends GenericFactory<Order> {
-
-    Order createOrder(String customerId, Date checkoutDate, Double price,
-            List<Triplet<Integer, Double, Long>> orderItemTriplets);
-}
-```
-
-* `Order` is the type which is the expected to be returned by all the create methods.
-* `createOrder` method creates an `Order` aggregate with the required parameters. Some parameters can be grouped with a tuple like
-`oderItemTriplets` which represents a list `OrderItem` entities belonging to the `Order` aggregate (see
-[tuples]({{< ref "docs/business/manual/index.md#tuples" >}}) for more information on tuple pattern).
-
-The factory implementation must extend the `BaseFactory` abstract class and implement its own interface.
-
+The business framework can provide a default factory implementation for each producible class that does not already has 
+an explicit factory. This factory is based upon the {{< java "org.seedstack.business.domain.Factory" >}} interface which 
+declares a single `create()` method taking variable arguments.
+    
+## Usage    
+    
+This `create()` method will try to find a constructor on the produced class matching the given arguments and invoke it.
+It can be used like this:
+    
 ```java
-package org.mycompany.myapp.domain.model.order;
-
-import org.javatuples.Triplet;
-import org.seedstack.business.domain.BaseFactory;
-import org.mycompany.myapp.domain.customer.CustomerId;
-
-public class OrderFactoryImpl extends BaseFactory<Order> implements OrderFactory {
-    @Override
-    public Order createOrder(String customerId) {
-        Order o = new Order();
-
-        o.setCustomerId(new CustomerId(customerId));
-        o.setCheckoutDate(new Date());
-
-        return o;
+public class SomeClass {
+    @Inject
+    private Factory<SomeAggregate> someAggregateFactory;
+    
+    public void someMethod() {
+        SomeAggregate someAggregate = factory.create(new Name("John Doe"));
     }
 }
 ```
 
-Here, the factory encapsulates the logic of creating a minimal but valid `Order` aggregate. This order can be further
-populated by an assembler or by custom logic.
-
 {{% callout info %}}
-When the implementation and its interface share the same package, the **implementation should be in package visibility**.
-It prevents any direct use of the implementation.
+The benefit of using the default factory instead of just invoking the constructor manually is that it will trigger the
+business framework identity generation mechanism on the produced object if necessary. See [below]({{< ref "docs/business/manual/factories.md#identity-generation" >}})
+for details about identity generation.
 {{% /callout %}}
 
 # Identity generation
 
-Factories provide methods to create entities with a well defined identity. But sometimes, you want to delegate the identity
-creation, for instance to an Oracle sequence. For this use case Seed provides an **identity generation strategies**.
-A generation strategy makes sure a unique identity is provided to any new Entity before it is even persisted.
+## Declaration 
 
-## Declaration
+The business framework provides an identity generation mechanism that can be automatically triggered after the creation
+of an object by a factory. It can also be manually triggered if necessary. To use this mechanism, annotate the field of
+the aggregate root holding the identity with {{< java "org.seedstack.business.domain.Identity" "@" >}}:
 
-Below is an aggregate using the identity strategy:
 
 ```java
-package org.mycompany.myapp.domain.model.myaggregate;
-
-public class MyAggregate extends BaseAggregateRoot<UUID> {
+public class SomeAggregate extends BaseAggregateRoot<UUID> {
     @Identity(handler = UUIDHandler.class)
     private UUID id;
-
-    private String name;
-    private MyEntity mySubEntity;
-    private Set<MyEntity> mySubEntities;
+    
+    // other fields and methods
 }
 ```
 
-Below is an Entity using the identity strategy:
-
-```java
-package org.mycompany.myapp.domain.model.myaggregate;
-
-public class MyEntity extends BaseEntity<Long> {
-    @Identity(handler = SequenceHandler.class)
-    private Long id;
-}
-```
-
-The `@Identity` annotation is applied on attribute holding the object identity. This annotation takes two arguments:
-
-* `handler`: strategy implementation
-* `source`: a String that can be used in a custom handler. For instance, it could provide a SEQUENCE name for DB.
-
-Only specifying the identity strategy is not enough to effectively generate an identity. An implementation of the strategy
-must be configured using [class configuration]({{< ref "docs/seed/configuration.md#class-configuration" >}}):
+The {{< java "org.seedstack.business.domain.Identity" "@" >}} annotation takes the class of the generator as parameter.
+While you can directly specify a concrete implementation of the generator, it is recommended to only specify a generation 
+strategy interface like {{< java "org.seedstack.business.domain.identity.UUIDHandler" >}} or {{< java "org.seedstack.business.domain.identity.SequenceHandler" >}}
+and specify its implementation using [class configuration]({{< ref "docs/seed/configuration.md#class-configuration" >}}):
 
 ```yaml
 classes:
@@ -177,88 +159,55 @@ classes:
         domain:
           model:
             myaggregate:
-              MyAggregate:
+              SomeAggregate:
                 identityHandler: simpleUUID
-              MyEntity:
-                identityHandler: oracleSequence
-                identitySequenceName: MY_SEQUENCE
 ```
 
-In this case we can see that the `simpleUUID` implementation will be used for `MyAggregate`. Similarly, the `oracleSequence`
-implementation will be used for `MyEntity`. Note that this latter handler is further configured with the database 
-sequence name.
+In this case, the implementation of {{< java "org.seedstack.business.domain.identity.UUIDHandler" >}} annotated with the
+qualifier `@Named("simpleUUID")` will be used for this aggregate.
 
 ## Usage
 
-The chosen identity strategy is applied:
-
-* Automatically, on methods annotated with the `@Create` annotation. They are intercepted to apply the identity strategy
-on their return value.
+To automatically trigger the identity generation mechanism at the end of a factory creation method, annotate it with the 
+{{< java "org.seedstack.business.domain.Create" "@" >}} annotation:
 
 ```java
-public class MyAggregateFactoryDefault extends BaseFactory<MyAggregate>
-        implements MyAggregateFactory {
-
+public class SomeFactoryImpl extends BaseFactory<SomeAggregate> implements SomeFactory {
+    
     @Create
-    @Override
-    public MyAggregate createMyAggregate(String name) {
-        MyAggregate myAggregate = new MyAggregate();
-        myAggregate.setName(name);
-
-        MyEntity myEntity = createMyEntity();
-        myAggregate.setMyEntity(myEntity);
-
-        return myAggregate;
-    }
-
-    @Create
-    MyEntity createMyEntity() {
-        return new MyEntity();
+    SomeAggregate createFromName(String name) {
+        SomeAggregate someAggregate = new SomeAggregate(new Name(name));
+        someAggregate.initialize(new Date());
+        return someAggregate;
     }
 }
-```
+```  
 
-* Manually, by injecting the `IdentityService` service and invoking its `identify()` method with the entity to generate
-an identity for as argument.
+{{% callout info %}}
+After the method has returned, an interceptor will apply the chosen identity strategy on the returned object. 
+{{% /callout %}}
+
+As an alternative you can apply the identity generation strategy programmatically by injecting the {{< java "org.seedstack.business.domain.identity.IdentityService" >}}:
 
 ```java
-public class MyAggregateFactoryDefault extends BaseFactory<MyAggregate>
-        implements MyAggregateFactory {
-
+public class SomeClass {
     @Inject
     private IdentityService identityService;
 
-    @Override
-    public MyAggregate createMyAggregate(String name) {
+    public void someMethod() {
         MyAggregate myAggregate = new MyAggregate();
         identityService.identify(myAggregate);
-        myAggregate.setName(name);
-
-        MyEntity myEntity = new MyEntity();
-        identityService.identify(myEntity);
-        myAggregate.setMyEntity(myEntity);
-
         return myAggregate;
     }
 }
 ```
 
-Note that identity generation doesn't walk the object graph to generate identities for eventual sub-entities. You must
+{{% callout warning %}}
+Note that identity generation does not walk the object graph to generate identities for eventual sub-entities. You must
 trigger identity generation (automatically or manually) separately on each entity.
-
-{{% callout tips %}}
-If all methods of a factory delegate identity generation to Seed, a `@Create` annotation can be applied directly at the
-class or interface level.
 {{% /callout %}}
 
-
 ## Custom identity handler
-
-![identity-seed](img/manage-entity-spi.svg)
-
-Two different options are available to define custom identity handlers:
-
-![identity-seed](img/manage-entity-usage.png)
 
 Below is an example of a basic Timestamp id generation strategy:
 
@@ -270,7 +219,7 @@ import org.seedstack.business.domain.identity.IdentityHandler;
 
 @Named("timestamp-id")
 public class TimestampIdentityHandler implements IdentityHandler<BaseEntity<Long>, Long> {
-
+    
     @Override
     public Long handle(BaseEntity<Long> entity, Map<String, String> entityConfig) {
         return new Date().getTime();
@@ -282,14 +231,11 @@ public class TimestampIdentityHandler implements IdentityHandler<BaseEntity<Long
 
 ### Sequence
 
-The sequence strategy provides a unique ever-incrementing number. Note that there is no requirement for numbers to be
-contiguous. Implementations of this strategy must implement the {{< java "org.seedstack.business.domain.identity.SequenceHandler" >}}
-interface. 
+The sequence strategy provides a unique ever-incrementing number. Numbers are not required to be contiguous. Implementations 
+of this strategy must implement the {{< java "org.seedstack.business.domain.identity.SequenceHandler" >}} interface. 
 
-#### In-memory implementation
-
-This implementation should only be used for testing (no state is preserved across restarts). It is
-implemented by {{< java "org.seedstack.business.test.identity.InMemorySequenceHandler" >}}. It is configured as follows:
+A test-only in-memory implementation is provided by {{< java "org.seedstack.business.test.identity.InMemorySequenceHandler" >}}. 
+No state is preserved across application restarts. It is configured as below:
 
 ```yaml
 classes:
@@ -299,40 +245,22 @@ classes:
         domain:
           model:
             myaggregate:
-              MyAggregate:
+              SomeAggregate:
                 identityHandler: inMemorySequence
 ```
 
-#### Oracle sequence handler
-
-This implementation will delegate the identity generation to an Oracle database. It is implemented by 
-{{< java "org.seedstack.jpa.internal.OracleSequenceHandler" >}} in the [JPA add-on]({{< ref "addons/jpa/index.md" >}}). 
-It is configured as follows:
-
-```yaml
-classes:
-  org:
-    mycompany:
-      myapp:
-        domain:
-          model:
-            myaggregate:
-              MyAggregate:
-                identityHandler: oracleSequence
-                sequenceName: MY_SEQUENCE
-```
-
-Note that this implementations needs the database sequence name in the `sequenceName` configuration attribute.
+{{% callout tips %}}
+Sequence handlers for relational databases are provided in the [JPA add-on]({{< ref "addons/jpa/index.md" >}}). 
+{{% /callout %}}
 
 ### UUID
 
-The UUID strategy provides an [Universally Unique Identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier).
-Implementations of this strategy must implement the {{< java "org.seedstack.business.domain.identity.UUIDHandler" >}}
-interface. 
-
-#### Simple UUID
-
-This implementation uses `randomUUID()` method from the {{< java "java.util.UUID" >}} Java class. It is configured as follows: 
+The UUID strategy uses a [Universally Unique Identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier) as
+identity. Implementations of this strategy must implement the {{< java "org.seedstack.business.domain.identity.UUIDHandler" >}}
+interface.
+ 
+An implementation that uses the {{< java "java.util.UUID" >}} Java class is provided by org.seedstack.business.domain.identity.SimpleUUIDHandler.
+It is configured as below:  
 
 ```yaml
 classes:
@@ -342,6 +270,47 @@ classes:
         domain:
           model:
             myaggregate:
-              MyAggregate:
+              SomeAggregate:
                 identityHandler: simpleUUID
 ```
+
+# Example
+
+## The interface
+
+```java
+public interface OrderFactory extends GenericFactory<Order> {
+
+    Order createOrder(Customer customer, List<Pair<ProductId, Integer>> orderedProducts);
+    
+    Order createRepeatOrder(Order previousOrder);
+    
+    Order createCreditOrder(Order orderToCredit);    
+}
+```
+
+## The implementation
+
+```java
+public class OrderFactoryImpl extends BaseFactory<Order> implements OrderFactory {
+    @Inject
+    private OrderIdentifierService orderIdentifierService;
+    
+    @Override
+    public Order createOrder(CustomerId customerId) {
+        return new Order(orderIdentifierService.nextId(), customerId);
+    }
+    
+    @Override
+    public Order createRepeatOrder(Order previousOrder) {
+        Order order = new Order(orderIdentifierService.nextId(), previousOrder.getCustomerId());
+        previousOrder.items().forEach(order::addItem);
+        return order;
+    }
+    
+    @Override
+    public Order createCreditOrder(Order orderToCredit) {
+        return new CreditOrder(orderIdentifierService.nextId(), orderToCredit.getCustomerId(), orderToCredit.getId());
+    }
+}
+```  

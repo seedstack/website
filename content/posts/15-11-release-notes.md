@@ -34,7 +34,7 @@ of this post describes all changes made by the tool but also details the eventua
 ## Add-on architecture
 
 A lot of modules have been extracted as add-ons. As such the foundation frameworks are lighter and simpler to understand.
-The full list of available add-ons is available [here]({{< baseURL >}}addons). Click on the add-on title to access
+The full list of available add-ons is available [here]({{< baseUrl >}}addons). Click on the add-on title to access
 its documentation.
 
 {{% callout info %}}

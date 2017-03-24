@@ -20,7 +20,9 @@
                             {{ end }}
                         {{ end }}
                         {{ if $active }}
-                            {{ $toc }}
+                            {{ if not $parent.Params.noToc }}
+                                {{ $toc }}
+                            {{ end }}
                             <script>
                                 seedstack.state.previousPage = '{{ $parent.Scratch.Get "previousPage" }}';
                             </script>

@@ -12,6 +12,7 @@ tags:
 menu:
     SeedManual:
         weight: 0
+noToc: true
 ---
 
 This is the reference manual for all topics of the Java framework. 
@@ -21,6 +22,8 @@ It is best to have a good understanding of the [essential notions](..) before go
 {{% /callout %}}
 
 # Application lifecycle
+
+Starting and stopping a SeedStack application:
 
 * [Startup](running#startup)
 * [Shutdown](running#shutdown)
@@ -45,7 +48,7 @@ Applications or services served with an HTTP server (embedded or not):
 
 # REST
 
-Exposing REST APIs from Web applications:  
+Exposing REST APIs from Web applications or services with JAX-RS:  
 
 * [Configuration](rest#configuration)
 * [Usage](rest#usage)
@@ -63,6 +66,8 @@ Securing execution of application code:
 
 # Cryptography
 
+Simple cryptography configuration and tools:
+
 * [Key stores](crypto#key-stores)
 * [Certificates](crypto#certificates)
 * [Encryption and decryption](crypto#encryption-and-decryption)
@@ -72,11 +77,15 @@ Securing execution of application code:
 
 # Transactions
 
+Transaction management:
+
 * [Local, global or no transaction ?](transactions#local-global-or-no-transaction)
 * [The transaction manager](transactions#the-transaction-manager)
 * [Usage](transactions#usage)
 
 # Testing
+
+Testing methods and tools:
 
 * [Unit tests](testing#unit-tests)
 * [Integration tests](testing#integration-tests)
