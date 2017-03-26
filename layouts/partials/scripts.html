@@ -143,21 +143,21 @@
         resolveVersions();
 
         var preId = 0;
-        $('.doc-content > pre').each(function(index, element) {
+        $('.doc-content pre').each(function(index, element) {
             preId++;
             $(element).attr({"id" : "snippet-" + preId});
             $(element).prepend("<span data-toggle=\"tooltip\" data-placement=\"left\" data-title=\"Copy\" data-clipboard-target=\"#snippet-" + preId + "\" class=\"copy-button\"><i class=\"fa fa-clipboard\"></i></span>");
         });
         var clipboard = new Clipboard('.copy-button');
         clipboard.on('success', function(e) {
-            var tooltip = $("body > #" + $(e.trigger).attr("aria-describedby"));
+            var tooltip = $("body #" + $(e.trigger).attr("aria-describedby"));
             tooltip.css('left', '-=13px');
             tooltip.children(".tooltip-inner").html("Copied!");
             e.clearSelection();
         });
 
         clipboard.on('error', function(e) {
-            var tooltip = $("body > #" + $(e.trigger).attr("aria-describedby"));
+            var tooltip = $("body #" + $(e.trigger).attr("aria-describedby"));
             tooltip.css('left', '-=83px');
             tooltip.children(".tooltip-inner").html("Error! Copy manually");
         });
