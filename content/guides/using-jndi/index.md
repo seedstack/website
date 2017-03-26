@@ -46,7 +46,7 @@ annotation:
 ```java
 public class SomeClass {
     @Resource(name = "some/jndi/name")
-    @FromContext("otherContext")
+    @JndiContext("otherContext")
     private DataSource datasource;
 }
 ```
