@@ -134,6 +134,21 @@
     word-break: normal;
     word-wrap: normal;}
 
+.doc-content pre .copy-button {
+    position: absolute;
+    right: 50px;
+    margin: 5px 5px 0;
+    opacity: 0;
+    transition: opacity .2s ease-out;
+    color: #3498db;
+    cursor: pointer;
+}
+
+.doc-content pre:hover .copy-button {
+    opacity: 1;
+    transition: opacity .2s ease-in;
+}
+
 .doc-content pre {
     font-family: 'Source Code Pro', 'Courier New', monospace;
     border-radius: 0;

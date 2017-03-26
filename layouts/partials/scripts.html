@@ -5,6 +5,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/gradle.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/0.5.9/lunr.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
 <script src="/assets/unify/plugins/smoothScroll.js"></script>
 <script src="/js/xml2json.js"></script>
 <script src="/js/jquery.highlight.js"></script>
@@ -135,9 +136,31 @@
             }
         }
 
+
+
         bindShortcuts(seedstack.ui.shortcuts);
 
         resolveVersions();
+
+        var preId = 0;
+        $('.doc-content > pre').each(function(index, element) {
+            preId++;
+            $(element).attr({"id" : "snippet-" + preId});
+            $(element).prepend("<span data-toggle=\"tooltip\" data-placement=\"left\" data-title=\"Copy\" data-clipboard-target=\"#snippet-" + preId + "\" class=\"copy-button\"><i class=\"fa fa-clipboard\"></i></span>");
+        });
+        var clipboard = new Clipboard('.copy-button');
+        clipboard.on('success', function(e) {
+            var tooltip = $("body > #" + $(e.trigger).attr("aria-describedby"));
+            tooltip.css('left', '-=13px');
+            tooltip.children(".tooltip-inner").html("Copied!");
+            e.clearSelection();
+        });
+
+        clipboard.on('error', function(e) {
+            var tooltip = $("body > #" + $(e.trigger).attr("aria-describedby"));
+            tooltip.css('left', '-=83px');
+            tooltip.children(".tooltip-inner").html("Error! Copy manually");
+        });
 
         $('[data-toggle="tooltip"]').tooltip({
             container: 'body'
