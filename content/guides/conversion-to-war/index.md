@@ -15,32 +15,25 @@ designed to be run from command-line with an embedded Web server. You can conver
 standalone JAR files.
 4. Configure the `maven-war-plugin` to ignore the absence of the `web.xml` file:
 
-        <build>
-             <pluginManagement>
-                 <plugins>
-                     <plugin>
-                         <groupId>org.apache.maven.plugins</groupId>
-                         <artifactId>maven-war-plugin</artifactId>
-                         <configuration>
-                             <failOnMissingWebXml>false</failOnMissingWebXml>
-                         </configuration>
-                     </plugin>
-                 </plugins>
-             </pluginManagement>
-         </build>
+    <build>
+         <pluginManagement>
+             <plugins>
+                 <plugin>
+                     <groupId>org.apache.maven.plugins</groupId>
+                     <artifactId>maven-war-plugin</artifactId>
+                     <configuration>
+                         <failOnMissingWebXml>false</failOnMissingWebXml>
+                     </configuration>
+                 </plugin>
+             </plugins>
+         </pluginManagement>
+    </build>
          
-5. Exclude the embedded Web server from the Web composite:
+5. Remove the embedded Web server from project dependencies:
 
-        <dependency>
-            <groupId>org.seedstack</groupId>
-            <artifactId>web-composite</artifactId>
-            <type>pom</type>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.seedstack.seed</groupId>
-                    <artifactId>seed-web-undertow</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+    <dependency>
+        <groupId>org.seedstack.seed</groupId>
+        <artifactId>seed-web-undertow</artifactId>
+    </dependency>
                 
                 
