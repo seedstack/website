@@ -52,9 +52,8 @@ Strategic design has nothing to do with code. It is about identifying and unders
 solutions. Ultimately, a significant part of the domain knowledge will be implemented as code but it needs to be well
 understood and structured first.
 
-# Tactical patterns
+# Tactical design
 
 The following diagram represents the key patterns of tactical Domain-Driven Design and how they relate to each other. 
-This manual will describe all those patterns and how they can be implemented with SeedStack.
 
 ![Tactical domain-driven design](img/all-domain.png)
