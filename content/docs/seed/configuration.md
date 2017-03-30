@@ -6,10 +6,7 @@ zones:
 sections:
     - "SeedEssentials"
 tags:
-    - "configuration"
-    - "yaml"
-    - "json"
-    - "properties"
+    - essentials
 menu:
     SeedEssentials:
         weight: 30

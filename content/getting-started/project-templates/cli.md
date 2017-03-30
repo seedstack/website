@@ -1,24 +1,27 @@
 ---
-title: "CLI application"
+title: "Command-line application"
 type: "home"
 zones:
     - "GettingStarted"
 sections:
     - "GettingStartedProjectTemplates"
+tags:
+    - onboarding
+    - cli
 menu:
     GettingStartedProjectTemplates:
         weight: 40
 ---
 
-A command-line (CLI) application project is a executable JAR module. It is intended to contain only backend Java classes
-to provide command-line commands.<!--more-->
+A command-line (CLI) application that can provide multiple commands in a single-JAR [capsule](http://www.capsule.io).
+<!--more-->
 
 # Creation
 
 You need to have [Apache Maven 3.1+](https://maven.apache.org/) installed. 
 To create a command-line application project from scratch, run the following command:
 
-```plain
+```bash
 mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=cli
 ```
     

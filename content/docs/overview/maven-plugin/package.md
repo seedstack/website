@@ -6,12 +6,7 @@ zones:
 sections:
     - "OverviewMavenPlugin"
 tags:
-    - "capsule"
-    - "packaging"
-    - "jar"
-    - "standalone"
-    - "maven"
-    - "plugin"
+    - maven
 menu:
     OverviewMavenPlugin:
         weight: 40

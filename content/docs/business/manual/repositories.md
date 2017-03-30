@@ -6,11 +6,8 @@ zones:
 sections:
     - "BusinessManual"
 tags:
-    - "repository"
-    - "pattern"
-    - "aggregate"
-    - "lifecycle"
-    - "persistence"
+    - domain-driven design
+    - persistence
 menu:
     BusinessManual:
         weight: 40
@@ -20,6 +17,7 @@ menu:
 **A repository is responsible for consistently storing and retrieving a whole aggregate.<br> 
 It has a simple collection-like global interface and optionally domain-specific methods.**
 {{% /callout %}}
+<!--more-->
 
 # Characteristics
 

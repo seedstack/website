@@ -6,9 +6,7 @@ zones:
 sections:
     - "SeedManual"
 tags:
-    - "cli"
-    - "option"
-    - "argument"
+    - cli    
 menu:
     SeedManual:
         weight: 20

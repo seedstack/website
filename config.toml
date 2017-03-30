@@ -33,6 +33,7 @@ MetaDataFormat = "yaml"
   "org.seedstack.addons.swagger.version" = "2.0.0"
   "org.seedstack.addons.w20.version" = "3.0.0"
   "org.seedstack.addons.ws.version" = "3.0.0"
+  numRelatedPosts = 2
 
 [blackfriday]
   angledQuotes = true
@@ -145,6 +146,11 @@ MetaDataFormat = "yaml"
   label = "Tutorial"
   icon = "fa fa-graduation-cap"
   path = "tutorial"
+
+[params.section.GettingStartedSamples]
+  label = "Samples"
+  icon = "fa fa-life-buoy"
+  path = "samples"
 
 #####################################
 #### Overview sections           ####

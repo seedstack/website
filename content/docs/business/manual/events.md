@@ -6,11 +6,7 @@ zones:
 sections:
     - "BusinessManual"
 tags:
-    - "publish"
-    - "pattern"
-    - "subscribe"
-    - "aggregate"
-    - "event"
+    - domain-driven design
 menu:
     BusinessManual:
         weight: 60
@@ -20,6 +16,7 @@ menu:
 **A domain event is used to represent something that happened in the domain.<br>
 It happened in the past and is of interest to the business.**
 {{% /callout %}}
+<!--more-->
 
 # Characteristics
 

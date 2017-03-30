@@ -5,15 +5,19 @@ zones:
     - "GettingStarted"
 sections:
     - "GettingStartedTutorial"
+tags:
+    - onboarding
+    - REST
 menu:
     GettingStartedTutorial:
         weight: 50
 ---
 
 For our domain and its client application to be useful to others, we need to create an interface with the outside world.
-In this example, we choose to build a simply REST API.<!--more--> SeedStack provides full JAX-RS 2 support through Jersey 2.
+In this example, we choose to build a simply REST API.<!--more--> 
 
-We start by adding a simplified REST representation of an order to the `org.myorg.myapp.rest.order` package:
+SeedStack provides full JAX-RS 2 support through Jersey 2. We start by adding a simplified REST representation of an order 
+to the `org.myorg.myapp.rest.order` package:
 
 ```java
 @DtoOf(Order.class)

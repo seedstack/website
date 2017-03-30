@@ -17,16 +17,10 @@
     </div>
 </div>
 <div id="content" class="container">
-    {{ $data := .Data }}
     <div class="row">
         <div class="col-md-9">
             <div class="content-wrapper">
-                <div class="tags">
-                    {{ $.Scratch.Set "tagCount" 0 }}
-                    {{ range $key, $value := .Data.Terms }}
-                    {{ $.Scratch.Set "tagCount" (add ($.Scratch.Get "tagCount") 1) }}
-                    <a class="label label-default" href="{{ $key | urlize }}">{{ $key | title }} <small>({{ len $value }})</small></a>
-                    {{ end }}
+                <div id="tagCloud" style="width: 100%; height: 400px;">
                 </div>
             </div>
         </div>
@@ -41,5 +35,15 @@
 {{ partial "modals.html" . }}
 {{ partial "styles.html" . }}
 {{ partial "scripts.html" . }}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jqcloud/1.0.4/jqcloud-1.0.4.min.js"></script>
+<script>
+    var words = [{{ range $key, $value := .Data.Terms }}{text: "{{ $key }}", weight: {{ len $value }}, link: {{ $key | urlize }}},{{ end }}];
+    $('#tagCloud').jQCloud(words, {
+        fontSize: {
+            from: 0.1,
+            to: 0.8
+        }
+    });
+</script>
 </body>
 </html>

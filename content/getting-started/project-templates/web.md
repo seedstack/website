@@ -5,21 +5,26 @@ zones:
     - "GettingStarted"
 sections:
     - "GettingStartedProjectTemplates"
+tags:
+    - onboarding
+    - web
 menu:
     GettingStartedProjectTemplates:
-        weight: 20
+        weight: 30
 ---
 
-A Java Web application project is a JAR module embedding the Undertow Web server. It is intended to contain backend
-Java classes as well as frontend W20 static resources. It also includes the [W20 bridge add-on]({{< ref "addons/w20-bridge/index.md" >}}) which
-automatically manages the W20 frontend.<!--more-->
+A classic Java Web application project mixing backend Java classes and frontend static resources. This projects uses
+the [W20 framework](http://w20-framework.github.io) to provide a sample UI, but you can easily change it.<!--more-->
+
+The result is a single-JAR [capsule](http://www.capsule.io) embedding the [Undertow](http://undertow.io) Web server.
+It also includes the [W20 bridge add-on]({{< ref "addons/w20-bridge/index.md" >}}) which automatically manages the W20 frontend.
 
 # Creation
 
 You need to have [Apache Maven 3.1+](https://maven.apache.org/) installed. 
 To create a Java Web application project from scratch, execute the following command:
 
-```plain
+```bash
 mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=web
 ```
 

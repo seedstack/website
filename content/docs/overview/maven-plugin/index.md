@@ -8,8 +8,7 @@ sections:
 aliases:
     - "/docs/seed/maven-plugin"
 tags:
-    - "maven"
-    - "plugin"
+    - maven
 menu:
     OverviewMavenPlugin:
         weight: 10

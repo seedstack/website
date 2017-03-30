@@ -4,6 +4,8 @@ parent: "DDD pitfalls and tips"
 weight: -1
 zones:
     - Guides
+tags:
+    - domain-driven design
 menu:
     DDDPitfallsAndTipsGuide:
         weight: 30

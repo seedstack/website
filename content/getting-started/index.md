@@ -5,13 +5,16 @@ zones:
     - "GettingStarted"
 sections:
     - "GettingStartedQuickStart"
+tags:
+    - onboarding
+    - maven
 menu:
     GettingStartedQuickStart:
         weight: 10
 ---
 
 **SeedStack is an opinionated, easy-to-use Java development stack.** It is a general purpose development solution which
-can be used to address various project types with a particular focus on REST microservices and applications.
+can be used to address various project types with a particular focus on REST microservices and applications.<!--more-->
  
 # Start from scratch
 

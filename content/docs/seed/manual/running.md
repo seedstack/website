@@ -5,11 +5,6 @@ zones:
     - "Seed"
 sections:
     - "SeedManual"
-tags:
-    - "running"
-    - "lifecycle"
-    - "startup"
-    - "shutdown"
 menu:
     SeedManual:
         weight: 10

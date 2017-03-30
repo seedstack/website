@@ -6,7 +6,8 @@ zones:
 sections:
     - "SeedEssentials"
 tags:
-    - "injection"
+    - essentials
+    - injection
 menu:
     SeedEssentials:
         weight: 20

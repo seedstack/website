@@ -6,12 +6,7 @@ zones:
 sections:
     - "BusinessManual"
 tags:
-    - "entity"
-    - "pattern"
-    - "value-object"
-    - "service"
-    - "model"
-    - "identifier"
+    - domain-driven design
 menu:
     BusinessManual:
         weight: 50
@@ -20,6 +15,7 @@ menu:
 {{% callout def %}}
 **A service is a stateless object that implements domain, applicative or infrastructure logic.**
 {{% /callout %}}
+<!--more-->
 
 # Characteristics
 

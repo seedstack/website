@@ -10,15 +10,15 @@ menu:
         weight: 50
 ---
 
-A batch application project is an executable JAR module. It is intended to contain Spring batch jobs and their associated
-Java classes.<!--more-->
+An application to run Spring batch jobs in a single-JAR [capsule](http://www.capsule.io). It uses the 
+[Spring bridge add-on]({{< ref "addons/spring-bridge/batch.md" >}}).<!--more-->
 
 # Creation
 
 You need to have [Apache Maven 3.1+](https://maven.apache.org/) installed. 
 To create a batch application project from scratch, run the following command:
 
-```plain
+```bash
 mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=batch
 ```
     

@@ -5,12 +5,15 @@ zones:
     - "GettingStarted"
 sections:
     - "GettingStartedSamples"
+tags:
+    - onboarding
 menu:
     GettingStartedSamples:
         weight: 10
 ---
 
 We provide several samples demonstrating various aspects of SeedStack. 
+<!--more-->
 
 # Download
 

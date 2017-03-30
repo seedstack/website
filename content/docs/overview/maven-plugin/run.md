@@ -6,10 +6,7 @@ zones:
 sections:
     - "OverviewMavenPlugin"
 tags:
-    - "maven"
-    - "plugin"
-    - "running"
-    - "executable"
+    - maven
 menu:
     OverviewMavenPlugin:
         weight: 30

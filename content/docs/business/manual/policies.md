@@ -6,9 +6,7 @@ zones:
 sections:
     - "BusinessManual"
 tags:
-    - "policy"
-    - "pattern"
-    - "strategy"
+    - domain-driven design
 menu:
     BusinessManual:
         weight: 70
@@ -18,6 +16,7 @@ menu:
 **A policy is used to encapsulate a varying business rule or process in a separate object.<br>
 Multiple versions of the policy object represent different ways the process can be done.**
 {{% /callout %}}
+<!--more-->
 
 # Characteristics
 

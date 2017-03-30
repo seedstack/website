@@ -5,20 +5,22 @@ zones:
     - "GettingStarted"
 sections:
     - "GettingStartedProjectTemplates"
+tags:
+    - onboarding
+    - domain-driven design
 menu:
     GettingStartedProjectTemplates:
         weight: 60
 ---
 
-If you are using the [business framework]({{< ref "docs/business/index.md" >}}) you can choose to write your domain in its own module for 
-reuse and modularity purposes. In that case, each domain (e.g. each business context) should go in its own module.<!--more-->
+A reusable JAR designed to contain one or more business domain(s) based on the [business framework]({{< ref "docs/business/index.md" >}}).<!--more--> 
 
 # Creation
 
 You need to have [Apache Maven 3.1+](https://maven.apache.org/) installed. 
 To create a reusable domain project from scratch, execute the following command:
 
-```plain
+```bash
 mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=domain
 ```
 
@@ -34,8 +36,8 @@ The process is interactive and will ask you a few questions about the project to
 # Result
 
 After execution, a single module project is created which contains only the domain layer. This module is intended to be
-included in other modules such as a [Web application]({{< ref "getting-started/project-templates/web.md" >}}), 
-a [REST service]({{< ref "getting-started/project-templates/rest.md" >}}) or a [Batch job]({{< ref "getting-started/project-templates/batch.md" >}}).
+included in other modules such as a [Web application]({{< ref "getting-started/project-templates/web.md" >}}) or  
+a [REST service]({{< ref "getting-started/project-templates/rest.md" >}}).
 
 You should see a structure similar to the following:
 

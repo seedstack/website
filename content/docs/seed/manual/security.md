@@ -6,12 +6,7 @@ zones:
 sections:
     - "SeedManual"
 tags:
-    - "authentication"
-    - "authorization"
-    - "permission"
-    - "access-control"
-    - "identification"
-    - "role"
+    - security
 menu:
     SeedManual:
         weight: 60

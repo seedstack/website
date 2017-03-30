@@ -5,14 +5,17 @@ zones:
     - "GettingStarted"
 sections:
     - "GettingStartedTutorial"
+tags:
+    - onboarding
 menu:
     GettingStartedTutorial:
         weight: 40
 ---
 
 The application layer is located in the `org.myorg.myapp.application` package. It is responsible for
-driving the application workflow, executing the use cases of the system.<!--more--> We will define an application service, responsible
-for completing the checkout of an order by a seller:
+driving the application workflow, executing the use cases of the system.<!--more--> 
+
+We will define an application service, responsible for completing the checkout of an order by a seller:
 
     @Service
     public interface CheckoutService {

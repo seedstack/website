@@ -6,12 +6,7 @@ zones:
 sections:
     - "BusinessManual"
 tags:
-    - "entity"
-    - "pattern"
-    - "value-object"
-    - "service"
-    - "model"
-    - "identifier"
+    - domain-driven design
 menu:
     BusinessManual:
         weight: 21
@@ -21,6 +16,7 @@ menu:
 **A value object is used to describe or compute some characteristic of a domain concept.<br>
 It does not have an identity.**
 {{% /callout %}}
+<!--more-->
 
 # Characteristics
 

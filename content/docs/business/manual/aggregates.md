@@ -6,10 +6,7 @@ zones:
 sections:
     - "BusinessManual"
 tags:
-    - "aggregate"
-    - "pattern"
-    - "lifecycle"
-    - "domain"    
+    - domain-driven design
 menu:
     BusinessManual:
         weight: 22
@@ -19,6 +16,7 @@ menu:
 **An aggregate is a cluster of cohesive entities and value objects that is treated as a single unit.<br>
 Aggregates have clear boundaries and are loosely coupled to each other.**
 {{% /callout %}}
+<!--more-->
 
 # Characteristics
 

@@ -2,6 +2,9 @@
 title: "JAX-RS basics"
 author: "Emmanuel VINEL"
 date: 2017-02-09
+tags:
+    - REST
+    - API
 zones:
     - Guides
 ---

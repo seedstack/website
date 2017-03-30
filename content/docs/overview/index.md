@@ -5,6 +5,8 @@ zones:
     - "Overview"
 sections:
     - "OverviewEssentials"
+tags:
+    - essentials
 menu:
     OverviewEssentials:
         weight: 10

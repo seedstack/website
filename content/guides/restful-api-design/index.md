@@ -2,6 +2,9 @@
 title: "RESTful API design"
 author: "Pierre THIROUIN"
 date: 2017-02-08
+tags:
+    - REST
+    - API
 zones:
     - Guides
 ---

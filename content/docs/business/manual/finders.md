@@ -6,10 +6,8 @@ zones:
 sections:
     - "BusinessManual"
 tags:
-    - "query"
-    - "pattern"
-    - "data"
-    - "finder"
+    - domain-driven design
+    - interfaces
 menu:
     BusinessManual:
         weight: 90
@@ -19,6 +17,7 @@ menu:
 **A finder encapsulates interface-specific data queries that have no business meaning.<br>
 It only has read-only operations.**
 {{% /callout %}}
+<!--more-->
 
 # Characteristics
 

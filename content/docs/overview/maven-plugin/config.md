@@ -6,9 +6,7 @@ zones:
 sections:
     - "OverviewMavenPlugin"
 tags:
-    - "config"
-    - "maven"
-    - "plugin"
+    - maven
 menu:
     OverviewMavenPlugin:
         weight: 60

@@ -2,6 +2,8 @@
 title: "Using SeedStack development snapshots"
 author: "Adrien LAUER"
 date: 2016-02-19
+tags:
+    - maven
 zones:
     - Guides
 ---

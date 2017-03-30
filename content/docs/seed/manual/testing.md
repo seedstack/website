@@ -6,11 +6,7 @@ zones:
 sections:
     - "SeedManual"
 tags:
-    - "integration"
-    - "unit"
-    - "test"
-    - "arquillian"
-    - "web"
+    - testing
 menu:
     SeedManual:
         weight: 99

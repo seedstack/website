@@ -6,7 +6,7 @@ zones:
 sections:
     - "SeedEssentials"
 tags:
-    - "diagnostic"    
+    - essentials
 menu:
     SeedEssentials:
         weight: 50

@@ -5,12 +5,6 @@ zones:
     - "Seed"
 sections:
     - "SeedManual"
-tags:
-    - "cryptography"
-    - "certificate"
-    - "keystore"
-    - "encryption"
-    - "hashing"
 menu:
     SeedManual:
         weight: 70

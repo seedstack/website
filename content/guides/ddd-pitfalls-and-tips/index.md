@@ -7,6 +7,8 @@ aliases:
     - /guides/design/ddd-pitfalls-and-tips
 zones:
     - Guides
+tags:
+    - domain-driven design
 menu:
     DDDPitfallsAndTipsGuide:
         weight: 10

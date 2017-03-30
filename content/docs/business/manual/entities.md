@@ -6,12 +6,7 @@ zones:
 sections:
     - "BusinessManual"
 tags:
-    - "entity"
-    - "pattern"
-    - "value-object"
-    - "service"
-    - "model"
-    - "identifier"
+    - domain-driven design
 menu:
     BusinessManual:
         weight: 20
@@ -21,6 +16,7 @@ menu:
 **An entity is used to represent a domain concept distinguished by an identity.<br>
 This identity must remain the same through the whole entity lifecycle.**
 {{% /callout %}}
+<!--more-->
 
 # Characteristics
 

@@ -137,10 +137,10 @@
 .doc-content pre .copy-button {
     position: absolute;
     right: 50px;
-    margin: 5px 5px 0;
+    margin: 10px 20px 0;
     opacity: 0;
     transition: opacity .2s ease-out;
-    color: #3498db;
+    color: grey;
     cursor: pointer;
 }
 

@@ -6,11 +6,7 @@ zones:
 sections:
     - "BusinessManual"
 tags:
-    - "factory"
-    - "pattern"
-    - "aggregate"
-    - "lifecycle"
-    - "persistence"
+    - domain-driven design
 menu:
     BusinessManual:
         weight: 30
@@ -20,6 +16,7 @@ menu:
 **A factory is responsible for creating a whole, internally consistent aggregate when it is too complicated to do
 it in a constructor.**
 {{% /callout %}}
+<!--more-->
 
 # Characteristics
 

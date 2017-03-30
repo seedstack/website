@@ -6,10 +6,7 @@ zones:
 sections:
     - "SeedManual"
 tags:
-    - "jta"
-    - "propagation"
-    - "rollback"
-    - "commit"
+    - transactions
 menu:
     SeedManual:
         weight: 80

@@ -5,6 +5,9 @@ zones:
     - "GettingStarted"
 sections:
     - "GettingStartedTutorial"
+tags:
+    - onboarding
+    - domain-driven design
 menu:
     GettingStartedTutorial:
         weight: 20

@@ -2,6 +2,8 @@
 title: "Creating an add-on"
 author: "Adrien LAUER"
 date: 2016-08-31
+tags:
+    - architecture
 zones:
     - Guides
 ---

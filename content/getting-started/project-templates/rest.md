@@ -5,20 +5,23 @@ zones:
     - "GettingStarted"
 sections:
     - "GettingStartedProjectTemplates"
+tags:
+    - onboarding
+    - REST
 menu:
     GettingStartedProjectTemplates:
-        weight: 30
+        weight: 20
 ---
 
-A REST micro-service project is an executable JAR module embedding the Undertow Web server. It is intended to only contain
-backend Java classes to provide a REST API. It is the ideal template for lightweight REST micro-services.<!--more-->
+A lightweight micro-service template for publishing a REST API in a single-JAR [capsule](http://www.capsule.io) embedding the 
+[Undertow](http://undertow.io) Web server.<!--more-->
 
 # Creation
 
 You need to have [Apache Maven 3.1+](https://maven.apache.org/) installed. 
 To create a REST micro-service project from scratch, run the following command:
 
-```plain
+```bash
 mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=rest
 ```
 

@@ -6,13 +6,8 @@ zones:
 sections:
     - "BusinessManual"
 tags:
-    - "dto"
-    - "pattern"
-    - "mapping"
-    - "object"
-    - "aggregate"
-    - "factory"
-    - "repository"
+    - domain-driven design
+    - interfaces
 menu:
     BusinessManual:
         weight: 80
@@ -22,6 +17,7 @@ menu:
 **An assembler is an interface object responsible for mapping one or more aggregate(s) to a Data Transfer Object (DTO) 
 and back.**
 {{% /callout %}}
+<!--more-->
 
 In Domain-Driven Design an interface layer is necessary to avoid coupling your domain to the outside world. A domain object
 is never exposed directly to the outside world but is mapped to a Data Transfer Object specifically tailored for the client

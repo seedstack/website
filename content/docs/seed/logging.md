@@ -6,7 +6,7 @@ zones:
 sections:
     - "SeedEssentials"
 tags:
-    - "logging"
+    - essentials
 menu:
     SeedEssentials:
         weight: 40

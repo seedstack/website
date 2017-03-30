@@ -6,10 +6,11 @@ zones:
 sections:
     - "BusinessManual"
 tags:
-    - "pattern"
-    - "qualifier"
     - "injection"
-    - "tuple"
+tags:
+    - essentials
+    - domain-driven design
+    - injection
 menu:
     BusinessEssentials:
         weight: 50

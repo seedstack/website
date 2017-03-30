@@ -6,11 +6,7 @@ zones:
 sections:
     - "BusinessManual"
 tags:
-    - "architecture"
-    - "package"
-    - "injection"
-    - "tuple"
-    - "design"
+    - domain-driven design
 menu:
     BusinessManual:
         weight: 10

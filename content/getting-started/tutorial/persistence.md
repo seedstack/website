@@ -5,13 +5,18 @@ zones:
     - "GettingStarted"
 sections:
     - "GettingStartedTutorial"
+tags:
+    - onboarding
+    - persistence
 menu:
     GettingStartedTutorial:
         weight: 30
 ---
 
 We are going to add MongoDB persistence to our domain model by using the [SeedStack MongoDB add-on](http://seedstack.org/addons/mongodb)
-with the Morphia object-document mapping.<!--more--> Add the following Maven dependency to the `pom.xml` file:
+with the Morphia object-document mapping.<!--more--> 
+
+Add the following Maven dependency to the `pom.xml` file:
 
 {{< dependency g="org.seedstack.addons.mongodb" a="mongodb-morphia" >}}
 

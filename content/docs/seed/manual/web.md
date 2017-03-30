@@ -6,13 +6,8 @@ zones:
 sections:
     - "SeedManual"
 tags:
-    - "servlet"
-    - "listener"
-    - "filter"
-    - "static"
-    - "resource"
-    - "cors"
-    - "websocket"
+    - web
+    - interfaces
 menu:
     SeedManual:
         weight: 40

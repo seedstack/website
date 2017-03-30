@@ -5,6 +5,10 @@ zones:
     - "Business"
 sections:
     - "BusinessEssentials"
+tags:
+    - essentials
+    - domain-driven design
+    - architecture 
 menu:
     BusinessEssentials:
         weight: 30

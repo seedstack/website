@@ -2,6 +2,9 @@
 title: "Converting a standalone Web project to WAR"
 author: "Adrien LAUER"
 date: 2017-02-06
+tags:
+    - web
+    - maven
 zones:
     - Guides
 ---

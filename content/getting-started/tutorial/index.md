@@ -5,6 +5,9 @@ zones:
     - "GettingStarted"
 sections:
     - "GettingStartedTutorial"
+tags:
+    - onboarding
+    - maven
 menu:
     GettingStartedTutorial:
         weight: 10

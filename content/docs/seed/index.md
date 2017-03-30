@@ -6,10 +6,7 @@ zones:
 sections:
     - "SeedEssentials"
 tags:
-    - "java"
-    - "startup"
-    - "shutdown"
-    - "lifecycle"
+    - essentials
 menu:
     SeedEssentials:
         weight: 10

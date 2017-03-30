@@ -6,8 +6,8 @@ zones:
 sections:
     - "BusinessEssentials"
 tags:
-    - "ddd"
-    - "book"
+    - essentials
+    - domain-driven design
 menu:
     BusinessEssentials:
         weight: 99

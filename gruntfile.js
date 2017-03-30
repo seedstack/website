@@ -82,7 +82,7 @@ module.exports = function (grunt) {
                 pageIndex = {
                     title: frontMatter.title,
                     tags: frontMatter.tags,
-                    href: href,
+                    href: frontMatter.slug || href,
                     content: processContent(splittedContent[2]),
                     summary: s(markdown.toHTML(splittedContent[2])).stripTags().truncate(300, "...").s.replace(/{{[^}]*}}/g, "")
                 };
