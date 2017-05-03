@@ -439,12 +439,20 @@ System properties configuration is gathered from all Java system properties and 
 ```yaml
 sys:
     file.encoding: UTF-8
-    javaSystemProperty1: value1
-    javaSystemProperty2: value2
+    some.system.property: value1
+    some.other.system.property: value2
     ...
 ```
 
-System properties have the maximum precedence and cannot be overridden.  
+System properties have the maximum precedence and cannot be overridden.
+  
+{{% callout warning %}}
+Some default system properties (like `java.vendor`) have a value and simultaneously serve as prefix for other keys (like
+`java.vendor.url`). This cannot be mapped as a valid configuration tree, so they are mapped as flat properties under the 
+`sys` node. You must escape the property dots with a backslash (`\`) when specifying the path to such keys. 
+
+In this example, you can access the `file.encoding` property with the `sys.file\.encoding` path.
+{{% /callout %}}
          
 ## Priority
          
@@ -490,32 +498,30 @@ instead. The same rules apply to YAML and JSON files.
 Any configuration file can also be in [Properties format](https://docs.oracle.com/javase/8/docs/api/java/util/Properties.html),
 by using the `properties` extension instead. 
 
-{{% callout warning %}}
-Hierarchical configuration is not supported so their keys are only accessible as top-level nodes. For instance the following 
-properties file:
+{{% callout info %}}
+Dot-delimited properties are mapped hierarchically. For instance the following properties file:
 
 ```properties
 test.key1=value1
-test.key2=2
+test.key2=value2
 ```
 
-Is accessible as:
+Is equivalent to the following YAML file:
 
-```java
-public class SomeClass {
-    @Configuration("test\\.key1")
-    private String key1; // will be "value1"
-    
-    @Configuration("test\\.key2")
-    private int someInt; // will be 2
-}
+```yaml
+test:
+    key1: value1
+    key2: value2
 ```
 
-Note that you need to escape the dots with a backslash to prevent the paths being interpreted as multi-level. 
+**One important side-effect is that you cannot give a value to a property already used as a prefix of another property.**
+In this example, the `test` property cannot be given any value since it cannot be both parent and leaf at the same time
+in the resulting tree.
 {{% /callout %}}
 
 {{% callout warning %}}
-Multi-value nodes (like arrays or lists) are not supported. If a delimiter is used, the value must be split manually. 
+Properties files only support string values. Other data types, such as numbers, booleans, arrays or lists are not supported and
+must be parsed manually. 
 {{% /callout %}}
 
 # Tooling
