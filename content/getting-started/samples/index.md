@@ -82,7 +82,7 @@ This sample demonstrates a full end-to-end Web application:
 * W20 UI.
 
 {{% callout ref %}}
-GitHub: https://github.com/seedstack/web-store-sample/tree/master
+GitHub: https://github.com/seedstack/store-webapp-sample/tree/master
 <br>Relevant docs: [Business framework]({{< ref "docs/business/index.md" >}}), [JPA add-on]({{< ref "addons/jpa/index.md" >}}),
 [JDBC add-on]({{< ref "addons/jdbc/index.md" >}}), [REST support]({{< ref "docs/seed/manual/rest.md" >}}),
 [Web support]({{< ref "docs/seed/manual/web.md" >}}), [W20 UI framework](//w20-framework.github.io).
