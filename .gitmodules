@@ -94,3 +94,7 @@
 	path = content/addons/feign
 	url = https://github.com/seedstack/feign-addon.git
 	branch = docs
+[submodule "content/addons/metrics"]
+	path = content/addons/metrics
+	url = https://github.com/seedstack/metrics-addon.git
+	branch = docs
