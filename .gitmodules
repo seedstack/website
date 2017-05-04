@@ -90,3 +90,7 @@
 	path = content/addons/netflix
 	url = https://github.com/seedstack/netflix-addon.git
 	branch = docs
+[submodule "content/addons/feign"]
+	path = content/addons/feign
+	url = https://github.com/seedstack/feign-addon.git
+	branch = docs
