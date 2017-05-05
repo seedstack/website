@@ -98,3 +98,7 @@
 	path = content/addons/metrics
 	url = https://github.com/seedstack/metrics-addon.git
 	branch = docs
+[submodule "content/addons/jmh"]
+	path = content/addons/jmh
+	url = https://github.com/seedstack/jmh-addon.git
+	branch = docs
