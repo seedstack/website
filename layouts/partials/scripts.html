@@ -95,7 +95,7 @@
 
                     if (pom.project && pom.project.properties && pom.project.version) {
                         var $versions = $('#versions-table');
-                        var blackList = ['seedstack-maven-plugin', 'java-compiler', 'maven-failsafe-plugin', 'logback'];
+                        var blackList = ['seedstack-maven-plugin', 'java-compiler', 'maven-failsafe-plugin', 'logback', 'rest-assured'];
                         var versions = {};
 
                         $versionsTitle.text("SeedStack " + pom.project.version);
