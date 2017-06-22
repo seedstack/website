@@ -147,7 +147,7 @@ public class OrderResource {
 
 You can now request the mock orders we created earlier with one of the following REST endpoints:
 
-* `/api/orders` which is the list of all orders. This URL accepts a `customerId` query param to only return the orders of a specific
+* `/orders` which is the list of all orders. This URL accepts a `customerId` query param to only return the orders of a specific
 customer.
-* `/api/orders/{orderId}` which is the detail of a specific order (like `/orders/1`). For simplicity, we just return the same
+* `/orders/{orderId}` which is the detail of a specific order (like `/orders/1`). For simplicity, we just return the same
 representation as in the list but we can build another, more detailed, representation of an `Order` for this sub-resource.
