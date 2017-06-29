@@ -33,12 +33,14 @@
                 <li class='{{ if eq (.Scratch.Get "zone") "Addons" }}active{{ end }}'>
                     <a href="{{ $.Site.BaseURL }}addons">Add-ons</a>
                 </li>
-                <li class='dropdown {{ if or (eq (.Scratch.Get "zone") "Project") (eq (.Scratch.Get "zone") "Glossary") (eq (.Scratch.Get "zone") "Tags") (eq (.Scratch.Get "zone") "Posts") }}active{{ end }}'>
+                <li class='{{ if eq (.Scratch.Get "zone") "Posts" }}active{{ end }}'>
+                    <a href="{{ $.Site.BaseURL }}posts">News</a>
+                </li>
+                <li class='dropdown {{ if or (eq (.Scratch.Get "zone") "Project") (eq (.Scratch.Get "zone") "Glossary") (eq (.Scratch.Get "zone") "Tags") }}active{{ end }}'>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
                         More
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ $.Site.BaseURL }}posts">News</a></li>
                         <li><a href="{{ $.Site.BaseURL }}javadoc">Javadoc</a></li>
                         <li><a href="{{ $.Site.BaseURL }}project">Project info</a></li>
                         <li><a href="{{ $.Site.BaseURL }}glossary">Glossary</a></li>
