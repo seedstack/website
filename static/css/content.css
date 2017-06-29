@@ -181,6 +181,12 @@
     max-width: 100%;
 }
 
+.doc-content object {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+}
+
 .doc-content figure.docker img {
     height: 20px;
     display: inline-block;

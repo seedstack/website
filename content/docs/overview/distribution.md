@@ -12,6 +12,12 @@ menu:
         weight: 20
 ---
 
+SeedStack is distributed as a collection of software components that can be composed together as needed. To ensure that you
+get a coherent, well-tested set of components, they are packaged in the SeedStack distribution. It is a special Maven POM 
+file (BOM) that you reference in your own project to import SeedStack dependency management rules.<!--more-->
+
+# Benefits
+
 The SeedStack distribution is the preferred way of using SeedStack in your project:
  
 * All components have their version managed globally. You just have to specify the distribution version but not the
@@ -19,10 +25,11 @@ version of the components themselves.
 * All components are tested together before the release.
 * The distribution is released 3 times per year with a predictable schedule (April, July and November).
 * The distribution is named after the `YEAR.MONTH` pattern.
+* The distribution contains quick-start project templates. 
 
-# Dependency management 
+# Usage 
 
-The most important part of the distribution is the dependency management which guarantees that all SeedStack components
+The most important aspect of the distribution is the dependency management which guarantees that all SeedStack components
 are at compatible and well-tested versions. To benefit from dependency management in your project, just add the following
 snippet in your project root POM:
   
@@ -77,7 +84,8 @@ The available composites are:
 * The `web` composite is for classic Web applications with a user interface.
 
 {{% callout tips %}}
-It is recommended to only use one composite per project module. Note that you can add any additional dependency you may require (such as add-ons), besides the composite.
+It is recommended to only use one composite per project module. Note that you can add any additional dependency you may 
+require (such as add-ons), besides the composite.
 {{% /callout %}}
 
 # Archetypes

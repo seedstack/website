@@ -13,41 +13,21 @@ menu:
         weight: 30
 ---
 
-# Naming conventions
+SeedStack is an integration solution, bringing together the best open-source libraries in a clean and consistent 
+architecture. To do so, it relies on an extensible kernel/plugin architecture that is capable of automatically activating
+the plugins present in the classpath.
 
-## JAR-level
+# An integration stack
 
-When relevant, modules provide their API in a separate sub-module suffixed with `-specs` in which case the corresponding
-module implementation is suffixed `-core`. This allows to implement classes using the API without activation. This is 
-useful when designing reusable components. Besides, to provide a better separation of concerns, some modules are further
-split into optional sub-modules:
+Modern microservices and applications are composed of a great number of software components and technologies that must
+be integrated with each other. Things like REST resources, persistence, business logic, caching and so on must 
+be all initialized, configured and wired properly to make a system operational.
 
-* `seed-[module]-specs` for the API and/or the SPI,
-* `seed-[module]-core` for the main implementation,
-* `seed-[module]-[option]` for an optional implementation module.
+These technical and complex integration tasks are fully automated by SeedStack. By using SeedStack you directly benefit
+from a clean, fully automated software architecture and from some of the best technologies open-source has to offer. **SeedStack 
+allows you to focus on the high-value code and leave the plumbing to the framework.**
 
-## Package-level
-
-The code of each module lives in several Java packages, all prefixed by org.seedstack.seed.???, where ??? is the name 
-of the module:
-
-* `org.seedstack.seed.[module]` which contains classes destined to be used by client code,
-* `org.seedstack.seed.[module].spi` which contains the classes needed to extend the module features,
-* `org.seedstack.seed.[module].internal` which contains the module internal classes,
-* `org.seedstack.seed.[module].test` which contains testing tools for the module.
-
-{{% callout danger %}}
-Note that application code should **never** rely on any class from the internal package. It is implementation-specific
-and subject to change between versions without notice.
-{{% /callout %}}
-
-## Class-level
-
-Seed follows [SOLID principles](https://en.wikipedia.org/wiki/SOLID_\(object-oriented_design\)) and each class tend to only
-have one responsibility, allowing to easily understand what it does. It also does help to keep your implementation simple
-and testable.
-
-# Lifecycle
+# Kernel + plugin architecture
 
 At the heart of Seed lies the kernel which is started by different means, depending on the runtime context (web 
 application, standalone java app, test runner, ...). The responsibility of the kernel is to orchestrate all the plugins 
@@ -71,7 +51,7 @@ automatically register classes or to enable particular features. Combined with t
 and sensible default values, it greatly simplifies SeedStack usage.    
 {{% /callout %}}
 
-## Phases
+## Lifecycle
 
 The kernel orchestrates the application lifecycle through the following phases:
 
