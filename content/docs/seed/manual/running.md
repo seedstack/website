@@ -16,12 +16,12 @@ logic to it. A launcher is a class implementing {{< java "org.seedstack.seed.spi
 
 SeedStack provides two built-in launchers:
 
-* In the `seed-cli` module, for [command-line applications](../cli).
-* In the `seed-web-undertow`, for [Web applications](../web) embedding their own server.
+* In the `seed-cli` module, for [command-line applications]({{< ref "docs/seed/manual/cli.md" >}}).
+* In the `seed-web-undertow`, for [Web applications]({{< ref "docs/seed/manual/web.md" >}}) embedding their own server.
 
 {{% callout info %}}
 Web applications executed in a Servlet container don't require a launcher as they are completely managed by the container.
-See [this page](../web#in-a-container) for more information.
+See [this page]({{< ref "docs/seed/manual/web.md#in-a-container" >}}) for more information.
 {{% /callout %}} 
 
 # Startup
@@ -47,12 +47,12 @@ java [jvm-args] -jar app-capsule.jar [app-args]
 
 {{% callout info %}}
 SeedStack projects created by the generator always provide a Capsule JAR in the `target` directory. Check the 
-[package goal](/docs/overview/maven-plugin/package) of the SeedStack maven plugin for more information.  
+[package goal]({{< ref "docs/overview/maven-plugin/package.md" >}}) of the SeedStack maven plugin for more information.  
 {{% /callout %}}
  
 ## Maven run goal
 
-In development, you have the ability to run a standalone application directly from Maven with the [run goal](/docs/overview/maven-plugin/run) 
+In development, you have the ability to run a standalone application directly from Maven with the [run goal]({{< ref "docs/overview/maven-plugin/run.md" >}}) 
 of the SeedStack Maven plugin:
 
 ```bash
@@ -94,7 +94,7 @@ java [jvm-args] -Dseedstack.tool=toolName -jar app-capsule.jar [tool-args]
 ```
 
 {{% callout tips %}}
-The [tool goal](/docs/overview/maven-plugin/tool) of the SeedStack Maven plugin can run a tool directly from Maven.
+The [tool goal]({{< ref "docs/overview/maven-plugin/tool.md" >}}) of the SeedStack Maven plugin can run a tool directly from Maven.
 
 You can also run a tool from your IDE by executing the {{< java "org.seedstack.seed.core.SeedMain" >}} main class with
 the `-Dseedstack.tool=<toolName>` JVM argument. You can use the program arguments to specify the arguments of the tool.

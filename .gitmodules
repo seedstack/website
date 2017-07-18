@@ -102,3 +102,11 @@
 	path = content/addons/jmh
 	url = https://github.com/seedstack/jmh-addon.git
 	branch = docs
+[submodule "content/addons/consul"]
+	path = content/addons/consul
+	url = https://github.com/seedstack/consul-addon.git
+	branch = docs
+[submodule "content/addons/flyway"]
+	path = content/addons/flyway
+	url = https://github.com/seedstack/flyway-addon.git
+	branch = docs

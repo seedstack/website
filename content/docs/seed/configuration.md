@@ -527,7 +527,7 @@ must be parsed manually.
 # Tooling
 
 {{% callout info %}}
-For more information about the tool mode, see [this page](manual#run-in-tool-mode).
+For more information about the tool mode, see [this page]({{< ref "docs/seed/manual/running.md#tool-mode" >}}).
 {{% /callout %}}
 
 ## Configuration options dump
