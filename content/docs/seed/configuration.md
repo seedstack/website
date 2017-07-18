@@ -16,9 +16,105 @@ SeedStack provides a simple and powerful configuration system. Configuration can
 multiple formats. The recommended way to specify configuration is a [YAML](https://en.wikipedia.org/wiki/YAML) file 
 named `application.yaml` located at the root of the classpath.<!--more--> 
 
-# Usage
+# Sources
 
-## Sample
+Configuration is read from multiple predefined sources, merged into a unique global configuration tree. Other sources can
+be provided by add-ons.
+
+## Base
+
+Base configuration is read from an `application.yaml` file at the root of the classpath:
+
+```plain
+src/main/resources
+    └ application.yaml
+```
+
+Base configuration is the easiest way of specifying configuration and should be enough for most applicative needs. 
+If multiple JAR files or classpath directories contain an `application.yaml` file, they are all merged together in 
+an undefined order. 
+
+## Auto-discovered
+
+Auto-discovered configuration is read from `*.yaml` files discovered under the `META-INF/configuration` classpath location:
+ 
+ ```plain
+ src/main/resources
+     └ META-INF
+         └ configuration
+            ├ file1.yaml
+            ├ file2.yaml
+            └ ...         
+ ```
+ 
+Auto-discovered configuration is useful to embed configuration in reusable modules as it will be automatically discovered
+and merged into the global configuration when this module is used. There is no restriction on file names. 
+
+Auto-discovered configuration has a lower precedence than base configuration and can be overridden by it.  
+
+## Command-line
+
+Command-line configuration is gathered from system properties prefixed by `seedstack.config`:
+
+    java -Dseedstack.config.someConfig.string=someValue -jar app.jar
+    
+This will define the following configuration tree:
+
+```yaml
+someConfig:
+    string: someValue
+```
+        
+Command-line configuration has a higher precedence than base configuration and will override it.  
+        
+## Environment variables
+         
+Environment variables configuration is gathered from all environment variables and put under the `env` node:
+
+```yaml
+env:
+    ENV_VARIABLE_1: value1
+    ENV_VARIABLE_2: value2
+    ...
+```
+
+As such, to reference the environment variable `ENV_VARIABLE_1` a [macro](#macros) can be used: `${env.ENV_VARIABLE_1}`. Environment 
+variables have the maximum precedence and cannot be overridden.  
+        
+## System properties
+         
+System properties configuration is gathered from all Java system properties and put under the `sys` node:
+
+```yaml
+sys:
+    file.encoding: UTF-8
+    some.system.property: value1
+    some.other.system.property: value2
+    ...
+```
+
+As such, to reference the environment variable `file.encoding` a [macro](#macros) can be used: `${sys.file\.encoding}`. System properties 
+have the maximum precedence and cannot be overridden.
+  
+{{% callout warning %}}
+Some default system properties (like `java.vendor`) have a value and simultaneously serve as prefix for other keys (like
+`java.vendor.url`). This cannot be mapped as a valid configuration tree, so they are mapped as flat properties under the 
+`sys` node. You must escape the property dots with a backslash (`\`) when specifying the path to such keys. 
+
+In this example, you can access the `file.encoding` property with the `sys.file\.encoding` path.
+{{% /callout %}}
+         
+## Priority
+         
+The priority order of the sources is, from highest to lowest:
+
+* System properties,
+* Environment variables,
+* Command-line configuration,
+* Base configuration,
+* Auto-discovered configuration.
+
+# Usage
 
 Consider the following Java class:
 
@@ -45,12 +141,12 @@ someConfig:
   object:
     list: [iris, jasmine, kiwi]
 ```
+      
+## Declarative API       
        
-## Injection
-
 To inject configuration objects, use the {{< java "org.seedstack.seed.Configuration" "@" >}} annotation:
 
-```java    
+```java
 public class SomeClass {
     @Configuration
     private MyConfig myConfig;
@@ -67,7 +163,7 @@ will depend upon the parameter below.
 * `injectDefault`: only applies when the configuration node is missing and `mandatory` is false. If true a default 
 value will be injected; if false the field will be left as-is allowing to customize the default value.
 
-Note that you can map tree nodes , without defining configuration classes:
+If you don't want to define configuration objects, you can still map individual tree nodes:
 
 ```java
 public class SomeClass {
@@ -368,101 +464,6 @@ evaluated to "$greet('World', symbols, 0)".
 
 Parameters can be other functions calls: `$greet('World', $getSymbols(), 0)` will use the return value of the `getSymbols()` 
 function call as second parameter.
-
-# Sources
-
-Configuration is read from multiple predefined sources, merged into a unique global configuration tree. 
-
-## Base
-
-Base configuration is read from an `application.yaml` file at the root of the classpath:
-
-```plain
-src/main/resources
-    └ application.yaml
-```
-
-Base configuration is the easiest way of specifying configuration and should be enough for most applicative needs. 
-If multiple JAR files or classpath directories contain an `application.yaml` file, they are all merged together in 
-an undefined order. 
-
-## Auto-discovered
-
-Auto-discovered configuration is read from `*.yaml` files discovered under the `META-INF/configuration` classpath location:
- 
- ```plain
- src/main/resources
-     └ META-INF
-         └ configuration
-            ├ file1.yaml
-            ├ file2.yaml
-            └ ...         
- ```
- 
-Auto-discovered configuration is useful to embed configuration in reusable modules as it will be automatically discovered
-and merged into the global configuration when this module is used. There is no restriction on file names. 
-
-Auto-discovered configuration has a lower precedence than base configuration and can be overridden by it.  
-
-## Command-line
-
-Command-line configuration is gathered from system properties prefixed by `seedstack.config`:
-
-    java -Dseedstack.config.someConfig.string=someValue -jar app.jar
-    
-This will define the following configuration tree:
-
-```yaml
-someConfig:
-    string: someValue
-```
-        
-Command-line configuration has a higher precedence than base configuration and will override it.  
-        
-## Environment variables
-         
-Environment variables configuration is gathered from all environment variables and put under the `env` node:
-
-```yaml
-env:
-    ENV_VARIABLE_1: value1
-    ENV_VARIABLE_2: value2
-    ...
-```
-
-Environment variables have the maximum precedence and cannot be overridden.  
-        
-## System properties
-         
-System properties configuration is gathered from all Java system properties and put under the `sys` node:
-
-```yaml
-sys:
-    file.encoding: UTF-8
-    some.system.property: value1
-    some.other.system.property: value2
-    ...
-```
-
-System properties have the maximum precedence and cannot be overridden.
-  
-{{% callout warning %}}
-Some default system properties (like `java.vendor`) have a value and simultaneously serve as prefix for other keys (like
-`java.vendor.url`). This cannot be mapped as a valid configuration tree, so they are mapped as flat properties under the 
-`sys` node. You must escape the property dots with a backslash (`\`) when specifying the path to such keys. 
-
-In this example, you can access the `file.encoding` property with the `sys.file\.encoding` path.
-{{% /callout %}}
-         
-## Priority
-         
-The priority order of the sources is, from highest to lowest:
-
-* System properties,
-* Environment variables,
-* Command-line configuration,
-* Base configuration,
-* Auto-discovered configuration.
          
 # Override
          
