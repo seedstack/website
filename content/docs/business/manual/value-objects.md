@@ -137,7 +137,7 @@ public class Address extends BaseValueObject {
     private final String city;
     private final ZipCode zipCode;
 
-    public vehicleIdentificationNumber(
+    public Address(
             int number,
             String street,
             String city,
