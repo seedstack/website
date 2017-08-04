@@ -110,3 +110,7 @@
 	path = content/addons/flyway
 	url = https://github.com/seedstack/flyway-addon.git
 	branch = docs
+[submodule "content/addons/aws"]
+	path = content/addons/aws
+	url = https://github.com/seedstack/aws-addon.git
+	branch = docs
