@@ -21,26 +21,15 @@ We recommend that you use these project templates, especially if you are new to 
 * They follow best practices, providing clean code organization and good modularity,
 * They are easy to use and provide fast onboarding.
 
-# REST micro-service
+# REST micro-service or Web application
 
-A lightweight micro-service template for publishing a REST API in a single-JAR [capsule](http://www.capsule.io) embedding the 
+A REST-oriented template for creating a micro-service or a classic Web application in a single-JAR [capsule](http://www.capsule.io) embedding the 
 [Undertow](http://undertow.io) Web server.
 
 ```bash
-mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=rest
-```
-
-**[Learn more...]({{< ref "getting-started/project-templates/rest.md" >}})**  
-
-# Classic Web application
-
-A classic Java Web application project mixing backend Java classes and frontend static resources. This projects uses
-the [W20 framework](http://w20-framework.github.io) to provide a sample UI, but you can easily change it.
- 
-```bash
 mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=web
 ```
- 
+
 **[Learn more...]({{< ref "getting-started/project-templates/web.md" >}})**  
 
 # Command-line application

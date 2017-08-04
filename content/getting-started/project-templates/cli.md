@@ -26,7 +26,7 @@ mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=cli
 ```
     
 {{% callout info %}}
-This will invoke the generate goal of the SeedStack maven plugin [generate goal]({{< ref "docs/overview/maven-plugin/generate.md" >}}) which will:
+This will invoke the generate goal of the SeedStack maven plugin [generate goal]({{< ref "docs/maven-plugin/manual/generate.md" >}}) which will:
 
 * Discover the latest version of the [SeedStack reference distribution]({{< ref "docs/overview/distribution.md" >}}),
 * Use its [batch archetype](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.seedstack%22%20a%3A%22cli-archetype%22) to generate the project.

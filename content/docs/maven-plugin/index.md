@@ -2,15 +2,15 @@
 title: "Maven plugin"
 type: "home"
 zones:
-    - "Overview"
+    - "MavenPlugin"
 sections:
-    - "OverviewMavenPlugin"
+    - "MavenPluginEssentials"
 aliases:
     - "/docs/seed/maven-plugin"
 tags:
     - maven
 menu:
-    OverviewMavenPlugin:
+    MavenPluginEssentials:
         weight: 10
 ---
 

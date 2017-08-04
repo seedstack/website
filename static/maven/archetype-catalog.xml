@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-catalog xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0 http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd"
+    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <archetypes>
+    <archetype>
+      <groupId>org.seedstack</groupId>
+      <artifactId>batch-archetype</artifactId>
+      <version>17.7</version>
+      <description>SeedStack archetype for running Spring Batch jobs.</description>
+    </archetype>
+    <archetype>
+      <groupId>org.seedstack</groupId>
+      <artifactId>domain-archetype</artifactId>
+      <version>17.7</version>
+      <description>SeedStack archetype for reusable domains.</description>
+    </archetype>
+    <archetype>
+      <groupId>org.seedstack</groupId>
+      <artifactId>web-archetype</artifactId>
+      <version>17.7</version>
+      <description>SeedStack archetype for serving REST API and other Web resources.</description>
+    </archetype>
+    <archetype>
+      <groupId>org.seedstack</groupId>
+      <artifactId>cli-archetype</artifactId>
+      <version>17.7</version>
+      <description>SeedStack archetype for running command-line based applications.</description>
+    </archetype>
+    <archetype>
+      <groupId>org.seedstack</groupId>
+      <artifactId>addon-archetype</artifactId>
+      <version>17.7</version>
+      <description>SeedStack archetype for creating an add-on.</description>
+    </archetype>
+  </archetypes>
+</archetype-catalog>

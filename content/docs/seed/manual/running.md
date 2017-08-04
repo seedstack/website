@@ -47,12 +47,12 @@ java [jvm-args] -jar app-capsule.jar [app-args]
 
 {{% callout info %}}
 SeedStack projects created by the generator always provide a Capsule JAR in the `target` directory. Check the 
-[package goal]({{< ref "docs/overview/maven-plugin/package.md" >}}) of the SeedStack maven plugin for more information.  
+[package goal]({{< ref "docs/maven-plugin/manual/package.md" >}}) of the SeedStack maven plugin for more information.  
 {{% /callout %}}
  
 ## Maven run goal
 
-In development, you have the ability to run a standalone application directly from Maven with the [run goal]({{< ref "docs/overview/maven-plugin/run.md" >}}) 
+In development, you have the ability to run a standalone application directly from Maven with the [run goal]({{< ref "docs/maven-plugin/manual/run.md" >}}) 
 of the SeedStack Maven plugin:
 
 ```bash
@@ -94,7 +94,7 @@ java [jvm-args] -Dseedstack.tool=toolName -jar app-capsule.jar [tool-args]
 ```
 
 {{% callout tips %}}
-The [tool goal]({{< ref "docs/overview/maven-plugin/tool.md" >}}) of the SeedStack Maven plugin can run a tool directly from Maven.
+The [tool goal]({{< ref "docs/maven-plugin/manual/tool.md" >}}) of the SeedStack Maven plugin can run a tool directly from Maven.
 
 You can also run a tool from your IDE by executing the {{< java "org.seedstack.seed.core.SeedMain" >}} main class with
 the `-Dseedstack.tool=<toolName>` JVM argument. You can use the program arguments to specify the arguments of the tool.

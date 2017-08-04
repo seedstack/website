@@ -17,7 +17,7 @@
                 <li class='{{ if eq (.Scratch.Get "zone") "GettingStarted" }}active{{ end }}'>
                     <a href="{{ $.Site.BaseURL }}getting-started">Getting started</a>
                 </li>
-                <li class='dropdown {{ if or (eq (.Scratch.Get "zone") "Overview") (eq (.Scratch.Get "zone") "Seed") (eq (.Scratch.Get "zone") "Business") }}active{{ end }}'>
+                <li class='dropdown {{ if or (eq (.Scratch.Get "zone") "Overview") (eq (.Scratch.Get "zone") "Seed") (eq (.Scratch.Get "zone") "Business") (eq (.Scratch.Get "zone") "MavenPlugin") }}active{{ end }}'>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
                         Documentation
                     </a>
@@ -25,6 +25,8 @@
                         <li><a href="{{ $.Site.BaseURL }}docs/overview">Overview</a></li>
                         <li><a href="{{ $.Site.BaseURL }}docs/seed">Java framework</a></li>
                         <li><a href="{{ $.Site.BaseURL }}docs/business">Business framework</a></li>
+                        <li><a href="{{ $.Site.BaseURL }}docs/maven-plugin">Maven plugin</a></li>
+                        <li><a target="_blank" href="{{ $.Site.BaseURL }}javadoc">Javadoc <i style="margin-top: 3px" class="pull-right fa fa-external-link"></i></a></li>
                     </ul>
                 </li>
                 <li class='{{ if eq (.Scratch.Get "zone") "Guides" }}active{{ end }}'>
@@ -41,10 +43,11 @@
                         More
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ $.Site.BaseURL }}javadoc">Javadoc</a></li>
                         <li><a href="{{ $.Site.BaseURL }}project">Project info</a></li>
                         <li><a href="{{ $.Site.BaseURL }}glossary">Glossary</a></li>
                         <li><a href="{{ $.Site.BaseURL }}tags">Tags</a></li>
+                        <li><a target="_blank" href="https://github.com/seedstack/distribution/releases"><i style="margin-top: 3px" class="pull-right fa fa-external-link"></i> Releases</a></li>
+                        <li><a target="_blank" href="https://github.com/seedstack"><i style="margin-top: 3px" class="pull-right fa fa-external-link"></i> Source</a></li>
                     </ul>
                 </li>
                 <li>

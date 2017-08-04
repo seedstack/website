@@ -13,11 +13,11 @@ menu:
         weight: 30
 ---
 
-A classic Java Web application project mixing backend Java classes and frontend static resources. This projects uses
-the [W20 framework](http://w20-framework.github.io) to provide a sample UI, but you can easily change it.<!--more-->
+A REST-oriented micro-service or application. You can choose to add a W20 UI during generation. <!--more-->
 
 The result is a single-JAR [capsule](http://www.capsule.io) embedding the [Undertow](http://undertow.io) Web server.
-It also includes the [W20 bridge add-on]({{< ref "addons/w20-bridge/index.md" >}}) which automatically manages the W20 frontend.
+If you select the W20 UI option during generation, it also includes the [W20 bridge add-on]({{< ref "addons/w20-bridge/index.md" >}}) 
+which automatically manages the W20 frontend.
 
 # Creation
 
@@ -29,7 +29,7 @@ mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=web
 ```
 
 {{% callout info %}}
-This will invoke the generate goal of the SeedStack maven plugin [generate goal]({{< ref "docs/overview/maven-plugin/generate.md" >}}) which will:
+This will invoke the generate goal of the SeedStack maven plugin [generate goal]({{< ref "docs/maven-plugin/manual/generate.md" >}}) which will:
 
 * Discover the latest version of the [SeedStack reference distribution]({{< ref "docs/overview/distribution.md" >}}),
 * Use its [web archetype](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.seedstack%22%20a%3A%22web-archetype%22) to generate the project.
@@ -45,34 +45,35 @@ After execution, a single module project is created:
 - myservice
     |- src
         |- main
+        |   |- docker                         <-- docker file if any
         |   |- java
-        |   |   |- org.myorg.myservice
-        |   |       |- [application]    <-- application logic
-        |   |       |- [domain]
-        |   |       |   |- [model]      <-- domain model
-        |   |       |   |- [services]   <-- domain services
-        |   |       |- [infrastructure] <-- technical infrastructure
-        |   |       |- rest             <-- REST resources and representations
+        |   |   |- org.generated.project
+        |   |       |- application            <-- application logic
+        |   |       |- domain
+        |   |       |   |- model              <-- domain model
+        |   |       |   |- services           <-- domain services
+        |   |       |   |- shared             <-- shared value objects
+        |   |       |- infrastructure         <-- technical infrastructure
+        |   |       |- interfaces       
+        |   |           |- rest               <-- REST resources and representations
         |   |- resources
+        |       |- application.yaml           <-- main configuration
         |       |- META-INF
-        |           |- configuration    <-- main configuration
-        |           |- [resources]      <-- frontend static resources
+        |           |- [resources]            <-- frontend static resources if any
         |- test
             |- java
             |- resources
-                |- META-INF
-                    |- configuration    <-- test configuration
+                |- application.override.yaml  <-- test configuration
 ```
 
 {{% callout info %}}
-Note that the directory in brackets are not created by the archetype. They are the recommended locations if you need
-to add any business domain or static resources to your project. You can also choose to put the domain in a separate [domain module]({{< ref "getting-started/project-templates/domain.md" >}}).
+Note that you can choose to remove the domain packages and put the domain in a [separate domain module]({{< ref "getting-started/project-templates/domain.md" >}}).
 {{% /callout %}}
 
 # Conversion to WAR
 
 This project is designed to be run from the command-line with its embedded Web server. To convert it to a classic WAR,
-see [this guide](/guides/conversion-to-war).
+see [this guide]({{< ref "guides/conversion-to-war/index.md" >}}).
         
 
 # More resources

@@ -6,7 +6,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/0.5.9/lunr.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
-<script src="/js/xml2json.js"></script>
 <script src="/js/jquery.highlight.js"></script>
 <script src="/js/seedstack.js"></script>
 <script>
@@ -84,56 +83,12 @@
             });
         }
 
-        function resolveVersions() {
-            var $versionsTitle = $('#versions-title');
-            if (!seedstack.versions) {
-                $.ajax({
-                    dataType: 'text',
-                    url: '/distribution.pom.xml'
-                }).done(function (data) {
-                    var pom = new X2JS().xml_str2json(data);
-
-                    if (pom.project && pom.project.properties && pom.project.version) {
-                        var $versions = $('#versions-table');
-                        var blackList = ['seedstack-maven-plugin', 'java-compiler', 'maven-failsafe-plugin', 'logback', 'rest-assured'];
-                        var versions = {};
-
-                        $versionsTitle.text("SeedStack " + pom.project.version);
-
-                        $.each(pom.project.properties, function (name, value) {
-                            if (/\.version$/.test(name)) {
-                                var shortName = name.substr(0, name.indexOf('.version'));
-                                if ($.inArray(shortName, blackList) === -1) {
-                                    versions[shortName] = value;
-                                    $versions.append(
-                                            '<tr>' +
-                                            '<td>' +
-                                            shortName.substr(0, 1).toUpperCase() + shortName.substr(1, shortName.length - 1).replace(/-/g, ' ') +
-                                            '</td>' +
-                                            '<td>' + value + '</td>' +
-                                            '</tr>');
-                                }
-                            }
-                        });
-
-                        $('.homepage-subheader-link').html(
-                                '<span><a style="cursor: pointer;" onclick="seedstack.ui.openVersions();">Latest version: ' + pom.project.version + '</a></span>'
-                        );
-
-                        seedstack.versions = versions;
-                    }
-                }).error(function () {
-                    console.error("SeedStack version could not be resolved");
-                });
-            }
-        }
-
-
-
         bindShortcuts(seedstack.ui.shortcuts);
 
-        resolveVersions();
-
+        $('.quick-paste span').each(function(index, element) {
+            $(element).attr({"id" : "quick-paste-line"});
+            $(element).append("<span data-toggle=\"tooltip\" data-placement=\"top\" data-title=\"Copy\" data-clipboard-target=\"#quick-paste-line\" class=\"copy-button\"><i class=\"fa fa-clipboard\"></i></span>");
+        });
         var preId = 0;
         $('.doc-content pre').each(function(index, element) {
             preId++;

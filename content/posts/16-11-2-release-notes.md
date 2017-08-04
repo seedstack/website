@@ -4,7 +4,8 @@ description: We are happy to announce the release of SeedStack 16.11!
 authors:
   - Adrien LAUER
 date: 2016-07-29
-slug: 16-11-2-release-notes
+slug: 16.11.2-release-notes
+aliases: "/posts/16-11-2-release-notes"
 tags:
   - release
 zones:
@@ -68,7 +69,7 @@ the application is initialized with the minimal amount of plugins necessary to e
  
 Tools can be run:
 
-* With the [Maven plugin]({{< ref "docs/overview/maven-plugin/index.md" >}}), either with the `tool` goal which can
+* With the [Maven plugin]({{< ref "docs/maven-plugin/index.md" >}}), either with the `tool` goal which can
 run any tool by name or with a specific goal for simplicity.
 * By executing the {{< java "org.seedstack.core.SeedMain" >}} class with the system property `seedstack.tool` set to the 
 name of the tool to execute. 

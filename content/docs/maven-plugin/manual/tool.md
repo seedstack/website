@@ -2,13 +2,13 @@
 title: "Tool goal"
 type: "home"
 zones:
-    - "Overview"
+    - "MavenPlugin"
 sections:
-    - "OverviewMavenPlugin"
+    - "MavenPluginManual"
 tags:
     - maven
 menu:
-    OverviewMavenPlugin:
+    MavenPluginManual:
         weight: 50
 ---
 

@@ -25,7 +25,7 @@ mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=domain
 ```
 
 {{% callout info %}}
-This will invoke the generate goal of the SeedStack maven plugin [generate goal]({{< ref "docs/overview/maven-plugin/generate.md" >}}) which will:
+This will invoke the generate goal of the SeedStack maven plugin [generate goal]({{< ref "docs/maven-plugin/manual/generate.md" >}}) which will:
 
 * Discover the latest version of the [SeedStack reference distribution]({{< ref "docs/overview/distribution.md" >}}),
 * Use its [batch archetype](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.seedstack%22%20a%3A%22domain-archetype%22) to generate the project.
@@ -36,8 +36,8 @@ The process is interactive and will ask you a few questions about the project to
 # Result
 
 After execution, a single module project is created which contains only the domain layer. This module is intended to be
-included in other modules such as a [Web application]({{< ref "getting-started/project-templates/web.md" >}}) or  
-a [REST service]({{< ref "getting-started/project-templates/rest.md" >}}).
+included in other modules such as a [Web application]({{< ref "getting-started/project-templates/web.md" >}}),  
+a [CLI tool]({{< ref "getting-started/project-templates/cli.md" >}}), or any runnable project.
 
 You should see a structure similar to the following:
 
@@ -46,17 +46,17 @@ You should see a structure similar to the following:
     |- src
         |- main
         |   |- java
-        |   |   |- org.myorg.mydomain
-        |   |       |- model            <-- domain model
-        |   |       |- services         <-- domain services
+        |   |   |- org.generated.project
+        |   |       |- domain                
+        |   |           |- model              <-- domain model
+        |   |           |- services           <-- domain services
+        |   |           |- shared             <-- shared value objects
         |   |- resources
-        |       |- META-INF
-        |           |- configuration    <-- main configuration
+        |       |- application.yaml           <-- main configuration
         |- test
             |- java
             |- resources
-                |- META-INF
-                    |- configuration    <-- test configuration
+        |       |- application.override.yaml  <-- test configuration
 ```
 
 # More resources

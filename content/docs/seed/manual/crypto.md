@@ -185,7 +185,7 @@ those passwords and provide them only at runtime, in a secured manner. All other
 ## The crypt tool
 
 To crypt configuration values, you can use the `crypt` tool provided by SeedStack. You can call it with the 
-[crypt goal](/docs/overview/maven-plugin/crypt) of the SeedStack Maven plugin:
+[crypt goal]({{< ref "docs/maven-plugin/manual/crypt.md" >}}) of the SeedStack Maven plugin:
   
 ```bash
 mvn -Dargs="--alias alias1 thePasswOrd" -q org.seedstack:seedstack-maven-plugin:crypt
@@ -200,7 +200,7 @@ You must have a `master` key store already configured in your application.
 # SSL
 
 The SSL configuration required for HTTPS operation of embedded Web servers such as the 
-[built-in Undertow](/docs/seed/manual/web/#with-undertow) can be found below: 
+[built-in Undertow]({{< ref "docs/seed/manual/web.md#with-undertow" >}}) can be found below: 
 
 {{% config p="crypto.ssl" %}}
 ```yaml

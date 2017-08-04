@@ -4,7 +4,8 @@ description: We are happy to announce the release of SeedStack 17.4!
 authors:
   - Adrien LAUER
 date: 2017-05-04
-slug: 17-4-release-notes
+slug: 17.4-release-notes
+aliases: "/posts/17-4-release-notes"
 tags:
   - release
 zones:

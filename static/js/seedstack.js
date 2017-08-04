@@ -64,6 +64,7 @@
             "h": "/",
             "o": "/docs/overview",
             "b": "/docs/business",
+            "m": "/docs/maven-plugin",
             "s": "/docs/seed",
             "a": "/addons",
             "g": "/guides"

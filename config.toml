@@ -5,30 +5,31 @@ MetaDataFormat = "yaml"
   description = "SeedStack, Clean Java development stack"
   author = "The SeedStack authors"
   "javax.mail.version" = "1.4.8"
-  "org.seedstack.version" = "17.4"
-  "ch.qos.logback.version" = "1.1.10"
+  "org.seedstack.version" = "17.7"
+  "ch.qos.logback.version" = "1.2.3"
 
-  "org.seedstack.poms.version" = "3.0.1"
+  "org.seedstack.poms.version" = "3.1.0"
 
-  "org.seedstack.shed.version" = "1.0.2"
-  "org.seedstack.coffig.version" = "2.1.0"
-  "org.seedstack.seed.version" = "3.2.0"
+  "org.seedstack.shed.version" = "1.1.0"
+  "org.seedstack.coffig.version" = "3.0.1"
+  "org.seedstack.seed.version" = "3.3.0"
   "org.seedstack.business.version" = "3.1.0"
 
   "org.seedstack.addons.audit.version" = "3.0.0"
-  "org.seedstack.addons.consul.version" = "1.0.0-SNAPSHOT"
+  "org.seedstack.addons.aws.version" = "1.0.0"
+  "org.seedstack.addons.consul.version" = "1.0.0"
   "org.seedstack.addons.datasecurity.version" = "1.0.0"
   "org.seedstack.addons.elasticsearch.version" = "3.0.0"
   "org.seedstack.addons.feign.version" = "1.0.0"
-  "org.seedstack.addons.flyway.version" = "1.0.0-SNAPSHOT"
+  "org.seedstack.addons.flyway.version" = "1.0.0"
   "org.seedstack.addons.i18n.version" = "3.0.0"
   "org.seedstack.addons.io.version" = "3.0.0"
   "org.seedstack.addons.javamail.version" = "3.0.0"
   "org.seedstack.addons.jcache.version" = "3.0.0"
-  "org.seedstack.addons.jdbc.version" = "3.0.1"
-  "org.seedstack.addons.jmh.version" = "1.0.1"
+  "org.seedstack.addons.jdbc.version" = "3.0.2"
+  "org.seedstack.addons.jmh.version" = "1.0.2"
   "org.seedstack.addons.jms.version" = "3.0.1"
-  "org.seedstack.addons.jpa.version" = "3.0.1"
+  "org.seedstack.addons.jpa.version" = "3.0.2"
   "org.seedstack.addons.netflix.version" = "1.0.1"
   "org.seedstack.addons.ldap.version" = "3.0.0"
   "org.seedstack.addons.metrics.version" = "1.0.0"
@@ -41,8 +42,9 @@ MetaDataFormat = "yaml"
   "org.seedstack.addons.shell.version" = "1.0.0"
   "org.seedstack.addons.solr.version" = "2.0.0"
   "org.seedstack.addons.spring.version" = "3.1.0"
-  "org.seedstack.addons.swagger.version" = "2.0.0"
-  "org.seedstack.addons.w20.version" = "3.0.1"
+  "org.seedstack.addons.swagger.version" = "2.0.1"
+  "org.seedstack.addons.w20.version" = "3.1.0"
+  "org.seedstack.addons.web.version" = "1.0.0"
   "org.seedstack.addons.ws.version" = "3.0.0"
   numRelatedPosts = 2
 
@@ -63,6 +65,11 @@ MetaDataFormat = "yaml"
 [params.zone.Overview]
   path = "docs/overview"
   label = "Overview"
+  logo = "glossary-logo.svg"
+
+[params.zone.MavenPlugin]
+  path = "docs/maven-plugin"
+  label = "Maven plugin"
   logo = "glossary-logo.svg"
 
 [params.zone.Seed]
@@ -168,19 +175,23 @@ MetaDataFormat = "yaml"
 #####################################
 
 [params.section.OverviewEssentials]
-  label = "Overview"
+  label = "Essentials"
   icon = "fa fa-certificate"
   path = ""
 
-[params.section.OverviewMavenPlugin]
-  label = "Maven plugin"
-  icon = "fa fa-cogs"
-  path = "maven-plugin"
+#####################################
+#### Maven plugin sections       ####
+#####################################
 
-[params.section.OverviewRuntime]
-  label = "Runtime"
-  icon = "fa fa-server"
-  path = "runtime"
+[params.section.MavenPluginEssentials]
+  label = "Essentials"
+  icon = "fa fa-certificate"
+  path = ""
+
+[params.section.MavenPluginManual]
+  label = "Manual"
+  icon = "fa fa-book"
+  path = "manual"
 
 #####################################
 #### Business framework sections ####

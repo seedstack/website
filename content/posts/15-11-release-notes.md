@@ -5,7 +5,8 @@ authors:
   - Pierre THIROUIN
   - Adrien LAUER
 date: 2015-11-27
-slug: 15-11-release-notes
+slug: 15.11-release-notes
+aliases: "/posts/15-11-release-notes"
 tags:
   - release
 zones:

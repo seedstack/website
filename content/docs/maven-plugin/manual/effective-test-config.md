@@ -2,13 +2,13 @@
 title: "Effective test config goal"
 type: "home"
 zones:
-    - "Overview"
+    - "MavenPlugin"
 sections:
-    - "OverviewMavenPlugin"
+    - "MavenPluginManual"
 tags:
     - maven
 menu:
-    OverviewMavenPlugin:
+    MavenPluginManual:
         weight: 80
 ---
 

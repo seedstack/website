@@ -4,7 +4,8 @@ description: We are happy to announce the release of SeedStack 16.4!
 authors:
   - Adrien LAUER
 date: 2016-04-28
-slug: 16-4-release-notes
+slug: 16.4-release-notes
+aliases: "/posts/16-4-release-notes"
 tags:
   - release
 zones:

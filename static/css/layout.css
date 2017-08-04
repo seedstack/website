@@ -157,6 +157,10 @@
     -webkit-user-select: none;
 }
 
+.quick-start .quick-paste span .copy-button {
+    margin-left: 10px;
+}
+
 .quick-start .quick-paste > li > span {
     user-select: text;
     -moz-user-select: text;
@@ -239,10 +243,6 @@ kbd {
 
 .content-boxes-v5 i {
     line-height: 25px;
-}
-
-.content-boxes-v5 a {
-    color: #555;
 }
 
 .content-boxes-v5.homepage-feature-1 i {

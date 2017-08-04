@@ -533,7 +533,7 @@ For more information about the tool mode, see [this page]({{< ref "docs/seed/man
 
 ## Configuration options dump
 
-To dump the all the configuration options available in your project you can execute the [config goal](/docs/overview/maven-plugin/config) 
+To dump the all the configuration options available in your project you can execute the [config goal]({{< ref "docs/maven-plugin/manual/config.md" >}}) 
 of the SeedStack Maven plugin:
 
 ```bash
@@ -552,7 +552,7 @@ This displays the detailed description of the `application.basePackages` configu
 
 ## Effective configuration
 
-To dump the configuration effectively scanned, parsed and aggregated by SeedStack you can execute the [effective-config goal](/docs/overview/maven-plugin/effective-config)
+To dump the configuration effectively scanned, parsed and aggregated by SeedStack you can execute the [effective-config goal]({{< ref "docs/maven-plugin/manual/effective-config.md" >}})
 of the SeedStack Maven plugin:
 
 ```bash
@@ -562,7 +562,7 @@ mvn -q seedstack:effective-config
 This executes the `effective-config` tool on your project and produce a YAML dump of the aggregated configuration as seen
 by the application. The `-q` disables all non-error Maven logs to clean the output.
 
-You can execute the plugin [effective-test-config goal](/docs/overview/maven-plugin/effective-test-config) to display
+You can execute the plugin [effective-test-config goal]({{< ref "docs/maven-plugin/manual/effective-test-config.md" >}}) to display
 the test configuration instead of the main one:
 
 ```bash
