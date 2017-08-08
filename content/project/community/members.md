@@ -40,6 +40,9 @@ Those members are currenlty contributing to SeedStack or have made significant c
 
 <ul class="list-unstyled team-v1">
 
+{{% member "Emmanuel VINEL" "https://avatars2.githubusercontent.com/u/1993954?v=4" "https://github.com/evinel" "https://twitter.com/emmanuelvinel" %}}
+{{% /member %}}
+
 {{% member "Épo JEMBA" "https://avatars2.githubusercontent.com/u/887400?v=3" "https://github.com/ejemba" %}}
 {{% /member %}}
 
