@@ -34,24 +34,19 @@ Software engineer with 15 years of experience, he worked on various Java project
 
 </ul>
 
-# Active members
+# Significant members
 
-Active members are frequently contributing to SeedStack.
+Those members are currenlty contributing to SeedStack or have made significant contributions in the past.
 
 <ul class="list-unstyled team-v1">
-
-{{% member "Adrien DOMURADO" "https://avatars2.githubusercontent.com/u/5311127?v=3" "https://github.com/adriendomurado" %}}
-{{% /member %}}
 
 {{% member "Épo JEMBA" "https://avatars2.githubusercontent.com/u/887400?v=3" "https://github.com/ejemba" %}}
 {{% /member %}}
 
 {{% member "Kavi RAMYEAD" "https://avatars0.githubusercontent.com/u/5616469?v=3" "https://github.com/kavi87" %}}
-Software frontend developer, he worked on various Java/web projects. He joined the SeedStack team in the end of 2013. Since then, he mainly works on the front end framework, W20 and on the productivity tools. 
 {{% /member %}}
 
 {{% member "Pierre THIROUIN" "https://avatars3.githubusercontent.com/u/2495124?v=3" "https://github.com/pith" "https://twitter.com/pierrethirouin" %}}
-Software developer for Infotel, he worked on various Java projects in the industry and banking sectors. He joined the SeedStack team in the end of 2013. Since then, he mainly works on the Java and Business frameworks, plus some tooling and SeedStack functions.
 {{% /member %}}
 
 {{% member "Redouane LOULOU" "https://avatars2.githubusercontent.com/u/9444088?v=3" "https://github.com/red1l" %}}
