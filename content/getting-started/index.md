@@ -21,17 +21,17 @@ can be used to address various project types with a particular focus on REST mic
 The easiest way to get started with SeedStack is to use the project generator:
  
 ```plain
-mvn org.seedstack:seedstack-maven-plugin:generate
+mvn -U org.seedstack:seedstack-maven-plugin:generate
 ```
     
 The SeedStack maven plugin will ask you a small number of questions, starting with the [type of project](project-templates) you want to create.
 
 ## Run from the command-line
     
-To launch the project from the command-line, just use the `run` goal of the SeedStack Maven plugin:
+To run the project from the command-line, **go into the project directory** and execute the `run` goal of the SeedStack Maven plugin:
  
 ```plain
-mvn org.seedstack:seedstack-maven-plugin:run
+mvn seedstack:run
 ```
     
 This will launch the `org.seedstack.seed.core.SeedMain` main class.
