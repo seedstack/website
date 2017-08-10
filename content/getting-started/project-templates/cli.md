@@ -22,7 +22,7 @@ You need to have [Apache Maven 3.1+](https://maven.apache.org/) installed.
 To create a command-line application project from scratch, run the following command:
 
 ```bash
-mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=cli
+mvn -U org.seedstack:seedstack-maven-plugin:generate -Dtype=cli
 ```
     
 {{% callout info %}}
