@@ -25,7 +25,7 @@ You need to have [Apache Maven 3.1+](https://maven.apache.org/) installed.
 To create a Java Web application project from scratch, execute the following command:
 
 ```bash
-mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=web
+mvn -U org.seedstack:seedstack-maven-plugin:generate -Dtype=web
 ```
 
 {{% callout info %}}
