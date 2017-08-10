@@ -27,7 +27,7 @@ A REST-oriented template for creating a micro-service or a classic Web applicati
 [Undertow](http://undertow.io) Web server.
 
 ```bash
-mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=web
+mvn -U org.seedstack:seedstack-maven-plugin:generate -Dtype=web
 ```
 
 **[Learn more...]({{< ref "getting-started/project-templates/web.md" >}})**  
@@ -37,7 +37,7 @@ mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=web
 A command-line (CLI) application that can provide multiple commands in a single-JAR [capsule](http://www.capsule.io).
 
 ```bash
-mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=cli
+mvn -U org.seedstack:seedstack-maven-plugin:generate -Dtype=cli
 ```
 
 **[Learn more...]({{< ref "getting-started/project-templates/cli.md" >}})**  
@@ -47,7 +47,7 @@ mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=cli
 A reusable JAR designed to contain one or more business domain(s) based on the [business framework]({{< ref "docs/business/index.md" >}}).
 
 ```bash
-mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=domain
+mvn -U org.seedstack:seedstack-maven-plugin:generate -Dtype=domain
 ```
 
 **[Learn more...]({{< ref "getting-started/project-templates/domain.md" >}})**  
@@ -57,7 +57,7 @@ mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=domain
 An application to run batch jobs in a single-JAR [capsule](http://www.capsule.io).
 
 ```bash
-mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=batch
+mvn -U org.seedstack:seedstack-maven-plugin:generate -Dtype=batch
 ```
 
 **[Learn more...]({{< ref "getting-started/project-templates/batch.md" >}})**  
