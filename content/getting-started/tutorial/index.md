@@ -26,7 +26,7 @@ This tutorial is focused on a **[Web project template]({{< ref "getting-started/
 The first step is to create the Web application using the latest project template:
 
 ```plain
-mvn org.seedstack:seedstack-maven-plugin:generate
+mvn -U org.seedstack:seedstack-maven-plugin:generate
 ```
     
 The generator will ask you a few questions, below are the recommended answers:
@@ -70,11 +70,5 @@ When the application has started, you can display the Web UI by pointing your Br
 You can display all configuration options of your SeedStack project by running:
 
 ```plain
-mvn org.seedstack:seedstack-maven-plugin:config
-```
-
-If you want more information about a particular option:
- 
-```plain
-mvn org.seedstack:seedstack-maven-plugin:config name.of.option
+mvn seedstack:config
 ```
