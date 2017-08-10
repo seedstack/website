@@ -21,7 +21,7 @@ You need to have [Apache Maven 3.1+](https://maven.apache.org/) installed.
 To create a reusable domain project from scratch, execute the following command:
 
 ```bash
-mvn org.seedstack:seedstack-maven-plugin:generate -Dtype=domain
+mvn -U org.seedstack:seedstack-maven-plugin:generate -Dtype=domain
 ```
 
 {{% callout info %}}
