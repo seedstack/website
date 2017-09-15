@@ -70,7 +70,7 @@ By extending {{< java "org.seedstack.business.domain.BaseValueObject" >}}, you w
 Implement the {{< java "org.seedstack.business.domain.ValueObject" >}} interface:
 
 ```java
-public class SomeEntity implements ValueObject {
+public class SomeValueObject implements ValueObject {
     private String attribute1;
     private String attribute2;
 
