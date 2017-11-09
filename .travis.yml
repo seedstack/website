@@ -29,7 +29,6 @@ install:
 
 script:
   - chmod +x deploy_ghpages.sh
-  - java -jar plantuml.jar -x "static/puml/common.puml" "static/puml/**/*.puml"
   - grunt lunr-index
   - if [[ $TRAVIS_BRANCH = master ]]; then ./hugo_0.18.1_linux_amd64/hugo_0.18.1_linux_amd64 && echo seedstack.org >| public/CNAME; fi
   - if [[ $TRAVIS_BRANCH = beta ]]; then ./hugo_0.18.1_linux_amd64/hugo_0.18.1_linux_amd64 -d beta -b http://beta.seedstack.org/ && echo beta.seedstack.org >| beta/CNAME; fi

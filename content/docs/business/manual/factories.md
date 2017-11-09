@@ -41,11 +41,11 @@ framework, see [below]({{< ref "docs/business/manual/factories.md#identity-gener
 
 ## Declaration
 
-To declare a factory with the business framework, create an interface extending {{< java "org.seedstack.business.domain.GenericFactory" >}}
+To declare a factory with the business framework, create an interface extending {{< java "org.seedstack.business.domain.Factory" >}}
 with at least one method for creating the produced object: 
   
 ```java
-public interface SomeFactory extends GenericFactory<SomeAggregate> {
+public interface SomeFactory extends Factory<SomeAggregate> {
     
     SomeAggregate createFromName(String name);
 }
@@ -99,14 +99,11 @@ annotating the factory implementation with {{< java "javax.inject.Singleton" "@"
   
 # Default factory
 
-The business framework can provide a default factory implementation for each producible class that does not already has 
-an explicit factory. This factory is based upon the {{< java "org.seedstack.business.domain.Factory" >}} interface which 
-declares a single `create()` method taking variable arguments.
+The business framework provides a default factory for each class implementing {{< java "org.seedstack.business.Producible" >}}
+that does not already has an explicit factory.
     
-## Usage    
-    
-This `create()` method will try to find a constructor on the produced class matching the given arguments and invoke it.
-It can be used like this:
+A default factory only provides a `create(...)` method. It will try to find a constructor of the produced class matching 
+the given arguments and invoke it. It can be used like this:
     
 ```java
 public class SomeClass {
@@ -121,8 +118,8 @@ public class SomeClass {
 
 {{% callout info %}}
 The benefit of using the default factory instead of just invoking the constructor manually is that it will trigger the
-business framework identity generation mechanism on the produced object if necessary. See [below]({{< ref "docs/business/manual/factories.md#identity-generation" >}})
-for details about identity generation.
+business framework identity generation mechanism on the produced object if necessary. 
+See [below]({{< ref "docs/business/manual/factories.md#identity-generation" >}}) for details about identity generation.
 {{% /callout %}}
 
 # Identity generation
@@ -136,7 +133,7 @@ the aggregate root holding the identity with {{< java "org.seedstack.business.do
 
 ```java
 public class SomeAggregate extends BaseAggregateRoot<UUID> {
-    @Identity(handler = UUIDHandler.class)
+    @Identity(generator = UuidGenerator.class)
     private UUID id;
     
     // other fields and methods
@@ -145,7 +142,7 @@ public class SomeAggregate extends BaseAggregateRoot<UUID> {
 
 The {{< java "org.seedstack.business.domain.Identity" "@" >}} annotation takes the class of the generator as parameter.
 While you can directly specify a concrete implementation of the generator, it is recommended to only specify a generation 
-strategy interface like {{< java "org.seedstack.business.domain.identity.UUIDHandler" >}} or {{< java "org.seedstack.business.domain.identity.SequenceHandler" >}}
+strategy interface like {{< java "org.seedstack.business.domain.UuidGenerator" >}} or {{< java "org.seedstack.business.domain.SequenceGenerator" >}}
 and specify its implementation using [class configuration]({{< ref "docs/seed/configuration.md#class-configuration" >}}):
 
 ```yaml
@@ -157,10 +154,10 @@ classes:
           model:
             myaggregate:
               SomeAggregate:
-                identityHandler: simpleUUID
+                identityGenerator: simpleUUID
 ```
 
-In this case, the implementation of {{< java "org.seedstack.business.domain.identity.UUIDHandler" >}} annotated with the
+In this case, the implementation of {{< java "org.seedstack.business.domain.UuidGenerator" >}} annotated with the
 qualifier `@Named("simpleUUID")` will be used for this aggregate.
 
 ## Usage
@@ -184,7 +181,7 @@ public class SomeFactoryImpl extends BaseFactory<SomeAggregate> implements SomeF
 After the method has returned, an interceptor will apply the chosen identity strategy on the returned object. 
 {{% /callout %}}
 
-As an alternative you can apply the identity generation strategy programmatically by injecting the {{< java "org.seedstack.business.domain.identity.IdentityService" >}}:
+As an alternative you can apply the identity generation strategy programmatically by injecting the {{< java "org.seedstack.business.domain.IdentityService" >}}:
 
 ```java
 public class SomeClass {
@@ -204,34 +201,34 @@ Note that identity generation does not walk the object graph to generate identit
 trigger identity generation (automatically or manually) separately on each entity.
 {{% /callout %}}
 
-## Custom identity handler
+## Custom identity generator
 
 Below is an example of a basic Timestamp id generation strategy:
 
 ```java
-package org.mycompany.myapp.infrastructure.domain;
+package org.mycompany.myapp.infrastructure.identity;
 
 import org.seedstack.business.domain.BaseEntity;
-import org.seedstack.business.domain.identity.IdentityHandler;
+import org.seedstack.business.domain.IdentityGenerator;
 
 @Named("timestamp-id")
-public class TimestampIdentityHandler implements IdentityHandler<BaseEntity<Long>, Long> {
+public class TimestampIdentityGenerator implements IdentityGenerator<BaseEntity<Long>, Long> {
     
     @Override
-    public Long handle(BaseEntity<Long> entity, Map<String, String> entityConfig) {
+    public Long generate(BaseEntity<Long> entity, Map<String, String> entityConfig) {
         return new Date().getTime();
     }
 }
 ```
 
-## Built-in identity strategies
+## Built-in identity generators
 
 ### Sequence
 
-The sequence strategy provides a unique ever-incrementing number. Numbers are not required to be contiguous. Implementations 
-of this strategy must implement the {{< java "org.seedstack.business.domain.identity.SequenceHandler" >}} interface. 
+The sequence generator provides a unique ever-incrementing number. Numbers are not required to be contiguous. Implementations 
+of this strategy must implement the {{< java "org.seedstack.business.domain.SequenceGenerator" >}} interface. 
 
-A test-only in-memory implementation is provided by {{< java "org.seedstack.business.test.identity.InMemorySequenceHandler" >}}. 
+A test-only in-memory implementation is provided by {{< java "org.seedstack.business.util.inmemory.InMemorySequenceGenerator" >}}. 
 No state is preserved across application restarts. It is configured as below:
 
 ```yaml
@@ -243,20 +240,20 @@ classes:
           model:
             myaggregate:
               SomeAggregate:
-                identityHandler: inMemorySequence
+                identityGenerator: inMemorySequence
 ```
 
 {{% callout tips %}}
-Sequence handlers for relational databases are provided in the [JPA add-on]({{< ref "addons/jpa/index.md" >}}). 
+Sequence generators for relational databases are provided in the [JPA add-on]({{< ref "addons/jpa/index.md" >}}). 
 {{% /callout %}}
 
 ### UUID
 
-The UUID strategy uses a [Universally Unique Identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier) as
-identity. Implementations of this strategy must implement the {{< java "org.seedstack.business.domain.identity.UUIDHandler" >}}
+The UUID generator uses a [Universally Unique Identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier) as
+identity. Implementations of this generator must implement the {{< java "org.seedstack.business.domain.UuidGenerator" >}}
 interface.
  
-An implementation that uses the {{< java "java.util.UUID" >}} Java class is provided by org.seedstack.business.domain.identity.SimpleUUIDHandler.
+An implementation that uses the {{< java "java.util.UUID" >}} Java class is provided by {{< java "org.seedstack.business.domain.SimpleUuidGenerator" >}}.
 It is configured as below:  
 
 ```yaml
@@ -268,7 +265,7 @@ classes:
           model:
             myaggregate:
               SomeAggregate:
-                identityHandler: simpleUUID
+                identityGenerator: simpleUUID
 ```
 
 # Example
@@ -289,25 +286,24 @@ public interface OrderFactory extends GenericFactory<Order> {
 ## The implementation
 
 ```java
+@Create
 public class OrderFactoryImpl extends BaseFactory<Order> implements OrderFactory {
-    @Inject
-    private OrderIdentifierService orderIdentifierService;
     
     @Override
     public Order createOrder(CustomerId customerId) {
-        return new Order(orderIdentifierService.nextId(), customerId);
+        return new Order(customerId);
     }
     
     @Override
     public Order createRepeatOrder(Order previousOrder) {
-        Order order = new Order(orderIdentifierService.nextId(), previousOrder.getCustomerId());
+        Order order = new Order(previousOrder.getCustomerId());
         previousOrder.items().forEach(order::addItem);
         return order;
     }
     
     @Override
     public Order createCreditOrder(Order orderToCredit) {
-        return new CreditOrder(orderIdentifierService.nextId(), orderToCredit.getCustomerId(), orderToCredit.getId());
+        return new CreditOrder(orderToCredit.getCustomerId(), orderToCredit.getId());
     }
 }
 ```  

@@ -498,7 +498,7 @@ public class Product extends BaseAggregateRoot<ProductReference> {
     }
 
     @Override
-    public ProductReference getEntityId() {
+    public ProductReference getId() {
         return reference;
     }
 }

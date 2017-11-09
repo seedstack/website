@@ -45,8 +45,8 @@ remain side-effect free (not depending upon any mutable state).
 
 To declare a value object with the business framework, you have two alternatives. 
 
-{{% tabs list="Basic|Interface" %}}
-{{% tab "Basic" true %}}
+{{% tabs list="Base class|Interface" %}}
+{{% tab "Base class" true %}}
 Extend the {{< java "org.seedstack.business.domain.BaseValueObject" >}} class:
 
 ```java

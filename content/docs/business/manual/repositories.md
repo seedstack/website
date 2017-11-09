@@ -23,8 +23,8 @@ It has a simple collection-like global interface and optionally domain-specific 
 
 ## Manipulates whole aggregates
 
-A repository is responsible for storing and retrieve a whole aggregate. It manipulates the aggregate through its root 
-entity. It cannot directly store or retrieve parts of the aggregate.
+A repository is responsible for storing and retrieve a whole aggregate. It manipulates the aggregate through its root. 
+It cannot directly store or retrieve parts of the aggregate.
 
 ## Illusion of in-memory collection
 
@@ -33,7 +33,8 @@ root type.
 
 ## Well-known interface
 
-A repository implements a well-known interface that provides methods for adding, removing and querying objects.
+A repository implements a well-known interface that provides methods for adding, removing and querying objects. In the 
+business framework this is the {{< java "org.seedstack.business.domain.Repository" >}} interface.
   
 ## Domain-specific methods
 
@@ -52,7 +53,7 @@ own methods for retrieving aggregate instances based on meaningful business crit
 public interface SomeRepository extends Repository<SomeAggregate, SomeId> {
 
     // Optional business-meaningful methods  
-    List<SomeAggregate> objectsByCategory(String category);
+    List<SomeAggregate> objectsForCategory(String category);
 }
 ```
 {{% callout info %}}
@@ -60,11 +61,12 @@ This interface should be placed in the corresponding aggregate package.
 {{% /callout %}}
 
 Then implement the interface in a class. Depending upon the persistence technology, SeedStack may provide base 
-implementations for the common interface. It is recommended you extend them if possible. In the case of JPA:  
+implementations for the common interface. It is recommended to extend them if possible. In the case of an in-memory repository:  
   
 ```java
-public class SomeJpaRepository extends BaseJpaRepository<SomeAggregate, SomeId> 
-                               implements SomeRepository {
+public class SomeInMemoryRepository 
+        extends BaseInMemoryRepository<SomeAggregate, SomeId> 
+        implements SomeRepository {
 
     @Override
     public List<SomeAggregate> objectsByCategory(String category) {
@@ -75,7 +77,7 @@ public class SomeJpaRepository extends BaseJpaRepository<SomeAggregate, SomeId>
 
 {{% callout warning %}}
 A repository implementation almost always depend upon a specific technology or library, so the implementation should be
-put in the infrastructure layer, in a sub-package named after the corresponding technology (in this case `[base.package].infrastructure.jpa`).
+put in the infrastructure layer, in a sub-package named after the corresponding technology (in this case `[base.package].infrastructure.inmemory`).
 {{% /callout %}}
 
 {{% callout info %}}
@@ -85,7 +87,7 @@ persistence add-on documentation.
 
 ## Usage
 
-To use your repository, simply [inject it]({{< ref "docs/seed/dependency-injection.md" >}}) where required: 
+To use your repository, [inject]({{< ref "docs/seed/dependency-injection.md" >}}) its interface: 
 
 ```java
 public class SomeClass {
@@ -105,37 +107,93 @@ between uses. In some cases, after having well considered the issue, you can cho
 annotating the repository implementation with {{< java "javax.inject.Singleton" "@" >}}.
 {{% /callout %}}
 
+# Generated repository
 
-# Default repository
+If you only define a repository interface (without implementation), the business framework will generate one or more 
+implementation(s).
 
-If the common repository interface is enough for your needs, you can avoid writing any repository code and rely on the
-default repositories instead. For each supported persistence technology and each aggregate, the business framework can 
-provide a default repository implementation.
+## Declaration
+
+Create an interface extending {{< java "org.seedstack.business.domain.Repository" >}} and add custom methods to this 
+interface. Implement them directly in the interface in a technology-agnostic manner:
+
+```java
+public interface SomeRepository extends Repository<SomeAggregate, SomeId> {
+
+    default List<SomeAggregate> objectsForCategory(String category) {
+        return get(getSpecificationBuilder().of(SomeAggregate.class)
+                .property("category").is(category)
+                .build()
+        );
+    }
+}
+```
+
+For each persistence technology that supports it (like in-memory, JPA, MongoDB Morphia), the business framework will 
+generate an implementation of this interface.
 
 ## Usage
 
-Just inject the qualified {{< java "org.seedstack.business.domain.Repository" >}} interface. In the case of JPA:
-    
+To use the generated repository, [inject]({{< ref "docs/seed/dependency-injection.md" >}}) the custom interface. A qualifier 
+corresponding to the required implementation must be specified at the injection point:
+
 ```java
 public class SomeClass {
     @Inject
-    @Jpa
+    @InMemory
+    private SomeRepository someRepository;
+    
+    public void someMethod() {
+        List<SomeAggregate> list = someRepository.objectsForCategory("cat1");
+    }
+}
+```  
+
+{{% callout info %}}
+See the [add-ons library]({{< baseUrl >}}addons) to discover the available persistence technologies supporting 
+generated repositories.
+{{% /callout %}}
+
+# Default repository
+
+For aggregates without any defined repository (neither interface nor implementation), the business framework will provide 
+one or more default implementation of the {{< java "org.seedstack.business.domain.Repository" >}} interface.  
+
+## Declaration
+
+No declaration is needed. For each persistence technology that supports it (like in-memory, JPA, MongoDB Morphia), a 
+default implementation will be provided.
+
+## Usage
+
+To use the default repository, [inject]({{< ref "docs/seed/dependency-injection.md" >}}) the typed {{< java "org.seedstack.business.domain.Repository" >}}
+interface. A qualifier corresponding to the chosen implementation must be specified at the injection point:  
+
+```java
+public class SomeClass {
+    @Inject
+    @InMemory
     private Repository<SomeAggregate, SomeId> someAggregateRepository;
     
     public void someMethod() {
-        SomeAggregate someAggregate = someAggregateRepository.load(new SomeId("John Doe"));
+        SomeAggregate someAggregate = someAggregateRepository.get(new SomeId("John Doe"))
+            .orElseThrow(() -> new AggregateNotFoundException("John Doe not found"));
     }
 }
 ```
 
 {{% callout info %}}
-See the persistence add-ons documentation to learn if a default repository is provided for a specific persistence and how
-to use it.
+See the [add-ons library]({{< baseUrl >}}addons) to discover the available persistence technologies supporting 
+default repositories.
 {{% /callout %}}
 
-{{% callout tips %}}
-By default, you have to explicitly specify the qualifier (`@Jpa` in the example above). But you can choose to configure 
-a default repository instead, using [class configuration]({{< ref "docs/seed/configuration.md#class-configuration" >}}):
+## Class configuration
+
+When using default or generated repositories you have to explicitly specify the qualifier at the injection point, to choose
+the correct implementation. 
+
+To avoid specifying the qualifier in code, you can specify it as the `defaultRepository` key in 
+[class configuration]({{< ref "docs/seed/configuration.md#class-configuration" >}}):
 
 ```yaml
 classes:
@@ -144,17 +202,25 @@ classes:
       myapp:
         domain:
           model:
-            # JPA will be used for all aggregates... 
-            defaultRepository: org.seedstack.jpa.Jpa
+            # InMemory will be used for all aggregates... 
+            defaultRepository: org.seedstack.business.util.inmemory.InMemory
             someaggregate:
-              # ... except for this one, using MongoDb Morphia
-              defaultRepository: org.seedstack.mongodb.morphia.Morphia
+              # ... except for this one, using an explicit repository
+              defaultRepository: 
 ```
 
-The `defaultRepository` property expects a qualifier annotation class or a string when using named qualifiers (eg. `@Named("someQualifier")`).
+{{% callout info %}}
+The `defaultRepository` property expects either: 
+
+* A qualifier annotation class name (like `org.seedstack.business.util.inmemory.InMemory`)
+* Or an arbitrary string which will be used as the parameter of the {{< java "javax.inject.Named" "@" >}} qualifier.
+
+An empty value means that not default repository will be set.
 {{% /callout %}}
 
 # Example
+
+## Explicit repository
 
 The repository interface:
 
@@ -168,19 +234,31 @@ public interface ProductRepository extends Repository<Product, ProductId> {
 And its JPA implementation:
 
 ```java
-public class ProductJpaRepository extends BaseJpaRepository<Product, ProductId> implements ProductRepository {
+public class ProductJpaRepository 
+        extends BaseJpaRepository<Product, ProductId> 
+        implements ProductRepository {
     
     @Override
     public List<Product> discontinuedProducts() {
-        EntityManager entityManager = getEntityManager();
-        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-        
-        CriteriaQuery<Product> cq = cb.createQuery(Product.class);
-        Root<Product> root = cq.from(Product.class);
-        cq.where(cb.isTrue(root.get("discontinued")));
-        
-        return entityManager.createQuery(cq).getResultList();
+        // JPA implementation of the query 
     }    
 }
 ```
 
+## Generated repository
+
+```java
+public interface ProductRepository extends Repository<Product, ProductId> {
+
+    default List<Product> discontinuedProducts() {
+        return get(getSpecificationBuilder().of(Product.class)
+                .property("discontinued").equalTo(true)
+                .build()
+        );
+    }
+}
+```
+
+## Default repository
+
+Nothing to declare but only have access to {{< java "org.seedstack.business.domain.Repository" >}} methods.

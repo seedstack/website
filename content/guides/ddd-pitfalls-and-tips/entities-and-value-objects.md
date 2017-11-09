@@ -88,7 +88,7 @@ which can delegate the generation to the persistence without compromising entity
 Another {{< term "Bounded Context" >}} (like another application) has already an identity or a list of identities which 
 the user can choose from. This is the most complex identity creation strategy as it involves one or more external systems.
 The Business framework identity generation mechanism can help by allowing to encapsulate this complex logic into a custom 
-`IdentityHandler`.
+`IdentityGenerator`.
 
 ### Surrogate identity
 

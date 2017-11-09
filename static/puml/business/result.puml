@@ -1,7 +1,0 @@
-@startuml
-class Result<Item> {
- List<Item> items
- int resultSize
- long fullRequestSize
-}
-@enduml

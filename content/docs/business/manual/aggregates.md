@@ -77,9 +77,9 @@ More information can be found in the [package layout documentation]({{< ref "doc
 
 To declare a chosen entity as the aggregate root, you have two alternatives.
 
-{{% tabs list="Basic|Interface" %}}
-{{% tab "Basic" true %}}
-Instead of {{< java "org.seedstack.business.domain.BaseEntity" >}}, extend the {{< java "org.seedstack.business.domain.BaseAggregateRoot" >}} class:
+{{% tabs list="Base class|Interface" %}}
+{{% tab "Base class" true %}}
+Extend the {{< java "org.seedstack.business.domain.BaseAggregateRoot" >}} class:
 
 ```java
 public class SomeAggregateRoot extends BaseAggregateRoot<SomeEntityId> {
@@ -90,7 +90,7 @@ public class SomeAggregateRoot extends BaseAggregateRoot<SomeEntityId> {
     }
 
     @Override
-    public SomeEntityId getEntityId() {
+    public SomeEntityId getId() {
         return this.id;
     }
     
@@ -101,9 +101,16 @@ public class SomeAggregateRoot extends BaseAggregateRoot<SomeEntityId> {
 {{< java "org.seedstack.business.domain.BaseAggregateRoot" >}} is simply a specialization of {{< java "org.seedstack.business.domain.BaseEntity" >}} 
 so you will inherit a default implementation of the `equals()` and `hashCode()` methods, consistent with the definition of an entity. 
 The `toString()` method is also inherited.
+
+{{% callout info %}}
+* If the identity is in a field named `id`, it will be automatically discovered.
+* Otherwise, you can mark the identity field with the {{< java "org.seedstack.business.domain.Identity" "@" >}} annotation.
+* Alternatively you can override the `getId()` method to return the identity.
+{{% /callout %}}
+
 {{% /tab %}}
 {{% tab "Interface" %}}
-Instead of {{< java "org.seedstack.business.domain.Entity" >}}, implement the {{< java "org.seedstack.business.domain.AggregateRoot" >}} interface:
+Implement the {{< java "org.seedstack.business.domain.AggregateRoot" >}} interface:
 
 ```java
 public class SomeAggregateRoot implements AggregateRoot<SomeEntityId> {
@@ -122,7 +129,7 @@ public class SomeAggregateRoot implements AggregateRoot<SomeEntityId> {
     }
 
     @Override
-    public SomeEntityId getEntityId() {
+    public SomeEntityId getId() {
         return this.id;
     }
     
@@ -133,6 +140,11 @@ public class SomeAggregateRoot implements AggregateRoot<SomeEntityId> {
 {{< java "org.seedstack.business.domain.AggregateRoot" >}} is simply a specialization of {{< java "org.seedstack.business.domain.Entity" >}}.
 While allowing you to fully control the inheritance of your aggregate root, you will have to implement `equals()` and `hashCode()` methods yourself, 
 consistently with the definition of an entity (i.e. based on the identity only). 
+
+{{% callout info %}}
+You must implement the `getId()` method as the framework will often need to retrieve the entity identity.
+{{% /callout %}}
+
 {{% /tab %}}
 {{% /tabs %}}
 
@@ -249,11 +261,6 @@ public class Order extends BaseAggregateRoot<OrderId> {
         } else {
             throw new OrderException("Cannot calculate payment amount");
         }
-    }
-
-    @Override
-    public OrderId getEntityId() {
-        return id;
     }
 }
 ```

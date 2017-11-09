@@ -52,29 +52,32 @@ the behavior to [domain services]({{< ref "docs/business/manual/services.md" >}}
 
 To declare an entity with the business framework, you have two alternatives. 
 
-{{% tabs list="Basic|Interface" %}}
-{{% tab "Basic" true %}}
+{{% tabs list="Base class|Interface" %}}
+{{% tab "Base class" true %}}
 Extend the {{< java "org.seedstack.business.domain.BaseEntity" >}} class:
 
 ```java
 public class SomeEntity extends BaseEntity<SomeEntityId> {
+    @Identity
     private SomeEntityId id;
 
     public SomeEntity(SomeEntityId id) {
         this.id = id;
     }
 
-    @Override
-    public SomeEntityId getEntityId() {
-        return this.id;
-    }
-    
     // Other methods
 }
 ```
 
 By extending {{< java "org.seedstack.business.domain.BaseEntity" >}}, you will have a default implementation of the
-`equals()` and `hashCode()` methods, consistent with the definition of an entity. A `toString()` is also provided by default.
+`equals()` and `hashCode()` methods, consistent with the definition of an entity. A `toString()` method is also provided 
+by default.
+
+{{% callout info %}}
+* If the identity is in a field named `id`, it will be automatically discovered.
+* Otherwise, you can mark the identity field with the {{< java "org.seedstack.business.domain.Identity" "@" >}} annotation.
+* Alternatively you can override the `getId()` method to return the identity.
+{{% /callout %}}
 {{% /tab %}}
 {{% tab "Interface" %}}
 Implement the {{< java "org.seedstack.business.domain.Entity" >}} interface:
@@ -96,7 +99,7 @@ public class SomeEntity implements Entity<SomeEntityId> {
     }
 
     @Override
-    public SomeEntityId getEntityId() {
+    public SomeEntityId getId() {
         return this.id;
     }
     
@@ -107,18 +110,15 @@ public class SomeEntity implements Entity<SomeEntityId> {
 Implementing {{< java "org.seedstack.business.domain.Entity" >}} allows you to fully control the inheritance of your
 entity. However, you will have to implement `equals()` and `hashCode()` methods yourself, consistently with the definition 
 of an entity (i.e. based on the identity only). 
+
+{{% callout info %}}
+You must implement the `getId()` method as the framework will often need to retrieve the entity identity.
+{{% /callout %}}
 {{% /tab %}}
 {{% /tabs %}}
 
-You must implement the `getEntityId()` method as the framework will often need to retrieve the entity identity.
 
 # Example
-
-Notice:
-
-* How the identity is defined as an immutable [value object]({{< ref "docs/business/manual/value-objects.md" >}}) and cannot 
-be changed by external objects.
-* How method names have meaningful names and implement domain behavior.
 
 ```java
 public class Customer extends BaseEntity<CustomerId> {
@@ -130,11 +130,6 @@ public class Customer extends BaseEntity<CustomerId> {
         this.id = id;
         this.name = name;
         this.email = email;
-    }
-    
-    @Override
-    public CustomerId getEntityId() {
-        return this.id;
     }
     
     public void changeEmail(String newEmail) {
@@ -154,3 +149,10 @@ public class Customer extends BaseEntity<CustomerId> {
     // other methods 
 }
 ```
+
+Notice:
+
+* How the identity is defined as an immutable [value object]({{< ref "docs/business/manual/value-objects.md" >}}) and cannot 
+be changed by external objects.
+* How method names have meaningful names and implement domain behavior.
+

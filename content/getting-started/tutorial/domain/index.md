@@ -69,7 +69,7 @@ public class Order extends BaseAggregateRoot<Long> {
     }
 
     @Override
-    public Long getEntityId() {
+    public Long getId() {
         return orderId;
     }
 
@@ -149,7 +149,7 @@ public class Product extends BaseAggregateRoot<Long> {
     }
 
     @Override
-    public Long getEntityId() {
+    public Long getId() {
         return productId;
     }
 
@@ -231,7 +231,7 @@ public class Seller extends BaseAggregateRoot<Long> {
     }
 
     @Override
-    public Long getEntityId() {
+    public Long getId() {
         return sellerId;
     }
 
