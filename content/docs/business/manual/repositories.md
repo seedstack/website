@@ -212,7 +212,7 @@ classes:
 {{% callout info %}}
 The `defaultRepository` property expects either: 
 
-* A qualifier annotation class name (like `org.seedstack.business.util.inmemory.InMemory`)
+* A qualifier annotation class name (like {{< java "org.seedstack.business.util.inmemory.InMemory" "@" >}}),
 * Or an arbitrary string which will be used as the parameter of the {{< java "javax.inject.Named" "@" >}} qualifier.
 
 An empty value means that not default repository will be set.

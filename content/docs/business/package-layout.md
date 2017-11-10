@@ -105,9 +105,9 @@ The root package for the interface layer is:
 Each interface type has its own root package:
 
 ```plain
-[base.package].intefaces.rest
-[base.package].intefaces.ws
-[base.package].intefaces.cli
+[base.package].interfaces.rest
+[base.package].interfaces.ws
+[base.package].interfaces.cli
 ...
 ```
 

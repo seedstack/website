@@ -62,6 +62,7 @@ A repository is responsible for consistently storing and retrieving a whole aggr
 
 * [Characteristics]({{< ref "docs/business/manual/repositories.md#characteristics" >}})
 * [Explicit repository]({{< ref "docs/business/manual/repositories.md#explicit-repository" >}})
+* [Generated repository]({{< ref "docs/business/manual/repositories.md#generated-repository" >}})
 * [Default repository]({{< ref "docs/business/manual/repositories.md#default-repository" >}})
 * [Example]({{< ref "docs/business/manual/repositories.md#example" >}})
 
