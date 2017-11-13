@@ -46,7 +46,6 @@ in the aggregate package, with at least one method for creating the produced obj
   
 ```java
 public interface SomeFactory extends Factory<SomeAggregate> {
-    
     SomeAggregate createFromName(String name);
 }
 ```
@@ -57,7 +56,6 @@ move the implementation in the infrastructure package:
   
 ```java
 public class SomeFactoryImpl extends BaseFactory<SomeAggregate> implements SomeFactory {
-    
     SomeAggregate createFromName(String name) {
         SomeAggregate someAggregate = new SomeAggregate(new Name(name));
         someAggregate.initialize(new Date());
@@ -107,12 +105,6 @@ public class SomeClass {
 }
 ```
 
-{{% callout info %}}
-The benefit of using the default factory instead of just invoking the constructor manually is that it will trigger the
-business framework identity generation mechanism on the produced object if necessary. 
-See [below]({{< ref "docs/business/manual/factories.md#identity-generation" >}}) for details about identity generation.
-{{% /callout %}}
-
 # Identity generation
 
 ## Declaration 
@@ -146,7 +138,6 @@ To automatically trigger the identity generation mechanism at the end of a facto
 
 ```java
 public class SomeFactoryImpl extends BaseFactory<SomeAggregate> implements SomeFactory {
-    
     @Create
     SomeAggregate createFromName(String name) {
         SomeAggregate someAggregate = new SomeAggregate(new Name(name));
@@ -156,7 +147,7 @@ public class SomeFactoryImpl extends BaseFactory<SomeAggregate> implements SomeF
 }
 ```  
 
-As an alternative you can apply the identity generation strategy programmatically by injecting the {{< java "org.seedstack.business.domain.IdentityService" >}}:
+As an alternative you can the generted identity programmatically by injecting the {{< java "org.seedstack.business.domain.IdentityService" >}}:
 
 ```java
 public class SomeClass {
@@ -172,7 +163,7 @@ public class SomeClass {
 ```
 
 {{% callout warning %}}
-Note that identity generation does not walk the object graph to generate identities for eventual sub-entities. You must
+Note that identity generation does not walk the object graph to generate identities for potential sub-entities. You must
 trigger identity generation (automatically or manually) separately on each entity.
 {{% /callout %}}
 
@@ -195,25 +186,20 @@ classes:
       myapp:
         domain:
           model:
-            someaggregate:            
-              SomeAggregate:
-                identityGenerator: org.seedstack.business.util.inmemory.InMemory
+            someaggregate:
+              defaultGenerator: org.seedstack.business.util.inmemory.InMemory
 ```
 
 The {{< java "org.seedstack.business.util.inmemory.InMemorySequenceGenerator" >}} implementation, being qualified with 
 {{< java "org.seedstack.business.util.inmemory.InMemory" "@" >}}, will be chosen to generate the identity.
 
 {{% callout info %}}
-The `identityGenerator` property expects either: 
+The `defaultGenerator` property expects either: 
 
 * A qualifier annotation class name (like {{< java "org.seedstack.business.util.inmemory.InMemory" "@" >}}),
 * Or an arbitrary string which will be used as the parameter of the {{< java "javax.inject.Named" "@" >}} qualifier.
-
-An empty value means that not default repository will be set.
 {{% /callout %}}
 
-
-## Generators
 
 ## Built-in identity generators
 
@@ -222,24 +208,10 @@ An empty value means that not default repository will be set.
 The sequence generator provides a unique ever-incrementing number. Numbers are not required to be contiguous. Implementations 
 of this strategy must implement the {{< java "org.seedstack.business.domain.SequenceGenerator" >}} interface. 
 
-A test-only in-memory implementation is provided by {{< java "org.seedstack.business.util.inmemory.InMemorySequenceGenerator" >}}. 
-No state is preserved across application restarts. It is configured as below:
+An in-memory implementation is provided by {{< java "org.seedstack.business.util.inmemory.InMemorySequenceGenerator" >}}.
+Its qualifier is {{< java "org.seedstack.business.util.inmemory.InMemory" "@" >}}.
 
-```yaml
-classes:
-  org:
-    mycompany:
-      myapp:
-        domain:
-          model:
-            myaggregate:
-              SomeAggregate:
-                identityGenerator: inMemorySequence
-```
-
-{{% callout tips %}}
-Sequence generators for relational databases are provided in the [JPA add-on]({{< ref "addons/jpa/index.md" >}}). 
-{{% /callout %}}
+Other implementations may be found in the [add-ons library]({{< baseUrl >}}addons). 
 
 ### UUID
 
@@ -248,35 +220,24 @@ identity. Implementations of this generator must implement the {{< java "org.see
 interface.
  
 An implementation that uses the {{< java "java.util.UUID" >}} Java class is provided by {{< java "org.seedstack.business.domain.SimpleUuidGenerator" >}}.
-It is configured as below:  
-
-```yaml
-classes:
-  org:
-    mycompany:
-      myapp:
-        domain:
-          model:
-            myaggregate:
-              SomeAggregate:
-                identityGenerator: simpleUUID
-```
+Its qualifier is `@Named("simpleUUID")`.
 
 ## Custom identity generator
 
-Below is an example of a basic Timestamp id generation strategy:
+You can define your own custom generator. Either write :
+
+* A direct implementation of {{< java "org.seedstack.business.domain.IdentityGenerator" >}},
+* An implementation of an existing generator interface,
+* Or an interface extending {{< java "org.seedstack.business.domain.IdentityGenerator" >}} and an implementation of this
+custom interface.  
+
+As an example of the second option, consider the code below:
 
 ```java
-package org.mycompany.myapp.infrastructure.identity;
-
-import org.seedstack.business.domain.BaseEntity;
-import org.seedstack.business.domain.IdentityGenerator;
-
-@Named("timestamp-id")
-public class TimestampIdentityGenerator implements IdentityGenerator<BaseEntity<Long>, Long> {
-    
+@Named("timestamp")
+public class TimestampIdentityGenerator implements SequenceGenerator<Long> {
     @Override
-    public Long generate(BaseEntity<Long> entity, Map<String, String> entityConfig) {
+    public <E extends Entity<Long>> Long generate(Class<E> entityClass) {
         return new Date().getTime();
     }
 }
@@ -284,11 +245,33 @@ public class TimestampIdentityGenerator implements IdentityGenerator<BaseEntity<
 
 # Example
 
-## The interface
+## The identity generator
+
+```java
+public class OrderIdGenerator implements IdentityGenerator<OrderId> {
+    @Override
+    public <E extends Entity<OrderId>> OrderId generate(Class<E> entityClass) {
+        // custom logic to generate order identifiers
+    }
+}
+```
+
+## The aggregate
+
+```java
+public class Order extends BaseAggregateRoot<OrderId> {
+    @Identity(generator = OrderIdGenerator.class)
+    private final OrderId id;
+    
+    // ...
+}
+```
+
+
+## The factory interface
 
 ```java
 public interface OrderFactory extends GenericFactory<Order> {
-
     Order createOrder(Customer customer, List<Pair<ProductId, Integer>> orderedProducts);
     
     Order createRepeatOrder(Order previousOrder);
@@ -297,12 +280,11 @@ public interface OrderFactory extends GenericFactory<Order> {
 }
 ```
 
-## The implementation
+## The factory implementation
 
 ```java
 @Create
 public class OrderFactoryImpl extends BaseFactory<Order> implements OrderFactory {
-    
     @Override
     public Order createOrder(CustomerId customerId) {
         return new Order(customerId);
@@ -321,3 +303,4 @@ public class OrderFactoryImpl extends BaseFactory<Order> implements OrderFactory
     }
 }
 ```  
+

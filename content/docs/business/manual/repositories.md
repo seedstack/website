@@ -51,14 +51,9 @@ own methods for retrieving aggregate instances based on meaningful business crit
  
 ```java
 public interface SomeRepository extends Repository<SomeAggregate, SomeId> {
-
-    // Optional business-meaningful methods  
     List<SomeAggregate> objectsForCategory(String category);
 }
 ```
-{{% callout info %}}
-This interface should be placed in the corresponding aggregate package.
-{{% /callout %}}
 
 Then implement the interface in a class. Depending upon the persistence technology, SeedStack may provide base 
 implementations for the common interface. It is recommended to extend them if possible. In the case of an in-memory repository:  
@@ -202,11 +197,8 @@ classes:
       myapp:
         domain:
           model:
-            # InMemory will be used for all aggregates... 
-            defaultRepository: org.seedstack.business.util.inmemory.InMemory
             someaggregate:
-              # ... except for this one, using an explicit repository
-              defaultRepository: 
+              defaultRepository: org.seedstack.business.util.inmemory.InMemory
 ```
 
 {{% callout info %}}
@@ -214,8 +206,6 @@ The `defaultRepository` property expects either:
 
 * A qualifier annotation class name (like {{< java "org.seedstack.business.util.inmemory.InMemory" "@" >}}),
 * Or an arbitrary string which will be used as the parameter of the {{< java "javax.inject.Named" "@" >}} qualifier.
-
-An empty value means that not default repository will be set.
 {{% /callout %}}
 
 # Example
