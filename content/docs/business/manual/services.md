@@ -50,20 +50,14 @@ To create a service with the business framework, create an interface annotated w
 ```java
 @Service
 public interface SomeService {
-    
     void someOperation();
 }
 ```
-
-{{% callout info %}}
-This interface should be placed in the `services` package of the domain layer.
-{{% /callout %}}
 
 Then create its implementation:
 
 ```java
 public class SomeServiceImpl implements SomeService {
-    
     @Override
     public void someOperation() {
         // do something        
@@ -71,19 +65,14 @@ public class SomeServiceImpl implements SomeService {
 }
 ```
 
-{{% callout warning %}}
-If your service implementation depends upon a technical aspect like a specific library or technology, put it in the 
-infrastructure layer, otherwise put it along its interface.
-{{% /callout %}}
-
 {{% callout tips %}}
-If you need to have multiple implementation of a service, you can apply a different [injection qualifier]({{< ref "docs/business/qualified-injection.md" >}}) 
-on each implementation. 
+If you have more than one implementation of a service, you must differentiate them by applying a different 
+[qualifier]({{< ref "docs/business/qualified-injection.md" >}}) on each implementation. 
 {{% /callout %}}
 
 # Usage
 
-To use your service, simply [inject it]({{< ref "docs/seed/dependency-injection.md" >}}) where required: 
+To use your service, [inject]({{< ref "docs/seed/dependency-injection.md" >}}) its interface: 
 
 ```java
 public class SomeClass {
@@ -96,21 +85,14 @@ public class SomeClass {
 }
 ```
 
-{{% callout info %}}
-By default, services are instantiated each time they are injected, avoiding the risk to wrongly keep an internal state 
-between uses. In some cases, after having well considered the issue, you can choose to make your service a singleton by
-annotating the service implementation with {{< java "javax.inject.Singleton" "@" >}}.
-{{% /callout %}}
-
 # Example
 
-Let's consider a funds transfer service. It does not fit naturally into the `Account` aggregate since it may have some complex
+Let's consider a fund transfer service. It does not fit naturally into the `Account` aggregate since it may have some complex
 business logic that depends upon other services (currency exchange rate, transfer authorization between countries, ...).
 
 ```java
 @Service
 public interface FundsTransferService {
-    
     MoneyTransferReport transferMoney(
             Account toBeDebited,
             Account toBeCredited,

@@ -55,7 +55,7 @@ MetaDataFormat = "yaml"
   "menu.group.businessessentials.reference material and books" = "Literature"
 
   "menu.group.businessmanual.entities" = "Model"
-  "menu.group.businessmanual.factories" = "Lifecycle"
+  "menu.group.businessmanual.factories" = "Aggregate lifecycle"
   "menu.group.businessmanual.services" = "Behavior"
   "menu.group.businessmanual.assemblers" = "Interfaces"
 
