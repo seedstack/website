@@ -1,5 +1,5 @@
 ---
-title: "Domain events"
+title: "Events"
 type: "home"
 zones:
     - "Business"
@@ -9,7 +9,7 @@ tags:
     - domain-driven design
 menu:
     BusinessManual:
-        weight: 60
+        weight: 42
 ---
 
 {{% callout def %}}

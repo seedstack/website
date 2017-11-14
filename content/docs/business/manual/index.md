@@ -45,6 +45,16 @@ An aggregate is a cluster of cohesive entities and value objects that is treated
 * [Defining aggregate boundaries]({{< ref "docs/business/manual/aggregates.md#defining-aggregate-boundaries" >}})
 * [Example]({{< ref "docs/business/manual/aggregates.md#example" >}})
 
+# Specifications
+
+A specification encapsulates a business criteria and is able to tell if a candidate object matches this criteria.
+
+* [Characteristics]({{< ref "docs/business/manual/specifications.md#characteristics" >}})
+* [Declaration]({{< ref "docs/business/manual/specifications.md#declaration" >}})
+* [Usage]({{< ref "docs/business/manual/specifications.md#usage" >}})
+* [Built-in specifications]({{< ref "docs/business/manual/specifications.md#built-in-specifications" >}})
+* [Specification builder]({{< ref "docs/business/manual/specifications.md#specification-builder" >}})
+
 # Factories
 
 A factory is responsible for creating a whole, internally consistent aggregate when it is too complicated to do
@@ -75,13 +85,6 @@ A service is a stateless object that implements domain, applicative or infrastru
 * [Usage]({{< ref "docs/business/manual/services.md#usage" >}})
 * [Example]({{< ref "docs/business/manual/services.md#example" >}})
 
-# Domain events
-
-A domain event is used to represent something that happened in the domain. It happened in the past and is of interest to the business.
-
-* [Characteristics]({{< ref "docs/business/manual/events.md#characteristics" >}})
-* [Declaration]({{< ref "docs/business/manual/events.md#declaration" >}})
-
 # Policies
 
 A policy is used to encapsulate a varying business rule or process in a separate object. Multiple versions of the policy object represent different ways the process can be done.
@@ -90,6 +93,13 @@ A policy is used to encapsulate a varying business rule or process in a separate
 * [Declaration]({{< ref "docs/business/manual/policies.md#declaration" >}})
 * [Usage]({{< ref "docs/business/manual/policies.md#usage" >}})
 * [Example]({{< ref "docs/business/manual/policies.md#example" >}})
+
+# Domain events
+
+A domain event is used to represent something that happened in the domain. It happened in the past and is of interest to the business.
+
+* [Characteristics]({{< ref "docs/business/manual/events.md#characteristics" >}})
+* [Declaration]({{< ref "docs/business/manual/events.md#declaration" >}})
 
 # Assemblers
 
@@ -101,11 +111,10 @@ and back.
 * [Fluent assembler DSL]({{< ref "docs/business/manual/assemblers.md#fluent-assembler-dsl" >}})
 * [Example]({{< ref "docs/business/manual/assemblers.md#example" >}})
 
-# Finders
+# Pagination
 
-A finder encapsulates interface-specific data queries that have no domain meaning. It only has read-only operations.
+The paginator is a helper supporting different modes of pagination: offset-based, page-based and key-based. 
 
-* [Characteristics]({{< ref "docs/business/manual/finders.md#characteristics" >}})
-* [Declaration]({{< ref "docs/business/manual/finders.md#declaration" >}})
-* [Usage]({{< ref "docs/business/manual/finders.md#usage" >}})
-* [Example]({{< ref "docs/business/manual/finders.md#example" >}})
+* [Pagination modes]({{< ref "docs/business/manual/pagination.md#pagination-modes" >}})
+* [Usage]({{< ref "docs/business/manual/pagination.md#usage" >}})
+* [Example]({{< ref "docs/business/manual/pagination.md#example" >}})

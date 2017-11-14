@@ -9,7 +9,7 @@ tags:
     - domain-driven design
 menu:
     BusinessManual:
-        weight: 50
+        weight: 40
 ---
 
 {{% callout def %}}

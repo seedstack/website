@@ -19,6 +19,14 @@
             {{ if isset .Params "repo" }}
                 <a href="{{ .Params.repo }}">{{ .Params.repo }}</a>
             {{ end }}
+            <br/>
+            <div class="tags">
+            {{ if isset .Params "tags" }}
+                {{ range $tag := .Params.tags }}
+                <a href="{{ $.Site.BaseURL }}addons?f={{ $tag | urlize }}"><span style="padding: 2px;" class="label label-primary">{{ $tag | title }}</span></a>
+                {{ end }}
+            {{ end }}
+            </div>
         </div>
     </footer>
 </article>

@@ -25,7 +25,7 @@ it in a constructor.**
 A factory is part of the domain and responsible for creating some domain objects. In the business framework a factory
 can only create domain objects implementing {{< java "org.seedstack.business.Producible" >}}:
 
-* Aggregates through their aggregate root,
+* Aggregates,
 * Value objects,
 * Domain events.
 
@@ -37,12 +37,38 @@ Being responsible for creating valid aggregates, factories may need to create th
 input parameters given to the factory or by using a generation mechanism. This mechanism can be automated by the business
 framework, see [below]({{< ref "docs/business/manual/factories.md#identity-generation" >}}). 
 
-# Explicit factory
+# Default factory
+
+The business framework provides a default factory for each class implementing {{< java "org.seedstack.business.Producible" >}}
+that does not already has a [custom factory](#custom-factory). To use a default factory, [inject]({{< ref "docs/seed/dependency-injection.md" >}})
+the {{< java "org.seedstack.business.domain.Factory" >}} interface, with the type to create as generic parameter: 
+
+```java
+public class SomeClass {
+    @Inject
+    private Factory<SomeAggregate> someAggregateFactory;
+    
+    public void someMethod() {
+        SomeAggregate someAggregate = factory.create(new Name("John Doe"));
+    }
+}
+```
+
+The `create(...)` method can take any argument(s), and will:
+
+1. Try to find a constructor on the produced class that unambiguously matches the given argument types,
+2. Invoke this constructor if found or throw an exception if not,
+3. Use the {{< java "org.seedstack.business.domain.IdentityService" >}} to generate an identity on the produced object if
+necessary.
+
+# Custom factory
+
+If you need custom creation logic, it is necessary to define a custom factory.
 
 ## Declaration
 
-To declare a factory with the business framework, create an interface extending {{< java "org.seedstack.business.domain.Factory" >}},
-in the aggregate package, with at least one method for creating the produced object: 
+To declare a factory, create an interface extending {{< java "org.seedstack.business.domain.Factory" >}}, in the aggregate 
+package, with at least one method for creating the produced object: 
   
 ```java
 public interface SomeFactory extends Factory<SomeAggregate> {
@@ -50,9 +76,7 @@ public interface SomeFactory extends Factory<SomeAggregate> {
 }
 ```
   
-Then implement this interface in a class extending {{< java "org.seedstack.business.domain.BaseFactory" >}}. If the
-implementation does not depend upon technical aspects like a library, put it in the same package as the interface, otherwise
-move the implementation in the infrastructure package:
+Then implement this interface in a class extending {{< java "org.seedstack.business.domain.BaseFactory" >}}:
   
 ```java
 public class SomeFactoryImpl extends BaseFactory<SomeAggregate> implements SomeFactory {
@@ -62,11 +86,14 @@ public class SomeFactoryImpl extends BaseFactory<SomeAggregate> implements SomeF
         return someAggregate;
     }
 }
-```  
+``` 
+
+If the implementation does not depend upon technical aspects like a library, put it in the same package as the interface, 
+otherwise move the implementation in the infrastructure package.
 
 ## Usage
 
-To use your factory, [inject]({{< ref "docs/seed/dependency-injection.md" >}}) it where required: 
+To use your custom factory, [inject]({{< ref "docs/seed/dependency-injection.md" >}}) the custom interface: 
 
 ```java
 public class SomeClass {
@@ -79,32 +106,7 @@ public class SomeClass {
     }
 }
 ```
-
-{{% callout info %}}
-By default, factories are instantiated each time they are injected, avoiding the risk to wrongly keep an internal state 
-between uses. In some cases, after having well considered the issue, you can choose to make your factory a singleton by
-annotating the factory implementation with {{< java "javax.inject.Singleton" "@" >}}.
-{{% /callout %}}  
   
-# Default factory
-
-The business framework provides a default factory for each class implementing {{< java "org.seedstack.business.Producible" >}}
-that does not already has an explicit factory.
-    
-A default factory only provides a `create(...)` method. It will try to find a constructor of the produced class matching 
-the argument types and invoke it. It can be used like this:
-    
-```java
-public class SomeClass {
-    @Inject
-    private Factory<SomeAggregate> someAggregateFactory;
-    
-    public void someMethod() {
-        SomeAggregate someAggregate = factory.create(new Name("John Doe"));
-    }
-}
-```
-
 # Identity generation
 
 ## Declaration 
@@ -121,19 +123,9 @@ public class SomeAggregate extends BaseAggregateRoot<UUID> {
 }
 ```
 
-Instead of specifying a generator interface and a qualifier, you can also directly specify the generator implementation
-class (without qualifier). In the case above this would be:
-
-```java
-public class SomeAggregate extends BaseAggregateRoot<UUID> {
-    @Identity(generator = InMemorySequenceGenerator.class)
-    private Long id;
-}
-```
-
 ## Usage
 
-To automatically trigger the identity generation mechanism at the end of a factory creation method, annotate it with the 
+To automatically trigger the identity generation mechanism at the end of a creation method, annotate it with the 
 {{< java "org.seedstack.business.domain.Create" "@" >}} annotation:
 
 ```java
@@ -147,7 +139,7 @@ public class SomeFactoryImpl extends BaseFactory<SomeAggregate> implements SomeF
 }
 ```  
 
-As an alternative you can the generted identity programmatically by injecting the {{< java "org.seedstack.business.domain.IdentityService" >}}:
+As an alternative you can inject the generated identity programmatically by using the {{< java "org.seedstack.business.domain.IdentityService" >}}:
 
 ```java
 public class SomeClass {
@@ -169,15 +161,8 @@ trigger identity generation (automatically or manually) separately on each entit
 
 ## Class configuration
 
-It is often desirable to avoid specifying a technology-specific generator or a qualifier directly in the domain code. 
-To achieve this, you can specify the qualifier in [class configuration]({{< ref "docs/seed/configuration.md#class-configuration" >}}):
-
-```java
-public class SomeAggregate extends BaseAggregateRoot<UUID> {
-    @Identity(generator = SequenceGenerator.class)
-    private Long id;
-}
-```  
+To avoid specifying the generator qualifier in code, you can specify it as the `defaultGenerator` key in 
+[class configuration]({{< ref "docs/seed/configuration.md#class-configuration" >}}):
 
 ```yaml
 classes:
@@ -189,9 +174,6 @@ classes:
             someaggregate:
               defaultGenerator: org.seedstack.business.util.inmemory.InMemory
 ```
-
-The {{< java "org.seedstack.business.util.inmemory.InMemorySequenceGenerator" >}} implementation, being qualified with 
-{{< java "org.seedstack.business.util.inmemory.InMemory" "@" >}}, will be chosen to generate the identity.
 
 {{% callout info %}}
 The `defaultGenerator` property expects either: 

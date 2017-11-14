@@ -7,7 +7,13 @@
                 {{ $currentUrl := $parent.RelPermalink }}
                 {{ range index $parent.Site.Menus .Menu }}
                     {{ $active :=  eq $currentUrl .URL }}
+                    {{ $groupParam := lower (add (add (add (add "menu.group" ".") .Menu) ".") .Name) }}
                     <li>
+                        {{ if isset $.Site.Params $groupParam }}
+                        <div style="padding-top: 15px; padding-bottom: 5px;">
+                            <span style="color: darkgray; font-weight: bold;">{{ index $.Site.Params $groupParam }}</span>
+                        </div>
+                        {{ end }}
                         {{ if gt (len (index $parent.Site.Menus .Menu)) 1 }}
                             <a href="{{ .URL }}" class="list-group-item {{ if $active }} active {{ end }}">
                                 {{ .Name }}

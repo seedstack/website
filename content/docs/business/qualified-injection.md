@@ -117,10 +117,8 @@ To use it with the domain registry, pass the annotation class instead of the Str
 
 The business framework support qualified injection for the following patterns:
 
-* [Services]({{< ref "docs/business/manual/services.md" >}}),
 * [Factories]({{< ref "docs/business/manual/factories.md" >}}),
 * [Repositories]({{< ref "docs/business/manual/repositories.md" >}}),
+* [Services]({{< ref "docs/business/manual/services.md" >}}),
 * [Policies]({{< ref "docs/business/manual/policies.md" >}}),
-* [Assemblers]({{< ref "docs/business/manual/assemblers.md" >}}),
-* [Finders]({{< ref "docs/business/manual/finders.md" >}}).
-
+* [Assemblers]({{< ref "docs/business/manual/assemblers.md" >}}).

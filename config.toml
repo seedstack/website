@@ -4,6 +4,7 @@ MetaDataFormat = "yaml"
 [params]
   description = "SeedStack, Clean Java development stack"
   author = "The SeedStack authors"
+  numRelatedPosts = 2
   "javax.mail.version" = "1.4.8"
   "org.seedstack.version" = "17.7"
   "ch.qos.logback.version" = "1.2.3"
@@ -46,7 +47,17 @@ MetaDataFormat = "yaml"
   "org.seedstack.addons.w20.version" = "3.1.0"
   "org.seedstack.addons.web.version" = "1.0.0"
   "org.seedstack.addons.ws.version" = "3.0.0"
-  numRelatedPosts = 2
+
+  "menu.group.seedessentials.dependency injection" = "Basics"
+  "menu.group.seedessentials.error diagnostic" = "Troubleshooting"
+
+  "menu.group.businessessentials.domain-driven design" = "Basics"
+  "menu.group.businessessentials.reference material and books" = "Literature"
+
+  "menu.group.businessmanual.entities" = "Model"
+  "menu.group.businessmanual.factories" = "Lifecycle"
+  "menu.group.businessmanual.services" = "Behavior"
+  "menu.group.businessmanual.assemblers" = "Interfaces"
 
 [blackfriday]
   angledQuotes = true

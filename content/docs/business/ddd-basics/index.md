@@ -1,5 +1,5 @@
 ---
-title: "Domain-Driven Design basics"
+title: "Domain-Driven Design"
 type: "home"
 zones:
     - "Business"
@@ -13,11 +13,16 @@ menu:
         weight: 20
 ---
 
-Domain-Driven Design (DDD) is an approach to the development of software that:
- 
+**Domain-Driven Design (DDD)** is a term coined by Eric Evans in [his book]({{< ref "docs/business/bibliography/index.md" >}}) 
+"Domain-Driven design", published in 2003. It is an approach of software development that:
+
 * Focuses on the _core domain_.
 * Explores models in a creative collaboration between business experts and the software team.
 * Defines an ubiquitous language within an explicitly _bounded context_.
+
+DDD really shines when applied on medium to complex business needs but can also be used successfully on simpler projects, 
+especially since the business framework considerably lowers the cost of implementing such projects by providing many 
+helpers and base implementations.
 
 Domain-Driven Design has two sides, both equally important: 
 
@@ -57,3 +62,7 @@ understood and structured first.
 The following diagram represents the key patterns of tactical Domain-Driven Design and how they relate to each other. 
 
 ![Tactical domain-driven design](img/all-domain.png)
+
+{{% callout ref %}}
+Go further by reading source material described in the [bibliography]({{< ref "docs/business/bibliography/index.md" >}}).
+{{% /callout %}}

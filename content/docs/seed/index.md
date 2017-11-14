@@ -15,8 +15,6 @@ menu:
 SeedStack Java framework, also simply known as "Seed", is the foundation enabling you to build Java applications or 
 microservices easily and efficiently.<!--more--> 
 
-# Core dependency
-
 A minimal SeedStack project only requires the `seed-core` module and its dependencies in the classpath. We recommend
 using a dependency manager like [Maven](http://maven.apache.org) or [Gradle](http://gradle.io):
 
@@ -28,12 +26,4 @@ correct versions of each component and avoid specifying them in each dependency.
 for more information.
 {{% /callout %}} 
 
-# Other dependencies
-
-Java framework non-core functionality is available as separate modules. The documentation describes how to add such
-modules when needed. Besides, the Java framework can be also be completed by:
-                                 
-* The [business framework](/docs/business) for writing advanced business code,
-* Any [official add-on](/addons),
-* Any third-party add-on or library. 
 

@@ -4,7 +4,7 @@ type: "home"
 zones:
     - "Business"
 sections:
-    - "BusinessManual"
+    - "BusinessManual"   
 tags:
     - domain-driven design
 menu:
