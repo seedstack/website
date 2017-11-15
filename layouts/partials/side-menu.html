@@ -7,7 +7,7 @@
                 {{ $currentUrl := $parent.RelPermalink }}
                 {{ range index $parent.Site.Menus .Menu }}
                     {{ $active :=  eq $currentUrl .URL }}
-                    {{ $groupParam := lower (add (add (add (add "menu.group" ".") .Menu) ".") .Name) }}
+                    {{ $groupParam := lower (add (add (add (add "menu.group" ".") .Menu) ".") (.Name | urlize)) }}
                     <li>
                         {{ if isset $.Site.Params $groupParam }}
                         <div style="padding-top: 15px; padding-bottom: 5px;">

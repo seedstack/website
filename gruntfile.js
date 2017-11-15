@@ -9,6 +9,7 @@ var CONTENT_PATH_PREFIX = "content";
 
 module.exports = function (grunt) {
     var tokenizer = new natural.WordTokenizer();
+    grunt.log.writeln("Parsing config.toml");
     var config = toml.parse(grunt.file.read('config.toml'));
 
     function processContent(content) {
@@ -86,10 +87,10 @@ module.exports = function (grunt) {
                     content: processContent(splittedContent[2]),
                     summary: s(markdown.toHTML(splittedContent[2])).stripTags().truncate(300, "...").s.replace(/{{[^}]*}}/g, "")
                 };
-		
-		if (frontMatter.parent) {
-		    pageIndex.parent = frontMatter.parent;
-		}
+
+                if (frontMatter.parent) {
+                    pageIndex.parent = frontMatter.parent;
+                }
                 if (frontMatter.zones && config.params.zone[frontMatter.zones[0]] && frontMatter.sections && config.params.section[frontMatter.sections[0]]) {
                     pageIndex.zone = config.params.zone[frontMatter.zones[0]];
                     pageIndex.section = config.params.section[frontMatter.sections[0]];
@@ -111,50 +112,5 @@ module.exports = function (grunt) {
 
         grunt.file.write("static/lunr-index.json", JSON.stringify(indexPages()));
         grunt.log.ok("Index built");
-    });
-
-    grunt.registerTask("smoke-tests", function () {
-        var results = {};
-        var servers = [];
-        var idx = 0;
-
-        grunt.log.writeln("Building server results");
-
-        grunt.file.recurse("smoke-tests", function (abspath, rootdir, subdir, filename) {
-            if (s(filename).endsWith('.json')) {
-                grunt.log.writeln("Processing " + abspath);
-                var server = JSON.parse(grunt.file.read(abspath));
-
-                if (typeof server.serverName === 'string') {
-                    servers.push(server.serverName);
-
-                    _.each(server.results, function (value, key) {
-                        key = s(key.replace(".", "-")).humanize().s;
-                        var categoryResults = results[key] || {};
-
-                        _.each(value, function (result, test) {
-                            var sTest = s(test);
-                            if (sTest.startsWith("test")) {
-                                sTest = sTest.substring(4);
-                            }
-                            test = sTest.humanize().s;
-                            var testResults = categoryResults[test] || {success: [], messages: []};
-                            testResults.success[idx] = result.success;
-                            testResults.messages[idx] = result.message;
-                            categoryResults[test] = testResults;
-                        });
-
-                        results[key] = categoryResults;
-                    });
-
-                    idx++;
-                }
-            }
-        });
-
-        grunt.file.write("static/smoke-tests.json", JSON.stringify({
-            "servers": servers,
-            "results": results
-        }));
     });
 };
