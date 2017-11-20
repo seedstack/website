@@ -1,9 +1,8 @@
-{{ $section := index .Params.sections 0 }}
 <div class="title-header small">
     <div class="container">
         <div class="row">
             <div class="col-md-9 col-sm-12">
-                <h1>Project</h1>
+                <h1>Project info</h1>
                 <p class="hidden-xs">Information about the SeedStack project itself.</p>
             </div>
             <div class="col-md-3 hidden-sm hidden-xs">
@@ -12,16 +11,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="title-subheader">
-    <div class="container">
-        <ul>
-            <li><span class='{{ if eq $section "ProjectOverview" }}active{{ end }}'><i class="fa fa-info-circle"></i> <a href="{{ $.Site.BaseURL }}project">Overview</a></span></li>
-            <li><span class='{{ if eq $section "ProjectOldVersions" }}active{{ end }}'><i class="fa fa-archive"></i> <a href="{{ $.Site.BaseURL }}project/old-versions">Old versions</a></span></li>
-            <li><span class='{{ if eq $section "ProjectCommunity" }}active{{ end }}'><i class="fa fa-users"></i> <a href="{{ $.Site.BaseURL }}project/community">Community</a></span></li>
-            <li><span class='{{ if eq $section "ProjectRoadmap" }}active{{ end }}'><i class="fa fa-road"></i> <a href="{{ $.Site.BaseURL }}project/roadmap">Roadmap</a></span></li>
-            <li><span class='{{ if eq $section "ProjectFAQ" }}active{{ end }}'><i class="fa fa-question"></i> <a href="{{ $.Site.BaseURL }}project/faq">FAQ</a></span></li>
-        </ul>
     </div>
 </div>

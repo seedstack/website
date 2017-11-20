@@ -15,23 +15,23 @@ zones:
 
 We are happy to announce the release of SeedStack 15.11.2, the second incremental update of SeedStack 15.11.<!--more-->
 
-# Fixes
+## Fixes
 
 This mainly fixes the MongoDB, Neo4J, Redis and Solr add-ons which were not released correctly and therefore not
 usable at all. A minor fix is also present in W20.
 
-# Component versions
+## Component versions
 
 Updated components are highlighted in **bold** characters (with a link to the detailed change log).
 
-## Base
+### Base
 
 * poms: 2.3.0
 * seed: 2.2.0
 * business: 2.2.0
 * w20: **[2.2.1](https://github.com/seedstack/w20/releases/tag/v2.2.1)**
 
-## Add-ons
+### Add-ons
 
 * audit-addon: 2.1.0
 * monitoring-addon: 2.1.0
@@ -61,7 +61,7 @@ Updated components are highlighted in **bold** characters (with a link to the de
 * w20-bootstrap-2: 2.1.2
 * w20-bootstrap-3: 2.1.2
 
-## Themes
+### Themes
 
 * w20-simple-theme: 3.1.1
 * w20-business-theme: 1.1.3

@@ -6,18 +6,19 @@ tags:
     - architecture
 zones:
     - Guides
+noMenu: true    
 ---
 
 SeedStack is an extensible solution that can be enriched with add-ons to provide new functionality or features.
 Writing an add-on is not a difficult task as it is very similar to writing an application but some rules and
 conventions must be obeyed. This guide will describe these rules and conventions.<!--more-->
  
-# Project structure
+## Project structure
  
 An add-on almost always consists in an API/SPI with one or more implementations. Depending on the complexity of
 the add-on and the re-usability requirements, several project structures can be used.
 
-## Single-module add-on
+### Single-module add-on
 
 The simplest form of add-on is a single module project. In this case, the API/SPI and the implementation will be
 contained in a single JAR artifact. The typical single-module add-on structure is:
@@ -36,7 +37,7 @@ single-addon
 Example single module add-on: https://github.com/seedstack/jpa-addon
 {{% /callout %}}    
   
-## Add-on with a separated API/SPI
+### Add-on with a separated API/SPI
 
 When you need to provide the API/SPI to clients separately from the implementation you need to create a multi-module
 add-on:
@@ -66,7 +67,7 @@ multi-addon
 Java packages are still the same that found in the single module add-on but segregated in two maven modules.
 {{% /callout %}}    
 
-## Multiple implementations add-on
+### Multiple implementations add-on
 
 When you have multiple implementations or implementation extensions for an add-on you can add a new sub-module per
 implementation/extension. This type of add-on is the same a the previous one with additional sub-modules:
@@ -114,7 +115,7 @@ the specs module completely.
 Example multi-module add-on: https://github.com/seedstack/i18n-addon
 {{% /callout %}}
 
-# Dependencies
+## Dependencies
 
 As the add-on is a reusable component which will be used in various contexts, the rules on dependencies are
 tighter than on applications.
@@ -132,12 +133,12 @@ proper operation but must be provided downstream.
   * Or package those features in the core implementation, mark their dependencies as `optional` and use
 conditional code to initialize those features only when their dependency requirements are met.
 
-# API/SPI
+## API/SPI
 
 All API classes go in the base package of the add-on. All SPI classes go in a `spi` subpackage of the base package. Try
 to keep the API classes as flat as possible, ideally without subpackage.
 
-# Implementation 
+## Implementation 
 
 All implementation classes go in a `*.internal.*` which is completely excluded from backwards compatibility requirements
 between versions.

@@ -5,7 +5,6 @@
 </head>
 <body>
 {{ partial "initial-scripts.html" . }}
-{{ $paginator := .Paginate (where .Data.Pages.ByTitle "Title" "Introduction") }}
 <div id="header">
     {{ partial "top-menu.html" . }}
     {{ partial "guides-header.html" . }}
@@ -19,29 +18,23 @@
 </div>
 <div id="content" class="container">
     <div class="row">
-        <div class="col-md-9">
-            {{ $.Scratch.Set "guideCount" 0 }}
+        <div class="col-md-12 filter-column">
+            <form id="criteria">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="filter" placeholder="Filter...">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
             {{ range $element := (where .Data.Pages.ByDate.Reverse "Weight" 0) }}
-            {{ $.Scratch.Set "guideCount" (add ($.Scratch.Get "guideCount") 1) }}
             <div class="content-wrapper filterable-item" style="margin-bottom: 20px;">
                 <div class="doc-content">
                     {{ .Render "summary" }}
                 </div>
             </div>
             {{ end }}
-
-            <div class="text-right">
-                {{ template "_internal/pagination.html" . }}
-            </div>
-        </div>
-        <div class="col-md-3 filter-column">
-            <form id="criteria">
-                <h4 class="filter-column-header">{{ $.Scratch.Get "guideCount" }} guide(s)</h4>
-                <h4>Filter</h4>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="filter" placeholder="Enter filtering terms here...">
-                </div>
-            </form>
         </div>
     </div>
 </div>

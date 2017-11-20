@@ -20,30 +20,30 @@ Docker environment for your Web projects. <!--more-->
 See the [full changelog on GitHub](https://github.com/seedstack/distribution/releases/tag/v17.7).
 {{% /callout %}}
 
-# New features
+## New features
 
-## Amazon Web Services (AWS) add-on
+### Amazon Web Services (AWS) add-on
 
 A new AWS add-on provides the necessary support to run SeedStack code in [AWS Lambda](https://aws.amazon.com/lambda/details) 
 server-less architecture.
 
-## Consul add-on
+### Consul add-on
 
 A new [Consul add-on](http://seedstack.org/addons/consul) provides the ability to connect to one or more [Consul](https://www.consul.io/) 
 instances, providing service discovery and distributed configuration features.
 
-## Flyway add-on
+### Flyway add-on
 
 A new [Flyway add-on](http://seedstack.org/addons/flyway) provides automatic relational database migration using [Boxfuse Flyway](https://flywaydb.org/). 
 Databases configured with the JDBC add-on can automatically be migrated to their latest on application startup but tools
 are also available to these migrations or other maintenance tasks manually.
 
-## Web-bridge add-on
+### Web-bridge add-on
 
 Security-related REST API, used to bridge frontend clients to SeedStack backends have now been extracted from the W20 bridge
 add-on to a separate add-on, paving the way for Angular 2 and other frontend frameworks support. 
 
-## Improved project generator
+### Improved project generator
 
 The `generate` goal of the project generator has been vastly improved. It is now capable of asking questions during 
 generation and using the answers to customize the generated project. This is used to provide the following options in
@@ -54,11 +54,11 @@ the Web project template:
 * Automatic Dockerization of the generated project, including a Docker compose file with the database if you choose one
 of the supported persistences.
 
-## HTTP/2
+### HTTP/2
 
 HTTP/2 is now enabled by default when running a Web application with the Undertow embedded server.
 
-## New binding API
+### New binding API
 
 In addition to the existing `@Install` (which installs Guice modules) and `@ITBind` (which makes a class injectable during 
 tests), the following features have been added:
@@ -74,27 +74,27 @@ override any existing binding.
 See [@Bind](http://seedstack.org/javadoc/org/seedstack/seed/Bind.html) and [@Install](http://seedstack.org/javadoc/org/seedstack/seed/Install.html)
 javadoc.
 
-## Banner on startup
+### Banner on startup
 
 A default banner is now shown on SeedStack startup, displaying the version of the core and the version of the business
 framework if present. This banner can be replaced by adding a `banner.txt` file at the root of the classpath. Banners
 can be in color as shown by [this Nyan Cat example banner](https://gist.github.com/adrienlauer/f1515b5ee5e0ad9941d89d473f1d5a7a).
 
-## Improved support for form authentication
+### Improved support for form authentication
 
 Form authentication was possible before but necessitated multiple complex settings. Now all these setting are configurable
 under `security.web.form`. You can now also directly configure the redirect after success and redirect after logout URL
 with the `security.web.successUrl` and `security.web.logoutUrl` options.
 
-# Fixes
+## Fixes
 
 This version contains fixes in various components, please check individual component change logs for details.
 
-# Changes
+## Changes
 
 This version only contains minor breaking changes, please check individual component change logs for details. 
 
-## Upgraded dependencies
+### Upgraded dependencies
 
 Various libraries have been upgraded, the major ones being: 
 
@@ -107,21 +107,21 @@ Various libraries have been upgraded, the major ones being:
 
 See individual component change logs for the full list of upgraded libraries. 
 
-# Component versions
+## Component versions
 
-## General
+### General
 
 * poms: **[3.1.0](https://github.com/seedstack/poms/releases/tag/v3.1.0)**
 * seedstack-maven-plugin: **[2.6.0](https://github.com/seedstack/seedstack-maven-plugin/releases/tag/v2.6.0)**
 
-## Core
+### Core
 
 * shed: **[1.1.0](https://github.com/seedstack/shed/releases/tag/v1.1.0)**
 * coffig: **[3.0.1](https://github.com/seedstack/coffig/releases/tag/v3.0.1)**
 * seed: **[3.3.0](https://github.com/seedstack/seed/releases/tag/v3.3.0)**
 * business: **[3.1.0](https://github.com/seedstack/business/releases/tag/v3.1.0)**
 
-## Add-ons
+### Add-ons
 
 * audit-addon: **[3.0.0](https://github.com/seedstack/audit-addon/releases/tag/v3.0.0)**
 * aws-addon: **[1.0.0](https://github.com/seedstack/aws-addon/releases/tag/v1.0.0)**

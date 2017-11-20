@@ -1,8 +1,9 @@
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/yaml.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/gradle.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/gradle.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.1.0/highlightjs-line-numbers.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/0.5.9/lunr.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
@@ -20,8 +21,37 @@
             }
         });
 
+        function hideJavaImports(block) {
+            $(block).filter('.language-java')
+                .find('table > tbody > tr')
+                .each(function (i, javaLine) {
+                    var $javaLine = $(javaLine);
+                    var code = $javaLine.find("td.hljs-ln-code div.hljs-ln-line").text();
+                    if (/^package/.test(code) || /^import/.test(code) || code.trim().length === 0) {
+                        $javaLine.hide();
+                    } else {
+                        return false;
+                    }
+                });
+        }
+
         $('pre code').each(function (i, block) {
             hljs.highlightBlock(block);
+            hljs.lineNumbersBlock(block);
+
+            // Remove empty line added by numbering plugin
+            var lastLine = $(block).find('table > tbody > tr:last');
+            if (lastLine.text().trim() === "") {
+                lastLine.remove();
+            }
+
+            // Hide Java package and imports if any
+            hideJavaImports(block);
+        });
+
+        // loop through all h2 and h3 headers
+        $('.doc-content h2, .doc-content h3').each(function () {
+            $(this).append(" <a class='title-anchor' href='#" + this.id + "'>#</a>");
         });
 
         Mousetrap.bind('/', function () {
@@ -85,25 +115,33 @@
 
         bindShortcuts(seedstack.ui.shortcuts);
 
-        $('.quick-paste span').each(function(index, element) {
-            $(element).attr({"id" : "quick-paste-line"});
+        $('.quick-paste span').each(function (index, element) {
+            $(element).attr({"id": "quick-paste-line"});
             $(element).append("<span data-toggle=\"tooltip\" data-placement=\"top\" data-title=\"Copy\" data-clipboard-target=\"#quick-paste-line\" class=\"copy-button\"><i class=\"fa fa-clipboard\"></i></span>");
         });
         var preId = 0;
-        $('.doc-content pre').each(function(index, element) {
+        $('.doc-content pre').each(function (index, element) {
             preId++;
-            $(element).attr({"id" : "snippet-" + preId});
+            $(element).attr({"id": "snippet-" + preId});
             $(element).prepend("<span data-toggle=\"tooltip\" data-placement=\"left\" data-title=\"Copy\" data-clipboard-target=\"#snippet-" + preId + "\" class=\"copy-button\"><i class=\"fa fa-clipboard\"></i></span>");
         });
-        var clipboard = new Clipboard('.copy-button');
-        clipboard.on('success', function(e) {
+        var clipboard = new Clipboard('.copy-button', {
+            target: function (trigger) {
+                var elt = $($(trigger).data('clipboard-target'));
+                elt.find('code > table > tbody > tr').show();
+                return elt.get(0);
+            }
+        });
+        clipboard.on('success', function (e) {
+            var elt = $($(e.trigger).data('clipboard-target'));
+            hideJavaImports($(elt).children("code"));
+
             var tooltip = $("body #" + $(e.trigger).attr("aria-describedby"));
             tooltip.css('left', '-=14px');
             tooltip.children(".tooltip-inner").html("Copied!");
             e.clearSelection();
         });
-
-        clipboard.on('error', function(e) {
+        clipboard.on('error', function (e) {
             var tooltip = $("body #" + $(e.trigger).attr("aria-describedby"));
             tooltip.css('left', '-=83px');
             tooltip.children(".tooltip-inner").html("Error! Copy manually");
@@ -132,7 +170,7 @@
             }
         }
 
-        $(window).scroll(function(){
+        $(window).scroll(function () {
             if ($(this).scrollTop() > 200) {
                 $('.scrollup').fadeIn();
             } else {
@@ -140,15 +178,15 @@
             }
         });
 
-        $('.scrollup').click(function(){
-            $("html, body").animate({ scrollTop: 0 }, 250);
+        $('.scrollup').click(function () {
+            $("html, body").animate({scrollTop: 0}, 250);
             return false;
         });
     });
 </script>
 <script>window.twttr = (function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0], t = window.twttr || {};
-    if (d.getElementById(id))return t;
+    if (d.getElementById(id)) return t;
     js = d.createElement(s);
     js.id = id;
     js.src = "https://platform.twitter.com/widgets.js";

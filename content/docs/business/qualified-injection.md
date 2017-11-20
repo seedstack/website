@@ -2,32 +2,29 @@
 title: "Qualified injection"
 type: "home"
 zones:
-    - "Business"
-sections:
-    - "BusinessEssentials"
-tags:
-    - "injection"
+    - "Docs"
 tags:
     - essentials
     - domain-driven design
     - injection
 menu:
-    BusinessEssentials:
-        weight: 50
+    docs:
+        parent: "business"
+        weight: 5
 ---
 
-In the business framework, you always [inject]({{< ref "docs/seed/dependency-injection.md" >}}) dependencies by interface
+In the business framework, you always [inject]({{< ref "docs/basics/dependency-injection.md" >}}) dependencies by interface
 not by implementation class. For each injection point, two situations are possible:
 
 * If only one implementation exists for a specific interface, it is injected without ambiguity.
 * If multiple exists for a specific interface, the injection point should be qualified to select the implementation to 
 inject. This done by putting an **qualifier annotation** along the {{< java "javax.inject.Inject" "@" >}} annotation. 
 
-# Built-in qualifiers
+## Built-in qualifiers
 
 SeedStack provides several built-in qualifiers. 
 
-## @InMemory 
+### @InMemory 
 
 The {{< java "org.seedstack.business.util.inmemory.InMemory" "@" >}} qualifier denotes an implementation that stores its state
 in memory only. It currently can be applied to:
@@ -37,7 +34,7 @@ stores aggregates in a map.
 * The {{< java "org.seedstack.business.util.SequenceGenerator" >}} interface for selecting an implementation that generates
 a sequence of numbers with an {{< java "java.util.concurrent.atomic.AtomicLong" >}}. 
 
-## @Random
+### @Random
 
 The {{< java "org.seedstack.business.util.random.Random" "@" >}} qualifier denotes an implementation that uses random values.
 It currently can be applied to:
@@ -45,16 +42,16 @@ It currently can be applied to:
 * The {{< java "org.seedstack.business.util.UuidGenerator" >}} interface for selecting an implementation that generates
 a random {{< java "java.util.UUID" >}}. 
 
-## Other built-in qualifiers
+### Other built-in qualifiers
 
 Other qualifiers can be found in [add-ons]({{< baseUrl >}}addons), particularly in persistence add-ons.
 
-# Generic @Named qualifier 
+## Generic @Named qualifier 
 
 The {{< java "javax.inject.Named" "@" >}} annotation is a qualifier that uses a String as the qualifying element. This is
 the only qualifier that is part of the JSR-330 standard.
  
-As an example, consider the following [policy]({{< ref "docs/business/manual/policies.md" >}}%) interface:
+As an example, consider the following [policy]({{< ref "docs/business/policies.md" >}}%) interface:
 
 ```java
 @Policy
@@ -114,7 +111,7 @@ public class SomeClass {
 }
 ```
 
-# Defining a custom qualifier
+## Defining a custom qualifier
 
 You can choose to write your own qualifier. To do this, create a custom annotation that is itself annotated by 
 {{< java "javax.inject.Qualifier" "@" >}}:
@@ -148,13 +145,13 @@ public class SomeClass {
 }
 ```
 
-# Patterns supporting qualifiers
+## Patterns supporting qualifiers
 
 The business framework support qualified injection for the following interfaces:
 
-* [Factories]({{< ref "docs/business/manual/factories.md" >}}),
-* [Identity generators]({{< ref "docs/business/manual/factories.md#identity-generation" >}}),
-* [Repositories]({{< ref "docs/business/manual/repositories.md" >}}),
-* [Services]({{< ref "docs/business/manual/services.md" >}}),
-* [Policies]({{< ref "docs/business/manual/policies.md" >}}),
-* [Assemblers]({{< ref "docs/business/manual/assemblers.md" >}}).
+* [Factories]({{< ref "docs/business/factories.md" >}}),
+* [Identity generators]({{< ref "docs/business/factories.md#identity-generation" >}}),
+* [Repositories]({{< ref "docs/business/repositories.md" >}}),
+* [Services]({{< ref "docs/business/services.md" >}}),
+* [Policies]({{< ref "docs/business/policies.md" >}}),
+* [Assemblers]({{< ref "docs/business/assemblers.md" >}}).

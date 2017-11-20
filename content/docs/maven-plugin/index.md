@@ -1,28 +1,25 @@
 ---
-title: "Maven plugin"
+title: "Usage"
 type: "home"
 zones:
-    - "MavenPlugin"
-sections:
-    - "MavenPluginEssentials"
-aliases:
-    - "/docs/seed/maven-plugin"
+    - "Docs"
 tags:
     - maven
 menu:
-    MavenPluginEssentials:
+    docs:
+        parent: "maven"
         weight: 10
 ---
 
 The SeedStack Maven plugin provides goals to manage SeedStack-based artifacts.<!--more--> 
 
-# Usage
-
 To invoke the plugin, use the following command line:
 
-    mvn org.seedstack:seedstack-maven-plugin:<goal>
+```bash 
+mvn org.seedstack:seedstack-maven-plugin:<goal>
+```
 
-On official project templates, you can execute the shortened command:
+On generated projects, you can execute the shortened command:
  
 ```bash 
 mvn seedstack:<goal>
@@ -37,7 +34,7 @@ This is because the project POM already contains the full coordinates of the plu
             <plugin>
                 <groupId>org.seedstack</groupId>
                 <artifactId>seedstack-maven-plugin</artifactId>
-                <version>__LATEST_VERSION_HERE__</version>
+                <version>{{< version g="org.seedstack.maven" >}}</version>
             </plugin>
         </plugins>
     </pluginManagement>
@@ -47,7 +44,7 @@ This is because the project POM already contains the full coordinates of the plu
 An alternative is to edit your Maven `settings.xml` file to add the groupId `org.seedstack` to the `<pluginGroups>` list.
 More information about Maven plugin prefix mapping [here](http://maven.apache.org/guides/introduction/introduction-to-plugin-prefix-mapping.html).        
 
-# Shell function 
+## Shell function 
 
 To simplify the invocation of the SeedStack plugin you can define the following UNIX shell function in your profile:
 

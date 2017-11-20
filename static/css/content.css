@@ -3,12 +3,8 @@
     border-bottom: #ccc solid 1px;
 }
 
-#content .filter-column {
-    border-left: 1px solid lightgrey;
-}
-
 .content-wrapper {
-    padding: 40px 30px 19px 30px;
+    padding: 20px 30px 19px 30px;
     background-color: white;
 }
 
@@ -48,22 +44,12 @@
     margin: 0;
 }
 
-.doc-content > p:first-of-type {
-    margin-bottom: 20px;
-}
-
-.doc-content > p:first-of-type::first-letter {
-    font-size: 2em;
-}
-
 .doc-content p + p {
-    text-indent: 1em;
     margin-top: 20px;
 }
 
 .doc-content ul, .doc-content ol {
     margin: 20px 0 20px 0;
-    padding: 0;
 }
 
 .doc-content ul ul {
@@ -74,12 +60,20 @@
     margin-left: 20px;
 }
 
+.doc-content h1,
+.doc-content h2,
+.doc-content h3,
+.doc-content h4,
+.doc-content h5,
+.doc-content h6 {
+    color: rgb(2, 106, 127);
+}
+
 .doc-content h1 {
     font-weight: 400;
-    border-bottom: 1px solid #555;
-    font-size: 30px;
+    font-size: 40px;
     line-height: 40px;
-    margin: 40px 0 39px 0;
+    margin: 40px 0 40px 0;
 }
 
 .doc-content h1:first-child {
@@ -87,22 +81,17 @@
 }
 
 .doc-content h2 {
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 20px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 40px;
     margin: 20px 0 20px 0;
-}
-
-.doc-content h2:first-child {
-    margin-top: 0;
 }
 
 .doc-content h3,
 .doc-content h4 {
-    font-size: 16px;
+    font-size: 18px;
     font-style: italic;
-    font-weight: bold;
-    margin: 0;
+    margin: 20px 0 20px 0;
 }
 
 .doc-content h5,
@@ -132,16 +121,21 @@
     padding: 0;
     white-space: pre;
     word-break: normal;
-    word-wrap: normal;}
+    word-wrap: normal;
+}
 
 .doc-content pre .copy-button {
     position: absolute;
     right: 50px;
-    margin: 10px 20px 0;
+    margin: 2px 20px 0;
     opacity: 0;
     transition: opacity .2s ease-out;
     color: grey;
     cursor: pointer;
+}
+
+.doc-content .callout pre .copy-button {
+    right: 80px;
 }
 
 .doc-content pre:hover .copy-button {
@@ -166,7 +160,6 @@
 }
 
 .doc-content pre code {
-    padding: 10px;
     display: block;
 }
 
@@ -192,6 +185,7 @@
     display: inline-block;
     margin: 0;
 }
+
 .doc-content blockquote {
     margin: 20px 0 20px 0;
     font-size: 14px;
@@ -211,66 +205,6 @@
     font-size: 4em;
     line-height: 20px;
     margin-right: 0.1em;
-}
-
-
-.doc-content {
-    counter-reset : h1;
-}
-
-.doc-content h1 {
-    counter-reset : h2;
-}
-
-.doc-content h2 {
-    counter-reset : h3;
-}
-
-.doc-content h3 {
-    counter-reset : h4;
-}
-
-.doc-content h4 {
-    counter-reset : h5;
-}
-
-.doc-content h5 {
-    counter-reset : h6;
-}
-
-.doc-content h1:before {
-    content : counter(h1,decimal) ". ";
-    counter-increment : h1;
-}
-
-.doc-content h2:before {
-    content : counter(h1,decimal) "." counter(h2,decimal) ". ";
-    counter-increment : h2;
-}
-
-.doc-content h3:before {
-    content : counter(h1,decimal) "." counter(h2,decimal) "." counter(h3,decimal) ". ";
-    counter-increment : h3;
-}
-
-.doc-content h4:before {
-    content : counter(h1,decimal) "." counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) ". ";
-    counter-increment : h4;
-}
-
-.doc-content h5:before {
-    content : counter(h1,decimal) "." counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) "." counter(h5,decimal) ". ";
-    counter-increment : h5;
-}
-
-.doc-content h6:before {
-    content : counter(h1,decimal) "." counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) "." counter(h5,decimal) "." counter(h6,decimal) ". ";
-    counter-increment : h6;
-}
-
-.doc-content h1.nocount:before, .doc-content h2.nocount:before, .doc-content h3.nocount:before, .doc-content h4.nocount:before, .doc-content h5.nocount:before, .doc-content h6.nocount:before {
-    content : "";
-    counter-increment : none;
 }
 
 .callout {
@@ -422,6 +356,44 @@
 
 .top-pagination .pagination {
     margin-top: 0;
+}
+
+.doc-content table.hljs-ln {
+    margin: 0;
+}
+
+.doc-content td.hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    font-weight: 300;
+    font-size: smaller;
+    text-align: center;
+    color: #ddd;
+    border-right: 1px solid #CCC;
+    vertical-align: top;
+    padding: 0 5px 0 5px;
+    margin: 0;
+}
+
+.doc-content td.hljs-ln-code {
+    padding-left: 10px;
+}
+
+.doc-content .title-anchor {
+    text-decoration: none;
+    color: #aaa;
+    opacity: 0;
+    transition: opacity .25s ease-in;
+}
+
+.doc-content h2:hover .title-anchor,
+.doc-content h3:hover .title-anchor {
+    opacity: 1;
 }
 
 @media (max-width: 767px) {
