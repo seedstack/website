@@ -5,6 +5,7 @@ zones:
     - "Docs"
 tags:
     - maven
+aliases: /docs/maven-plugin/manual/crypt    
 menu:
     docs:
         parent: "maven"

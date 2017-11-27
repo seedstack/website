@@ -6,6 +6,7 @@ zones:
 tags:
     - domain-driven design
     - architecture 
+aliases: /docs/business/architecture    
 menu:
     docs:
         parent: "business"

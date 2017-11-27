@@ -8,6 +8,7 @@ tags:
     - API
     - web
     - interfaces
+aliases: /docs/seed/manual/rest    
 menu:
     docs:
         weight: 4

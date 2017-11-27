@@ -5,6 +5,7 @@ zones:
     - "Docs"
 tags:
     - logging
+aliases: /docs/seed/logging    
 menu:
     docs:
         parent: "core"

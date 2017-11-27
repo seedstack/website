@@ -2,8 +2,6 @@
 title: "Glossary"
 type: "home"
 noMenu: true
-sections:
-    - "GlossaryAll"
 zones:
     - "Glossary"
 ---

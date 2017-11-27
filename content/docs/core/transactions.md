@@ -5,6 +5,7 @@ zones:
     - "Docs"
 tags:
     - transactions
+aliases: /docs/seed/manual/transactions    
 menu:
     docs:
         weight: 80

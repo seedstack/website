@@ -114,3 +114,7 @@
 	path = content/addons/aws
 	url = https://github.com/seedstack/aws-addon.git
 	branch = docs
+[submodule "content/addons/kafka"]
+	path = content/addons/kafka
+	url = https://github.com/seedstack/kafka-addon.git
+	branch = docs

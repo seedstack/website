@@ -6,6 +6,7 @@ zones:
     - Guides
 tags:
     - domain-driven design
+aliases: /guides/ddd-pitfalls-and-tips/entities-and-value-objects
 menu:
     DDD for beginners:
         parent: "contents"

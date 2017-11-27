@@ -27,6 +27,11 @@
     margin-bottom: 30px;
 }
 
+hr {
+    margin: 10px 0 10px 0;
+    border-color: #ccc;
+}
+
 .doc-content {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 14px;
@@ -115,6 +120,7 @@
 }
 
 .doc-content code {
+    background-color: #fafafa;
     font-family: 'Source Code Pro', 'Courier New', monospace;
     font-size: 14px;
     line-height: 20px;
@@ -394,6 +400,14 @@
 .doc-content h2:hover .title-anchor,
 .doc-content h3:hover .title-anchor {
     opacity: 1;
+}
+
+.gsc-control-cse .gs-spelling, .gsc-control-cse .gs-result .gs-title, .gsc-control-cse .gs-result .gs-title * {
+    line-height: 20px !important;
+}
+
+.gsc-table-result, .gsc-thumbnail-inside, .gsc-url-top {
+    padding-left: 0 !important;
 }
 
 @media (max-width: 767px) {

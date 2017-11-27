@@ -3,9 +3,10 @@ title: "Members"
 type: home
 zones:
     - Community
+aliases: /project/community/members    
 menu:
     community:
-        parent: "project"
+        parent: "people"
         weight: 2
 ---
 

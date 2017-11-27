@@ -3,6 +3,7 @@ title: "Contact"
 type: home
 zones:
     - Community
+aliases: /project/community    
 menu:
     community:
         weight: -100

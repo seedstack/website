@@ -3,6 +3,7 @@ title: "Older docs"
 type: "home"
 zones:
     - "Project"
+aliases: /project/old-versions    
 menu:
     project:
         parent: "project"

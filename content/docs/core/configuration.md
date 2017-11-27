@@ -5,6 +5,7 @@ zones:
     - "Docs"
 tags:
     - configuration
+aliases: /docs/seed/configuration    
 menu:
     docs:
         parent: "core"

@@ -5,6 +5,7 @@ zones:
     - "Docs"
 tags:
     - maven
+aliases: /docs/maven-plugin/manual/tool    
 menu:
     docs:
         parent: "maven"

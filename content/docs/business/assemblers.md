@@ -6,6 +6,7 @@ zones:
 tags:
     - domain-driven design
     - interfaces
+aliases: /docs/business/manual/assemblers    
 menu:
     docs:
         parent: "business"

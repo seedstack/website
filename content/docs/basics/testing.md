@@ -25,7 +25,7 @@ Testing support requires the following dependency in your project:
 Be sure to specify the `test` scope for this dependency.
 {{% /callout %}}
 
-# Unit tests
+## Unit tests
 
 The purpose of unit tests is to take a small and testable part of a program, isolate it from any dependency (injection, 
 databases, network, file system, ...) by mocking them and check whether it behaves exactly as expected. The main goal is 
@@ -36,7 +36,7 @@ SeedStack doesn't go beyond providing basic but useful test libraries:
 * [AssertJ](http://joel-costigliola.github.io/assertj/), 
 * [Mockito](http://mockito.org/).
 
-# Integration tests
+## Integration tests
 
 The purpose of integration tests is to pick multiple components at once and test them as a whole. Integration tests can 
 range from a testing a simple operation involving two classes to an entire application setup with all its dependencies 
@@ -46,7 +46,7 @@ Their main goal is to detect issues appearing when components interact with each
 used to validate technical behavior, such as the correct operation of a group of components, or can extend beyond to verify 
 the global program behavior in regard to functional expectations.
 
-## Simple integration tests
+### Simple integration tests
 
 When a Web server is not required for testing, use the {{< java "org.seedstack.seed.it.SeedITRunner" >}} 
 JUnit runner by applying the {{< java "org.junit.runner.RunWith" "@" >}} annotation on your test class:
@@ -88,7 +88,7 @@ Simple integration tests run faster than Web integration tests are simpler to ma
 Web testing is not necessary and be supplemented with the minimal amount of Web integration tests.
 {{% /callout %}}
 
-# Web integration tests
+## Web integration tests
 	
 SeedStack uses [Arquillian](http://arquillian.org/) to do Web testing. These kind of integration tests allow to 
 programmatically define the Web archive (WAR) and test it either from server-side or from client-side. 
@@ -147,63 +147,3 @@ annotated parameter.
 a custom `arquillian.xml` file at the root of the classpath. Arquillian provides many more features than described in
 this section. For more information about Arquillian, visit the [official website](http://arquillian.org/). 
 {{% /callout %}}
-
-# Multiple test folders
-
-You may want to separate integration tests and unit tests into different source folders. If you use Maven your can
-do so by adding the following configuration to your project root `pom.xml`:
-
-```xml
-<build>
-  <testResources>
-    <testResource>
-      <directory>src/it/resources</directory>
-    </testResource>
-    <testResource>
-      <directory>src/test/resources</directory>
-    </testResource>
-  </testResources>
-  <plugins>
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-failsafe-plugin</artifactId>
-      <version>...</version>
-      <executions>
-        <execution>
-          <id>execute-integration-tests</id>
-          <phase>integration-test</phase>
-          <goals>
-            <goal>integration-test</goal>
-          </goals>
-        </execution>
-        <execution>
-          <id>verify-integration-tests</id>
-          <phase>verify</phase>
-          <goals>
-            <goal>verify</goal>
-          </goals>
-        </execution>
-      </executions>
-    </plugin>
-    <plugin>
-      <groupId>org.codehaus.mojo</groupId>
-      <artifactId>build-helper-maven-plugin</artifactId>
-      <version>...</version>
-      <executions>
-        <execution>
-          <id>add-it-sources</id>
-          <phase>generate-test-sources</phase>
-          <goals>
-            <goal>add-test-source</goal>
-          </goals>
-          <configuration>
-            <sources>
-              <source>src/it/java</source>
-            </sources>
-          </configuration>
-        </execution>
-      </executions>
-    </plugin>
-  </plugins>
-</build>
-```

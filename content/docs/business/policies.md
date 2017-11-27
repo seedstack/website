@@ -3,8 +3,7 @@ title: "Policies"
 type: "home"
 zones:
     - "Docs"
-sections:
-    - "BusinessManual"
+aliases: /docs/business/manual/policies    
 menu:
     docs:
         parent: "business"

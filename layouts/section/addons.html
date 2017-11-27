@@ -28,9 +28,11 @@
     </div>
     <div class="row">
         <div class="col-md-12 addon-items">
+            {{ $.Scratch.Set "addonCount" 0 }}
             {{ $addons := (where (.Data.Pages.ByParam "addon") "Weight" 0) }}
             <div class="row">
             {{ range $index, $element := $addons }}
+            {{ $.Scratch.Set "addonCount" (add ($.Scratch.Get "addonCount") 1) }}
             {{ if eq (mod $index 3) 0 }}
                 <div class="col-md-4 filterable-item" style="margin-bottom: 20px;">
                     <div class="item-wrapper">
@@ -47,9 +49,9 @@
                 {{ if eq $index (sub (len $addons) 1) }}
                 </div>
                 {{ end }}
-            
             {{ end }}
         </div>
+        <h4 style="text-align: center; margin-top: 20px;">{{ $.Scratch.Get "addonCount" }} add-on(s)</h4>
     </div>
 </div>
 {{ partial "filter-script.html" }}

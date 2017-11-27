@@ -6,6 +6,7 @@ zones:
 tags:
     - domain-driven design
     - persistence
+aliases: /docs/business/manual/repositories    
 menu:
     docs:
         parent: "business"

@@ -3,6 +3,7 @@ title: "Launchers"
 type: "home"
 zones:
     - "Docs"
+aliases: /docs/seed/manual/running    
 tags:
     - cli
 menu:

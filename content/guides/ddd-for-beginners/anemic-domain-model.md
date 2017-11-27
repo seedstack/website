@@ -6,6 +6,7 @@ zones:
     - Guides
 tags:
     - domain-driven design
+aliases: /guides/ddd-pitfalls-and-tips/anemic-domain-model
 menu:
     DDD for beginners:
         parent: "contents"

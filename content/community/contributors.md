@@ -5,7 +5,7 @@ zones:
     - Community
 menu:
     community:
-        parent: "project"
+        parent: "people"
         weight: 3
 ---
 

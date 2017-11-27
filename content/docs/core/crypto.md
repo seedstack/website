@@ -3,6 +3,7 @@ title: "Cryptography"
 type: "home"
 zones:
     - "Docs"
+aliases: /docs/seed/manual/crypto    
 menu:
     docs:
         weight: 70

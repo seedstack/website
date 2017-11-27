@@ -12,7 +12,7 @@ menu:
         parent: "web"
 ---
 
-In a Web application, security can also be enforced at the HTTP-level by a servlet filter using URL filtering patterns. 
+In a Web application, security can be enforced at the HTTP-level by a servlet filter using URL filtering patterns. 
 This feature requires the following dependency in your project:
 
 {{< dependency g="org.seedstack.seed" a="seed-web-security" >}}

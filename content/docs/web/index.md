@@ -6,6 +6,7 @@ zones:
 tags:
     - web
     - interfaces
+aliases: /docs/seed/manual/web    
 menu:
     docs:
         weight: 1

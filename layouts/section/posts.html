@@ -21,20 +21,24 @@
         <div class="col-md-12 filter-column">
             <form id="criteria">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="filter" placeholder="Filter...">
+                    <input class="form-control" id="filter" placeholder="Filter...">
                 </div>
             </form>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            {{ range .Data.Pages }}
-            <div class="content-wrapper filterable-item" style="margin-bottom: 20px;">
-                <div class="doc-content">
+            <div class="content-wrapper">
+                {{ $.Scratch.Set "postCount" 0 }}
+                {{ range .Data.Pages }}
+                {{ $.Scratch.Set "postCount" (add ($.Scratch.Get "postCount") 1) }}
+                <div class="filterable-item" style="margin-bottom: 20px;">
                     {{ .Render "summary" }}
                 </div>
+                <hr>
+                {{ end }}
             </div>
-            {{ end }}
+            <h4 style="text-align: center; margin-top: 20px;">{{ $.Scratch.Get "postCount" }} post(s)</h4>
         </div>
     </div>
 </div>

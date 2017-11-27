@@ -5,6 +5,7 @@ zones:
     - "Docs"
 tags:
     - cli    
+aliases: /docs/seed/manual/cli
 menu:
     docs:
         parent: "core"

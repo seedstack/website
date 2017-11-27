@@ -5,6 +5,7 @@ zones:
     - "Docs"
 tags:
     - domain-driven design
+aliases: /docs/business/manual/entities    
 menu:
     docs:
         parent: "business"

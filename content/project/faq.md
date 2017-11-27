@@ -3,6 +3,7 @@ title: "FAQ"
 type: "home"
 zones:
     - "Project"
+aliases:     
 menu:
     project:
         parent: "project"
