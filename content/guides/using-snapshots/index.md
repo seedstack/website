@@ -1,11 +1,12 @@
 ---
-title: "Using SeedStack development snapshots"
+title: "Using development snapshots"
 author: "Adrien LAUER"
 date: 2016-02-19
 tags:
     - maven
 zones:
     - Guides
+noMenu: true
 ---
 
 Sometimes there is a need to use a development version of a SeedStack component in your project, **for testing purposes**.
@@ -17,7 +18,7 @@ SeedStack Java components are available as Maven dependencies at the following l
  and [Maven central](http://search.maven.org/).
 * Development snapshots are available on [JFrog OSS Artifactory](https://oss.jfrog.org/artifactory/webapp/#/artifacts/browse/simple/General/oss-snapshot-local/org/seedstack).
 
-# Proxy configuration
+## Proxy configuration
 
 In the case where you are behind a corporate proxy, you must configure Maven to go through the proxy. You can do so, by
 following [this documentation](https://maven.apache.org/guides/mini/guide-proxies.html).
@@ -41,12 +42,12 @@ following [this documentation](https://maven.apache.org/guides/mini/guide-proxie
 </settings>
 ```
 
-# Configuring Maven for SeedStack snapshots
+## Configuring Maven for SeedStack snapshots
 
 You can configure access to SeedStack snapshots located on JFrog OSS Artifactory. You can do this either specifically for
 a project or globally in your system-wide Maven settings.
 
-## Project-specific
+### Project-specific
 
 To access snapshots, you need to add the following repository definitions to your project POM:
 
@@ -82,7 +83,7 @@ Note that the `<pluginRepositories>` section is only needed if you want use deve
 plugin](http://seedstack.org/docs/seed/maven-plugin/).
 {{% /callout %}}
 
-## System-wide configuration
+### System-wide configuration
 
 Update your Maven `settings.xml` file which is located by default under `~/.m2/settings.xml` with the following profile:
 

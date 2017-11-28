@@ -7,12 +7,13 @@ tags:
     - API
 zones:
     - Guides
+noMenu: true
 ---
 
 JAX-RS is a specification providing a standard way to write REST resources in Java. SeedStack implements the JAX-RS
 standard through the [Jersey 2](https://jersey.java.net/) implementation.<!--more-->
 
-# Working with JAX-RS resources
+## Working with JAX-RS resources
 
 JAX-RS resources are annotated with at least a {{< java "javax.ws.rs.Path" "@" >}} and an HTTP verb annotation:
 
@@ -45,28 +46,28 @@ Hello world
 You can find more information about how to declare JAX-RS resources [here](https://jersey.java.net/documentation/latest/jaxrs-resources.html).
 {{% /callout %}} 
 
-## Requests
+### Requests
 
 An HTTP request is mapped to resource method according to its: path, verb and content-type. If no resource method matches 
 an HTTP request, the HTTP status 405 (method not allowed) is returned.
 
-### Path
+#### Path
 
 The resource path is determined by the {{< java "javax.ws.rs.Path" "@" >}} annotation. This annotation is **mandatory** 
 on the class and can be also added on the method to express the notion of sub-resources. The annotation value parameter 
 contains the relative URI path which can be an URI template or even a regular expression.
 
-### Verb
+#### Verb
 
 HTTP verb is determined by a corresponding annotation. Each verb has its own annotation: {{< java "javax.ws.rs.GET" "@" >}},
 {{< java "javax.ws.rs.POST" "@" >}}, {{< java "javax.ws.rs.PUT" "@" >}}, {{< java "javax.ws.rs.DELETE" "@" >}}, etc...
 
-### Content-type
+#### Content-type
 
 Content-type negotiation and mapping is determined by the {{< java "javax.ws.rs.Produces" "@" >}} and 
 {{< java "javax.ws.rs.Consumes" "@" >}} annotations.
 
-## Responses
+### Responses
 
 JAX-RS allows to return a detailed response using the Response builder methods. For instance the following resource 
 will return HTTP status code 201 (Created) with the URI of the created resource.
@@ -104,12 +105,12 @@ public class ProductsResource {
 }
 ```
 
-# Exception handling
+## Exception handling
 
 Exception handling is an important part of any API design. Carefully designed error handling will allow you to provide 
 meaningful status codes and messages to the client instead of returning a 500 HTTP response every time.
 
-## Web application exceptions
+### Web application exceptions
 
 One way to implement clean exception handling in your REST API is to use the {{< java "javax.ws.rs.WebApplicationException" >}}
 class, either directly or one of its predefined sub-classes or by extending the class yourself:  
@@ -125,7 +126,7 @@ public class ProductNotFoundException extends WebApplicationException {
 
 If the exception is thrown from within a resource method, the server will return an HTTP status code `404`. 
  
-## Exception mappers
+### Exception mappers
  
 Another way of implementing exception handling is to map existing exceptions to a {{< java "javax.ws.rs.core.Response" >}}
 by implementing an {{< java "javax.ws.rs.ext.ExceptionMapper" >}} and annotating it with {{< java "javax.ws.rs.ext.Provider" >}}: 
@@ -146,9 +147,9 @@ public class MyExceptionMapper implements ExceptionMapper<MyException> {
 If the a `MyException` exception class is thrown from a JAX-RS resource, the server will return an HTTP status code `400`
 with custom details as the returned entity.
 
-# Working with streams
+## Working with streams
 
-## Sending a stream
+### Sending a stream
 
 To stream raw bytes (like image data) to the client, JAX-RS can return a special object:
 
@@ -167,7 +168,7 @@ public class MyStreamingResource {
 }
 ```
 
-## Receiving a stream
+### Receiving a stream
 
 To receive a raw bytes stream (like a file upload), JAX-RS can provide a Reader or an InputStream:
 
@@ -189,7 +190,7 @@ public class FileResource {
 }
 ```
 
-# Custom formats
+## Custom formats
 
 SeedStack REST support works out-of-the-box with XML and JSON formats. If you requires a custom format, you can implement
 your own readers and/or writers:

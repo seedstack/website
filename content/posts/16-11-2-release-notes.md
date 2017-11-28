@@ -20,7 +20,7 @@ This post is about the revision 2 of SeedStack 16.11 which is the recommended ve
 no release note for 16.11 and 16.11.1 versions.
 {{% /callout %}}
 
-# W20
+## W20
 
 The JavaScript W20 framework is no longer a part of SeedStack itself and has been moved to its own [Github organization](https://github.com/w20-framework)
 in which it will continue to evolve separately. This change makes of SeedStack, a full Java development solution. This 
@@ -33,9 +33,9 @@ between SeedStack and W20.
 W20 document is now available on [https://w20-framework.github.io/](https://w20-framework.github.io/).
 {{% /callout %}}
 
-# New features
+## New features
 
-## Configuration system
+### Configuration system
 
 As of version 16.11, SeedStack is changing from a basic key-value configuration system to something much more sophisticated
 yet still simple to use. This new configuration system is internally named [Coffig](https://github.com/seedstack/coffig)
@@ -59,10 +59,10 @@ properties, class
 * Automatic hiding of sensitive information (like password)
 
 {{% callout ref %}}
-More information [here]({{< ref "docs/seed/configuration.md" >}}).
+More information [here]({{< ref "docs/core/configuration.md" >}}).
 {{% /callout %}}
 
-## Tooling support
+### Tooling support
 
 SeedStack 16.11 adds support for tools that can be run on the project to execute a particular task. In tool mode, 
 the application is initialized with the minimal amount of plugins necessary to execute the task but never fully started.
@@ -81,13 +81,13 @@ The following tools are built-in in this version:
 * `crypt` which can crypt its arguments using the master key store configured in the application (useful for crypting passwords in configuration).
 * `errors` which displays the catalog of error codes existing in the application.
 
-## HTTP/HTTPS proxy support
+### HTTP/HTTPS proxy support
  
 JVM-wide HTTP and HTTPS proxy is now auto-configured from standard `http_proxy`, `https_proxy` and `no_proxy` environment 
 variables. This behavior can be disabled in configuration where the proxy can be turned off or an explicit proxy can be
 specified.
 
-## Netflix add-on
+### Netflix add-on
 
 A new add-on integrating some Netflix open-source technologies is now provided. It provides integration for the   
 [Netflix Hystrix](https://github.com/Netflix/Hystrix) circuit-breaker and the [OpenFeign](https://github.com/OpenFeign/feign)
@@ -97,28 +97,28 @@ REST client.
 More information [here]({{< ref "addons/netflix/index.md" >}}).
 {{% /callout %}}
 
-## Bean validation
+### Bean validation
 
 The bean validation integration is now part of SeedStack core and is always enabled as it is used by the configuration
 system. Remove the add-on from your existing projects. Validation features are otherwise unchanged.
 
-## Add-on archetype
+### Add-on archetype
 
 A new archetype for creating add-ons from scratch is now provided in the distribution.
 
-# Fixes
+## Fixes
 
 You can find about all fixes by checking the detailed change logs of each component on [GitHub](https://github.com/seedstack), 
 in their release section. The versions of all components and the link to their changelog is available at the end of this
 article. 
 
-# Breaking changes
+## Breaking changes
 
-## Java 8
+### Java 8
 
 This version requires Java 8 as it uses Java 8 internally and some APIs include Java 8 features.
 
-## Configuration changes
+### Configuration changes
 
 All SeedStack configuration options have been refactored to benefit of the new configuration features: hierarchical structure,
 strong typing, validation, ... Prefixes have been removed in favor of shorter, simpler names, in camel case.
@@ -130,11 +130,11 @@ You can use the documentation to learn about the new options and the `config` to
 discover every option. New configuration is a lot more explicit and strongly typed so potential errors are easily diagnosed
 and fixed.
  
-## Jersey 1
+### Jersey 1
 
 Jersey 1 support has been removed. Only Jersey 2 which is a drop-in replacement for Jersey 1 is available.
 
-## Module simplification
+### Module simplification
 
 Some modules (`seed-transaction`, `seed-el` and `seed-crypto`) have been merged into the `seed-core` module. You must remove
 those dependencies from your existing projects.
@@ -144,7 +144,7 @@ are unchanged feature-wise.
 
 The data security feature has been also separated as an add-on. It is unchanged feature-wise. 
 
-## Annotation detection
+### Annotation detection
 
 Annotation detection behavior on methods and classes has been standardized across the whole stack. A consistent detection 
 behavior is now used everywhere:
@@ -164,31 +164,31 @@ This new unified behavior does not deviate a lot from previous version behaviors
 annotations, particularly for transaction management which have subtle semantics. 
 {{% /callout %}}
 
-## Utilities
+### Utilities
 
 The collection of various utilities previously located under the `org.seedstack.seed.core.utils` package have been rewritten
 from scratch in a no-dependency utility library named [shed](https://github.com/seedstack/shed). This library includes
 various pure-java utilities used throughout SeedStack. 
 
-## Other breaking changes
+### Other breaking changes
 
 Other minor breaking changes are listed in the changelog of each component. The versions of all components and the link 
 to their changelog is available at the end of this article. 
 
-# Component versions
+## Component versions
 
-## Poms
+### Poms
 
 * poms: **[3.0.0](https://github.com/seedstack/poms/releases/tag/v3.0.0)**
 
-## Core
+### Core
 
 * shed: **[1.0.1](https://github.com/seedstack/shed/releases/tag/v1.0.1)**
 * coffig: **[2.0.0](https://github.com/seedstack/coffig/releases/tag/v2.0.0)**
 * seed: **[3.1.0](https://github.com/seedstack/seed/releases/tag/v3.1.0)**
 * business: **[3.0.1](https://github.com/seedstack/business/releases/tag/v3.0.1)**
 
-## Add-ons
+### Add-ons
 
 * audit-addon: **[3.0.0](https://github.com/seedstack/audit-addon/releases/tag/v3.0.0)**
 * data-security-addon: **[1.0.0](https://github.com/seedstack/data-security-addon/releases/tag/v1.0.0)**

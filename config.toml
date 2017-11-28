@@ -6,8 +6,11 @@ MetaDataFormat = "yaml"
   author = "The SeedStack authors"
 
   "javax.mail.version" = "1.4.8"
-  "org.seedstack.version" = "17.7"
   "ch.qos.logback.version" = "1.2.3"
+
+  "org.seedstack.version" = "17.7"
+
+  "org.seedstack.maven.version" = "2.7.0"
 
   "org.seedstack.poms.version" = "3.1.0"
 
@@ -31,6 +34,7 @@ MetaDataFormat = "yaml"
   "org.seedstack.addons.jmh.version" = "1.0.2"
   "org.seedstack.addons.jms.version" = "3.0.1"
   "org.seedstack.addons.jpa.version" = "3.0.2"
+  "org.seedstack.addons.kafka.version" = "1.0.0"
   "org.seedstack.addons.netflix.version" = "1.0.1"
   "org.seedstack.addons.ldap.version" = "3.0.0"
   "org.seedstack.addons.metrics.version" = "1.0.0"
@@ -48,17 +52,6 @@ MetaDataFormat = "yaml"
   "org.seedstack.addons.web.version" = "1.0.0"
   "org.seedstack.addons.ws.version" = "3.0.0"
 
-  "menu.group.seedessentials.dependency-injection" = "Basics"
-  "menu.group.seedessentials.error-diagnostic" = "Troubleshooting"
-
-  "menu.group.businessessentials.domain-driven-design" = "Basics"
-  "menu.group.businessessentials.reference-material-and-books" = "Literature"
-
-  "menu.group.businessmanual.entities" = "Model"
-  "menu.group.businessmanual.factories" = "Aggregate lifecycle"
-  "menu.group.businessmanual.services" = "Behavior"
-  "menu.group.businessmanual.assemblers" = "Interfaces"
-
   "numRelatedPosts" = 2
 
 [blackfriday]
@@ -69,36 +62,55 @@ MetaDataFormat = "yaml"
   tag = "tags"
   author = "authors"
   zone = "zones"
-  section = "sections"
 
 #####################################
-#### Website zones               ####
+#### Menu                        ####
+#####################################
+[[menu.project]]
+    name = "Project info"
+    identifier = "project"
+    weight = -100
+    url = "/project/"
+
+[[menu.docs]]
+    name = "The basics"
+    identifier = "basics"
+    weight = -100
+    url = "/docs/basics/"
+
+[[menu.docs]]
+    name = "Core"
+    identifier = "core"
+    weight = -90
+    url = "/docs/core/"
+
+[[menu.docs]]
+    name = "Web"
+    identifier = "web"
+    weight = -80
+    url = "/docs/web/"
+
+[[menu.docs]]
+    name = "Business"
+    identifier = "business"
+    weight = -70
+    url = "/docs/business/"
+
+[[menu.docs]]
+    name = "Maven plugin"
+    identifier = "maven"
+    weight = -60
+    url = "/docs/maven/"
+
+
+#####################################
+#### Zones                       ####
 #####################################
 
-[params.zone.Overview]
-  path = "docs/overview"
-  label = "Overview"
+[params.zone.Docs]
+  path = "docs"
+  label = "Documentation"
   logo = "glossary-logo.svg"
-
-[params.zone.MavenPlugin]
-  path = "docs/maven-plugin"
-  label = "Maven plugin"
-  logo = "glossary-logo.svg"
-
-[params.zone.Seed]
-  path = "docs/seed"
-  label = "Java framework"
-  logo = "seed-logo.svg"
-
-[params.zone.Business]
-  path = "docs/business"
-  label = "Business framework"
-  logo = "business-logo.svg"
-
-[params.zone.GettingStarted]
-  path = "getting-started"
-  label = "Getting started"
-  logo = "getting-started-logo.svg"
 
 [params.zone.Glossary]
   path = "glossary"
@@ -115,6 +127,11 @@ MetaDataFormat = "yaml"
   label = "Project"
   logo = "project-logo.svg"
 
+[params.zone.Community]
+  path = "community"
+  label = "Community"
+  logo = "project-logo.svg"
+
 [params.zone.Posts]
   path = "posts"
   label = "Posts"
@@ -129,126 +146,4 @@ MetaDataFormat = "yaml"
   path = "search"
   label = "Search"
   logo = "search-logo.svg"
-
-#####################################
-#### Project sections           ####
-#####################################
-
-[params.section.ProjectOverview]
-  label = "Overview"
-  icon = "fa fa-file-text"
-  path = ""
-
-[params.section.ProjectCommunity]
-  label = "Community"
-  icon = "fa fa-community"
-  path = "community"
-
-[params.section.ProjectFAQ]
-  label = "FAQ"
-  icon = "fa fa-comments-o"
-  path = "faq"
-
-[params.section.ProjectRoadmap]
-  label = "Roadmap"
-  icon = "fa fa-road"
-  path = "roadmap"
-
-[params.section.ProjectOldVersions]
-  label = "Old versions"
-  icon = "fa fa-archive"
-  path = "old-versions"
-
-#####################################
-#### Getting started sections    ####
-#####################################
-
-[params.section.GettingStartedQuickStart]
-  label = "Quick start"
-  icon = "fa fa-rocket"
-  path = ""
-
-[params.section.GettingStartedProjectTemplates]
-  label = "Project templates"
-  icon = "fa fa-cubes"
-  path = "project-templates"
-
-[params.section.GettingStartedTutorial]
-  label = "Tutorial"
-  icon = "fa fa-graduation-cap"
-  path = "tutorial"
-
-[params.section.GettingStartedSamples]
-  label = "Samples"
-  icon = "fa fa-life-buoy"
-  path = "samples"
-
-#####################################
-#### Overview sections           ####
-#####################################
-
-[params.section.OverviewEssentials]
-  label = "Essentials"
-  icon = "fa fa-certificate"
-  path = ""
-
-#####################################
-#### Maven plugin sections       ####
-#####################################
-
-[params.section.MavenPluginEssentials]
-  label = "Essentials"
-  icon = "fa fa-certificate"
-  path = ""
-
-[params.section.MavenPluginManual]
-  label = "Manual"
-  icon = "fa fa-book"
-  path = "manual"
-
-#####################################
-#### Business framework sections ####
-#####################################
-
-[params.section.BusinessEssentials]
-  label = "Essentials"
-  icon = "fa fa-certificate"
-  path = ""
-
-[params.section.BusinessManual]
-  label = "Manual"
-  icon = "fa fa-book"
-  path = "manual"
-
-#####################################
-#### Seed framework sections     ####
-#####################################
-
-[params.section.SeedEssentials]
-  label = "Essentials"
-  icon = "fa fa-compass"
-  path = ""
-
-[params.section.SeedManual]
-  label = "Manual"
-  icon = "fa fa-book"
-  path = "manual"
-
-#####################################
-#### Search                      ####
-#####################################
-
-[params.section.SearchResults]
-  label = "Search results"
-  icon = "fa fa-search"
-  path = ""
-
-#####################################
-#### Glossary                    ####
-#####################################
-
-[params.section.GlossaryAll]
-  label = "Glossary"
-  icon = "fa fa-book"
-  path = ""
 

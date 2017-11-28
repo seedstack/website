@@ -30,7 +30,7 @@
     <div class="clear-both"></div>
     <div class="tab-content" style="padding-top: 0;">
         <div class="tab-pane in active" id="tab-{{ $id }}-maven">
-            <pre><code class="language-xml">&lt;dependency&gt;
+            <pre><code class="language-xml no-linenums">&lt;dependency&gt;
     &lt;groupId&gt;{{ $groupId }}&lt;/groupId&gt;
     &lt;artifactId&gt;{{ $artifactId }}&lt;/artifactId&gt;<span id="{{ $id }}-version" {{ if eq (substr $groupId 0 13) "org.seedstack" }}style="display: none;"{{ end }}>
     &lt;version&gt;{{ $.Scratch.Get "version" }}&lt;/version&gt;</span>{{ if isset .Params "t" }}

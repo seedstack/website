@@ -17,7 +17,7 @@ We are happy to announce the release of SeedStack 15.11, codenamed "Hibiscus". T
 add-on architecture and several new features like business framework improvements, a full-featured cryptography 
 module and support for several NoSQL technologies.<!--more-->
 
-# Automatic upgrade
+## Automatic upgrade
 
 The vast majority of upgrade tasks can be carried-on by our automatic upgrade tool. To automatically upgrade your project
 download the tool executable available [here](https://github.com/seedstack/tools/releases), go to your project root directory
@@ -30,9 +30,9 @@ seed -t https://raw.githubusercontent.com/seedstack/distribution/master/upgrades
 Note that a small amount of tasks cannot be done automatically by the upgrade tool and must be applied manually. The rest
 of this post describes all changes made by the tool but also details the eventual changes you need to apply.
 
-# Changes
+## Changes
 
-## Add-on architecture
+### Add-on architecture
 
 A lot of modules have been extracted as add-ons. As such the foundation frameworks are lighter and simpler to understand.
 The full list of available add-ons is available [here]({{< baseUrl >}}addons). Click on the add-on title to access
@@ -50,7 +50,7 @@ dependency into a `jpa` add-on dependency. If you did not also have the `busines
 will be missing: add it manually if you're in that case.
 {{% /callout %}}
 
-## Simplified packaging
+### Simplified packaging
 
 We have also simplified our package naming conventions. All the APIs of a module are under the package `org.seedstack.[modulename]`.
 For instance `org.seedstack.jpa` for the JPA add-on or `org.seedstack.business` for the business framework. The `api`
@@ -68,7 +68,7 @@ As the package layout is simpler, we decided to aggregate the Javadoc for the wh
 and official add-ons) into a [unique aggregated Javadoc](/javadoc).
 {{% /callout %}}
 
-## Simplified configuration
+### Simplified configuration
 
 The configuration prefixes have also been updated to reflect these changes. This:
 
@@ -98,7 +98,7 @@ In this case, as the keys are broken apart, the tool cannot recognize the whole 
 review your configuration files for any occurence of this case.
 {{% /callout %}}
 
-## Dependency management
+### Dependency management
 
 To avoid leaking dependency management in your projects, we have removed it all from SeedStack modules. Of course, the
 distribution BOM still exists but importing it will not manage dependencies outside the SeedStack itself.
@@ -106,7 +106,7 @@ distribution BOM still exists but importing it will not manage dependencies outs
 In the same reduction spirit, we have removed a lot of libraries bring by Seed. If you rely on some of them for your
 project add their version explicitly in your `pom.xml` file.
 
-## Dependency reduction
+### Dependency reduction
 
 To reduce the footprint of SeedStack we removed dependencies that were not strictly necessary. Please add the required
 one(s) back to your `pom.xml`:
@@ -135,7 +135,7 @@ org.powermock:powermock-module-junit4:1.6.2
 org.skyscreamer:jsonassert:1.2.3
 ```
 
-## W20 fragments refactoring
+### W20 fragments refactoring
 
 The W20 framework has been further modularized:
 
@@ -174,14 +174,14 @@ For `w20-bridge-addon` user, it is necessary to include the additional fragments
 </dependency>
 ```
 
-# New features
+## New features
 
-## Cryptography
+### Cryptography
 
-Seed provides a new [cryptography module]({{< ref "docs/seed/manual/crypto.md" >}}) which allow you to easily configure and use keystores.
+Seed provides a new [cryptography module]({{< ref "docs/core/crypto.md" >}}) which allow you to easily configure and use keystores.
 It also provides a simpler API to encrypt and decrypt data.
 
-## Domain registry
+### Domain registry
 
 A domain registry has been added to the Business framework. It allows to dynamically retrieve a domain object instance.
 This is particularly useful when you have multiple implementations for the same interface and you need to programatically
@@ -204,14 +204,14 @@ TaxPolicy taxPolicy;
 This new registry can be used for factories, policies, repositories and services.
 {{% /callout %}}
 
-## Spring-managed JPA transactions
+### Spring-managed JPA transactions
 
 When using the Spring-bridge add-on, you can now let Spring manage the JPA transactions across framework boundaries.
 In this case, Seed code will be injected with a Spring-managed JPA entity manager instead of the Seed-managed one. This
 is particularly useful in Spring batch jobs where there are clear performance benefits to let Spring batch manage the
 transactions. More information about this feature [here]({{< ref "addons/spring-bridge/transactions.md" >}}).
 
-## NoSQL add-ons
+### NoSQL add-ons
 
 Three new add-ons are now provided to use popular NoSQL databases:
 
@@ -219,20 +219,20 @@ Three new add-ons are now provided to use popular NoSQL databases:
 * [Redis add-on]({{< ref "addons/redis/index.md" >}}),
 * [Neo4J add-on]({{< ref "addons/neo4j/index.md" >}}),
 
-## Solr add-on
+### Solr add-on
 
 A [Solr add-on]({{< ref "addons/solr/index.md" >}}) is now provided to access Solr indexing servers.
 
-# Component versions
+## Component versions
 
-## Base
+### Base
 
 * poms: 2.1.1
 * seed: 2.1.0
 * business: 2.1.0
 * w20: 2.1.1
 
-## Add-ons
+### Add-ons
 
 * audit-addon: 2.1.0
 * monitoring-addon: 2.1.0
@@ -261,7 +261,7 @@ A [Solr add-on]({{< ref "addons/solr/index.md" >}}) is now provided to access So
 * w20-bootstrap-2: 2.1.1
 * w20-bootstrap-3: 2.1.1
 
-## Themes
+### Themes
 
 * w20-simple-theme: 3.1.0
 * w20-business-theme: 1.1.0

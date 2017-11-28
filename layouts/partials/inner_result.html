@@ -2,28 +2,22 @@
 {{ $zoneHref := printf "%s%s" ($.Site.BaseURL) (index .Site.Params.zone $zone "path") }}
 {{ $zoneLogo := index .Site.Params.zone $zone "logo" }}
 {{ $.Scratch.Set "hasPrevious" false }}
-{{ if isset .Params.sections 0 }}
-    {{ $.Scratch.Set "section" (index .Params.sections 0 | lower) }}
-    {{ $.Scratch.Set "sectionHref" (printf "%s/%s" $zoneHref (index .Site.Params.section ($.Scratch.Get "section") "path")) }}
-{{ end }}
 <article class="inner-results">
     <h3><a href='{{ $zoneHref }}'><img src='/img/logos/{{ $zoneLogo }}'></a>
         {{ if eq $zone "addons" }}
             {{ $.Scratch.Set "href" (delimit (first 5 (split .Permalink "/")) "/") }}
-            {{ $.Scratch.Set "hasPrevious" true }}
             <a href='{{ $.Scratch.Get "href" }}'>{{ or .Params.parent .Title }}</a>
+            {{ $.Scratch.Set "hasPrevious" true }}
+        {{ else if eq $zone "guides" }}
+            {{ $.Scratch.Set "href" (delimit (first 5 (split .Permalink "/")) "/") }}
+            <a href='{{ $.Scratch.Get "href" }}'>{{ or .Params.parent .Title }}</a>
+            {{ $.Scratch.Set "hasPrevious" true }}
         {{ end }}
-        {{ if and (ne (printf "%s/" ($.Scratch.Get "href")) (.Permalink)) (ne ($.Scratch.Get "href") (.Permalink)) }}
-            {{ if $.Scratch.Get "section" }}
-                {{ $.Scratch.Set "hasPrevious" true }}
-                <a href='{{ $.Scratch.Get "sectionHref" }}'>{{ index .Site.Params.section ($.Scratch.Get "section") "label" }}</a>
-            {{ end }}
-            {{ if and (ne ($.Scratch.Get "sectionHref") .Permalink) (ne (printf "%s/" ($.Scratch.Get "sectionHref")) .Permalink) }}
-                {{ if $.Scratch.Get "hasPrevious" }}
-                    <i class="fa fa-caret-right"></i>
-                {{ end }}
-                <a href="{{ .Permalink }}">{{ .Title }}</a>
-            {{ end }}
+        {{ if not (eq (printf "%s/" ($.Scratch.Get "href")) (.Permalink)) }}
+        {{ if $.Scratch.Get "hasPrevious" }}
+            &nbsp;<i class="fa fa-caret-right"></i>
+        {{ end }}
+        <a href='{{ .Permalink }}'>{{ .Title }}</a>
         {{ end }}
     </h3>
     <p>{{ .Summary }}</p>

@@ -1,6 +1,6 @@
 <article class="post">
     <header>
-        <h1 class="nocount"><a style="text-decoration: none;" href='{{ .Permalink }}'>{{ .Title }}{{ if .Draft }} :: DRAFT{{end}}</a> <small>{{ .Date.Format "Mon, Jan 2, 2006" }}</small></h1>
+        <h2 class="nocount"><a style="text-decoration: none;" href='{{ .Permalink }}'>{{ .Title }}{{ if .Draft }} :: DRAFT{{end}}</a> <small>{{ .Date.Format "Mon, Jan 2, 2006" }}</small></h2>
     </header>
 
     {{ .Summary }}... <small><a href='{{ .Permalink }}'><nobr>read more ({{ .ReadingTime }} minute{{ if gt .ReadingTime 1 }}s{{ end }}) →</nobr></a></small>

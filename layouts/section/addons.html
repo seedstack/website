@@ -18,36 +18,29 @@
 </div>
 <div id="content" class="container">
     <div class="row">
-        <div class="col-md-12">
-            <div class="callout callout-info" style="margin-top: 0;">
-                <div style="display:table; width: 100%">
-                    <div style="display:table-cell; width: 50px; vertical-align: middle;">
-                        <i class="fa fa-plug icon-2x" style="line-height: 30px;"></i>
-                    </div>
-                    <div style="display:table-cell; vertical-align: middle;">
-                        Want your SeedStack add-on listed here ? Follow <a
-                            href="https://github.com/seedstack/seedstack/wiki/Register-an-extension-on-website">this
-                        guide</a>.
-                    </div>
+        <div class="col-md-12 filter-column">
+            <form id="criteria">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="filter" placeholder="Filter...">
                 </div>
-            </div>
+            </form>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-9 addon-items">
+        <div class="col-md-12 addon-items">
             {{ $.Scratch.Set "addonCount" 0 }}
-            {{ $addons := (where .Data.Pages.ByTitle "Weight" 0) }}
+            {{ $addons := (where (.Data.Pages.ByParam "addon") "Weight" 0) }}
             <div class="row">
             {{ range $index, $element := $addons }}
             {{ $.Scratch.Set "addonCount" (add ($.Scratch.Get "addonCount") 1) }}
-            {{ if eq (mod $index 2) 0 }}
-                <div class="col-md-6 filterable-item" style="margin-bottom: 20px;">
+            {{ if eq (mod $index 3) 0 }}
+                <div class="col-md-4 filterable-item" style="margin-bottom: 20px;">
                     <div class="item-wrapper">
                         {{ .Render "summary" }}
                     </div>
                 </div>
             {{ else }}
-                <div class="col-md-6 filterable-item" style="margin-bottom: 20px;">
+                <div class="col-md-4 filterable-item" style="margin-bottom: 20px;">
                     <div class="item-wrapper">
                         {{ .Render "summary" }}
                     </div>
@@ -56,19 +49,9 @@
                 {{ if eq $index (sub (len $addons) 1) }}
                 </div>
                 {{ end }}
-            
             {{ end }}
         </div>
-        <div class="col-md-3 filter-column">
-            <form id="criteria">
-                <h4 class="filter-column-header">{{ $.Scratch.Get "addonCount" }} add-on(s)</h4>
-                <h4>Filter</h4>
-
-                <div class="form-group">
-                    <input type="text" class="form-control" id="filter" placeholder="Enter filtering terms here...">
-                </div>
-            </form>
-        </div>
+        <h4 style="text-align: center; margin-top: 20px;">{{ $.Scratch.Get "addonCount" }} add-on(s)</h4>
     </div>
 </div>
 {{ partial "filter-script.html" }}

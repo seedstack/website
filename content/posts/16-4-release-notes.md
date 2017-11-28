@@ -16,16 +16,16 @@ We are happy to announce the release of SeedStack 16.4, the first major release 
 add-on architecture, this releases brings several new components and features. A lot of improvements have also been done
 under-the-hood to keep SeedStack up-to-date with current technologies and standards.<!--more-->
 
-# New features
+## New features
 
-## Functional additions
+### Functional additions
 
 * The new MQTT add-on provides an easy-to-use integration of the [MQTT communication protocol](http://mqtt.org/) through
 the [Eclipse Paho](http://www.eclipse.org/paho/) library.
 * A new [W20 theme for Angular-material](http://seedstack.org/themes/material/) has been contributed by [Jean-Baptise LENGLET](https://github.com/magador/).
 Many thanks to him!
 
-## Java
+### Java
 
 * Full support of Java 8 (along with an upgrade to Guice 4.0).
 * Support of JAX-RS 2 asynchronous resources, enabling the building of reactive Web applications.
@@ -37,28 +37,28 @@ Many thanks to him!
 * Support of Expression Language 3.
 * Better Hypermedia support with completely automatic link creation.
 
-## Business
+### Business
 
 * New methods `exists()`, `count()` and `clear()` on repositories with their default implementation in JPA and MongoDb.
 
-## Web
+### Web
 
 * New visualization for huge data-sets based on [dygraphs](http://dygraphs.com/).
 * Support for pretty URLs in W20 application with transparent backend support in W20 bridge (no configuration needed).
 * Support for optional fragments which don't prevent application startup when not available.
 * Best-effort cleanup of Basic Authentication credentials in browsers, allowing to effectively logout without closing the browser.
 
-## MongoDb add-on
+### MongoDb add-on
 
 * Automatic support for Bean Validation at pre-persist when using Morphia.
 * Automatic building of full-text indexes at startup.
 
-# Fixes
+## Fixes
 
 A sizable amount of fixes have been applied to various modules. Please check the detailed change logs of each component
 on [GitHub](https://github.com/seedstack), in their release section.
 
-# Breaking changes
+## Breaking changes
 
 This version has only minor breaking changes that should not impact most projects. The most notable ones are:
 
@@ -73,19 +73,19 @@ implemented repositories for custom persistence technologies (outside of JPA and
 The detail of breaking changes is available in the detailed change logs of each component on [GitHub](https://github.com/seedstack),
 in their release section.
 
-# Component versions
+## Component versions
 
 Updated components are highlighted in **bold** characters (with a link to the detailed change log).
 
 * poms: **[2.4.0](https://github.com/seedstack/poms/releases/tag/v2.4.0)**
 
-## Core
+### Core
 
 * seed: **[2.3.0](https://github.com/seedstack/seed/releases/tag/v2.3.0)**
 * business: **[2.3.0](https://github.com/seedstack/business/releases/tag/v2.3.0)**
 * w20: **[2.3.0](https://github.com/seedstack/w20/releases/tag/v2.3.0)**
 
-## Add-ons
+### Add-ons
 
 * audit-addon: **[2.1.1](https://github.com/seedstack/audit-addon/releases/tag/v2.1.1)**
 * elasticsearch-addon: **[2.1.1](https://github.com/seedstack/elasticsearch-addon/releases/tag/v2.1.1)**
@@ -116,7 +116,7 @@ Updated components are highlighted in **bold** characters (with a link to the de
 * w20-bootstrap-3: **[2.2.0](https://github.com/seedstack/w20-bootstrap-3/releases/tag/v2.2.0)**
 * w20-bootstrap-2: 2.1.2
 
-## Themes
+### Themes
 
 * w20-business-theme: **[1.2.0](https://github.com/seedstack/w20-business-theme/releases/tag/v1.2.0)**
 * w20-simple-theme: **[3.2.0](https://github.com/seedstack/w20-simple-theme/releases/tag/v3.2.0)**

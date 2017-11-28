@@ -15,9 +15,9 @@ zones:
 We are happy to announce the release of SeedStack 17.4 «Lotus». This is mostly a maintenance release but some new components
 are provided.<!--more-->
 
-# New features
+## New features
 
-## JMH add-on
+### JMH add-on
 
 A new add-on for writing benchmarks using [JMH](http://openjdk.java.net/projects/code-tools/jmh/) is provided. This add-on
 provides several benefits for benchmarking SeedStack applications:
@@ -26,44 +26,44 @@ provides several benefits for benchmarking SeedStack applications:
 * Injection of benchmarks,
 * A launcher is available for running benchmark as self-contained applications (like in a capsule).
 
-## Seed initializers
+### Seed initializers
 
 Classes implementing {{< java "org.seedstack.seed.spi.SeedInitializer" >}} are invoked at SeedStack JVM-wide initialization, 
 allowing to do early initialization (before kernel is started).
   
-## Business fluent assembler
+### Business fluent assembler
  
 When merging lists of DTO to aggregates, the fluent assembler threw an exception if some aggregates where found in the
 repository and some others were created with the factory. This is now controllable with an argument and mixed origins
 are allowed by default.
 
-# Fixes
+## Fixes
 
-## Tomcat + Logback error
+### Tomcat + Logback error
 
 In some runtime environments, using Tomcat with Logback auto-configuration lead to an exception. This has been fixed.
  
-## Tomcat 8+ and external classpath directories
+### Tomcat 8+ and external classpath directories
 
 A change in the handling of external classpath locations in Tomcat starting with version 8 lead to scanning issues. Specifically
 using a `<PreResources>` directory mounted on `WEB-INF/classes` configuration prevented SeedStack from scanning the 
 `WEB-INF/classes` internal to the WAR. This is resolved.
   
-## JMS refreshing of old connections
+### JMS refreshing of old connections
 
 When using the automatic reconnection of JMS connections, the JMS add-on kept track of all past connections even closed ones,
 not in use anymore. This lead to an overload of the JMS broker when a refresh occurred. This has been fixed and closed
 connections are no longer tracked.
 
-## Other fixes
+### Other fixes
 
 You can find about all other fixes by checking the detailed change logs of each component on [GitHub](https://github.com/seedstack), 
 in their release section. The versions of all components and the link to their changelog is available at the end of this
 article. 
 
-# Changes
+## Changes
 
-## Configuration with properties
+### Configuration with properties
 
 Previously, properties files were mapped by the configuration system as flat keys, ignoring the dot as a nesting separator.
 This has changes and properties files are mapped in-depth. This is more intuitive and allows properties files to work
@@ -73,25 +73,25 @@ One important side-effect is that you cannot give a value to a property (`test`)
 property (`test.subProperty`). This is also the reason why system properties are still mapped as flat keys as they do 
 not satisfy this constraint (for instance `java.vendor` and `java.vendor.url` both have a value).
 
-## Feign add-on
+### Feign add-on
 
 Feign no longer being part of Netflix components, a specific add-on has been created for it.
 
-# Component versions
+## Component versions
 
-## General
+### General
 
 * poms: **[3.0.1](https://github.com/seedstack/poms/releases/tag/v3.0.1)**
 * seedstack-maven-plugin: **[2.4.3](https://github.com/seedstack/seedstack-maven-plugin/releases/tag/v2.4.3)**
 
-## Core
+### Core
 
 * shed: **[1.0.2](https://github.com/seedstack/shed/releases/tag/v1.0.2)**
 * coffig: **[2.1.0](https://github.com/seedstack/coffig/releases/tag/v2.1.0)**
 * seed: **[3.2.0](https://github.com/seedstack/seed/releases/tag/v3.2.0)**
 * business: **[3.1.0](https://github.com/seedstack/business/releases/tag/v3.1.0)**
 
-## Add-ons
+### Add-ons
 
 * audit-addon: **[3.0.0](https://github.com/seedstack/audit-addon/releases/tag/v3.0.0)**
 * data-security-addon: **[1.0.0](https://github.com/seedstack/data-security-addon/releases/tag/v1.0.0)**

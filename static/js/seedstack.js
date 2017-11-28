@@ -32,7 +32,6 @@
 
     seedstack.ui = {
         openSearch: function () {
-            seedstack.searchService.warm();
             $('.search-open').show();
             $('.search-btn').removeClass('fa-search').addClass('fa-times');
             $('#search-field').focus();
@@ -70,95 +69,6 @@
             "g": "/guides"
         }
     };
-
-    seedstack.searchService = (function initializeIndex() {
-        var lunrIndex,
-            metadata;
-
-        function ensureInitialized(callback, errback) {
-            if (!lunrIndex) {
-                var searchIndexTimestamp = localStorage.getItem("searchIndexTimestamp");
-
-                if (!searchIndexTimestamp || (new Date()).getTime() - searchIndexTimestamp > 86400 * 1000) {
-                    console.log('fetching and building search index');
-                    $.getJSON("/lunr-index.json", function (fetched) {
-                        lunrIndex = lunr(function () {
-                            this.field('title', {boost: 15});
-                            this.field('tags', {boost: 10});
-                            this.field('content');
-                            this.ref('href');
-                        });
-
-                        $.each(fetched, function (dummy, doc) {
-                            lunrIndex.add(doc);
-                        });
-
-                        metadata = fetched.map(function (doc) {
-                            delete doc.content;
-                            return doc;
-                        });
-
-                        localStorage.setItem("searchMetadata", JSON.stringify(metadata));
-                        localStorage.setItem("searchIndex", JSON.stringify(lunrIndex));
-                        localStorage.setItem("searchIndexTimestamp", (new Date()).getTime());
-
-                        callback();
-                    }).fail(function () {
-                        console.error("unable to fetch index");
-                        errback();
-                    });
-                } else {
-                    callback();
-                }
-            } else {
-                callback();
-            }
-        }
-
-        return {
-            warm: function (callback, errback) {
-                ensureInitialized(function () {
-                    if (typeof callback === 'function') {
-                        callback();
-                    }
-                }, function () {
-                    if (typeof errback === 'function') {
-                        console.warn("unable to warm cache");
-                    }
-                });
-            },
-
-            clear: function () {
-                localStorage.removeItem("searchMetadata");
-                localStorage.removeItem("searchIndex");
-                localStorage.removeItem("searchIndexTimestamp");
-                lunrIndex = undefined;
-                metadata = undefined;
-            },
-
-            search: function (q, callback, errback) {
-                ensureInitialized(function () {
-                    if (!metadata || !lunrIndex) {
-                        console.log('loading search index from cache');
-                        metadata = JSON.parse(localStorage.getItem("searchMetadata"));
-                        lunrIndex = lunr.Index.load(JSON.parse(localStorage.getItem("searchIndex")));
-                    }
-
-                    if (typeof callback === 'function') {
-                        callback(lunrIndex.search(q).map(function (result) {
-                            return metadata.filter(function (page) {
-                                return page.href === result.ref;
-                            })[0];
-                        }));
-                    }
-                }, function () {
-                    if (typeof errback === 'function') {
-                        errback();
-                    }
-                });
-            }
-        };
-    })();
 
     var event;
     try {
