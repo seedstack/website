@@ -7,6 +7,7 @@ tags:
     - maven
 zones:
     - Guides
+noMenu: true
 ---
 
 SeedStack projects created by the [generate goal]({{< ref "docs/maven-plugin/generate.md" >}}) of the SeedStack Maven plugin are

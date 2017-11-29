@@ -9,7 +9,7 @@ tags:
 menu:
     docs:
         parent: "basics"
-        weight: 7
+        weight: 99
 ---
 
 When something goes wrong, SeedStack does its best to provide detailed information about the failure. This can

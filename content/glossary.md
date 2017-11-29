@@ -1,5 +1,5 @@
 ---
-title: "Glossary"
+title: "Definitions"
 type: "home"
 noMenu: true
 zones:

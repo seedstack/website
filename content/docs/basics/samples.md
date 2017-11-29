@@ -8,7 +8,7 @@ tags:
 menu:
     docs:
         parent: "basics"
-        weight: 8
+        weight: 98
 ---
 
 Try out the samples below to learn what SeedStack is capable of.<!--more-->
@@ -65,7 +65,7 @@ This sample demonstrates an hypermedia-capable REST micro-service:
 {{% callout ref %}}
 GitHub: https://github.com/seedstack/catalog-microservice-sample/tree/master
 <br>Relevant docs: [Business framework]({{< ref "docs/business/index.md" >}}), [REST support]({{< ref "docs/web/rest.md" >}}),
-[Testing support]({{< ref "docs/basics/testing.md" >}}).
+[Testing support]({{< ref "docs/core/testing.md" >}}).
 {{% /callout %}}
 
 ## Business code
@@ -79,7 +79,7 @@ This sample demonstrates basic business code written with the business framework
 
 {{% callout ref %}}
 GitHub: https://github.com/seedstack/samples/tree/master/business
-<br>Relevant docs: [Business framework]({{< ref "docs/business/index.md" >}}), [Testing support]({{< ref "docs/basics/testing.md" >}}).
+<br>Relevant docs: [Business framework]({{< ref "docs/business/index.md" >}}), [Testing support]({{< ref "docs/core/testing.md" >}}).
 {{% /callout %}}
 
 ## Java framework basics
@@ -111,7 +111,7 @@ This sample demonstrates how to write a command-line handler:
 
 {{% callout ref %}}
 GitHub: https://github.com/seedstack/samples/tree/master/cli
-<br>Relevant docs: [Command-line]({{< ref "docs/core/cli.md" >}}).
+<br>Relevant docs: [Command-line]({{< ref "docs/cli/index.md" >}}).
 {{% /callout %}}
 
 ## Web-Services
@@ -163,5 +163,5 @@ This sample demonstrates the integration of Spring framework and Spring batch wi
 
 {{% callout ref %}}
 GitHub: https://github.com/seedstack/samples/tree/master/batch
-<br>Relevant docs: [Spring bridge]({{< ref "addons/spring-bridge/index.md" >}}), [Command-line]({{< ref "docs/core/cli.md" >}}).
+<br>Relevant docs: [Spring bridge]({{< ref "addons/spring-bridge/index.md" >}}), [Command-line]({{< ref "docs/cli/index.md" >}}).
 {{% /callout %}}

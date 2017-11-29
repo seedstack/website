@@ -9,7 +9,7 @@ aliases: /docs/seed/logging
 menu:
     docs:
         parent: "core"
-        weight: 20
+        weight: 4
 ---
 
 Logging is a necessity in almost any application. SeedStack standardize logging through the popular [SLF4J logging facade](http://www.slf4j.org)

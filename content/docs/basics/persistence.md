@@ -168,8 +168,6 @@ In this page you have learned:
 * How to use the default repository implementation without writing any code,
 * How to write a technology-agnostic custom query with a specification.
 
-Now you can move on to learn about [testing]({{< ref "docs/basics/testing.md" >}})...
-
 {{% callout ref %}}
 If you want to go further on the topic of persistence, see what you can do with [Repositories]({{< ref "docs/business/repositories.md" >}})
 and [specifications]({{< ref "docs/business/specifications.md" >}}).
@@ -178,3 +176,10 @@ You can also explore SeedStack [persistence add-ons]({{< baseUrl >}}addons) to c
 [JPA]({{< ref "addons/jpa/index.md" >}}), [MongoDB]({{< ref "addons/mongodb/index.md" >}}), etc...   
 {{% /callout %}}
 
+### Troubleshooting
+
+If you can't get this to work, check the [troubleshooting page]({{< ref "docs/basics/troubleshooting.md" >}}).
+
+### Next step
+
+If you want to learn more, continue on the tutorial on [REST API]({{< ref "docs/basics/rest.md" >}}).

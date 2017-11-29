@@ -9,7 +9,7 @@ aliases: /docs/seed/configuration
 menu:
     docs:
         parent: "core"
-        weight: 5
+        weight: 3
 ---
 
 SeedStack provides a simple and powerful configuration system. Configuration can be read from multiple sources and in 
@@ -528,7 +528,7 @@ must be parsed manually.
 ## Tooling
 
 {{% callout info %}}
-For more information about the tool mode, see [this page]({{< ref "docs/core/launchers.md#tool-mode" >}}).
+For more information about the tool mode, see [this page]({{< ref "docs/core/index.md#tool-mode" >}}).
 {{% /callout %}}
 
 ### Configuration options dump

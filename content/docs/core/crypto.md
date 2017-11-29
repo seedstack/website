@@ -6,7 +6,7 @@ zones:
 aliases: /docs/seed/manual/crypto    
 menu:
     docs:
-        weight: 70
+        weight: 7
         parent: "core"
 ---
 

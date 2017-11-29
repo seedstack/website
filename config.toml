@@ -85,6 +85,12 @@ MetaDataFormat = "yaml"
     url = "/docs/core/"
 
 [[menu.docs]]
+    name = "Command-line"
+    identifier = "cli"
+    weight = -85
+    url = "/docs/cli/"
+
+[[menu.docs]]
     name = "Web"
     identifier = "web"
     weight = -80

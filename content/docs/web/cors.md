@@ -8,12 +8,12 @@ tags:
     - interfaces
 menu:
     docs:
-        weight: 7
+        weight: 8
         parent: "web"
 
 ---
 
-Cross-Origin Resource Sharing (CORS) is supported through a Java filter and can be enabled in any Seed application.
+Cross-Origin Resource Sharing (CORS) is supported through a Java filter and can be enabled in any SeedStack application.
 
 {{% callout info %}}
 Seed integrates the CORS filter from [dzhuvinov software](http://software.dzhuvinov.com/cors-filter.html). There is no 

@@ -9,7 +9,7 @@ aliases: /docs/seed/manual/security
 menu:
     docs:
         parent: "core"
-        weight: 60
+        weight: 5
 ---
 
 The `seed-security-core` module provides application-level security.<!--more--> It takes charge of the following tasks:

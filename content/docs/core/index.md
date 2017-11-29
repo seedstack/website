@@ -1,5 +1,5 @@
 ---
-title: "Launchers"
+title: "Running applications"
 type: "home"
 zones:
     - "Docs"
@@ -9,7 +9,7 @@ tags:
 menu:
     docs:
         parent: "core"
-        weight: 3
+        weight: 1
 ---
 
 Running a SeedStack application is done by using the {{< java "org.seedstack.seed.core.SeedMain" >}} class 
@@ -18,7 +18,7 @@ logic to it. A launcher is a class implementing {{< java "org.seedstack.seed.spi
 
 SeedStack provides two built-in launchers:
 
-* In the `seed-cli` module, for [command-line applications]({{< ref "docs/core/cli.md" >}}).
+* In the `seed-cli` module, for [command-line applications]({{< ref "docs/cli/index.md" >}}).
 * In the `seed-web-undertow`, for [Web applications]({{< ref "docs/web/index.md" >}}) embedding their own server.
 
 {{% callout info %}}

@@ -11,7 +11,7 @@ tags:
 aliases: /docs/seed/manual/rest    
 menu:
     docs:
-        weight: 4
+        weight: 5
         parent: "web"
 ---
 
