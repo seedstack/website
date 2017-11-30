@@ -142,6 +142,35 @@ public class DefaultGreeterService implements GreeterService {
 }
 ```
 
+We can now inject this service in the `HelloResource` class to move the business logic away:
+
+```java
+package org.generated.project.interfaces.rest;
+
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import org.generated.project.domain.model.person.Person;
+import org.generated.project.domain.model.person.PersonId;
+import org.generated.project.domain.services.GreeterService;
+
+@Path("hello")
+public class HelloResource {
+    @Inject
+    private GreeterService greeterService;
+
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String hello() {
+        Person person = new Person(new PersonId("someone@some.org"));
+        person.changeName("Robert", "SMITH");
+        return greeterService.greet(person);
+    }
+}
+```
+
 ## Now what ?
 
 On this page you have learned:

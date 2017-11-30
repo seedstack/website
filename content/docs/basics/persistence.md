@@ -59,18 +59,20 @@ public class SampleDataGenerator implements LifecycleListener {
 As we don't want to write unnecessary code, we will use a default repository implementation of SeedStack. 
 
 To do that, just inject the parameterized {{< java "org.seedstack.business.domain.Repository" >}} interface in your 
-`HelloResource`:
+`HelloResource`. We will combine it with the service we defined [before]({{< ref "docs/basics/business.md#the-greeter-service" >}}):
 
 ```java
 package org.generated.project.interfaces.rest;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import org.generated.project.domain.model.person.Person;
 import org.generated.project.domain.model.person.PersonId;
+import org.generated.project.domain.services.GreeterService;
 import org.seedstack.business.domain.Repository;
 import org.seedstack.business.util.inmemory.InMemory;
 
@@ -79,15 +81,15 @@ public class HelloResource {
     @Inject
     @InMemory
     private Repository<Person, PersonId> personRepository;
+    @Inject
+    private GreeterService greeterService;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return String.format("Hello %s!",
-                personRepository.get(new PersonId("bill.evans@some.org"))
-                        .map(Person::getFirstName)
-                        .orElse("unknown")
-        );
+        return personRepository.get(new PersonId("bill.evans@some.org"))
+                .map(greeterService::greet)
+                .orElseThrow(NotFoundException::new);
     }
 }
 ```
@@ -125,18 +127,19 @@ public interface PersonRepository extends Repository<Person, PersonId> {
 }
 ```
 
-We can now inject this custom interface in the `HelloResource` class:
+We can now inject this custom interface in the `HelloResource` class instead of the default repository:
 
 ```java
 package org.generated.project.interfaces.rest;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import org.generated.project.domain.model.person.Person;
 import org.generated.project.domain.model.person.PersonRepository;
+import org.generated.project.domain.services.GreeterService;
 import org.seedstack.business.util.inmemory.InMemory;
 
 @Path("hello")
@@ -144,16 +147,16 @@ public class HelloResource {
     @Inject
     @InMemory
     private PersonRepository personRepository;
+    @Inject
+    private GreeterService greeterService;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return String.format("Hello %s!",
-                personRepository.findByName("bill")
-                        .findFirst()
-                        .map(Person::getFirstName)
-                        .orElse("unknown")
-        );
+        return personRepository.findByName("ella")
+                .findFirst()
+                .map(greeterService::greet)
+                .orElseThrow(NotFoundException::new);
     }
 }
 ```
