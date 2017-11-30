@@ -27,7 +27,7 @@ applications. In this architecture, the concerns are separated into a stack of w
 A strict layered architecture only allows to couple to the layer directly below. It can be used but we recommend a 
 **relaxed layered architecture** , which allows any higher-level layer to couple to any layer below it.
 
-![DDD applied to layers architecture](img/layers.png)
+![DDD applied to layers architecture](../img/layers.png)
 
 ## Dependency inversion principle
 
@@ -37,7 +37,7 @@ are implemented. This is not desirable in Domain-Driven Design and we can avoid 
 We move the infrastructure layer to the side, where classes implement interfaces defined by other layers. 
 Technical dependencies are injected through these interfaces:
 
-![DDD applied to layers architecture](img/layers_dip.png)
+![DDD applied to layers architecture](../img/layers_dip.png)
 
 **The interface, application and domain layers are completely decoupled of any technical aspects.** The architecture is made
 more flexible by allowing different implementations of an interface to be injected.

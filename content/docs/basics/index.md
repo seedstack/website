@@ -105,6 +105,10 @@ It is a self-executable JAR you can run with the following command:
 java -jar target/my-web-project-capsule.jar
 ```
 
+{{% callout ref %}}
+Learn more about application packaging by reading about the [Maven package goal]({{< ref "docs/maven-plugin/package.md" >}}). 
+{{% /callout %}}
+
 ## Java IDE 
 
 If you want to use a Java IDE, just import the generated project as you would do with any Maven project.

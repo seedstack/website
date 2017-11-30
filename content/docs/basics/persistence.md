@@ -161,6 +161,13 @@ public class HelloResource {
 }
 ```
 
+{{% callout warning %}}
+For now, hot-reloading (with `seedstack:watch`) doesn't play well with the dynamic implementation generated for
+a repository without explicit implementation. 
+
+If you wish to make changes to the `PersonRepository`, you'll have to restart the watching process manually.
+{{% /callout %}}
+
 ## Now what ?
 
 ### What we learned
@@ -172,7 +179,7 @@ In this page you have learned:
 * How to write a technology-agnostic custom query with a specification.
 
 {{% callout ref %}}
-If you want to go further on the topic of persistence, see what you can do with [Repositories]({{< ref "docs/business/repositories.md" >}})
+If you want to go further on the topic of persistence, see what you can read about [repositories]({{< ref "docs/business/repositories.md" >}})
 and [specifications]({{< ref "docs/business/specifications.md" >}}).
 
 You can also explore SeedStack [persistence add-ons]({{< baseUrl >}}addons) to connect to real databases: [JDBC]({{< ref "addons/jdbc/index.md" >}}), 
