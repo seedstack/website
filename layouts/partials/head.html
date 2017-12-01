@@ -21,13 +21,10 @@
 <meta name="robots" content="noindex,nofollow">
 {{ else if eq (printf "%s" $.Site.BaseURL) "http://dev.seedstack.org/" }}
 <meta name="robots" content="noindex,nofollow">
-{{ else if in (printf "%s" $.Site.BaseURL) "http://seedstack.org/archives/" }}
-<meta name="robots" content="noindex,nofollow">
 {{ end }}
 
 <!-- style -->
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,700,300,400" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=Bitter:700" rel="stylesheet" type="text/css">
 <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="{{ $.Site.BaseURL }}assets/unify/css/style.css">

@@ -1,9 +1,6 @@
 <script>
-    var onlyBackend = false,
-            onlyFrontend = false,
-            formElt = document.getElementById('criteria'),
-            filterElt = document.getElementById('filter'),
-            filterTimeout;
+    var formElt = document.getElementById('criteria'),
+        filterElt = document.getElementById('filter');
 
     function computeVisibility() {
         var filterValue = $(filterElt).val();
@@ -11,43 +8,13 @@
         $('.filterable-item').each(function (idx, elt) {
             var $elt = $(elt);
             var $article = $(elt).find("article");
-
-            if (!onlyBackend && !onlyFrontend) {
-                $elt.show();
-            } else if (onlyBackend && onlyFrontend && $article.data('addon-backend') == true && $article.data('addon-frontend') == true) {
-                $elt.show();
-            } else if (onlyBackend && !onlyFrontend && $article.data('addon-backend') == true) {
-                $elt.show();
-            } else if (!onlyBackend && onlyFrontend && $article.data('addon-frontend') == true) {
-                $elt.show();
-            } else {
-                $elt.hide();
-                return;
-            }
-
             var text = $article.text();
             if (filterValue && text && text.toLowerCase().indexOf(filterValue.toLowerCase()) === -1) {
                 $elt.hide();
+            } else {
+                $elt.show();
             }
         });
-    }
-
-    function showOnly(type) {
-        if (type === "backend") {
-            onlyBackend = !onlyBackend;
-        }
-        if (type === "frontend") {
-            onlyFrontend = !onlyFrontend;
-        }
-        computeVisibility();
-    }
-
-    function filterChanged() {
-        clearTimeout(filterTimeout);
-
-        filterTimeout = setTimeout(function () {
-            computeVisibility();
-        }, 250);
     }
 
     if (formElt) {
@@ -61,7 +28,13 @@
         filterElt.onkeyup = function () {
             computeVisibility();
         };
-
         filterElt.focus();
+        document.addEventListener('seedstack', function () {
+            var query = seedstack.strings.parseQueryString(location);
+            if (query.f && query.f.length >= 1 && query.f[0] !== "") {
+                filterElt.value = query.f;
+            }
+            computeVisibility();
+        });
     }
 </script>

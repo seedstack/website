@@ -19,25 +19,10 @@
 </div>
 <div id="content" class="container">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="content-wrapper">
                 <div class="doc-content">
                     {{ .Content }}
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="side-menu">
-                <div class="list-group">
-                    <ul class="nav">
-                        <li class="list-group-item"><div style="margin-bottom: 10px;"><i class="fa fa-tag"></i> Tags</div>
-                            <div class="tags">
-                                {{ range .Params.tags }}
-                                <a class="label label-default" href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . | title }}</a>
-                                {{ end }}
-                            </div>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>

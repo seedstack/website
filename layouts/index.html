@@ -20,14 +20,14 @@
                         <ul class="quick-paste">
                             <li class="unix"><span>mvn -U org.seedstack:seedstack-maven-plugin:generate</span></li>
                         </ul>
-                        <a style="text-align: right;" href="{{ $.Site.BaseURL }}getting-started">
+                        <a style="text-align: right;" href="{{ $.Site.BaseURL }}docs">
                             <button class="btn-u btn-u-red" style="margin-right: 10px; width: 130px;"><i class="fa fa-rocket"></i> <small>Start now</small></button>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 big-logo hidden-xs hidden-sm">
-                <img src="{{ $.Site.BaseURL }}img/mascot.png">
+                <img src="{{ $.Site.BaseURL }}img/mascot/mascot-home.png">
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
     <div class="container">
         <ul>
             <li class="homepage-subheader-link">
-                <span><a href='{{ $.Site.BaseURL }}posts/{{ (index .Site.Params "org.seedstack.version") | urlize }}-release-notes'>Stable version: {{ index .Site.Params "org.seedstack.version" }}</a></span>
+                <span><a href='{{ $.Site.BaseURL }}posts/{{ (index .Site.Params "org.seedstack.version") | urlize }}-release-notes'>Current version: {{ index .Site.Params "org.seedstack.version" }}</a></span>
             </li>
             <li class="homepage-subheader-link pull-right">
                 <span style="margin-right: 50px;">Member of <a target="_blank" href="https://projects.ow2.org/bin/view/seedstack/"><img style="margin-top: -4px; max-height: 25px;" src="{{ $.Site.BaseURL }}img/logos/ow2.png"></a></span>
@@ -49,7 +49,7 @@
 <div class="content-md" style="padding-bottom: 0;">
     <div class="container">
         <div class="headline-center margin-bottom-60">
-            <h2>SeedStack is an opinionated, easy-to-use Java development stack.</h2><a href="{{ $.Site.BaseURL }}/docs/overview">Learn more...</a>
+            <h2>SeedStack is an opinionated, easy-to-use Java development stack.</h2><a href="{{ $.Site.BaseURL }}docs">Learn more...</a>
         </div>
         <div class="row margin-bottom-40">
             <div class="col-md-5 col-md-offset-1">
@@ -58,11 +58,11 @@
                     <div class="overflow-h">
                         <h3 class="no-top-space">Write better code</h3>
                         <p>
-                            <a href="{{ $.Site.BaseURL }}docs/seed/dependency-injection">Type-safe dependency injection</a>
+                            <a href="{{ $.Site.BaseURL }}docs/basics/dependency-injection">Type-safe dependency injection</a>
                             <br/>
-                            <a href="{{ $.Site.BaseURL }}docs/seed/configuration">Clean configuration system</a>
+                            <a href="{{ $.Site.BaseURL }}docs/basics/learn-the-basics#configuration">Simple configuration system</a>
                             <br/>
-                            <a href="{{ $.Site.BaseURL }}docs/seed/manual/testing">Testing tools</a>
+                            <a href="{{ $.Site.BaseURL }}docs/basics/testing">Testing tools</a>
                         </p>
                     </div>
                 </div>
@@ -71,11 +71,11 @@
                     <div class="overflow-h">
                         <h3 class="no-top-space">Create robust projects</h3>
                         <p>
-                            <a href="{{ $.Site.BaseURL }}getting-started/project-templates">Reference project templates</a>
+                            <a href="{{ $.Site.BaseURL }}docs/basics#using-the-generator">Project generator</a>
                             <br/>
-                            <a href="{{ $.Site.BaseURL }}docs/overview/distribution">Global dependency-management</a>
+                            <a href="{{ $.Site.BaseURL }}docs/basics#dependency-management">Global dependency-management</a>
                             <br/>
-                            <a href="{{ $.Site.BaseURL }}docs/maven-plugin/manual/package">Universal one-JAR packaging</a>
+                            <a href="{{ $.Site.BaseURL }}docs/basics#packaging">Universal one-JAR packaging</a>
                         </p>
                     </div>
                 </div>
@@ -86,11 +86,11 @@
                     <div class="overflow-h">
                         <h3 class="no-top-space">Focus on business</h3>
                         <p>
-                            <a href="{{ $.Site.BaseURL }}docs/business/manual">Domain-Driven Design tactical patterns</a>
+                            <a href="{{ $.Site.BaseURL }}docs/basics/business">Domain-Driven Design</a>
                             <br/>
-                            <a href="{{ $.Site.BaseURL }}docs/business/architecture">Layered code architecture</a>
+                            <a href="{{ $.Site.BaseURL }}docs/basics/persistence">Agnostic persistence</a>
                             <br/>
-                            <a href="{{ $.Site.BaseURL }}docs/overview#an-integration-stack">No plumbing code</a>
+                            <a href="{{ $.Site.BaseURL }}docs/web/rest">Level-3 REST support</a>
                             <br/>
                         </p>
                     </div>
@@ -100,11 +100,11 @@
                     <div class="overflow-h">
                         <h3 class="no-top-space">Compose systems</h3>
                         <p>
-                            <a href="{{ $.Site.BaseURL }}docs/overview#a-modular-architecture">Extensible modular architecture</a>
+                            <a href="{{ $.Site.BaseURL }}docs/business/layered-architecture">Modular architecture</a>
                             <br/>
                             <a href="{{ $.Site.BaseURL }}javadoc">Rich API</a>
                             <br/>
-                            <a href="{{ $.Site.BaseURL }}addons">Add-ons library</a>
+                            <a href="{{ $.Site.BaseURL }}addons">Extensive add-on library</a>
                         </p>
                     </div>
                 </div>
@@ -120,41 +120,39 @@
 
             <div class="row text-light margin-bottom-20">
                 <div class="col-md-4">
-                    <a href="{{ $.Site.BaseURL }}getting-started">
+                    <a href="{{ $.Site.BaseURL }}docs/basics">
                         <div>
                             <i class="service-info-icon icon-no-bg rounded-x fa fa-book"></i>
                             <div class="info-description">
                                 <h3 class="title-v3-md">Quick start</h3>
                                 <p>
-                                    Create your first running application in a few minutes.
+                                    Create your first SeedStack application using the generator.
                                 </p>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="{{ $.Site.BaseURL }}getting-started/tutorial">
+                    <a href="{{ $.Site.BaseURL }}docs/basics/learn-the-basics">
                         <div>
                             <i class="service-info-icon rounded-x fa fa-graduation-cap"></i>
                             <div class="info-description">
                                 <h3 class="title-v3-md">Tutorial</h3>
                                 <p>
-                                    The best way to discover and understand SeedStack. Follow the tutorial and make your
-                                    first steps.
+                                    Discover various SeedStack features by following the tutorial.
                                 </p>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="{{ $.Site.BaseURL }}getting-started/samples">
+                    <a href="{{ $.Site.BaseURL }}docs/basics/samples">
                         <div>
                             <i class="service-info-icon icon-no-bg rounded-x fa fa-cube"></i>
                             <div class="info-description">
                                 <h3 class="title-v3-md">Samples</h3>
                                 <p>
-                                    Deployable, focused, sample projects, each demonstrating a major SeedStack
-                                    feature.
+                                    Explore the samples to see what SeedStack can do.
                                 </p>
                             </div>
                         </div>
@@ -169,7 +167,29 @@
                                 <div class="mb-display">
                                     <div class="mb-screen-position">
                                         <div class="mb-screen">
-                                            <img src="{{ $.Site.BaseURL }}img/getting-started/web-intro.gif">
+                                            <pre><code style="font-size: 13px" class="no-linenums">@Path("/hello/{name}")
+public class HelloResource {
+    @Inject
+    private GreeterService greeterService;
+
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    public String hello(@PathParam("name") String name) {
+        return greeterService.sayHello(name);
+    }
+
+    @Service
+    interface GreeterService {
+        String sayHello(String name);
+    }
+
+    static class HtmlGreeterService implements GreeterService {
+        @Override
+        public String sayHello(String name) {
+            return "&lt;h1&gt;Hello " + name + "!&lt;/h1&gt;";
+        }
+    }
+}</code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -180,8 +200,12 @@
                     </div>
                 </div>
             </div>
-            <div class="row text-light hidden-xs text-center">
-                <p>This is a demo of a Web project creation. Discover other project templates <a style="color: white; text-decoration: underline;" href="{{ $.Site.BaseURL }}getting-started/project-templates/">here</a>.
+            <div class="row text-light hidden-xs text-center" style="font-size: 16px;">
+                <p>
+                    In the example above, a REST resource uses an injected service to say hello!
+                    <br/>
+                    Learn how to do more by <a style="color: white; text-decoration: underline;" href="{{ $.Site.BaseURL }}docs/basics">creating your first application</a>.
+                </p>
             </div>
         </div>
     </div>

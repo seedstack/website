@@ -2,51 +2,59 @@ baseurl = "http://seedstack.org/"
 MetaDataFormat = "yaml"
 
 [params]
-  description = "SeedStack, Clean Java development stack"
+  description = "SeedStack, Clean Java Development"
   author = "The SeedStack authors"
+
   "javax.mail.version" = "1.4.8"
-  "org.seedstack.version" = "17.7"
   "ch.qos.logback.version" = "1.2.3"
 
-  "org.seedstack.poms.version" = "3.1.0"
+  "org.seedstack.version" = "17.11"
 
-  "org.seedstack.shed.version" = "1.1.0"
+  "org.seedstack.maven.version" = "2.7.0"
+
+  "org.seedstack.poms.version" = "3.1.1"
+
+  "org.seedstack.shed.version" = "1.1.1"
   "org.seedstack.coffig.version" = "3.0.1"
-  "org.seedstack.seed.version" = "3.3.0"
-  "org.seedstack.business.version" = "3.1.0"
+  "org.seedstack.seed.version" = "3.4.1"
+  "org.seedstack.business.version" = "4.1.0"
 
   "org.seedstack.addons.audit.version" = "3.0.0"
   "org.seedstack.addons.aws.version" = "1.0.0"
+  "org.seedstack.addons.cci.version" = "1.0.0"
   "org.seedstack.addons.consul.version" = "1.0.0"
   "org.seedstack.addons.datasecurity.version" = "1.0.0"
   "org.seedstack.addons.elasticsearch.version" = "3.0.0"
-  "org.seedstack.addons.feign.version" = "1.0.0"
+  "org.seedstack.addons.feign.version" = "1.1.0"
   "org.seedstack.addons.flyway.version" = "1.0.0"
-  "org.seedstack.addons.i18n.version" = "3.0.0"
+  "org.seedstack.addons.i18n.version" = "4.0.0"
   "org.seedstack.addons.io.version" = "3.0.0"
   "org.seedstack.addons.javamail.version" = "3.0.0"
   "org.seedstack.addons.jcache.version" = "3.0.0"
   "org.seedstack.addons.jdbc.version" = "3.0.2"
   "org.seedstack.addons.jmh.version" = "1.0.2"
   "org.seedstack.addons.jms.version" = "3.0.1"
-  "org.seedstack.addons.jpa.version" = "3.0.2"
-  "org.seedstack.addons.netflix.version" = "1.0.1"
+  "org.seedstack.addons.jpa.version" = "4.0.0"
+  "org.seedstack.addons.kafka.version" = "1.0.0"
   "org.seedstack.addons.ldap.version" = "3.0.0"
   "org.seedstack.addons.metrics.version" = "1.0.0"
-  "org.seedstack.addons.mongodb.version" = "2.0.0"
+  "org.seedstack.addons.modelmapper.version" = "1.0.0"
+  "org.seedstack.addons.mongodb.version" = "3.0.0"
   "org.seedstack.addons.monitoring.version" = "3.1.0"
   "org.seedstack.addons.mqtt.version" = "2.0.1"
   "org.seedstack.addons.neo4j.version" = "2.0.0"
+  "org.seedstack.addons.netflix.version" = "1.1.0"
   "org.seedstack.addons.redis.version" = "2.0.0"
   "org.seedstack.addons.scheduling.version" = "3.0.0"
-  "org.seedstack.addons.shell.version" = "1.0.0"
+  "org.seedstack.addons.shell.version" = "1.0.1"
   "org.seedstack.addons.solr.version" = "2.0.0"
   "org.seedstack.addons.spring.version" = "3.1.0"
   "org.seedstack.addons.swagger.version" = "2.0.1"
   "org.seedstack.addons.w20.version" = "3.1.0"
   "org.seedstack.addons.web.version" = "1.0.0"
-  "org.seedstack.addons.ws.version" = "3.0.0"
-  numRelatedPosts = 2
+  "org.seedstack.addons.ws.version" = "3.0.2"
+
+  "numRelatedPosts" = 2
 
 [blackfriday]
   angledQuotes = true
@@ -56,36 +64,61 @@ MetaDataFormat = "yaml"
   tag = "tags"
   author = "authors"
   zone = "zones"
-  section = "sections"
 
 #####################################
-#### Website zones               ####
+#### Menu                        ####
+#####################################
+[[menu.project]]
+    name = "Project info"
+    identifier = "project"
+    weight = -100
+    url = "/project/"
+
+[[menu.docs]]
+    name = "The basics"
+    identifier = "basics"
+    weight = -100
+    url = "/docs/basics/"
+
+[[menu.docs]]
+    name = "Core"
+    identifier = "core"
+    weight = -90
+    url = "/docs/core/"
+
+[[menu.docs]]
+    name = "Command-line"
+    identifier = "cli"
+    weight = -85
+    url = "/docs/cli/"
+
+[[menu.docs]]
+    name = "Web"
+    identifier = "web"
+    weight = -80
+    url = "/docs/web/"
+
+[[menu.docs]]
+    name = "Business"
+    identifier = "business"
+    weight = -70
+    url = "/docs/business/"
+
+[[menu.docs]]
+    name = "Maven plugin"
+    identifier = "maven"
+    weight = -60
+    url = "/docs/maven/"
+
+
+#####################################
+#### Zones                       ####
 #####################################
 
-[params.zone.Overview]
-  path = "docs/overview"
-  label = "Overview"
+[params.zone.Docs]
+  path = "docs"
+  label = "Documentation"
   logo = "glossary-logo.svg"
-
-[params.zone.MavenPlugin]
-  path = "docs/maven-plugin"
-  label = "Maven plugin"
-  logo = "glossary-logo.svg"
-
-[params.zone.Seed]
-  path = "docs/seed"
-  label = "Java framework"
-  logo = "seed-logo.svg"
-
-[params.zone.Business]
-  path = "docs/business"
-  label = "Business framework"
-  logo = "business-logo.svg"
-
-[params.zone.GettingStarted]
-  path = "getting-started"
-  label = "Getting started"
-  logo = "getting-started-logo.svg"
 
 [params.zone.Glossary]
   path = "glossary"
@@ -102,6 +135,11 @@ MetaDataFormat = "yaml"
   label = "Project"
   logo = "project-logo.svg"
 
+[params.zone.Community]
+  path = "community"
+  label = "Community"
+  logo = "project-logo.svg"
+
 [params.zone.Posts]
   path = "posts"
   label = "Posts"
@@ -116,126 +154,4 @@ MetaDataFormat = "yaml"
   path = "search"
   label = "Search"
   logo = "search-logo.svg"
-
-#####################################
-#### Project sections           ####
-#####################################
-
-[params.section.ProjectOverview]
-  label = "Overview"
-  icon = "fa fa-file-text"
-  path = ""
-
-[params.section.ProjectCommunity]
-  label = "Community"
-  icon = "fa fa-community"
-  path = "community"
-
-[params.section.ProjectFAQ]
-  label = "FAQ"
-  icon = "fa fa-comments-o"
-  path = "faq"
-
-[params.section.ProjectRoadmap]
-  label = "Roadmap"
-  icon = "fa fa-road"
-  path = "roadmap"
-
-[params.section.ProjectOldVersions]
-  label = "Old versions"
-  icon = "fa fa-archive"
-  path = "old-versions"
-
-#####################################
-#### Getting started sections    ####
-#####################################
-
-[params.section.GettingStartedQuickStart]
-  label = "Quick start"
-  icon = "fa fa-rocket"
-  path = ""
-
-[params.section.GettingStartedProjectTemplates]
-  label = "Project templates"
-  icon = "fa fa-cubes"
-  path = "project-templates"
-
-[params.section.GettingStartedTutorial]
-  label = "Tutorial"
-  icon = "fa fa-graduation-cap"
-  path = "tutorial"
-
-[params.section.GettingStartedSamples]
-  label = "Samples"
-  icon = "fa fa-life-buoy"
-  path = "samples"
-
-#####################################
-#### Overview sections           ####
-#####################################
-
-[params.section.OverviewEssentials]
-  label = "Essentials"
-  icon = "fa fa-certificate"
-  path = ""
-
-#####################################
-#### Maven plugin sections       ####
-#####################################
-
-[params.section.MavenPluginEssentials]
-  label = "Essentials"
-  icon = "fa fa-certificate"
-  path = ""
-
-[params.section.MavenPluginManual]
-  label = "Manual"
-  icon = "fa fa-book"
-  path = "manual"
-
-#####################################
-#### Business framework sections ####
-#####################################
-
-[params.section.BusinessEssentials]
-  label = "Essentials"
-  icon = "fa fa-certificate"
-  path = ""
-
-[params.section.BusinessManual]
-  label = "Manual"
-  icon = "fa fa-book"
-  path = "manual"
-
-#####################################
-#### Seed framework sections     ####
-#####################################
-
-[params.section.SeedEssentials]
-  label = "Essentials"
-  icon = "fa fa-compass"
-  path = ""
-
-[params.section.SeedManual]
-  label = "Manual"
-  icon = "fa fa-book"
-  path = "manual"
-
-#####################################
-#### Search                      ####
-#####################################
-
-[params.section.SearchResults]
-  label = "Search results"
-  icon = "fa fa-search"
-  path = ""
-
-#####################################
-#### Glossary                    ####
-#####################################
-
-[params.section.GlossaryAll]
-  label = "Glossary"
-  icon = "fa fa-book"
-  path = ""
 

@@ -2,22 +2,20 @@
 title: "Package layout"
 type: "home"
 zones:
-    - "Business"
-sections:
-    - "BusinessEssentials"
+    - "Docs"
 tags:
-    - essentials
     - domain-driven design
     - architecture
 menu:
-    BusinessEssentials:
-        weight: 40
+    docs:
+        parent: "business"
+        weight: 4
 ---
 
 We recommend a well-defined package layout for organizing your business code according to the software architecture 
 described above.
 
-# The domain
+## The domain
 
 The root package for the domain layer is:
 
@@ -71,7 +69,7 @@ Implementations can be located alongside their interface if they are independent
 Otherwise they must be located in the infrastructure.
 {{% /callout %}}
 
-# The application
+## The application
 
 The root package for the application layer is:
 
@@ -94,7 +92,7 @@ As for the domain, implementations can be located alongside their interface if t
 Otherwise they must be located in the infrastructure.
 {{% /callout %}}
 
-# The interface(s)
+## The interface(s)
 
 The root package for the interface layer is:
 
@@ -105,9 +103,9 @@ The root package for the interface layer is:
 Each interface type has its own root package:
 
 ```plain
-[base.package].intefaces.rest
-[base.package].intefaces.ws
-[base.package].intefaces.cli
+[base.package].interfaces.rest
+[base.package].interfaces.ws
+[base.package].interfaces.cli
 ...
 ```
 
@@ -136,7 +134,7 @@ As for the domain and the application, implementations can be located alongside 
 of any technical aspect. Otherwise they must be located in the infrastructure.
 {{% /callout %}}
 
-# The infrastructure
+## The infrastructure
 
 The root package of the infrastructure layer is:
 

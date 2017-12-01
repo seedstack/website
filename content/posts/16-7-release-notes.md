@@ -15,46 +15,46 @@ zones:
 We are happy to announce the release of SeedStack 16.7 «Jasmine», a maintenance release.<!--more-->
 
 
-# New features
+## New features
 
-## Functional additions
+### Functional additions
 
 * There is no new functional addition.
 
-## Java
+### Java
 
 * There is no new Java addition.
 
-## Business
+### Business
  
 * There is no new Business Framework addition.
 
-## Web
+### Web
 
 * There is no new web framework additions.
 
-# Fixes
+## Fixes
 
 A sizable amount of fixes have been applied to various modules. Please check the detailed change logs of each component
 on [GitHub](https://github.com/seedstack), in their release section.
 
-# Breaking changes
+## Breaking changes
 
 This version has no breaking changes. 
 
-# Component versions
+## Component versions
 
 Updated components are highlighted in **bold** characters (with a link to the detailed change log).
 
 * poms: [2.4.0](https://github.com/seedstack/poms/releases/tag/v2.4.0)
 
-## Core
+### Core
 
 * seed: [2.3.0](https://github.com/seedstack/seed/releases/tag/v2.3.0)
 * business: **[2.3.1](https://github.com/seedstack/business/releases/tag/v2.3.1)**
 * w20: **[2.3.1](https://github.com/seedstack/w20/releases/tag/v2.3.1)**
 
-## Add-ons
+### Add-ons
 
 * audit-addon: [2.1.1](https://github.com/seedstack/audit-addon/releases/tag/v2.1.1)
 * elasticsearch-addon: [2.1.1](https://github.com/seedstack/elasticsearch-addon/releases/tag/v2.1.1)
@@ -85,7 +85,7 @@ Updated components are highlighted in **bold** characters (with a link to the de
 * w20-bootstrap-3: [2.2.0](https://github.com/seedstack/w20-bootstrap-3/releases/tag/v2.2.0)
 * w20-bootstrap-2: 2.1.2
 
-## Themes
+### Themes
 
 * w20-business-theme: [1.2.0](https://github.com/seedstack/w20-business-theme/releases/tag/v1.2.0)
 * w20-simple-theme: [3.2.0](https://github.com/seedstack/w20-simple-theme/releases/tag/v3.2.0)

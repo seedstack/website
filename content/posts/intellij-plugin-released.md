@@ -13,7 +13,7 @@ zones:
 A brand new SeedStack plugin for the popular IDE [Intellij IDEA](https://www.jetbrains.com/idea/) has been released. 
 <!--more-->
 
-# Features
+## Features
 
 This initial version has naturally some room for improvement but already provides useful features for SeedStack developers:
 
@@ -31,7 +31,7 @@ This initial version has naturally some room for improvement but already provide
     * REST resources,
     * Tools.
     
-# Download and installation
+## Download and installation
 
 To get the latest version of the plugin:
 

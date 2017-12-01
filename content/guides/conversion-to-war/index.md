@@ -1,5 +1,5 @@
 ---
-title: "Converting a standalone Web project to WAR"
+title: "Conversion to WAR"
 author: "Adrien LAUER"
 date: 2017-02-06
 tags:
@@ -7,9 +7,10 @@ tags:
     - maven
 zones:
     - Guides
+noMenu: true
 ---
 
-SeedStack projects created by the [generate goal]({{< ref "docs/maven-plugin/manual/generate.md" >}}) of the SeedStack Maven plugin are
+SeedStack projects created by the [generate goal]({{< ref "docs/maven-plugin/generate.md" >}}) of the SeedStack Maven plugin are
 designed to be run from command-line with an embedded Web server. You can convert this kind of project to a classic WAR.<!--more-->
 
 1. **Add** a `src/main/webapp` folder to hold the document root.

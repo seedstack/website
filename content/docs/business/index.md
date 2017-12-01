@@ -1,80 +1,75 @@
 ---
-title: "Business framework"
+title: "Domain-Driven Design"
 type: "home"
 zones:
-    - "Business"
-sections:
-    - "BusinessEssentials"
+    - "Docs"
 tags:
     - essentials
     - domain-driven design
 menu:
-    BusinessEssentials:
-        weight: 10
+    docs:
+        parent: "business" 
+        weight: 1
 ---
 
-SeedStack business framework is a simple and coherent set of building blocks that enable you to code high quality business 
-logic efficiently.<!--more--> 
+Domain-Driven Design is a software approach built on the idea of solving business problems through code. This is done by 
+focusing on the heart of the business logic, to distill a design that can solve business problems.
 
-# Domain-Driven Design
+The business framework helps with the implementation of that domain model. It also provides default implementations and 
+helpers to quickly address related needs like model mapping or pagination. 
 
-The business framework is based on the **Domain-Driven Design (DDD)** software development approach from which it implements
-the tactical patterns. Following the DDD principles will help you to produce a supple and scalable design. Using the business
-framework will help you to implement it quickly and cleanly.
+## What is DDD ?
 
-The term has been coined by Eric Evans in [his book]({{< ref "docs/business/bibliography/index.md" >}}) "Domain-Driven design", 
-published in 2003. It is an approach of software development based on the following premises:
+**Domain-Driven Design (DDD)** is a term coined by Eric Evans in [his book]({{< ref "docs/business/bibliography.md" >}}) 
+"Domain-Driven design", published in 2003. It is an approach of software development that:
 
-* Placing the project's primary focus on the core domain and domain logic.
-* Basing design on a model of the domain.
-* Initiating a creative collaboration between technical and domain experts to iteratively refine a conceptual model that 
-addresses particular domain problems.
+* Focuses on the _core domain_.
+* Explores models in a creative collaboration between business experts and the software team.
+* Defines an ubiquitous language within an explicitly _bounded context_.
 
 DDD really shines when applied on medium to complex business needs but can also be used successfully on simpler projects, 
 especially since the business framework considerably lowers the cost of implementing such projects by providing many 
 helpers and base implementations.
 
-{{% callout ref %}}
-You can learn about what DDD is about in [DDD basics]({{< ref "docs/business/ddd-basics/index.md" >}}). 
-From there you can go further by reading source material described in the [bibliography]({{< ref "docs/business/bibliography/index.md" >}}).
+Domain-Driven Design has two sides, both equally important: 
+
+* **Strategic design**, which address high-level considerations of domain knowledge and its modeling.
+* **Tactical design**, which propose practical patterns to design the required software.
+
+{{% callout info %}}
+The business framework, being an implementation framework, naturally focuses on the tactical side of DDD. Nonetheless,
+strategic design should not be overlooked and is a critical aspect of designing sustainable software.
 {{% /callout %}}
 
-# The business framework
+## A few definitions
 
-The business framework is a Java implementation of the DDD approach that builds upon the [Java framework]({{< ref "docs/seed/index.md" >}}) 
-to provide:
+### Domain
+A sphere of knowledge, influence, or activity. The subject area to which the user applies a program is the domain of the software.
 
-* A set of patterns both from DDD and from more general object-oriented programming,
-* Ready to extend base classes,
-* Default implementations where possible,
-* Helpers and utilities for common tasks.
+### Model
+A system of abstractions that describes selected aspects of a domain and can be used to solve problems related to that domain.
 
-Using the business framework requires the following dependency in your project:
+### Ubiquitous language
+A language structured around the domain model and used by all team members within a bounded context to connect all the activities of the team with the software.
 
-{{< dependency g="org.seedstack.business" a="business-core" >}}
+### Context
+The setting in which a word or statement appears that determines its meaning. Statements about a model can only be understood in a context.
 
-# Key factors to success
+### Bounded context
+A description of a boundary (typically a subsystem, or the work of a particular team) within which a particular model is defined and applicable.
 
-## An iterative process
+## Strategic design
 
-An iterative design and development process is required to successfully implement DDD in a project. Any agile methodology
-that fits the team can be used. Frequent communication between domain experts and the development team is key to get
-the model right before too much code is written. This communication should not cease after the first version of the model
-is produced because the software will probably be continuously refined until it is no longer needed by the business.
+Strategic design has nothing to do with code. It is about identifying and understanding the business mindset, language and 
+solutions. Ultimately, a significant part of the domain knowledge will be implemented as code but it needs to be well
+understood and structured first.
 
-## Business involvement
+## Tactical design
 
-The domain being the area of application of the software, an access to domain experts is critical to achieve a high quality
-model. One goal of the DDD is to express the mental model spread across business experts into a refined, precise and
-usable domain model. To be able to achieve this goal, domain experts should contribute to software design by defining
-the {{< term "Ubiquitous Language" >}} with the development team.
+The following diagram represents the key patterns of tactical Domain-Driven Design and how they relate to each other. 
 
-This collaboration will lead to a software that is exactly what is needed by the business.
+![Tactical domain-driven design](img/all-domain.png)
 
-## Development
-
-To successfully apply DDD and use the business framework, some prerequisites must be met by the development team:
-
-* Being fluent with Java Object-Oriented (OO) programming paradigm,
-* Being familiar with [SOLID principles](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)), 
-* Being comfortable with the technical aspects of SeedStack.
+{{% callout ref %}}
+Go further by reading source material described in the [bibliography]({{< ref "docs/business/bibliography.md" >}}).
+{{% /callout %}}

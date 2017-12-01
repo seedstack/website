@@ -2,36 +2,56 @@
 title: "Qualified injection"
 type: "home"
 zones:
-    - "Business"
-sections:
-    - "BusinessManual"
-tags:
-    - "injection"
+    - "Docs"
 tags:
     - essentials
     - domain-driven design
     - injection
 menu:
-    BusinessEssentials:
-        weight: 50
+    docs:
+        parent: "business"
+        weight: 5
 ---
 
-With the business framework, much like the rest of SeedStack, you declare injection points with an interface type not an 
-implementation one. The framework discovers any implementation of a specific interface and will inject it through its interface.
+In the business framework, you always [inject]({{< ref "docs/basics/dependency-injection.md" >}}) dependencies by interface
+not by implementation class. For each injection point, two situations are possible:
 
-For a specific interface, the business framework supports multiple implementations. This is particularly useful when you
-have multiple algorithms of implementation technologies for an interface. 
+* If only one implementation exists for a specific interface, it is injected without ambiguity.
+* If multiple exists for a specific interface, the injection point should be qualified to select the implementation to 
+inject. This done by putting an **qualifier annotation** along the {{< java "javax.inject.Inject" "@" >}} annotation. 
 
-If multiple implementations of a specific interface are found, you must use a qualifier on each one to differentiate 
-them. Qualifiers are annotations that are annotated with {{< java "javax.inject.Qualifier" "@" >}}. To choose an implementation
-at the injection point, simply use the same qualifier as the implementation and put it alongside the `@Inject` annotation. 
+## Built-in qualifiers
 
-# @Named qualifier
+SeedStack provides several built-in qualifiers. 
+
+### @InMemory 
+
+The {{< java "org.seedstack.business.util.inmemory.InMemory" "@" >}} qualifier denotes an implementation that stores its state
+in memory only. It currently can be applied to:
+
+* The {{< java "org.seedstack.business.domain.Repository" >}} interface for selecting an implementation of repository that
+stores aggregates in a map.
+* The {{< java "org.seedstack.business.util.SequenceGenerator" >}} interface for selecting an implementation that generates
+a sequence of numbers with an {{< java "java.util.concurrent.atomic.AtomicLong" >}}. 
+
+### @Random
+
+The {{< java "org.seedstack.business.util.random.Random" "@" >}} qualifier denotes an implementation that uses random values.
+It currently can be applied to:
+
+* The {{< java "org.seedstack.business.util.UuidGenerator" >}} interface for selecting an implementation that generates
+a random {{< java "java.util.UUID" >}}. 
+
+### Other built-in qualifiers
+
+Other qualifiers can be found in [add-ons]({{< baseUrl >}}addons), particularly in persistence add-ons.
+
+## Generic @Named qualifier 
 
 The {{< java "javax.inject.Named" "@" >}} annotation is a qualifier that uses a String as the qualifying element. This is
 the only qualifier that is part of the JSR-330 standard.
  
-As an example, consider the following [policy]({{< ref "docs/business/manual/policies.md" >}}%) interface:
+As an example, consider the following [policy]({{< ref "docs/business/policies.md" >}}%) interface:
 
 ```java
 @Policy
@@ -68,10 +88,12 @@ qualifier injection point:
 
 ```java
 public class SomeClass {
-    @Inject @Named("FR")
+    @Inject 
+    @Named("FR")
     private TaxesPolicy frenchTaxesPolicy;
     
-    @Inject @Named("UK")
+    @Inject 
+    @Named("UK")
     private TaxesPolicy ukTaxesPolicy;
 }
 ```
@@ -89,7 +111,7 @@ public class SomeClass {
 }
 ```
 
-# Custom qualifier
+## Defining a custom qualifier
 
 You can choose to write your own qualifier. To do this, create a custom annotation that is itself annotated by 
 {{< java "javax.inject.Qualifier" "@" >}}:
@@ -102,25 +124,34 @@ public @interface France {
 }
 ```
 
-You can then use it just like the {{< java "javax.inject.Named" "@" >}} qualifier:
+You can then qualify an implementation with it:
+
+```java
+@France
+public class FranceTaxesPolicy implements TaxesService {
+    int computeTaxes(Order order){
+        // ...
+    }
+}
+```
+
+And use it at the injection point:
 
 ```java
 public class SomeClass {
-    @Inject @France
+    @Inject 
+    @France
     private TaxesPolicy frenchTaxesPolicy;   
 }
 ```
 
-To use it with the domain registry, pass the annotation class instead of the String qualifier.
+## Patterns supporting qualifiers
 
-# Patterns supporting qualifiers
+The business framework support qualified injection for the following interfaces:
 
-The business framework support qualified injection for the following patterns:
-
-* [Services]({{< ref "docs/business/manual/services.md" >}}),
-* [Factories]({{< ref "docs/business/manual/factories.md" >}}),
-* [Repositories]({{< ref "docs/business/manual/repositories.md" >}}),
-* [Policies]({{< ref "docs/business/manual/policies.md" >}}),
-* [Assemblers]({{< ref "docs/business/manual/assemblers.md" >}}),
-* [Finders]({{< ref "docs/business/manual/finders.md" >}}).
-
+* [Factories]({{< ref "docs/business/factories.md" >}}),
+* [Identity generators]({{< ref "docs/business/factories.md#identity-generation" >}}),
+* [Repositories]({{< ref "docs/business/repositories.md" >}}),
+* [Services]({{< ref "docs/business/services.md" >}}),
+* [Policies]({{< ref "docs/business/policies.md" >}}),
+* [Assemblers]({{< ref "docs/business/assemblers.md" >}}).

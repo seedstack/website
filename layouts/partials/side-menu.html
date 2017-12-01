@@ -1,82 +1,42 @@
-{{ $parent := . }}
-<div class="side-menu">
-    {{ range .Menus }}
-        <div class="list-group">
-            <ul class="nav">
-                {{ $toc := $parent.TableOfContents }}
-                {{ $currentUrl := $parent.RelPermalink }}
-                {{ range index $parent.Site.Menus .Menu }}
-                    {{ $active :=  eq $currentUrl .URL }}
-                    <li>
-                        {{ if gt (len (index $parent.Site.Menus .Menu)) 1 }}
-                            <a href="{{ .URL }}" class="list-group-item {{ if $active }} active {{ end }}">
-                                {{ .Name }}
-                            </a>
-                            {{ if $parent.Scratch.Get "nextPage" }}
-                                <script>
-                                    seedstack.state.nextPage = '{{ .URL }}';
-                                </script>
-                                {{ $parent.Scratch.Set "nextPage" false }}
-                            {{ end }}
-                        {{ end }}
-                        {{ if $active }}
-                            {{ if not $parent.Params.noToc }}
-                                {{ $toc }}
-                            {{ end }}
-                            <script>
-                                seedstack.state.previousPage = '{{ $parent.Scratch.Get "previousPage" }}';
-                            </script>
-                            {{ $parent.Scratch.Set "nextPage" true }}
-                        {{ end }}
-                    </li>
-                    {{ $parent.Scratch.Set "previousPage" .URL }}
-                {{ end }}
-            </ul>
-        </div>
-    {{ end }}
-    {{ if $parent.Params.tags }}
+{{ $currentPage := . }}
+{{ $zone := index .Params.zones 0 }}
+
+{{ if eq $zone "Guides" }}
+{{ $.Scratch.Set "menuKey" .Params.Guide }}
+{{ else if eq $zone "Addons" }}
+{{ $.Scratch.Set "menuKey" .Params.Addon }}
+{{ else }}
+{{ $.Scratch.Set "menuKey" (lower $zone) }}
+{{ end }}
+
+{{ $menuKey := $.Scratch.Get "menuKey" }}
+{{ if $menuKey }}
+{{ $menu := index .Site.Menus $menuKey }}
+{{ if $menu }}
+<nav class="side-menu">
     <div class="list-group">
         <ul class="nav">
-            <li class="list-group-item"><div style="margin-bottom: 10px;"><i class="fa fa-tag"></i> Tags</div>
-                <div class="tags">
-                    {{ range $parent.Params.tags }}
-                    <a class="label label-default" href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . | title }}</a>
-                    {{ end }}
-                </div>
+            {{ range $menu.ByWeight }}
+            <li class="list-group-header">
+                <a href="{{ if .HasChildren }}{{ (index .Children 0).URL }}{{ else }}{{ .URL }}{{ end }}" class="{{if or ($currentPage.IsMenuCurrent $menuKey .) ($currentPage.HasMenuCurrent $menuKey .) }} active{{end}}" data-target=".{{ .Name | urlize }}">{{ .Name | title }}</a>
             </li>
-        </ul>
-    </div>
-    {{ end }}
-    <div class="list-group">
-        <ul class="nav">
-            <li class="list-group-item"><div style="margin-bottom: 10px;"><i class="fa fa-file-text"></i> Related pages</div>
-                <ul style="padding-left: 20px;">
-                    {{ range first 5 ( where ( where .Site.Pages.ByDate.Reverse ".Params.tags" "intersect" .Params.tags ) "Permalink" "!=" .Permalink ) }}
-                    <li class="relatedPost" style="list-style-type: square;">
-                        <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a><br />
+            {{ if .HasChildren }}
+            <li class="list-group-item">
+                <ul>
+                    {{ range .Children }}
+                    <li>
+                        <a href="{{.URL}}" class="{{if $currentPage.IsMenuCurrent $menuKey . }}active{{end}}">
+                            {{ .Name | title }}
+                        </a>
                     </li>
                     {{ end }}
                 </ul>
             </li>
+            {{end}}
+            </li>
+            {{end}}
         </ul>
     </div>
-    <div class="list-group">
-        <ul class="nav">
-            {{ if in .Dir "addons" }}
-                {{ if isset $parent.Params "repo" }}
-                    {{with $parent.File }}<li><a class="list-group-item" href='{{ $path := split (replace .Dir "\\" "/") "/" }}{{ $parent.Params.repo }}/edit/docs/{{ range $index, $element := $path }}{{ if and (gt $index 1) (gt (len $element) 0) }}{{ $element }}/{{ end }}{{ end }}{{ html .LogicalName }}' target="_blank"><i class="fa fa-edit"></i> Contribute to this add-on page</a></li>{{end}}
-                {{ end }}
-            {{ else if in .Dir "themes" }}
-                {{ if isset $parent.Params "repo" }}
-                    {{with $parent.File }}<li><a class="list-group-item" href='{{ $path := split (replace .Dir "\\" "/") "/" }}{{ $parent.Params.repo }}/edit/docs/{{ range $index, $element := $path }}{{ if and (gt $index 1) (gt (len $element) 0) }}{{ $element }}/{{ end }}{{ end }}{{ html .LogicalName }}' target="_blank"><i class="fa fa-edit"></i> Contribute to this theme page</a></li>{{end}}
-                {{ end }}
-            {{ else if eq (substr ( printf "%s" $.Site.BaseURL) 0) "http://beta.seedstack.org/" }}
-                {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/website/edit/beta/content/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this BETA page</a></li>{{end}}
-            {{ else if eq (substr ( printf "%s" $.Site.BaseURL) 0) "http://dev.seedstack.org/" }}
-                {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/website/edit/dev/content/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this DEV page</a></li>{{end}}
-            {{ else }}
-                {{with $parent.File }}<li><a class="list-group-item" href="https://github.com/seedstack/website/edit/master/content/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Contribute to this page</a></li>{{end}}
-            {{ end }}
-        </ul>
-    </div>
-</div>
+</nav>
+{{ end }}
+{{ end }}

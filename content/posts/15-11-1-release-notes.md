@@ -15,19 +15,19 @@ zones:
 
 We are happy to announce the release of SeedStack 15.11.1, an incremental update of SeedStack 15.11.<!--more-->
 
-# Changes
+## Changes
 
-## Validation
+### Validation
 
 The [validation add-on](http://seedstack.org/addons/validation) has been improved to better conform with the Bean
 Validation specification. The custom `ValidationService` is deprecated and should be replaced by the class `Validator`
 (which can be injected or obtained through the injectable `ValidatorFactory`).
 
-## JDBC, JPA, JMS
+### JDBC, JPA, JMS
 
 Minor fixes of error messages which referenced outdated information.
 
-## I18n
+### I18n
 
 The [i18n add-on](http://seedstack.org/addons/i18n) performance has been vastly improved, both for translation initial
 loading and during heavy use (better caching implementation). The translations of the add-on itself have been moved
@@ -44,14 +44,14 @@ procedure is:
 
 A detailed blog post will soon be published with the procedure details.
 
-## W20 bridge
+### W20 bridge
 
 The [W20 bridge add-on]({{< ref "addons/w20-bridge/index.md" >}}) contains minor fixes and the latest version of W20 and
 it add-ons. The main evolution of W20 is the upgrade to AngularJS 1.4.8 and Bootstrap 3.3.6.
 
-# New features
+## New features
 
-## Servlet 3.1: no more web.xml
+### Servlet 3.1: no more web.xml
 
 Seed Web 2.2.0 comes with a support for [Servlet 3.1](https://java.net/downloads/servlet-spec/Final/servlet-3_1-final.pdf),
 but Servlet 2.5 is still supported. If your servlet container supports servlet 3+, **remove all your `web.xml` files and
@@ -63,7 +63,7 @@ according tests configuration**.
                        .setWebXML("WEB-INF/web.xml"); // TODO remove the web.xml configuration
         }
 
-## JAX-RS 2
+### JAX-RS 2
 
 The version 2 of JAX-RS standard has been integrated in the Java framework through the Jersey 2 library. You can now
 benefits of all the improvements of the JAX-RS 2 specification such as:
@@ -76,7 +76,7 @@ The JAX-RS 2 specification is backwards-compatible with JAX-RS 1 so you can easi
 dependency with `seed-rest-jersey2`. The configuration options are unchanged, except if you happened to have specified
 custom Jersey properties. In that case, replace them with their [Jersey 2 equivalent](https://jersey.java.net/documentation/latest/appendix-properties.html).
 
-## Swagger
+### Swagger
 
 A new [Swagger](http://swagger.io/) add-on has been released and can be used to expose JSON information about your
 application API. This can be used by Swagger clients to display and document your REST API automatically. Some devices
@@ -91,18 +91,18 @@ The Swagger description will then be available on:
 * `http://myserver.org/swagger.json` for the JSON format,
 * `http://myserver.org/swagger.yaml` for the YAML format.
 
-# Component versions
+## Component versions
 
 Updated components are highlighted in **bold** characters.
 
-## Base
+### Base
 
 * poms: **[2.3.0](https://github.com/seedstack/poms/releases/tag/v2.3.0)**
 * seed: **[2.2.0](https://github.com/seedstack/seed/releases/tag/v2.2.0)**
 * business: **[2.2.0](https://github.com/seedstack/business/releases/tag/v2.2.0)**
 * w20: **[2.2.0](https://github.com/seedstack/w20/releases/tag/v2.2.0)**
 
-## Add-ons
+### Add-ons
 
 * audit-addon: 2.1.0
 * monitoring-addon: 2.1.0
@@ -132,7 +132,7 @@ Updated components are highlighted in **bold** characters.
 * w20-bootstrap-2: **[2.1.2](https://github.com/seedstack/w20-bootstrap-2/releases/tag/v2.1.2)**
 * w20-bootstrap-3: **[2.1.2](https://github.com/seedstack/w20-bootstrap-3/releases/tag/v2.1.2)**
 
-## Themes
+### Themes
 
 * w20-simple-theme: **[3.1.1](https://github.com/seedstack/w20-simple-theme/releases/tag/v3.1.1)**
 * w20-business-theme: **[1.1.3](https://github.com/seedstack/w20-business-theme/releases/tag/v1.1.3)**
