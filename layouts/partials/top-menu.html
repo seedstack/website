@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse navbar-responsive-collapse" data-role="navigation" style="pointer-events: none;">
         <div class="container">
             <ul class="nav navbar-nav" style="pointer-events: auto;">
-                <li class='{{ if eq (.Scratch.Get "zone") "GettingStarted" }}active{{ end }}'>
+                <li class='{{ if eq (.Scratch.Get "zone") "Docs" }}active{{ end }}'>
                     <a href="{{ $.Site.BaseURL }}docs">Documentation</a>
                 </li>
                 <li class='{{ if eq (.Scratch.Get "zone") "Guides" }}active{{ end }}'>
@@ -37,6 +37,7 @@
                         <li><a href="{{ $.Site.BaseURL }}glossary">Glossary</a></li>
                         <li><a href="{{ $.Site.BaseURL }}tags">Tags</a></li>
                         <li><a href="{{ $.Site.BaseURL }}project">Project info</a></li>
+                        <li><a target="_blank" href="{{ $.Site.BaseURL }}javadoc"><i style="margin-top: 3px" class="pull-right fa fa-external-link"></i> Javadoc</a></li>
                         <li><a target="_blank" href="https://github.com/seedstack/distribution/releases"><i style="margin-top: 3px" class="pull-right fa fa-external-link"></i> Releases</a></li>
                         <li><a target="_blank" href="https://github.com/seedstack"><i style="margin-top: 3px" class="pull-right fa fa-external-link"></i> Source</a></li>
                     </ul>

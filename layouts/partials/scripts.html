@@ -34,14 +34,16 @@
                 });
         }
 
-        $('pre code:not(.no-linenums)').each(function (i, block) {
+        $('pre code').each(function (i, block) {
             hljs.highlightBlock(block);
-            hljs.lineNumbersBlock(block);
 
-            // Remove empty line added by numbering plugin
-            var lastLine = $(block).find('table > tbody > tr:last');
-            if (lastLine.text().trim() === "") {
-                lastLine.remove();
+            if ($(block).not('.no-linenums').length > 0) {
+                hljs.lineNumbersBlock(block);
+                // Remove empty line added by numbering plugin
+                var lastLine = $(block).find('table > tbody > tr:last');
+                if (lastLine.text().trim() === "") {
+                    lastLine.remove();
+                }
             }
 
             // Hide Java package and imports if any
