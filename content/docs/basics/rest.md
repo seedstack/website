@@ -37,15 +37,32 @@ Now annotate the `HelloResource` class with {{< java "io.swagger.annotations.Api
 ```java
 package org.generated.project.interfaces.rest;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import org.generated.project.domain.model.person.PersonRepository;
+import org.generated.project.domain.services.GreeterService;
+import org.seedstack.business.util.inmemory.InMemory;
 
 @Path("hello")
 @Api
 public class HelloResource {
+    @Inject
+    @InMemory
+    private PersonRepository personRepository;
+    @Inject
+    private GreeterService greeterService;
+
     @GET
+    @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "Hello World!";
+        return personRepository.findByName("ella")
+                .findFirst()
+                .map(greeterService::greet)
+                .orElseThrow(NotFoundException::new);
     }
 }
 ```
@@ -67,7 +84,7 @@ To enable CORS, just add the following configuration at the bottom of the `appli
 
 ```yaml
 web:
-  cors: true
+    cors: true
 ```
 
 {{% callout info %}}

@@ -1,5 +1,5 @@
 ---
-title: "Web testing"
+title: "Web integration testing"
 type: "home"
 zones:
     - "Docs"
