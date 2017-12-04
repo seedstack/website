@@ -9,7 +9,7 @@ tags:
 menu:
     docs:
         parent: "business"
-        weight: 4
+        weight: 6
 ---
 
 We recommend a well-defined package layout for organizing your business code according to the software architecture 

@@ -131,7 +131,7 @@ custom implementation.
 
 ### Declaration
 
-To create an explicit repository, create an interface extending {{< java "org.seedstack.business.domain.Repository" >}}:
+To create a custom repository, create an interface extending {{< java "org.seedstack.business.domain.Repository" >}}:
  
 ```java
 public interface SomeRepository extends Repository<SomeAggregate, SomeId> {

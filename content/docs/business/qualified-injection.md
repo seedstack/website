@@ -10,7 +10,7 @@ tags:
 menu:
     docs:
         parent: "business"
-        weight: 5
+        weight: 7
 ---
 
 In the business framework, you always [inject]({{< ref "docs/basics/dependency-injection.md" >}}) dependencies by interface

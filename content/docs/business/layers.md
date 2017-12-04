@@ -1,5 +1,5 @@
 ---
-title: "Layered architecture"
+title: "Layers"
 type: "home"
 zones:
     - "Docs"
@@ -10,7 +10,8 @@ aliases: /docs/business/architecture
 menu:
     docs:
         parent: "business"
-        weight: 3
+        weight: 5
+        pre: "<h6>Architecture</h6>"
 ---
 
 Domain-Driven Design itself can be successfully applied in variety of software architectural styles. Some are very broad 

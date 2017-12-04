@@ -10,6 +10,7 @@ menu:
     docs:
         parent: "business"
         weight: 20
+        pre: "<h6>Behavior</h6>"
 ---
 
 {{% callout def %}}

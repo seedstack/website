@@ -18,7 +18,7 @@
 }
 
 .side-menu .list-group-item ul {
-    padding-left: 20px;
+    padding: 0 10px 0 10px;
     list-style-type: none;
 }
 
@@ -36,6 +36,12 @@
     color: #3498db;
 }
 
+.side-menu .list-group-item ul li > h6 {
+    color: #888;
+    border-bottom: 1px solid #ccc;
+    margin: 14px 0 5px 0;
+}
+
 .side-menu .list-group-header {
     margin-top: 20px;
     background-color: #3498db;
@@ -47,7 +53,7 @@
     font-weight: bold;
 }
 
-.nav>li>a:focus, .nav>li>a:hover {
+.nav>li.list-group-header>a:focus, .nav>li.list-group-header>a:hover {
     background-color: #3498db;
 }
 
@@ -55,7 +61,7 @@
     margin-top: 0;
 }
 
-.nav > li > a {
+.nav > li.list-group-header > a {
     padding: 10px 0 10px 10px;
     line-height: 20px;
     color: white;

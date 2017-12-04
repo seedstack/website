@@ -8,7 +8,7 @@ tags:
     - security
 menu:
     docs:
-        weight: 7
+        weight: 4
         parent: "web"
 ---
 

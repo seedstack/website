@@ -1,5 +1,5 @@
 ---
-title: "Reference material and books"
+title: "Bibliography"
 type: "home"
 zones:
     - "Docs"
@@ -8,7 +8,7 @@ tags:
 menu:
     docs:
         parent: "business"
-        weight: 99
+        weight: 3
 ---
 
 To go beyond what is described in this documentation, we recommend a few books which will help you to better understand

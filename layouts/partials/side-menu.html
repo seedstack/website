@@ -25,9 +25,11 @@
                 <ul>
                     {{ range .Children }}
                     <li>
+                        {{ .Pre }}
                         <a href="{{.URL}}" class="{{if $currentPage.IsMenuCurrent $menuKey . }}active{{end}}">
                             {{ .Name | title }}
                         </a>
+                        {{ .Post }}
                     </li>
                     {{ end }}
                 </ul>
