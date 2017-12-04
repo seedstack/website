@@ -8,7 +8,8 @@ MetaDataFormat = "yaml"
   "javax.mail.version" = "1.4.8"
   "ch.qos.logback.version" = "1.2.3"
 
-  "org.seedstack.version" = "17.11"
+  "org.seedstack.version" = "17.11.1"
+  "org.seedstack.version-notes" = "17.11"
 
   "org.seedstack.maven.version" = "2.7.0"
 
@@ -17,11 +18,11 @@ MetaDataFormat = "yaml"
   "org.seedstack.shed.version" = "1.1.1"
   "org.seedstack.coffig.version" = "3.0.1"
   "org.seedstack.seed.version" = "3.4.1"
-  "org.seedstack.business.version" = "4.1.0"
+  "org.seedstack.business.version" = "4.1.1"
 
   "org.seedstack.addons.audit.version" = "3.0.0"
   "org.seedstack.addons.aws.version" = "1.0.0"
-  "org.seedstack.addons.cci.version" = "1.0.0"
+  "org.seedstack.addons.cci.version" = "1.0.1"
   "org.seedstack.addons.consul.version" = "1.0.0"
   "org.seedstack.addons.datasecurity.version" = "1.0.0"
   "org.seedstack.addons.elasticsearch.version" = "3.0.0"

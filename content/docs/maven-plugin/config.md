@@ -47,11 +47,11 @@ Parameters can be given as system properties (`-DparameterName=parameterValue`) 
 ### Dump all the configuration options
 
 ```bash
-mvn -q org.seedstack:seedstack-maven-plugin:config
+mvn -q seedstack:config
 ```
 
 ### Detail a specific configuration option
 
 ```bash
-mvn -Dargs="application.id" -q org.seedstack:seedstack-maven-plugin:config
+mvn -Dargs="application.id" -q seedstack:config
 ```

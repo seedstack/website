@@ -27,5 +27,5 @@ No parameters are accepted by this goal.
 ## Example
 
 ```bash
-mvn -q org.seedstack:seedstack-maven-plugin:effective-config
+mvn -q seedstack:effective-config
 ```

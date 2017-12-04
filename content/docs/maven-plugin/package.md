@@ -15,12 +15,6 @@ menu:
 The `package` goal packages any self-executable SeedStack application in a [Capsule](http://www.capsule.io/).
 A Capsule is a way of packaging and running any application with all its dependencies from a unique plain executable JAR.<!--more-->
 
-{{% callout info %}}
-Self-executable SeedStack application are applications that contains one and only one implementation of the {{< java "org.seedstack.seed.spi.SeedLauncher" >}}
-interface in their classpath, like the one provided by the `seed-cli` module (for command-line application) or the `seed-web-undertow`
-module (for embedded Web applications).
-{{% /callout %}}
-
 ## Parameters
 
 Parameters can be given as system properties (`-DparameterName=parameterValue`) or specified in the `pom.xml` plugin declaration:
@@ -74,22 +68,27 @@ Parameters can be given as system properties (`-DparameterName=parameterValue`) 
     </tbody>
 </table>
 
-## Examples
+## Example
 
 ### Standalone Capsule
 
 A standalone Capsule packs all its dependencies and is completely self-contained. It is the default mode of operation. To
 build such a Capsule, use the following command:
 
-    mvn org.seedstack:seedstack-maven-plugin:package
+```bash
+mvn seedstack:package
+```
 
 ## Running a capsule
 
 To run a capsule, you simply execute it as a plain executable JAR:
 
-    java [jvm-args] -jar my-capsule.jar [args...]
+```bash
+java [jvm-args] -jar my-capsule.jar [args...]
+```
 
-In addition to any argument already specified in the capsule manifest (with the plugin parameters described above), you can specify any argument to the JVM or to the program as usual.
+In addition to any argument already specified in the capsule manifest (with the plugin parameters described above), you 
+can specify any argument to the JVM or to the program as usual.
 
 {{% callout tips %}}
 A lot of options can be specified to alter the default behavior of the Capsule itself. Please refer to the [Capsule user-guide](http://www.capsule.io/user-guide/)

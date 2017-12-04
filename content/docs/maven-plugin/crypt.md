@@ -53,5 +53,5 @@ Parameters can be given as system properties (`-DparameterName=parameterValue`) 
 Encryption of a password using alias `alias1` in the `master` key store:
   
 ```bash
-mvn -Dargs="--alias alias1 thePasswOrd" -q org.seedstack:seedstack-maven-plugin:crypt
+mvn -Dargs="--alias alias1 thePasswOrd" -q seedstack:crypt
 ```

@@ -84,12 +84,8 @@ Parameters should be given as system properties (`-DparameterName=parameterValue
 
 ## Examples
 
-Interactive mode:
+To generate a project, run the following command:
 
-    mvn org.seedstack:seedstack-maven-plugin:generate
-
-Batch mode:
-
-    mvn org.seedstack:seedstack-maven-plugin:generate -DgroupId=org.myorganization -DartifactId=myproject -Dtype=web
-    
-The `type` property can be any of the archetype names provided by the distribution (i.e.: web, rest, domain, ...). 
+```bash
+mvn -U org.seedstack:seedstack-maven-plugin:generate
+```
