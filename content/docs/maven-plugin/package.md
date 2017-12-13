@@ -39,7 +39,10 @@ Parameters can be given as system properties (`-DparameterName=parameterValue`) 
         <td>classpathEntries</td>
         <td>List of strings</td>
         <td>No</td>
-        <td>The classpath entries to add to the application classpath. Relative paths are resolved to the location of the capsule JAR. The current user home path (~) can be used.</td>
+        <td>The classpath entries to add to the application classpath.
+        <br/>Relative paths are resolved to the location of the 
+        capsule JAR. 
+        <br/>The current user home path (~) can be used.</td>
     </tr>
     <tr>
         <td>systemProperties</td>
@@ -67,6 +70,73 @@ Parameters can be given as system properties (`-DparameterName=parameterValue`) 
     </tr>
     </tbody>
 </table>
+
+## Custom Classpath
+
+The classpath of the capsule can be augmented:
+
+* Statically with the `classpathEntries` plugin configuration attribute. In this case the entries are put in the 
+JAR manifest and cannot be changed after the capsule has been built.
+* Dynamically with the `capsule.classpath` system property on the command-line used to run the capsule.   
+
+### Syntax of Classpath entries
+
+The following features are available when specifying a Classpath entry:
+
+* A tilde `~` character is resolved to the current user home directory,
+* A dot `.` character is resolved to the directory where the capsule is located,
+* When a plain directory is specified, it is added to the Classpath of the application as is,
+* When a directory suffixed with `/*` is specified, all the JAR files inside this directory are added to the Classpath 
+of the application.
+
+### Static classpath
+
+Classpath entries can be specified in the Maven configuration of the `package` goal:
+
+```xml
+<plugin>
+    <groupId>org.seedstack</groupId>
+    <artifactId>seedstack-maven-plugin</artifactId>
+    <version>{{< version g="org.seedstack.maven" >}}</version>
+    <executions>
+        <execution>
+            <id>build-capsule</id>
+            <goals>
+                <goal>package</goal>
+            </goals>
+            <configuration>
+                <classpathEntries>
+                    <classpathEntry>~/.app/etc</classpathEntry>
+                    <classpathEntry>~/.app/lib/*</classpathEntry>
+                    <classpathEntry>/opt/app/etc</classpathEntry>
+                    <classpathEntry>/opt/app/lib/*</classpathEntry>
+                </classpathEntries>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+```
+
+In the example above:
+
+* `etc` directories will be added as-is to the classpath
+* JAR files contained in the `lib` directories will be directly added to the classpath. 
+
+{{% callout info %}}
+Being declared first, locations in the home directory will have precedence over the ones in `/opt`.
+{{% /callout %}}
+
+### Dynamic Classpath
+
+Classpath entries can be specified on the command-line using the `capsule.classpath` system property:
+
+```bash
+java -Dcapsule.classpath="/usr/local/app/etc:/user/local/app/lib/*" -jar my-capsule.jar
+```
+
+{{% callout info %}}
+Dynamic Classpath entries are added after static entries so they have a lower precedence.
+{{% /callout %}}
 
 ## Example
 
