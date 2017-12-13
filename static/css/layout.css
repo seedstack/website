@@ -347,6 +347,28 @@ i.icon-bg-u {
     color: white;
 }
 
+.toc {
+    position: fixed;
+    right: 0;
+    top: 335px;
+    max-width: 250px;
+    padding: 0 10px 0 10px;
+    border-left: 1px solid #ccc;
+}
+
+.toc p.title {
+    font-weight: bold;
+}
+
+.toc ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.toc > nav > ul > li > ul > li > ul {
+    display: none;
+}
+
 .channel-marker span a {
     color: #fff;
     text-decoration: underline;
@@ -371,6 +393,12 @@ i.icon-bg-u {
 @media (min-width: 992px) {
     .header .navbar-nav {
         padding-left: 150px;
+    }
+}
+
+@media (max-width: 1679px) {
+    #toc {
+        display: none;
     }
 }
 
