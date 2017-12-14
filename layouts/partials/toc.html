@@ -3,7 +3,7 @@
         {{ if or (.Scratch.Get "menuPrevPage") (.Scratch.Get "menuNextPage") }}
         <div>
             {{if .Scratch.Get "menuPrevPage" }}
-            <a href='{{(.Scratch.Get "menuPrevPage").URL}}' class="dib f6 pr1 hover-bg-light-gray br-100">
+            <a href='{{(.Scratch.Get "menuPrevPage").URL}}' class="dib f6 pr1 hover-bg-light-gray br-100" data-toggle="tooltip" title='{{(.Scratch.Get "menuPrevPage").Name}}'>
                 <i class="fa fa-chevron-left"></i>
             </a>
             {{else}}
@@ -11,7 +11,7 @@
             {{end}}
             &nbsp;&nbsp;&nbsp;
             {{ if .Scratch.Get "menuNextPage" }}
-            <a href='{{(.Scratch.Get "menuNextPage").URL}}' class="dib f6 pl1 hover-bg-light-gray br-100">
+            <a href='{{(.Scratch.Get "menuNextPage").URL}}' class="dib f6 pl1 hover-bg-light-gray br-100" data-toggle="tooltip" title='{{(.Scratch.Get "menuNextPage").Name}}'>
                 <i class="fa fa-chevron-right"></i>
             </a>
             {{else}}
