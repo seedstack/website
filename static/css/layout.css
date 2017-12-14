@@ -37,7 +37,6 @@
     padding: 0;
     font-size: 48px;
     font-style: normal;
-    text-shadow: 1px 1px 1px #555;
 }
 
 .title-header h2 {
@@ -52,7 +51,6 @@
 
 .title-header p {
     font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
     font-size: 20px;
     line-height: 30px;
     width: 100%;
@@ -80,7 +78,6 @@
 
 .title-subheader * {
     color: white;
-    font-weight: 300;
 }
 
 .title-subheader span {
@@ -98,14 +95,13 @@
 
 .title-subheader span.active a {
     font-weight: 400;
-    color: #6be1ff;
     background: transparent url('../img/triangle.svg') no-repeat 50% 24px;
     background-size: 20px 10px;
     margin-bottom: -10px;
     padding-bottom: 10px;
 }
 
-.title-subheader span.active a:hover {
+.title-subheader span a:hover {
     color: white;
 }
 
@@ -347,28 +343,6 @@ i.icon-bg-u {
     color: white;
 }
 
-.toc {
-    position: fixed;
-    right: 0;
-    top: 335px;
-    max-width: 250px;
-    padding: 0 10px 0 10px;
-    border-left: 1px solid #ccc;
-}
-
-.toc p.title {
-    font-weight: bold;
-}
-
-.toc ul {
-    padding-left: 0;
-    list-style-type: none;
-}
-
-.toc > nav > ul > li > ul > li > ul {
-    display: none;
-}
-
 .channel-marker span a {
     color: #fff;
     text-decoration: underline;
@@ -393,12 +367,6 @@ i.icon-bg-u {
 @media (min-width: 992px) {
     .header .navbar-nav {
         padding-left: 150px;
-    }
-}
-
-@media (max-width: 1679px) {
-    #toc {
-        display: none;
     }
 }
 

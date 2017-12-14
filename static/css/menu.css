@@ -5,9 +5,6 @@
 
 .side-menu * {
     line-height: 20px;
-    text-rendering: optimizeLegibility;
-    font-kerning: normal;
-    -webkit-font-smoothing: antialiased;
 }
 
 .side-menu .list-group-item {
@@ -18,7 +15,7 @@
 }
 
 .side-menu .list-group-item ul {
-    padding: 0 10px 0 10px;
+    padding: 0;
     list-style-type: none;
 }
 
@@ -28,7 +25,6 @@
 
 .side-menu .list-group-item ul li > a {
     list-style-type: none;
-    color: black;
 }
 
 .side-menu .list-group-item ul li > a.active {
@@ -46,6 +42,8 @@
     margin-top: 20px;
     background-color: #3498db;
     font-size: 18px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
     color: white;
 }
 
@@ -62,7 +60,8 @@
 }
 
 .nav > li.list-group-header > a {
-    padding: 10px 0 10px 10px;
+    padding-left: 0;
+    padding-right: 0;
     line-height: 20px;
     color: white;
 }
@@ -77,6 +76,34 @@
 
 .side-menu ul#tags li + li:before {
     content: "\0000b7  ";
+}
+
+.toc {
+    position: fixed;
+    left: calc(((100vw - 1170px) / 2) + 1170px + 5px);
+    top: 334px;
+    min-width: 235px;
+    max-width: 235px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-left: 1px solid #ccc;
+}
+
+.toc * {
+    line-height: 20px;
+}
+
+.toc p.title {
+    font-weight: bold;
+}
+
+.toc ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.toc > nav > ul > li > ul > li > ul {
+    display: none;
 }
 
 @media (max-width: 991px) {
@@ -100,5 +127,11 @@
 @media (min-width: 1200px) {
     .side-menu.affix {
         width: 263px;
+    }
+}
+
+@media (max-width: 1679px) {
+    #toc {
+        display: none;
     }
 }

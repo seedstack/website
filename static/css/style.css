@@ -13,6 +13,10 @@ body {
     font-size: 14px;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     background: #eee;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
 }
 
 body > #header {
@@ -56,6 +60,13 @@ body > #footer > .footer-v3 > .footer {
 
 li a {
     color: #3498db;
+}
+
+p,
+li,
+li a,
+label {
+    color: #333;
 }
 
 .scrollup {

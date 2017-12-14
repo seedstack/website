@@ -416,6 +416,10 @@ hr {
     padding-left: 0 !important;
 }
 
+.hljs-tag {
+    background: none;
+}
+
 @media (max-width: 767px) {
     .content-wrapper {
         padding: 10px 5px 10px 5px;
