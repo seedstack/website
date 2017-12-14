@@ -79,14 +79,19 @@
 }
 
 .toc {
-    position: fixed;
+    position: absolute;
     left: calc(((100vw - 1170px) / 2) + 1170px + 5px);
     top: 334px;
     min-width: 235px;
     max-width: 235px;
+    border-left: 1px solid #ccc;
     padding-left: 0.5em;
     padding-right: 0.5em;
-    border-left: 1px solid #ccc;
+}
+
+.toc.affix {
+    position: fixed;
+    top: 20px;
 }
 
 .toc * {
@@ -102,32 +107,8 @@
     list-style-type: none;
 }
 
-.toc > nav > ul > li > ul > li > ul {
+.toc nav > ul > li > ul > li > ul {
     display: none;
-}
-
-@media (max-width: 991px) {
-    .side-menu.affix {
-        margin-top: 20px;
-        top: 0;
-        position: relative;
-    }
-
-    .side-menu #TableOfContents {
-        display: none;
-    }
-}
-
-@media (min-width: 992px) {
-    .side-menu.affix {
-        width: 213px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .side-menu.affix {
-        width: 263px;
-    }
 }
 
 @media (max-width: 1679px) {

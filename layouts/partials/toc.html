@@ -1,2 +1,39 @@
-<p class="title">What's on this page</p>
-{{ .TableOfContents }}
+<div class="toc" data-spy="affix" data-offset-top="314" data-offset-bottom="336">
+    <div>
+        {{ if or (.Scratch.Get "menuPrevPage") (.Scratch.Get "menuNextPage") }}
+        <div>
+            {{if .Scratch.Get "menuPrevPage" }}
+            <a href='{{(.Scratch.Get "menuPrevPage").URL}}' class="dib f6 pr1 hover-bg-light-gray br-100">
+                <i class="fa fa-chevron-left"></i>
+            </a>
+            {{else}}
+            <i class="fa fa-chevron-left" style="color: #ccc;"></i>
+            {{end}}
+            &nbsp;&nbsp;&nbsp;
+            {{ if .Scratch.Get "menuNextPage" }}
+            <a href='{{(.Scratch.Get "menuNextPage").URL}}' class="dib f6 pl1 hover-bg-light-gray br-100">
+                <i class="fa fa-chevron-right"></i>
+            </a>
+            {{else}}
+            <i class="fa fa-chevron-right" style="color: #ccc;"></i>
+            {{end}}
+        </div>
+        {{ end }}
+    </div>
+    <br/>
+    <div>
+        <p class="title">On this page</p>
+        {{ .TableOfContents }}
+    </div>
+    <br/>
+    <div>
+        {{ $parent := . }}
+        {{ if in .Dir "addons" }}
+        {{ if isset $parent.Params "repo" }}
+        {{with $parent.File }}<a href='{{ $path := split (replace .Dir "\\" "/") "/" }}{{ $parent.Params.repo }}/edit/docs/{{ range $index, $element := $path }}{{ if and (gt $index 1) (gt (len $element) 0) }}{{ $element }}/{{ end }}{{ end }}{{ html .LogicalName }}' target="_blank"><i class="fa fa-edit"></i> Edit this page</a>{{end}}
+        {{ end }}
+        {{ else }}
+        {{with $parent.File }}<a href="https://github.com/seedstack/website/edit/master/content/{{ html .Dir }}{{ html .LogicalName }}" target="_blank"><i class="fa fa-edit"></i> Edit</a>{{end}}
+        {{ end }}
+    </div>
+</div>

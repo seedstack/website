@@ -16,6 +16,7 @@
 <nav class="side-menu">
     <div class="list-group">
         <ul class="nav">
+            {{ $currentPage.Scratch.Set "fetchPrevPage" true }}
             {{ range $menu.ByWeight }}
             <li class="list-group-header">
                 <a href="{{ if .HasChildren }}{{ (index .Children 0).URL }}{{ else }}{{ .URL }}{{ end }}" class="{{if or ($currentPage.IsMenuCurrent $menuKey .) ($currentPage.HasMenuCurrent $menuKey .) }} active{{end}}" data-target=".{{ .Name | urlize }}">{{ .Name | title }}</a>
@@ -24,13 +25,31 @@
             <li class="list-group-item">
                 <ul>
                     {{ range .Children }}
+                    {{ $active := $currentPage.IsMenuCurrent $menuKey .}}
                     <li>
                         {{ .Pre }}
-                        <a href="{{.URL}}" class="{{if $currentPage.IsMenuCurrent $menuKey . }}active{{end}}">
+                        <a href="{{.URL}}" class="{{if $active }}active{{end}}">
                             {{ .Name | title }}
                         </a>
                         {{ .Post }}
                     </li>
+                    {{ if $currentPage.Scratch.Get "fetchNextPage" }}
+                        {{ $currentPage.Scratch.Set "menuNextPage" . }}
+                        {{ $currentPage.Scratch.Set "fetchNextPage" false }}
+                        <script>
+                            seedstack.state.nextPage = '{{ .URL }}';
+                        </script>
+                    {{ end }}
+                    {{ if $active }}
+                        {{ $currentPage.Scratch.Set "fetchNextPage" true }}
+                        {{ $currentPage.Scratch.Set "fetchPrevPage" false }}
+                    {{ end }}
+                    {{ if $currentPage.Scratch.Get "fetchPrevPage" }}
+                        {{ $currentPage.Scratch.Set "menuPrevPage" . }}
+                        <script>
+                            seedstack.state.previousPage = '{{ .URL }}';
+                        </script>
+                    {{ end }}
                     {{ end }}
                 </ul>
             </li>

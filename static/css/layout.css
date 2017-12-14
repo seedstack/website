@@ -94,7 +94,7 @@
 }
 
 .title-subheader span.active a {
-    font-weight: 400;
+    font-weight: bold;
     background: transparent url('../img/triangle.svg') no-repeat 50% 24px;
     background-size: 20px 10px;
     margin-bottom: -10px;

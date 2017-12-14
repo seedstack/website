@@ -417,7 +417,7 @@ hr {
 }
 
 .hljs-tag {
-    background: none;
+    background: none !important;
 }
 
 @media (max-width: 767px) {

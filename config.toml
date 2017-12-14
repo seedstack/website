@@ -63,8 +63,7 @@ MetaDataFormat = "yaml"
 
 [taxonomies]
   tag = "tags"
-  author = "authors"
-  zone = "zones"
+  technology = "technologies"
 
 #####################################
 #### Menu                        ####

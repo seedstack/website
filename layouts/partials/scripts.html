@@ -60,14 +60,14 @@
             return false;
         });
 
-        Mousetrap.bind('alt+up', function () {
+        Mousetrap.bind('left', function () {
             if (seedstack.state.previousPage) {
                 window.location = seedstack.state.previousPage;
             }
             return false;
         });
 
-        Mousetrap.bind('alt+down', function () {
+        Mousetrap.bind('right', function () {
             if (seedstack.state.nextPage) {
                 window.location = seedstack.state.nextPage;
             }

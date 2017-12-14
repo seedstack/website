@@ -61,10 +61,7 @@
 
         shortcuts: {
             "h": "/",
-            "o": "/docs/overview",
-            "b": "/docs/business",
-            "m": "/docs/maven-plugin",
-            "s": "/docs/seed",
+            "d": "/docs",
             "a": "/addons",
             "g": "/guides"
         }
