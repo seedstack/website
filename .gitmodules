@@ -122,3 +122,7 @@
 	path = content/addons/swagger
 	url = https://github.com/seedstack/swagger-addon.git
 	branch = docs
+[submodule "content/addons/oauth"]
+	path = content/addons/oauth
+	url = https://github.com/seedstack/oauth-addon.git
+	branch = docs
