@@ -118,3 +118,7 @@
 	path = content/addons/kafka
 	url = https://github.com/seedstack/kafka-addon.git
 	branch = docs
+[submodule "content/addons/oauth"]
+	path = content/addons/oauth
+	url = https://github.com/seedstack/oauth-addon.git
+	branch = docs
