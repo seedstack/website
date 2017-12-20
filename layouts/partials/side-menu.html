@@ -13,7 +13,7 @@
 {{ if $menuKey }}
 {{ $menu := index .Site.Menus $menuKey }}
 {{ if $menu }}
-<nav class="side-menu">
+<nav class="side-menu collapse side-menu-collapse" data-role="navigation">
     <div class="list-group">
         <ul class="nav">
             {{ $currentPage.Scratch.Set "fetchPrevPage" true }}

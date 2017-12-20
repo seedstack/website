@@ -16,6 +16,11 @@
 <div class="title-subheader">
     <div class="container">
         <ul>
+            {{ if not .Params.NoMenu }}
+            <li class="pull-right">
+                {{ partial "menu-toggle.html" }}
+            </li>
+            {{ end }}
         </ul>
     </div>
 </div>
