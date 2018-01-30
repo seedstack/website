@@ -84,8 +84,8 @@ imported in the POM of the project:
             <type>pom</type>
             <scope>import</scope>
         </dependency>
-    <dependencies>
-<dependencyManagement>
+    </dependencies>
+</dependencyManagement>
 ```
 
 ## Packaging

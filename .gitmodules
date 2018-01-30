@@ -118,3 +118,7 @@
 	path = content/addons/kafka
 	url = https://github.com/seedstack/kafka-addon.git
 	branch = docs
+[submodule "content/addons/swagger"]
+	path = content/addons/swagger
+	url = https://github.com/seedstack/swagger-addon.git
+	branch = docs
