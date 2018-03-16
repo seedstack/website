@@ -129,10 +129,28 @@ public class HelloResource {
 
 Verify with the debugger that the same instance of the resource is reused for the lifetime of the application. 
 
+## Method interception
+
+SeedStack also supports method interception **with some limitations**. Method interception is useful to add cross-cutting
+concerns ("aspects") to existing code. For instance, SeedStack uses it for transactions, security enforcement or validation. 
+
+Method interception is implemented by dynamic subclassing and overriding of relevant methods. It has very little overhead
+but has the following limitations:
+
+* Class must be public or package-private,
+* Class must be non-final,
+* Method must be public, package-private or protected,
+* Method must be non-final,
+* Instances must be created by SeedStack (interception cannot be used on instances created with `new`).  
+
+{{% callout warning %}}
+**Caution:** if the conditions above are not met, method interception will NOT take place.  
+{{% /callout %}}
+
 ## Google Guice
 
-To do dependency injection, SeedStack uses [Google Guice](https://github.com/google/guice), a lightweight dependency 
-injection framework. 
+To do dependency injection and method interception, SeedStack uses [Google Guice](https://github.com/google/guice), a 
+lightweight dependency injection framework. 
 
 **Google Guice is completely hidden from normal application code** by the use of the `javax.inject` ([JSR 330](https://jcp.org/en/jsr/detail?id=330)) 
 injection standard. Unless you are doing something very specific (like writing an extension to SeedStack) your code should not depend upon Guice classes.

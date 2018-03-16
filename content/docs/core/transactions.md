@@ -73,6 +73,12 @@ public class SomeClass {
 Note that the {{< java "org.seedstack.seed.transaction.Transactional" "@" >}} and companion annotation (here `@JpaUnit`) must 
 both be present. 
 
+{{% callout warning %}}
+Transactions are implemented using method interception. Beware of SeedStack 
+[method interception limitations]({{< ref "docs/basics/dependency-injection.md#method-interception" >}}) when using 
+transactions.  
+{{% /callout %}} 
+
 ### Nominal behavior
 
 * If no transaction is already active on the specified resource, a new transaction will be initiated before entering the method.
