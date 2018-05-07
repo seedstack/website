@@ -18,9 +18,8 @@ your application by providing the necessary tools.
 
 ## Unit testing
 
-SeedStack doesn't provide specific tools for [Unit-testing](https://en.wikipedia.org/wiki/Unit_testing). 
-
-It only provides useful testing libraries like [JUnit 4](http://junit.org/junit4/), [AssertJ](http://joel-costigliola.github.io/assertj/) and [Mockito](http://site.mockito.org/).
+SeedStack doesn't provide specific tools for [Unit-testing](https://en.wikipedia.org/wiki/Unit_testing).
+Just write your unit tests as usual.
 
 ## Integration testing
 
