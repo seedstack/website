@@ -12,11 +12,37 @@ zones:
   - Posts
 ---
 
-We are happy to announce the release of SeedStack 18.4 «Nymphaea». 
+We are happy to announce the release of SeedStack 18.4 «Orchid». 
 
 ## New features
 
+### Java 9 compatibility
+
+SeedStack only requires Java 8 to work but is now compatible with Java 9. Applications should require no workaround to 
+run on Java 9.
+
+### Servlet 4.0
+
+Web applications built on SeedStack can take advantage of Servlet 4.0 features, provided that the server supports it,
+like the provided embedded server, Undertow. 
+
+### Integration testing
+
 Coming soon...
+
+### OAuth add-on
+
+A [new OAuth add-on](/addons/oauth) provides support for the OAuth 2.0 and OpenID Connect protocols. This enables applications
+to authenticate and authorize users using any compliant provider. Authorization-only (without authentication) is possible
+if your provider doesn't support OpenID Connect.  
+
+### CRUD add-on
+
+A [new CRUD add-on](/addons/crud) can automatically provide a full CRUD REST API for any DTO, provided that
+you used the business framework to write it. You can choose between: 
+
+* Applying a single annotation on the DTO and let the add-on provide the full API,
+* Write your own REST resource class that reuse add-on functionality and enrich it.
 
 ## Fixes
 
@@ -24,7 +50,21 @@ This version contains minor fixes in various components, please check individual
 
 ## Changes
 
+### Integration testing
+
 Coming soon...
+
+### W20 bridge
+
+The [W20-bridge CRUD add-on](/addons/w20-bridge) is now based on the most recent version of the W20 framework which 
+has switched from Bower to NPM for package management. 
+
+As a result, Web packages are now located under a `node_modules` location instead of a `bower_components` one. Some 
+packages also have a slightly updated name (when the NPM package had a different name from the Bower one).
+
+{{% callout info %}}
+All W20 components take this location change into account but **you will also have to update your W20 frontend explicit dependencies.** 
+{{% /callout %}}
 
 ## Component versions
 
