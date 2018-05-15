@@ -18,15 +18,22 @@ your application by providing the necessary tools.
 
 ## Unit testing
 
-SeedStack doesn't provide specific tools for [Unit-testing](https://en.wikipedia.org/wiki/Unit_testing).
+SeedStack doesn't provide specific tools for [unit-testing](https://en.wikipedia.org/wiki/Unit_testing).
 Just write your unit tests as usual.
 
 ## Integration testing
 
-You can do [integration testing]({{< ref "docs/core/testing.md" >}}) on **non-Web parts of the application** by making 
-your test class extend the {{< java "org.seedstack.seed.it.AbstractSeedIT" >}} class. 
+SeedStack provides several features to do [integration testing]({{< ref "docs/core/testing.md" >}}). You can do things like 
+altering configuration, defining launch arguments or set system properties. This can be done either for the execution of 
+a full test class, for a specific test only, or both.
 
-Add a `GreeterServiceIT` in the `org.generated.project.domain.services` under the `src/test/java` folder:
+{{% callout info %}}
+SeedStack can support various testing frameworks but is shipping for now with support for JUnit 4, which is demonstrated
+here. 
+{{% /callout %}}
+
+To test our domain service, add a `GreeterServiceIT` in the `org.generated.project.domain.services` under the 
+`src/test/java` folder:
 
 ```java
 package org.generated.project.domain.services;
@@ -37,22 +44,28 @@ import javax.inject.Inject;
 import org.generated.project.domain.model.person.Person;
 import org.generated.project.domain.model.person.PersonId;
 import org.junit.Test;
-import org.seedstack.seed.it.AbstractSeedIT;
+import org.junit.runner.RunWith;
+import org.seedstack.seed.testing.junit4.SeedITRunner;
 
-public class GreeterServiceIT extends AbstractSeedIT {
+@RunWith(SeedITRunner.class)
+public class GreeterServiceIT {
     @Inject
     private GreeterService greeterService;
 
     @Test
     public void testGreeting() throws Exception {
-        Person person = new Person(new PersonId("test@som.org"));
+        Person person = new Person(new PersonId("test@some.org"));
         person.changeName("testFirstName", "testLastName");
         assertThat(greeterService.greet(person)).isEqualTo("Hello testFirstName testLastName!");
     }
 }
 ```
 
-The runner starts SeedStack before executing test methods and then shutdown SeedStack properly. 
+The runner:
+
+* Starts SeedStack before executing test methods, 
+* Apply the requested alterations (configuration, system properties, ...) before running each test,
+* Shutdown SeedStack properly after test execution. 
 
 {{% callout info %}}
 All SeedStack features work as usual during the test. The test class itself can be injected and be the target of AOP
@@ -65,79 +78,52 @@ interception. For instance a test method can be made [transactional]({{< ref "do
 If you already explored the project structure, you have probably found the `HelloResourceIT` class in the test
 part of the application (`src/test/java`).
 
-This is a [Web integration test]({{< ref "docs/web/testing.md" >}}) that uses [Arquillian](http://arquillian.org/) to
-execute the Web application and validate some assertions on its REST API.
-
-{{% callout info %}}
-In SeedStack, by default, Arquillian is configured to use an embedded version of Tomcat on port 9090.
-{{% /callout %}}
-
+A [Web integration test]({{< ref "docs/web/testing.md" >}}) is similar to a normal integration test but uses a different
+launcher to run the application. Here we will use the {{< java "org.seedstack.seed.undertow.LaunchWithUndertow" "@" >}} 
+annotation on the test class to run the application with the [Undertow](http://undertow.io) embedded server.
 
 Let's update the `HelloResourceIT` class to correspond to the current state of our application:
 
 ```java
 package org.generated.project.interfaces.rest;
 
-import io.restassured.response.Response;
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.container.test.api.RunAsClient;
-import org.jboss.arquillian.test.api.ArquillianResource;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.junit.Test;
-import org.seedstack.seed.it.AbstractSeedWebIT;
-
-import java.net.URL;
-
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class HelloResourceIT extends AbstractSeedWebIT {
-    @ArquillianResource
-    private URL baseURL;
+import io.restassured.response.Response;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.seedstack.seed.Configuration;
+import org.seedstack.seed.testing.junit4.SeedITRunner;
+import org.seedstack.seed.undertow.LaunchWithUndertow;
 
-    @Deployment
-    public static WebArchive createDeployment() {
-        return ShrinkWrap.create(WebArchive.class);
-    }
+@RunWith(SeedITRunner.class)
+@LaunchWithUndertow
+public class HelloResourceIT {
+    @Configuration("web.runtime.baseUrl")
+    private String baseUrl;
 
     @Test
-    @RunAsClient
     public void testHelloWorld() throws Exception {
+        System.out.println(baseUrl);
         Response response = given()
                 .auth().basic("demo", "demo")
                 .expect().statusCode(200)
-                .when().get(baseURL + "hello");
+                .when().get(baseUrl + "hello");
 
         assertThat(response.body().asString()).isEqualTo("Hello Ella FITZGERALD!");
     }
 }
 ```
 
-### Tested WebApp
-
-The test class extends {{< java "org.seedstack.seed.it.AbstractSeedWebIT" >}} which has the effect of running the test
-with Arquillian.
-
-The Web archive (WAR) is programmatically created in the `createDeployment()` static method. It can be customized by adding
-classes, resources and metadata using the [ShrinkWrap API](http://arquillian.org/guides/shrinkwrap_introduction/). This is
-handy for testing alternatives of the application.
-
-The base URL of the application (which is randomized) is injected by Arquillian using the
- {{< java "org.jboss.arquillian.test.api.ArquillianResource" "@" >}} annotation.
-
-### Test method
-
-The test method is annotated by {{< java "org.jboss.arquillian.container.test.api.RunAsClient" "@" >}} which make it
-run in a separate thread that can invoke the WebApp from the outside.
+The base URL of the application is available as the `web.runtime.baseUrl` configuration property and is retrieved with 
+the {{< java "org.seedstack.seed.Configuration" "@" >}} annotation.
 
 The test method body uses [RestAssured](http://rest-assured.io/) and [AssertJ](http://joel-costigliola.github.io/assertj/)
 to do the testing job.
 
-{{% callout tips %}}
 The test request contains basic authentication credentials, which can be of use if you uncomment the security configuration
 in the `application.yaml` file.
-{{% /callout %}}
 
 ## Now what ?
 
@@ -145,7 +131,7 @@ in the `application.yaml` file.
 
 In this page you have learned:
 
-* That you can write Unit tests as usual without any SeedStack specificity.
+* That you can write unit tests as usual without any SeedStack specificity.
 * How to write a standard (non-Web) integration test.
 * How to write a Web integration test.
 

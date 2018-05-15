@@ -36,7 +36,6 @@ An application configured with the Undertow Web server can be [packaged as a cap
 that can be [run directly as an executable JAR]({{< ref "docs/core/index.md" >}}).  
 {{% /callout %}}
 
-
 ### Configuration
 
 The embedded server can be configured with the following options:
@@ -86,4 +85,40 @@ You can choose to run your Web application in an external Servlet 3+ container.
 {{% callout info %}}
 To run in an external container, the `seed-web-undertow` dependency must be **NOT be present** in the classpath and the 
 application must be [packaged as a WAR]({{< ref "guides/conversion-to-war/index.md" >}}).
+{{% /callout %}}
+
+## Server information
+
+When running a Web application, servlet information is available in the `web.runtime` special configuration tree:
+
+```yaml
+web:
+  runtime:
+    # The context path of the servlet container
+    contextPath: (String)
+    
+    # The virtual server name of the servlet container
+    virtualServerName: (String)
+```
+
+When running with Undertow, additional information is also available:
+
+```yaml
+web:
+  runtime:
+    # The base url of the Web application (protocol + host + port + context path)
+    baseUrl: (String)
+    
+    # The protocol used by the Web server
+    protocol: (String)
+    
+    # The host used by the Web server
+    host: (String)
+    
+    # The port used by the Web server
+    port: (int)
+```
+
+{{% callout warning %}}
+These values are not meant to be specified manually but are **provided** by SeedStack at runtime. 
 {{% /callout %}}

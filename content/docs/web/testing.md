@@ -12,25 +12,66 @@ menu:
         weight: 2
 ---
 
-The `seed-testing` module provide tools for testing your code, including Web applications through [Arquillian](http://arquillian.org/).<!--more--> 
+SeedStack provides support to do integration testing of Web applications.<!--more-->
 
-Web testing support requires the following dependencies in your project:
+## Using a Web launcher
 
-{{< dependency g="org.seedstack.seed" a="seed-testing" s="test" >}}
+A SeedStack Web integration test is a [normal integration test]({{< ref "docs/core/testing.md" >}}) with its default
+launcher swapped to a Web-oriented launcher. 
 
-{{< dependency g="org.seedstack.poms" a="arquillian-composite" s="test" t="pom" >}}
+SeedStack provides a launcher based on the [Undertow](http://undertow.io) embedded server in the `seed-web-undertow`.
+In addition the dependency used for normal testing (like `seed-testing-junit4`), add the following dependency:
 
-{{% callout warning %}}
-Be sure to specify the `test` scope for these dependencies.
+{{< dependency g="org.seedstack.seed" a="seed-web-undertow" s="test" >}}  
+
+As an example, consider the following Web integration test:
+
+```java
+@RunWith(SeedITRunner.class)
+@LaunchWithUndertow
+public class SomeWebIT {
+    @Configuration("web.runtime.baseUrl")
+    private String baseUrl;
+    
+    @Test
+    public void someApiTest() {
+        expect()
+            .statusCode(200)
+            .when()
+            .get(baseUrl + "hello");
+    }		
+}
+```
+
+This test will start the application with Undertow on an available port and test that the API exposed `/hello` returns
+a 200 HTTP code when invoked with GET.
+
+{{% callout info %}}
+Note that we retrieve the dynamic base URL of the launched server using the special configuration property `web.runtime.baseUrl`.
+More information about this [here]({{< ref "docs/web/index.md#server-information" >}}).
 {{% /callout %}}
 
-Arquillian tests allow you to programmatically define the Web archive (WAR) and test it either from server-side or 
-from client-side. 
+{{% callout tips %}}
+As a convenience, a {{< java "org.seedstack.seed.undertow.LaunchWithUndertow" "@" >}} annotation is provided which, when
+applied on the test class, will launch the tested application with Undertow and select an available TCP port for it. 
+{{% /callout %}}
 
-To declare a Web integration test, make your JUnit test class extends {{< java "org.seedstack.seed.it.AbstractSeedWebIT" >}}: 
+## Using Arquillian
+
+For advanced Web testing, you can rely on the SeedStack support for [Arquillian](http://arquillian.org/) instead
+of using a Web launcher. In that case, you loose SeedStack [testing features]({{< ref "docs/core/testing.md#testing-features" >}})
+which are replaced by Arquillian testing features.
+
+For Arquillian support, use the following dependency:
+
+{{< dependency g="org.seedstack.seed" a="seed-testing-arquillian" s="test" >}}
+
+Arquillian tests allow you to programmatically define a Web archive (WAR) and test it either from server-side or 
+from client-side: 
  
 ```java
-public class RestIT extends AbstractSeedWebIT {
+@RunWith(Arquillian.class)
+public class SomeArquillianIT {
     @Deployment
     public static WebArchive createDeployment() {
         // You can use this method to customize the deployed archive
@@ -39,22 +80,58 @@ public class RestIT extends AbstractSeedWebIT {
     
     @Test
     @RunAsClient
-    public void myRestResourceIsWorking(@ArquillianResource URL baseURL) {
-        expect().statusCode(200).when().get(baseURL.toString() + "rest/my-resource");
+    public void someApiTest(@ArquillianResource URL baseURL) {
+        expect().statusCode(200).when().get(baseURL.toString() + "hello");
     }		
 }
 ```
 
-In this example, the test method, named `myRestResourceIsWorking`, is a client-side test. It is executed in a separate 
-thread and can invoke the deployed Web application through the URL provided by the 
-{{< java "org.jboss.arquillian.test.api.ArquillianResource" "@" >}} annotated parameter. 
+In this example, the test method, named `someApiTest`, is a client-side test. It is executed in a separate thread and 
+can invoke the deployed Web application through the URL provided by the {{< java "org.jboss.arquillian.test.api.ArquillianResource" "@" >}} 
+annotated parameter. 
 
-{{% callout info %}}
-[Apache Tomcat](http://tomcat.apache.org/) is the default test server configured. You can override this choice by specifying
-a custom `arquillian.xml` file at the root of the classpath. Arquillian provides many more features than described in
-this section. For more information about Arquillian, visit the [official website](http://arquillian.org/). 
+{{% callout warning %}}
+SeedStack support of Arquillian tests is limited to injection in client-side tests. As the test instance is created by 
+Arquillian itself, it cannot be intercepted. 
 {{% /callout %}}
 
-{{% callout info %}}
-The test class is instantiated by Arquillian and as such cannot be intercepted. It can still be injected. 
-{{% /callout %}}
+The testing framework and the container(s) used for testing depend on the Arquillian configuration and the dependencies 
+present in the classpath. 
+
+Below you can find the dependencies needed (in addition to the one above) for testing using JUnit 4 and Tomcat 8 embedded:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.jboss.arquillian.junit</groupId>
+        <artifactId>arquillian-junit-container</artifactId>
+        <version>${arquillian.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.jboss.arquillian.container</groupId>
+        <artifactId>arquillian-tomcat-embedded-8</artifactId>
+        <version>${arquillian-tomcat.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-core</artifactId>
+        <version>${tomcat.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-jasper</artifactId>
+        <version>${tomcat.version}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-websocket</artifactId>
+        <version>${tomcat.version}</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+``` 
+
