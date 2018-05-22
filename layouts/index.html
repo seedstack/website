@@ -37,7 +37,7 @@
     <div class="container">
         <ul>
             <li class="homepage-subheader-link">
-                <span><a href='{{ $.Site.BaseURL }}posts/{{ (index .Site.Params "org.seedstack.version-notes") | urlize }}-release-notes'>Current version: {{ index .Site.Params "org.seedstack.version" }}</a></span>
+                <span><a href='{{ $.Site.BaseURL }}posts/{{ (index .Site.Params "org.seedstack.version-notes") | urlize }}-release-notes'>Latest version: {{ index .Site.Params "org.seedstack.version" }}</a></span>
             </li>
             <li class="homepage-subheader-link">
                 <span>Member of <a target="_blank" href="https://projects.ow2.org/bin/view/seedstack/"><img style="margin-top: -4px; max-height: 25px;" src="{{ $.Site.BaseURL }}img/logos/ow2.png"></a></span>
