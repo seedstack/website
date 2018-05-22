@@ -17,9 +17,9 @@ support requires Java 7 and a compatible server to work.
 
 ## Server endpoints
 
-No specific configuration is required for server endpoint. Just declare a standard JSR 356 endpoint:
+Server endpoints have to explicitly specify a `SeedBaseEndpointConfigurator` to be managed by Seed.
 
-    @ServerEndpoint(value = "/chat")
+    @ServerEndpoint(value = "/chat", configurator = BaseServerEndpointConfigurator.class)
     public class ChatEndpoint {
     
         @Logging
@@ -49,7 +49,7 @@ No specific configuration is required for server endpoint. Just declare a standa
     
         @OnError
         public void onError(Session session, Throwable t) {
-            logger.error(t.getMessage, t);
+            logger.error(t.getMessage(), t);
         }
         
     }
@@ -58,8 +58,7 @@ In this example, the endpoint receives a message and then broadcast it to all cl
 
 ## Client endpoints
 
-Unlike server endpoints, client endpoints have to explicitly specify a `SeedClientEndpointConfigurator` in order to be 
-managed by Seed.
+Client endpoints have to explicitly specify a `SeedClientEndpointConfigurator` to be managed by Seed.
 
     @ClientEndpoint(configurator = SeedClientEndpointConfigurator.class)
     public class ChatClientEndpoint1 {
