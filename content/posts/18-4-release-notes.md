@@ -67,6 +67,10 @@ you used the business framework to write it. You can choose between:
 
 See some examples [here](https://github.com/seedstack/crud-addon/tree/master/rest/src/test/java/org/seedstack/crud/rest/fixtures/rest). 
 
+The dependency for CRUD add-on is:
+
+{{< dependency g="org.seedstack.addons.crud" a="crud-rest" >}}
+
 ### W20-bridge variables
 
 You can now specify W20 configuration variables (available in the W20 configuration and in the fragment manifests) directly
