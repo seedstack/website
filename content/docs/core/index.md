@@ -3,7 +3,9 @@ title: "Running applications"
 type: "home"
 zones:
     - "Docs"
-aliases: /docs/seed/manual/running    
+aliases: 
+    - /docs/seed/manual/running
+    - /docs/seed    
 tags:
     - cli
 menu:

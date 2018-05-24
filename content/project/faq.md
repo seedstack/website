@@ -3,7 +3,8 @@ title: "FAQ"
 type: "home"
 zones:
     - "Project"
-aliases:     
+aliases:    
+    - /docs/w20 
 menu:
     project:
         parent: "project"
@@ -11,6 +12,12 @@ menu:
 ---
 
 Answers to common questions about SeedStack.<!--more-->
+
+## Where is W20 (Web framework) ?
+
+W20 is a framework based on [AngularJS](https://angularjs.org/) for making composite frontend applications. It was a
+part of SeedStack a long time ago and has now moved to its own [Github organization](https://github.com/w20-framework)
+and its own [website](https://w20-framework.github.io/).  
 
 ## How is SeedStack licensed ?
 
