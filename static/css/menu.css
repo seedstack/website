@@ -25,6 +25,7 @@
 
 .side-menu .list-group-item ul li > a {
     list-style-type: none;
+    color: #333;
 }
 
 .side-menu .list-group-item ul li > a.active {
@@ -105,6 +106,10 @@
 .toc ul {
     padding-left: 0;
     list-style-type: none;
+}
+
+.toc ul li a {
+    color: #333;
 }
 
 .toc nav > ul > li > ul > li > ul {

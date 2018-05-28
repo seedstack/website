@@ -15,7 +15,7 @@ menu:
 Domain-Driven Design is a software approach built on the idea of solving business problems through code. This is done by 
 focusing on the heart of the business logic, to distill a design that can solve business problems.
 
-The business framework helps with the implementation of that domain model. It also provides default implementations and 
+**The business framework** helps with the implementation of that domain model. It also provides default implementations and 
 helpers to quickly address related needs like model mapping or pagination. 
 
 ## What is DDD ?
