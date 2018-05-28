@@ -126,3 +126,7 @@
 	path = content/addons/oauth
 	url = https://github.com/seedstack/oauth-addon.git
 	branch = docs
+[submodule "content/addons/crud"]
+	path = content/addons/crud
+	url = https://github.com/seedstack/crud-addon.git
+	branch = docs
