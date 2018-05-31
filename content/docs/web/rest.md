@@ -16,7 +16,7 @@ menu:
 ---
 
 The `seed-rest-core` and its companion modules provides support for exposing REST resources using JAX-RS. SeedStack implements 
-the JAX-RS standard through the [Jersey 2](https://jersey.java.net/) implementation.<!--more-->
+the JAX-RS standard through the [Jersey 2](https://jersey.github.io/) implementation.<!--more-->
 
 REST support requires the following dependency in your project:
 
@@ -85,7 +85,7 @@ Other features must be explicitly enabled by:
 You can specify custom Jersey 2 properties in the `properties` option. They will be passed to the Jersey runtime as is.
  
 {{% callout ref %}}
-The reference of all Jersey 2 properties can be found [here](https://jersey.java.net/documentation/latest/appendix-properties.html).
+The reference of all Jersey 2 properties can be found [here](https://jersey.github.io/documentation/latest/appendix-properties.html).
 {{% /callout %}} 
 
 ### Hypermedia settings
