@@ -8,7 +8,7 @@ tags:
 aliases: /docs/seed/manual/transactions    
 menu:
     docs:
-        weight: 6
+        weight: 7
         parent: "core"
 ---
 

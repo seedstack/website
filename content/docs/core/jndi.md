@@ -1,19 +1,22 @@
 ---
-title: "Using JNDI"
-author: "Adrien LAUER"
-date: 2017-03-24
+title: "JNDI"
+type: "home"
 zones:
-    - Guides
-noMenu: true
+    - "Docs"
+aliases: /guides/using-jndi    
+menu:
+    docs:
+        weight: 9
+        parent: "core"
 ---
-
 SeedStack provides the ability to inject JNDI resources. Multiple JNDI contexts can be used in an application.<!--more-->
 
 ## Configuration
 
-The default JNDI context is automatically configured by SeedStack if you provide a `jndi.properties` file at the root
-of the classpath. This JNDI context is named `default`. Additional JNDI contexts can be specified using the following 
-configuration:
+**The default JNDI context is automatically configured by SeedStack** if you provide a `jndi.properties` file at the root
+of the classpath. This JNDI context is named `default`. 
+
+Additional JNDI contexts can be specified using the following configuration:
 
 {{% config p="jndi" %}}
 ```yaml
