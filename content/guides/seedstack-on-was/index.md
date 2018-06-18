@@ -9,7 +9,7 @@ zones:
 noMenu: true
 ---
 
-IBM WebSphere Application Server (WAS) is a quite complex Web container server and that can pose some challenges to 
+IBM WebSphere Application Server (WAS) is a complex Web application server that can pose some challenges to 
 developers. The goal of this guide is to aggregate useful information about deploying SeedStack application on WAS 
 successfully.<!--more-->
 
