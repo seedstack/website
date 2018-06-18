@@ -24,7 +24,7 @@ download the tool executable available [here](https://github.com/seedstack/tools
 and execute the following command line:
 
 ```plain
-seed -t https://raw.githubusercontent.com/seedstack/distribution/master/upgrades/15.7-to-15.11-upgrade.toml fix
+seed -t https://raw.githubusercontent.com/seedstack/distribution/v15.11.3/upgrades/15.7-to-15.11-upgrade.toml fix
 ```
 
 Note that a small amount of tasks cannot be done automatically by the upgrade tool and must be applied manually. The rest
