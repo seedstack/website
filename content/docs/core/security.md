@@ -350,7 +350,7 @@ public class SomeClass {
 
 {{% callout danger %}}
 Note that these annotation-based security checks are implemented with **method interception** and are subject to 
-**[its limitations](/docs/seed/dependency-injection/#method-interception)**.
+**[its limitations]({{< ref "docs/basics/dependency-injection.md#method-interception" >}})**.
 {{% /callout %}}
 
 ### Programmatic checks
