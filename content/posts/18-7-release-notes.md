@@ -12,7 +12,7 @@ zones:
   - Posts
 ---
 
-We are happy to announce the release of SeedStack 18.7 «Petunia». 
+We are happy to announce the release of SeedStack 18.7 «Petunia».<!--more-->
 
 ## New features
 

@@ -12,7 +12,7 @@ zones:
   - Posts
 ---
 
-We are happy to announce the release of SeedStack 18.4 «Orchid». 
+We are happy to announce the release of SeedStack 18.4 «Orchid».<!--more-->
 
 ## New features
 
