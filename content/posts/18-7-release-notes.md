@@ -60,7 +60,7 @@ No notable change.
 * elasticsearch-addon: **[3.0.0](https://github.com/seedstack/elasticsearch-addon/releases/tag/v3.0.0)**
 * feign-addon: **[1.2.0](https://github.com/seedstack/feign-addon/releases/tag/v1.2.0)**
 * flyway-addon: **[1.0.0](https://github.com/seedstack/flyway-addon/releases/tag/v1.0.0)**
-* **[chg]** i18n-addon: **[4.1.0](https://github.com/seedstack/i18n-addon/releases/tag/v4.1.0)**
+* **[chg]** i18n-addon: **[4.0.1](https://github.com/seedstack/i18n-addon/releases/tag/v4.0.1)**
 * io-addon: **[3.0.0](https://github.com/seedstack/io-addon/releases/tag/v3.0.0)**
 * javamail-addon: **[3.0.0](https://github.com/seedstack/javamail-addon/releases/tag/v3.0.0)**
 * jcache-addon: **[3.0.0](https://github.com/seedstack/jcache-addon/releases/tag/v3.0.0)**
