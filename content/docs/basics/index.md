@@ -28,6 +28,10 @@ mvn -U org.seedstack:seedstack-maven-plugin:generate
 Choose the `web` project type. Then just press enter each time the generator asks a question. It will use the default
 values.
 
+{{% callout ref %}}
+For more information about project generation, please read [this guide]({{< ref "guides/generating-a-project/index.md" >}}) 
+{{% /callout %}}
+
 ## Run the application
 
 To run the Web application, use the `watch` goal. It will **watch source folders** and when something change trigger a 

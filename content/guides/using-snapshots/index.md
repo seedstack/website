@@ -23,19 +23,31 @@ SeedStack Java components are available as Maven dependencies at the following l
 In the case where you are behind a corporate proxy, you must configure Maven to go through the proxy. You can do so, by
 following [this documentation](https://maven.apache.org/guides/mini/guide-proxies.html).
 
+In your `settings.xml` file you will end with something like this: 
+
 ```xml
 <settings>
   ...
   <proxies>
    <proxy>
-      <id>example-proxy</id>
+      <id>http-proxy</id>
       <active>true</active>
       <protocol>http</protocol>
       <host>proxy.example.com</host>
       <port>8080</port>
       <username>proxyuser</username>
       <password>somepassword</password>
-      <nonProxyHosts>www.google.com|*.example.com</nonProxyHosts>
+      <nonProxyHosts>*.example.com</nonProxyHosts>
+    </proxy>
+   <proxy>
+      <id>https-proxy</id>
+      <active>true</active>
+      <protocol>https</protocol>
+      <host>proxy.example.com</host>
+      <port>8080</port>
+      <username>proxyuser</username>
+      <password>somepassword</password>
+      <nonProxyHosts>*.example.com</nonProxyHosts>
     </proxy>
   </proxies>
   ...

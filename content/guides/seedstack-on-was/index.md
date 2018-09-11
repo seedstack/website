@@ -119,5 +119,5 @@ public class SomeClass {
 ``` 
 
 {{% callout ref %}}
-For more information, read the [documentation about JNDI]({{< relref "docs/core/jndi.md" >}}).
+For more information, read the [documentation about JNDI]({{< ref "docs/core/jndi.md" >}}).
 {{% /callout %}}
