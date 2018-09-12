@@ -14,7 +14,7 @@ guide goes through the generation process, step-by-step.<!--more-->
 
 ## Install Maven
 
-The SeedStack project generator is implemented by the [generate goal]({{< ref "docs/maven-plugin/manual/generate.md" >}}) of
+The SeedStack project generator is implemented by the [generate goal]({{< ref "docs/maven-plugin/generate.md" >}}) of
 the SeedStack Maven plugin. It requires a functional Maven installation to properly work, including internet access.
 
 You can skip this step, if you already have Maven installed, otherwise please follow the following official instructions: 
