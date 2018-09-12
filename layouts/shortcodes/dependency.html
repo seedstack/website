@@ -3,50 +3,47 @@
 {{ $versionParam := printf "%s.%s" $groupId "version" }}
 {{ $id := ($artifactId | urlize) | printf "%s-%s" (replace $groupId "." "-" | urlize) }}
 {{ if isset .Params "s" }}
-    {{ $.Scratch.Set "scope" (.Get "s") }}
+    {{ .Scratch.Set "scope" (.Get "s") }}
 {{ end }}
 {{ if isset .Params "t" }}
-    {{ $.Scratch.Set "type" (.Get "t") }}
+    {{ .Scratch.Set "type" (.Get "t") }}
 {{ end }}
 {{ if isset .Params "v" }}
-    {{ $.Scratch.Set "version" (.Get "v") }}
+    {{ .Scratch.Set "version" (.Get "v") }}
 {{ else }}
     {{ if isset .Page.Params $versionParam }}
-        {{ $.Scratch.Set "version" (index .Page.Params $versionParam) }}
+        {{ .Scratch.Set "version" (index .Page.Params $versionParam) }}
     {{ else }}
         {{ if isset .Page.Site.Params $versionParam }}
-            {{ $.Scratch.Set "version" (index .Page.Site.Params $versionParam) }}
+            {{ .Scratch.Set "version" (index .Page.Site.Params $versionParam) }}
         {{ else }}
-            {{ $.Scratch.Set "version" "PUT_LATEST_VERSION_HERE" }}
+            {{ .Scratch.Set "version" "LATEST_VERSION_HERE" }}
         {{ end }}
     {{ end }}
 {{ end }}
 <div class="tab-v2">
     <ul class="nav nav-tabs">
-        <li class="active"><a href="#tab-{{ $id }}-maven" data-toggle="tab" aria-expanded="true">Maven</a></li>
-        <li class=""><a href="#tab-{{ $id }}-gradle" data-toggle="tab" aria-expanded="true">Gradle</a></li>
+        <li class="active"><a href="#tab-{{ $id }}-maven" data-toggle="tab" aria-expanded="true"><img class="pull-left" style="margin: 0 5px 0 0; height: 20px;" src="{{ $.Site.BaseURL }}/img/logos/maven.png">Maven</a></li>
+        <li class=""><a href="#tab-{{ $id }}-gradle" data-toggle="tab" aria-expanded="true"><img class="pull-left" style="margin: 0 5px 0 0; height: 20px;" src="{{ $.Site.BaseURL }}/img/logos/gradle.png">Gradle</a></li>
     </ul>
-    <span class="tabs-icon fa-2x fa fa-cubes pull-right"></span>
     <div class="clear-both"></div>
     <div class="tab-content" style="padding-top: 0;">
         <div class="tab-pane in active" id="tab-{{ $id }}-maven">
-            <pre><code class="language-xml no-linenums">&lt;dependency&gt;
+            <pre style="margin-top: 0; border: solid 1px #eee; border-top: none;"><code class="language-xml no-linenums" style="background-color: #fff;">&lt;dependency&gt;
     &lt;groupId&gt;{{ $groupId }}&lt;/groupId&gt;
     &lt;artifactId&gt;{{ $artifactId }}&lt;/artifactId&gt;<span id="{{ $id }}-version" {{ if eq (substr $groupId 0 13) "org.seedstack" }}style="display: none;"{{ end }}>
-    &lt;version&gt;{{ $.Scratch.Get "version" }}&lt;/version&gt;</span>{{ if isset .Params "t" }}
-    &lt;type&gt;{{ $.Scratch.Get "type" }}&lt;/type&gt;</span>{{ end }}{{ if isset .Params "s" }}
-    &lt;scope&gt;{{ $.Scratch.Get "scope" }}&lt;/scope&gt;{{ end }}
+    &lt;version&gt;{{ .Scratch.Get "version" }}&lt;/version&gt;</span>{{ if isset .Params "t" }}
+    &lt;type&gt;{{ .Scratch.Get "type" }}&lt;/type&gt;</span>{{ end }}{{ if isset .Params "s" }}
+    &lt;scope&gt;{{ .Scratch.Get "scope" }}&lt;/scope&gt;{{ end }}
 &lt;/dependency&gt;</code></pre>
             <small class="pull-right" style="color: #aaa; margin-top: -20px; margin-right: 5px;">
                 <span id="{{ $id }}-warn" style="display: none;"><i class="fa fa-warning" style="color: orange;"></i> Specifying versions manually is error-prone, use <a href="{{ $.Site.BaseURL }}docs/basics#dependency-management">dependency management</a> instead.</span>
-                {{ if eq (substr $groupId 0 13) "org.seedstack" }}
-                    <a style="cursor: pointer;" id="{{ $id }}-show" onclick="$('#{{ $id }}-version, #{{ $id }}-warn').show(); $('#{{ $id }}-show').hide();">Show version</a>
-                {{ end }}
+                <a style="cursor: pointer; display: {{ if eq (substr $groupId 0 13) "org.seedstack" }}block{{ else }}none{{ end }};" id="{{ $id }}-show" onclick="$('#{{ $id }}-version, #{{ $id }}-warn').show(); $('#{{ $id }}-show').hide();">Show version</a>
             </small>
-        </div>{{ $.Scratch.Add "tabs" (add (.Get 0 | urlize) " ") }}
+        </div>
         <div class="tab-pane in" id="tab-{{ $id }}-gradle">
-            <pre><code class="language-gradle">dependencies {
-    {{ if isset .Params "s" }}{{ if eq (.Get "s") "test" }}testCompile{{ end }}{{ else }}compile{{ end }}("{{ $groupId }}:{{ $artifactId }}:{{ $.Scratch.Get "version" }}")
+            <pre style="margin-top: 0; border: solid 1px #eee; border-top: none;"><code class="language-gradle no-linenums" style="background-color: #fff;">dependencies {
+    {{ if isset .Params "s" }}{{ if eq (.Get "s") "test" }}testCompile{{ end }}{{ else }}compile{{ end }}(&quot;{{ $groupId }}:{{ $artifactId }}:{{ .Scratch.Get "version" }}&quot;)
 }</code></pre>
         </div>
     </div>

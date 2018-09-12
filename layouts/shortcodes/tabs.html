@@ -1,27 +1,14 @@
-{{ $type := .Get "type" }}{{ $v3 := eq $type "v3"}}{{ $first := (index (split (.Get "list") "|") 0) | urlize }}<div class='{{ if $v3 }}row {{ end }}tab-{{ or $type "v2" }}'>
-    {{ if $v3 }}
-    <div class="col-sm-3">
-    <ul class="nav nav-pills nav-stacked">
-    {{ else }}
+{{ $first := (index (split (.Get "list") "|") 0) | urlize }}<div class='tab-v2'>
     <ul class="nav nav-tabs">
-    {{ end }}
-        {{ range (split (.Get "list") "|") }}
-            {{ if not (eq . "") }}
-                <li class="{{ if eq (. | urlize) $first }}active{{ end }}"><a href="#tab-{{ . | urlize }}" data-toggle="tab" aria-expanded="true">{{ . }}</a></li>
-            {{ end }}
+    {{ range (split (.Get "list") "|") }}
+        {{ if not (eq . "") }}
+            <li class="{{ if eq (. | urlize) $first }}active{{ end }}"><a href="#tab-{{ . | urlize }}" data-toggle="tab" aria-expanded="true">{{ . }}</a></li>
         {{ end }}
-    </ul>
-    {{ if $v3 }}
-    </div>
-    <div class="col-sm-9">
-    {{ else }}
-    <span class='tabs-icon fa-2x {{ .Get "icon" }} pull-right'></span>
     {{ end }}
+    </ul>
+    <span class='tabs-icon fa-2x {{ .Get "icon" }} pull-right'></span>
     <div class="clear-both"></div>
     <div class="tab-content">
         {{ .Inner }}
     </div>
-    {{ if $v3 }}
-    </div>
-    {{ end }}
 </div>
