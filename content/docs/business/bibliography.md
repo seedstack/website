@@ -31,7 +31,7 @@ reference for those who know the principles of DDD.
 
 It is intended to be used as a complement to books and other resources available to those learning about DDD.
  
-* [Free PDF version](http://domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf)
+* [Free PDF version]({{< baseUrl >}}pdf/DDDReference.pdf)
 * [Buy it online](http://www.amazon.com/Domain-Driven-Design-Reference-Definitions-Summaries/dp/1457501198)
 
 <div style="clear: both;"></div>
@@ -68,9 +68,9 @@ as well other sources since published such as Jimmy Nilsson's Applying Domain Dr
 forums. The main topics covered in the book include: Building Domain Knowledge, The Ubiquitous Language, Model Driven 
 Design, Refactoring Toward Deeper Insight, and Preserving Model Integrity.
 
-* [Free english PDF version](http://www.infoq.com/resource/minibooks/domain-driven-design-quickly/en/pdf/DomainDrivenDesignQuicklyOnline.pdf)
-* [Free french PDF version](http://blog.infosaurus.fr/public/docs/DDDViteFait.pdf) 
-* [Free chinese PDF version](http://www.infoq.com/resource/minibooks/domain-driven-design-quickly/zh/pdf/dddquickly-chinese-version.pdf)
+* [Free english PDF version]({{< baseUrl >}}pdf/DDDQuickly.pdf)
+* [Free french PDF version]({{< baseUrl >}}pdf/DDDViteFait.pdf) 
+* [Free chinese PDF version]({{< baseUrl >}}pdf/DDDQuicklyChinese.pdf)
 * [Buy it online](http://www.amazon.com/Domain-Driven-Design-Quickly-Abel-Avram/dp/1411609255)
 
 <div style="clear: both;"></div>
