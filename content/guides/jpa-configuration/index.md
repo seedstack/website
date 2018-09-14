@@ -21,7 +21,7 @@ First, add the SeedStack JPA add-on:
 
 ### JPA provider
 
-Beyond the JPA add-pn, an actual JPA implementation, called a JPA provider, is required: 
+Beyond the JPA add-on, an actual JPA implementation, called a JPA provider, is required: 
 
 {{% tabs list="Hibernate|EclipseLink" %}}
 {{% tab "Hibernate" true %}}
