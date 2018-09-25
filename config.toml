@@ -8,7 +8,7 @@ MetaDataFormat = "yaml"
   "javax.mail.version" = "1.4.8"
   "ch.qos.logback.version" = "1.2.3"
 
-  "org.seedstack.version" = "18.7"
+  "org.seedstack.version" = "18.7.1"
   "org.seedstack.version-notes" = "18.7"
 
   "org.seedstack.maven.version" = "2.7.1"
@@ -16,9 +16,9 @@ MetaDataFormat = "yaml"
   "org.seedstack.poms.version" = "3.4.1"
 
   "org.seedstack.shed.version" = "1.1.3"
-  "org.seedstack.coffig.version" = "3.1.0"
-  "org.seedstack.seed.version" = "3.7.0"
-  "org.seedstack.business.version" = "4.2.1"
+  "org.seedstack.coffig.version" = "3.1.1"
+  "org.seedstack.seed.version" = "3.7.1"
+  "org.seedstack.business.version" = "4.2.2"
 
   "org.seedstack.addons.audit.version" = "3.0.0"
   "org.seedstack.addons.aws.version" = "1.0.0"
@@ -55,7 +55,7 @@ MetaDataFormat = "yaml"
   "org.seedstack.addons.swagger.version" = "2.0.3"
   "org.seedstack.addons.w20.version" = "3.2.5"
   "org.seedstack.addons.web.version" = "1.0.2"
-  "org.seedstack.addons.ws.version" = "3.0.2"
+  "org.seedstack.addons.ws.version" = "3.0.3"
 
   "numRelatedPosts" = 2
 
