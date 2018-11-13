@@ -46,6 +46,7 @@ For ModelMapper, this would be:
 ```java
 public class SomeClass {
     @Inject
+    @ModelMapper
     private Assembler<SomeAggregate, SomeDto> someDtoAssembler;
     
     public void someMethod(SomeAggregate someAggregate) {
