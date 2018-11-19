@@ -66,8 +66,7 @@ Any class annotated with WebListener must implement one or more of the {{< java 
 
 ## Disabling container scanning
 
-If you are running in a Web container also scanning those annotations, you need to disable the server detection to avoid 
-getting an exception for duplicate registration. Moreover, when the container registers a servlet, filter or listener before SeedStack, no injection or interception can be used in it. SeedStack will log a warning if this happens.
+**If you are running in a Web container also scanning those annotations (like Tomcat)**, you need to disable the server detection and let SeedStack do the registration. This allows to use injection and interception in servlets, filters and listeners.
 
 To disable container scanning, add or modify the `web.xml` file under the `WEB-INF/` directory of the WAR archive. This file must have the `metadata-complete` attribute set to `true`.
 
