@@ -165,8 +165,188 @@ public class HelloResource {
 For now, hot-reloading (with `seedstack:watch`) doesn't play well with the dynamic implementation generated for
 a repository without explicit implementation. 
 
-If you wish to make changes to the `PersonRepository`, you'll have to restart the watching process manually.
+If you wish to make changes to the `PersonRepository`, you'll have to restart the watch process manually.
 {{% /callout %}}
+
+## Switch to JPA persistence
+
+To demonstrate that, with the code above, we have true independence from database technology, let's switch to a JPA
+based persistence layer. As we will add new dependencies and some configuration, **the application must be stopped**.
+
+### Dependencies
+
+Add the SeedStack [JPA add-on]({{< ref "addons/jpa/index.md" >}}%):
+
+{{< dependency g="org.seedstack.addons.jpa" a="jpa" >}}
+
+Then add an implementation of the JPA standard like [Hibernate](http://hibernate.org/):
+
+{{< dependency g="org.hibernate" a="hibernate-entitymanager" >}}
+
+Then add an in-memory capable database like [H2](http://www.h2database.com):
+
+{{< dependency g="com.h2database" a="h2" >}}
+
+{{% callout tips %}}
+To connect to an external database, you would add its JDBC driver dependency instead.  
+{{% /callout %}}
+
+### Configure a database
+
+JPA is structured around the concept of **"persistence units"**. We have to configure at least one unit to use JPA and such unit needs
+a JDBC datasource to work with. Add the following configuration in the `application.yaml` file:
+
+```yaml
+jdbc:
+  datasources:
+    myDatasource:
+      url: jdbc:h2:mem:mydb
+```
+
+The configuration above will declare a JDBC datasource named `myDatasource` pointing to an auto-created, in-memory, 
+H2 database. Now declare a JPA unit using this datasource:
+
+```yaml
+jpa:
+  units:
+    myUnit:
+      datasource: myDatasource
+      properties:
+        hibernate.dialect: org.hibernate.dialect.H2Dialect
+        hibernate.hbm2ddl.auto: update
+```
+
+The configuration above will declare a JPA unit named `myUnit`, referencing our datasource. 
+
+{{% callout info %}}
+The properties are here to configure Hibernate, our JPA provider and are specific to it. Their role here is to tell 
+Hibernate what SQL dialect should be used and that we need the tables to be created or updated on startup.
+{{% /callout %}}
+
+### Change the qualifiers
+
+Now just replace the {{< java "org.seedstack.business.util.inmemory.InMemory" "@" >}} injection qualifier with
+the {{< java "org.seedstack.jpa.Jpa" "@" >}} qualifier common from the JPA add-on. This will tell SeedStack to choose
+a JPA-based implementation (also provided by the add-on) for injection instead of the in-memory one.
+
+Let's start with the `SampleDataGenerator` qualifier:
+
+```java
+public class SampleDataGenerator implements LifecycleListener {
+    @Inject
+    @InMemory
+    private Repository<Person, PersonId> personRepository;
+    
+    // ...
+}
+```
+
+Becomes:
+
+```java
+public class SampleDataGenerator implements LifecycleListener {
+    @Inject
+    @Jpa
+    private Repository<Person, PersonId> personRepository;
+    
+    // ...
+}
+```
+
+Then the HelloResource class:
+
+```java
+@Path("hello")
+public class HelloResource {
+    @Inject
+    @InMemory
+    private PersonRepository personRepository;
+    
+    // ...
+}
+```
+
+Becomes:
+
+```java
+@Path("hello")
+public class HelloResource {
+    @Inject
+    @Jpa
+    private PersonRepository personRepository;
+    
+    // ...
+}
+```
+
+### Declare a transaction
+
+**JPA database work should be done in a transaction.** A good place to start and end a transaction would be on an application
+service that orchestrates all the needed operations for a particular use-case. We don't have such a service in our little
+tutorial, so we will put the transaction on the `hello()` method of our REST resource.
+
+Two annotations are needed here:
+
+* The {{< java "org.seedstack.seed.transaction.Transactional" "@" >}} annotation to declare the transaction boundaries,
+* And the {{< java "org.seedstack.jpa.JpaUnit" "@" >}} annotation to declare on which resource the transaction should be
+done. 
+
+The `HelloResource` class becomes:
+
+```java
+package org.generated.project.interfaces.rest;
+
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import org.generated.project.domain.model.person.PersonRepository;
+import org.generated.project.domain.services.GreeterService;
+import org.seedstack.business.util.inmemory.InMemory;
+
+@Path("hello")
+public class HelloResource {
+    @Inject
+    @InMemory
+    private PersonRepository personRepository;
+    @Inject
+    private GreeterService greeterService;
+
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String hello() {
+        return personRepository.findByName("ella")
+                .findFirst()
+                .map(greeterService::greet)
+                .orElseThrow(NotFoundException::new);
+    }
+}
+```
+
+### Run the application again
+
+Startup the application again by issuing the following command:
+
+```bash
+mvn seedstack:watch
+```
+
+You can now see that the `/hello` REST endpoint shows the same behavior as before but backed by JPA persistence. **You
+can see the JPA subsystem being initialized in the application startup logs.**
+
+### What happened ?
+
+Business-framework compatible persistence add-ons (like [JPA]({{< ref "addons/jpa/index.md" >}}) or [MongoDB]({{< ref "addons/mongodb/index.md" >}}))
+each provide:
+ 
+* An implementation for all standard operations for repositories. 
+* The ability to translate a domain specification into the corresponding technology-specific query. 
+
+Both are used here, behind the scenes. The specification used in the `findByName()` method gets translated into a JPA 
+criteria query, turned then by Hibernate into the proper SQL query. **The results are available as a {{< java "java.util.stream.Stream" >}}
+of domain objects, loaded dynamically from the database as they are consumed.**
 
 ## Now what ?
 
@@ -176,13 +356,14 @@ In this page you have learned:
 
 * How to execute code at application startup, here to create sample data,
 * How to use the default repository implementation without writing any code,
-* How to write a technology-agnostic custom query with a specification.
+* How to write a technology-agnostic custom query with a specification,
+* How to configure and use an in-memory database with JPA and hibernate.
 
 {{% callout ref %}}
 If you want to go further on the topic of persistence, see what you can read about [repositories]({{< ref "docs/business/repositories.md" >}})
 and [specifications]({{< ref "docs/business/specifications.md" >}}).
 
-You can also explore SeedStack [persistence add-ons]({{< baseUrl >}}addons) to connect to real databases: [JDBC]({{< ref "addons/jdbc/index.md" >}}), 
+You can also explore SeedStack [persistence add-ons]({{< baseUrl >}}addons) documentation: [JDBC]({{< ref "addons/jdbc/index.md" >}}), 
 [JPA]({{< ref "addons/jpa/index.md" >}}), [MongoDB]({{< ref "addons/mongodb/index.md" >}}), etc...   
 {{% /callout %}}
 

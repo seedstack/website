@@ -2,7 +2,7 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
     <ShortName>SeedStack</ShortName>
     <Description>Search SeedStack documentation.</Description>
-    <Tags>seedstack java ddd javascript framework stack</Tags>
+    <Tags>seedstack java ddd framework stack</Tags>
     <Image height="16" width="16" type="image/x-icon">http://www.seedstack.org/img/favicons/favicon.ico</Image>
     <Language>en</Language>
     <InputEncoding>UTF-8</InputEncoding>
