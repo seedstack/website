@@ -40,9 +40,9 @@ public class SampleDataGenerator implements LifecycleListener {
 
     @Override
     public void started() {
-        personRepository.add(create("bill.evans@some.org", "Bill", "EVANS"));
-        personRepository.add(create("ella.fitzgerald@some.org", "Ella", "FITZGERALD"));
-        personRepository.add(create("miles.davis@some.org", "Miles", "DAVIS"));
+        personRepository.addOrUpdate(create("bill.evans@some.org", "Bill", "EVANS"));
+        personRepository.addOrUpdate(create("ella.fitzgerald@some.org", "Ella", "FITZGERALD"));
+        personRepository.addOrUpdate(create("miles.davis@some.org", "Miles", "DAVIS"));
     }
 
     private Person create(String email, String firstName, String lastName) {
@@ -171,7 +171,11 @@ If you wish to make changes to the `PersonRepository`, you'll have to restart th
 ## Switch to JPA persistence
 
 To demonstrate that, with the code above, we have true independence from database technology, let's switch to a JPA
-based persistence layer. As we will add new dependencies and some configuration, **the application must be stopped**.
+based persistence layer.
+
+{{% callout warning %}}
+As we will add new dependencies and some configuration, **the application must be stopped**.
+{{% /callout %}}
 
 ### Dependencies
 
@@ -181,11 +185,15 @@ Add the SeedStack [JPA add-on]({{< ref "addons/jpa/index.md" >}}%):
 
 Then add an implementation of the JPA standard like [Hibernate](http://hibernate.org/):
 
-{{< dependency g="org.hibernate" a="hibernate-entitymanager" >}}
+{{< dependency g="org.hibernate" a="hibernate-entitymanager" v="5.3.7.Final" >}}
 
-Then add an in-memory capable database like [H2](http://www.h2database.com):
+Hibernate requires the following dependency if you're using Java 9 or more recent:
 
-{{< dependency g="com.h2database" a="h2" >}}
+{{< dependency g="javax.xml.bind" a="jaxb-api" v="2.3.0" >}}
+
+Then add an in-memory capable database like [HyperSQL](http://hsqldb.org/):
+
+{{< dependency g="org.hsqldb" a="hsqldb" v="2.4.1" >}}
 
 {{% callout tips %}}
 To connect to an external database, you would add its JDBC driver dependency instead.  
@@ -200,7 +208,7 @@ a JDBC datasource to work with. Add the following configuration in the `applicat
 jdbc:
   datasources:
     myDatasource:
-      url: jdbc:h2:mem:mydb
+      url: jdbc:hsqldb:mem:mydb
 ```
 
 The configuration above will declare a JDBC datasource named `myDatasource` pointing to an auto-created, in-memory, 
@@ -212,7 +220,7 @@ jpa:
     myUnit:
       datasource: myDatasource
       properties:
-        hibernate.dialect: org.hibernate.dialect.H2Dialect
+        hibernate.dialect: org.hibernate.dialect.HSQLDialect
         hibernate.hbm2ddl.auto: update
 ```
 
@@ -221,6 +229,67 @@ The configuration above will declare a JPA unit named `myUnit`, referencing our 
 {{% callout info %}}
 The properties are here to configure Hibernate, our JPA provider and are specific to it. Their role here is to tell 
 Hibernate what SQL dialect should be used and that we need the tables to be created or updated on startup.
+{{% /callout %}}
+
+### Add the JPA annotations
+
+JPA entities must be mapped to a relational model. While this can be done through XML mapping files, a simpler way is
+to annotate the classes.
+
+The PersonId class becomes:
+
+```java
+package org.generated.project.domain.model.person;
+
+import javax.persistence.Embeddable;
+import org.seedstack.business.domain.BaseValueObject;
+
+@Embeddable
+public class PersonId extends BaseValueObject {
+    private String email;
+
+    private PersonId() {
+        // needed for Hibernate
+    }
+
+    public PersonId(String email) {
+        this.email = email;
+    }
+
+    // ...
+}
+```
+
+The Person class becomes:
+
+```java
+package org.generated.project.domain.model.person;
+ 
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import org.seedstack.business.domain.BaseAggregateRoot;
+
+@Entity
+public class Person extends BaseAggregateRoot<PersonId> {
+    @EmbeddedId
+    private PersonId id;
+    private String firstName;
+    private String lastName;
+
+    private Person() {
+        // needed for Hibernate
+    }
+ 
+    public Person(PersonId id) {
+        this.id = id;
+    }
+ 
+    // ...
+}
+```
+
+{{% callout info %}}
+Note that we also added a private no-arg constructor to allow Hibernate to instantiate the classes.
 {{% /callout %}}
 
 ### Change the qualifiers
@@ -291,37 +360,37 @@ Two annotations are needed here:
 * And the {{< java "org.seedstack.jpa.JpaUnit" "@" >}} annotation to declare on which resource the transaction should be
 done. 
 
-The `HelloResource` class becomes:
+In the `HelloResource` class:
 
 ```java
-package org.generated.project.interfaces.rest;
-
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.NotFoundException;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import org.generated.project.domain.model.person.PersonRepository;
-import org.generated.project.domain.services.GreeterService;
-import org.seedstack.business.util.inmemory.InMemory;
-
 @Path("hello")
 public class HelloResource {
-    @Inject
-    @InMemory
-    private PersonRepository personRepository;
-    @Inject
-    private GreeterService greeterService;
+    // ...
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
+    @Transactional
+    @JpaUnit("myUnit")
     public String hello() {
-        return personRepository.findByName("ella")
-                .findFirst()
-                .map(greeterService::greet)
-                .orElseThrow(NotFoundException::new);
+        // ...
     }
+}
+```
+
+And in the `SampleDataGenerator` class: 
+
+```java
+public class SampleDataGenerator implements LifecycleListener {
+    /// ...
+ 
+    @Override
+    @Transactional
+    @JpaUnit("myUnit")
+    public void started() {
+        // ...
+    }
+    
+    // ...
 }
 ```
 
