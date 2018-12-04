@@ -20,11 +20,19 @@ A SeedStack Web application requires the following dependency in your project:
 
 {{< dependency g="org.seedstack.seed" a="seed-web-core" >}}
 
-## With Undertow embedded server
+## External servlet container
 
-SeedStack Web applications run well with the embedded [Undertow](https://undertow.io) Web server. 
+You can choose to run your Web application in an external Servlet 3+ container like [Apache Tomcat](http://tomcat.apache.org/). 
 
-To add support for Undertow in your application, add the following dependency:
+{{% callout info %}}
+To run in an external container, the `seed-web-undertow` dependency must be **NOT be present** in the classpath and the 
+application must be [packaged as a WAR]({{< ref "guides/conversion-to-war/index.md" >}}).
+{{% /callout %}}
+
+## Undertow embedded server
+
+SeedStack Web applications run well with the embedded [Undertow](https://undertow.io) Web server. To add support for 
+Undertow in your application, add the following dependency:
 
 {{< dependency g="org.seedstack.seed" a="seed-web-undertow" >}}
 
@@ -78,16 +86,46 @@ web:
 ```
 {{% /config %}}  
 
-## In an external container
+### HTTPS
 
-You can choose to run your Web application in an external Servlet 3+ container. 
+To configure Undertow for HTTPS, you need to have a Java keystore containing your server certificate. By default an SSL context
+will be built using the `ssl` alias in the `master` keystore:
+
+```yaml
+crypto:
+  keystores:
+    master:
+      path: path/to/your/keystore.jks
+      password: keystorePassword
+      aliases:
+        ssl: aliasPassword
+```
 
 {{% callout info %}}
-To run in an external container, the `seed-web-undertow` dependency must be **NOT be present** in the classpath and the 
-application must be [packaged as a WAR]({{< ref "guides/conversion-to-war/index.md" >}}).
+If you want to have alternative keystore or alias names, you can change them in the [global SSL configuration]({{< ref "docs/core/crypto.md#SSL" >}}).
 {{% /callout %}}
 
-## Server information
+After successful keystore configuration, you only need to enable HTTPS in the Undertow configuration:
+
+```yaml
+web:
+  server:
+    https: true
+```
+
+#### Mutual authentication
+
+If you want to enable mutual authentication (where the HTTPS user-agent sends a client certificate), set `crypto.ssl.clientAuthMode`:
+
+```yaml
+crypto:
+  ssl:
+    clientAuthMode: REQUIRED
+```
+
+With that configuration, the user-agent will be required to send a client certificate for authentication.
+
+## Runtime information
 
 When running a Web application, servlet information is available in the `web.runtime` special configuration tree:
 
