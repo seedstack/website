@@ -30,7 +30,7 @@ As an example, consider the following Web integration test:
 @RunWith(SeedITRunner.class)
 @LaunchWithUndertow
 public class SomeWebIT {
-    @Configuration("web.runtime.baseUrl")
+    @Configuration("runtime.web.baseUrl")
     private String baseUrl;
     
     @Test
@@ -38,7 +38,7 @@ public class SomeWebIT {
         expect()
             .statusCode(200)
             .when()
-            .get(baseUrl + "hello");
+            .get(baseUrl + "/hello");
     }		
 }
 ```
@@ -47,7 +47,7 @@ This test will start the application with Undertow on an available port and test
 a 200 HTTP code when invoked with GET.
 
 {{% callout info %}}
-Note that we retrieve the dynamic base URL of the launched server using the special configuration property `web.runtime.baseUrl`.
+Note that we retrieve the dynamic base URL of the launched server using the special configuration property `runtime.web.baseUrl`.
 More information about this [here]({{< ref "docs/web/index.md#server-information" >}}).
 {{% /callout %}}
 

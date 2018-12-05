@@ -100,7 +100,7 @@ import org.seedstack.seed.undertow.LaunchWithUndertow;
 @RunWith(SeedITRunner.class)
 @LaunchWithUndertow
 public class HelloResourceIT {
-    @Configuration("web.runtime.baseUrl")
+    @Configuration("runtime.web.baseUrl")
     private String baseUrl;
 
     @Test
@@ -109,14 +109,14 @@ public class HelloResourceIT {
         Response response = given()
                 .auth().basic("demo", "demo")
                 .expect().statusCode(200)
-                .when().get(baseUrl + "hello");
+                .when().get(baseUrl + "/hello");
 
         assertThat(response.body().asString()).isEqualTo("Hello Ella FITZGERALD!");
     }
 }
 ```
 
-The base URL of the application is available as the `web.runtime.baseUrl` configuration property and is retrieved with 
+The base URL of the application is available as the `runtime.web.baseUrl` dynamic configuration property and is retrieved with 
 the {{< java "org.seedstack.seed.Configuration" "@" >}} annotation.
 
 The test method body uses [RestAssured](http://rest-assured.io/) and [AssertJ](http://joel-costigliola.github.io/assertj/)

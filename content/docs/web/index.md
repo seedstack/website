@@ -127,36 +127,42 @@ With that configuration, the user-agent will be required to send a client certif
 
 ## Runtime information
 
-When running a Web application, servlet information is available in the `web.runtime` special configuration tree:
+When running a Web application, servlet information is available in the `runtime.web.servlet` special configuration tree:
 
 ```yaml
-web:
-  runtime:
-    # The context path of the servlet container
-    contextPath: (String)
-    
-    # The virtual server name of the servlet container
-    virtualServerName: (String)
+runtime:
+  web:
+    servlet:
+      # The context path of the servlet container
+      contextPath: (String)
+        
+      # The virtual server name of the servlet container if available
+      virtualServerName: (String)
 ```
 
 When running with Undertow, additional information is also available:
 
 ```yaml
-web:
-  runtime:
-    # The base url of the Web application (protocol + host + port + context path)
+runtime:
+  web:
+    # The base url of the Web application (protocol + host + port + context path) without a trailing slash
     baseUrl: (String)
+
+    # Same as baseUrl but with a trailing slash
+    baseUrlSlash: (String)
+
+    server:
+      # The protocol used by the Web server
+      protocol: (String)
     
-    # The protocol used by the Web server
-    protocol: (String)
+      # The host used by the Web server
+      host: (String)
     
-    # The host used by the Web server
-    host: (String)
-    
-    # The port used by the Web server
-    port: (int)
+      # The port used by the Web server
+      port: (int)
 ```
 
-{{% callout warning %}}
-These values are not meant to be specified manually but are **provided** by SeedStack at runtime. 
+{{% callout info %}}
+These values are not meant to be specified by the developer but are **provided** by SeedStack at runtime. If you specify
+a value for those in a configuration file, it will be overridden by runtime information.
 {{% /callout %}}
