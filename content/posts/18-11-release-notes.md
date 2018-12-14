@@ -31,6 +31,13 @@ but they were making the project dependencies non-obvious for developers. Depend
 directly put in each project template. As they are generated, project will now have the common dependencies directly in
 their POMs.
 
+To migrate your existing projects, for each composite present in your POMs:
+
+* Go the [old distribution source](https://github.com/seedstack/distribution/tree/v18.7.1)
+* Go into the folder of the corresponding composite and look at the `pom.xml` file,
+* In your project, replace the composite dependency itself with the dependencies found within the composite POM.
+* Remove duplicate dependencies if any.
+
 ### Runtime information update
 
 Runtime information such as Web server base URL, servlet context path or REST base path have been grouped under the `runtime`
