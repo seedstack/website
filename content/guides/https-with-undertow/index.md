@@ -139,7 +139,14 @@ To use the client certificate as a subject identity you will need to have the fo
 
 {{< dependency g="org.seedstack.seed" a="seed-web-security" >}}
 
-You will also need to extract the client certificate from the request, using the `cert` security filter:
+You will also need to configure the security subsystem to use the certificate for authentication and authorization purposes:
+
+```yaml
+security:
+  realm: X509CertificateRealm
+```
+
+To extract the certificate from the HTTP request, add the `cert` filter on the necessary URL patterns:
 
 ```yaml
 security:
@@ -150,8 +157,8 @@ security:
         filters: cert
 ```
 
-You can now inject the {{< java "org.seedstack.seed.security.SecuritySupport" >}} interface to obtain information about
-the subject:
+You can inject the {{< java "org.seedstack.seed.security.SecuritySupport" >}} interface to do additional checks
+on the subject:
 
 ```java
 package org.generated.project.interfaces.rest;
