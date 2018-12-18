@@ -125,7 +125,7 @@ our (fake) example, it is:
 https://myserver.mycompany.com
 ```
 
-## Mutual authentication
+## Bonus: mutual authentication
 
 If you want to go beyond HTTPS and require HTTPS clients to send their own certificate, set the following configuration:
 
