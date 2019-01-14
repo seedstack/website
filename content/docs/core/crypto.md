@@ -209,19 +209,19 @@ crypto:
     # The protocol to use for SSL communication
     protocol: (String)
     
-    # The name of the key store used to load the SSL key managers ('master' by default)
+    # Name of the configured keystore used for SSL ('master' by default)
     keyStore: (String)
      
-    # The name of the key store used as a trust store for SSL ('master' by default)
+    # Name of the configured keystore used as truststore for SSL ('master' by default)
     trustStore: (String)
     
-    # The name of the alias in the key store ('ssl' by default)
+    # The name of the alias in the keystore to used for SSL ('ssl' by default)
     alias: (String)
 
     # The set of ciphers that can be used for SSL communication
     ciphers: [ (String) ]
     
-    # The client authentication mode
+    # The client authentication mode (used for mutual certificate authentication)
     clientAuthMode: (NOT_REQUESTED|REQUESTED|REQUIRED)
 ```
 {{% /config %}}  
