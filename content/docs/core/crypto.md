@@ -204,7 +204,7 @@ The SSL configuration required for HTTPS operation of embedded Web servers such 
 
 {{% config p="crypto.ssl" %}}
 ```yaml
-  # SSL configuration (used by embedded Web servers like Undertow)    
+crypto:
   ssl:
     # The protocol to use for SSL communication
     protocol: (String)
