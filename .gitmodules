@@ -132,5 +132,5 @@
 	branch = docs
 [submodule "content/addons/web-bridge"]
 	path = content/addons/web-bridge
-	url = git@github.com:seedstack/web-bridge-addon.git
+	url = https://github.com/seedstack/web-bridge-addon.git
 	branch = docs
