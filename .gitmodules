@@ -130,3 +130,7 @@
 	path = content/addons/crud
 	url = https://github.com/seedstack/crud-addon.git
 	branch = docs
+[submodule "content/addons/web-bridge"]
+	path = content/addons/web-bridge
+	url = git@github.com:seedstack/web-bridge-addon.git
+	branch = docs
