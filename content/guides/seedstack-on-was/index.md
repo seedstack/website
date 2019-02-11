@@ -121,3 +121,74 @@ public class SomeClass {
 {{% callout ref %}}
 For more information, read the [documentation about JNDI]({{< ref "docs/core/jndi.md" >}}).
 {{% /callout %}}
+
+## JPA
+
+If you want to use a JPA specification version beyond what your WebSphere server support, you can do so by setting up
+a {{< java "javax.persistence.spi.PersistenceProviderResolver" >}} that forces your more recent provider to be the
+only JPA provider. Here is the code of a {{< java "org.seedstack.seed.spi.SeedInitializer" >}} that does this task:
+
+```java
+package org.generated.project.infrastructure.jpa;
+
+import java.util.Collections;
+import java.util.List;
+import javax.persistence.spi.PersistenceProvider;
+import javax.persistence.spi.PersistenceProviderResolver;
+import javax.persistence.spi.PersistenceProviderResolverHolder;
+import org.hibernate.jpa.HibernatePersistenceProvider;
+import org.seedstack.coffig.Coffig;
+import org.seedstack.seed.spi.SeedInitializer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class HibernatePersistenceProviderResolver implements PersistenceProviderResolver, SeedInitializer {
+    private static final Logger LOGGER = LoggerFactory.getLogger(HibernatePersistenceProviderResolver.class);
+    private final PersistenceProvider persistenceProvider = new HibernatePersistenceProvider();
+
+    @Override
+    public void afterInitialization() {
+        PersistenceProviderResolverHolder.setPersistenceProviderResolver(this);
+        LOGGER.info("Registered Hibernate as unique JPA provider");
+    }
+
+    @Override
+    public List<PersistenceProvider> getPersistenceProviders() {
+        return Collections.singletonList(persistenceProvider);
+    }
+
+    @Override
+    public void clearCachedProviders() {
+        // no-op
+    }
+
+    @Override
+    public void beforeInitialization() {
+        // no-op
+    }
+
+    @Override
+    public void onInitialization(Coffig configuration) {
+        // no-op
+    }
+
+    @Override
+    public void afterRefresh() {
+        // no-op
+    }
+
+    @Override
+    public void onClose() {
+        // no-op
+    }
+}
+```
+
+{{% callout warning %}}
+SeedStack initializers are discovered by the Java Service Loader mechanism. To be discovered the class full qualified name 
+must be written on its own line in a file named `META-INF/services/org.seedstack.seed.spi.SeedInitializer`:
+
+```plain
+org.generated.project.infrastructure.jpa.HibernatePersistenceProviderResolver
+```
+{{% /callout %}}
