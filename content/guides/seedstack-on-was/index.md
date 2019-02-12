@@ -113,7 +113,7 @@ public class SomeClass {
     private Context jndiContext;
  
     public void someMethod(){
-       DataSource myDatasource = jndiContext.lookup("some/jndi/name");
+       DataSource myDatasource = (DataSource) jndiContext.lookup("jdbc/TestDB");
     }
 }
 ``` 
