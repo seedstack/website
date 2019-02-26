@@ -28,6 +28,27 @@ SeedStack is not JEE-based so it provides support for various Java standards (JS
 versions. For that reason the classloader setting in WAS should be set to **Parent last**. This allows SeedStack to use
 newer versions of Java standards than the ones mandated by the server JEE level.
 
+## Bean validation
+
+In recent versions, SeedStack comes with Bean Validation 2 implemented with Hibernate Validator 6+. If this gives you issues at application startup, you can downgrade to Bean Validation 1.1 and Hibernate Validator 5 by using the following dependency management:
+
+```xml
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>1.1.0.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>5.4.3.Final</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+```
+
 ## Web.xml
 
 SeedStack (starting with version 15.11.1) does not necessitate a `web.xml` file to be present under `WEB-INF`. However if
