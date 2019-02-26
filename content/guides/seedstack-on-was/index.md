@@ -33,20 +33,20 @@ newer versions of Java standards than the ones mandated by the server JEE level.
 In recent versions, SeedStack comes with Bean Validation 2 implemented with Hibernate Validator 6+. If this gives you issues at application startup, you can downgrade to Bean Validation 1.1 and Hibernate Validator 5 by using the following dependency management:
 
 ```xml
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>javax.validation</groupId>
-                <artifactId>validation-api</artifactId>
-                <version>1.1.0.Final</version>
-            </dependency>
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-validator</artifactId>
-                <version>5.4.3.Final</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.4.3.Final</version>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
 ```
 
 ## Web.xml
