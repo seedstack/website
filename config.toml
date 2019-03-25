@@ -7,6 +7,7 @@ MetaDataFormat = "yaml"
 
   "javax.mail.version" = "1.4.8"
   "ch.qos.logback.version" = "1.2.3"
+  "org.apache.kafka.version" = "2.2.0"
 
   "org.seedstack.version" = "18.11.3"
   "org.seedstack.version-notes" = "18.11"
