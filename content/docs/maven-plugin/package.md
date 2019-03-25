@@ -123,7 +123,8 @@ In the example above:
 * JAR files contained in the `lib` directories will be directly added to the classpath. 
 
 {{% callout info %}}
-Being declared first, locations in the home directory will have precedence over the ones in `/opt`.
+The order of static entries is preserved in the classpath. All static entries are placed before the application
+entries so they can override them. 
 {{% /callout %}}
 
 ### Dynamic Classpath
@@ -135,7 +136,8 @@ java -Dcapsule.classpath="/usr/local/app/etc:/user/local/app/lib/*" -jar my-caps
 ```
 
 {{% callout info %}}
-Dynamic Classpath entries are added after static entries so they have a lower precedence.
+The order of dynamic entries is preserved in the classpath. All dynamic entries are placed before static entries in
+the classpath so they can override them.
 {{% /callout %}}
 
 ## Example
