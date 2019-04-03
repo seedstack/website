@@ -3,10 +3,12 @@ title: "Learn the basics"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - tutorial
 menu:
-    docs:
+    docs-manual:
         parent: "basics"
         weight: 2
 ---

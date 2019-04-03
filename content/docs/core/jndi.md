@@ -3,9 +3,11 @@ title: "JNDI"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 aliases: /guides/using-jndi    
 menu:
-    docs:
+    docs-manual:
         weight: 9
         parent: "core"
 ---

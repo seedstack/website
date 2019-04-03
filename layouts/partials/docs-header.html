@@ -1,3 +1,8 @@
+{{ if (isset .Params.sections 0) }}
+    {{ .Scratch.Set "section" (index .Params.sections 0) }}
+{{ else }}
+    {{ .Scratch.Set "section" .Title }}
+{{ end }}
 <div class="title-header small">
     <div class="container">
         <div class="row">
@@ -18,8 +23,18 @@
     <div class="container">
         <ul>
             <li>
-                <span class='active'>
+                <span class='{{ if eq (.Scratch.Get "section") "Manual" }}active{{ end }}'>
                     <i class="fa fa-file-text"></i> <a href="{{ $.Site.BaseURL }}docs">Manual</a>
+                </span>
+            </li>
+            <li>
+                <span class='{{ if eq (.Scratch.Get "section") "Maven" }}active{{ end }}'>
+                    <i class="fa fa-cog"></i> <a href="{{ $.Site.BaseURL }}docs/maven-plugin">Maven plugin</a>
+                </span>
+            </li>
+            <li>
+                <span class='{{ if eq (.Scratch.Get "section") "Samples" }}active{{ end }}'>
+                    <i class="fa fa-gift"></i> <a href="{{ $.Site.BaseURL }}docs/samples">Samples</a>
                 </span>
             </li>
             <li>

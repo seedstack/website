@@ -77,40 +77,64 @@ MetaDataFormat = "yaml"
     weight = -100
     url = "/project/"
 
-[[menu.docs]]
+[[menu.docs-manual]]
     name = "The basics"
     identifier = "basics"
     weight = -100
     url = "/docs/basics/"
 
-[[menu.docs]]
+[[menu.docs-manual]]
     name = "Core"
     identifier = "core"
     weight = -90
     url = "/docs/core/"
 
-[[menu.docs]]
+[[menu.docs-manual]]
     name = "Command-line"
     identifier = "cli"
     weight = -85
     url = "/docs/cli/"
 
-[[menu.docs]]
+[[menu.docs-manual]]
     name = "Web"
     identifier = "web"
     weight = -80
     url = "/docs/web/"
 
-[[menu.docs]]
+[[menu.docs-manual]]
     name = "Business"
     identifier = "business"
     weight = -70
     url = "/docs/business/"
 
-[[menu.docs]]
-    name = "Maven plugin"
-    identifier = "maven"
-    weight = -60
+[[menu.docs-samples]]
+    name = "The basics"
+    identifier = "basics"
+    weight = -20
+    url = "/docs/samples/"
+
+[[menu.docs-samples]]
+    name = "Available samples"
+    identifier = "samples"
+    weight = -10
+    url = "/docs/samples/"
+
+[[menu.docs-maven]]
+    name = "The basics"
+    identifier = "basics"
+    weight = -30
+    url = "/docs/maven/"
+
+[[menu.docs-maven]]
+    name = "Development"
+    identifier = "development"
+    weight = -20
+    url = "/docs/maven/"
+
+[[menu.docs-maven]]
+    name = "Application tools"
+    identifier = "tools"
+    weight = -10
     url = "/docs/maven/"
 
 

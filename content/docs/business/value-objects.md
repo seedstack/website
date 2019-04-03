@@ -3,11 +3,13 @@ title: "Value Objects"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - domain-driven design
 aliases: /docs/business/manual/value-objects    
 menu:
-    docs:
+    docs-manual:
         parent: "business"
         weight: 11
 ---

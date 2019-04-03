@@ -3,11 +3,13 @@ title: "Fluent assembler"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - domain-driven design
     - interfaces
 menu:
-    docs:
+    docs-manual:
         parent: "business"
         weight: 41
 ---

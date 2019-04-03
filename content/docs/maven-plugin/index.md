@@ -3,11 +3,13 @@ title: "Usage"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Maven"    
 tags:
     - maven
 menu:
-    docs:
-        parent: "maven"
+    docs-maven:
+        parent: "basics"
         weight: 10
 ---
 

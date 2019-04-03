@@ -1,14 +1,16 @@
 ---
-title: "Run goal"
+title: "Running"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Maven"    
 tags:
     - maven
 aliases: /docs/maven-plugin/manual/run    
 menu:
-    docs:
-        parent: "maven"
+    docs-maven:
+        parent: "development"
         weight: 30
 ---
 

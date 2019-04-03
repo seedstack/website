@@ -3,11 +3,13 @@ title: "Web integration testing"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - tutorial
     - testing
 menu:
-    docs:
+    docs-manual:
         parent: "web"
         weight: 2
 ---

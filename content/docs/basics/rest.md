@@ -3,12 +3,14 @@ title: "REST API"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - web
     - rest
     - api
 menu:
-    docs:
+    docs-manual:
         parent: "basics"
         weight: 6
 ---

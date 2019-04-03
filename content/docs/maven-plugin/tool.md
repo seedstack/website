@@ -1,18 +1,20 @@
 ---
-title: "Tool goal"
+title: "Tool execution"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Maven"    
 tags:
     - maven
 aliases: /docs/maven-plugin/manual/tool    
 menu:
-    docs:
-        parent: "maven"
+    docs-maven:
+        parent: "tools"
         weight: 50
 ---
 
-The `tool` goal will execute the project in [tool mode](/docs/seed/manual#tool-mode) instead of its normal mode. <!--more-->
+The `tool` goal will execute the application in [tool mode]({{< relref "docs/core/index.md#tool-mode" >}}) instead of its normal mode. <!--more-->
 It will execute the tool specified as the first argument in the `args` parameter. Further arguments and options depend
 upon each tool.
 

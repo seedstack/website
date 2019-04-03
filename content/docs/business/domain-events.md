@@ -3,11 +3,13 @@ title: "Domain events"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - domain-driven design
 aliases: /docs/business/manual/events    
 menu:
-    docs:
+    docs-manual:
         parent: "business"
         weight: 32
 ---

@@ -3,11 +3,13 @@ title: "Business code"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - domain-driven design
     - tutorial
 menu:
-    docs:
+    docs-manual:
         parent: "basics"
         weight: 4
 ---

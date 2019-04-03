@@ -3,6 +3,8 @@ title: "REST"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - REST
     - API
@@ -10,7 +12,7 @@ tags:
     - interfaces
 aliases: /docs/seed/manual/rest    
 menu:
-    docs:
+    docs-manual:
         weight: 3
         parent: "web"
 ---

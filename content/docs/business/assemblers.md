@@ -3,12 +3,14 @@ title: "Assemblers"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - domain-driven design
     - interfaces
 aliases: /docs/business/manual/assemblers    
 menu:
-    docs:
+    docs-manual:
         parent: "business"
         weight: 40
         pre: "<h6>Interfaces</h6>"

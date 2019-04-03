@@ -3,10 +3,12 @@ title: "Pagination"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - domain-driven design
 menu:
-    docs:
+    docs-manual:
         parent: "business"
         weight: 41
 ---

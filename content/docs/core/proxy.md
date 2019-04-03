@@ -3,8 +3,10 @@ title: "Proxy"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 menu:
-    docs:
+    docs-manual:
         weight: 10
         parent: "core"
 ---

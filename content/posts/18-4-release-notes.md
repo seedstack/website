@@ -19,7 +19,7 @@ We are happy to announce the release of SeedStack 18.4 «Orchid».<!--more-->
 ### Better samples
 
 We have consolidated all samples in a single project for simplicity. Some new samples have been added too. 
-Check it out [on the samples page]({{< ref "docs/basics/samples.md" >}}). 
+Check it out [on the samples page]({{< ref "docs/samples/index.md" >}}). 
 
 ### Java 9 compatibility
 

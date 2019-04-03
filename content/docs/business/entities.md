@@ -3,11 +3,13 @@ title: "Entities"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - domain-driven design
 aliases: /docs/business/manual/entities    
 menu:
-    docs:
+    docs-manual:
         parent: "business"
         weight: 10
         pre: "<h6>Model</h6>"

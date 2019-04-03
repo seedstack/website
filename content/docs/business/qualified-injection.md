@@ -3,12 +3,14 @@ title: "Qualified injection"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - essentials
     - domain-driven design
     - injection
 menu:
-    docs:
+    docs-manual:
         parent: "business"
         weight: 7
 ---

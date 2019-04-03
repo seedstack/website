@@ -1,14 +1,16 @@
 ---
-title: "Package goal"
+title: "JAR Packaging"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Maven"    
 tags:
     - maven
 aliases: /docs/maven-plugin/manual/package    
 menu:
-    docs:
-        parent: "maven"
+    docs-maven:
+        parent: "development"
         weight: 40
 ---
 

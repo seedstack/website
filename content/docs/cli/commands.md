@@ -3,10 +3,12 @@ title: "Defining commands"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - cli    
 menu:
-    docs:
+    docs-manual:
         parent: "cli"
         weight: 2
 ---

@@ -3,11 +3,13 @@ title: "Servlet, filters and listeners"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - web
     - interfaces
 menu:
-    docs:
+    docs-manual:
         weight: 10
         parent: "web"
 ---

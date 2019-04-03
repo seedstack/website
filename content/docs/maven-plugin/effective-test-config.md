@@ -1,14 +1,16 @@
 ---
-title: "Effective test config goal"
+title: "Dump effective test configuration"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Maven"    
 tags:
     - maven
 aliases: /docs/maven-plugin/manual/effective-test-config    
 menu:
-    docs:
-        parent: "maven"
+    docs-maven:
+        parent: "tools"
         weight: 80
 ---
 

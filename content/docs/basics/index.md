@@ -3,11 +3,13 @@ title: "Getting started"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - tutorial
 aliases: "/docs"    
 menu:
-    docs:
+    docs-manual:
         parent: "basics"
         weight: 1
 ---

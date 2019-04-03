@@ -1,14 +1,16 @@
 ---
-title: "Effective config goal"
+title: "Dump effective configuration"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Maven"    
 tags:
     - maven
 aliases: /docs/maven-plugin/manual/effective-config    
 menu:
-    docs:
-        parent: "maven"
+    docs-maven:
+        parent: "tools"
         weight: 70
 ---
 

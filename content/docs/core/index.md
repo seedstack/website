@@ -3,13 +3,15 @@ title: "Running applications"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 aliases: 
     - /docs/seed/manual/running
     - /docs/seed    
 tags:
     - cli
 menu:
-    docs:
+    docs-manual:
         parent: "core"
         weight: 1
 ---

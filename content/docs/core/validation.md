@@ -3,10 +3,12 @@ title: "Validation"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - validation
 menu:
-    docs:
+    docs-manual:
         weight: 8
         parent: "core"
 ---

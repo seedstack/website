@@ -3,11 +3,13 @@ title: "Web security"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - web
     - security
 menu:
-    docs:
+    docs-manual:
         weight: 4
         parent: "web"
 ---

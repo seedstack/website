@@ -3,9 +3,11 @@ title: "Cryptography"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 aliases: /docs/seed/manual/crypto    
 menu:
-    docs:
+    docs-manual:
         weight: 6
         parent: "core"
 ---

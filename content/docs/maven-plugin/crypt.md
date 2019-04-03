@@ -1,14 +1,16 @@
 ---
-title: "Crypt goal"
+title: "Encrypting secrets"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Maven"    
 tags:
     - maven
 aliases: /docs/maven-plugin/manual/crypt    
 menu:
-    docs:
-        parent: "maven"
+    docs-maven:
+        parent: "tools"
         weight: 90
 ---
 

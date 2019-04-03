@@ -3,11 +3,13 @@ title: "Static resources"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - web
     - interfaces
 menu:
-    docs:
+    docs-manual:
         weight: 11
         parent: "web"
 ---

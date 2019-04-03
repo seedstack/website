@@ -3,11 +3,13 @@ title: "CORS"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - web
     - interfaces
 menu:
-    docs:
+    docs-manual:
         weight: 4
         parent: "web"
 

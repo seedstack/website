@@ -3,11 +3,13 @@ title: "Domain-Driven Design"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - essentials
     - domain-driven design
 menu:
-    docs:
+    docs-manual:
         parent: "business" 
         weight: 1
 ---

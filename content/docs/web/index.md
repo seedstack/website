@@ -3,12 +3,14 @@ title: "Running Web applications"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - web
     - interfaces
 aliases: /docs/seed/manual/web    
 menu:
-    docs:
+    docs-manual:
         weight: 1
         parent: "web"
 ---

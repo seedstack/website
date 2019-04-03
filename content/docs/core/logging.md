@@ -3,11 +3,13 @@ title: "Logging"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - logging
 aliases: /docs/seed/logging    
 menu:
-    docs:
+    docs-manual:
         parent: "core"
         weight: 4
 ---

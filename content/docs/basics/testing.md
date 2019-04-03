@@ -3,12 +3,14 @@ title: "Testing"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - web
     - rest
     - api
 menu:
-    docs:
+    docs-manual:
         parent: "basics"
         weight: 7
 ---
@@ -144,6 +146,6 @@ If you can't get this to work, check the [troubleshooting page]({{< ref "docs/ba
 We are done with the tutorial. Congratulations for getting this far!
 {{< img src="mascot/mascot-happy.png" >}}
 
-You can now go further and explore the [samples]({{< ref "docs/basics/samples.md" >}}) or start to 
-read the [reference documentation]({{< ref "docs/core/index.md" >}})
+You can now go further and explore the [samples]({{< ref "docs/samples/index.md" >}}) or start to 
+read the [core documentation]({{< ref "docs/core/index.md" >}})
 

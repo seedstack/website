@@ -3,11 +3,13 @@ title: "Integration testing"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - tutorial
     - testing
 menu:
-    docs:
+    docs-manual:
         parent: "core"
         weight: 2
 ---

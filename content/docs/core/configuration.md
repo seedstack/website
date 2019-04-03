@@ -3,11 +3,13 @@ title: "Configuration"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - configuration
 aliases: /docs/seed/configuration    
 menu:
-    docs:
+    docs-manual:
         parent: "core"
         weight: 3
 ---

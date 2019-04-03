@@ -3,11 +3,13 @@ title: "WebSockets"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - web
     - interfaces
 menu:
-    docs:
+    docs-manual:
         weight: 12
         parent: "web"
 ---

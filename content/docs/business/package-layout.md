@@ -3,11 +3,13 @@ title: "Package layout"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - domain-driven design
     - architecture
 menu:
-    docs:
+    docs-manual:
         parent: "business"
         weight: 6
 ---

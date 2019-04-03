@@ -3,12 +3,14 @@ title: "Persistence"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - domain-driven design
     - persistence
     - tutorial
 menu:
-    docs:
+    docs-manual:
         parent: "basics"
         weight: 5
 ---

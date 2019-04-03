@@ -3,11 +3,13 @@ title: "Factories"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - domain-driven design
 aliases: /docs/business/manual/factories    
 menu:
-    docs:
+    docs-manual:
         parent: "business"
         weight: 20
         pre: "<h6>Behavior</h6>"

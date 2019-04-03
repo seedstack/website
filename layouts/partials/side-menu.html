@@ -6,7 +6,11 @@
 {{ else if eq $zone "Addons" }}
 {{ $.Scratch.Set "menuKey" .Params.Addon }}
 {{ else }}
-{{ $.Scratch.Set "menuKey" (lower $zone) }}
+{{ if isset .Params "sections" }}
+{{ $.Scratch.Set "menuKey" (print (lower $zone) "-" (lower (index .Params.sections 0))) }}
+{{ else }}
+{{ $.Scratch.Set "menuKey" (lower $zone)}}
+{{ end}}
 {{ end }}
 
 {{ $menuKey := $.Scratch.Get "menuKey" }}

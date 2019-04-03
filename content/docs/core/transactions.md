@@ -3,11 +3,13 @@ title: "Transactions"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - transactions
 aliases: /docs/seed/manual/transactions    
 menu:
-    docs:
+    docs-manual:
         weight: 7
         parent: "core"
 ---

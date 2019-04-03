@@ -3,11 +3,13 @@ title: "Dependency injection"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - injection
     - tutorial
 menu:
-    docs:
+    docs-manual:
         parent: "basics"
         weight: 3
 ---

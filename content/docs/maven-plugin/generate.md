@@ -1,14 +1,16 @@
 ---
-title: "Generate goal"
+title: "Project generation"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Maven"    
 tags:
     - maven
 aliases: /docs/maven-plugin/manual/generate    
 menu:
-    docs:
-        parent: "maven"
+    docs-maven:
+        parent: "development"
         weight: 20
 ---
 

@@ -1,14 +1,16 @@
 ---
-title: "Config goal"
+title: "List all configuration options"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Maven"    
 tags:
     - maven
 aliases: /docs/maven-plugin/manual/config    
 menu:
-    docs:
-        parent: "maven"
+    docs-maven:
+        parent: "tools"
         weight: 60
 ---
 

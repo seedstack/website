@@ -3,11 +3,13 @@ title: "Running CLI applications"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - cli    
 aliases: /docs/seed/manual/cli
 menu:
-    docs:
+    docs-manual:
         parent: "cli"
         weight: 1
 ---

@@ -3,11 +3,13 @@ title: "Troubleshooting"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - tutorial
     - essentials
 menu:
-    docs:
+    docs-manual:
         parent: "basics"
         weight: 99
 ---

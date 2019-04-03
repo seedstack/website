@@ -3,12 +3,14 @@ title: "Layers"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - domain-driven design
     - architecture 
 aliases: /docs/business/architecture    
 menu:
-    docs:
+    docs-manual:
         parent: "business"
         weight: 5
         pre: "<h6>Architecture</h6>"

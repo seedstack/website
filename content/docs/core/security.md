@@ -3,11 +3,13 @@ title: "Security"
 type: "home"
 zones:
     - "Docs"
+sections:
+    - "Manual"    
 tags:
     - security
 aliases: /docs/seed/manual/security    
 menu:
-    docs:
+    docs-manual:
         parent: "core"
         weight: 5
 ---
