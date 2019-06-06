@@ -9,8 +9,8 @@ MetaDataFormat = "yaml"
   "ch.qos.logback.version" = "1.2.3"
   "org.apache.kafka.version" = "2.2.0"
 
-  "org.seedstack.version" = "18.11.3"
-  "org.seedstack.version-notes" = "18.11"
+  "org.seedstack.version" = "19.4"
+  "org.seedstack.version-notes" = "19.4"
 
   "org.seedstack.maven.version" = "2.7.4"
 
@@ -101,12 +101,6 @@ MetaDataFormat = "yaml"
     weight = -80
     url = "/docs/web/"
 
-[[menu.docs-manual]]
-    name = "Business"
-    identifier = "business"
-    weight = -70
-    url = "/docs/business/"
-
 [[menu.docs-samples]]
     name = "The basics"
     identifier = "basics"
@@ -136,6 +130,31 @@ MetaDataFormat = "yaml"
     identifier = "tools"
     weight = -10
     url = "/docs/maven/"
+
+[[menu.docs-business]]
+    name = "The basics"
+    identifier = "basics"
+    weight = -100
+    url = "/docs/business/"
+
+[[menu.docs-business]]
+    name = "Modeling"
+    identifier = "model"
+    weight = -80
+    url = "/docs/business/"
+
+[[menu.docs-business]]
+    name = "Implementing behavior"
+    identifier = "behavior"
+    weight = -60
+    url = "/docs/business/"
+
+[[menu.docs-business]]
+    name = "Exposing interfaces"
+    identifier = "interfaces"
+    weight = -40
+    url = "/docs/business/"
+
 
 
 #####################################

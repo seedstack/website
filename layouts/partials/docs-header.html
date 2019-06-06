@@ -24,7 +24,12 @@
         <ul>
             <li>
                 <span class='{{ if eq (.Scratch.Get "section") "Manual" }}active{{ end }}'>
-                    <i class="fa fa-file-text"></i> <a href="{{ $.Site.BaseURL }}docs">Manual</a>
+                    <i class="fa fa-dot-circle-o"></i> <a href="{{ $.Site.BaseURL }}docs">Core</a>
+                </span>
+            </li>
+            <li>
+                <span class='{{ if eq (.Scratch.Get "section") "Business" }}active{{ end }}'>
+                    <i class="fa fa-briefcase"></i> <a href="{{ $.Site.BaseURL }}docs/business">Business</a>
                 </span>
             </li>
             <li>
@@ -35,6 +40,11 @@
             <li>
                 <span class='{{ if eq (.Scratch.Get "section") "Samples" }}active{{ end }}'>
                     <i class="fa fa-gift"></i> <a href="{{ $.Site.BaseURL }}docs/samples">Samples</a>
+                </span>
+            </li>
+            <li>
+                <span>
+                    <i class="fa fa-medkit"></i> <a target="_blank" href="{{ $.Site.BaseURL }}docs/troubleshooting">Troubleshooting</a>
                 </span>
             </li>
             <li>

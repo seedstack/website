@@ -4,13 +4,13 @@ type: "home"
 zones:
     - "Docs"
 sections:
-    - "Manual"    
+    - "Business"    
 tags:
     - domain-driven design
     - tutorial
 menu:
-    docs-manual:
-        parent: "business"
+    docs-business:
+        parent: "basics"
         weight: 2
 ---
 

@@ -4,16 +4,15 @@ type: "home"
 zones:
     - "Docs"
 sections:
-    - "Manual"    
+    - "Business"    
 tags:
     - domain-driven design
     - architecture 
 aliases: /docs/business/architecture    
 menu:
-    docs-manual:
-        parent: "business"
+    docs-business:
+        parent: "architecture"
         weight: 5
-        pre: "<h6>Architecture</h6>"
 ---
 
 Domain-Driven Design itself can be successfully applied in variety of software architectural styles. Some are very broad 

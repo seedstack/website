@@ -4,14 +4,14 @@ type: "home"
 zones:
     - "Docs"
 sections:
-    - "Manual"    
+    - "Business"    
 tags:
     - domain-driven design
     - persistence
 aliases: /docs/business/manual/repositories    
 menu:
-    docs-manual:
-        parent: "business"
+    docs-business:
+        parent: "behavior"
         weight: 21
 ---
 

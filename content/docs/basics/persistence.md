@@ -440,7 +440,7 @@ You can also explore SeedStack [persistence add-ons]({{< baseUrl >}}addons) docu
 
 ### Troubleshooting
 
-If you can't get this to work, check the [troubleshooting page]({{< ref "docs/basics/troubleshooting.md" >}}).
+If you can't get this to work, check the [troubleshooting page]({{< ref "docs/troubleshooting/index.md" >}}).
 
 ### Next step
 

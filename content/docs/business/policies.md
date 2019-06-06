@@ -4,11 +4,11 @@ type: "home"
 zones:
     - "Docs"
 sections:
-    - "Manual"    
+    - "Business"    
 aliases: /docs/business/manual/policies    
 menu:
-    docs-manual:
-        parent: "business"
+    docs-business:
+        parent: "behavior"
         weight: 31
 ---
 

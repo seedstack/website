@@ -4,16 +4,15 @@ type: "home"
 zones:
     - "Docs"
 sections:
-    - "Manual"    
+    - "Business"    
 tags:
     - domain-driven design
     - interfaces
 aliases: /docs/business/manual/assemblers    
 menu:
-    docs-manual:
-        parent: "business"
+    docs-business:
+        parent: "interfaces"
         weight: 40
-        pre: "<h6>Interfaces</h6>"
 ---
 
 {{% callout def %}}

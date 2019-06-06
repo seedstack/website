@@ -467,5 +467,36 @@
       <version>18.11.3</version>
       <description>SeedStack archetype for creating an add-on.</description>
     </archetype>
+
+    <archetype>
+      <groupId>org.seedstack</groupId>
+      <artifactId>batch-archetype</artifactId>
+      <version>19.4</version>
+      <description>SeedStack archetype for running batch jobs.</description>
+    </archetype>
+    <archetype>
+      <groupId>org.seedstack</groupId>
+      <artifactId>domain-archetype</artifactId>
+      <version>19.4</version>
+      <description>SeedStack archetype for reusable domains.</description>
+    </archetype>
+    <archetype>
+      <groupId>org.seedstack</groupId>
+      <artifactId>web-archetype</artifactId>
+      <version>19.4</version>
+      <description>SeedStack archetype for serving REST API and other Web resources.</description>
+    </archetype>
+    <archetype>
+      <groupId>org.seedstack</groupId>
+      <artifactId>cli-archetype</artifactId>
+      <version>19.4</version>
+      <description>SeedStack archetype for running command-line based applications.</description>
+    </archetype>
+    <archetype>
+      <groupId>org.seedstack</groupId>
+      <artifactId>addon-archetype</artifactId>
+      <version>19.4</version>
+      <description>SeedStack archetype for creating an add-on.</description>
+    </archetype>
   </archetypes>
 </archetype-catalog>

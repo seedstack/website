@@ -1,16 +1,16 @@
 ---
-title: "Domain-Driven Design"
+title: "What is Domain-Driven Design ?"
 type: "home"
 zones:
     - "Docs"
 sections:
-    - "Manual"    
+    - "Business"    
 tags:
     - essentials
     - domain-driven design
 menu:
-    docs-manual:
-        parent: "business" 
+    docs-business:
+        parent: "basics" 
         weight: 1
 ---
 

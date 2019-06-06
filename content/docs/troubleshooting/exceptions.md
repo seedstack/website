@@ -1,24 +1,18 @@
 ---
-title: "Troubleshooting"
+title: "Exceptions"
 type: "home"
 zones:
     - "Docs"
 sections:
-    - "Manual"    
+    - "Troubleshooting"    
 tags:
-    - tutorial
-    - essentials
+    - troubleshooting
 menu:
-    docs-manual:
+    docs-troubleshooting:
         parent: "basics"
         weight: 99
 ---
 
-When something goes wrong, SeedStack does its best to provide detailed information about the failure. This can
-take two forms: the detailed exception system and the diagnostic dump.
- 
-## Detailed exception system
- 
 All SeedStack exceptions extend {{< java "org.seedstack.shed.exception.BaseException" >}} which is a 
 [RuntimeException](https://docs.oracle.com/javase/8/docs/api/java/lang/RuntimeException.html). This means that you are
 not required to catch framework exceptions although you can do so if needed.
@@ -75,13 +69,4 @@ You can find the following information in this exception report:
 * The fix which is an advice on how to fix the root cause, i.e. the missing configuration key.
 * The online information which is an URL pointing to a Web resource related to the root cause.
 * The detailed stacktrace of the chained exceptions.
- 
-## Diagnostic dump 
-
-When an exception is thrown on startup or shutdown, a YAML diagnostic file is dumped in a temporary directory. A diagnostic 
-dump contains a lot of information about the SeedStack runtime. It can be helpful to do advanced diagnostics.
-
-{{% callout info %}}
-A warning log will tell where the diagnostic file is saved.
-{{% /callout %}} 
 

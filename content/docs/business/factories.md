@@ -4,15 +4,14 @@ type: "home"
 zones:
     - "Docs"
 sections:
-    - "Manual"    
+    - "Business"    
 tags:
     - domain-driven design
 aliases: /docs/business/manual/factories    
 menu:
-    docs-manual:
-        parent: "business"
+    docs-business:
+        parent: "behavior"
         weight: 20
-        pre: "<h6>Behavior</h6>"
 ---
 
 {{% callout def %}}
