@@ -15,6 +15,34 @@ menu:
 SeedStack support easy configuration of Java key stores and SSL along with services for private key encryption 
 and secure hashing.<!--more--> 
 
+## Trust store
+
+The trust store is a storage facility for certificate authority (CA) certificates. They often contain the full certification
+chain up to the top-level CA. It is configured as below:
+
+{{% config p="crypto.truststore" %}}
+```yaml
+crypto:
+  # Configured trust store
+  truststore:
+    # Path of the key store
+    path: (String)
+      
+    # Password of the key store
+    password: (String)
+      
+    # [Optional] Type of the key store (use the default key store type if not specified)
+    type: (String)
+      
+    # [Optional] The security provider to use (will default to the registered list if not provided)
+    provider: (String)
+```
+{{% /config %}}  
+
+{{% callout tips %}}
+The trust store is notably used by the TLS stack to validate certificates presented by clients doing mutual authentication.
+{{% /callout %}}
+
 ## Key stores
 
 A key store is a storage facility for cryptographic keys and certificates. Key stores are created using the `keytool` 
@@ -56,36 +84,6 @@ crypto:
          
           # String qualifier to use for injecting the cryptography services (defaults to the name of the alias if not specified)
           qualifier: (String)
-
-  # Configured external certificates 
-  certificates:
-    # Logical name of the certificate
-    certificate1:
-      # File location of the certificate (exclusive with resource)
-      file: (String)
-      
-      # Classpath location of the certificate (exclusive with file)
-      resource: (String)
-```
-{{% /config %}}  
-
-## Certificates
-
-It is recommended to store your key/pairs inside key stores but you can use an standalone certificates if you need too.
-You can configure them as below:
-
-{{% config p="crypto.certificates" %}}
-```yaml
-crypto:
-  # Configured external certificates 
-  certificates:
-    # Logical name of the certificate
-    certificate1:
-      # File location of the certificate (exclusive with resource)
-      file: (String)
-      
-      # Classpath location of the certificate (exclusive with file)
-      resource: (String)
 ```
 {{% /config %}}  
 
@@ -214,9 +212,6 @@ crypto:
     # Name of the configured keystore used for SSL ('master' by default)
     keyStore: (String)
      
-    # Name of the configured keystore used as truststore for SSL ('master' by default)
-    trustStore: (String)
-    
     # The name of the alias in the keystore to used for SSL ('ssl' by default)
     alias: (String)
 

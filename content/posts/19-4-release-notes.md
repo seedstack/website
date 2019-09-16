@@ -24,7 +24,7 @@ This version contains minor fixes in various components, please check individual
 
 ## Changes
 
-No changes
+No changes.
 
 ## Component versions
 
