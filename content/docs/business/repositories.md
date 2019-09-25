@@ -88,7 +88,7 @@ interface. Implement them directly in the interface in a technology-agnostic man
 
 ```java
 public interface SomeRepository extends Repository<SomeAggregate, SomeId> {
-    default List<SomeAggregate> objectsForCategory(String category) {
+    default Stream<SomeAggregate> objectsForCategory(String category) {
         return get(getSpecificationBuilder().of(SomeAggregate.class)
                 .property("category").is(category)
                 .build()
@@ -115,7 +115,7 @@ public class SomeClass {
     private SomeRepository someRepository;
     
     public void someMethod() {
-        List<SomeAggregate> list = someRepository.objectsForCategory("cat1");
+        Stream<SomeAggregate> stream = someRepository.objectsForCategory("cat1");
     }
 }
 ```  
@@ -137,7 +137,7 @@ To create a custom repository, create an interface extending {{< java "org.seeds
  
 ```java
 public interface SomeRepository extends Repository<SomeAggregate, SomeId> {
-    List<SomeAggregate> objectsForCategory(String category);
+    Stream<SomeAggregate> objectsForCategory(String category);
 }
 ```
 
@@ -150,7 +150,7 @@ public class SomeInMemoryRepository
         implements SomeRepository {
 
     @Override
-    public List<SomeAggregate> objectsByCategory(String category) {
+    public Stream<SomeAggregate> objectsByCategory(String category) {
         // implement specific query
     }
 }
@@ -172,7 +172,7 @@ public class SomeClass {
     private SomeRepository someRepository;
     
     public void someMethod() {
-        List<SomeAggregate> stream = someRepository.objectsByCategory("category1");
+        Stream<SomeAggregate> stream = someRepository.objectsByCategory("category1");
         // do something with the result
     }
 }
@@ -232,7 +232,7 @@ Nothing to declare but only have access to {{< java "org.seedstack.business.doma
 
 ```java
 public interface ProductRepository extends Repository<Product, ProductId> {
-    default List<Product> discontinuedProducts() {
+    default Stream<Product> discontinuedProducts() {
         return get(getSpecificationBuilder().of(Product.class)
                 .property("discontinued").equalTo(true)
                 .build()
@@ -247,7 +247,7 @@ The repository interface:
 
 ```java
 public interface ProductRepository extends Repository<Product, ProductId> {
-     List<Product> discontinuedProducts();    
+     Stream<Product> discontinuedProducts();    
 }
 ```
 
@@ -258,7 +258,7 @@ public class ProductJpaRepository
         extends BaseInMemoryRepository<Product, ProductId> 
         implements ProductRepository {   
     @Override
-    public List<Product> discontinuedProducts() {
+    public Stream<Product> discontinuedProducts() {
         // in-memory implementation of the query 
     }    
 }
