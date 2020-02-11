@@ -111,6 +111,29 @@ public class SomeAssembler implements Assembler<SomeAggregate, SomeDto> {
 {{% /tab %}}
 {{% /tabs %}}
 
+## Class configuration
+
+When using default or generated assembler you have to explicitly specify the qualifier at the injection point, to choose
+the correct implementation.
+
+To avoid specifying the qualifier in code, you can specify it as the `defaultAssembler` key in
+[class configuration]({{< ref "docs/core/configuration.md#class-configuration" >}}) targetting the DTO:
+
+```yaml
+classes:
+  org:
+    myorg:
+      myapp:
+        domain:
+          model:
+            someDto:
+              defaultAssembler: org.seedstack.business.modelmapper.ModelMapper
+```
+
+{{% callout info %}}
+The `defaultAssembler` property expects a qualifier annotation class name (like {{< java "org.seedstack.business.modelmapper.ModelMapper" "@" >}})
+{{% /callout %}}
+
 ### Usage
 
 To use your assembler directly, [inject]({{< ref "docs/basics/dependency-injection.md" >}}) the 
