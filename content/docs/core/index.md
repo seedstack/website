@@ -34,11 +34,11 @@ See [this page]({{< ref "docs/web/index.md#in-a-container" >}}) for more informa
 
 ### Plain command-line
 
-A standalone application is run from the command-line using the {{< java "org.seedstack.core.SeedMain" >}}
+A standalone application is run from the command-line using the {{< java "org.seedstack.seed.core.SeedMain" >}}
 class:
 
 ```bash
-java [jvm-args] -cp ... org.seedstack.core.SeedMain [app-args]
+java [jvm-args] -cp ... org.seedstack.seed.core.SeedMain [app-args]
 ```
 
 ### Capsule
@@ -90,7 +90,7 @@ A SeedStack application can be run in tool mode. In this case a special launcher
 tool. You can run any module in tool mode by specifying the `seedstack.tool` system property:
  
 ```bash
-java [jvm-args] -Dseedstack.tool=toolName -cp ... org.seedstack.core.SeedMain [tool-args]
+java [jvm-args] -Dseedstack.tool=toolName -cp ... org.seedstack.seed.core.SeedMain [tool-args]
 ```
 
 or with a Capsule:

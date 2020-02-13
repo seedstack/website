@@ -17,6 +17,8 @@ This Website is built with [Hugo](http://gohugo.io/). If you have Hugo in your p
 
     hugo serve
     
+(Note: current site build requires v0.30.1 of Hugo.)
+
 # Publication
 
 The generated Website is automatically published on the corresponding channel repository after each change:
