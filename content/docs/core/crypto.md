@@ -206,19 +206,31 @@ The SSL configuration required for HTTPS operation of embedded Web servers such 
 ```yaml
 crypto:
   ssl:
-    # The protocol to use for SSL communication
-    protocol: (String)
+    # The password used to retrieve a matching SSL certificate from the keystore
+    keyPassword: (String)
     
     # Name of the configured keystore used for SSL ('master' by default)
     keyStore: (String)
-     
-    # The name of the alias in the keystore to used for SSL ('ssl' by default)
-    alias: (String)
 
-    # The set of ciphers that can be used for SSL communication
-    ciphers: [ (String) ]
-    
     # The client authentication mode (used for mutual certificate authentication)
     clientAuthMode: (NOT_REQUESTED|REQUESTED|REQUIRED)
+    
+    # A custom X509KeyManager implementation allowing to control the alias selection process
+    x509KeyManager: (Class<? extends X509KeyManager>)
+
+    # The protocol to use for SSL communication ('TLS' by default)
+    protocol: (String) 
+
+    # The set of ciphers that can be used for SSL communication
+    ciphers: [ (String) ]    
 ```
-{{% /config %}}  
+{{% /config %}}
+
+{{% callout warning %}}
+The `keyPassword` option must match at least one alias password in the keystore used for SSL (master by default).
+{{% /callout %}}
+
+{{% callout info %}}
+If multiple aliases have the same password, a choice is made by the SSL default implementation. You can control this choice by specifying an implementation of {{< java "javax.net.ssl.X509KeyManager" >}} in the `x509KeyManager` configuration option.
+{{% /callout %}}
+
