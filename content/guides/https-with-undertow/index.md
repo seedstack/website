@@ -20,7 +20,9 @@ the SeedStack generator to create a `web` project type:
 mvn -U org.seedstack:seedstack-maven-plugin:generate
 ```
 
-## Generate a certificate
+## A self-signed certificate
+
+### Generate the certificate
 
 We are going to use the Java `keytool` program (locate in the JDK `bin` folder) to generate a keystore containing a 
 2048 bits self-signed certificate and its key pair. Go into the project directory and type:
@@ -37,7 +39,7 @@ For good security, use strong and unique passwords for the key store itself and 
 Update the the `dname` parameter value according to your company and/or personal details. 
 {{% /callout %}}
 
-## Configure the keystore
+### Configure the keystore and SSL
 
 Now edit the `application.yaml` file of your project. Add the following section to configure the `master` keystore:
 
@@ -47,11 +49,20 @@ crypto:
     master:
       path: master.jks
       password: changeMe
-      aliases:
-        ssl: changeMe
+  ssl:
+    keyPassword: changeMe
 ```
 
-## Enable HTTPS
+This declares:
+
+* A keystore named `master`, based on the file we generated before.
+* The password used by SSL to read the key from the keystore.
+
+{{% callout info %}}
+In SeedStack, the `master` keystore is used by default for various tasks like [configuration encryption]({{< ref "docs/core/crypto.md#encrypting-configuration-values" >}}) or SSL. 
+{{% /callout %}}
+
+### Enable HTTPS
 
 In the `application.yaml` file, add the following section:
 
@@ -59,17 +70,11 @@ In the `application.yaml` file, add the following section:
 web:
   server:
     https: true
-    port: 443
 ```
 
-This will enable HTTPS on port 443 (which is the default HTTPS port). 
+This will enable HTTP on port 8080, HTTPS on port 8443 and will automatically redirect any HTTP access to HTTPS.
 
-{{% callout info %}}
-SeedStack will automatically use the `ssl` alias of the `master` keystore to create the necessary SSL context. See the
-[SSL configuration]({{< ref "docs/core/crypto.md#ssl" >}}) to change the defaults.
-{{% /callout %}}
-
-## Try it!
+### Try it!
 
 Launch the Web application:
 
@@ -77,14 +82,16 @@ Launch the Web application:
 mvn seedstack:run
 ```
 
-And point your browser to [https://localhost](https://localhost).
+And point your browser to [https://localhost:4443](https://localhost:4443).
 
 {{% callout info %}}
 You will see a security warning in your browser because the certificate is self-signed for now. Ignore it at the moment,
 to display the application homepage. 
 {{% /callout %}}
 
-## Create a CSR
+## A trusted certificate
+
+### Create a CSR
 
 To obtain a trusted certificate, we need to create a "Certificate Signing Request" (CSR):
 
@@ -95,12 +102,12 @@ keytool -certreq -alias ssl -keystore master.jks -file request.csr
 This CSR will have to be submitted to the "Certificate Authority" (CA) of your choice, which will return the signed
 certificate to you.
 
-## Import the CA certificates
+### Import the CA certificate(s)
 
-To be able to validate the chain of trust, you have to import the CA certificate(s) into the keystore:
+To be able to validate the chain of trust, you have to import the CA certificate(s) into a truststore:
 
 ```bash
-keytool -import -trustcacerts -alias rootca -file root_ca.crt -keystore master.jks
+keytool -import -trustcacerts -alias rootca -file root_ca.crt -keystore truststore.jks -storepass changeMe -keypass changeMe
 ``` 
 
 {{% callout info %}}
@@ -108,15 +115,26 @@ Depending on your CA, you may also have to import one or more intermediate certi
 Just add them to the keystore, each under a unique alias name. 
 {{% /callout %}}
 
-## Import the signed certificate
+### Configure the truststore
 
-After your CA has handed your signed certificate back, import it in the keystore under the same alias:
+Now edit the `application.yaml` file of your project. Add the following section to configure the truststore:
 
-```bash
-keytool -import -alias ssl -file signed_cert.cer -keystore master.jks 
+```yaml
+crypto:
+  truststore:
+    path: truststore.jks
+    password: changeMe
 ```
 
-## Try it!
+### Import the signed certificate
+
+After your CA has handed your signed certificate back, import it in the keystore under the same alias to overwrite your previous self-signed certificate with the new one:
+
+```bash
+keytool -import -alias ssl -file signed_cert.cer -keystore truststore.jks -storepass changeMe -keypass changeMe
+```
+
+### Try it!
 
 After deploying the application on an URL matching the CN of your certificate, you can point your browser to the CN. In
 our (fake) example, it is:
@@ -127,6 +145,8 @@ https://myserver.mycompany.com
 
 ## Bonus: mutual authentication
 
+### Configure SSL to require a client certificate
+
 If you want to go beyond HTTPS and require HTTPS clients to send their own certificate, set the following configuration:
 
 ```yaml
@@ -135,11 +155,13 @@ crypto:
     clientAuthMode: REQUIRED
 ```
 
-To use the client certificate as a subject identity you will need to have the following dependency in your project:
+### Optional: use the client certificate for authentication
+
+If you want to use the client certificate as the subject identity you will need to have the following dependency in your project:
 
 {{< dependency g="org.seedstack.seed" a="seed-web-security" >}}
 
-You will also need to configure the security subsystem to use the certificate for authentication and authorization purposes:
+Then configure the security subsystem to use the certificate for authentication and authorization purposes:
 
 ```yaml
 security:
@@ -179,4 +201,12 @@ public class HelloResource {
         return "Hello " + id + "!";
     }
 }
+```
+
+## Troubleshooting
+
+Setting up a working SSL handshake can be tricky, so if you encounter any problem you can switch the Java SSL debugging on with the `-Djavax.net.debug=all` system property. Example with the `run` goal:
+
+```bash
+mvn -Djavax.net.debug=all seedstack:run
 ```
