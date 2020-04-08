@@ -128,10 +128,10 @@ crypto:
 
 ### Import the signed certificate
 
-After your CA has handed your signed certificate back, import it in the keystore under the same alias to overwrite your previous self-signed certificate with the new one:
+After your CA has handed your signed certificate back, import it in the `master` keystore under the same alias to overwrite your previous self-signed certificate with the new one:
 
 ```bash
-keytool -import -alias ssl -file signed_cert.cer -keystore truststore.jks -storepass changeMe -keypass changeMe
+keytool -import -alias ssl -file signed_cert.cer -keystore master.jks -storepass changeMe -keypass changeMe
 ```
 
 ### Try it!
