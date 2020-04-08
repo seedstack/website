@@ -22,6 +22,8 @@ mvn -U org.seedstack:seedstack-maven-plugin:generate
 
 ## A self-signed certificate
 
+In this section, you are going to start the process by generating a self-signed certificate.
+
 ### Generate the certificate
 
 We are going to use the Java `keytool` program (locate in the JDK `bin` folder) to generate a keystore containing a 
@@ -82,7 +84,7 @@ Launch the Web application:
 mvn seedstack:run
 ```
 
-And point your browser to [https://localhost:4443](https://localhost:4443).
+And point your browser to [https://localhost:8443](https://localhost:8443).
 
 {{% callout info %}}
 You will see a security warning in your browser because the certificate is self-signed for now. Ignore it at the moment,
@@ -91,44 +93,35 @@ to display the application homepage.
 
 ## A trusted certificate
 
+In this section, you are going to ask a trusted "Certificate Authority" (CA) to sign your initial certificate to replace your self-signed one.
+
 ### Create a CSR
 
-To obtain a trusted certificate, we need to create a "Certificate Signing Request" (CSR):
+To obtain a trusted certificate, you need to create a "Certificate Signing Request" (CSR):
 
 ```bash
 keytool -certreq -alias ssl -keystore master.jks -file request.csr
 ``` 
 
-This CSR will have to be submitted to the "Certificate Authority" (CA) of your choice, which will return the signed
-certificate to you.
+This CSR will have to be submitted to the CA of your choice, which will return the signed certificate to you.
 
-### Import the CA certificate(s)
+### Import the CA certificates in the keystore
 
-To be able to validate the chain of trust, you have to import the CA certificate(s) into a truststore:
+To be able to import the signed certificate in the keystore, you must first import the CA certificate(s) in the keystore:
 
 ```bash
-keytool -import -trustcacerts -alias rootca -file root_ca.crt -keystore truststore.jks -storepass changeMe -keypass changeMe
+keytool -import -trustcacerts -alias root_ca -file root_ca.crt -keystore master.jks -storepass changeMe -keypass changeMe
 ``` 
 
 {{% callout info %}}
-Depending on your CA, you may also have to import one or more intermediate certificates in addition to the root certificate.
-Just add them to the keystore, each under a unique alias name. 
+Depending on how your certificate authority work, you may also have to import one or more intermediate certificates in addition to the root certificate. Just add them to the keystore, each under a unique alias name. 
+
+**The unbroken chain from the signed server certificate to the CA root certificate must be present and valid in the keystore.**
 {{% /callout %}}
-
-### Configure the truststore
-
-Now edit the `application.yaml` file of your project. Add the following section to configure the truststore:
-
-```yaml
-crypto:
-  truststore:
-    path: truststore.jks
-    password: changeMe
-```
 
 ### Import the signed certificate
 
-After your CA has handed your signed certificate back, import it in the `master` keystore under the same alias to overwrite your previous self-signed certificate with the new one:
+At last, import the signed certificate in the keystore under the same alias as your self-signed certificate to overwrite it: 
 
 ```bash
 keytool -import -alias ssl -file signed_cert.cer -keystore master.jks -storepass changeMe -keypass changeMe
@@ -143,7 +136,36 @@ our (fake) example, it is:
 https://myserver.mycompany.com
 ```
 
-## Bonus: mutual authentication
+## Mutual authentication
+
+### Create a truststore to validate client certificates
+
+To be able to validate the chain of trust, you have to import the certification authority (CA) certificate(s) into a truststore:
+
+```bash
+keytool -import -trustcacerts -alias root_ca -file root_ca.crt -keystore truststore.jks -storepass changeMe -keypass changeMe
+``` 
+
+{{% callout info %}}
+Depending on how your certificate authority work, you may also have to import one or more intermediate certificates in addition to the root certificate. Just add them to the truststore, each under a unique alias name. 
+
+**A client certificate will be validated against the chain of CA certificates present in the truststore.**
+{{% /callout %}}
+
+{{% callout tips %}}
+Some certificates, particularly the CA root, will be the same between the keystore and the truststore. You can choose to merge both stores but it is recommended to keep them separate.
+{{% /callout %}}
+
+### Configure the truststore
+
+Now edit the `application.yaml` file of your project. Add the following section to configure the truststore:
+
+```yaml
+crypto:
+  truststore:
+    path: truststore.jks
+    password: changeMe
+```
 
 ### Configure SSL to require a client certificate
 
