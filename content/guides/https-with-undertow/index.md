@@ -165,7 +165,7 @@ Then configure the security subsystem to use the certificate for authentication 
 
 ```yaml
 security:
-  realm: X509CertificateRealm
+  realms: X509CertificateRealm
 ```
 
 To extract the certificate from the HTTP request, add the `cert` filter on the necessary URL patterns:
