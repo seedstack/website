@@ -134,3 +134,7 @@
 	path = content/addons/web-bridge
 	url = https://github.com/seedstack/web-bridge-addon.git
 	branch = docs
+[submodule "content/addons/jcr"]
+	path = content/addons/jcr
+	url = https://github.com/seedstack/jcr-addon.git
+	branch = docs
