@@ -1,4 +1,4 @@
-# SeedStack website 
+# SeedStack website - An Amazing Project
 [![Build status](https://travis-ci.org/seedstack/website.svg?branch=master)](https://travis-ci.org/seedstack/website)
 
 This repository contains the sources of the SeedStack website. The site is hosted at 
