@@ -138,6 +138,8 @@ https://myserver.mycompany.com
 
 ## Mutual authentication
 
+This section deals about establishing a mutual authentication between the server and the clients. It's useful when you need to guarantee your client identity from their certificate.
+
 ### Create a truststore to validate client certificates
 
 To be able to validate the chain of trust, you have to import the certification authority (CA) certificate(s) into a truststore:
