@@ -6,7 +6,7 @@ if [ -z $1 ]; then
     DIR="public"
 else
     BRANCH="gh-pages"
-    REPO="${1}"
+    REPO="seedstack.github.io-${1}"
     DIR=${2}
 fi
 
