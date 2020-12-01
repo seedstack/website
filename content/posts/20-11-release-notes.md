@@ -36,9 +36,9 @@ A `undertow-handlers.conf` file can now be specified, allowing to declare a sequ
 Its default location is at the root of the classpath (for instance in `src/main/resources`), but can be configured with
 the `web.server.undertow.handlersFile` option.
 
-{{< callout info >}}
+{{% callout info %}}
 The file is a collection declarations following the [textual representation of predicated handlers](https://undertow.io/undertow-docs/undertow-docs-2.1.0/#textual-representation).
-{{< /callout >}}
+{{% /callout %}}
 
 ## Fixes
 
