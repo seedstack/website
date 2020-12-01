@@ -71,7 +71,7 @@ Other minor changes have been made. Please read individual change logs for detai
 * shed: **[1.1.6](https://github.com/seedstack/shed/releases/tag/v1.1.6)**
 * **[chg]** coffig: **[3.1.6](https://github.com/seedstack/coffig/releases/tag/v3.1.6)**
 * **[chg]** seed: **[3.10.0](https://github.com/seedstack/seed/releases/tag/v3.10.0)**
-* **[chg]** business: **[4.2.1](https://github.com/seedstack/business/releases/tag/v4.2.1)**
+* **[chg]** business: **[4.3.1](https://github.com/seedstack/business/releases/tag/v4.3.1)**
 
 ### Add-ons
 
