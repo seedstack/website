@@ -191,6 +191,10 @@ This realm, which is intended to be used in Web applications, uses the certifica
 connection is in use. It stores the certificates in the user principals as well as the UID declared in the certificate. 
 It also uses the CN of the issuer of the certificates to define the basic roles of the user.
 
+#### OAuth realm
+
+This realm is available in the [OAuth add-on]({{< ref "addons/oauth/index.md" >}}).
+
 #### LDAP realm
 
 This realm is available in the [LDAP add-on]({{< ref "addons/ldap/index.md" >}}).
@@ -202,42 +206,12 @@ You can create a custom realm by:
 * Creating a class that implements {{< java "org.seedstack.seed.security.Realm" >}}.
 * Use the realm class simple name in the name configuration attribute of the realm.
 
-### Permission resolver
-   
-Each realm has its own permission resolver. It resolves the permissions granted for a given role. 
-
-#### Configuration-based permission resolver
-
-This is the default permission resolver. It uses the application configuration to resolve permissions for roles:
-
-{{% config p="security.permissions" %}}
-```yaml
-security:
-  # Map of permissions for a particular role
-  permissions:
-    role1Name: 
-      - permission1
-      - permission2
-      - permission3
-    role2Name: 
-      - permission1
-      - permission4
-```
-{{% /config %}}  
-
-#### Custom permission resolver
-
-You can create a custom permission resolver by:
-
-* Creating a class that implements {{< java "org.seedstack.seed.security.RolePermissionResolver" >}}.
-* Using your class simple name in the permissionResolver configuration attribute of the realm.
-
-### Role mapper
+## Role mapper
 
 Each realm has its own role mapper. It has the ability to map a role name retrieved by the realm to a more friendly 
-application role name. 
+application-specific role name. 
 
-#### Configuration-based role mapper
+### Configuration-based role mapper
 
 This is the default role mapper. It uses the application configuration to map role names:
 
@@ -261,16 +235,50 @@ The configuration above configuration defines the following mappings:
 into a security scope. As such a scoped `role3` is attributed to the subject, which is only valid in `FR` location.
 * Application-role `role4` is attributed to every subject authenticated.
 
+{{% callout info %}}
+If no mapping is configured, the realm roles will be available unchanged as application-specific roles (no mapping takes place at all).
+{{% /callout %}}
+
 {{% callout warning %}}
 An application role is granted when **at least one** of the realm roles in the list is granted (logical OR).
 {{% /callout %}}
 
-#### Custom role mapper
+### Custom role mapper
 
 You can create a custom role mapper by:
 
 * Creating a class that implements {{< java "org.seedstack.seed.security.RoleMapping" >}}.
 * Using your class simple name in the roleMapper configuration attribute of the realm.
+
+## Permission resolver
+   
+Each realm has its own permission resolver. It resolves the permissions granted for a given role. 
+
+### Configuration-based permission resolver
+
+This is the default permission resolver. It uses the application configuration to resolve permissions for roles:
+
+{{% config p="security.permissions" %}}
+```yaml
+security:
+  # Map of permissions for a particular role
+  permissions:
+    role1Name: 
+      - permission1
+      - permission2
+      - permission3
+    role2Name: 
+      - permission1
+      - permission4
+```
+{{% /config %}}  
+
+### Custom permission resolver
+
+You can create a custom permission resolver by:
+
+* Creating a class that implements {{< java "org.seedstack.seed.security.RolePermissionResolver" >}}.
+* Using your class simple name in the permissionResolver configuration attribute of the realm.
 
 ## Example
 
