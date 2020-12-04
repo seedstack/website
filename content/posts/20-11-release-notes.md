@@ -12,7 +12,7 @@ zones:
   - Posts
 ---
 
-We are happy to announce the release of SeedStack 19.11 «Willow».<!--more-->
+We are happy to announce the release of SeedStack 20.11 «Willow».<!--more-->
 
 ## New features
 
