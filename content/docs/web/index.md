@@ -88,6 +88,15 @@ web:
 ```
 {{% /config %}}  
 
+### Undertow handlers support
+
+A `undertow-handlers.conf` file can be specified, allowing to declare a sequence of any [Undertow built-in handler](https://undertow.io/undertow-docs/undertow-docs-2.1.0/index.html#built-in-handlers). Its default location is at the root of the classpath (for instance in `src/main/resources`), but can be configured with
+the `web.server.undertow.handlersFile` option.
+
+{{% callout info %}}
+The file is a collection declarations following the [textual representation of predicated handlers](https://undertow.io/undertow-docs/undertow-docs-2.1.0/#textual-representation).
+{{% /callout %}}
+
 ### HTTPS
 
 To configure Undertow for HTTPS, you need to have a Java keystore containing your server certificate. By default an SSL context
