@@ -1,7 +1,7 @@
 ---
 title: "21.4 release notes"
 description: SeedStack 21.4 is released!
-authors: "Adrien LAUER, Sébastien MONEUSE & Hervé STERN"
+authors: "Adrien LAUER, Sébastien MONEUSE et Hervé STERN"
 date: 2021-05-09
 slug: 21.4-release-notes 
 tags:
