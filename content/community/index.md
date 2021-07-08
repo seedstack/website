@@ -13,11 +13,11 @@ Contact SeedStack members, file issues or ask for help.<!--more-->
   
 ## IRC
 
-The [#seedstack](irc://chat.freenode.net/seedstack) IRC on the FreeNode community is intended to chat with the SeedStack 
+The [#seedstack](irc://irc.libera.chat/#seedstack) IRC on the Libera.Chat community is intended to chat with the SeedStack 
 team and other users.
 
 {{% callout tips %}}
-Join the chat room directly in your browser by using [KiwiIRC](https://kiwiirc.com/client/irc.freenode.net#seedstack).
+Join the chat room directly in your browser by using [KiwiIRC](https://kiwiirc.com/client/irc.libera.chat#seedstack).
 {{% /callout %}}
 
 ## Mailing list
