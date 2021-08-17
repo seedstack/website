@@ -2,7 +2,7 @@
 title: "Jaeger-addon"
 addon: "Jaeger"
 repo: "https://github.com/seedstack/jaeger-addon"
-author:  
+author: Amit Kumar  
 description: "Integrates Jaeger Tracing with SeedStack."
 tags:
     - persistence
