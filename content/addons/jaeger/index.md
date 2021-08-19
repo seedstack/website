@@ -5,7 +5,7 @@ repo: "https://github.com/seedstack/jaeger-addon"
 author: Amit Kumar  
 description: "Integrates Jaeger Tracing with SeedStack."
 tags:
-    - persistence
+    - Tracing
 zones:
     - Addons
 noMenu: true    
