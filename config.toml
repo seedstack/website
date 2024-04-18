@@ -6,20 +6,20 @@ MetaDataFormat = "yaml"
   author = "The SeedStack authors"
 
   "javax.mail.version" = "1.4.8"
-  "ch.qos.logback.version" = "1.2.9"
+  "ch.qos.logback.version" = "1.5.5"
   "org.apache.kafka.version" = "2.2.0"
 
-  "org.seedstack.version" = "21.11"
-  "org.seedstack.version-notes" = "21.11"
+  "org.seedstack.version" = "24.4"
+  "org.seedstack.version-notes" = "24.4"
 
-  "org.seedstack.maven.version" = "2.8.0"
+  "org.seedstack.maven.version" = "2.8.1"
 
-  "org.seedstack.poms.version" = "4.0.2"
+  "org.seedstack.poms.version" = "4.1.0"
 
   "org.seedstack.shed.version" = "1.1.6"
   "org.seedstack.coffig.version" = "3.1.8"
-  "org.seedstack.seed.version" = "3.14.0"
-  "org.seedstack.business.version" = "4.4.0"
+  "org.seedstack.seed.version" = "3.15.0"
+  "org.seedstack.business.version" = "4.5.0"
 
   "org.seedstack.addons.audit.version" = "3.0.1"
   "org.seedstack.addons.aws.version" = "1.0.0"
